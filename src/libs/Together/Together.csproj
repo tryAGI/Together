@@ -10,7 +10,7 @@
 
   <PropertyGroup Label="Nuget">
     <Description>Generated C# SDK based on Together OpenAPI specification.</Description>
-    <PackageTags>api;client;sdk;dotnet;swagger;openapi;specification;midjourney;generated;nswag</PackageTags>
+    <PackageTags>api;client;sdk;dotnet;swagger;openapi;specification;together;ai;llms;llm;llama;generated;nswag</PackageTags>
   </PropertyGroup>
   
   <ItemGroup>
