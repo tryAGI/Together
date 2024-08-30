@@ -7,12 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		src\Directory.Build.props = src\Directory.Build.props
-		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		LICENSE = LICENSE
-		docs\openapi.nswag = docs\openapi.nswag
-		docs\openapi.yaml = docs\openapi.yaml
 		README.md = README.md
-		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{61E7E11E-4558-434C-ACE8-06316A3097B3}"
@@ -25,6 +21,23 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Together.IntegrationTests", "src\tests\Together.IntegrationTests\Together.IntegrationTests.csproj", "{592ADBC9-C951-4AF7-A163-B6C63B970B19}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Together", "src\libs\Together\Together.csproj", "{CE55D64D-C777-40D3-9E70-203E54BDF2FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6F5C3E4A-AAA4-4CFA-BBAC-D24F45D7FAF2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\auto-merge.yml = .github\workflows\auto-merge.yml
+		.github\workflows\auto-update.yml = .github\workflows\auto-update.yml
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.github\workflows\mkdocs.yml = .github\workflows\mkdocs.yml
+		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helpers", "helpers", "{98E200F3-EAE3-4E71-9536-F44BE52B3305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixOpenApiSpec", "src\helpers\FixOpenApiSpec\FixOpenApiSpec.csproj", "{9E004C89-F630-4BF1-B4FA-35E034A567D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateDocs", "src\helpers\GenerateDocs\GenerateDocs.csproj", "{F757F7EB-1D06-462A-B659-9385157F29CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrimmingHelper", "src\helpers\TrimmingHelper\TrimmingHelper.csproj", "{9B6B75E4-728E-47A7-AC6B-BFDC6AD93879}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +53,18 @@ Global
 		{CE55D64D-C777-40D3-9E70-203E54BDF2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE55D64D-C777-40D3-9E70-203E54BDF2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE55D64D-C777-40D3-9E70-203E54BDF2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E004C89-F630-4BF1-B4FA-35E034A567D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E004C89-F630-4BF1-B4FA-35E034A567D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E004C89-F630-4BF1-B4FA-35E034A567D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E004C89-F630-4BF1-B4FA-35E034A567D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F757F7EB-1D06-462A-B659-9385157F29CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F757F7EB-1D06-462A-B659-9385157F29CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F757F7EB-1D06-462A-B659-9385157F29CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F757F7EB-1D06-462A-B659-9385157F29CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6B75E4-728E-47A7-AC6B-BFDC6AD93879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6B75E4-728E-47A7-AC6B-BFDC6AD93879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6B75E4-728E-47A7-AC6B-BFDC6AD93879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6B75E4-728E-47A7-AC6B-BFDC6AD93879}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +72,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{592ADBC9-C951-4AF7-A163-B6C63B970B19} = {AAA11B78-2764-4520-A97E-46AA7089A588}
 		{CE55D64D-C777-40D3-9E70-203E54BDF2FD} = {61E7E11E-4558-434C-ACE8-06316A3097B3}
+		{6F5C3E4A-AAA4-4CFA-BBAC-D24F45D7FAF2} = {E793AF18-4371-4EBD-96FC-195EB1798855}
+		{9E004C89-F630-4BF1-B4FA-35E034A567D9} = {98E200F3-EAE3-4E71-9536-F44BE52B3305}
+		{F757F7EB-1D06-462A-B659-9385157F29CA} = {98E200F3-EAE3-4E71-9536-F44BE52B3305}
+		{9B6B75E4-728E-47A7-AC6B-BFDC6AD93879} = {98E200F3-EAE3-4E71-9536-F44BE52B3305}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CED9A020-DBA5-4BE6-8096-75E528648EC1}

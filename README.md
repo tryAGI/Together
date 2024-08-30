@@ -5,15 +5,18 @@
 [![License: MIT](https://img.shields.io/github/license/tryAGI/Together)](https://github.com/tryAGI/Together/blob/main/LICENSE.txt)
 [![Discord](https://img.shields.io/discord/1115206893015662663?label=Discord&logo=discord&logoColor=white&color=d82679)](https://discord.gg/Ca2xhfBf3v)
 
-SDK for Together API that makes it easy and cheap to use LLama 2
-** This project is not working, it's template project for future Together SDK. **
+## Features 🔥
+- Fully generated C# SDK based on [official Together OpenAPI specification](https://raw.githubusercontent.com/togethercomputer/openapi/main/openapi.yaml) using [OpenApiGenerator](https://github.com/HavenDV/OpenApiGenerator)
+- Same day update to support new features
+- Updated and supported automatically if there are no breaking changes
+- All modern .NET features - nullability, trimming, NativeAOT, etc.
+- Support .Net Framework/.Net Standard 2.0
 
 ### Usage
 ```csharp
 using Together;
 
-using var client = new HttpClient();
-var api = new TogetherApi(apiKey, client);
+using var api = new TogetherApi(apiKey);
 ```
 
 ## Support
