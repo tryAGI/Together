@@ -110,6 +110,13 @@ namespace Together
         public global::Together.ChatCompletionRequestLogitBias? LogitBias { get; set; }
 
         /// <summary>
+        /// Seed value for reproducibility.<br/>
+        /// Example: 42
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public int Seed { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]

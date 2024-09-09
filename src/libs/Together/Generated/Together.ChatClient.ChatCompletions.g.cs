@@ -148,6 +148,10 @@ namespace Together
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.
         /// </param>
+        /// <param name="seed">
+        /// Seed value for reproducibility.<br/>
+        /// Example: 42
+        /// </param>
         /// <param name="functionCall"></param>
         /// <param name="responseFormat">
         /// An object specifying the format that the model must output.
@@ -181,6 +185,7 @@ namespace Together
             float presencePenalty = default,
             float frequencyPenalty = default,
             global::Together.ChatCompletionRequestLogitBias? logitBias = default,
+            int seed = default,
             global::System.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
             global::Together.ChatCompletionRequestResponseFormat? responseFormat = default,
             global::System.Collections.Generic.IList<global::Together.ToolsPart>? tools = default,
@@ -206,6 +211,7 @@ namespace Together
                 PresencePenalty = presencePenalty,
                 FrequencyPenalty = frequencyPenalty,
                 LogitBias = logitBias,
+                Seed = seed,
                 FunctionCall = functionCall,
                 ResponseFormat = responseFormat,
                 Tools = tools,

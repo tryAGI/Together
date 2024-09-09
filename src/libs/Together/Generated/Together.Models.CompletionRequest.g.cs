@@ -116,6 +116,13 @@ namespace Together
         public global::Together.CompletionRequestLogitBias? LogitBias { get; set; }
 
         /// <summary>
+        /// Seed value for reproducibility.<br/>
+        /// Example: 42
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public int Seed { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
