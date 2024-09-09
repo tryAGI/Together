@@ -32,6 +32,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public int? Seed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delta")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.ChatCompletionChunkChoiceDelta Delta { get; set; }

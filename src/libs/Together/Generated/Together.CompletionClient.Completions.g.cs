@@ -153,6 +153,10 @@ namespace Together
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.
         /// </param>
+        /// <param name="seed">
+        /// Seed value for reproducibility.<br/>
+        /// Example: 42
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.CompletionResponse> CompletionsAsync(
@@ -173,6 +177,7 @@ namespace Together
             float presencePenalty = default,
             float frequencyPenalty = default,
             global::Together.CompletionRequestLogitBias? logitBias = default,
+            int seed = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::Together.CompletionRequest
@@ -194,6 +199,7 @@ namespace Together
                 PresencePenalty = presencePenalty,
                 FrequencyPenalty = frequencyPenalty,
                 LogitBias = logitBias,
+                Seed = seed,
             };
 
             return await CompletionsAsync(

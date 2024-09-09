@@ -17,6 +17,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public int Seed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FinishReasonJsonConverter))]
         public global::Together.FinishReason? FinishReason { get; set; }
