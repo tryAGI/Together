@@ -100,10 +100,12 @@ namespace Together
         /// Query a chat model.
         /// </summary>
         /// <param name="messages">
-        /// A list of messages comprising the conversation so far.
+        /// A list of messages comprising the conversation so far.<br/>
+        /// Default Value: [, ]
         /// </param>
         /// <param name="model">
         /// The name of the model to query.<br/>
+        /// Default Value: mistralai/Mixtral-8x7B-Instruct-v0.1<br/>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </param>
         /// <param name="maxTokens">

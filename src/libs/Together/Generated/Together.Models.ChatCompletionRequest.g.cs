@@ -11,7 +11,8 @@ namespace Together
     public sealed partial class ChatCompletionRequest
     {
         /// <summary>
-        /// A list of messages comprising the conversation so far.
+        /// A list of messages comprising the conversation so far.<br/>
+        /// Default Value: [, ]
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -19,6 +20,7 @@ namespace Together
 
         /// <summary>
         /// The name of the model to query.<br/>
+        /// Default Value: mistralai/Mixtral-8x7B-Instruct-v0.1<br/>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]

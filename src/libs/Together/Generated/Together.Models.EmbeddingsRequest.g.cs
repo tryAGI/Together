@@ -12,6 +12,7 @@ namespace Together
     {
         /// <summary>
         /// The name of the embedding model to use.<br/>
+        /// Default Value: togethercomputer/m2-bert-80M-8k-retrieval<br/>
         /// Example: togethercomputer/m2-bert-80M-8k-retrieval
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -19,7 +20,7 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        /// Default Value: Our solar system orbits the Milky Way galaxy at about 515,000 mph
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.OneOfJsonConverterFactory2))]
