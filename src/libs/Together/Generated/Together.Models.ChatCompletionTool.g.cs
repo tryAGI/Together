@@ -12,7 +12,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ChatCompletionToolTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionToolTypeJsonConverter))]
         public global::Together.ChatCompletionToolType Type { get; set; }
 
         /// <summary>

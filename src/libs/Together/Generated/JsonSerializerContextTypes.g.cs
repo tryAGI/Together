@@ -21,7 +21,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.OneOf<global::System.Collections.Generic.IList<global::Together.RerankRequestDocumentsVariant1Item>, global::System.Collections.Generic.IList<string>>? Type2 { get; set; }
+        public global::Together.OneOf<global::System.Collections.Generic.IList<global::Together.RerankRequestDocumentsVariant1Item>, global::System.Collections.Generic.IList<string>>? Type2 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -153,7 +153,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::Together.UsageData, global::Together.CompletionChunkUsage>? Type35 { get; set; }
+        public global::Together.AllOf<global::Together.UsageData, global::Together.CompletionChunkUsage>? Type35 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -161,7 +161,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::Together.FinishReason?, global::Together.CompletionChunkFinishReason>? Type37 { get; set; }
+        public global::Together.AllOf<global::Together.FinishReason?, global::Together.CompletionChunkFinishReason>? Type37 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -213,7 +213,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::Together.ChatCompletionChoicesDataItemLogprobs, global::Together.LogprobsPart>? Type50 { get; set; }
+        public global::Together.AllOf<global::Together.ChatCompletionChoicesDataItemLogprobs, global::Together.LogprobsPart>? Type50 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -257,7 +257,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? Type61 { get; set; }
+        public global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? Type61 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -293,7 +293,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.OneOf<string, global::Together.ToolChoice2>? Type70 { get; set; }
+        public global::Together.OneOf<string, global::Together.ToolChoice2>? Type70 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -389,7 +389,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AllOf<global::Together.UsageData, global::Together.ChatCompletionChunkUsage>? Type94 { get; set; }
+        public global::Together.AllOf<global::Together.UsageData, global::Together.ChatCompletionChunkUsage>? Type94 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -421,7 +421,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.OneOf<string, global::System.Collections.Generic.IList<string>>? Type102 { get; set; }
+        public global::Together.OneOf<string, global::System.Collections.Generic.IList<string>>? Type102 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -509,23 +509,23 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneJobStatus? Type124 { get; set; }
+        public global::System.Guid? Type124 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FinetuneEvent>? Type125 { get; set; }
+        public global::Together.FinetuneJobStatus? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEvent? Type126 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FinetuneEvent>? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEventObject? Type127 { get; set; }
+        public global::Together.FinetuneEvent? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.AnyOf<global::Together.FinetuneEventLevels?>? Type128 { get; set; }
+        public global::Together.FinetuneEventObject? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>

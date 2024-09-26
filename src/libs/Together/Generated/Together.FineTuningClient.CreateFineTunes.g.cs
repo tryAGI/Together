@@ -40,10 +40,14 @@ namespace Together
                 httpClient: _httpClient,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/fine-tunes",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/fine-tunes", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::Together.SourceGenerationContext.Default.Request2);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -91,7 +95,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::Together.SourceGenerationContext.Default.FinetuneResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.FinetuneResponse), JsonSerializerContext) as global::Together.FinetuneResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -159,17 +163,17 @@ namespace Together
             string trainingFile,
             string model,
             string? validationFile = default,
-            int nEpochs = 1,
-            int nCheckpoints = 1,
-            int nEvals = 0,
-            int batchSize = 32,
-            float learningRate = 1E-05F,
+            int? nEpochs = 1,
+            int? nCheckpoints = 1,
+            int? nEvals = 0,
+            int? batchSize = 32,
+            float? learningRate = 1E-05F,
             string? suffix = default,
             string? wandbApiKey = default,
-            bool lora = default,
-            int loraR = 8,
-            int loraAlpha = 8,
-            float loraDropout = 0F,
+            bool? lora = default,
+            int? loraR = 8,
+            int? loraAlpha = 8,
+            float? loraDropout = 0F,
             string? loraTrainableModules = "all-linear",
             global::System.Threading.CancellationToken cancellationToken = default)
         {

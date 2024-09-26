@@ -12,7 +12,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.StreamSentinelDataJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.StreamSentinelDataJsonConverter))]
         public global::Together.StreamSentinelData Data { get; set; }
 
         /// <summary>

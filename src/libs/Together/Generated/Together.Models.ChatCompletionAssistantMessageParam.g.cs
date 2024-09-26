@@ -18,7 +18,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ChatCompletionAssistantMessageParamRoleJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleJsonConverter))]
         public global::Together.ChatCompletionAssistantMessageParamRole Role { get; set; }
 
         /// <summary>

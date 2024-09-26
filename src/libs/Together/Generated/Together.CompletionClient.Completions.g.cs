@@ -40,10 +40,14 @@ namespace Together
                 httpClient: _httpClient,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/completions",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/completions", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::Together.SourceGenerationContext.Default.CompletionRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -91,7 +95,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::Together.SourceGenerationContext.Default.CompletionResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.CompletionResponse), JsonSerializerContext) as global::Together.CompletionResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -164,22 +168,22 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.CompletionResponse> CompletionsAsync(
             string prompt,
             string model,
-            int maxTokens = default,
+            int? maxTokens = default,
             global::System.Collections.Generic.IList<string>? stop = default,
-            float temperature = default,
-            float topP = default,
-            int topK = default,
-            float repetitionPenalty = default,
-            bool stream = default,
-            int logprobs = default,
-            bool echo = default,
-            int n = default,
+            float? temperature = default,
+            float? topP = default,
+            int? topK = default,
+            float? repetitionPenalty = default,
+            bool? stream = default,
+            int? logprobs = default,
+            bool? echo = default,
+            int? n = default,
             string? safetyModel = default,
-            float minP = default,
-            float presencePenalty = default,
-            float frequencyPenalty = default,
+            float? minP = default,
+            float? presencePenalty = default,
+            float? frequencyPenalty = default,
             global::Together.CompletionRequestLogitBias? logitBias = default,
-            int seed = default,
+            int? seed = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::Together.CompletionRequest

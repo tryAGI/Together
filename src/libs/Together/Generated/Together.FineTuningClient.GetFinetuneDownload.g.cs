@@ -8,13 +8,13 @@ namespace Together
         partial void PrepareGetFinetuneDownloadArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string ftId,
-            ref int checkpointStep,
+            ref int? checkpointStep,
             ref string? output);
         partial void PrepareGetFinetuneDownloadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string ftId,
-            int checkpointStep,
+            int? checkpointStep,
             string? output);
         partial void ProcessGetFinetuneDownloadResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -36,7 +36,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneDownloadResult> GetFinetuneDownloadAsync(
             string ftId,
-            int checkpointStep = default,
+            int? checkpointStep = default,
             string? output = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -48,9 +48,18 @@ namespace Together
                 checkpointStep: ref checkpointStep,
                 output: ref output);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/finetune/download",
+                baseUri: _httpClient.BaseAddress); 
+            __pathBuilder 
+                .AddRequiredParameter("ft_id", ftId) 
+                .AddOptionalParameter("checkpoint_step", checkpointStep?.ToString()) 
+                .AddOptionalParameter("output", output) 
+                ; 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + $"/finetune/download?ft_id={ftId}&checkpoint_step={checkpointStep}&output={output}", global::System.UriKind.RelativeOrAbsolute));
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             PrepareRequest(
                 client: _httpClient,
@@ -95,7 +104,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::Together.SourceGenerationContext.Default.FinetuneDownloadResult) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.FinetuneDownloadResult), JsonSerializerContext) as global::Together.FinetuneDownloadResult ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

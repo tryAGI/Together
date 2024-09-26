@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public required global::System.Guid Id { get; set; }
 
         /// <summary>
         /// 
@@ -49,13 +49,13 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trainingfile_numlines")]
-        public int TrainingfileNumlines { get; set; }
+        public int? TrainingfileNumlines { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trainingfile_size")]
-        public int TrainingfileSize { get; set; }
+        public int? TrainingfileSize { get; set; }
 
         /// <summary>
         /// 
@@ -73,61 +73,61 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_epochs")]
-        public int NEpochs { get; set; }
+        public int? NEpochs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_checkpoints")]
-        public int NCheckpoints { get; set; }
+        public int? NCheckpoints { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_evals")]
-        public int NEvals { get; set; }
+        public int? NEvals { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_size")]
-        public int BatchSize { get; set; }
+        public int? BatchSize { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
-        public double LearningRate { get; set; }
+        public double? LearningRate { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("eval_steps")]
-        public int EvalSteps { get; set; }
+        public int? EvalSteps { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora")]
-        public bool Lora { get; set; }
+        public bool? Lora { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_r")]
-        public int LoraR { get; set; }
+        public int? LoraR { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_alpha")]
-        public int LoraAlpha { get; set; }
+        public int? LoraAlpha { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_dropout")]
-        public double LoraDropout { get; set; }
+        public double? LoraDropout { get; set; }
 
         /// <summary>
         /// 
@@ -139,7 +139,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FinetuneJobStatusJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.FinetuneJobStatus Status { get; set; }
 
@@ -159,31 +159,31 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
-        public int TokenCount { get; set; }
+        public int? TokenCount { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
-        public int ParamCount { get; set; }
+        public int? ParamCount { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_price")]
-        public int TotalPrice { get; set; }
+        public int? TotalPrice { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("epochs_completed")]
-        public int EpochsCompleted { get; set; }
+        public int? EpochsCompleted { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_depth")]
-        public int QueueDepth { get; set; }
+        public int? QueueDepth { get; set; }
 
         /// <summary>
         /// 

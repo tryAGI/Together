@@ -47,7 +47,7 @@ namespace Together
         /// Example: fine-tune
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FileResponsePurposeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileResponsePurposeJsonConverter))]
         public global::Together.FileResponsePurpose Purpose { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Together
         /// Example: jsonl
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("FileType")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FileResponseFileTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileResponseFileTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.FileResponseFileType FileType { get; set; }
 

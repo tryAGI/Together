@@ -12,7 +12,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FinetuneDownloadResultObjectJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneDownloadResultObjectJsonConverter))]
         public global::Together.FinetuneDownloadResultObject? Object { get; set; }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_step")]
-        public int CheckpointStep { get; set; }
+        public int? CheckpointStep { get; set; }
 
         /// <summary>
         /// 
@@ -37,7 +37,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size")]
-        public int Size { get; set; }
+        public int? Size { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

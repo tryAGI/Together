@@ -34,23 +34,23 @@ namespace Together
         /// Example: [, , , ]
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.OneOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.OneOf<global::System.Collections.Generic.IList<global::Together.RerankRequestDocumentsVariant1Item>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
+        public required global::Together.OneOf<global::System.Collections.Generic.IList<global::Together.RerankRequestDocumentsVariant1Item>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
 
         /// <summary>
         /// The number of top results to return.<br/>
         /// Example: 2
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_n")]
-        public int TopN { get; set; }
+        public int? TopN { get; set; }
 
         /// <summary>
         /// Whether to return supplied documents with the response.<br/>
         /// Example: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("return_documents")]
-        public bool ReturnDocuments { get; set; }
+        public bool? ReturnDocuments { get; set; }
 
         /// <summary>
         /// List of keys in the JSON Object document to rank by. Defaults to use all supplied keys for ranking.<br/>

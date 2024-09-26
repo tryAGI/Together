@@ -26,7 +26,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ToolChoiceTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ToolChoiceTypeJsonConverter))]
         public global::Together.ToolChoiceType Type { get; set; }
 
         /// <summary>

@@ -23,9 +23,9 @@ namespace Together
         /// Default Value: Our solar system orbits the Milky Way galaxy at about 515,000 mph
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.OneOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; }
+        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

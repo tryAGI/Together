@@ -1,7 +1,7 @@
 #nullable enable
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace OpenApiGenerator.JsonConverters
+namespace Together.JsonConverters
 {
     /// <inheritdoc />
     public class ChatCompletionMessageParamJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.ChatCompletionMessageParam>

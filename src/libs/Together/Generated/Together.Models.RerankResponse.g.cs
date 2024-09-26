@@ -13,7 +13,7 @@ namespace Together
         /// Example: rerank
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.RerankResponseObjectJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RerankResponseObjectJsonConverter))]
         public global::Together.RerankResponseObject Object { get; set; }
 
         /// <summary>

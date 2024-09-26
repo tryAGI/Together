@@ -40,10 +40,14 @@ namespace Together
                 httpClient: _httpClient,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/embeddings",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/embeddings", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::Together.SourceGenerationContext.Default.EmbeddingsRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -91,7 +95,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::Together.SourceGenerationContext.Default.EmbeddingsResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.EmbeddingsResponse), JsonSerializerContext) as global::Together.EmbeddingsResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -111,7 +115,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.EmbeddingsResponse> EmbeddingsAsync(
             string model,
-            global::System.OneOf<string, global::System.Collections.Generic.IList<string>> input,
+            global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> input,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = new global::Together.EmbeddingsRequest

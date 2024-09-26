@@ -12,7 +12,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FineTuneEventObject2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventObject2JsonConverter))]
         public global::Together.FineTuneEventObject2 Object { get; set; }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("level")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FineTuneEventLevelJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventLevelJsonConverter))]
         public global::Together.FineTuneEventLevel? Level { get; set; }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.FineTuneEventType2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventType2JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.FineTuneEventType2 Type { get; set; }
 

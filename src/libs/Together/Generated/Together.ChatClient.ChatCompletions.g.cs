@@ -40,10 +40,14 @@ namespace Together
                 httpClient: _httpClient,
                 request: request);
 
+            var __pathBuilder = new PathBuilder(
+                path: "/chat/completions",
+                baseUri: _httpClient.BaseAddress); 
+            var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
-                requestUri: new global::System.Uri(_httpClient.BaseAddress?.AbsoluteUri.TrimEnd('/') + "/chat/completions", global::System.UriKind.RelativeOrAbsolute));
-            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, global::Together.SourceGenerationContext.Default.ChatCompletionRequest);
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            var __httpRequestContentBody = global::System.Text.Json.JsonSerializer.Serialize(request, request.GetType(), JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -91,7 +95,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, global::Together.SourceGenerationContext.Default.ChatCompletionResponse) ??
+                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.ChatCompletionResponse), JsonSerializerContext) as global::Together.ChatCompletionResponse ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
 
@@ -173,25 +177,25 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> messages,
             string model,
-            int maxTokens = default,
+            int? maxTokens = default,
             global::System.Collections.Generic.IList<string>? stop = default,
-            float temperature = default,
-            float topP = default,
-            int topK = default,
-            double repetitionPenalty = default,
-            bool stream = default,
-            int logprobs = default,
-            bool echo = default,
-            int n = default,
-            float minP = default,
-            float presencePenalty = default,
-            float frequencyPenalty = default,
+            float? temperature = default,
+            float? topP = default,
+            int? topK = default,
+            double? repetitionPenalty = default,
+            bool? stream = default,
+            int? logprobs = default,
+            bool? echo = default,
+            int? n = default,
+            float? minP = default,
+            float? presencePenalty = default,
+            float? frequencyPenalty = default,
             global::Together.ChatCompletionRequestLogitBias? logitBias = default,
-            int seed = default,
-            global::System.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
+            int? seed = default,
+            global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
             global::Together.ChatCompletionRequestResponseFormat? responseFormat = default,
             global::System.Collections.Generic.IList<global::Together.ToolsPart>? tools = default,
-            global::System.OneOf<string, global::Together.ToolChoice2>? toolChoice = default,
+            global::Together.OneOf<string, global::Together.ToolChoice2>? toolChoice = default,
             string? safetyModel = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

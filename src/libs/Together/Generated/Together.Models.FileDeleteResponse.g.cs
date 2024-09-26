@@ -18,7 +18,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deleted")]
-        public bool Deleted { get; set; }
+        public bool? Deleted { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

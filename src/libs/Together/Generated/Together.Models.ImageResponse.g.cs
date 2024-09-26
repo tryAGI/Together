@@ -26,7 +26,7 @@ namespace Together
         /// Example: list
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ImageResponseObjectJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ImageResponseObjectJsonConverter))]
         public global::Together.ImageResponseObject Object { get; set; }
 
         /// <summary>

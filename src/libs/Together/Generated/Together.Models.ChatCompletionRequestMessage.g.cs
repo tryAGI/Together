@@ -12,7 +12,7 @@ namespace Together
         /// The role of the messages author. Choice between: system, user, or assistant.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ChatCompletionRequestMessageRoleJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionRequestMessageRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.ChatCompletionRequestMessageRole Role { get; set; }
 

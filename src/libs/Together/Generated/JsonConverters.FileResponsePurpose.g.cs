@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace Together.JsonConverters
 {
     /// <inheritdoc />
     public sealed class FileResponsePurposeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FileResponsePurpose>

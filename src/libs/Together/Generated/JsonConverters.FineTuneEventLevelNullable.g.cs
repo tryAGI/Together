@@ -1,6 +1,6 @@
 #nullable enable
 
-namespace OpenApiGenerator.JsonConverters
+namespace Together.JsonConverters
 {
     /// <inheritdoc />
     public sealed class FineTuneEventLevelNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FineTuneEventLevel?>

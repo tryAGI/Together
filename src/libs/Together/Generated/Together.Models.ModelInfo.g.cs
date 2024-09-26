@@ -33,7 +33,7 @@ namespace Together
         /// Example: chat
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ModelInfoTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ModelInfoTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.ModelInfoType Type { get; set; }
 
@@ -65,7 +65,7 @@ namespace Together
         /// Example: 2048
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
-        public int ContextLength { get; set; }
+        public int? ContextLength { get; set; }
 
         /// <summary>
         /// 

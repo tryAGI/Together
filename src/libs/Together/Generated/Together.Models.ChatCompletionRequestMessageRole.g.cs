@@ -9,15 +9,15 @@ namespace Together
     public enum ChatCompletionRequestMessageRole
     {
         /// <summary>
-        /// 
+        /// system, user, or assistant.
         /// </summary>
         System,
         /// <summary>
-        /// 
+        /// system, user, or assistant.
         /// </summary>
         User,
         /// <summary>
-        /// 
+        /// system, user, or assistant.
         /// </summary>
         Assistant,
         /// <summary>

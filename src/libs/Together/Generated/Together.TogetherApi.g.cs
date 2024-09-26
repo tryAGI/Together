@@ -8,7 +8,7 @@ namespace Together
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class TogetherApi : global::System.IDisposable
+    public sealed partial class TogetherApi : global::Together.ITogetherApi, global::System.IDisposable
     {
         /// <summary>
         /// 
@@ -17,46 +17,75 @@ namespace Together
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::Together.SourceGenerationContext.Default;
+
 
         /// <summary>
         /// 
         /// </summary>
-        public ChatClient Chat => new ChatClient(_httpClient);
+        public ChatClient Chat => new ChatClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public CompletionClient Completion => new CompletionClient(_httpClient);
+        public CompletionClient Completion => new CompletionClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public EmbeddingsClient Embeddings => new EmbeddingsClient(_httpClient);
+        public EmbeddingsClient Embeddings => new EmbeddingsClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models => new ModelsClient(_httpClient);
+        public ModelsClient Models => new ModelsClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public ImagesClient Images => new ImagesClient(_httpClient);
+        public ImagesClient Images => new ImagesClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public FilesClient Files => new FilesClient(_httpClient);
+        public FilesClient Files => new FilesClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public FineTuningClient FineTuning => new FineTuningClient(_httpClient);
+        public FineTuningClient FineTuning => new FineTuningClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// 
         /// </summary>
-        public RerankClient Rerank => new RerankClient(_httpClient);
+        public RerankClient Rerank => new RerankClient(_httpClient)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
 
         /// <summary>
         /// Creates a new instance of the TogetherApi.
@@ -67,8 +96,7 @@ namespace Together
         /// <param name="baseUri"></param> 
         public TogetherApi(
             global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null 
-            )
+            global::System.Uri? baseUri = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);

@@ -21,7 +21,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.ChatCompletionChunkObjectJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChunkObjectJsonConverter))]
         public global::Together.ChatCompletionChunkObject Object { get; set; }
 
         /// <summary>
@@ -55,8 +55,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::OpenApiGenerator.JsonConverters.AllOfJsonConverterFactory2))]
-        public global::System.AllOf<global::Together.UsageData, global::Together.ChatCompletionChunkUsage>? Usage { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverterFactory2))]
+        public global::Together.AllOf<global::Together.UsageData, global::Together.ChatCompletionChunkUsage>? Usage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
