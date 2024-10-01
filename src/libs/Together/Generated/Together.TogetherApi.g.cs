@@ -16,6 +16,7 @@ namespace Together
         public const string BaseUrl = "https://api.together.xyz/v1";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
+        private global::Together.EndPointAuthorization? _authorization;
 
         /// <summary>
         /// 
@@ -26,7 +27,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ChatClient Chat => new ChatClient(_httpClient)
+        public ChatClient Chat => new ChatClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -34,7 +35,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public CompletionClient Completion => new CompletionClient(_httpClient)
+        public CompletionClient Completion => new CompletionClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -42,7 +43,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public EmbeddingsClient Embeddings => new EmbeddingsClient(_httpClient)
+        public EmbeddingsClient Embeddings => new EmbeddingsClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -50,7 +51,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models => new ModelsClient(_httpClient)
+        public ModelsClient Models => new ModelsClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -58,7 +59,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ImagesClient Images => new ImagesClient(_httpClient)
+        public ImagesClient Images => new ImagesClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -66,7 +67,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public FilesClient Files => new FilesClient(_httpClient)
+        public FilesClient Files => new FilesClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -74,7 +75,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public FineTuningClient FineTuning => new FineTuningClient(_httpClient)
+        public FineTuningClient FineTuning => new FineTuningClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -82,7 +83,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public RerankClient Rerank => new RerankClient(_httpClient)
+        public RerankClient Rerank => new RerankClient(_httpClient, authorization: _authorization)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -93,13 +94,16 @@ namespace Together
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
         /// <param name="httpClient"></param>
-        /// <param name="baseUri"></param> 
+        /// <param name="baseUri"></param>
+        /// <param name="authorization"></param>
         public TogetherApi(
             global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null)
+            global::System.Uri? baseUri = null,
+            global::Together.EndPointAuthorization? authorization = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);
+            _authorization = authorization;
 
             Initialized(_httpClient);
         }
