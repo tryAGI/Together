@@ -111,6 +111,54 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::Together.ChatCompletionEvent?, TResult>? @event = null,
+            global::System.Func<global::Together.StreamSentinel?, TResult>? sentinel = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEvent && @event != null)
+            {
+                return @event(Event!);
+            }
+            else if (IsSentinel && sentinel != null)
+            {
+                return sentinel(Sentinel!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::Together.ChatCompletionEvent?>? @event = null,
+            global::System.Action<global::Together.StreamSentinel?>? sentinel = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEvent)
+            {
+                @event?.Invoke(Event!);
+            }
+            else if (IsSentinel)
+            {
+                sentinel?.Invoke(Sentinel!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public override int GetHashCode()
         {
             var fields = new object?[]
