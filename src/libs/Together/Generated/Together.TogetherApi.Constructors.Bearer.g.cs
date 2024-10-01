@@ -5,11 +5,12 @@ namespace Together
 {
     public sealed partial class TogetherApi
     {
-        /// <inheritdoc cref="TogetherApi(global::System.Net.Http.HttpClient?, global::System.Uri?)"/>
+        /// <inheritdoc cref="TogetherApi(global::System.Net.Http.HttpClient?, global::System.Uri?, global::Together.EndPointAuthorization?)"/>
         public TogetherApi(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null) : this(httpClient, baseUri)
+            global::System.Uri? baseUri = null,
+            global::Together.EndPointAuthorization? authorization = null) : this(httpClient, baseUri, authorization)
         {
             Authorizing(_httpClient, ref apiKey);
 
