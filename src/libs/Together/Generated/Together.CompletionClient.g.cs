@@ -15,7 +15,7 @@ namespace Together
         public const string BaseUrl = "https://api.together.xyz/v1";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
-        private global::Together.EndPointAuthorization? _authorization;
+        private global::System.Collections.Generic.List<global::Together.EndPointAuthorization> _authorizations;
 
         /// <summary>
         /// 
@@ -30,15 +30,15 @@ namespace Together
         /// </summary>
         /// <param name="httpClient"></param>
         /// <param name="baseUri"></param>
-        /// <param name="authorization"></param>
+        /// <param name="authorizations"></param>
         public CompletionClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
-            global::Together.EndPointAuthorization? authorization = null)
+            global::System.Collections.Generic.List<global::Together.EndPointAuthorization>? authorizations = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);
-            _authorization = authorization;
+            _authorizations = authorizations ?? new global::System.Collections.Generic.List<global::Together.EndPointAuthorization>();
 
             Initialized(_httpClient);
         }
