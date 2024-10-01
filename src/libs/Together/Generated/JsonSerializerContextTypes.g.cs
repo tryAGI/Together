@@ -13,6 +13,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public global::System.Collections.Generic.Dictionary<string, string>? StringStringDictionary { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public global::Together.RerankRequest? Type0 { get; set; }
         /// <summary>
         /// 
