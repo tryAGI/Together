@@ -409,26 +409,11 @@ paths:
                 wandb_api_key:
                   type: string
                   description: API key for Weights & Biases integration
-                lora:
-                  type: boolean
-                  description: 'Whether to enable LoRA training. If not provided, full fine-tuning will be applied.'
-                lora_r:
-                  type: integer
-                  description: Rank for LoRA adapter weights
-                  default: 8
-                lora_alpha:
-                  type: integer
-                  description: The alpha value for LoRA adapter training.
-                  default: 8
-                lora_dropout:
-                  type: number
-                  description: The dropout probability for Lora layers.
-                  format: float
-                  default: 0
-                lora_trainable_modules:
-                  type: string
-                  description: 'A list of LoRA trainable modules, separated by a comma'
-                  default: all-linear
+                training_type:
+                  type: object
+                  oneOf:
+                    - $ref: '#/components/schemas/FullTrainingType'
+                    - $ref: '#/components/schemas/LoRATrainingType'
         required: true
       responses:
         '200':
@@ -1774,16 +1759,11 @@ components:
           type: number
         eval_steps:
           type: integer
-        lora:
-          type: boolean
-        lora_r:
-          type: integer
-        lora_alpha:
-          type: integer
-        lora_dropout:
-          type: number
-        lora_trainable_modules:
-          type: string
+        training_type:
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/FullTrainingType'
+            - $ref: '#/components/schemas/LoRATrainingType'
         status:
           $ref: '#/components/schemas/FinetuneJobStatus'
         job_id:
@@ -1994,6 +1974,37 @@ components:
           type: string
         size:
           type: integer
+    FullTrainingType:
+      required:
+        - type
+      type: object
+      properties:
+        type:
+          enum:
+            - Full
+          type: string
+    LoRATrainingType:
+      required:
+        - type
+        - lora_r
+        - lora_alpha
+      type: object
+      properties:
+        type:
+          enum:
+            - Lora
+          type: string
+        lora_r:
+          type: integer
+        lora_alpha:
+          type: integer
+        lora_dropout:
+          type: number
+          format: float
+          default: 0
+        lora_trainable_modules:
+          type: string
+          default: all-linear
   securitySchemes:
     bearerAuth:
       type: http

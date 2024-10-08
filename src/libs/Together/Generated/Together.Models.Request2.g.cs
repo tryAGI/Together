@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -76,38 +78,11 @@ namespace Together
         public string? WandbApiKey { get; set; }
 
         /// <summary>
-        /// Whether to enable LoRA training. If not provided, full fine-tuning will be applied.
+        /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora")]
-        public bool? Lora { get; set; }
-
-        /// <summary>
-        /// Rank for LoRA adapter weights<br/>
-        /// Default Value: 8
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_r")]
-        public int? LoraR { get; set; } = 8;
-
-        /// <summary>
-        /// The alpha value for LoRA adapter training.<br/>
-        /// Default Value: 8
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_alpha")]
-        public int? LoraAlpha { get; set; } = 8;
-
-        /// <summary>
-        /// The dropout probability for Lora layers.<br/>
-        /// Default Value: 0F
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_dropout")]
-        public float? LoraDropout { get; set; } = 0F;
-
-        /// <summary>
-        /// A list of LoRA trainable modules, separated by a comma<br/>
-        /// Default Value: all-linear
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_trainable_modules")]
-        public string? LoraTrainableModules { get; set; } = "all-linear";
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
+        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? TrainingType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
