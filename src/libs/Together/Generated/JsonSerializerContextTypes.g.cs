@@ -518,74 +518,94 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneJobStatus? Type125 { get; set; }
+        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FinetuneEvent>? Type126 { get; set; }
+        public global::Together.FullTrainingType? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEvent? Type127 { get; set; }
+        public global::Together.FullTrainingTypeType? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEventObject? Type128 { get; set; }
+        public global::Together.LoRATrainingType? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEventLevels? Type129 { get; set; }
+        public global::Together.LoRATrainingTypeType? Type129 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEventType? Type130 { get; set; }
+        public global::Together.FinetuneJobStatus? Type130 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneList? Type131 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FinetuneEvent>? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FinetuneResponse>? Type132 { get; set; }
+        public global::Together.FinetuneEvent? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneListEvents? Type133 { get; set; }
+        public global::Together.FinetuneEventObject? Type133 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent2>? Type134 { get; set; }
+        public global::Together.FinetuneEventLevels? Type134 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FineTuneEvent2? Type135 { get; set; }
+        public global::Together.FinetuneEventType? Type135 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FineTuneEventObject2? Type136 { get; set; }
+        public global::Together.FinetuneList? Type136 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FineTuneEventLevel? Type137 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FinetuneResponse>? Type137 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FineTuneEventType2? Type138 { get; set; }
+        public global::Together.FinetuneListEvents? Type138 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneDownloadResult? Type139 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent2>? Type139 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneDownloadResultObject? Type140 { get; set; }
+        public global::Together.FineTuneEvent2? Type140 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request? Type141 { get; set; }
+        public global::Together.FineTuneEventObject2? Type141 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request2? Type142 { get; set; }
+        public global::Together.FineTuneEventLevel? Type142 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.FineTuneEventType2? Type143 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.FinetuneDownloadResult? Type144 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.FinetuneDownloadResultObject? Type145 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.Request? Type146 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.Request2? Type147 { get; set; }
     }
 }

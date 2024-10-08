@@ -54,25 +54,7 @@ namespace Together
         /// <param name="wandbApiKey">
         /// API key for Weights &amp; Biases integration
         /// </param>
-        /// <param name="lora">
-        /// Whether to enable LoRA training. If not provided, full fine-tuning will be applied.
-        /// </param>
-        /// <param name="loraR">
-        /// Rank for LoRA adapter weights<br/>
-        /// Default Value: 8
-        /// </param>
-        /// <param name="loraAlpha">
-        /// The alpha value for LoRA adapter training.<br/>
-        /// Default Value: 8
-        /// </param>
-        /// <param name="loraDropout">
-        /// The dropout probability for Lora layers.<br/>
-        /// Default Value: 0F
-        /// </param>
-        /// <param name="loraTrainableModules">
-        /// A list of LoRA trainable modules, separated by a comma<br/>
-        /// Default Value: all-linear
-        /// </param>
+        /// <param name="trainingType"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
@@ -86,11 +68,7 @@ namespace Together
             float? learningRate = 1E-05F,
             string? suffix = default,
             string? wandbApiKey = default,
-            bool? lora = default,
-            int? loraR = 8,
-            int? loraAlpha = 8,
-            float? loraDropout = 0F,
-            string? loraTrainableModules = "all-linear",
+            global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
