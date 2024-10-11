@@ -24,7 +24,7 @@ namespace Together
         /// A map of parameter names to their values.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
-        public global::Together.ToolsPartFunctionParameters? Parameters { get; set; }
+        public object? Parameters { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

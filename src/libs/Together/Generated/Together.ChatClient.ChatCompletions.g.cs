@@ -206,7 +206,7 @@ namespace Together
             float? minP = default,
             float? presencePenalty = default,
             float? frequencyPenalty = default,
-            global::Together.ChatCompletionRequestLogitBias? logitBias = default,
+            global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
             int? seed = default,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
             global::Together.ChatCompletionRequestResponseFormat? responseFormat = default,

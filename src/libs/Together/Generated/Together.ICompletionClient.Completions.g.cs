@@ -98,7 +98,7 @@ namespace Together
             float? minP = default,
             float? presencePenalty = default,
             float? frequencyPenalty = default,
-            global::Together.CompletionRequestLogitBias? logitBias = default,
+            global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
             int? seed = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
