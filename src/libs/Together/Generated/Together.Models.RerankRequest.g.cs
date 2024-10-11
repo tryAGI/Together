@@ -36,7 +36,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<global::System.Collections.Generic.IList<global::Together.RerankRequestDocumentsVariant1Item>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
+        public required global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
 
         /// <summary>
         /// The number of top results to return.<br/>

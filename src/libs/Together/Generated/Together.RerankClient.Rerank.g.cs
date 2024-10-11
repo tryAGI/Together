@@ -151,7 +151,7 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.RerankResponse> RerankAsync(
             string model,
             string query,
-            global::Together.OneOf<global::System.Collections.Generic.IList<global::Together.RerankRequestDocumentsVariant1Item>, global::System.Collections.Generic.IList<string>> documents,
+            global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> documents,
             int? topN = default,
             bool? returnDocuments = default,
             global::System.Collections.Generic.IList<string>? rankFields = default,
