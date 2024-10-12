@@ -51,7 +51,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models => new ModelsClient(_httpClient, authorizations: _authorizations)
+        public FilesClient Files => new FilesClient(_httpClient, authorizations: _authorizations)
+        {
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public FineTuningClient FineTuning => new FineTuningClient(_httpClient, authorizations: _authorizations)
         {
             JsonSerializerContext = JsonSerializerContext,
         };
@@ -67,15 +75,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public FilesClient Files => new FilesClient(_httpClient, authorizations: _authorizations)
-        {
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public FineTuningClient FineTuning => new FineTuningClient(_httpClient, authorizations: _authorizations)
+        public ModelsClient Models => new ModelsClient(_httpClient, authorizations: _authorizations)
         {
             JsonSerializerContext = JsonSerializerContext,
         };

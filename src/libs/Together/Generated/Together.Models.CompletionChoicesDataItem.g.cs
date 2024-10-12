@@ -12,8 +12,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReason2JsonConverter))]
-        public global::Together.FinishReason2? FinishReason { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
+        public global::Together.FinishReason? FinishReason { get; set; }
 
         /// <summary>
         /// 

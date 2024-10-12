@@ -11,20 +11,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LoRATrainingTypeTypeJsonConverter))]
-        public global::Together.LoRATrainingTypeType Type { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_r")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LoraR { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_alpha")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int LoraAlpha { get; set; }
@@ -36,10 +22,24 @@ namespace Together
         public float? LoraDropout { get; set; } = 0F;
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("lora_r")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int LoraR { get; set; }
+
+        /// <summary>
         /// Default Value: all-linear
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_trainable_modules")]
         public string? LoraTrainableModules { get; set; } = "all-linear";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LoRATrainingTypeTypeJsonConverter))]
+        public global::Together.LoRATrainingTypeType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

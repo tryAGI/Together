@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace Together
@@ -55,8 +53,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverterFactory2))]
-        public global::Together.AllOf<global::Together.UsageData, object>? Usage { get; set; }
+        public global::Together.UsageData? Usage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
