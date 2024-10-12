@@ -18,6 +18,13 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::Together.ChatCompletionMessageFunctionCall? FunctionCall { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionMessageRoleJsonConverter))]
         public global::Together.ChatCompletionMessageRole Role { get; set; }
@@ -27,13 +34,6 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
         public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Together.ChatCompletionMessageFunctionCall? FunctionCall { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

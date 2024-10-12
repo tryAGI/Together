@@ -13,16 +13,9 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChunkObjectJsonConverter))]
-        public global::Together.ChatCompletionChunkObject Object { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; }
 
         /// <summary>
         /// 
@@ -34,8 +27,9 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("system_fingerprint")]
-        public string? SystemFingerprint { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
 
         /// <summary>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
@@ -47,9 +41,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChunkObjectJsonConverter))]
+        public global::Together.ChatCompletionChunkObject Object { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("system_fingerprint")]
+        public string? SystemFingerprint { get; set; }
 
         /// <summary>
         /// 

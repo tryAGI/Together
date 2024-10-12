@@ -18,15 +18,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionSystemMessageParamRoleJsonConverter))]
-        public global::Together.ChatCompletionSystemMessageParamRole Role { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string? Name { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionSystemMessageParamRoleJsonConverter))]
+        public global::Together.ChatCompletionSystemMessageParamRole Role { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

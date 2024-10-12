@@ -11,16 +11,16 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionToolTypeJsonConverter))]
-        public global::Together.ChatCompletionToolType Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("function")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.ChatCompletionToolFunction Function { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("function")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionToolFunction Function { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionToolTypeJsonConverter))]
+        public global::Together.ChatCompletionToolType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

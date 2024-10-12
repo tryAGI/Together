@@ -15,16 +15,16 @@ namespace Together
         public global::System.Collections.Generic.IList<double>? TokenIds { get; set; }
 
         /// <summary>
-        /// List of token strings
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
-        public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
-
-        /// <summary>
         /// List of token log probabilities
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_logprobs")]
         public global::System.Collections.Generic.IList<double>? TokenLogprobs { get; set; }
+
+        /// <summary>
+        /// List of token strings
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
+        public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -3,10 +3,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class FineTuneEventType2JsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FineTuneEventType2>
+    public sealed class FinetuneEventType2JsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FinetuneEventType2>
     {
         /// <inheritdoc />
-        public override global::Together.FineTuneEventType2 Read(
+        public override global::Together.FinetuneEventType2 Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Together.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Together.FineTuneEventType2Extensions.ToEnum(stringValue) ?? default;
+                        return global::Together.FinetuneEventType2Extensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace Together.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Together.FineTuneEventType2)numValue;
+                    return (global::Together.FinetuneEventType2)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,12 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.FineTuneEventType2 value,
+            global::Together.FinetuneEventType2 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::Together.FineTuneEventType2Extensions.ToValueString(value));
+            writer.WriteStringValue(global::Together.FinetuneEventType2Extensions.ToValueString(value));
         }
     }
 }

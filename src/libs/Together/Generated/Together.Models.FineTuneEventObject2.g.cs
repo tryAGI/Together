@@ -6,38 +6,38 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public enum FineTuneEventObject2
+    public enum FinetuneEventObject2
     {
         /// <summary>
         /// 
         /// </summary>
-        FineTuneEvent,
+        FinetuneEvent,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class FineTuneEventObject2Extensions
+    public static class FinetuneEventObject2Extensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this FineTuneEventObject2 value)
+        public static string ToValueString(this FinetuneEventObject2 value)
         {
             return value switch
             {
-                FineTuneEventObject2.FineTuneEvent => "fine-tune-event",
+                FinetuneEventObject2.FinetuneEvent => "FinetuneEvent",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static FineTuneEventObject2? ToEnum(string value)
+        public static FinetuneEventObject2? ToEnum(string value)
         {
             return value switch
             {
-                "fine-tune-event" => FineTuneEventObject2.FineTuneEvent,
+                "FinetuneEvent" => FinetuneEventObject2.FinetuneEvent,
                 _ => null,
             };
         }

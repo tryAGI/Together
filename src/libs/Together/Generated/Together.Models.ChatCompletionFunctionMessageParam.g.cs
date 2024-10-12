@@ -12,14 +12,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleJsonConverter))]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Together.ChatCompletionFunctionMessageParamRole Role { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
         [global::System.Obsolete("This property marked as deprecated.")]
@@ -32,6 +24,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonRequired]
         [global::System.Obsolete("This property marked as deprecated.")]
         public required string Name { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleJsonConverter))]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::Together.ChatCompletionFunctionMessageParamRole Role { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

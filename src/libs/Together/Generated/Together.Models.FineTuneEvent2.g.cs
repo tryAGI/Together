@@ -6,106 +6,64 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class FineTuneEvent2
+    public sealed partial class FinetuneEvent2
     {
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventObject2JsonConverter))]
-        public global::Together.FineTuneEventObject2 Object { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedAt { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("level")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventLevelJsonConverter))]
-        public global::Together.FineTuneEventLevel? Level { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("message")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventType2JsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FineTuneEventType2 Type { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ParamCount { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TokenCount { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("total_steps")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalSteps { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("wandb_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WandbUrl { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("step")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Step { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_path")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CheckpointPath { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_path")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelPath { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("training_offset")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TrainingOffset { get; set; }
+        public string? CreatedAt { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Hash { get; set; }
+        public string? Hash { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("level")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventLevelsJsonConverter))]
+        public global::Together.FinetuneEventLevels? Level { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("message")]
+        public string? Message { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventObject2JsonConverter))]
+        public global::Together.FinetuneEventObject2? Object { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
+        public int? ParamCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
+        public int? TokenCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventType2JsonConverter))]
+        public global::Together.FinetuneEventType2? Type { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("wandb_url")]
+        public string? WandbUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
