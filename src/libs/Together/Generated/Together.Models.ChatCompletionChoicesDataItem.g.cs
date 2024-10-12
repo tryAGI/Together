@@ -46,7 +46,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverterFactory2))]
-        public global::Together.AllOf<global::Together.ChatCompletionChoicesDataItemLogprobs, global::Together.LogprobsPart>? Logprobs { get; set; }
+        public global::Together.AllOf<object, global::Together.LogprobsPart>? Logprobs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

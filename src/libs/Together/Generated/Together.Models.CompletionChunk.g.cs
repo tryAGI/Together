@@ -37,7 +37,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AllOf<global::Together.UsageData, global::Together.CompletionChunkUsage> Usage { get; set; }
+        public required global::Together.AllOf<global::Together.UsageData, object> Usage { get; set; }
 
         /// <summary>
         /// 
@@ -51,7 +51,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AllOf<global::Together.FinishReason?, global::Together.CompletionChunkFinishReason> FinishReason { get; set; }
+        public required global::Together.AllOf<global::Together.FinishReason?, object> FinishReason { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
