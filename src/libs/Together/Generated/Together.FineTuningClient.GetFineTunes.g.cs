@@ -97,7 +97,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.FinetuneList), JsonSerializerContext) as global::Together.FinetuneList ??
+                global::Together.FinetuneList.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
