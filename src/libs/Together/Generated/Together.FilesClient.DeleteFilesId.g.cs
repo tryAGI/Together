@@ -103,7 +103,7 @@ namespace Together
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Together.FileDeleteResponse), JsonSerializerContext) as global::Together.FileDeleteResponse ??
+                global::Together.FileDeleteResponse.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
