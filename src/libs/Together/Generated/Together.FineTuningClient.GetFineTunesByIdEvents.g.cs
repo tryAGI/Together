@@ -3,47 +3,47 @@
 
 namespace Together
 {
-    public partial class FilesClient
+    public partial class FineTuningClient
     {
-        partial void PrepareDeleteFilesIdArguments(
+        partial void PrepareGetFineTunesByIdEventsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id);
-        partial void PrepareDeleteFilesIdRequest(
+        partial void PrepareGetFineTunesByIdEventsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id);
-        partial void ProcessDeleteFilesIdResponse(
+        partial void ProcessGetFineTunesByIdEventsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeleteFilesIdResponseContent(
+        partial void ProcessGetFineTunesByIdEventsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Delete a file<br/>
-        /// Delete a previously uploaded data file.
+        /// List job events<br/>
+        /// List the events for a single fine-tuning job.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FileDeleteResponse> DeleteFilesIdAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.FinetuneListEvents> GetFineTunesByIdEventsAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareDeleteFilesIdArguments(
+            PrepareGetFineTunesByIdEventsArguments(
                 httpClient: _httpClient,
                 id: ref id);
 
             var __pathBuilder = new PathBuilder(
-                path: $"/files/{id}",
+                path: $"/fine-tunes/{id}/events",
                 baseUri: _httpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Delete,
+                method: global::System.Net.Http.HttpMethod.Get,
                 requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 
             foreach (var _authorization in _authorizations)
@@ -65,7 +65,7 @@ namespace Together
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareDeleteFilesIdRequest(
+            PrepareGetFineTunesByIdEventsRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 id: id);
@@ -78,7 +78,7 @@ namespace Together
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessDeleteFilesIdResponse(
+            ProcessGetFineTunesByIdEventsResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -88,7 +88,7 @@ namespace Together
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessDeleteFilesIdResponseContent(
+            ProcessGetFineTunesByIdEventsResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
@@ -103,7 +103,7 @@ namespace Together
             }
 
             return
-                global::Together.FileDeleteResponse.FromJson(__content, JsonSerializerContext) ??
+                global::Together.FinetuneListEvents.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

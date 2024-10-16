@@ -5,18 +5,18 @@ namespace Together
 {
     public partial class FilesClient
     {
-        partial void PrepareGetFilesIdArguments(
+        partial void PrepareGetFilesByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id);
-        partial void PrepareGetFilesIdRequest(
+        partial void PrepareGetFilesByIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id);
-        partial void ProcessGetFilesIdResponse(
+        partial void ProcessGetFilesByIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetFilesIdResponseContent(
+        partial void ProcessGetFilesByIdResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -28,13 +28,13 @@ namespace Together
         /// <param name="id"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FileResponse> GetFilesIdAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.FileResponse> GetFilesByIdAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareGetFilesIdArguments(
+            PrepareGetFilesByIdArguments(
                 httpClient: _httpClient,
                 id: ref id);
 
@@ -65,7 +65,7 @@ namespace Together
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareGetFilesIdRequest(
+            PrepareGetFilesByIdRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 id: id);
@@ -78,7 +78,7 @@ namespace Together
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessGetFilesIdResponse(
+            ProcessGetFilesByIdResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -88,7 +88,7 @@ namespace Together
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessGetFilesIdResponseContent(
+            ProcessGetFilesByIdResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);

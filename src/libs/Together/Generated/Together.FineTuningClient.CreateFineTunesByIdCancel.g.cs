@@ -5,18 +5,18 @@ namespace Together
 {
     public partial class FineTuningClient
     {
-        partial void PrepareCreateFineTunesIdCancelArguments(
+        partial void PrepareCreateFineTunesByIdCancelArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id);
-        partial void PrepareCreateFineTunesIdCancelRequest(
+        partial void PrepareCreateFineTunesByIdCancelRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id);
-        partial void ProcessCreateFineTunesIdCancelResponse(
+        partial void ProcessCreateFineTunesByIdCancelResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateFineTunesIdCancelResponseContent(
+        partial void ProcessCreateFineTunesByIdCancelResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -28,13 +28,13 @@ namespace Together
         /// <param name="id"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesIdCancelAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesByIdCancelAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: _httpClient);
-            PrepareCreateFineTunesIdCancelArguments(
+            PrepareCreateFineTunesByIdCancelArguments(
                 httpClient: _httpClient,
                 id: ref id);
 
@@ -65,7 +65,7 @@ namespace Together
             PrepareRequest(
                 client: _httpClient,
                 request: httpRequest);
-            PrepareCreateFineTunesIdCancelRequest(
+            PrepareCreateFineTunesByIdCancelRequest(
                 httpClient: _httpClient,
                 httpRequestMessage: httpRequest,
                 id: id);
@@ -78,7 +78,7 @@ namespace Together
             ProcessResponse(
                 client: _httpClient,
                 response: response);
-            ProcessCreateFineTunesIdCancelResponse(
+            ProcessCreateFineTunesByIdCancelResponse(
                 httpClient: _httpClient,
                 httpResponseMessage: response);
 
@@ -88,7 +88,7 @@ namespace Together
                 client: _httpClient,
                 response: response,
                 content: ref __content);
-            ProcessCreateFineTunesIdCancelResponseContent(
+            ProcessCreateFineTunesByIdCancelResponseContent(
                 httpClient: _httpClient,
                 httpResponseMessage: response,
                 content: ref __content);
