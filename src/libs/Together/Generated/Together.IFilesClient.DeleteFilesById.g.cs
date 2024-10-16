@@ -2,16 +2,16 @@
 
 namespace Together
 {
-    public partial interface IFineTuningClient
+    public partial interface IFilesClient
     {
         /// <summary>
-        /// Cancel job<br/>
-        /// Cancel a currently running fine-tuning job.
+        /// Delete a file<br/>
+        /// Delete a previously uploaded data file.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesIdCancelAsync(
+        global::System.Threading.Tasks.Task<global::Together.FileDeleteResponse> DeleteFilesByIdAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
