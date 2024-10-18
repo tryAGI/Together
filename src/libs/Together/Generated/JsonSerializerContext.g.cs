@@ -35,6 +35,8 @@ namespace Together
             typeof(global::Together.JsonConverters.ChatCompletionUserMessageParamRoleNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleNullableJsonConverter),
+            typeof(global::Together.JsonConverters.ChatCompletionMessageParamDiscriminatorRoleJsonConverter),
+            typeof(global::Together.JsonConverters.ChatCompletionMessageParamDiscriminatorRoleNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestFunctionCallEnumJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestFunctionCallEnumNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageRoleJsonConverter),
@@ -75,6 +77,8 @@ namespace Together
             typeof(global::Together.JsonConverters.FullTrainingTypeTypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.LoRATrainingTypeTypeJsonConverter),
             typeof(global::Together.JsonConverters.LoRATrainingTypeTypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.FinetuneResponseTrainingTypeDiscriminatorTypeJsonConverter),
+            typeof(global::Together.JsonConverters.FinetuneResponseTrainingTypeDiscriminatorTypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.ImageResponseObjectJsonConverter),
             typeof(global::Together.JsonConverters.ImageResponseObjectNullableJsonConverter),
             typeof(global::Together.JsonConverters.ModelInfoTypeJsonConverter),
@@ -85,6 +89,7 @@ namespace Together
             typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2),
             typeof(global::Together.JsonConverters.ChatCompletionStreamJsonConverter),
             typeof(global::Together.JsonConverters.CompletionStreamJsonConverter),
+            typeof(global::Together.JsonConverters.FinetuneResponseTrainingTypeJsonConverter),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JsonSerializerContextTypes))]
