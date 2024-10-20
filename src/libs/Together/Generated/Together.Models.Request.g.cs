@@ -85,6 +85,13 @@ namespace Together
         public string? WandbApiKey { get; set; }
 
         /// <summary>
+        /// The percent of steps at the start of training to linearly increase the learning-rate.<br/>
+        /// Default Value: 0F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warmup_ratio")]
+        public float? WarmupRatio { get; set; } = 0F;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]

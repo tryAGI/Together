@@ -327,6 +327,11 @@ paths:
                 wandb_api_key:
                   type: string
                   description: API key for Weights & Biases integration
+                warmup_ratio:
+                  type: number
+                  description: The percent of steps at the start of training to linearly increase the learning-rate.
+                  format: float
+                  default: 0
         required: true
       responses:
         '200':
@@ -1649,6 +1654,8 @@ components:
           type: string
         wandb_url:
           type: string
+        warmup_ratio:
+          type: number
     FinishReason:
       enum:
         - stop

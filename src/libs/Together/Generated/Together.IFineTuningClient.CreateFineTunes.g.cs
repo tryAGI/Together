@@ -55,6 +55,10 @@ namespace Together
         /// <param name="wandbApiKey">
         /// API key for Weights &amp; Biases integration
         /// </param>
+        /// <param name="warmupRatio">
+        /// The percent of steps at the start of training to linearly increase the learning-rate.<br/>
+        /// Default Value: 0F
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
@@ -69,6 +73,7 @@ namespace Together
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? validationFile = default,
             string? wandbApiKey = default,
+            float? warmupRatio = 0F,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
