@@ -11,8 +11,7 @@ namespace Together
     public sealed partial class RerankRequest
     {
         /// <summary>
-        /// List of documents, which can be either strings or objects.<br/>
-        /// Default Value: [, , , ]
+        /// List of documents, which can be either strings or objects.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
@@ -21,7 +20,6 @@ namespace Together
 
         /// <summary>
         /// The model to be used for the rerank request.<br/>
-        /// Default Value: Salesforce/Llama-Rank-V1<br/>
         /// Example: Salesforce/Llama-Rank-V1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -30,7 +28,6 @@ namespace Together
 
         /// <summary>
         /// The search query to be used for ranking.<br/>
-        /// Default Value: What animals can I find near Peru?<br/>
         /// Example: What animals can I find near Peru?
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]

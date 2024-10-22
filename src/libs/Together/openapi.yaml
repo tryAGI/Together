@@ -329,7 +329,7 @@ paths:
                   description: API key for Weights & Biases integration
                 warmup_ratio:
                   type: number
-                  description: The percent of steps at the start of training to linearly increase the learning-rate.
+                  description: The percent of steps at the start of training to linearly increase the learning rate.
                   format: float
                   default: 0
         required: true
@@ -458,7 +458,6 @@ paths:
                 model:
                   type: string
                   description: The model to use for image generation.
-                  default: stabilityai/stable-diffusion-xl-base-1.0
                   example: stabilityai/stable-diffusion-xl-base-1.0
                 n:
                   type: integer
@@ -470,7 +469,6 @@ paths:
                 prompt:
                   type: string
                   description: A description of the desired images. Maximum length varies by model.
-                  default: 'cat floating in space, cinematic'
                   example: 'cat floating in space, cinematic'
                 seed:
                   type: integer
@@ -885,20 +883,14 @@ components:
                 type: string
                 description: 'The role of the messages author. Choice between: system, user, or assistant.'
           description: A list of messages comprising the conversation so far.
-          default:
-            - content: You are a helpful assistant
-              role: system
-            - content: What is 1 + 1?
-              role: user
         min_p:
           type: number
           description: A number between 0 and 1 that can be used as an alternative to top_p and top-k.
           format: float
         model:
           type: string
-          description: The name of the model to query.
-          default: mistralai/Mixtral-8x7B-Instruct-v0.1
-          example: mistralai/Mixtral-8x7B-Instruct-v0.1
+          description: "The name of the model to query.<br> <br> Popular models:\n\n  - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\n  - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\n  - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo\n  - Qwen/Qwen2.5-7B-Instruct-Turbo\n  - Qwen/Qwen2.5-72B-Instruct-Turbo\n  \n[See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models)\n"
+          example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         n:
           maximum: 128
           minimum: 1
@@ -1160,7 +1152,6 @@ components:
         model:
           type: string
           description: The name of the model to query.
-          default: mistralai/Mixtral-8x7B-Instruct-v0.1
           example: mistralai/Mixtral-8x7B-Instruct-v0.1
         n:
           maximum: 128
@@ -1174,7 +1165,6 @@ components:
         prompt:
           type: string
           description: A string providing context for the model to complete.
-          default: '<s>[INST] What is the capital of France? [/INST]'
           example: '<s>[INST] What is the capital of France? [/INST]'
         repetition_penalty:
           type: number
@@ -1270,11 +1260,10 @@ components:
                 type: string
                 description: A string providing the text for the model to embed.
                 example: 'Our solar system orbits the Milky Way galaxy at about 515,000 mph'
-          default: 'Our solar system orbits the Milky Way galaxy at about 515,000 mph'
+          example: 'Our solar system orbits the Milky Way galaxy at about 515,000 mph'
         model:
           type: string
           description: The name of the embedding model to use.
-          default: togethercomputer/m2-bert-80M-8k-retrieval
           example: togethercomputer/m2-bert-80M-8k-retrieval
     EmbeddingsResponse:
       required:
@@ -1839,27 +1828,16 @@ components:
                 type: string
                 example: 'Our solar system orbits the Milky Way galaxy at about 515,000 mph'
           description: 'List of documents, which can be either strings or objects.'
-          default:
-            - text: 'The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.'
-              title: Llama
-            - text: 'The giant panda (Ailuropoda melanoleuca), also known as the panda bear or simply panda, is a bear species endemic to China.'
-              title: Panda
-            - text: 'The guanaco is a camelid native to South America, closely related to the llama. Guanacos are one of two wild South American camelids; the other species is the vicuña, which lives at higher elevations.'
-              title: Guanaco
-            - text: The wild Bactrian camel (Camelus ferus) is an endangered species of camel endemic to Northwest China and southwestern Mongolia.
-              title: Wild Bactrian camel
           example:
             text: 'The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.'
             title: Llama
         model:
           type: string
           description: The model to be used for the rerank request.
-          default: Salesforce/Llama-Rank-V1
           example: Salesforce/Llama-Rank-V1
         query:
           type: string
           description: The search query to be used for ranking.
-          default: What animals can I find near Peru?
           example: What animals can I find near Peru?
         rank_fields:
           type: array

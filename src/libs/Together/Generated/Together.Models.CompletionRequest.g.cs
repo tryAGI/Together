@@ -46,7 +46,6 @@ namespace Together
 
         /// <summary>
         /// The name of the model to query.<br/>
-        /// Default Value: mistralai/Mixtral-8x7B-Instruct-v0.1<br/>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -67,7 +66,6 @@ namespace Together
 
         /// <summary>
         /// A string providing context for the model to complete.<br/>
-        /// Default Value: &lt;s&gt;[INST] What is the capital of France? [/INST]<br/>
         /// Example: &lt;s&gt;[INST] What is the capital of France? [/INST]
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]

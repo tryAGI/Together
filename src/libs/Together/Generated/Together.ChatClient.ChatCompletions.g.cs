@@ -136,16 +136,21 @@ namespace Together
         /// The maximum number of tokens to generate.
         /// </param>
         /// <param name="messages">
-        /// A list of messages comprising the conversation so far.<br/>
-        /// Default Value: [, ]
+        /// A list of messages comprising the conversation so far.
         /// </param>
         /// <param name="minP">
         /// A number between 0 and 1 that can be used as an alternative to top_p and top-k.
         /// </param>
         /// <param name="model">
-        /// The name of the model to query.<br/>
-        /// Default Value: mistralai/Mixtral-8x7B-Instruct-v0.1<br/>
-        /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
+        /// The name of the model to query.  Popular models:<br/>
+        ///   - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo<br/>
+        ///   - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo<br/>
+        ///   - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo<br/>
+        ///   - Qwen/Qwen2.5-7B-Instruct-Turbo<br/>
+        ///   - Qwen/Qwen2.5-72B-Instruct-Turbo<br/>
+        ///   <br/>
+        /// [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models)<br/>
+        /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         /// </param>
         /// <param name="n">
         /// The number of completions to generate for each prompt.
