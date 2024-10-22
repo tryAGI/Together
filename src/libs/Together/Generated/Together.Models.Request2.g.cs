@@ -17,7 +17,6 @@ namespace Together
 
         /// <summary>
         /// The model to use for image generation.<br/>
-        /// Default Value: stabilityai/stable-diffusion-xl-base-1.0<br/>
         /// Example: stabilityai/stable-diffusion-xl-base-1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -39,7 +38,6 @@ namespace Together
 
         /// <summary>
         /// A description of the desired images. Maximum length varies by model.<br/>
-        /// Default Value: cat floating in space, cinematic<br/>
         /// Example: cat floating in space, cinematic
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]

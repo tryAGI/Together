@@ -48,8 +48,7 @@ namespace Together
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// A list of messages comprising the conversation so far.<br/>
-        /// Default Value: [, ]
+        /// A list of messages comprising the conversation so far.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -62,9 +61,15 @@ namespace Together
         public float? MinP { get; set; }
 
         /// <summary>
-        /// The name of the model to query.<br/>
-        /// Default Value: mistralai/Mixtral-8x7B-Instruct-v0.1<br/>
-        /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
+        /// The name of the model to query.  Popular models:<br/>
+        ///   - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo<br/>
+        ///   - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo<br/>
+        ///   - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo<br/>
+        ///   - Qwen/Qwen2.5-7B-Instruct-Turbo<br/>
+        ///   - Qwen/Qwen2.5-72B-Instruct-Turbo<br/>
+        ///   <br/>
+        /// [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models)<br/>
+        /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]

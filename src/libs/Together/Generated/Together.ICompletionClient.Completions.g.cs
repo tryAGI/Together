@@ -39,7 +39,6 @@ namespace Together
         /// </param>
         /// <param name="model">
         /// The name of the model to query.<br/>
-        /// Default Value: mistralai/Mixtral-8x7B-Instruct-v0.1<br/>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </param>
         /// <param name="n">
@@ -50,7 +49,6 @@ namespace Together
         /// </param>
         /// <param name="prompt">
         /// A string providing context for the model to complete.<br/>
-        /// Default Value: &lt;s&gt;[INST] What is the capital of France? [/INST]<br/>
         /// Example: &lt;s&gt;[INST] What is the capital of France? [/INST]
         /// </param>
         /// <param name="repetitionPenalty">

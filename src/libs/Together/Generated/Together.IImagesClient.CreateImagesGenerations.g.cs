@@ -25,7 +25,6 @@ namespace Together
         /// </param>
         /// <param name="model">
         /// The model to use for image generation.<br/>
-        /// Default Value: stabilityai/stable-diffusion-xl-base-1.0<br/>
         /// Example: stabilityai/stable-diffusion-xl-base-1.0
         /// </param>
         /// <param name="n">
@@ -37,7 +36,6 @@ namespace Together
         /// </param>
         /// <param name="prompt">
         /// A description of the desired images. Maximum length varies by model.<br/>
-        /// Default Value: cat floating in space, cinematic<br/>
         /// Example: cat floating in space, cinematic
         /// </param>
         /// <param name="seed">

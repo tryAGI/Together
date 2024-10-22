@@ -156,7 +156,7 @@ namespace Together
         /// API key for Weights &amp; Biases integration
         /// </param>
         /// <param name="warmupRatio">
-        /// The percent of steps at the start of training to linearly increase the learning-rate.<br/>
+        /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
         /// Default Value: 0F
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
