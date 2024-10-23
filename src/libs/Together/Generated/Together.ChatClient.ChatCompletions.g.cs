@@ -142,14 +142,7 @@ namespace Together
         /// A number between 0 and 1 that can be used as an alternative to top_p and top-k.
         /// </param>
         /// <param name="model">
-        /// The name of the model to query.  Popular models:<br/>
-        ///   - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo<br/>
-        ///   - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo<br/>
-        ///   - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo<br/>
-        ///   - Qwen/Qwen2.5-7B-Instruct-Turbo<br/>
-        ///   - Qwen/Qwen2.5-72B-Instruct-Turbo<br/>
-        ///   <br/>
-        /// [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models)<br/>
+        /// The name of the model to query.<br/>
         /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         /// </param>
         /// <param name="n">
@@ -197,7 +190,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> messages,
-            string model,
+            global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
             bool? echo = default,
             float? frequencyPenalty = default,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,

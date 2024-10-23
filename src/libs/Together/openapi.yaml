@@ -888,8 +888,16 @@ components:
           description: A number between 0 and 1 that can be used as an alternative to top_p and top-k.
           format: float
         model:
-          type: string
-          description: "The name of the model to query.<br> <br> Popular models:\n\n  - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\n  - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo\n  - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo\n  - Qwen/Qwen2.5-7B-Instruct-Turbo\n  - Qwen/Qwen2.5-72B-Instruct-Turbo\n  \n[See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models)\n"
+          anyOf:
+            - enum:
+                - Qwen/Qwen2.5-72B-Instruct-Turbo
+                - Qwen/Qwen2.5-7B-Instruct-Turbo
+                - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo
+                - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+                - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+              type: string
+            - type: string
+          description: The name of the model to query.
           example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         n:
           maximum: 128

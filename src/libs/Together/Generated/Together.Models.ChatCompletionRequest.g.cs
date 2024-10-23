@@ -61,19 +61,13 @@ namespace Together
         public float? MinP { get; set; }
 
         /// <summary>
-        /// The name of the model to query.  Popular models:<br/>
-        ///   - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo<br/>
-        ///   - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo<br/>
-        ///   - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo<br/>
-        ///   - Qwen/Qwen2.5-7B-Instruct-Turbo<br/>
-        ///   - Qwen/Qwen2.5-72B-Instruct-Turbo<br/>
-        ///   <br/>
-        /// [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models)<br/>
+        /// The name of the model to query.<br/>
         /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public required global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> Model { get; set; }
 
         /// <summary>
         /// The number of completions to generate for each prompt.
