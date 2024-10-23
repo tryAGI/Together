@@ -14,8 +14,8 @@ namespace Together
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
 
-            _authorizations.Clear();
-            _authorizations.Add(new global::Together.EndPointAuthorization
+            Authorizations.Clear();
+            Authorizations.Add(new global::Together.EndPointAuthorization
             {
                 Type = "Http",
                 Location = "Header",
