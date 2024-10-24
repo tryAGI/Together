@@ -19,7 +19,7 @@ namespace Together
         /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_dropout")]
-        public float? LoraDropout { get; set; } = 0F;
+        public float? LoraDropout { get; set; }
 
         /// <summary>
         /// 
@@ -32,7 +32,7 @@ namespace Together
         /// Default Value: all-linear
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_trainable_modules")]
-        public string? LoraTrainableModules { get; set; } = "all-linear";
+        public string? LoraTrainableModules { get; set; }
 
         /// <summary>
         /// 
