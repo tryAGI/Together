@@ -164,16 +164,16 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
             string model,
             string trainingFile,
-            int? batchSize = 32,
-            float? learningRate = 1E-05F,
-            int? nCheckpoints = 1,
-            int? nEpochs = 1,
-            int? nEvals = 0,
+            int? batchSize = default,
+            float? learningRate = default,
+            int? nCheckpoints = default,
+            int? nEpochs = default,
+            int? nEvals = default,
             string? suffix = default,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? validationFile = default,
             string? wandbApiKey = default,
-            float? warmupRatio = 0F,
+            float? warmupRatio = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.Request

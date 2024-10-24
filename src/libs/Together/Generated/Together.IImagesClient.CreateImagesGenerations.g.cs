@@ -54,12 +54,12 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
             string model,
             string prompt,
-            int? height = 1024,
-            int? n = 1,
+            int? height = default,
+            int? n = default,
             string? negativePrompt = default,
             int? seed = default,
-            int? steps = 20,
-            int? width = 1024,
+            int? steps = default,
+            int? width = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

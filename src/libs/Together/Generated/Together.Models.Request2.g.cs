@@ -13,7 +13,7 @@ namespace Together
         /// Default Value: 1024
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("height")]
-        public int? Height { get; set; } = 1024;
+        public int? Height { get; set; }
 
         /// <summary>
         /// The model to use for image generation.<br/>
@@ -28,7 +28,7 @@ namespace Together
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n")]
-        public int? N { get; set; } = 1;
+        public int? N { get; set; }
 
         /// <summary>
         /// The prompt or prompts not to guide the image generation.
@@ -55,14 +55,14 @@ namespace Together
         /// Default Value: 20
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("steps")]
-        public int? Steps { get; set; } = 20;
+        public int? Steps { get; set; }
 
         /// <summary>
         /// Width of the image to generate in number of pixels.<br/>
         /// Default Value: 1024
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("width")]
-        public int? Width { get; set; } = 1024;
+        public int? Width { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

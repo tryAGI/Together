@@ -15,14 +15,14 @@ namespace Together
         /// Default Value: 32
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_size")]
-        public int? BatchSize { get; set; } = 32;
+        public int? BatchSize { get; set; }
 
         /// <summary>
         /// Learning rate multiplier to use for training<br/>
         /// Default Value: 1E-05F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
-        public float? LearningRate { get; set; } = 1E-05F;
+        public float? LearningRate { get; set; }
 
         /// <summary>
         /// Name of the base model to run fine-tune job on
@@ -36,21 +36,21 @@ namespace Together
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_checkpoints")]
-        public int? NCheckpoints { get; set; } = 1;
+        public int? NCheckpoints { get; set; }
 
         /// <summary>
         /// Number of epochs for fine-tuning<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_epochs")]
-        public int? NEpochs { get; set; } = 1;
+        public int? NEpochs { get; set; }
 
         /// <summary>
         /// Number of evaluations to be run on a given validation set during training<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_evals")]
-        public int? NEvals { get; set; } = 0;
+        public int? NEvals { get; set; }
 
         /// <summary>
         /// Suffix that will be added to your fine-tuned model name
@@ -89,7 +89,7 @@ namespace Together
         /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warmup_ratio")]
-        public float? WarmupRatio { get; set; } = 0F;
+        public float? WarmupRatio { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
