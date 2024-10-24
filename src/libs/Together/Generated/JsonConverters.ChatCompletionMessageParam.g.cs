@@ -26,35 +26,35 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionSystemMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionSystemMessageParam> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionSystemMessageParam)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                system = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Together.ChatCompletionUserMessageParam? user = default;
             if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.User)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionUserMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionUserMessageParam> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionUserMessageParam)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                user = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Together.ChatCompletionAssistantMessageParam? assistant = default;
             if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.Assistant)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionAssistantMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionAssistantMessageParam> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionAssistantMessageParam)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                assistant = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Together.ChatCompletionToolMessageParam? tool = default;
             if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.Tool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionToolMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionToolMessageParam> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionToolMessageParam)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                tool = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Together.ChatCompletionFunctionMessageParam? function = default;
             if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.Function)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionFunctionMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionFunctionMessageParam> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionFunctionMessageParam)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                function = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var result = new global::Together.ChatCompletionMessageParam(

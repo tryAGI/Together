@@ -26,14 +26,14 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.FullTrainingType), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.FullTrainingType> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.FullTrainingType)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                full = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Together.LoRATrainingType? loRA = default;
             if (discriminator?.Type == global::Together.FinetuneResponseTrainingTypeDiscriminatorType.Lora)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.LoRATrainingType), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.LoRATrainingType> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.LoRATrainingType)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                loRA = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var result = new global::Together.FinetuneResponseTrainingType(
