@@ -54,18 +54,18 @@ namespace Together
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.LoRATrainingType? LoRA { get; init; }
+        public global::Together.LoRATrainingType? Lora { get; init; }
 #else
-        public global::Together.LoRATrainingType? LoRA { get; }
+        public global::Together.LoRATrainingType? Lora { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LoRA))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Lora))]
 #endif
-        public bool IsLoRA => LoRA != null;
+        public bool IsLora => Lora != null;
 
         /// <summary>
         /// 
@@ -75,14 +75,14 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.LoRATrainingType?(FinetuneResponseTrainingType @this) => @this.LoRA;
+        public static implicit operator global::Together.LoRATrainingType?(FinetuneResponseTrainingType @this) => @this.Lora;
 
         /// <summary>
         /// 
         /// </summary>
         public FinetuneResponseTrainingType(global::Together.LoRATrainingType? value)
         {
-            LoRA = value;
+            Lora = value;
         }
 
         /// <summary>
@@ -91,20 +91,20 @@ namespace Together
         public FinetuneResponseTrainingType(
             global::Together.FinetuneResponseTrainingTypeDiscriminatorType? type,
             global::Together.FullTrainingType? full,
-            global::Together.LoRATrainingType? loRA
+            global::Together.LoRATrainingType? lora
             )
         {
             Type = type;
 
             Full = full;
-            LoRA = loRA;
+            Lora = lora;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            LoRA as object ??
+            Lora as object ??
             Full as object 
             ;
 
@@ -113,7 +113,7 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsFull && !IsLoRA || !IsFull && IsLoRA;
+            return IsFull && !IsLora || !IsFull && IsLora;
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Together
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.FullTrainingType?, TResult>? full = null,
-            global::System.Func<global::Together.LoRATrainingType?, TResult>? loRA = null,
+            global::System.Func<global::Together.LoRATrainingType?, TResult>? lora = null,
             bool validate = true)
         {
             if (validate)
@@ -133,9 +133,9 @@ namespace Together
             {
                 return full(Full!);
             }
-            else if (IsLoRA && loRA != null)
+            else if (IsLora && lora != null)
             {
-                return loRA(LoRA!);
+                return lora(Lora!);
             }
 
             return default(TResult);
@@ -146,7 +146,7 @@ namespace Together
         /// </summary>
         public void Match(
             global::System.Action<global::Together.FullTrainingType?>? full = null,
-            global::System.Action<global::Together.LoRATrainingType?>? loRA = null,
+            global::System.Action<global::Together.LoRATrainingType?>? lora = null,
             bool validate = true)
         {
             if (validate)
@@ -158,9 +158,9 @@ namespace Together
             {
                 full?.Invoke(Full!);
             }
-            else if (IsLoRA)
+            else if (IsLora)
             {
-                loRA?.Invoke(LoRA!);
+                lora?.Invoke(Lora!);
             }
         }
 
@@ -173,7 +173,7 @@ namespace Together
             {
                 Full,
                 typeof(global::Together.FullTrainingType),
-                LoRA,
+                Lora,
                 typeof(global::Together.LoRATrainingType),
             };
             const int offset = unchecked((int)2166136261);
@@ -191,7 +191,7 @@ namespace Together
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.FullTrainingType?>.Default.Equals(Full, other.Full) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.LoRATrainingType?>.Default.Equals(LoRA, other.LoRA) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.LoRATrainingType?>.Default.Equals(Lora, other.Lora) 
                 ;
         }
 
