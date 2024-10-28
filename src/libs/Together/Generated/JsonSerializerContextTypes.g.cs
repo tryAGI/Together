@@ -591,5 +591,9 @@ namespace Together
         /// 
         /// </summary>
         public global::Together.Request2? Type143 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.Checkpoint? Type144 { get; set; }
     }
 }

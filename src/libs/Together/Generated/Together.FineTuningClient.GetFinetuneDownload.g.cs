@@ -9,12 +9,14 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref string ftId,
             ref int? checkpointStep,
+            ref global::Together.Checkpoint? checkpoint,
             ref string? output);
         partial void PrepareGetFinetuneDownloadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string ftId,
             int? checkpointStep,
+            global::Together.Checkpoint? checkpoint,
             string? output);
         partial void ProcessGetFinetuneDownloadResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -31,12 +33,14 @@ namespace Together
         /// </summary>
         /// <param name="ftId"></param>
         /// <param name="checkpointStep"></param>
+        /// <param name="checkpoint"></param>
         /// <param name="output"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneDownloadResult> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
+            global::Together.Checkpoint? checkpoint = default,
             string? output = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -46,6 +50,7 @@ namespace Together
                 httpClient: HttpClient,
                 ftId: ref ftId,
                 checkpointStep: ref checkpointStep,
+                checkpoint: ref checkpoint,
                 output: ref output);
 
             var __pathBuilder = new PathBuilder(
@@ -54,6 +59,7 @@ namespace Together
             __pathBuilder 
                 .AddRequiredParameter("ft_id", ftId) 
                 .AddOptionalParameter("checkpoint_step", checkpointStep?.ToString()) 
+                .AddOptionalParameter("checkpoint", checkpoint?.ToValueString()) 
                 .AddOptionalParameter("output", output) 
                 ; 
             var __path = __pathBuilder.ToString();
@@ -85,6 +91,7 @@ namespace Together
                 httpRequestMessage: __httpRequest,
                 ftId: ftId,
                 checkpointStep: checkpointStep,
+                checkpoint: checkpoint,
                 output: output);
 
             using var __response = await HttpClient.SendAsync(

@@ -87,6 +87,8 @@ namespace Together
             typeof(global::Together.JsonConverters.ModelInfoTypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.RerankResponseObjectJsonConverter),
             typeof(global::Together.JsonConverters.RerankResponseObjectNullableJsonConverter),
+            typeof(global::Together.JsonConverters.CheckpointJsonConverter),
+            typeof(global::Together.JsonConverters.CheckpointNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionMessageParamJsonConverter),
             typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2),
             typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2),
