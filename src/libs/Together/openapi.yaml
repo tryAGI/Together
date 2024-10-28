@@ -417,9 +417,17 @@ paths:
             type: string
         - name: checkpoint_step
           in: query
-          description: Specifies step number for checkpoint to download.
+          description: Specifies step number for checkpoint to download. Ignores `checkpoint` value if set.
           schema:
             type: integer
+        - name: checkpoint
+          in: query
+          description: Specifies checkpoint type to download - `merged` vs `adapter`. This field is required if the checkpoint_step is not set.
+          schema:
+            enum:
+              - merged
+              - adapter
+            type: string
         - name: output
           in: query
           description: 'Specifies output file name for downloaded model. Defaults to `$PWD/{model_name}.{extension}`.'
