@@ -61,7 +61,7 @@ namespace Together
         public float? MinP { get; set; }
 
         /// <summary>
-        /// The name of the model to query.<br/>
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
         /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]

@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -45,12 +47,13 @@ namespace Together
         public float? MinP { get; set; }
 
         /// <summary>
-        /// The name of the model to query.<br/>
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public required global::Together.AnyOf<global::Together.CompletionRequestModel?, string> Model { get; set; }
 
         /// <summary>
         /// The number of completions to generate for each prompt.
@@ -83,7 +86,8 @@ namespace Together
         /// Example: safety_model_name
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_model")]
-        public string? SafetyModel { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
+        public global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>? SafetyModel { get; set; }
 
         /// <summary>
         /// Seed value for reproducibility.<br/>

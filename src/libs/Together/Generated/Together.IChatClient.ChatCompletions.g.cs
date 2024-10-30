@@ -42,7 +42,7 @@ namespace Together
         /// A number between 0 and 1 that can be used as an alternative to top_p and top-k.
         /// </param>
         /// <param name="model">
-        /// The name of the model to query.<br/>
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
         /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         /// </param>
         /// <param name="n">

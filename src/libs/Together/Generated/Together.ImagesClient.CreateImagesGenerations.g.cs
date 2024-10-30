@@ -124,7 +124,7 @@ namespace Together
         /// Default Value: 1024
         /// </param>
         /// <param name="model">
-        /// The model to use for image generation.<br/>
+        /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
         /// Example: stabilityai/stable-diffusion-xl-base-1.0
         /// </param>
         /// <param name="n">
@@ -152,7 +152,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
-            string model,
+            global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
             int? height = default,
             int? n = default,

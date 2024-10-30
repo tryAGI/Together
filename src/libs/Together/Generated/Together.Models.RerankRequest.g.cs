@@ -19,12 +19,13 @@ namespace Together
         public required global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
 
         /// <summary>
-        /// The model to be used for the rerank request.<br/>
+        /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>
         /// Example: Salesforce/Llama-Rank-V1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public required global::Together.AnyOf<global::Together.RerankRequestModel?, string> Model { get; set; }
 
         /// <summary>
         /// The search query to be used for ranking.<br/>
