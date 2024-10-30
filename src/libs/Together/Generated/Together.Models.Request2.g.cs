@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -16,12 +18,13 @@ namespace Together
         public int? Height { get; set; }
 
         /// <summary>
-        /// The model to use for image generation.<br/>
+        /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
         /// Example: stabilityai/stable-diffusion-xl-base-1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public required global::Together.AnyOf<global::Together.RequestModel?, string> Model { get; set; }
 
         /// <summary>
         /// Number of image results to generate.<br/>

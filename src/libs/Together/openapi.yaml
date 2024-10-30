@@ -465,7 +465,14 @@ paths:
                   default: 1024
                 model:
                   type: string
-                  description: The model to use for image generation.
+                  anyOf:
+                    - enum:
+                        - black-forest-labs/FLUX.1-schnell-Free
+                        - black-forest-labs/FLUX.1-schnell
+                        - black-forest-labs/FLUX.1.1-pro
+                      type: string
+                    - type: string
+                  description: "The model to use for image generation.<br> <br> [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)\n"
                   example: stabilityai/stable-diffusion-xl-base-1.0
                 n:
                   type: integer
@@ -905,7 +912,7 @@ components:
                 - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
               type: string
             - type: string
-          description: The name of the model to query.
+          description: "The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)\n"
           example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
         n:
           maximum: 128
@@ -1167,7 +1174,15 @@ components:
           format: float
         model:
           type: string
-          description: The name of the model to query.
+          anyOf:
+            - enum:
+                - meta-llama/Llama-2-70b-hf
+                - mistralai/Mistral-7B-v0.1
+                - mistralai/Mixtral-8x7B-v0.1
+                - Meta-Llama/Llama-Guard-7b
+              type: string
+            - type: string
+          description: "The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)\n"
           example: mistralai/Mixtral-8x7B-Instruct-v0.1
         n:
           maximum: 128
@@ -1188,6 +1203,11 @@ components:
           format: float
         safety_model:
           type: string
+          anyOf:
+            - enum:
+                - Meta-Llama/Llama-Guard-7b
+              type: string
+            - type: string
           description: 'The name of the moderation model used to validate tokens. Choose from the available moderation models found [here](https://docs.together.ai/docs/inference-models#moderation-models).'
           example: safety_model_name
         seed:
@@ -1279,7 +1299,15 @@ components:
           example: 'Our solar system orbits the Milky Way galaxy at about 515,000 mph'
         model:
           type: string
-          description: The name of the embedding model to use.
+          anyOf:
+            - enum:
+                - WhereIsAI/UAE-Large-V1
+                - BAAI/bge-large-en-v1.5
+                - BAAI/bge-base-en-v1.5
+                - togethercomputer/m2-bert-80M-8k-retrieval
+              type: string
+            - type: string
+          description: "The name of the embedding model to use.<br> <br> [See all of Together AI's embedding models](https://docs.together.ai/docs/serverless-models#embedding-models)\n"
           example: togethercomputer/m2-bert-80M-8k-retrieval
     EmbeddingsResponse:
       required:
@@ -1849,7 +1877,12 @@ components:
             title: Llama
         model:
           type: string
-          description: The model to be used for the rerank request.
+          anyOf:
+            - enum:
+                - Salesforce/Llama-Rank-v1
+              type: string
+            - type: string
+          description: "The model to be used for the rerank request.<br> <br> [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)\n"
           example: Salesforce/Llama-Rank-V1
         query:
           type: string

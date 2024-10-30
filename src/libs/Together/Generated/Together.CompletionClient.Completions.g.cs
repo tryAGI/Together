@@ -138,7 +138,7 @@ namespace Together
         /// A number between 0 and 1 that can be used as an alternative to top-p and top-k.
         /// </param>
         /// <param name="model">
-        /// The name of the model to query.<br/>
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </param>
         /// <param name="n">
@@ -180,7 +180,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.CompletionResponse> CompletionsAsync(
-            string model,
+            global::Together.AnyOf<global::Together.CompletionRequestModel?, string> model,
             string prompt,
             bool? echo = default,
             float? frequencyPenalty = default,
@@ -191,7 +191,7 @@ namespace Together
             int? n = default,
             float? presencePenalty = default,
             float? repetitionPenalty = default,
-            string? safetyModel = default,
+            global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>? safetyModel = default,
             int? seed = default,
             global::System.Collections.Generic.IList<string>? stop = default,
             bool? stream = default,

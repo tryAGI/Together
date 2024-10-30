@@ -123,7 +123,7 @@ namespace Together
         /// List of documents, which can be either strings or objects.
         /// </param>
         /// <param name="model">
-        /// The model to be used for the rerank request.<br/>
+        /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>
         /// Example: Salesforce/Llama-Rank-V1
         /// </param>
         /// <param name="query">
@@ -146,7 +146,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RerankResponse> RerankAsync(
             global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> documents,
-            string model,
+            global::Together.AnyOf<global::Together.RerankRequestModel?, string> model,
             string query,
             global::System.Collections.Generic.IList<string>? rankFields = default,
             bool? returnDocuments = default,
