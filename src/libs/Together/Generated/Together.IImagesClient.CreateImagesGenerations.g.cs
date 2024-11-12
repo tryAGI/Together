@@ -10,7 +10,7 @@ namespace Together
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
             global::Together.Request2 request,
             global::System.Threading.CancellationToken cancellationToken = default);

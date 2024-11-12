@@ -113,91 +113,61 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="FineTuneEvent" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="checkpointPath"></param>
+        /// <param name="createdAt"></param>
+        /// <param name="hash"></param>
+        /// <param name="level"></param>
+        /// <param name="message"></param>
+        /// <param name="modelPath"></param>
+        /// <param name="object"></param>
+        /// <param name="paramCount"></param>
+        /// <param name="step"></param>
+        /// <param name="tokenCount"></param>
+        /// <param name="totalSteps"></param>
+        /// <param name="trainingOffset"></param>
+        /// <param name="type"></param>
+        /// <param name="wandbUrl"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public FineTuneEvent(
+            string checkpointPath,
+            string createdAt,
+            string hash,
+            string message,
+            string modelPath,
+            int paramCount,
+            int step,
+            int tokenCount,
+            int totalSteps,
+            int trainingOffset,
+            global::Together.FineTuneEventType type,
+            string wandbUrl,
+            global::Together.FineTuneEventLevel? level,
+            global::Together.FineTuneEventObject @object)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.CheckpointPath = checkpointPath ?? throw new global::System.ArgumentNullException(nameof(checkpointPath));
+            this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
+            this.Hash = hash ?? throw new global::System.ArgumentNullException(nameof(hash));
+            this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
+            this.ModelPath = modelPath ?? throw new global::System.ArgumentNullException(nameof(modelPath));
+            this.ParamCount = paramCount;
+            this.Step = step;
+            this.TokenCount = tokenCount;
+            this.TotalSteps = totalSteps;
+            this.TrainingOffset = trainingOffset;
+            this.Type = type;
+            this.WandbUrl = wandbUrl ?? throw new global::System.ArgumentNullException(nameof(wandbUrl));
+            this.Level = level;
+            this.Object = @object;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="FineTuneEvent" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public FineTuneEvent()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::Together.FineTuneEvent? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::Together.FineTuneEvent),
-                jsonSerializerContext) as global::Together.FineTuneEvent;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::Together.FineTuneEvent? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Together.FineTuneEvent>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Together.FineTuneEvent?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::Together.FineTuneEvent),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Together.FineTuneEvent;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::Together.FineTuneEvent?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Together.FineTuneEvent?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

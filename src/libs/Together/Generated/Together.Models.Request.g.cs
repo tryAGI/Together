@@ -97,91 +97,83 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="Request" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="batchSize">
+        /// Batch size for fine-tuning<br/>
+        /// Default Value: 32
+        /// </param>
+        /// <param name="learningRate">
+        /// Learning rate multiplier to use for training<br/>
+        /// Default Value: 1E-05F
+        /// </param>
+        /// <param name="model">
+        /// Name of the base model to run fine-tune job on
+        /// </param>
+        /// <param name="nCheckpoints">
+        /// Number of checkpoints to save during fine-tuning<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="nEpochs">
+        /// Number of epochs for fine-tuning<br/>
+        /// Default Value: 1
+        /// </param>
+        /// <param name="nEvals">
+        /// Number of evaluations to be run on a given validation set during training<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="suffix">
+        /// Suffix that will be added to your fine-tuned model name
+        /// </param>
+        /// <param name="trainingFile">
+        /// File-ID of a training file uploaded to the Together API
+        /// </param>
+        /// <param name="trainingType"></param>
+        /// <param name="validationFile">
+        /// File-ID of a validation file uploaded to the Together API
+        /// </param>
+        /// <param name="wandbApiKey">
+        /// API key for Weights &amp; Biases integration
+        /// </param>
+        /// <param name="warmupRatio">
+        /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
+        /// Default Value: 0F
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public Request(
+            string model,
+            string trainingFile,
+            int? batchSize,
+            float? learningRate,
+            int? nCheckpoints,
+            int? nEpochs,
+            int? nEvals,
+            string? suffix,
+            global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
+            string? validationFile,
+            string? wandbApiKey,
+            float? warmupRatio)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
+            this.BatchSize = batchSize;
+            this.LearningRate = learningRate;
+            this.NCheckpoints = nCheckpoints;
+            this.NEpochs = nEpochs;
+            this.NEvals = nEvals;
+            this.Suffix = suffix;
+            this.TrainingType = trainingType;
+            this.ValidationFile = validationFile;
+            this.WandbApiKey = wandbApiKey;
+            this.WarmupRatio = warmupRatio;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="Request" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public Request()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::Together.Request? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::Together.Request),
-                jsonSerializerContext) as global::Together.Request;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::Together.Request? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Together.Request>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Together.Request?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::Together.Request),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Together.Request;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::Together.Request?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Together.Request?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

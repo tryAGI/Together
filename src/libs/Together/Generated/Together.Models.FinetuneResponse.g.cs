@@ -186,91 +186,103 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="FinetuneResponse" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="batchSize"></param>
+        /// <param name="createdAt"></param>
+        /// <param name="epochsCompleted"></param>
+        /// <param name="evalSteps"></param>
+        /// <param name="events"></param>
+        /// <param name="id"></param>
+        /// <param name="jobId"></param>
+        /// <param name="learningRate"></param>
+        /// <param name="model"></param>
+        /// <param name="modelOutputName"></param>
+        /// <param name="modelOutputPath"></param>
+        /// <param name="nCheckpoints"></param>
+        /// <param name="nEpochs"></param>
+        /// <param name="nEvals"></param>
+        /// <param name="paramCount"></param>
+        /// <param name="queueDepth"></param>
+        /// <param name="status"></param>
+        /// <param name="tokenCount"></param>
+        /// <param name="totalPrice"></param>
+        /// <param name="trainingFile"></param>
+        /// <param name="trainingType"></param>
+        /// <param name="trainingfileNumlines"></param>
+        /// <param name="trainingfileSize"></param>
+        /// <param name="updatedAt"></param>
+        /// <param name="validationFile"></param>
+        /// <param name="wandbProjectName"></param>
+        /// <param name="wandbUrl"></param>
+        /// <param name="warmupRatio"></param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public FinetuneResponse(
+            global::System.Guid id,
+            global::Together.FinetuneJobStatus status,
+            int? batchSize,
+            string? createdAt,
+            int? epochsCompleted,
+            int? evalSteps,
+            global::System.Collections.Generic.IList<global::Together.FinetuneEvent2>? events,
+            string? jobId,
+            double? learningRate,
+            string? model,
+            string? modelOutputName,
+            string? modelOutputPath,
+            int? nCheckpoints,
+            int? nEpochs,
+            int? nEvals,
+            int? paramCount,
+            int? queueDepth,
+            int? tokenCount,
+            int? totalPrice,
+            string? trainingFile,
+            global::Together.FinetuneResponseTrainingType? trainingType,
+            int? trainingfileNumlines,
+            int? trainingfileSize,
+            string? updatedAt,
+            string? validationFile,
+            string? wandbProjectName,
+            string? wandbUrl,
+            double? warmupRatio)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Id = id;
+            this.Status = status;
+            this.BatchSize = batchSize;
+            this.CreatedAt = createdAt;
+            this.EpochsCompleted = epochsCompleted;
+            this.EvalSteps = evalSteps;
+            this.Events = events;
+            this.JobId = jobId;
+            this.LearningRate = learningRate;
+            this.Model = model;
+            this.ModelOutputName = modelOutputName;
+            this.ModelOutputPath = modelOutputPath;
+            this.NCheckpoints = nCheckpoints;
+            this.NEpochs = nEpochs;
+            this.NEvals = nEvals;
+            this.ParamCount = paramCount;
+            this.QueueDepth = queueDepth;
+            this.TokenCount = tokenCount;
+            this.TotalPrice = totalPrice;
+            this.TrainingFile = trainingFile;
+            this.TrainingType = trainingType;
+            this.TrainingfileNumlines = trainingfileNumlines;
+            this.TrainingfileSize = trainingfileSize;
+            this.UpdatedAt = updatedAt;
+            this.ValidationFile = validationFile;
+            this.WandbProjectName = wandbProjectName;
+            this.WandbUrl = wandbUrl;
+            this.WarmupRatio = warmupRatio;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="FinetuneResponse" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public FinetuneResponse()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::Together.FinetuneResponse? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::Together.FinetuneResponse),
-                jsonSerializerContext) as global::Together.FinetuneResponse;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::Together.FinetuneResponse? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Together.FinetuneResponse>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Together.FinetuneResponse?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::Together.FinetuneResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Together.FinetuneResponse;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::Together.FinetuneResponse?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Together.FinetuneResponse?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }
