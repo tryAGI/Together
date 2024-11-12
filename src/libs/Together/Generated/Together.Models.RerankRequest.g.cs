@@ -22,6 +22,7 @@ namespace Together
         /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>
         /// Example: Salesforce/Llama-Rank-V1
         /// </summary>
+        /// <example>Salesforce/Llama-Rank-V1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,6 +32,7 @@ namespace Together
         /// The search query to be used for ranking.<br/>
         /// Example: What animals can I find near Peru?
         /// </summary>
+        /// <example>What animals can I find near Peru?</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Query { get; set; }
@@ -39,6 +41,7 @@ namespace Together
         /// List of keys in the JSON Object document to rank by. Defaults to use all supplied keys for ranking.<br/>
         /// Example: [title, text]
         /// </summary>
+        /// <example>[title, text]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("rank_fields")]
         public global::System.Collections.Generic.IList<string>? RankFields { get; set; }
 
@@ -46,6 +49,7 @@ namespace Together
         /// Whether to return supplied documents with the response.<br/>
         /// Example: true
         /// </summary>
+        /// <example>true</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("return_documents")]
         public bool? ReturnDocuments { get; set; }
 
@@ -53,6 +57,7 @@ namespace Together
         /// The number of top results to return.<br/>
         /// Example: 2
         /// </summary>
+        /// <example>2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_n")]
         public int? TopN { get; set; }
 
@@ -62,91 +67,54 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
-
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
+        /// Initializes a new instance of the <see cref="RerankRequest" /> class.
         /// </summary>
-        public string ToJson(
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
+        /// <param name="documents">
+        /// List of documents, which can be either strings or objects.
+        /// </param>
+        /// <param name="model">
+        /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>
+        /// Example: Salesforce/Llama-Rank-V1
+        /// </param>
+        /// <param name="query">
+        /// The search query to be used for ranking.<br/>
+        /// Example: What animals can I find near Peru?
+        /// </param>
+        /// <param name="rankFields">
+        /// List of keys in the JSON Object document to rank by. Defaults to use all supplied keys for ranking.<br/>
+        /// Example: [title, text]
+        /// </param>
+        /// <param name="returnDocuments">
+        /// Whether to return supplied documents with the response.<br/>
+        /// Example: true
+        /// </param>
+        /// <param name="topN">
+        /// The number of top results to return.<br/>
+        /// Example: 2
+        /// </param>
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public RerankRequest(
+            global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> documents,
+            global::Together.AnyOf<global::Together.RerankRequestModel?, string> model,
+            string query,
+            global::System.Collections.Generic.IList<string>? rankFields,
+            bool? returnDocuments,
+            int? topN)
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                this.GetType(),
-                jsonSerializerContext);
+            this.Documents = documents;
+            this.Model = model;
+            this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
+            this.RankFields = rankFields;
+            this.ReturnDocuments = returnDocuments;
+            this.TopN = topN;
         }
 
         /// <summary>
-        /// Serializes the current instance to a JSON string using the provided JsonSerializerOptions.
+        /// Initializes a new instance of the <see cref="RerankRequest" /> class.
         /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public string ToJson(
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
+        public RerankRequest()
         {
-            return global::System.Text.Json.JsonSerializer.Serialize(
-                this,
-                jsonSerializerOptions);
         }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerContext.
-        /// </summary>
-        public static global::Together.RerankRequest? FromJson(
-            string json,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize(
-                json,
-                typeof(global::Together.RerankRequest),
-                jsonSerializerContext) as global::Together.RerankRequest;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON string using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::Together.RerankRequest? FromJson(
-            string json,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Together.RerankRequest>(
-                json,
-                jsonSerializerOptions);
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerContext.
-        /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Together.RerankRequest?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
-        {
-            return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
-                jsonStream,
-                typeof(global::Together.RerankRequest),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Together.RerankRequest;
-        }
-
-        /// <summary>
-        /// Deserializes a JSON stream using the provided JsonSerializerOptions.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
-        [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
-#endif
-        public static global::System.Threading.Tasks.ValueTask<global::Together.RerankRequest?> FromJsonStream(
-            global::System.IO.Stream jsonStream,
-            global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
-        {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Together.RerankRequest?>(
-                jsonStream,
-                jsonSerializerOptions);
-        }
-
     }
 }

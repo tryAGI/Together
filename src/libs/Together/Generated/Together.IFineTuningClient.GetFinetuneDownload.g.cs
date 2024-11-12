@@ -13,7 +13,7 @@ namespace Together
         /// <param name="checkpoint"></param>
         /// <param name="output"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneDownloadResult> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
