@@ -100,11 +100,20 @@ namespace Together
             typeof(global::Together.JsonConverters.CheckpointJsonConverter),
             typeof(global::Together.JsonConverters.CheckpointNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionMessageParamJsonConverter),
-            typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2),
-            typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2),
             typeof(global::Together.JsonConverters.ChatCompletionStreamJsonConverter),
             typeof(global::Together.JsonConverters.CompletionStreamJsonConverter),
             typeof(global::Together.JsonConverters.FinetuneResponseTrainingTypeJsonConverter),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.ChatCompletionRequestModel?, string>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice2>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CompletionRequestModel?, string>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CompletionRequestSafetyModel?, string>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.EmbeddingsRequestModel?, string>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RerankRequestModel?, string>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JsonSerializerContextTypes))]
