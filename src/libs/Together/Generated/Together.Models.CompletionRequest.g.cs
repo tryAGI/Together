@@ -52,7 +52,7 @@ namespace Together
         /// </summary>
         /// <example>mistralai/Mixtral-8x7B-Instruct-v0.1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CompletionRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.AnyOf<global::Together.CompletionRequestModel?, string> Model { get; set; }
 
@@ -89,7 +89,7 @@ namespace Together
         /// </summary>
         /// <example>safety_model_name</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("safety_model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CompletionRequestSafetyModel?, string>))]
         public global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>? SafetyModel { get; set; }
 
         /// <summary>

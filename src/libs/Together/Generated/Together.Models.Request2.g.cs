@@ -23,7 +23,7 @@ namespace Together
         /// </summary>
         /// <example>stabilityai/stable-diffusion-xl-base-1.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.AnyOf<global::Together.RequestModel?, string> Model { get; set; }
 

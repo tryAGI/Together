@@ -15,7 +15,7 @@ namespace Together
         /// </summary>
         /// <example>Our solar system orbits the Milky Way galaxy at about 515,000 mph</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; }
 
@@ -25,7 +25,7 @@ namespace Together
         /// </summary>
         /// <example>togethercomputer/m2-bert-80M-8k-retrieval</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.EmbeddingsRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> Model { get; set; }
 

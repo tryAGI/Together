@@ -14,7 +14,7 @@ namespace Together
         /// List of documents, which can be either strings or objects.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
 
@@ -24,7 +24,7 @@ namespace Together
         /// </summary>
         /// <example>Salesforce/Llama-Rank-V1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverterFactory2))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RerankRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.AnyOf<global::Together.RerankRequestModel?, string> Model { get; set; }
 
