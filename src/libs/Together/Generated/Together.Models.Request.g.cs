@@ -59,6 +59,14 @@ namespace Together
         public string? Suffix { get; set; }
 
         /// <summary>
+        /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("train_on_inputs")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.RequestTrainOnInputs?>))]
+        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? TrainOnInputs { get; set; }
+
+        /// <summary>
         /// File-ID of a training file uploaded to the Together API
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_file")]
@@ -126,6 +134,10 @@ namespace Together
         /// <param name="suffix">
         /// Suffix that will be added to your fine-tuned model name
         /// </param>
+        /// <param name="trainOnInputs">
+        /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
+        /// Default Value: auto
+        /// </param>
         /// <param name="trainingFile">
         /// File-ID of a training file uploaded to the Together API
         /// </param>
@@ -150,6 +162,7 @@ namespace Together
             int? nEpochs,
             int? nEvals,
             string? suffix,
+            global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? trainOnInputs,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             string? validationFile,
             string? wandbApiKey,
@@ -163,6 +176,7 @@ namespace Together
             this.NEpochs = nEpochs;
             this.NEvals = nEvals;
             this.Suffix = suffix;
+            this.TrainOnInputs = trainOnInputs;
             this.TrainingType = trainingType;
             this.ValidationFile = validationFile;
             this.WandbApiKey = wandbApiKey;

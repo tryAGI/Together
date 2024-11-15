@@ -313,6 +313,15 @@ paths:
                 suffix:
                   type: string
                   description: Suffix that will be added to your fine-tuned model name
+                train_on_inputs:
+                  type: boolean
+                  oneOf:
+                    - type: boolean
+                    - enum:
+                        - auto
+                      type: string
+                  description: Whether to mask the user messages in conversational data or prompts in instruction data.
+                  default: auto
                 training_file:
                   type: string
                   description: File-ID of a training file uploaded to the Together API
@@ -1668,6 +1677,13 @@ components:
           type: integer
         total_price:
           type: integer
+        train_on_inputs:
+          oneOf:
+            - type: boolean
+            - enum:
+                - auto
+              type: string
+          default: auto
         training_file:
           type: string
         training_type:

@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -126,6 +128,13 @@ namespace Together
         public int? TotalPrice { get; set; }
 
         /// <summary>
+        /// Default Value: auto
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("train_on_inputs")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.FinetuneResponseTrainOnInputs?>))]
+        public global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? TrainOnInputs { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_file")]
@@ -208,6 +217,9 @@ namespace Together
         /// <param name="status"></param>
         /// <param name="tokenCount"></param>
         /// <param name="totalPrice"></param>
+        /// <param name="trainOnInputs">
+        /// Default Value: auto
+        /// </param>
         /// <param name="trainingFile"></param>
         /// <param name="trainingType"></param>
         /// <param name="trainingfileNumlines"></param>
@@ -238,6 +250,7 @@ namespace Together
             int? queueDepth,
             int? tokenCount,
             int? totalPrice,
+            global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? trainOnInputs,
             string? trainingFile,
             global::Together.FinetuneResponseTrainingType? trainingType,
             int? trainingfileNumlines,
@@ -267,6 +280,7 @@ namespace Together
             this.QueueDepth = queueDepth;
             this.TokenCount = tokenCount;
             this.TotalPrice = totalPrice;
+            this.TrainOnInputs = trainOnInputs;
             this.TrainingFile = trainingFile;
             this.TrainingType = trainingType;
             this.TrainingfileNumlines = trainingfileNumlines;
