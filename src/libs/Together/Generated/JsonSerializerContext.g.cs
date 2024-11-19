@@ -120,6 +120,7 @@ namespace Together
             typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.RequestTrainOnInputs?>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>),
+            typeof(global::Together.JsonConverters.UnixTimestampJsonConverter),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JsonSerializerContextTypes))]
