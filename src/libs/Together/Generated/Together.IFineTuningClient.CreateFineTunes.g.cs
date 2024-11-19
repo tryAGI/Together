@@ -27,6 +27,11 @@ namespace Together
         /// Learning rate multiplier to use for training<br/>
         /// Default Value: 1E-05F
         /// </param>
+        /// <param name="lrScheduler"></param>
+        /// <param name="maxGradNorm">
+        /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
+        /// Default Value: 1F
+        /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
         /// </param>
@@ -63,6 +68,10 @@ namespace Together
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
         /// Default Value: 0F
         /// </param>
+        /// <param name="weightDecay">
+        /// Weight decay<br/>
+        /// Default Value: 0F
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
@@ -70,6 +79,8 @@ namespace Together
             string trainingFile,
             int? batchSize = default,
             float? learningRate = default,
+            global::Together.LRScheduler? lrScheduler = default,
+            float? maxGradNorm = default,
             int? nCheckpoints = default,
             int? nEpochs = default,
             int? nEvals = default,
@@ -79,6 +90,7 @@ namespace Together
             string? validationFile = default,
             string? wandbApiKey = default,
             float? warmupRatio = default,
+            float? weightDecay = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

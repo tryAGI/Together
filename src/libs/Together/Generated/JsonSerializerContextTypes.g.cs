@@ -506,150 +506,158 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? Type122 { get; set; }
+        public global::Together.LRScheduler? Type122 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainOnInputs? Type123 { get; set; }
+        public global::Together.LinearLRSchedulerArgs? Type123 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainingType? Type124 { get; set; }
+        public global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? Type124 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FullTrainingType? Type125 { get; set; }
+        public global::Together.FinetuneResponseTrainOnInputs? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FullTrainingTypeType? Type126 { get; set; }
+        public global::Together.FinetuneResponseTrainingType? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.LoRATrainingType? Type127 { get; set; }
+        public global::Together.FullTrainingType? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.LoRATrainingTypeType? Type128 { get; set; }
+        public global::Together.FullTrainingTypeType? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainingTypeDiscriminator? Type129 { get; set; }
+        public global::Together.LoRATrainingType? Type129 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainingTypeDiscriminatorType? Type130 { get; set; }
+        public global::Together.LoRATrainingTypeType? Type130 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneListEvents? Type131 { get; set; }
+        public global::Together.FinetuneResponseTrainingTypeDiscriminator? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Type132 { get; set; }
+        public global::Together.FinetuneResponseTrainingTypeDiscriminatorType? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ImageResponse? Type133 { get; set; }
+        public global::Together.FinetuneListEvents? Type133 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ImageResponseDataItem>? Type134 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Type134 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ImageResponseDataItem? Type135 { get; set; }
+        public global::Together.ImageResponse? Type135 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ImageResponseObject? Type136 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ImageResponseDataItem>? Type136 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ModelInfo? Type137 { get; set; }
+        public global::Together.ImageResponseDataItem? Type137 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Pricing? Type138 { get; set; }
+        public global::Together.ImageResponseObject? Type138 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ModelInfoType? Type139 { get; set; }
+        public global::Together.ModelInfo? Type139 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ModelInfo>? Type140 { get; set; }
+        public global::Together.Pricing? Type140 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankRequest? Type141 { get; set; }
+        public global::Together.ModelInfoType? Type141 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>? Type142 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ModelInfo>? Type142 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<object>? Type143 { get; set; }
+        public global::Together.RerankRequest? Type143 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RerankRequestModel?, string>? Type144 { get; set; }
+        public global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>? Type144 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankRequestModel? Type145 { get; set; }
+        public global::System.Collections.Generic.IList<object>? Type145 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponse? Type146 { get; set; }
+        public global::Together.AnyOf<global::Together.RerankRequestModel?, string>? Type146 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponseObject? Type147 { get; set; }
+        public global::Together.RerankRequestModel? Type147 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RerankResponseResult>? Type148 { get; set; }
+        public global::Together.RerankResponse? Type148 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponseResult? Type149 { get; set; }
+        public global::Together.RerankResponseObject? Type149 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponseResultDocument? Type150 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RerankResponseResult>? Type150 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request? Type151 { get; set; }
+        public global::Together.RerankResponseResult? Type151 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type152 { get; set; }
+        public global::Together.RerankResponseResultDocument? Type152 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestTrainOnInputs? Type153 { get; set; }
+        public global::Together.Request? Type153 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type154 { get; set; }
+        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type154 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request2? Type155 { get; set; }
+        public global::Together.RequestTrainOnInputs? Type155 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type156 { get; set; }
+        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type156 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestModel? Type157 { get; set; }
+        public global::Together.Request2? Type157 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Checkpoint? Type158 { get; set; }
+        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type158 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.RequestModel? Type159 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.Checkpoint? Type160 { get; set; }
     }
 }

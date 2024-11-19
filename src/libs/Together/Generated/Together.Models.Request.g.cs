@@ -25,6 +25,19 @@ namespace Together
         public float? LearningRate { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler")]
+        public global::Together.LRScheduler? LrScheduler { get; set; }
+
+        /// <summary>
+        /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
+        /// Default Value: 1F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_grad_norm")]
+        public float? MaxGradNorm { get; set; }
+
+        /// <summary>
         /// Name of the base model to run fine-tune job on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -100,6 +113,13 @@ namespace Together
         public float? WarmupRatio { get; set; }
 
         /// <summary>
+        /// Weight decay<br/>
+        /// Default Value: 0F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
+        public float? WeightDecay { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -115,6 +135,11 @@ namespace Together
         /// <param name="learningRate">
         /// Learning rate multiplier to use for training<br/>
         /// Default Value: 1E-05F
+        /// </param>
+        /// <param name="lrScheduler"></param>
+        /// <param name="maxGradNorm">
+        /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
+        /// Default Value: 1F
         /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
@@ -152,12 +177,18 @@ namespace Together
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
         /// Default Value: 0F
         /// </param>
+        /// <param name="weightDecay">
+        /// Weight decay<br/>
+        /// Default Value: 0F
+        /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public Request(
             string model,
             string trainingFile,
             int? batchSize,
             float? learningRate,
+            global::Together.LRScheduler? lrScheduler,
+            float? maxGradNorm,
             int? nCheckpoints,
             int? nEpochs,
             int? nEvals,
@@ -166,12 +197,15 @@ namespace Together
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             string? validationFile,
             string? wandbApiKey,
-            float? warmupRatio)
+            float? warmupRatio,
+            float? weightDecay)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.BatchSize = batchSize;
             this.LearningRate = learningRate;
+            this.LrScheduler = lrScheduler;
+            this.MaxGradNorm = maxGradNorm;
             this.NCheckpoints = nCheckpoints;
             this.NEpochs = nEpochs;
             this.NEvals = nEvals;
@@ -181,6 +215,7 @@ namespace Together
             this.ValidationFile = validationFile;
             this.WandbApiKey = wandbApiKey;
             this.WarmupRatio = warmupRatio;
+            this.WeightDecay = weightDecay;
         }
 
         /// <summary>

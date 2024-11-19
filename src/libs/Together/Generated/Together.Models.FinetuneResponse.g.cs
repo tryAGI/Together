@@ -62,6 +62,18 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler")]
+        public global::Together.LRScheduler? LrScheduler { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_grad_norm")]
+        public float? MaxGradNorm { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         public string? Model { get; set; }
 
@@ -190,6 +202,12 @@ namespace Together
         public double? WarmupRatio { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
+        public float? WeightDecay { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -206,6 +224,8 @@ namespace Together
         /// <param name="id"></param>
         /// <param name="jobId"></param>
         /// <param name="learningRate"></param>
+        /// <param name="lrScheduler"></param>
+        /// <param name="maxGradNorm"></param>
         /// <param name="model"></param>
         /// <param name="modelOutputName"></param>
         /// <param name="modelOutputPath"></param>
@@ -229,6 +249,7 @@ namespace Together
         /// <param name="wandbProjectName"></param>
         /// <param name="wandbUrl"></param>
         /// <param name="warmupRatio"></param>
+        /// <param name="weightDecay"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public FinetuneResponse(
             global::System.Guid id,
@@ -240,6 +261,8 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.FinetuneEvent2>? events,
             string? jobId,
             double? learningRate,
+            global::Together.LRScheduler? lrScheduler,
+            float? maxGradNorm,
             string? model,
             string? modelOutputName,
             string? modelOutputPath,
@@ -259,7 +282,8 @@ namespace Together
             string? validationFile,
             string? wandbProjectName,
             string? wandbUrl,
-            double? warmupRatio)
+            double? warmupRatio,
+            float? weightDecay)
         {
             this.Id = id;
             this.Status = status;
@@ -270,6 +294,8 @@ namespace Together
             this.Events = events;
             this.JobId = jobId;
             this.LearningRate = learningRate;
+            this.LrScheduler = lrScheduler;
+            this.MaxGradNorm = maxGradNorm;
             this.Model = model;
             this.ModelOutputName = modelOutputName;
             this.ModelOutputPath = modelOutputPath;
@@ -290,6 +316,7 @@ namespace Together
             this.WandbProjectName = wandbProjectName;
             this.WandbUrl = wandbUrl;
             this.WarmupRatio = warmupRatio;
+            this.WeightDecay = weightDecay;
         }
 
         /// <summary>
