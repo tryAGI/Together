@@ -106,6 +106,24 @@ namespace Together
         public string? WandbApiKey { get; set; }
 
         /// <summary>
+        /// The base URL of a dedicated Weights &amp; Biases instance.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("wandb_base_url")]
+        public string? WandbBaseUrl { get; set; }
+
+        /// <summary>
+        /// The Weights &amp; Biases name for your run.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("wandb_name")]
+        public string? WandbName { get; set; }
+
+        /// <summary>
+        /// The Weights &amp; Biases project for your run. If not specified, will use `together` as the project name.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("wandb_project_name")]
+        public string? WandbProjectName { get; set; }
+
+        /// <summary>
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
         /// Default Value: 0F
         /// </summary>
@@ -173,6 +191,15 @@ namespace Together
         /// <param name="wandbApiKey">
         /// API key for Weights &amp; Biases integration
         /// </param>
+        /// <param name="wandbBaseUrl">
+        /// The base URL of a dedicated Weights &amp; Biases instance.
+        /// </param>
+        /// <param name="wandbName">
+        /// The Weights &amp; Biases name for your run.
+        /// </param>
+        /// <param name="wandbProjectName">
+        /// The Weights &amp; Biases project for your run. If not specified, will use `together` as the project name.
+        /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
         /// Default Value: 0F
@@ -197,6 +224,9 @@ namespace Together
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             string? validationFile,
             string? wandbApiKey,
+            string? wandbBaseUrl,
+            string? wandbName,
+            string? wandbProjectName,
             float? warmupRatio,
             float? weightDecay)
         {
@@ -214,6 +244,9 @@ namespace Together
             this.TrainingType = trainingType;
             this.ValidationFile = validationFile;
             this.WandbApiKey = wandbApiKey;
+            this.WandbBaseUrl = wandbBaseUrl;
+            this.WandbName = wandbName;
+            this.WandbProjectName = wandbProjectName;
             this.WarmupRatio = warmupRatio;
             this.WeightDecay = weightDecay;
         }
