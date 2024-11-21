@@ -343,6 +343,15 @@ paths:
                 wandb_api_key:
                   type: string
                   description: API key for Weights & Biases integration
+                wandb_base_url:
+                  type: string
+                  description: The base URL of a dedicated Weights & Biases instance.
+                wandb_name:
+                  type: string
+                  description: The Weights & Biases name for your run.
+                wandb_project_name:
+                  type: string
+                  description: 'The Weights & Biases project for your run. If not specified, will use `together` as the project name.'
                 warmup_ratio:
                   type: number
                   description: The percent of steps at the start of training to linearly increase the learning rate.

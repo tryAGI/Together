@@ -64,6 +64,15 @@ namespace Together
         /// <param name="wandbApiKey">
         /// API key for Weights &amp; Biases integration
         /// </param>
+        /// <param name="wandbBaseUrl">
+        /// The base URL of a dedicated Weights &amp; Biases instance.
+        /// </param>
+        /// <param name="wandbName">
+        /// The Weights &amp; Biases name for your run.
+        /// </param>
+        /// <param name="wandbProjectName">
+        /// The Weights &amp; Biases project for your run. If not specified, will use `together` as the project name.
+        /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
         /// Default Value: 0F
@@ -89,6 +98,9 @@ namespace Together
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? validationFile = default,
             string? wandbApiKey = default,
+            string? wandbBaseUrl = default,
+            string? wandbName = default,
+            string? wandbProjectName = default,
             float? warmupRatio = default,
             float? weightDecay = default,
             global::System.Threading.CancellationToken cancellationToken = default);
