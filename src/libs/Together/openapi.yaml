@@ -493,6 +493,9 @@ paths:
                   type: integer
                   description: Height of the image to generate in number of pixels.
                   default: 1024
+                image_url:
+                  type: string
+                  description: URL of an image to use for image models that support it.
                 model:
                   type: string
                   anyOf:
@@ -503,7 +506,7 @@ paths:
                       type: string
                     - type: string
                   description: "The model to use for image generation.<br> <br> [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)\n"
-                  example: stabilityai/stable-diffusion-xl-base-1.0
+                  example: black-forest-labs/FLUX.1-schnell
                 n:
                   type: integer
                   description: Number of image results to generate.
@@ -515,6 +518,12 @@ paths:
                   type: string
                   description: A description of the desired images. Maximum length varies by model.
                   example: 'cat floating in space, cinematic'
+                response_format:
+                  enum:
+                    - base64
+                    - url
+                  type: string
+                  description: Format of the image response. Can be either a base64 string or a URL.
                 seed:
                   type: integer
                   description: Seed used for generation. Can be used to reproduce image generations.
@@ -918,7 +927,43 @@ components:
             properties:
               content:
                 type: string
-                description: The contents of the message.
+                oneOf:
+                  - type: string
+                    description: A plain text message.
+                  - type: array
+                    items:
+                      type: object
+                      oneOf:
+                        - required:
+                            - type
+                            - text
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                            type:
+                              enum:
+                                - text
+                              type: string
+                        - required:
+                            - type
+                            - image_url
+                          type: object
+                          properties:
+                            image_url:
+                              required:
+                                - url
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                  description: The URL of the image as a plain string.
+                            type:
+                              enum:
+                                - image_url
+                              type: string
+                    description: A structured message with mixed content types.
+                description: 'The content of the message, which can either be a simple string or a structured format.'
               role:
                 enum:
                   - system
@@ -1763,14 +1808,20 @@ components:
           type: array
           items:
             required:
-              - b64_json
               - index
             type: object
+            oneOf:
+              - required:
+                  - b64_json
+              - required:
+                  - url
             properties:
               b64_json:
                 type: string
               index:
                 type: integer
+              url:
+                type: string
         id:
           type: string
         model:

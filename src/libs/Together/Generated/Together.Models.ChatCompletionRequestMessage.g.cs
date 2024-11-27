@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -9,11 +11,12 @@ namespace Together
     public sealed partial class ChatCompletionRequestMessage
     {
         /// <summary>
-        /// The contents of the message.
+        /// The content of the message, which can either be a simple string or a structured format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Content { get; set; }
+        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>> Content { get; set; }
 
         /// <summary>
         /// The role of the messages author. Choice between: system, user, or assistant.
@@ -33,17 +36,17 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionRequestMessage" /> class.
         /// </summary>
         /// <param name="content">
-        /// The contents of the message.
+        /// The content of the message, which can either be a simple string or a structured format.
         /// </param>
         /// <param name="role">
         /// The role of the messages author. Choice between: system, user, or assistant.
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ChatCompletionRequestMessage(
-            string content,
+            global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>> content,
             global::Together.ChatCompletionRequestMessageRole role)
         {
-            this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
+            this.Content = content;
             this.Role = role;
         }
 

@@ -18,10 +18,16 @@ namespace Together
         public int? Height { get; set; }
 
         /// <summary>
-        /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
-        /// Example: stabilityai/stable-diffusion-xl-base-1.0
+        /// URL of an image to use for image models that support it.
         /// </summary>
-        /// <example>stabilityai/stable-diffusion-xl-base-1.0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
+        public string? ImageUrl { get; set; }
+
+        /// <summary>
+        /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
+        /// Example: black-forest-labs/FLUX.1-schnell
+        /// </summary>
+        /// <example>black-forest-labs/FLUX.1-schnell</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -48,6 +54,13 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Prompt { get; set; }
+
+        /// <summary>
+        /// Format of the image response. Can be either a base64 string or a URL.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RequestResponseFormatJsonConverter))]
+        public global::Together.RequestResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// Seed used for generation. Can be used to reproduce image generations.
@@ -82,9 +95,12 @@ namespace Together
         /// Height of the image to generate in number of pixels.<br/>
         /// Default Value: 1024
         /// </param>
+        /// <param name="imageUrl">
+        /// URL of an image to use for image models that support it.
+        /// </param>
         /// <param name="model">
         /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
-        /// Example: stabilityai/stable-diffusion-xl-base-1.0
+        /// Example: black-forest-labs/FLUX.1-schnell
         /// </param>
         /// <param name="n">
         /// Number of image results to generate.<br/>
@@ -96,6 +112,9 @@ namespace Together
         /// <param name="prompt">
         /// A description of the desired images. Maximum length varies by model.<br/>
         /// Example: cat floating in space, cinematic
+        /// </param>
+        /// <param name="responseFormat">
+        /// Format of the image response. Can be either a base64 string or a URL.
         /// </param>
         /// <param name="seed">
         /// Seed used for generation. Can be used to reproduce image generations.
@@ -113,8 +132,10 @@ namespace Together
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
             int? height,
+            string? imageUrl,
             int? n,
             string? negativePrompt,
+            global::Together.RequestResponseFormat? responseFormat,
             int? seed,
             int? steps,
             int? width)
@@ -122,8 +143,10 @@ namespace Together
             this.Model = model;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Height = height;
+            this.ImageUrl = imageUrl;
             this.N = n;
             this.NegativePrompt = negativePrompt;
+            this.ResponseFormat = responseFormat;
             this.Seed = seed;
             this.Steps = steps;
             this.Width = width;

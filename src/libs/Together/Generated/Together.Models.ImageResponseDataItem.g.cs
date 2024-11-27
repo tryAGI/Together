@@ -12,8 +12,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("b64_json")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string B64Json { get; set; }
+        public string? B64Json { get; set; }
 
         /// <summary>
         /// 
@@ -21,6 +20,12 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Index { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        public string? Url { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,13 +38,16 @@ namespace Together
         /// </summary>
         /// <param name="b64Json"></param>
         /// <param name="index"></param>
+        /// <param name="url"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public ImageResponseDataItem(
-            string b64Json,
-            int index)
+            int index,
+            string? b64Json,
+            string? url)
         {
-            this.B64Json = b64Json ?? throw new global::System.ArgumentNullException(nameof(b64Json));
             this.Index = index;
+            this.B64Json = b64Json;
+            this.Url = url;
         }
 
         /// <summary>

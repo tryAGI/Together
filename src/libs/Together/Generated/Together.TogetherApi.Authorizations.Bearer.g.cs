@@ -5,10 +5,7 @@ namespace Together
 {
     public sealed partial class TogetherApi
     {
-        /// <summary>
-        /// Authorize using bearer authentication.
-        /// </summary>
-        /// <param name="apiKey"></param>
+        /// <inheritdoc/>
         public void AuthorizeUsingBearer(
             string apiKey)
         {
