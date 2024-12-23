@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   title: Together APIs
   description: The Together REST API. Please see https://docs.together.ai for more details.
