@@ -4,11 +4,10 @@
 namespace Together
 {
     /// <summary>
-    /// The Together REST API. Please see https://docs.together.ai for more details.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class TogetherApi : global::Together.ITogetherApi, global::System.IDisposable
+    public sealed partial class AudioClient : global::Together.IAudioClient, global::System.IDisposable
     {
         /// <summary>
         /// 
@@ -38,88 +37,7 @@ namespace Together
 
 
         /// <summary>
-        /// 
-        /// </summary>
-        public AudioClient Audio => new AudioClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ChatClient Chat => new ChatClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CompletionClient Completion => new CompletionClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EmbeddingsClient Embeddings => new EmbeddingsClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public FilesClient Files => new FilesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public FineTuningClient FineTuning => new FineTuningClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ImagesClient Images => new ImagesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public RerankClient Rerank => new RerankClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Creates a new instance of the TogetherApi.
+        /// Creates a new instance of the AudioClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -127,7 +45,7 @@ namespace Together
         /// <param name="baseUri">The base URL for the API. If not provided, the default baseUri from OpenAPI spec will be used.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public TogetherApi(
+        public AudioClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::Together.EndPointAuthorization>? authorizations = null,

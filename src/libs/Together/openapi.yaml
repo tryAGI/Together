@@ -13,6 +13,49 @@ info:
 servers:
   - url: https://api.together.xyz/v1
 paths:
+  /audio/speech:
+    post:
+      tags:
+        - Audio
+      summary: Create audio generation request
+      description: Generate audio from input text
+      operationId: audio-speech
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AudioSpeechRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+            audio/mpeg:
+              schema:
+                type: string
+                format: binary
+            audio/wav:
+              schema:
+                type: string
+                format: binary
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/AudioSpeechStreamResponse'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
+        '429':
+          description: RateLimit
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
   /chat/completions:
     post:
       tags:
@@ -644,6 +687,107 @@ paths:
                 $ref: '#/components/schemas/ErrorData'
 components:
   schemas:
+    AudioSpeechRequest:
+      required:
+        - model
+        - input
+        - voice
+      type: object
+      properties:
+        input:
+          type: string
+          description: Input text to generate the audio for
+        language:
+          enum:
+            - en
+            - de
+            - fr
+            - es
+            - hi
+            - it
+            - ja
+            - ko
+            - nl
+            - pl
+            - pt
+            - ru
+            - sv
+            - tr
+            - zh
+          type: string
+          description: Language of input text
+          default: en
+        model:
+          anyOf:
+            - enum:
+                - cartesia/sonic
+              type: string
+            - type: string
+          description: "The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#audio-models)\n"
+          example: cartesia/sonic
+        response_encoding:
+          enum:
+            - pcm_f32le
+            - pcm_s16le
+            - pcm_mulaw
+            - pcm_alaw
+          type: string
+          description: Audio encoding of response
+          default: pcm_f32le
+        response_format:
+          enum:
+            - mp3
+            - wav
+            - raw
+          type: string
+          description: The format of audio output
+          default: wav
+        sample_rate:
+          type: number
+          description: Sampling rate to use for the output audio
+          default: 44100
+        stream:
+          type: boolean
+          description: 'If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream'
+          default: false
+        voice:
+          anyOf:
+            - enum:
+                - laidback woman
+                - polite man
+                - storyteller lady
+                - friendly sidekick
+              type: string
+            - type: string
+          description: 'The voice to use for generating the audio. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).'
+    AudioSpeechStreamChunk:
+      required:
+        - object
+        - model
+        - b64
+      type: object
+      properties:
+        b64:
+          type: string
+          description: base64 encoded audio stream
+        model:
+          type: string
+          example: cartesia/sonic
+        object:
+          enum:
+            - audio.tts.chunk
+          type: string
+    AudioSpeechStreamEvent:
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/AudioSpeechStreamChunk'
+    AudioSpeechStreamResponse:
+      oneOf:
+        - $ref: '#/components/schemas/AudioSpeechStreamEvent'
+        - $ref: '#/components/schemas/StreamSentinel'
     ChatCompletionAssistantMessageParam:
       required:
         - role
