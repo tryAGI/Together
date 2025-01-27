@@ -11,11 +11,24 @@ namespace Together
     public sealed partial class Request2
     {
         /// <summary>
+        /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
+        /// Default Value: 3.5
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("guidance")]
+        public double? Guidance { get; set; }
+
+        /// <summary>
         /// Height of the image to generate in number of pixels.<br/>
         /// Default Value: 1024
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("height")]
         public int? Height { get; set; }
+
+        /// <summary>
+        /// An array of objects that define LoRAs (Low-Rank Adaptations) to influence the generated image.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_loras")]
+        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? ImageLoras { get; set; }
 
         /// <summary>
         /// URL of an image to use for image models that support it.
@@ -91,9 +104,16 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="Request2" /> class.
         /// </summary>
+        /// <param name="guidance">
+        /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
+        /// Default Value: 3.5
+        /// </param>
         /// <param name="height">
         /// Height of the image to generate in number of pixels.<br/>
         /// Default Value: 1024
+        /// </param>
+        /// <param name="imageLoras">
+        /// An array of objects that define LoRAs (Low-Rank Adaptations) to influence the generated image.
         /// </param>
         /// <param name="imageUrl">
         /// URL of an image to use for image models that support it.
@@ -131,7 +151,9 @@ namespace Together
         public Request2(
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
+            double? guidance,
             int? height,
+            global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras,
             string? imageUrl,
             int? n,
             string? negativePrompt,
@@ -142,7 +164,9 @@ namespace Together
         {
             this.Model = model;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Guidance = guidance;
             this.Height = height;
+            this.ImageLoras = imageLoras;
             this.ImageUrl = imageUrl;
             this.N = n;
             this.NegativePrompt = negativePrompt;

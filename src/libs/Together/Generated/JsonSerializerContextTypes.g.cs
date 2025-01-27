@@ -746,22 +746,30 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type180 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? Type180 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestModel? Type181 { get; set; }
+        public global::Together.RequestImageLora? Type181 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestResponseFormat? Type182 { get; set; }
+        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type182 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Checkpoint? Type183 { get; set; }
+        public global::Together.RequestModel? Type183 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type184 { get; set; }
+        public global::Together.RequestResponseFormat? Type184 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.Checkpoint? Type185 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte[]? Type186 { get; set; }
     }
 }

@@ -19,9 +19,16 @@ namespace Together
         /// Create image<br/>
         /// Use an image model to generate an image for a given prompt.
         /// </summary>
+        /// <param name="guidance">
+        /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
+        /// Default Value: 3.5
+        /// </param>
         /// <param name="height">
         /// Height of the image to generate in number of pixels.<br/>
         /// Default Value: 1024
+        /// </param>
+        /// <param name="imageLoras">
+        /// An array of objects that define LoRAs (Low-Rank Adaptations) to influence the generated image.
         /// </param>
         /// <param name="imageUrl">
         /// URL of an image to use for image models that support it.
@@ -60,7 +67,9 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
+            double? guidance = default,
             int? height = default,
+            global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras = default,
             string? imageUrl = default,
             int? n = default,
             string? negativePrompt = default,
