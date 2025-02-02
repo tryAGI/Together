@@ -44,6 +44,10 @@ namespace Together
         /// <param name="negativePrompt">
         /// The prompt or prompts not to guide the image generation.
         /// </param>
+        /// <param name="outputFormat">
+        /// The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.<br/>
+        /// Default Value: jpeg
+        /// </param>
         /// <param name="prompt">
         /// A description of the desired images. Maximum length varies by model.<br/>
         /// Example: cat floating in space, cinematic
@@ -73,6 +77,7 @@ namespace Together
             string? imageUrl = default,
             int? n = default,
             string? negativePrompt = default,
+            global::Together.RequestOutputFormat? outputFormat = default,
             global::Together.RequestResponseFormat? responseFormat = default,
             int? seed = default,
             int? steps = default,

@@ -60,6 +60,14 @@ namespace Together
         public string? NegativePrompt { get; set; }
 
         /// <summary>
+        /// The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.<br/>
+        /// Default Value: jpeg
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RequestOutputFormatJsonConverter))]
+        public global::Together.RequestOutputFormat? OutputFormat { get; set; }
+
+        /// <summary>
         /// A description of the desired images. Maximum length varies by model.<br/>
         /// Example: cat floating in space, cinematic
         /// </summary>
@@ -129,6 +137,10 @@ namespace Together
         /// <param name="negativePrompt">
         /// The prompt or prompts not to guide the image generation.
         /// </param>
+        /// <param name="outputFormat">
+        /// The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.<br/>
+        /// Default Value: jpeg
+        /// </param>
         /// <param name="prompt">
         /// A description of the desired images. Maximum length varies by model.<br/>
         /// Example: cat floating in space, cinematic
@@ -157,6 +169,7 @@ namespace Together
             string? imageUrl,
             int? n,
             string? negativePrompt,
+            global::Together.RequestOutputFormat? outputFormat,
             global::Together.RequestResponseFormat? responseFormat,
             int? seed,
             int? steps,
@@ -170,6 +183,7 @@ namespace Together
             this.ImageUrl = imageUrl;
             this.N = n;
             this.NegativePrompt = negativePrompt;
+            this.OutputFormat = outputFormat;
             this.ResponseFormat = responseFormat;
             this.Seed = seed;
             this.Steps = steps;

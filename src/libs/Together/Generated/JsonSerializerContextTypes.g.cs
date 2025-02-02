@@ -762,14 +762,18 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestResponseFormat? Type184 { get; set; }
+        public global::Together.RequestOutputFormat? Type184 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Checkpoint? Type185 { get; set; }
+        public global::Together.RequestResponseFormat? Type185 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type186 { get; set; }
+        public global::Together.Checkpoint? Type186 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public byte[]? Type187 { get; set; }
     }
 }

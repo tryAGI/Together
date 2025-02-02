@@ -576,6 +576,13 @@ paths:
                 negative_prompt:
                   type: string
                   description: The prompt or prompts not to guide the image generation.
+                output_format:
+                  enum:
+                    - jpeg
+                    - png
+                  type: string
+                  description: The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.
+                  default: jpeg
                 prompt:
                   type: string
                   description: A description of the desired images. Maximum length varies by model.
