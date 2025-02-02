@@ -119,6 +119,8 @@ namespace Together
             typeof(global::Together.JsonConverters.RequestTrainOnInputsNullableJsonConverter),
             typeof(global::Together.JsonConverters.RequestModelJsonConverter),
             typeof(global::Together.JsonConverters.RequestModelNullableJsonConverter),
+            typeof(global::Together.JsonConverters.RequestOutputFormatJsonConverter),
+            typeof(global::Together.JsonConverters.RequestOutputFormatNullableJsonConverter),
             typeof(global::Together.JsonConverters.RequestResponseFormatJsonConverter),
             typeof(global::Together.JsonConverters.RequestResponseFormatNullableJsonConverter),
             typeof(global::Together.JsonConverters.CheckpointJsonConverter),
