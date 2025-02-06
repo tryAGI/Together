@@ -11,6 +11,14 @@ namespace Together
     public sealed partial class ChatCompletionRequest
     {
         /// <summary>
+        /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+        /// Default Value: error
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("context_length_exceeded_behavior")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionRequestContextLengthExceededBehaviorJsonConverter))]
+        public global::Together.ChatCompletionRequestContextLengthExceededBehavior? ContextLengthExceededBehavior { get; set; }
+
+        /// <summary>
         /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("echo")]
@@ -162,6 +170,10 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionRequest" /> class.
         /// </summary>
+        /// <param name="contextLengthExceededBehavior">
+        /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+        /// Default Value: error
+        /// </param>
         /// <param name="echo">
         /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </param>
@@ -233,6 +245,7 @@ namespace Together
         public ChatCompletionRequest(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> messages,
             global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
+            global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior,
             bool? echo,
             float? frequencyPenalty,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall,
@@ -256,6 +269,7 @@ namespace Together
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.Model = model;
+            this.ContextLengthExceededBehavior = contextLengthExceededBehavior;
             this.Echo = echo;
             this.FrequencyPenalty = frequencyPenalty;
             this.FunctionCall = functionCall;

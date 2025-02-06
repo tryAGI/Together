@@ -330,6 +330,10 @@ namespace Together
         /// Create chat completion<br/>
         /// Query a chat model.
         /// </summary>
+        /// <param name="contextLengthExceededBehavior">
+        /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+        /// Default Value: error
+        /// </param>
         /// <param name="echo">
         /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </param>
@@ -402,6 +406,7 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> messages,
             global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
+            global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior = default,
             bool? echo = default,
             float? frequencyPenalty = default,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
@@ -426,6 +431,7 @@ namespace Together
         {
             var __request = new global::Together.ChatCompletionRequest
             {
+                ContextLengthExceededBehavior = contextLengthExceededBehavior,
                 Echo = echo,
                 FrequencyPenalty = frequencyPenalty,
                 FunctionCall = functionCall,
