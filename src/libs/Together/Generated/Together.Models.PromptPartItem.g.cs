@@ -34,7 +34,9 @@ namespace Together
         /// <param name="text">
         /// Example: &lt;s&gt;[INST] What is the capital of France? [/INST]
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public PromptPartItem(
             global::Together.LogprobsPart? logprobs,
             string? text)

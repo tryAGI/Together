@@ -27,7 +27,9 @@ namespace Together
         /// <param name="url">
         /// The URL of the image as a plain string.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionRequestMessageContentVariant2ItemVariant2ImageUrl(
             string url)
         {

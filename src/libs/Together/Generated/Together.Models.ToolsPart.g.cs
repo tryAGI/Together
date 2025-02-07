@@ -34,7 +34,9 @@ namespace Together
         /// <param name="type">
         /// Example: tool_type
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolsPart(
             global::Together.ToolsPartFunction? function,
             string? type)

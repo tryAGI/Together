@@ -32,7 +32,9 @@ namespace Together
         /// </summary>
         /// <param name="lrSchedulerArgs"></param>
         /// <param name="lrSchedulerType"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LRScheduler(
             string lrSchedulerType,
             global::Together.LinearLRSchedulerArgs? lrSchedulerArgs)

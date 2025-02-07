@@ -60,7 +60,9 @@ namespace Together
         /// <param name="message"></param>
         /// <param name="seed"></param>
         /// <param name="text"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionChoicesDataItem(
             global::Together.FinishReason? finishReason,
             int? index,

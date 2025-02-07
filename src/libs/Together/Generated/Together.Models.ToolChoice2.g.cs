@@ -49,7 +49,9 @@ namespace Together
         /// <param name="id"></param>
         /// <param name="index"></param>
         /// <param name="type"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolChoice2(
             global::Together.ToolChoiceFunction function,
             string id,

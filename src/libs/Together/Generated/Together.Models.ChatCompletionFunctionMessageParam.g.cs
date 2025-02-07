@@ -45,7 +45,9 @@ namespace Together
         /// <param name="content"></param>
         /// <param name="name"></param>
         /// <param name="role"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionFunctionMessageParam(
             string content,
             string name,

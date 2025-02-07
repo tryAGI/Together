@@ -41,7 +41,9 @@ namespace Together
         /// <param name="role">
         /// The role of the messages author. Choice between: system, user, or assistant.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionRequestMessage(
             global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>> content,
             global::Together.ChatCompletionRequestMessageRole role)

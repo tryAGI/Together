@@ -33,7 +33,9 @@ namespace Together
         /// </summary>
         /// <param name="function"></param>
         /// <param name="type"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionTool(
             global::Together.ChatCompletionToolFunction function,
             global::Together.ChatCompletionToolType type)

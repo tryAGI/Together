@@ -56,7 +56,9 @@ namespace Together
         /// <param name="index"></param>
         /// <param name="logprobs"></param>
         /// <param name="seed"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionChunkChoice(
             global::Together.ChatCompletionChunkChoiceDelta delta,
             global::Together.FinishReason finishReason,

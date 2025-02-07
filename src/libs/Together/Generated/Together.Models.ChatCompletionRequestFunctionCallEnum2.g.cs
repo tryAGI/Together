@@ -25,7 +25,9 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionRequestFunctionCallEnum2" /> class.
         /// </summary>
         /// <param name="name"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionRequestFunctionCallEnum2(
             string name)
         {
