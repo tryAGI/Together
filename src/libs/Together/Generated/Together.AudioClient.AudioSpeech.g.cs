@@ -152,7 +152,11 @@ namespace Together
 
             if (ReadResponseAsString)
             {
-                var __content = await __response.Content.ReadAsByteArrayAsync(cancellationToken).ConfigureAwait(false);
+                var __content = await __response.Content.ReadAsByteArrayAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
 
                 ProcessAudioSpeechResponseContent(
                     httpClient: HttpClient,
@@ -199,7 +203,11 @@ namespace Together
                     };
                 }
 
-                var __content = await __response.Content.ReadAsByteArrayAsync(cancellationToken).ConfigureAwait(false);
+                var __content = await __response.Content.ReadAsByteArrayAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
 
                 return __content;
             }

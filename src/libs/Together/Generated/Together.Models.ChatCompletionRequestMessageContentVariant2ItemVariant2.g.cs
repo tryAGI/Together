@@ -33,7 +33,9 @@ namespace Together
         /// </summary>
         /// <param name="imageUrl"></param>
         /// <param name="type"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionRequestMessageContentVariant2ItemVariant2(
             global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2ImageUrl imageUrl,
             global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2Type type)

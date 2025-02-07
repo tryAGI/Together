@@ -112,7 +112,9 @@ namespace Together
         /// <param name="voice">
         /// The voice to use for generating the audio. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AudioSpeechRequest(
             string input,
             global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string> model,

@@ -72,7 +72,9 @@ namespace Together
         /// <param name="object"></param>
         /// <param name="prompt"></param>
         /// <param name="usage"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public CompletionResponse(
             global::System.Collections.Generic.IList<global::Together.CompletionChoicesDataItem> choices,
             int created,

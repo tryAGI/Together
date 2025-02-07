@@ -41,7 +41,9 @@ namespace Together
         /// <param name="completionTokens"></param>
         /// <param name="promptTokens"></param>
         /// <param name="totalTokens"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public UsageData(
             int completionTokens,
             int promptTokens,

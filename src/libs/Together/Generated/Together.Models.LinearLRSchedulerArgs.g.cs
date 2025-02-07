@@ -28,7 +28,9 @@ namespace Together
         /// The ratio of the final learning rate to the peak learning rate<br/>
         /// Default Value: 0F
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public LinearLRSchedulerArgs(
             float? minLrRatio)
         {

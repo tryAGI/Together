@@ -37,7 +37,9 @@ namespace Together
         /// <param name="scale">
         /// The strength of the LoRA's influence. Most LoRA's recommend a value of 1.
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public RequestImageLora(
             string path,
             double scale)

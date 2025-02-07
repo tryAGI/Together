@@ -45,7 +45,9 @@ namespace Together
         /// The name of the embedding model to use.  [See all of Together AI's embedding models](https://docs.together.ai/docs/serverless-models#embedding-models)<br/>
         /// Example: togethercomputer/m2-bert-80M-8k-retrieval
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public EmbeddingsRequest(
             global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> input,
             global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> model)

@@ -159,7 +159,9 @@ namespace Together
         /// Width of the image to generate in number of pixels.<br/>
         /// Default Value: 1024
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Request2(
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,

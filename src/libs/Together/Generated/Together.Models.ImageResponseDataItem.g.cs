@@ -39,7 +39,9 @@ namespace Together
         /// <param name="b64Json"></param>
         /// <param name="index"></param>
         /// <param name="url"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ImageResponseDataItem(
             int index,
             string? b64Json,

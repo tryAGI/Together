@@ -36,7 +36,9 @@ namespace Together
         /// <param name="name">
         /// Example: function_name
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ToolChoiceFunction(
             string arguments,
             string name)

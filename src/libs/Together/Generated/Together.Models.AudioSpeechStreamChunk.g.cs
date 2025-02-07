@@ -46,7 +46,9 @@ namespace Together
         /// Example: cartesia/sonic
         /// </param>
         /// <param name="object"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public AudioSpeechStreamChunk(
             string b64,
             string model,

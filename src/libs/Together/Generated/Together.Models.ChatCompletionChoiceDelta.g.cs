@@ -54,7 +54,9 @@ namespace Together
         /// <param name="role"></param>
         /// <param name="tokenId"></param>
         /// <param name="toolCalls"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionChoiceDelta(
             global::Together.ChatCompletionChoiceDeltaRole role,
             string? content,

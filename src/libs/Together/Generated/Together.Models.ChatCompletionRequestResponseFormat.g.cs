@@ -38,7 +38,9 @@ namespace Together
         /// The type of the response format.<br/>
         /// Example: json
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionRequestResponseFormat(
             global::System.Collections.Generic.Dictionary<string, string>? schema,
             string? type)

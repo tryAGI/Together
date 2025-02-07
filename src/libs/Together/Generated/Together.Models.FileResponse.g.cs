@@ -108,7 +108,9 @@ namespace Together
         /// <param name="purpose">
         /// Example: fine-tune
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public FileResponse(
             global::Together.FileResponseFileType fileType,
             int lineCount,

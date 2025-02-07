@@ -33,7 +33,9 @@ namespace Together
         /// </summary>
         /// <param name="text"></param>
         /// <param name="type"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ChatCompletionRequestMessageContentVariant2ItemVariant1(
             string text,
             global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1Type type)
