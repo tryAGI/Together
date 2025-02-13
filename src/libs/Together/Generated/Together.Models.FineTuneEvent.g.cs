@@ -33,8 +33,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("level")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventLevelJsonConverter))]
-        public global::Together.FineTuneEventLevel? Level { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventLevelsJsonConverter))]
+        public global::Together.FinetuneEventLevels? Level { get; set; }
 
         /// <summary>
         /// 
@@ -96,9 +96,9 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FineTuneEventType Type { get; set; }
+        public required global::Together.FinetuneEventType Type { get; set; }
 
         /// <summary>
         /// 
@@ -144,9 +144,9 @@ namespace Together
             int tokenCount,
             int totalSteps,
             int trainingOffset,
-            global::Together.FineTuneEventType type,
+            global::Together.FinetuneEventType type,
             string wandbUrl,
-            global::Together.FineTuneEventLevel? level,
+            global::Together.FinetuneEventLevels? level,
             global::Together.FineTuneEventObject @object)
         {
             this.CheckpointPath = checkpointPath ?? throw new global::System.ArgumentNullException(nameof(checkpointPath));
