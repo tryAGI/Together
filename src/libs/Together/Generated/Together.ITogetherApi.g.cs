@@ -60,12 +60,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public EndpointsClient Endpoints { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public FilesClient Files { get; }
 
         /// <summary>
         /// 
         /// </summary>
         public FineTuningClient FineTuning { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HardwareClient Hardware { get; }
 
         /// <summary>
         /// 

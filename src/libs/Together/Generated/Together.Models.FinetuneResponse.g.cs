@@ -38,7 +38,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("events")]
-        public global::System.Collections.Generic.IList<global::Together.FinetuneEvent2>? Events { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Events { get; set; }
 
         /// <summary>
         /// 
@@ -260,7 +260,7 @@ namespace Together
             string? createdAt,
             int? epochsCompleted,
             int? evalSteps,
-            global::System.Collections.Generic.IList<global::Together.FinetuneEvent2>? events,
+            global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? events,
             string? jobId,
             double? learningRate,
             global::Together.LRScheduler? lrScheduler,

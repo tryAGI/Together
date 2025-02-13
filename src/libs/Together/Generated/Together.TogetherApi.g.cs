@@ -76,6 +76,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public EndpointsClient Endpoints => new EndpointsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public FilesClient Files => new FilesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -86,6 +95,15 @@ namespace Together
         /// 
         /// </summary>
         public FineTuningClient FineTuning => new FineTuningClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HardwareClient Hardware => new HardwareClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

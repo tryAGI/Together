@@ -20,7 +20,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprob")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Logprob { get; set; }
+        public required double Logprob { get; set; }
 
         /// <summary>
         /// 
@@ -54,7 +54,7 @@ namespace Together
 #endif
         public ChatCompletionToken(
             int id,
-            float logprob,
+            double logprob,
             bool special,
             string text)
         {
