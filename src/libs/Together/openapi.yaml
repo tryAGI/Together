@@ -1700,7 +1700,7 @@ components:
           maximum: 1
           minimum: 0
           type: integer
-          description: Determines the number of most likely tokens to return at each token position log probabilities to return.
+          description: Integer (0 or 1) that controls whether log probabilities of generated tokens are returned. Log probabilities help assess model confidence in token predictions.
         max_tokens:
           type: integer
           description: The maximum number of tokens to generate.
