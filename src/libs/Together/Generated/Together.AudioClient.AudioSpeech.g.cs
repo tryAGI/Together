@@ -110,7 +110,7 @@ namespace Together
                 }
 
                 throw new global::Together.ApiException<global::Together.ErrorData>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_400,
@@ -138,7 +138,7 @@ namespace Together
                 }
 
                 throw new global::Together.ApiException<global::Together.ErrorData>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_429,
