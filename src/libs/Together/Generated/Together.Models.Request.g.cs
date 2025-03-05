@@ -11,14 +11,14 @@ namespace Together
     public sealed partial class Request
     {
         /// <summary>
-        /// Batch size for fine-tuning<br/>
+        /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
         /// Default Value: 32
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_size")]
         public int? BatchSize { get; set; }
 
         /// <summary>
-        /// Learning rate multiplier to use for training<br/>
+        /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
@@ -45,14 +45,14 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// Number of checkpoints to save during fine-tuning<br/>
+        /// Number of intermediate model versions saved during training for evaluation<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_checkpoints")]
         public int? NCheckpoints { get; set; }
 
         /// <summary>
-        /// Number of epochs for fine-tuning<br/>
+        /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_epochs")]
@@ -100,7 +100,7 @@ namespace Together
         public string? ValidationFile { get; set; }
 
         /// <summary>
-        /// API key for Weights &amp; Biases integration
+        /// Integration key for tracking experiments and model metrics on W&amp;B platform
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_api_key")]
         public string? WandbApiKey { get; set; }
@@ -147,11 +147,11 @@ namespace Together
         /// Initializes a new instance of the <see cref="Request" /> class.
         /// </summary>
         /// <param name="batchSize">
-        /// Batch size for fine-tuning<br/>
+        /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
         /// Default Value: 32
         /// </param>
         /// <param name="learningRate">
-        /// Learning rate multiplier to use for training<br/>
+        /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
         /// </param>
         /// <param name="lrScheduler"></param>
@@ -163,11 +163,11 @@ namespace Together
         /// Name of the base model to run fine-tune job on
         /// </param>
         /// <param name="nCheckpoints">
-        /// Number of checkpoints to save during fine-tuning<br/>
+        /// Number of intermediate model versions saved during training for evaluation<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="nEpochs">
-        /// Number of epochs for fine-tuning<br/>
+        /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="nEvals">
@@ -189,7 +189,7 @@ namespace Together
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
         /// <param name="wandbApiKey">
-        /// API key for Weights &amp; Biases integration
+        /// Integration key for tracking experiments and model metrics on W&amp;B platform
         /// </param>
         /// <param name="wandbBaseUrl">
         /// The base URL of a dedicated Weights &amp; Biases instance.
