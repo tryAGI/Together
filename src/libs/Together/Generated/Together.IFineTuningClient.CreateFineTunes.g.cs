@@ -20,11 +20,11 @@ namespace Together
         /// Use a model to create a fine-tuning job.
         /// </summary>
         /// <param name="batchSize">
-        /// Batch size for fine-tuning<br/>
+        /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
         /// Default Value: 32
         /// </param>
         /// <param name="learningRate">
-        /// Learning rate multiplier to use for training<br/>
+        /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
         /// </param>
         /// <param name="lrScheduler"></param>
@@ -36,11 +36,11 @@ namespace Together
         /// Name of the base model to run fine-tune job on
         /// </param>
         /// <param name="nCheckpoints">
-        /// Number of checkpoints to save during fine-tuning<br/>
+        /// Number of intermediate model versions saved during training for evaluation<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="nEpochs">
-        /// Number of epochs for fine-tuning<br/>
+        /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
         /// </param>
         /// <param name="nEvals">
@@ -62,7 +62,7 @@ namespace Together
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
         /// <param name="wandbApiKey">
-        /// API key for Weights &amp; Biases integration
+        /// Integration key for tracking experiments and model metrics on W&amp;B platform
         /// </param>
         /// <param name="wandbBaseUrl">
         /// The base URL of a dedicated Weights &amp; Biases instance.

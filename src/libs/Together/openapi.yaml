@@ -554,11 +554,11 @@ paths:
               properties:
                 batch_size:
                   type: integer
-                  description: Batch size for fine-tuning
+                  description: Number of training examples processed together (larger batches use more memory but may train faster)
                   default: 32
                 learning_rate:
                   type: number
-                  description: Learning rate multiplier to use for training
+                  description: 'Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)'
                   format: float
                   default: 1E-05
                 lr_scheduler:
@@ -573,11 +573,11 @@ paths:
                   description: Name of the base model to run fine-tune job on
                 n_checkpoints:
                   type: integer
-                  description: Number of checkpoints to save during fine-tuning
+                  description: Number of intermediate model versions saved during training for evaluation
                   default: 1
                 n_epochs:
                   type: integer
-                  description: Number of epochs for fine-tuning
+                  description: Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)
                   default: 1
                 n_evals:
                   type: integer
@@ -608,7 +608,7 @@ paths:
                   description: File-ID of a validation file uploaded to the Together API
                 wandb_api_key:
                   type: string
-                  description: API key for Weights & Biases integration
+                  description: Integration key for tracking experiments and model metrics on W&B platform
                 wandb_base_url:
                   type: string
                   description: The base URL of a dedicated Weights & Biases instance.
@@ -1375,7 +1375,7 @@ components:
           maximum: 1
           minimum: 0
           type: integer
-          description: Determines the number of most likely tokens to return at each token position log probabilities to return.
+          description: Integer (0 or 1) that controls whether log probabilities of generated tokens are returned. Log probabilities help assess model confidence in token predictions.
         max_tokens:
           type: integer
           description: The maximum number of tokens to generate.
