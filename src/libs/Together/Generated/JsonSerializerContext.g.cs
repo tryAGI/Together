@@ -59,6 +59,8 @@ namespace Together
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemVariant1TypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemVariant2TypeJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemVariant2TypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemVariant3TypeJsonConverter),
+            typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemVariant3TypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemDiscriminatorTypeJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemDiscriminatorTypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionRequestMessageRoleJsonConverter),

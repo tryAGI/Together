@@ -12,15 +12,14 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2ImageUrl ImageUrl { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2ImageUrl? ImageUrl { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionRequestMessageContentVariant2ItemVariant2TypeJsonConverter))]
-        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2Type Type { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2Type? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -37,10 +36,10 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionRequestMessageContentVariant2ItemVariant2(
-            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2ImageUrl imageUrl,
-            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2Type type)
+            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2ImageUrl? imageUrl,
+            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2Type? type)
         {
-            this.ImageUrl = imageUrl ?? throw new global::System.ArgumentNullException(nameof(imageUrl));
+            this.ImageUrl = imageUrl;
             this.Type = type;
         }
 

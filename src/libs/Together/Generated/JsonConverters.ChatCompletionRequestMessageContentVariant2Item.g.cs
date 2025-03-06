@@ -35,11 +35,19 @@ namespace Together.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2)}");
                 imageUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3? videoUrl = default;
+            if (discriminator?.Type == global::Together.ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.VideoUrl)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3)}");
+                videoUrl = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::Together.ChatCompletionRequestMessageContentVariant2Item(
                 discriminator?.Type,
                 text,
-                imageUrl
+                imageUrl,
+                videoUrl
                 );
 
             return result;
@@ -65,6 +73,12 @@ namespace Together.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageUrl, typeInfo);
+            }
+            else if (value.IsVideoUrl)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VideoUrl, typeInfo);
             }
         }
     }
