@@ -330,542 +330,554 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionRequestMessageContentVariant2ItemDiscriminator? Type76 { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3? Type76 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType? Type77 { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3Type? Type77 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionRequestMessageRole? Type78 { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3VideoUrl? Type78 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string>? Type79 { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemDiscriminator? Type79 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionRequestModel? Type80 { get; set; }
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType? Type80 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionRequestResponseFormat? Type81 { get; set; }
+        public global::Together.ChatCompletionRequestMessageRole? Type81 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, string>? Type82 { get; set; }
+        public global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string>? Type82 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<string, global::Together.ToolChoice2>? Type83 { get; set; }
+        public global::Together.ChatCompletionRequestModel? Type83 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ToolsPart>? Type84 { get; set; }
+        public global::Together.ChatCompletionRequestResponseFormat? Type84 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ToolsPart? Type85 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string>? Type85 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ToolsPartFunction? Type86 { get; set; }
+        public global::Together.OneOf<string, global::Together.ToolChoice2>? Type86 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public object? Type87 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ToolsPart>? Type87 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionResponse? Type88 { get; set; }
+        public global::Together.ToolsPart? Type88 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionResponseObject? Type89 { get; set; }
+        public global::Together.ToolsPartFunction? Type89 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionStream? Type90 { get; set; }
+        public object? Type90 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionToken? Type91 { get; set; }
+        public global::Together.ChatCompletionResponse? Type91 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionTool? Type92 { get; set; }
+        public global::Together.ChatCompletionResponseObject? Type92 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionToolFunction? Type93 { get; set; }
+        public global::Together.ChatCompletionStream? Type93 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionToolType? Type94 { get; set; }
+        public global::Together.ChatCompletionToken? Type94 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionChoice? Type95 { get; set; }
+        public global::Together.ChatCompletionTool? Type95 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.CompletionChoicesDataItem>? Type96 { get; set; }
+        public global::Together.ChatCompletionToolFunction? Type96 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionChoicesDataItem? Type97 { get; set; }
+        public global::Together.ChatCompletionToolType? Type97 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionChunk? Type98 { get; set; }
+        public global::Together.CompletionChoice? Type98 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.CompletionChoice>? Type99 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.CompletionChoicesDataItem>? Type99 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionToken? Type100 { get; set; }
+        public global::Together.CompletionChoicesDataItem? Type100 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionEvent? Type101 { get; set; }
+        public global::Together.CompletionChunk? Type101 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionRequest? Type102 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.CompletionChoice>? Type102 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.CompletionRequestModel?, string>? Type103 { get; set; }
+        public global::Together.CompletionToken? Type103 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionRequestModel? Type104 { get; set; }
+        public global::Together.CompletionEvent? Type104 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>? Type105 { get; set; }
+        public global::Together.CompletionRequest? Type105 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionRequestSafetyModel? Type106 { get; set; }
+        public global::Together.AnyOf<global::Together.CompletionRequestModel?, string>? Type106 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionResponse? Type107 { get; set; }
+        public global::Together.CompletionRequestModel? Type107 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionResponseObject? Type108 { get; set; }
+        public global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>? Type108 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.PromptPartItem>? Type109 { get; set; }
+        public global::Together.CompletionRequestSafetyModel? Type109 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.PromptPartItem? Type110 { get; set; }
+        public global::Together.CompletionResponse? Type110 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CompletionStream? Type111 { get; set; }
+        public global::Together.CompletionResponseObject? Type111 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CreateEndpointRequest? Type112 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.PromptPartItem>? Type112 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.CreateEndpointRequestState? Type113 { get; set; }
+        public global::Together.PromptPartItem? Type113 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.DedicatedEndpoint? Type114 { get; set; }
+        public global::Together.CompletionStream? Type114 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.DateTime? Type115 { get; set; }
+        public global::Together.CreateEndpointRequest? Type115 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.DedicatedEndpointObject? Type116 { get; set; }
+        public global::Together.CreateEndpointRequestState? Type116 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.DedicatedEndpointState? Type117 { get; set; }
+        public global::Together.DedicatedEndpoint? Type117 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.DedicatedEndpointType? Type118 { get; set; }
+        public global::System.DateTime? Type118 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EmbeddingsRequest? Type119 { get; set; }
+        public global::Together.DedicatedEndpointObject? Type119 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<string, global::System.Collections.Generic.IList<string>>? Type120 { get; set; }
+        public global::Together.DedicatedEndpointState? Type120 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string>? Type121 { get; set; }
+        public global::Together.DedicatedEndpointType? Type121 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EmbeddingsRequestModel? Type122 { get; set; }
+        public global::Together.EmbeddingsRequest? Type122 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EmbeddingsResponse? Type123 { get; set; }
+        public global::Together.OneOf<string, global::System.Collections.Generic.IList<string>>? Type123 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem>? Type124 { get; set; }
+        public global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string>? Type124 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EmbeddingsResponseDataItem? Type125 { get; set; }
+        public global::Together.EmbeddingsRequestModel? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EmbeddingsResponseDataItemObject? Type126 { get; set; }
+        public global::Together.EmbeddingsResponse? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EmbeddingsResponseObject? Type127 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem>? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.EndpointPricing? Type128 { get; set; }
+        public global::Together.EmbeddingsResponseDataItem? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ErrorData? Type129 { get; set; }
+        public global::Together.EmbeddingsResponseDataItemObject? Type129 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ErrorDataError? Type130 { get; set; }
+        public global::Together.EmbeddingsResponseObject? Type130 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileDeleteResponse? Type131 { get; set; }
+        public global::Together.EndpointPricing? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileList? Type132 { get; set; }
+        public global::Together.ErrorData? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FileResponse>? Type133 { get; set; }
+        public global::Together.ErrorDataError? Type133 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileResponse? Type134 { get; set; }
+        public global::Together.FileDeleteResponse? Type134 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileResponseFileType? Type135 { get; set; }
+        public global::Together.FileList? Type135 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileResponsePurpose? Type136 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FileResponse>? Type136 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileObject? Type137 { get; set; }
+        public global::Together.FileResponse? Type137 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FineTuneEvent? Type138 { get; set; }
+        public global::Together.FileResponseFileType? Type138 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEventLevels? Type139 { get; set; }
+        public global::Together.FileResponsePurpose? Type139 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FineTuneEventObject? Type140 { get; set; }
+        public global::Together.FileObject? Type140 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneEventType? Type141 { get; set; }
+        public global::Together.FineTuneEvent? Type141 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneDownloadResult? Type142 { get; set; }
+        public global::Together.FinetuneEventLevels? Type142 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneDownloadResultObject? Type143 { get; set; }
+        public global::Together.FineTuneEventObject? Type143 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneJobStatus? Type144 { get; set; }
+        public global::Together.FinetuneEventType? Type144 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneList? Type145 { get; set; }
+        public global::Together.FinetuneDownloadResult? Type145 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FinetuneResponse>? Type146 { get; set; }
+        public global::Together.FinetuneDownloadResultObject? Type146 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponse? Type147 { get; set; }
+        public global::Together.FinetuneJobStatus? Type147 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Type148 { get; set; }
+        public global::Together.FinetuneList? Type148 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Guid? Type149 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FinetuneResponse>? Type149 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.LRScheduler? Type150 { get; set; }
+        public global::Together.FinetuneResponse? Type150 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.LinearLRSchedulerArgs? Type151 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Type151 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? Type152 { get; set; }
+        public global::System.Guid? Type152 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainOnInputs? Type153 { get; set; }
+        public global::Together.LRScheduler? Type153 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainingType? Type154 { get; set; }
+        public global::Together.LinearLRSchedulerArgs? Type154 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FullTrainingType? Type155 { get; set; }
+        public global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? Type155 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FullTrainingTypeType? Type156 { get; set; }
+        public global::Together.FinetuneResponseTrainOnInputs? Type156 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.LoRATrainingType? Type157 { get; set; }
+        public global::Together.FinetuneResponseTrainingType? Type157 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.LoRATrainingTypeType? Type158 { get; set; }
+        public global::Together.FullTrainingType? Type158 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainingTypeDiscriminator? Type159 { get; set; }
+        public global::Together.FullTrainingTypeType? Type159 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneResponseTrainingTypeDiscriminatorType? Type160 { get; set; }
+        public global::Together.LoRATrainingType? Type160 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FinetuneListEvents? Type161 { get; set; }
+        public global::Together.LoRATrainingTypeType? Type161 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.HardwareAvailability? Type162 { get; set; }
+        public global::Together.FinetuneResponseTrainingTypeDiscriminator? Type162 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.HardwareAvailabilityStatus? Type163 { get; set; }
+        public global::Together.FinetuneResponseTrainingTypeDiscriminatorType? Type163 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.HardwareSpec? Type164 { get; set; }
+        public global::Together.FinetuneListEvents? Type164 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.HardwareWithStatus? Type165 { get; set; }
+        public global::Together.HardwareAvailability? Type165 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.HardwareWithStatusObject? Type166 { get; set; }
+        public global::Together.HardwareAvailabilityStatus? Type166 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ImageResponse? Type167 { get; set; }
+        public global::Together.HardwareSpec? Type167 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ImageResponseDataItem>? Type168 { get; set; }
+        public global::Together.HardwareWithStatus? Type168 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ImageResponseDataItem? Type169 { get; set; }
+        public global::Together.HardwareWithStatusObject? Type169 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ImageResponseObject? Type170 { get; set; }
+        public global::Together.ImageResponse? Type170 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpoint? Type171 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ImageResponseDataItem>? Type171 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointObject? Type172 { get; set; }
+        public global::Together.ImageResponseDataItem? Type172 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointState? Type173 { get; set; }
+        public global::Together.ImageResponseObject? Type173 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointType? Type174 { get; set; }
+        public global::Together.ListEndpoint? Type174 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ModelInfo? Type175 { get; set; }
+        public global::Together.ListEndpointObject? Type175 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Pricing? Type176 { get; set; }
+        public global::Together.ListEndpointState? Type176 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ModelInfoType? Type177 { get; set; }
+        public global::Together.ListEndpointType? Type177 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ModelInfo>? Type178 { get; set; }
+        public global::Together.ModelInfo? Type178 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankRequest? Type179 { get; set; }
+        public global::Together.Pricing? Type179 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>? Type180 { get; set; }
+        public global::Together.ModelInfoType? Type180 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<object>? Type181 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ModelInfo>? Type181 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RerankRequestModel?, string>? Type182 { get; set; }
+        public global::Together.RerankRequest? Type182 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankRequestModel? Type183 { get; set; }
+        public global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>? Type183 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponse? Type184 { get; set; }
+        public global::System.Collections.Generic.IList<object>? Type184 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponseObject? Type185 { get; set; }
+        public global::Together.AnyOf<global::Together.RerankRequestModel?, string>? Type185 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RerankResponseResult>? Type186 { get; set; }
+        public global::Together.RerankRequestModel? Type186 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponseResult? Type187 { get; set; }
+        public global::Together.RerankResponse? Type187 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RerankResponseResultDocument? Type188 { get; set; }
+        public global::Together.RerankResponseObject? Type188 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.UpdateEndpointRequest? Type189 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RerankResponseResult>? Type189 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.UpdateEndpointRequestState? Type190 { get; set; }
+        public global::Together.RerankResponseResult? Type190 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request? Type191 { get; set; }
+        public global::Together.RerankResponseResultDocument? Type191 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type192 { get; set; }
+        public global::Together.UpdateEndpointRequest? Type192 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestTrainOnInputs? Type193 { get; set; }
+        public global::Together.UpdateEndpointRequestState? Type193 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type194 { get; set; }
+        public global::Together.Request? Type194 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request2? Type195 { get; set; }
+        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type195 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? Type196 { get; set; }
+        public global::Together.RequestTrainOnInputs? Type196 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestImageLora? Type197 { get; set; }
+        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type197 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type198 { get; set; }
+        public global::Together.Request2? Type198 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestModel? Type199 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? Type199 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestOutputFormat? Type200 { get; set; }
+        public global::Together.RequestImageLora? Type200 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestResponseFormat? Type201 { get; set; }
+        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type201 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointsType? Type202 { get; set; }
+        public global::Together.RequestModel? Type202 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Checkpoint? Type203 { get; set; }
+        public global::Together.RequestOutputFormat? Type203 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type204 { get; set; }
+        public global::Together.RequestResponseFormat? Type204 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointsResponse? Type205 { get; set; }
+        public global::Together.ListEndpointsType? Type205 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ListEndpoint>? Type206 { get; set; }
+        public global::Together.Checkpoint? Type206 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointsResponseObject? Type207 { get; set; }
+        public byte[]? Type207 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListHardwareResponse? Type208 { get; set; }
+        public global::Together.ListEndpointsResponse? Type208 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.HardwareWithStatus>? Type209 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ListEndpoint>? Type209 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListHardwareResponseObject? Type210 { get; set; }
+        public global::Together.ListEndpointsResponseObject? Type210 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.ListHardwareResponse? Type211 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Together.HardwareWithStatus>? Type212 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.ListHardwareResponseObject? Type213 { get; set; }
     }
 }

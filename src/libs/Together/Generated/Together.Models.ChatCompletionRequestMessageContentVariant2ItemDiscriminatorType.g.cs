@@ -16,6 +16,10 @@ namespace Together
         /// 
         /// </summary>
         ImageUrl,
+        /// <summary>
+        /// 
+        /// </summary>
+        VideoUrl,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace Together
             {
                 ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.Text => "text",
                 ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.ImageUrl => "image_url",
+                ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.VideoUrl => "video_url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace Together
             {
                 "text" => ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.Text,
                 "image_url" => ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.ImageUrl,
+                "video_url" => ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType.VideoUrl,
                 _ => null,
             };
         }

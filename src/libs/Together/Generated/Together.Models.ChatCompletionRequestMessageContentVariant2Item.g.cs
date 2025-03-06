@@ -87,22 +87,60 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3? VideoUrl { get; init; }
+#else
+        public global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3? VideoUrl { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoUrl))]
+#endif
+        public bool IsVideoUrl => VideoUrl != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ChatCompletionRequestMessageContentVariant2Item(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3 value) => new ChatCompletionRequestMessageContentVariant2Item(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3?(ChatCompletionRequestMessageContentVariant2Item @this) => @this.VideoUrl;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChatCompletionRequestMessageContentVariant2Item(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3? value)
+        {
+            VideoUrl = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ChatCompletionRequestMessageContentVariant2Item(
             global::Together.ChatCompletionRequestMessageContentVariant2ItemDiscriminatorType? type,
             global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1? text,
-            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2? imageUrl
+            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2? imageUrl,
+            global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3? videoUrl
             )
         {
             Type = type;
 
             Text = text;
             ImageUrl = imageUrl;
+            VideoUrl = videoUrl;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            VideoUrl as object ??
             ImageUrl as object ??
             Text as object 
             ;
@@ -112,7 +150,7 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsText && !IsImageUrl || !IsText && IsImageUrl;
+            return IsText && !IsImageUrl && !IsVideoUrl || !IsText && IsImageUrl && !IsVideoUrl || !IsText && !IsImageUrl && IsVideoUrl;
         }
 
         /// <summary>
@@ -121,6 +159,7 @@ namespace Together
         public TResult? Match<TResult>(
             global::System.Func<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1?, TResult>? text = null,
             global::System.Func<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2?, TResult>? imageUrl = null,
+            global::System.Func<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3?, TResult>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -136,6 +175,10 @@ namespace Together
             {
                 return imageUrl(ImageUrl!);
             }
+            else if (IsVideoUrl && videoUrl != null)
+            {
+                return videoUrl(VideoUrl!);
+            }
 
             return default(TResult);
         }
@@ -146,6 +189,7 @@ namespace Together
         public void Match(
             global::System.Action<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1?>? text = null,
             global::System.Action<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2?>? imageUrl = null,
+            global::System.Action<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3?>? videoUrl = null,
             bool validate = true)
         {
             if (validate)
@@ -161,6 +205,10 @@ namespace Together
             {
                 imageUrl?.Invoke(ImageUrl!);
             }
+            else if (IsVideoUrl)
+            {
+                videoUrl?.Invoke(VideoUrl!);
+            }
         }
 
         /// <summary>
@@ -174,6 +222,8 @@ namespace Together
                 typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1),
                 ImageUrl,
                 typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2),
+                VideoUrl,
+                typeof(global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -191,7 +241,8 @@ namespace Together
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2?>.Default.Equals(ImageUrl, other.ImageUrl) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2?>.Default.Equals(ImageUrl, other.ImageUrl) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3?>.Default.Equals(VideoUrl, other.VideoUrl) 
                 ;
         }
 
