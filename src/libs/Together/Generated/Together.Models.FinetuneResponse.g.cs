@@ -23,6 +23,12 @@ namespace Together
         public string? CreatedAt { get; set; }
 
         /// <summary>
+        /// Default Value: 0.1F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dpo_beta")]
+        public float? DpoBeta { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("epochs_completed")]
@@ -39,6 +45,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("events")]
         public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Events { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
+        public string? FromCheckpoint { get; set; }
 
         /// <summary>
         /// 
@@ -153,6 +165,13 @@ namespace Together
         public string? TrainingFile { get; set; }
 
         /// <summary>
+        /// Default Value: sft
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneResponseTrainingMethodJsonConverter))]
+        public global::Together.FinetuneResponseTrainingMethod? TrainingMethod { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
@@ -218,9 +237,13 @@ namespace Together
         /// </summary>
         /// <param name="batchSize"></param>
         /// <param name="createdAt"></param>
+        /// <param name="dpoBeta">
+        /// Default Value: 0.1F
+        /// </param>
         /// <param name="epochsCompleted"></param>
         /// <param name="evalSteps"></param>
         /// <param name="events"></param>
+        /// <param name="fromCheckpoint"></param>
         /// <param name="id"></param>
         /// <param name="jobId"></param>
         /// <param name="learningRate"></param>
@@ -241,6 +264,9 @@ namespace Together
         /// Default Value: auto
         /// </param>
         /// <param name="trainingFile"></param>
+        /// <param name="trainingMethod">
+        /// Default Value: sft
+        /// </param>
         /// <param name="trainingType"></param>
         /// <param name="trainingfileNumlines"></param>
         /// <param name="trainingfileSize"></param>
@@ -258,9 +284,11 @@ namespace Together
             global::Together.FinetuneJobStatus status,
             int? batchSize,
             string? createdAt,
+            float? dpoBeta,
             int? epochsCompleted,
             int? evalSteps,
             global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? events,
+            string? fromCheckpoint,
             string? jobId,
             double? learningRate,
             global::Together.LRScheduler? lrScheduler,
@@ -277,6 +305,7 @@ namespace Together
             int? totalPrice,
             global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? trainOnInputs,
             string? trainingFile,
+            global::Together.FinetuneResponseTrainingMethod? trainingMethod,
             global::Together.FinetuneResponseTrainingType? trainingType,
             int? trainingfileNumlines,
             int? trainingfileSize,
@@ -291,9 +320,11 @@ namespace Together
             this.Status = status;
             this.BatchSize = batchSize;
             this.CreatedAt = createdAt;
+            this.DpoBeta = dpoBeta;
             this.EpochsCompleted = epochsCompleted;
             this.EvalSteps = evalSteps;
             this.Events = events;
+            this.FromCheckpoint = fromCheckpoint;
             this.JobId = jobId;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;
@@ -310,6 +341,7 @@ namespace Together
             this.TotalPrice = totalPrice;
             this.TrainOnInputs = trainOnInputs;
             this.TrainingFile = trainingFile;
+            this.TrainingMethod = trainingMethod;
             this.TrainingType = trainingType;
             this.TrainingfileNumlines = trainingfileNumlines;
             this.TrainingfileSize = trainingfileSize;

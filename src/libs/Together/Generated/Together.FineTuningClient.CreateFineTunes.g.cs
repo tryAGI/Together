@@ -174,6 +174,13 @@ namespace Together
         /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
         /// Default Value: 32
         /// </param>
+        /// <param name="dpoBeta">
+        /// The beta parameter for DPO training. Only applicable when training_method is 'dpo'.<br/>
+        /// Default Value: 0.1F
+        /// </param>
+        /// <param name="fromCheckpoint">
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID/$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
@@ -208,6 +215,10 @@ namespace Together
         /// <param name="trainingFile">
         /// File-ID of a training file uploaded to the Together API
         /// </param>
+        /// <param name="trainingMethod">
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.<br/>
+        /// Default Value: sft
+        /// </param>
         /// <param name="trainingType"></param>
         /// <param name="validationFile">
         /// File-ID of a validation file uploaded to the Together API
@@ -238,6 +249,8 @@ namespace Together
             string model,
             string trainingFile,
             int? batchSize = default,
+            float? dpoBeta = default,
+            string? fromCheckpoint = default,
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
             float? maxGradNorm = default,
@@ -246,6 +259,7 @@ namespace Together
             int? nEvals = default,
             string? suffix = default,
             global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? trainOnInputs = default,
+            global::Together.RequestTrainingMethod? trainingMethod = default,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? validationFile = default,
             string? wandbApiKey = default,
@@ -259,6 +273,8 @@ namespace Together
             var __request = new global::Together.Request
             {
                 BatchSize = batchSize,
+                DpoBeta = dpoBeta,
+                FromCheckpoint = fromCheckpoint,
                 LearningRate = learningRate,
                 LrScheduler = lrScheduler,
                 MaxGradNorm = maxGradNorm,
@@ -269,6 +285,7 @@ namespace Together
                 Suffix = suffix,
                 TrainOnInputs = trainOnInputs,
                 TrainingFile = trainingFile,
+                TrainingMethod = trainingMethod,
                 TrainingType = trainingType,
                 ValidationFile = validationFile,
                 WandbApiKey = wandbApiKey,

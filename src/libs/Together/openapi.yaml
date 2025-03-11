@@ -556,6 +556,14 @@ paths:
                   type: integer
                   description: Number of training examples processed together (larger batches use more memory but may train faster)
                   default: 32
+                dpo_beta:
+                  type: number
+                  description: The beta parameter for DPO training. Only applicable when training_method is 'dpo'.
+                  format: float
+                  default: 0.1
+                from_checkpoint:
+                  type: string
+                  description: 'The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID/$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.'
                 learning_rate:
                   type: number
                   description: 'Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)'
@@ -598,6 +606,13 @@ paths:
                 training_file:
                   type: string
                   description: File-ID of a training file uploaded to the Together API
+                training_method:
+                  enum:
+                    - sft
+                    - dpo
+                  type: string
+                  description: The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
+                  default: sft
                 training_type:
                   type: object
                   oneOf:
@@ -2240,6 +2255,10 @@ components:
           type: integer
         created_at:
           type: string
+        dpo_beta:
+          type: number
+          format: float
+          default: 0.1
         epochs_completed:
           type: integer
         eval_steps:
@@ -2248,6 +2267,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FineTuneEvent'
+        from_checkpoint:
+          type: string
         id:
           type: string
           format: uuid
@@ -2291,6 +2312,12 @@ components:
           default: auto
         training_file:
           type: string
+        training_method:
+          enum:
+            - sft
+            - dpo
+          type: string
+          default: sft
         training_type:
           type: object
           oneOf:
