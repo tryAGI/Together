@@ -18,6 +18,19 @@ namespace Together
         public int? BatchSize { get; set; }
 
         /// <summary>
+        /// The beta parameter for DPO training. Only applicable when training_method is 'dpo'.<br/>
+        /// Default Value: 0.1F
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dpo_beta")]
+        public float? DpoBeta { get; set; }
+
+        /// <summary>
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID/$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
+        public string? FromCheckpoint { get; set; }
+
+        /// <summary>
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
         /// </summary>
@@ -87,6 +100,14 @@ namespace Together
         public required string TrainingFile { get; set; }
 
         /// <summary>
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.<br/>
+        /// Default Value: sft
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RequestTrainingMethodJsonConverter))]
+        public global::Together.RequestTrainingMethod? TrainingMethod { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
@@ -150,6 +171,13 @@ namespace Together
         /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
         /// Default Value: 32
         /// </param>
+        /// <param name="dpoBeta">
+        /// The beta parameter for DPO training. Only applicable when training_method is 'dpo'.<br/>
+        /// Default Value: 0.1F
+        /// </param>
+        /// <param name="fromCheckpoint">
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID/$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
@@ -184,6 +212,10 @@ namespace Together
         /// <param name="trainingFile">
         /// File-ID of a training file uploaded to the Together API
         /// </param>
+        /// <param name="trainingMethod">
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.<br/>
+        /// Default Value: sft
+        /// </param>
         /// <param name="trainingType"></param>
         /// <param name="validationFile">
         /// File-ID of a validation file uploaded to the Together API
@@ -215,6 +247,8 @@ namespace Together
             string model,
             string trainingFile,
             int? batchSize,
+            float? dpoBeta,
+            string? fromCheckpoint,
             float? learningRate,
             global::Together.LRScheduler? lrScheduler,
             float? maxGradNorm,
@@ -223,6 +257,7 @@ namespace Together
             int? nEvals,
             string? suffix,
             global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? trainOnInputs,
+            global::Together.RequestTrainingMethod? trainingMethod,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             string? validationFile,
             string? wandbApiKey,
@@ -235,6 +270,8 @@ namespace Together
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.BatchSize = batchSize;
+            this.DpoBeta = dpoBeta;
+            this.FromCheckpoint = fromCheckpoint;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;
             this.MaxGradNorm = maxGradNorm;
@@ -243,6 +280,7 @@ namespace Together
             this.NEvals = nEvals;
             this.Suffix = suffix;
             this.TrainOnInputs = trainOnInputs;
+            this.TrainingMethod = trainingMethod;
             this.TrainingType = trainingType;
             this.ValidationFile = validationFile;
             this.WandbApiKey = wandbApiKey;
