@@ -47,6 +47,14 @@ namespace Together
         public required string Hardware { get; set; }
 
         /// <summary>
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </summary>
+        /// <example>60</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactive_timeout")]
+        public int? InactiveTimeout { get; set; }
+
+        /// <summary>
         /// The model to deploy on this endpoint<br/>
         /// Example: meta-llama/Llama-3-8b-chat-hf
         /// </summary>
@@ -93,6 +101,10 @@ namespace Together
         /// The hardware configuration to use for this endpoint<br/>
         /// Example: 1x_nvidia_a100_80gb_sxm
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </param>
         /// <param name="model">
         /// The model to deploy on this endpoint<br/>
         /// Example: meta-llama/Llama-3-8b-chat-hf
@@ -112,6 +124,7 @@ namespace Together
             bool? disablePromptCache,
             bool? disableSpeculativeDecoding,
             string? displayName,
+            int? inactiveTimeout,
             global::Together.CreateEndpointRequestState? state)
         {
             this.Autoscaling = autoscaling ?? throw new global::System.ArgumentNullException(nameof(autoscaling));
@@ -120,6 +133,7 @@ namespace Together
             this.DisablePromptCache = disablePromptCache;
             this.DisableSpeculativeDecoding = disableSpeculativeDecoding;
             this.DisplayName = displayName;
+            this.InactiveTimeout = inactiveTimeout;
             this.State = state;
         }
 

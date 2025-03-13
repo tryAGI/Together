@@ -38,6 +38,10 @@ namespace Together
         /// The hardware configuration to use for this endpoint<br/>
         /// Example: 1x_nvidia_a100_80gb_sxm
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </param>
         /// <param name="model">
         /// The model to deploy on this endpoint<br/>
         /// Example: meta-llama/Llama-3-8b-chat-hf
@@ -56,6 +60,7 @@ namespace Together
             bool? disablePromptCache = default,
             bool? disableSpeculativeDecoding = default,
             string? displayName = default,
+            int? inactiveTimeout = default,
             global::Together.CreateEndpointRequestState? state = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
