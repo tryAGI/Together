@@ -23,6 +23,14 @@ namespace Together
         public string? DisplayName { get; set; }
 
         /// <summary>
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </summary>
+        /// <example>60</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactive_timeout")]
+        public int? InactiveTimeout { get; set; }
+
+        /// <summary>
         /// The desired state of the endpoint<br/>
         /// Example: STARTED
         /// </summary>
@@ -47,6 +55,10 @@ namespace Together
         /// A human-readable name for the endpoint<br/>
         /// Example: My Llama3 70b endpoint
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </param>
         /// <param name="state">
         /// The desired state of the endpoint<br/>
         /// Example: STARTED
@@ -57,10 +69,12 @@ namespace Together
         public UpdateEndpointRequest(
             global::Together.Autoscaling? autoscaling,
             string? displayName,
+            int? inactiveTimeout,
             global::Together.UpdateEndpointRequestState? state)
         {
             this.Autoscaling = autoscaling;
             this.DisplayName = displayName;
+            this.InactiveTimeout = inactiveTimeout;
             this.State = state;
         }
 

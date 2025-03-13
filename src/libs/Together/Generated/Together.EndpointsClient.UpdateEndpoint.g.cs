@@ -268,6 +268,10 @@ namespace Together
         /// A human-readable name for the endpoint<br/>
         /// Example: My Llama3 70b endpoint
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </param>
         /// <param name="state">
         /// The desired state of the endpoint<br/>
         /// Example: STARTED
@@ -278,6 +282,7 @@ namespace Together
             string endpointId,
             global::Together.Autoscaling? autoscaling = default,
             string? displayName = default,
+            int? inactiveTimeout = default,
             global::Together.UpdateEndpointRequestState? state = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -285,6 +290,7 @@ namespace Together
             {
                 Autoscaling = autoscaling,
                 DisplayName = displayName,
+                InactiveTimeout = inactiveTimeout,
                 State = state,
             };
 
