@@ -12,11 +12,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ChatCompletionMessageParamDiscriminatorRole? Role { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionSystemMessageParam? System { get; init; }
 #else
@@ -193,7 +188,6 @@ namespace Together
         /// 
         /// </summary>
         public ChatCompletionMessageParam(
-            global::Together.ChatCompletionMessageParamDiscriminatorRole? role,
             global::Together.ChatCompletionSystemMessageParam? system,
             global::Together.ChatCompletionUserMessageParam? user,
             global::Together.ChatCompletionAssistantMessageParam? assistant,
@@ -201,8 +195,6 @@ namespace Together
             global::Together.ChatCompletionFunctionMessageParam? function
             )
         {
-            Role = role;
-
             System = system;
             User = user;
             Assistant = assistant;
