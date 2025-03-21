@@ -15,56 +15,105 @@ namespace Together.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-
-            var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionMessageParamDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionMessageParamDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionMessageParamDiscriminator)}");
-            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
-
+            var
+            readerCopy = reader;
             global::Together.ChatCompletionSystemMessageParam? system = default;
-            if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.System)
+            try
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionSystemMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionSystemMessageParam> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionSystemMessageParam)}");
-                system = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionSystemMessageParam).Name}");
+                system = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+
+            readerCopy = reader;
             global::Together.ChatCompletionUserMessageParam? user = default;
-            if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.User)
+            try
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionUserMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionUserMessageParam> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionUserMessageParam)}");
-                user = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionUserMessageParam).Name}");
+                user = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+
+            readerCopy = reader;
             global::Together.ChatCompletionAssistantMessageParam? assistant = default;
-            if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.Assistant)
+            try
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionAssistantMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionAssistantMessageParam> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionAssistantMessageParam)}");
-                assistant = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionAssistantMessageParam).Name}");
+                assistant = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+
+            readerCopy = reader;
             global::Together.ChatCompletionToolMessageParam? tool = default;
-            if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.Tool)
+            try
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionToolMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionToolMessageParam> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionToolMessageParam)}");
-                tool = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionToolMessageParam).Name}");
+                tool = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+
+            readerCopy = reader;
             global::Together.ChatCompletionFunctionMessageParam? function = default;
-            if (discriminator?.Role == global::Together.ChatCompletionMessageParamDiscriminatorRole.Function)
+            try
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionFunctionMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionFunctionMessageParam> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Together.ChatCompletionFunctionMessageParam)}");
-                function = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionFunctionMessageParam).Name}");
+                function = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+            }
+            catch (global::System.Text.Json.JsonException)
+            {
             }
 
             var result = new global::Together.ChatCompletionMessageParam(
-                discriminator?.Role,
                 system,
                 user,
                 assistant,
                 tool,
                 function
                 );
+
+            if (system != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionSystemMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionSystemMessageParam> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionSystemMessageParam).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            else if (user != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionUserMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionUserMessageParam> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionUserMessageParam).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            else if (assistant != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionAssistantMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionAssistantMessageParam> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionAssistantMessageParam).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            else if (tool != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionToolMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionToolMessageParam> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionToolMessageParam).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            else if (function != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionFunctionMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionFunctionMessageParam> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionFunctionMessageParam).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             return result;
         }

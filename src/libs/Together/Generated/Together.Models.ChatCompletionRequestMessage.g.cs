@@ -14,9 +14,9 @@ namespace Together
         /// The content of the message, which can either be a simple string or a structured format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>> Content { get; set; }
+        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3>>> Content { get; set; }
 
         /// <summary>
         /// The role of the messages author. Choice between: system, user, or assistant.
@@ -45,7 +45,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionRequestMessage(
-            global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessageContentVariant2Item>> content,
+            global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3>>> content,
             global::Together.ChatCompletionRequestMessageRole role)
         {
             this.Content = content;
