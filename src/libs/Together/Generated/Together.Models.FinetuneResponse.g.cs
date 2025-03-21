@@ -175,8 +175,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneResponseTrainingTypeJsonConverter))]
-        public global::Together.FinetuneResponseTrainingType? TrainingType { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>))]
+        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? TrainingType { get; set; }
 
         /// <summary>
         /// 
@@ -306,7 +306,7 @@ namespace Together
             global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? trainOnInputs,
             string? trainingFile,
             global::Together.FinetuneResponseTrainingMethod? trainingMethod,
-            global::Together.FinetuneResponseTrainingType? trainingType,
+            global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             int? trainingfileNumlines,
             int? trainingfileSize,
             string? updatedAt,
