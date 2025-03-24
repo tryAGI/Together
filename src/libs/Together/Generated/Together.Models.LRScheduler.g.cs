@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -12,14 +14,16 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_args")]
-        public global::Together.LinearLRSchedulerArgs? LrSchedulerArgs { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>))]
+        public global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>? LrSchedulerArgs { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string LrSchedulerType { get; set; }
+        public required global::Together.LRSchedulerLrSchedulerType LrSchedulerType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,10 +40,10 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LRScheduler(
-            string lrSchedulerType,
-            global::Together.LinearLRSchedulerArgs? lrSchedulerArgs)
+            global::Together.LRSchedulerLrSchedulerType lrSchedulerType,
+            global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>? lrSchedulerArgs)
         {
-            this.LrSchedulerType = lrSchedulerType ?? throw new global::System.ArgumentNullException(nameof(lrSchedulerType));
+            this.LrSchedulerType = lrSchedulerType;
             this.LrSchedulerArgs = lrSchedulerArgs;
         }
 

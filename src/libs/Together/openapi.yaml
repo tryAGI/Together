@@ -1850,6 +1850,19 @@ components:
           type: boolean
         text:
           type: string
+    CosineLRSchedulerArgs:
+      type: object
+      properties:
+        min_lr_ratio:
+          type: number
+          description: The ratio of the final learning rate to the peak learning rate
+          format: float
+          default: 0
+        num_cycles:
+          type: number
+          description: Number or fraction of cycles for the cosine learning rate scheduler
+          format: float
+          default: 0.5
     CreateEndpointRequest:
       required:
         - model
@@ -2475,8 +2488,13 @@ components:
       type: object
       properties:
         lr_scheduler_args:
-          $ref: '#/components/schemas/LinearLRSchedulerArgs'
+          oneOf:
+            - $ref: '#/components/schemas/LinearLRSchedulerArgs'
+            - $ref: '#/components/schemas/CosineLRSchedulerArgs'
         lr_scheduler_type:
+          enum:
+            - linear
+            - cosine
           type: string
     LinearLRSchedulerArgs:
       type: object
