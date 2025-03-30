@@ -102,6 +102,14 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public override string? ToString() =>
+            Event?.ToString() ??
+            Sentinel?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Validate()
         {
             return IsEvent && !IsSentinel || !IsEvent && IsSentinel;

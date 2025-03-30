@@ -216,6 +216,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public override string? ToString() =>
+            System?.ToString() ??
+            User?.ToString() ??
+            Assistant?.ToString() ??
+            Tool?.ToString() ??
+            Function?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Validate()
         {
             return IsSystem && !IsUser && !IsAssistant && !IsTool && !IsFunction || !IsSystem && IsUser && !IsAssistant && !IsTool && !IsFunction || !IsSystem && !IsUser && IsAssistant && !IsTool && !IsFunction || !IsSystem && !IsUser && !IsAssistant && IsTool && !IsFunction || !IsSystem && !IsUser && !IsAssistant && !IsTool && IsFunction;
