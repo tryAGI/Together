@@ -25,7 +25,7 @@ namespace Together
         public float? DpoBeta { get; set; }
 
         /// <summary>
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID/$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
         public string? FromCheckpoint { get; set; }
@@ -176,7 +176,7 @@ namespace Together
         /// Default Value: 0.1F
         /// </param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID/$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
         /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
