@@ -4,14 +4,10 @@
 namespace Together
 {
     /// <summary>
-    /// Default Value: sft
+    /// 
     /// </summary>
-    public enum FinetuneResponseTrainingMethod
+    public enum TrainingMethodDPOMethod
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        Sft,
         /// <summary>
         /// 
         /// </summary>
@@ -21,29 +17,27 @@ namespace Together
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class FinetuneResponseTrainingMethodExtensions
+    public static class TrainingMethodDPOMethodExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this FinetuneResponseTrainingMethod value)
+        public static string ToValueString(this TrainingMethodDPOMethod value)
         {
             return value switch
             {
-                FinetuneResponseTrainingMethod.Sft => "sft",
-                FinetuneResponseTrainingMethod.Dpo => "dpo",
+                TrainingMethodDPOMethod.Dpo => "dpo",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static FinetuneResponseTrainingMethod? ToEnum(string value)
+        public static TrainingMethodDPOMethod? ToEnum(string value)
         {
             return value switch
             {
-                "sft" => FinetuneResponseTrainingMethod.Sft,
-                "dpo" => FinetuneResponseTrainingMethod.Dpo,
+                "dpo" => TrainingMethodDPOMethod.Dpo,
                 _ => null,
             };
         }

@@ -11,21 +11,15 @@ namespace Together
     public sealed partial class Request
     {
         /// <summary>
-        /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
-        /// Default Value: 32
+        /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
+        /// Default Value: max
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_size")]
-        public int? BatchSize { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.RequestBatchSize?>))]
+        public global::Together.OneOf<int?, global::Together.RequestBatchSize?>? BatchSize { get; set; }
 
         /// <summary>
-        /// The beta parameter for DPO training. Only applicable when training_method is 'dpo'.<br/>
-        /// Default Value: 0.1F
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("dpo_beta")]
-        public float? DpoBeta { get; set; }
-
-        /// <summary>
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
         public string? FromCheckpoint { get; set; }
@@ -100,12 +94,11 @@ namespace Together
         public required string TrainingFile { get; set; }
 
         /// <summary>
-        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.<br/>
-        /// Default Value: sft
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_method")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RequestTrainingMethodJsonConverter))]
-        public global::Together.RequestTrainingMethod? TrainingMethod { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>))]
+        public global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? TrainingMethod { get; set; }
 
         /// <summary>
         /// 
@@ -152,7 +145,7 @@ namespace Together
         public float? WarmupRatio { get; set; }
 
         /// <summary>
-        /// Weight decay<br/>
+        /// Weight decay. Regularization parameter for the optimizer.<br/>
         /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
@@ -168,15 +161,11 @@ namespace Together
         /// Initializes a new instance of the <see cref="Request" /> class.
         /// </summary>
         /// <param name="batchSize">
-        /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
-        /// Default Value: 32
-        /// </param>
-        /// <param name="dpoBeta">
-        /// The beta parameter for DPO training. Only applicable when training_method is 'dpo'.<br/>
-        /// Default Value: 0.1F
+        /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
+        /// Default Value: max
         /// </param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
@@ -213,8 +202,7 @@ namespace Together
         /// File-ID of a training file uploaded to the Together API
         /// </param>
         /// <param name="trainingMethod">
-        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.<br/>
-        /// Default Value: sft
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
         /// <param name="trainingType"></param>
         /// <param name="validationFile">
@@ -237,7 +225,7 @@ namespace Together
         /// Default Value: 0F
         /// </param>
         /// <param name="weightDecay">
-        /// Weight decay<br/>
+        /// Weight decay. Regularization parameter for the optimizer.<br/>
         /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER
@@ -246,8 +234,7 @@ namespace Together
         public Request(
             string model,
             string trainingFile,
-            int? batchSize,
-            float? dpoBeta,
+            global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize,
             string? fromCheckpoint,
             float? learningRate,
             global::Together.LRScheduler? lrScheduler,
@@ -257,7 +244,7 @@ namespace Together
             int? nEvals,
             string? suffix,
             global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? trainOnInputs,
-            global::Together.RequestTrainingMethod? trainingMethod,
+            global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             string? validationFile,
             string? wandbApiKey,
@@ -270,7 +257,6 @@ namespace Together
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.BatchSize = batchSize;
-            this.DpoBeta = dpoBeta;
             this.FromCheckpoint = fromCheckpoint;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;

@@ -3,10 +3,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class FinetuneResponseTrainingMethodJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FinetuneResponseTrainingMethod>
+    public sealed class TrainingMethodSFTMethodNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.TrainingMethodSFTMethod?>
     {
         /// <inheritdoc />
-        public override global::Together.FinetuneResponseTrainingMethod Read(
+        public override global::Together.TrainingMethodSFTMethod? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Together.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Together.FinetuneResponseTrainingMethodExtensions.ToEnum(stringValue) ?? default;
+                        return global::Together.TrainingMethodSFTMethodExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,7 +26,7 @@ namespace Together.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Together.FinetuneResponseTrainingMethod)numValue;
+                    return (global::Together.TrainingMethodSFTMethod)numValue;
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -38,12 +38,19 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.FinetuneResponseTrainingMethod value,
+            global::Together.TrainingMethodSFTMethod? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::Together.FinetuneResponseTrainingMethodExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Together.TrainingMethodSFTMethodExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

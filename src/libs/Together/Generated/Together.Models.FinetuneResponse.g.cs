@@ -11,22 +11,17 @@ namespace Together
     public sealed partial class FinetuneResponse
     {
         /// <summary>
-        /// 
+        /// Default Value: max
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("batch_size")]
-        public int? BatchSize { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.FinetuneResponseBatchSize?>))]
+        public global::Together.OneOf<int?, global::Together.FinetuneResponseBatchSize?>? BatchSize { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public string? CreatedAt { get; set; }
-
-        /// <summary>
-        /// Default Value: 0.1F
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("dpo_beta")]
-        public float? DpoBeta { get; set; }
 
         /// <summary>
         /// 
@@ -165,11 +160,11 @@ namespace Together
         public string? TrainingFile { get; set; }
 
         /// <summary>
-        /// Default Value: sft
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_method")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneResponseTrainingMethodJsonConverter))]
-        public global::Together.FinetuneResponseTrainingMethod? TrainingMethod { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>))]
+        public global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? TrainingMethod { get; set; }
 
         /// <summary>
         /// 
@@ -235,11 +230,10 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="FinetuneResponse" /> class.
         /// </summary>
-        /// <param name="batchSize"></param>
-        /// <param name="createdAt"></param>
-        /// <param name="dpoBeta">
-        /// Default Value: 0.1F
+        /// <param name="batchSize">
+        /// Default Value: max
         /// </param>
+        /// <param name="createdAt"></param>
         /// <param name="epochsCompleted"></param>
         /// <param name="evalSteps"></param>
         /// <param name="events"></param>
@@ -264,9 +258,7 @@ namespace Together
         /// Default Value: auto
         /// </param>
         /// <param name="trainingFile"></param>
-        /// <param name="trainingMethod">
-        /// Default Value: sft
-        /// </param>
+        /// <param name="trainingMethod"></param>
         /// <param name="trainingType"></param>
         /// <param name="trainingfileNumlines"></param>
         /// <param name="trainingfileSize"></param>
@@ -282,9 +274,8 @@ namespace Together
         public FinetuneResponse(
             global::System.Guid id,
             global::Together.FinetuneJobStatus status,
-            int? batchSize,
+            global::Together.OneOf<int?, global::Together.FinetuneResponseBatchSize?>? batchSize,
             string? createdAt,
-            float? dpoBeta,
             int? epochsCompleted,
             int? evalSteps,
             global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? events,
@@ -305,7 +296,7 @@ namespace Together
             int? totalPrice,
             global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? trainOnInputs,
             string? trainingFile,
-            global::Together.FinetuneResponseTrainingMethod? trainingMethod,
+            global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             int? trainingfileNumlines,
             int? trainingfileSize,
@@ -320,7 +311,6 @@ namespace Together
             this.Status = status;
             this.BatchSize = batchSize;
             this.CreatedAt = createdAt;
-            this.DpoBeta = dpoBeta;
             this.EpochsCompleted = epochsCompleted;
             this.EvalSteps = evalSteps;
             this.Events = events;
