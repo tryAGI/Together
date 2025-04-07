@@ -558,17 +558,16 @@ paths:
               type: object
               properties:
                 batch_size:
-                  type: integer
-                  description: Number of training examples processed together (larger batches use more memory but may train faster)
-                  default: 32
-                dpo_beta:
-                  type: number
-                  description: The beta parameter for DPO training. Only applicable when training_method is 'dpo'.
-                  format: float
-                  default: 0.1
+                  oneOf:
+                    - type: integer
+                    - enum:
+                        - max
+                      type: string
+                  description: 'Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.'
+                  default: max
                 from_checkpoint:
                   type: string
-                  description: 'The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.'
+                  description: 'The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.'
                 learning_rate:
                   type: number
                   description: 'Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)'
@@ -612,12 +611,11 @@ paths:
                   type: string
                   description: File-ID of a training file uploaded to the Together API
                 training_method:
-                  enum:
-                    - sft
-                    - dpo
-                  type: string
+                  type: object
+                  oneOf:
+                    - $ref: '#/components/schemas/TrainingMethodSFT'
+                    - $ref: '#/components/schemas/TrainingMethodDPO'
                   description: The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
-                  default: sft
                 training_type:
                   type: object
                   oneOf:
@@ -645,7 +643,7 @@ paths:
                   default: 0
                 weight_decay:
                   type: number
-                  description: Weight decay
+                  description: Weight decay. Regularization parameter for the optimizer.
                   format: float
                   default: 0
         required: true
@@ -2275,13 +2273,14 @@ components:
       type: object
       properties:
         batch_size:
-          type: integer
+          oneOf:
+            - type: integer
+            - enum:
+                - max
+              type: string
+          default: max
         created_at:
           type: string
-        dpo_beta:
-          type: number
-          format: float
-          default: 0.1
         epochs_completed:
           type: integer
         eval_steps:
@@ -2336,11 +2335,10 @@ components:
         training_file:
           type: string
         training_method:
-          enum:
-            - sft
-            - dpo
-          type: string
-          default: sft
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/TrainingMethodSFT'
+            - $ref: '#/components/schemas/TrainingMethodDPO'
         training_type:
           type: object
           oneOf:
@@ -2839,6 +2837,28 @@ components:
         type:
           type: string
           example: tool_type
+    TrainingMethodDPO:
+      required:
+        - method
+      type: object
+      properties:
+        dpo_beta:
+          type: number
+          format: float
+          default: 0.1
+        method:
+          enum:
+            - dpo
+          type: string
+    TrainingMethodSFT:
+      required:
+        - method
+      type: object
+      properties:
+        method:
+          enum:
+            - sft
+          type: string
     UsageData:
       required:
         - prompt_tokens

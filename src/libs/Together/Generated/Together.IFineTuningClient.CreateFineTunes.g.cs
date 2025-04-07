@@ -20,15 +20,11 @@ namespace Together
         /// Use a model to create a fine-tuning job.
         /// </summary>
         /// <param name="batchSize">
-        /// Number of training examples processed together (larger batches use more memory but may train faster)<br/>
-        /// Default Value: 32
-        /// </param>
-        /// <param name="dpoBeta">
-        /// The beta parameter for DPO training. Only applicable when training_method is 'dpo'.<br/>
-        /// Default Value: 0.1F
+        /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
+        /// Default Value: max
         /// </param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional, without it the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
@@ -65,8 +61,7 @@ namespace Together
         /// File-ID of a training file uploaded to the Together API
         /// </param>
         /// <param name="trainingMethod">
-        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.<br/>
-        /// Default Value: sft
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
         /// <param name="trainingType"></param>
         /// <param name="validationFile">
@@ -89,7 +84,7 @@ namespace Together
         /// Default Value: 0F
         /// </param>
         /// <param name="weightDecay">
-        /// Weight decay<br/>
+        /// Weight decay. Regularization parameter for the optimizer.<br/>
         /// Default Value: 0F
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -97,8 +92,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
             string model,
             string trainingFile,
-            int? batchSize = default,
-            float? dpoBeta = default,
+            global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize = default,
             string? fromCheckpoint = default,
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
@@ -108,7 +102,7 @@ namespace Together
             int? nEvals = default,
             string? suffix = default,
             global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? trainOnInputs = default,
-            global::Together.RequestTrainingMethod? trainingMethod = default,
+            global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod = default,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? validationFile = default,
             string? wandbApiKey = default,
