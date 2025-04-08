@@ -85,6 +85,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public JobsClient Jobs { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ModelsClient Models { get; }
 
         /// <summary>

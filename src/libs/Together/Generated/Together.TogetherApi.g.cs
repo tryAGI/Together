@@ -121,6 +121,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public JobsClient Jobs => new JobsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
