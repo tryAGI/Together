@@ -97,5 +97,10 @@ namespace Together
         /// </summary>
         public RerankClient Rerank { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public CodeInterpreterClient CodeInterpreter { get; }
+
     }
 }

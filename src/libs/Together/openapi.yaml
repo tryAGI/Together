@@ -1230,6 +1230,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorData'
+  /tci/execute:
+    post:
+      tags:
+        - Code Interpreter
+      description: "Executes the given code snippet and returns the output. Without a session_id, a new session will be created to run the code. If you do pass in a valid session_id, the code will be run in that session. This is useful for running multiple code snippets in the same environment, because dependencies and similar things are persisted\nbetween calls to the same session.\n"
+      operationId: tci/execute
+      requestBody:
+        description: Execute Request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecuteRequest'
+      responses:
+        '200':
+          description: Execute Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecuteResponse'
+  /tci/sessions:
+    get:
+      tags:
+        - Code Interpreter
+      description: "Lists all your currently active sessions.\n"
+      operationId: sessions/list
+      responses:
+        '200':
+          description: List Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionListResponse'
 components:
   schemas:
     AudioSpeechRequest:
@@ -1672,7 +1704,8 @@ components:
                               enum:
                                 - image_url
                               type: string
-                        - required:
+                        - title: Video
+                          required:
                             - type
                             - video_url
                           type: object
@@ -2206,6 +2239,52 @@ components:
           description: The type of endpoint
           example: dedicated
       description: Details about a dedicated endpoint deployment
+    DisplayorExecuteOutput:
+      title: DisplayorExecuteOutput
+      required:
+        - type
+        - data
+      properties:
+        data:
+          type: object
+          properties:
+            application/geo+json:
+              type: object
+            application/javascript:
+              type: string
+            application/json:
+              type: object
+            application/pdf:
+              type: string
+              format: byte
+            application/vnd.vega.v5+json:
+              type: object
+            application/vnd.vegalite.v4+json:
+              type: object
+            image/gif:
+              type: string
+              format: byte
+            image/jpeg:
+              type: string
+              format: byte
+            image/png:
+              type: string
+              format: byte
+            image/svg+xml:
+              type: string
+            text/html:
+              type: string
+            text/latex:
+              type: string
+            text/markdown:
+              type: string
+            text/plain:
+              type: string
+        type:
+          enum:
+            - display_data
+            - execute_result
+          type: string
     EmbeddingsRequest:
       required:
         - model
@@ -2278,6 +2357,11 @@ components:
           format: float
           example: 5.42
       description: Pricing details for using an endpoint
+    Error:
+      title: Error
+      oneOf:
+        - type: string
+        - type: object
     ErrorData:
       required:
         - error
@@ -2301,6 +2385,154 @@ components:
               nullable: true
             type:
               type: string
+    ErrorOutput:
+      title: ErrorOutput
+      required:
+        - type
+        - data
+      properties:
+        data:
+          type: string
+        type:
+          enum:
+            - error
+          type: string
+      description: 'Errors and exceptions that occurred. If this output type is present, your code did not execute successfully.'
+    ExecuteRequest:
+      title: ExecuteRequest
+      required:
+        - language
+        - code
+      properties:
+        code:
+          type: string
+          description: 'Code snippet to execute. '
+          example: 'print(''Hello, world!'')'
+        language:
+          enum:
+            - python
+          description: 'Programming language for the code to execute. Currently only supports Python, but more will be added.'
+          default: python
+        session_id:
+          type: string
+          description: Identifier of the current session. Used to make follow-up calls. Requests will return an error if the session does not belong to the caller or has expired.
+          example: ses_abcDEF123
+    ExecuteResponse:
+      title: ExecuteResponse
+      type: object
+      oneOf:
+        - title: SuccessfulExecution
+          required:
+            - data
+            - errors
+          type: object
+          properties:
+            data:
+              required:
+                - session_id
+                - outputs
+              type: object
+              properties:
+                outputs:
+                  type: array
+                  items:
+                    title: InterpreterOutput
+                    oneOf:
+                      - title: StreamOutput
+                        required:
+                          - type
+                          - data
+                        type: object
+                        properties:
+                          data:
+                            type: string
+                          type:
+                            enum:
+                              - stdout
+                              - stderr
+                            type: string
+                        description: Outputs that were printed to stdout or stderr
+                      - title: ErrorOutput
+                        required:
+                          - type
+                          - data
+                        properties:
+                          data:
+                            type: string
+                          type:
+                            enum:
+                              - error
+                            type: string
+                        description: 'Errors and exceptions that occurred. If this output type is present, your code did not execute successfully.'
+                      - title: DisplayorExecuteOutput
+                        required:
+                          - type
+                          - data
+                        properties:
+                          data:
+                            type: object
+                            properties:
+                              application/geo+json:
+                                type: object
+                              application/javascript:
+                                type: string
+                              application/json:
+                                type: object
+                              application/pdf:
+                                type: string
+                                format: byte
+                              application/vnd.vega.v5+json:
+                                type: object
+                              application/vnd.vegalite.v4+json:
+                                type: object
+                              image/gif:
+                                type: string
+                                format: byte
+                              image/jpeg:
+                                type: string
+                                format: byte
+                              image/png:
+                                type: string
+                                format: byte
+                              image/svg+xml:
+                                type: string
+                              text/html:
+                                type: string
+                              text/latex:
+                                type: string
+                              text/markdown:
+                                type: string
+                              text/plain:
+                                type: string
+                          type:
+                            enum:
+                              - display_data
+                              - execute_result
+                            type: string
+                    discriminator:
+                      propertyName: type
+                session_id:
+                  type: string
+                  description: Identifier of the current session. Used to make follow-up calls.
+                  example: ses_abcDEF123
+            errors:
+              type: 'null'
+        - title: FailedExecution
+          required:
+            - data
+            - errors
+          type: object
+          properties:
+            data:
+              type: 'null'
+            errors:
+              type: array
+              items:
+                title: Error
+                oneOf:
+                  - type: string
+                  - type: object
+      description: 'The result of the execution. If successful, `data` contains the result and `errors` will be null. If unsuccessful, `data` will be null and `errors` will contain the errors.'
     FileDeleteResponse:
       type: object
       properties:
@@ -2713,6 +2945,81 @@ components:
           enum:
             - list
           example: list
+    InterpreterOutput:
+      title: InterpreterOutput
+      oneOf:
+        - title: StreamOutput
+          required:
+            - type
+            - data
+          properties:
+            data:
+              type: string
+            type:
+              enum:
+                - stdout
+                - stderr
+              type: string
+          description: Outputs that were printed to stdout or stderr
+        - title: ErrorOutput
+          required:
+            - type
+            - data
+          properties:
+            data:
+              type: string
+            type:
+              enum:
+                - error
+              type: string
+          description: 'Errors and exceptions that occurred. If this output type is present, your code did not execute successfully.'
+        - title: DisplayorExecuteOutput
+          required:
+            - type
+            - data
+          properties:
+            data:
+              type: object
+              properties:
+                application/geo+json:
+                  type: object
+                application/javascript:
+                  type: string
+                application/json:
+                  type: object
+                application/pdf:
+                  type: string
+                  format: byte
+                application/vnd.vega.v5+json:
+                  type: object
+                application/vnd.vegalite.v4+json:
+                  type: object
+                image/gif:
+                  type: string
+                  format: byte
+                image/jpeg:
+                  type: string
+                  format: byte
+                image/png:
+                  type: string
+                  format: byte
+                image/svg+xml:
+                  type: string
+                text/html:
+                  type: string
+                text/latex:
+                  type: string
+                text/markdown:
+                  type: string
+                text/plain:
+                  type: string
+            type:
+              enum:
+                - display_data
+                - execute_result
+              type: string
+      discriminator:
+        propertyName: type
     LRScheduler:
       required:
         - lr_scheduler_type
@@ -3015,6 +3322,77 @@ components:
               relevance_score: 0.2752447527354349
         usage:
           $ref: '#/components/schemas/UsageData'
+    Response:
+      title: Response
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            title: Error
+            oneOf:
+              - type: string
+              - type: object
+    SessionListResponse:
+      title: SessionListResponse
+      type: object
+      allOf:
+        - title: Response
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                title: Error
+                oneOf:
+                  - type: string
+                  - type: object
+        - type: object
+          properties:
+            data:
+              required:
+                - sessions
+              properties:
+                sessions:
+                  type: array
+                  items:
+                    required:
+                      - execute_count
+                      - expires_at
+                      - id
+                      - last_execute_at
+                      - started_at
+                    type: object
+                    properties:
+                      execute_count:
+                        type: integer
+                      expires_at:
+                        type: string
+                        format: date-time
+                      id:
+                        type: string
+                        description: Session Identifier. Used to make follow-up calls.
+                        example: ses_abcDEF123
+                      last_execute_at:
+                        type: string
+                        format: date-time
+                      started_at:
+                        type: string
+                        format: date-time
+    StreamOutput:
+      title: StreamOutput
+      required:
+        - type
+        - data
+      properties:
+        data:
+          type: string
+        type:
+          enum:
+            - stdout
+            - stderr
+          type: string
+      description: Outputs that were printed to stdout or stderr
     StreamSentinel:
       required:
         - data
