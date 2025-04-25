@@ -19,7 +19,7 @@ namespace Together
         public required global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant1, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant2, global::Together.ChatCompletionRequestMessageContentVariant2ItemVariant3>>> Content { get; set; }
 
         /// <summary>
-        /// The role of the messages author. Choice between: system, user, or assistant.
+        /// The role of the messages author. Choice between: system, user, assistant, or tool.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionRequestMessageRoleJsonConverter))]
@@ -39,7 +39,7 @@ namespace Together
         /// The content of the message, which can either be a simple string or a structured format.
         /// </param>
         /// <param name="role">
-        /// The role of the messages author. Choice between: system, user, or assistant.
+        /// The role of the messages author. Choice between: system, user, assistant, or tool.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
