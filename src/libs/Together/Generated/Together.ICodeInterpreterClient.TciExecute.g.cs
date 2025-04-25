@@ -20,7 +20,7 @@ namespace Together
         /// between calls to the same session.
         /// </summary>
         /// <param name="code">
-        /// Code snippet to execute. <br/>
+        /// Code snippet to execute.<br/>
         /// Example: print('Hello, world!')
         /// </param>
         /// <param name="language">

@@ -4,24 +4,24 @@
 namespace Together
 {
     /// <summary>
-    /// The role of the messages author. Choice between: system, user, or assistant.
+    /// The role of the messages author. Choice between: system, user, assistant, or tool.
     /// </summary>
     public enum ChatCompletionRequestMessageRole
     {
         /// <summary>
-        /// system, user, or assistant.
+        /// system, user, assistant, or tool.
         /// </summary>
         System,
         /// <summary>
-        /// system, user, or assistant.
+        /// system, user, assistant, or tool.
         /// </summary>
         User,
         /// <summary>
-        /// system, user, or assistant.
+        /// system, user, assistant, or tool.
         /// </summary>
         Assistant,
         /// <summary>
-        /// 
+        /// system, user, assistant, or tool.
         /// </summary>
         Tool,
     }

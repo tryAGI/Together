@@ -1731,7 +1731,7 @@ components:
                   - assistant
                   - tool
                 type: string
-                description: 'The role of the messages author. Choice between: system, user, or assistant.'
+                description: 'The role of the messages author. Choice between: system, user, assistant, or tool.'
           description: A list of messages comprising the conversation so far.
         min_p:
           type: number
@@ -1766,8 +1766,6 @@ components:
           properties:
             schema:
               type: object
-              additionalProperties:
-                type: string
               description: The schema of the response format.
             type:
               type: string
@@ -2406,7 +2404,7 @@ components:
       properties:
         code:
           type: string
-          description: 'Code snippet to execute. '
+          description: Code snippet to execute.
           example: 'print(''Hello, world!'')'
         language:
           enum:

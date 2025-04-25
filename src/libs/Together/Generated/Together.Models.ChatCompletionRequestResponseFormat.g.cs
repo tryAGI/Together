@@ -12,7 +12,7 @@ namespace Together
         /// The schema of the response format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Schema { get; set; }
+        public object? Schema { get; set; }
 
         /// <summary>
         /// The type of the response format.<br/>
@@ -42,7 +42,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionRequestResponseFormat(
-            global::System.Collections.Generic.Dictionary<string, string>? schema,
+            object? schema,
             string? type)
         {
             this.Schema = schema;

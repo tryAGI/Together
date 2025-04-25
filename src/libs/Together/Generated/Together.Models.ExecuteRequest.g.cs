@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class ExecuteRequest
     {
         /// <summary>
-        /// Code snippet to execute. <br/>
+        /// Code snippet to execute.<br/>
         /// Example: print('Hello, world!')
         /// </summary>
         /// <example>print('Hello, world!')</example>
@@ -44,7 +44,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="ExecuteRequest" /> class.
         /// </summary>
         /// <param name="code">
-        /// Code snippet to execute. <br/>
+        /// Code snippet to execute.<br/>
         /// Example: print('Hello, world!')
         /// </param>
         /// <param name="language">
