@@ -174,6 +174,9 @@ namespace Together
         /// Code snippet to execute.<br/>
         /// Example: print('Hello, world!')
         /// </param>
+        /// <param name="files">
+        /// Files to upload to the session. If present, files will be uploaded before executing the given code.
+        /// </param>
         /// <param name="language">
         /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
         /// Default Value: python
@@ -186,6 +189,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ExecuteResponse> TciExecuteAsync(
             string code,
+            global::System.Collections.Generic.IList<global::Together.ExecuteRequestFile>? files = default,
             global::Together.ExecuteRequestLanguage language = global::Together.ExecuteRequestLanguage.Python,
             string? sessionId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -193,6 +197,7 @@ namespace Together
             var __request = new global::Together.ExecuteRequest
             {
                 Code = code,
+                Files = files,
                 Language = language,
                 SessionId = sessionId,
             };

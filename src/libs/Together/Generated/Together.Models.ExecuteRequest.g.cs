@@ -18,6 +18,12 @@ namespace Together
         public required string Code { get; set; }
 
         /// <summary>
+        /// Files to upload to the session. If present, files will be uploaded before executing the given code.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("files")]
+        public global::System.Collections.Generic.IList<global::Together.ExecuteRequestFile>? Files { get; set; }
+
+        /// <summary>
         /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
         /// Default Value: python
         /// </summary>
@@ -47,6 +53,9 @@ namespace Together
         /// Code snippet to execute.<br/>
         /// Example: print('Hello, world!')
         /// </param>
+        /// <param name="files">
+        /// Files to upload to the session. If present, files will be uploaded before executing the given code.
+        /// </param>
         /// <param name="language">
         /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
         /// Default Value: python
@@ -60,10 +69,12 @@ namespace Together
 #endif
         public ExecuteRequest(
             string code,
+            global::System.Collections.Generic.IList<global::Together.ExecuteRequestFile>? files,
             string? sessionId,
             global::Together.ExecuteRequestLanguage language = global::Together.ExecuteRequestLanguage.Python)
         {
             this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
+            this.Files = files;
             this.Language = language;
             this.SessionId = sessionId;
         }
