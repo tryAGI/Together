@@ -2406,6 +2406,26 @@ components:
           type: string
           description: Code snippet to execute.
           example: 'print(''Hello, world!'')'
+        files:
+          type: array
+          items:
+            required:
+              - name
+              - encoding
+              - content
+            type: object
+            properties:
+              content:
+                type: string
+              encoding:
+                enum:
+                  - string
+                  - base64
+                type: string
+                description: 'Encoding of the file content. Use `string` for text files such as code, and `base64` for binary files, such as images.'
+              name:
+                type: string
+          description: 'Files to upload to the session. If present, files will be uploaded before executing the given code.'
         language:
           enum:
             - python

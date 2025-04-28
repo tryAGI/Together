@@ -91,6 +91,8 @@ namespace Together
             typeof(global::Together.JsonConverters.EmbeddingsResponseObjectNullableJsonConverter),
             typeof(global::Together.JsonConverters.ErrorOutputTypeJsonConverter),
             typeof(global::Together.JsonConverters.ErrorOutputTypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.ExecuteRequestFileEncodingJsonConverter),
+            typeof(global::Together.JsonConverters.ExecuteRequestFileEncodingNullableJsonConverter),
             typeof(global::Together.JsonConverters.ExecuteRequestLanguageJsonConverter),
             typeof(global::Together.JsonConverters.ExecuteRequestLanguageNullableJsonConverter),
             typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataOutputVariant1TypeJsonConverter),
