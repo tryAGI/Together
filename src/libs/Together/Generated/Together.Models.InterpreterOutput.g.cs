@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant1 value) => new InterpreterOutput(value);
+        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant1 value) => new InterpreterOutput((global::Together.InterpreterOutputVariant1?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant2 value) => new InterpreterOutput(value);
+        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant2 value) => new InterpreterOutput((global::Together.InterpreterOutputVariant2?)value);
 
         /// <summary>
         /// 
@@ -99,7 +99,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant3 value) => new InterpreterOutput(value);
+        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant3 value) => new InterpreterOutput((global::Together.InterpreterOutputVariant3?)value);
 
         /// <summary>
         /// 

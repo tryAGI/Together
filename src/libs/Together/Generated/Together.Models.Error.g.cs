@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Error(string value) => new Error(value);
+        public static implicit operator Error(string value) => new Error((string?)value);
 
         /// <summary>
         /// 

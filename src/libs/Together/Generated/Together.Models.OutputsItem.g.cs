@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant1 value) => new OutputsItem(value);
+        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant1 value) => new OutputsItem((global::Together.ExecuteResponseVariant1DataOutputVariant1?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant2 value) => new OutputsItem(value);
+        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant2 value) => new OutputsItem((global::Together.ExecuteResponseVariant1DataOutputVariant2?)value);
 
         /// <summary>
         /// 
@@ -99,7 +99,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant3 value) => new OutputsItem(value);
+        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant3 value) => new OutputsItem((global::Together.ExecuteResponseVariant1DataOutputVariant3?)value);
 
         /// <summary>
         /// 

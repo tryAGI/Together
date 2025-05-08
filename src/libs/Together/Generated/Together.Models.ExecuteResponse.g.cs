@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseVariant1 value) => new ExecuteResponse(value);
+        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseVariant1 value) => new ExecuteResponse((global::Together.ExecuteResponseVariant1?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseVariant2 value) => new ExecuteResponse(value);
+        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseVariant2 value) => new ExecuteResponse((global::Together.ExecuteResponseVariant2?)value);
 
         /// <summary>
         /// 
