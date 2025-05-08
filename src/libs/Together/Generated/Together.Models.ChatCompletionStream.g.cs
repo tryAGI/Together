@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionStream(global::Together.ChatCompletionEvent value) => new ChatCompletionStream(value);
+        public static implicit operator ChatCompletionStream(global::Together.ChatCompletionEvent value) => new ChatCompletionStream((global::Together.ChatCompletionEvent?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionStream(global::Together.StreamSentinel value) => new ChatCompletionStream(value);
+        public static implicit operator ChatCompletionStream(global::Together.StreamSentinel value) => new ChatCompletionStream((global::Together.StreamSentinel?)value);
 
         /// <summary>
         /// 

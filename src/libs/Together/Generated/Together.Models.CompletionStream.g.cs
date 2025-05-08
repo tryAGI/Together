@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator CompletionStream(global::Together.CompletionEvent value) => new CompletionStream(value);
+        public static implicit operator CompletionStream(global::Together.CompletionEvent value) => new CompletionStream((global::Together.CompletionEvent?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator CompletionStream(global::Together.StreamSentinel value) => new CompletionStream(value);
+        public static implicit operator CompletionStream(global::Together.StreamSentinel value) => new CompletionStream((global::Together.StreamSentinel?)value);
 
         /// <summary>
         /// 

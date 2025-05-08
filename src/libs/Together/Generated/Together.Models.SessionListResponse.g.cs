@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant1 value) => new SessionListResponse(value);
+        public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant1 value) => new SessionListResponse((global::Together.SessionListResponseVariant1?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant2 value) => new SessionListResponse(value);
+        public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant2 value) => new SessionListResponse((global::Together.SessionListResponseVariant2?)value);
 
         /// <summary>
         /// 

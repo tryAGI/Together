@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AudioSpeechStreamResponse(global::Together.AudioSpeechStreamEvent value) => new AudioSpeechStreamResponse(value);
+        public static implicit operator AudioSpeechStreamResponse(global::Together.AudioSpeechStreamEvent value) => new AudioSpeechStreamResponse((global::Together.AudioSpeechStreamEvent?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator AudioSpeechStreamResponse(global::Together.StreamSentinel value) => new AudioSpeechStreamResponse(value);
+        public static implicit operator AudioSpeechStreamResponse(global::Together.StreamSentinel value) => new AudioSpeechStreamResponse((global::Together.StreamSentinel?)value);
 
         /// <summary>
         /// 

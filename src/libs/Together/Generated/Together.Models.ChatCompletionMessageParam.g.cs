@@ -29,7 +29,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionSystemMessageParam value) => new ChatCompletionMessageParam(value);
+        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionSystemMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionSystemMessageParam?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionUserMessageParam value) => new ChatCompletionMessageParam(value);
+        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionUserMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionUserMessageParam?)value);
 
         /// <summary>
         /// 
@@ -99,7 +99,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionAssistantMessageParam value) => new ChatCompletionMessageParam(value);
+        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionAssistantMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionAssistantMessageParam?)value);
 
         /// <summary>
         /// 
@@ -134,7 +134,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionToolMessageParam value) => new ChatCompletionMessageParam(value);
+        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionToolMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionToolMessageParam?)value);
 
         /// <summary>
         /// 
@@ -169,7 +169,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionFunctionMessageParam value) => new ChatCompletionMessageParam(value);
+        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionFunctionMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionFunctionMessageParam?)value);
 
         /// <summary>
         /// 
