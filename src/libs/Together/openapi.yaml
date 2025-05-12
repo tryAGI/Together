@@ -697,6 +697,25 @@ paths:
           description: Invalid request parameters.
         '404':
           description: Fine-tune ID not found.
+  '/fine-tunes/{id}/checkpoints':
+    get:
+      tags:
+        - Fine-tuning
+      summary: List checkpoints
+      description: List the checkpoints for a single fine-tuning job.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of fine-tune checkpoints
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinetuneListCheckpoints'
   '/fine-tunes/{id}/events':
     get:
       tags:
@@ -2618,6 +2637,25 @@ components:
           enum:
             - fine-tune
           example: fine-tune
+    FineTuneCheckpoint:
+      required:
+        - step
+        - path
+        - created_at
+        - is_deleted
+        - checkpoint_type
+      type: object
+      properties:
+        checkpoint_type:
+          type: string
+        created_at:
+          type: string
+        is_deleted:
+          type: boolean
+        path:
+          type: string
+        step:
+          type: integer
     FineTuneEvent:
       required:
         - object
@@ -2740,6 +2778,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FinetuneResponse'
+    FinetuneListCheckpoints:
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FineTuneCheckpoint'
     FinetuneListEvents:
       required:
         - data
