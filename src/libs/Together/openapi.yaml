@@ -1131,8 +1131,8 @@ paths:
     post:
       tags:
         - Models
-      summary: Upload a custom model
-      description: Upload a custom model from Hugging Face or S3
+      summary: Upload a custom model or adapter
+      description: Upload a custom model or adapter from Hugging Face or S3
       operationId: uploadModel
       requestBody:
         content:
@@ -1143,6 +1143,10 @@ paths:
                 - model_source
               type: object
               properties:
+                base_model:
+                  type: string
+                  description: The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.
+                  example: Qwen/Qwen2.5-72B-Instruct
                 description:
                   type: string
                   description: A description of your model
@@ -1151,6 +1155,10 @@ paths:
                   type: string
                   description: Hugging Face token (if uploading from Hugging Face)
                   example: hf_examplehuggingfacetoken
+                lora_model:
+                  type: string
+                  description: 'The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.'
+                  example: my_username/Qwen2.5-72B-Instruct-lora
                 model_name:
                   type: string
                   description: The name to give to your uploaded model
@@ -1159,10 +1167,18 @@ paths:
                   type: string
                   description: The source location of the model (Hugging Face repo or S3 path)
                   example: unsloth/Qwen2.5-72B-Instruct
+                model_type:
+                  enum:
+                    - model
+                    - adapter
+                  type: string
+                  description: Whether the model is a full model or an adapter
+                  default: model
+                  example: model
         required: true
       responses:
         '200':
-          description: Model upload job created successfully
+          description: Model / adapter upload job created successfully
           content:
             application/json:
               schema:
