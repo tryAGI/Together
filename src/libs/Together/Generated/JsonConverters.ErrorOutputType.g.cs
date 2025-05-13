@@ -28,6 +28,10 @@ namespace Together.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::Together.ErrorOutputType)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Together.ErrorOutputType);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }
