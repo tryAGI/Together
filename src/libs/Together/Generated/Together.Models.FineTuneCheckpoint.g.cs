@@ -25,13 +25,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("is_deleted")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool IsDeleted { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("path")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Path { get; set; }
@@ -54,7 +47,6 @@ namespace Together
         /// </summary>
         /// <param name="checkpointType"></param>
         /// <param name="createdAt"></param>
-        /// <param name="isDeleted"></param>
         /// <param name="path"></param>
         /// <param name="step"></param>
 #if NET7_0_OR_GREATER
@@ -63,13 +55,11 @@ namespace Together
         public FineTuneCheckpoint(
             string checkpointType,
             string createdAt,
-            bool isDeleted,
             string path,
             int step)
         {
             this.CheckpointType = checkpointType ?? throw new global::System.ArgumentNullException(nameof(checkpointType));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
-            this.IsDeleted = isDeleted;
             this.Path = path ?? throw new global::System.ArgumentNullException(nameof(path));
             this.Step = step;
         }
