@@ -266,6 +266,7 @@ paths:
                 example:
                   data:
                     - created_at: '2024-02-28T21:34:35.4440000+00:00'
+                      id: endpoint-5c0c20db-62fe-4f41-8ffc-d9e4ea1a264e
                       model: allenai/OLMo-7B
                       name: allenai/OLMo-7B
                       object: endpoint
