@@ -194,10 +194,6 @@ namespace Together
         /// <param name="suffix">
         /// Suffix that will be added to your fine-tuned model name
         /// </param>
-        /// <param name="trainOnInputs">
-        /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
-        /// Default Value: auto
-        /// </param>
         /// <param name="trainingFile">
         /// File-ID of a training file uploaded to the Together API
         /// </param>
@@ -243,7 +239,6 @@ namespace Together
             int? nEpochs,
             int? nEvals,
             string? suffix,
-            global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? trainOnInputs,
             global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             string? validationFile,
@@ -265,7 +260,6 @@ namespace Together
             this.NEpochs = nEpochs;
             this.NEvals = nEvals;
             this.Suffix = suffix;
-            this.TrainOnInputs = trainOnInputs;
             this.TrainingMethod = trainingMethod;
             this.TrainingType = trainingType;
             this.ValidationFile = validationFile;
