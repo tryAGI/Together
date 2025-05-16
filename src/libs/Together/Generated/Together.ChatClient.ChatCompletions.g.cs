@@ -412,7 +412,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
-            global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> messages,
+            global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> messages,
             global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior = default,
             bool? echo = default,

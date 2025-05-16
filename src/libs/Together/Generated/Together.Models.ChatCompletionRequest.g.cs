@@ -60,7 +60,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> Messages { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> Messages { get; set; }
 
         /// <summary>
         /// A number between 0 and 1 that can be used as an alternative to top_p and top-k.
@@ -245,7 +245,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionRequest(
-            global::System.Collections.Generic.IList<global::Together.ChatCompletionRequestMessage> messages,
+            global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> messages,
             global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior,
             bool? echo,
