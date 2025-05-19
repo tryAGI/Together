@@ -18,6 +18,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created")]
+        public int? Created { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,6 +35,13 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CompletionChunkObjectJsonConverter))]
+        public global::Together.CompletionChunkObject? Object { get; set; }
 
         /// <summary>
         /// 
@@ -60,8 +73,10 @@ namespace Together
         /// Initializes a new instance of the <see cref="CompletionChunk" /> class.
         /// </summary>
         /// <param name="choices"></param>
+        /// <param name="created"></param>
         /// <param name="finishReason"></param>
         /// <param name="id"></param>
+        /// <param name="object"></param>
         /// <param name="seed"></param>
         /// <param name="token"></param>
         /// <param name="usage"></param>
@@ -74,6 +89,8 @@ namespace Together
             string id,
             global::Together.CompletionToken token,
             global::Together.UsageData? usage,
+            int? created,
+            global::Together.CompletionChunkObject? @object,
             int? seed)
         {
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
@@ -81,6 +98,8 @@ namespace Together
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
             this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
+            this.Created = created;
+            this.Object = @object;
             this.Seed = seed;
         }
 

@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -9,11 +11,12 @@ namespace Together
     public sealed partial class ChatCompletionUserMessageParam
     {
         /// <summary>
-        /// 
+        /// The content of the message, which can either be a simple string or a structured format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant1, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant2, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant3>>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Content { get; set; }
+        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant1, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant2, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant3>>> Content { get; set; }
 
         /// <summary>
         /// 
@@ -37,18 +40,20 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionUserMessageParam" /> class.
         /// </summary>
-        /// <param name="content"></param>
+        /// <param name="content">
+        /// The content of the message, which can either be a simple string or a structured format.
+        /// </param>
         /// <param name="name"></param>
         /// <param name="role"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionUserMessageParam(
-            string content,
+            global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant1, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant2, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant3>>> content,
             string? name,
             global::Together.ChatCompletionUserMessageParamRole role)
         {
-            this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
+            this.Content = content;
             this.Name = name;
             this.Role = role;
         }

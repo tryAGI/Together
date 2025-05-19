@@ -1882,7 +1882,58 @@ components:
       type: object
       properties:
         content:
-          type: string
+          oneOf:
+            - type: string
+              description: A plain text message.
+            - type: array
+              items:
+                type: object
+                oneOf:
+                  - required:
+                      - type
+                      - text
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                      type:
+                        enum:
+                          - text
+                        type: string
+                  - type: object
+                    properties:
+                      image_url:
+                        required:
+                          - url
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            description: The URL of the image
+                      type:
+                        enum:
+                          - image_url
+                        type: string
+                  - title: Video
+                    required:
+                      - type
+                      - video_url
+                    type: object
+                    properties:
+                      type:
+                        enum:
+                          - video_url
+                        type: string
+                      video_url:
+                        required:
+                          - url
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            description: The URL of the video
+              description: A structured message with mixed content types.
+          description: 'The content of the message, which can either be a simple string or a structured format.'
         name:
           type: string
         role:
@@ -1894,6 +1945,43 @@ components:
         - index
       type: object
       properties:
+        delta:
+          title: CompletionChoiceDelta
+          required:
+            - role
+          type: object
+          properties:
+            content:
+              type: string
+              nullable: true
+            function_call:
+              required:
+                - arguments
+                - name
+              type: object
+              properties:
+                arguments:
+                  type: string
+                name:
+                  type: string
+              nullable: true
+              deprecated: true
+            role:
+              enum:
+                - system
+                - user
+                - assistant
+                - function
+                - tool
+              type: string
+            token_id:
+              type: integer
+            tool_calls:
+              type: array
+              items:
+                $ref: '#/components/schemas/ToolChoice'
+        index:
+          type: integer
         text:
           type: string
     CompletionChoicesData:
@@ -1924,9 +2012,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CompletionChoice'
+        created:
+          type: integer
         finish_reason:
           $ref: '#/components/schemas/FinishReason'
         id:
+          type: string
+        object:
+          enum:
+            - completion.chunk
           type: string
         seed:
           type: integer
@@ -2057,7 +2151,7 @@ components:
           type: string
         object:
           enum:
-            - text_completion
+            - text.completion
           type: string
         prompt:
           $ref: '#/components/schemas/PromptPart'
