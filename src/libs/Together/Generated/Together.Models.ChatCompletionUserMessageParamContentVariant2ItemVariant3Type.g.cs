@@ -6,38 +6,38 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public enum CompletionResponseObject
+    public enum ChatCompletionUserMessageParamContentVariant2ItemVariant3Type
     {
         /// <summary>
         /// 
         /// </summary>
-        TextCompletion,
+        VideoUrl,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class CompletionResponseObjectExtensions
+    public static class ChatCompletionUserMessageParamContentVariant2ItemVariant3TypeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this CompletionResponseObject value)
+        public static string ToValueString(this ChatCompletionUserMessageParamContentVariant2ItemVariant3Type value)
         {
             return value switch
             {
-                CompletionResponseObject.TextCompletion => "text.completion",
+                ChatCompletionUserMessageParamContentVariant2ItemVariant3Type.VideoUrl => "video_url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static CompletionResponseObject? ToEnum(string value)
+        public static ChatCompletionUserMessageParamContentVariant2ItemVariant3Type? ToEnum(string value)
         {
             return value switch
             {
-                "text.completion" => CompletionResponseObject.TextCompletion,
+                "video_url" => ChatCompletionUserMessageParamContentVariant2ItemVariant3Type.VideoUrl,
                 _ => null,
             };
         }

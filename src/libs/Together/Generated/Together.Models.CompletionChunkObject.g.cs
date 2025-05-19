@@ -6,38 +6,38 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public enum CompletionResponseObject
+    public enum CompletionChunkObject
     {
         /// <summary>
         /// 
         /// </summary>
-        TextCompletion,
+        CompletionChunk,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class CompletionResponseObjectExtensions
+    public static class CompletionChunkObjectExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this CompletionResponseObject value)
+        public static string ToValueString(this CompletionChunkObject value)
         {
             return value switch
             {
-                CompletionResponseObject.TextCompletion => "text.completion",
+                CompletionChunkObject.CompletionChunk => "completion.chunk",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static CompletionResponseObject? ToEnum(string value)
+        public static CompletionChunkObject? ToEnum(string value)
         {
             return value switch
             {
-                "text.completion" => CompletionResponseObject.TextCompletion,
+                "completion.chunk" => CompletionChunkObject.CompletionChunk,
                 _ => null,
             };
         }
