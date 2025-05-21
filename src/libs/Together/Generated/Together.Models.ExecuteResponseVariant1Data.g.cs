@@ -25,6 +25,13 @@ namespace Together
         public required string SessionId { get; set; }
 
         /// <summary>
+        /// Status of the execution. Currently only supports success.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataStatusJsonConverter))]
+        public global::Together.ExecuteResponseVariant1DataStatus? Status { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -38,15 +45,20 @@ namespace Together
         /// Identifier of the current session. Used to make follow-up calls.<br/>
         /// Example: ses_abcDEF123
         /// </param>
+        /// <param name="status">
+        /// Status of the execution. Currently only supports success.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ExecuteResponseVariant1Data(
             global::System.Collections.Generic.IList<global::Together.OutputsItem> outputs,
-            string sessionId)
+            string sessionId,
+            global::Together.ExecuteResponseVariant1DataStatus? status)
         {
             this.Outputs = outputs ?? throw new global::System.ArgumentNullException(nameof(outputs));
             this.SessionId = sessionId ?? throw new global::System.ArgumentNullException(nameof(sessionId));
+            this.Status = status;
         }
 
         /// <summary>

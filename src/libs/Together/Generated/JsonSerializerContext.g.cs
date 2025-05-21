@@ -103,6 +103,8 @@ namespace Together
             typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataOutputVariant2TypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataOutputVariant3TypeJsonConverter),
             typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataOutputVariant3TypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataStatusJsonConverter),
+            typeof(global::Together.JsonConverters.ExecuteResponseVariant1DataStatusNullableJsonConverter),
             typeof(global::Together.JsonConverters.FileResponseFileTypeJsonConverter),
             typeof(global::Together.JsonConverters.FileResponseFileTypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.FileResponsePurposeJsonConverter),
