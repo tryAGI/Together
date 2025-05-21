@@ -23,12 +23,12 @@ namespace Together
 
         /// <summary>
         /// Cancel job<br/>
-        /// Cancel a currently running fine-tuning job.
+        /// Cancel a currently running fine-tuning job. Returns a FinetuneResponseTruncated object.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesByIdCancelAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesByIdCancelAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -171,7 +171,7 @@ namespace Together
                 }
 
                 return
-                    global::Together.FinetuneResponse.FromJson(__content, JsonSerializerContext) ??
+                    global::Together.FinetuneResponseTruncated.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -201,7 +201,7 @@ namespace Together
                 ).ConfigureAwait(false);
 
                 return
-                    await global::Together.FinetuneResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::Together.FinetuneResponseTruncated.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

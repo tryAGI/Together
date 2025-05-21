@@ -23,7 +23,7 @@ namespace Together
 
         /// <summary>
         /// List available hardware configurations<br/>
-        /// Returns a list of available hardware configurations for deploying models. When a model parameter is provided, it returns only hardware configurations compatible  with that model, including their current availability status.
+        /// Returns a list of available hardware configurations for deploying models. When a model parameter is provided, it returns only hardware configurations compatible with that model, including their current availability status.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
