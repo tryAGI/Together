@@ -6,18 +6,18 @@ namespace Together
     {
         /// <summary>
         /// Create job<br/>
-        /// Use a model to create a fine-tuning job.
+        /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
+        global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
             global::Together.Request request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create job<br/>
-        /// Use a model to create a fine-tuning job.
+        /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
         /// <param name="batchSize">
         /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
@@ -85,7 +85,7 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
+        global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
             string model,
             string trainingFile,
             global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize = default,

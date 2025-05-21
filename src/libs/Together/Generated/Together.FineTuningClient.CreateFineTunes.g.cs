@@ -23,12 +23,12 @@ namespace Together
 
         /// <summary>
         /// Create job<br/>
-        /// Use a model to create a fine-tuning job.
+        /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
             global::Together.Request request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -131,7 +131,7 @@ namespace Together
                 }
 
                 return
-                    global::Together.FinetuneResponse.FromJson(__content, JsonSerializerContext) ??
+                    global::Together.FinetuneResponseTruncated.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -161,14 +161,14 @@ namespace Together
                 ).ConfigureAwait(false);
 
                 return
-                    await global::Together.FinetuneResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::Together.FinetuneResponseTruncated.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
 
         /// <summary>
         /// Create job<br/>
-        /// Use a model to create a fine-tuning job.
+        /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
         /// <param name="batchSize">
         /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
@@ -236,7 +236,7 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> CreateFineTunesAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
             string model,
             string trainingFile,
             global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize = default,
