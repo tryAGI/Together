@@ -2969,6 +2969,8 @@ components:
         model:
           type: string
           description: Base model used for fine-tuning
+        model_output_name:
+          type: string
         n_checkpoints:
           type: integer
           description: Number of checkpoints saved during training
@@ -3035,9 +3037,10 @@ components:
         events: [ ]
         id: ft-01234567890123456789
         model: meta-llama/Llama-2-7b-hf
+        model_output_name: mynamespace/meta-llama/Llama-2-7b-hf-32162631
         n_epochs: 3
         owner_address: user@example.com
-        status: succeeded
+        status: completed
         token_count: 850000
         total_price: 1500
         training_file: file-01234567890123456789

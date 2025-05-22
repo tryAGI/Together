@@ -67,6 +67,12 @@ namespace Together
         public string? Model { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_output_name")]
+        public string? ModelOutputName { get; set; }
+
+        /// <summary>
         /// Number of checkpoints saved during training
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_checkpoints")]
@@ -213,6 +219,7 @@ namespace Together
         /// <param name="model">
         /// Base model used for fine-tuning
         /// </param>
+        /// <param name="modelOutputName"></param>
         /// <param name="nCheckpoints">
         /// Number of checkpoints saved during training
         /// </param>
@@ -280,6 +287,7 @@ namespace Together
             global::Together.LRScheduler? lrScheduler,
             float? maxGradNorm,
             string? model,
+            string? modelOutputName,
             int? nCheckpoints,
             int? nEpochs,
             int? nEvals,
@@ -308,6 +316,7 @@ namespace Together
             this.LrScheduler = lrScheduler;
             this.MaxGradNorm = maxGradNorm;
             this.Model = model;
+            this.ModelOutputName = modelOutputName;
             this.NCheckpoints = nCheckpoints;
             this.NEpochs = nEpochs;
             this.NEvals = nEvals;
