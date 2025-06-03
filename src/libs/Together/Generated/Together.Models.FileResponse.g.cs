@@ -9,13 +9,16 @@ namespace Together
     public sealed partial class FileResponse
     {
         /// <summary>
+        /// The type of the file<br/>
+        /// Default Value: jsonl<br/>
         /// Example: jsonl
         /// </summary>
+        /// <default>global::Together.FileType.Jsonl</default>
         /// <example>jsonl</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("FileType")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileResponseFileTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FileResponseFileType FileType { get; set; }
+        public required global::Together.FileType FileType { get; set; } = global::Together.FileType.Jsonl;
 
         /// <summary>
         /// 
@@ -71,12 +74,14 @@ namespace Together
         public required string Object { get; set; }
 
         /// <summary>
+        /// The purpose of the file<br/>
         /// Example: fine-tune
         /// </summary>
         /// <example>fine-tune</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileResponsePurposeJsonConverter))]
-        public global::Together.FileResponsePurpose Purpose { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FilePurposeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.FilePurpose Purpose { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -88,6 +93,8 @@ namespace Together
         /// Initializes a new instance of the <see cref="FileResponse" /> class.
         /// </summary>
         /// <param name="fileType">
+        /// The type of the file<br/>
+        /// Default Value: jsonl<br/>
         /// Example: jsonl
         /// </param>
         /// <param name="lineCount"></param>
@@ -106,13 +113,14 @@ namespace Together
         /// Example: file
         /// </param>
         /// <param name="purpose">
+        /// The purpose of the file<br/>
         /// Example: fine-tune
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FileResponse(
-            global::Together.FileResponseFileType fileType,
+            global::Together.FileType fileType,
             int lineCount,
             bool processed,
             int bytes,
@@ -120,7 +128,7 @@ namespace Together
             string filename,
             string id,
             string @object,
-            global::Together.FileResponsePurpose purpose)
+            global::Together.FilePurpose purpose)
         {
             this.FileType = fileType;
             this.LineCount = lineCount;

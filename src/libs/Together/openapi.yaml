@@ -469,6 +469,60 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileList'
+  /files/upload:
+    post:
+      tags:
+        - Files
+      summary: Upload a file
+      description: 'Upload a file with specified purpose, file name, and file type.'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - purpose
+                - file_name
+                - file
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: The content of the file being uploaded
+                  format: binary
+                file_name:
+                  type: string
+                  description: The name of the file being uploaded
+                  example: dataset.csv
+                file_type:
+                  $ref: '#/components/schemas/FileType'
+                purpose:
+                  $ref: '#/components/schemas/FilePurpose'
+        required: true
+      responses:
+        '200':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
   '/files/{id}':
     delete:
       tags:
@@ -2648,6 +2702,18 @@ components:
           type: string
         size:
           type: integer
+    FilePurpose:
+      enum:
+        - fine-tune
+        - eval
+        - eval-sample
+        - eval-output
+        - eval-summary
+        - batch-generated
+        - batch-api
+      type: string
+      description: The purpose of the file
+      example: fine-tune
     FileResponse:
       required:
         - id
@@ -2662,10 +2728,7 @@ components:
       type: object
       properties:
         FileType:
-          enum:
-            - jsonl
-            - parquet
-          example: jsonl
+          $ref: '#/components/schemas/FileType'
         LineCount:
           type: integer
         Processed:
@@ -2685,9 +2748,16 @@ components:
           type: string
           example: file
         purpose:
-          enum:
-            - fine-tune
-          example: fine-tune
+          $ref: '#/components/schemas/FilePurpose'
+    FileType:
+      enum:
+        - csv
+        - jsonl
+        - parquet
+      type: string
+      description: The type of the file
+      default: jsonl
+      example: jsonl
     FineTuneCheckpoint:
       required:
         - step

@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateImagesGenerationsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request2 request);
+            global::Together.Request3 request);
         partial void PrepareCreateImagesGenerationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request2 request);
+            global::Together.Request3 request);
         partial void ProcessCreateImagesGenerationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -29,7 +29,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
-            global::Together.Request2 request,
+            global::Together.Request3 request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -235,7 +235,7 @@ namespace Together
             int? width = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request2
+            var __request = new global::Together.Request3
             {
                 Guidance = guidance,
                 Height = height,

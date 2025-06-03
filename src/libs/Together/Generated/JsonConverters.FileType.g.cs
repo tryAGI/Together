@@ -3,10 +3,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class FileResponsePurposeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FileResponsePurpose?>
+    public sealed class FileTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.FileType>
     {
         /// <inheritdoc />
-        public override global::Together.FileResponsePurpose? Read(
+        public override global::Together.FileType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Together.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Together.FileResponsePurposeExtensions.ToEnum(stringValue);
+                        return global::Together.FileTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Together.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Together.FileResponsePurpose)numValue;
+                    return (global::Together.FileType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Together.FileResponsePurpose?);
+                    return default(global::Together.FileType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.FileResponsePurpose? value,
+            global::Together.FileType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::Together.FileResponsePurposeExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::Together.FileTypeExtensions.ToValueString(value));
         }
     }
 }

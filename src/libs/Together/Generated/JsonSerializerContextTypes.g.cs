@@ -686,11 +686,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileResponseFileType? Type165 { get; set; }
+        public global::Together.FileType? Type165 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.FileResponsePurpose? Type166 { get; set; }
+        public global::Together.FilePurpose? Type166 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -1038,142 +1038,146 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<int?, global::Together.RequestBatchSize?>? Type253 { get; set; }
+        public global::Together.Request2? Type253 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestBatchSize? Type254 { get; set; }
+        public global::Together.OneOf<int?, global::Together.RequestBatchSize?>? Type254 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type255 { get; set; }
+        public global::Together.RequestBatchSize? Type255 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestTrainOnInputs? Type256 { get; set; }
+        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type256 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request2? Type257 { get; set; }
+        public global::Together.RequestTrainOnInputs? Type257 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? Type258 { get; set; }
+        public global::Together.Request3? Type258 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestImageLora? Type259 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? Type259 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type260 { get; set; }
+        public global::Together.RequestImageLora? Type260 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestModel? Type261 { get; set; }
+        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type261 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestOutputFormat? Type262 { get; set; }
+        public global::Together.RequestModel? Type262 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestResponseFormat? Type263 { get; set; }
+        public global::Together.RequestOutputFormat? Type263 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.UploadModelRequest? Type264 { get; set; }
+        public global::Together.RequestResponseFormat? Type264 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.UploadModelRequestModelType? Type265 { get; set; }
+        public global::Together.UploadModelRequest? Type265 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointsType? Type266 { get; set; }
+        public global::Together.UploadModelRequestModelType? Type266 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Checkpoint? Type267 { get; set; }
+        public global::Together.ListEndpointsType? Type267 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointsResponse? Type268 { get; set; }
+        public global::Together.Checkpoint? Type268 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ListEndpoint>? Type269 { get; set; }
+        public global::Together.ListEndpointsResponse? Type269 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListEndpointsResponseObject? Type270 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ListEndpoint>? Type270 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListHardwareResponse? Type271 { get; set; }
+        public global::Together.ListEndpointsResponseObject? Type271 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.HardwareWithStatus>? Type272 { get; set; }
+        public global::Together.ListHardwareResponse? Type272 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListHardwareResponseObject? Type273 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.HardwareWithStatus>? Type273 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListJobsResponse? Type274 { get; set; }
+        public global::Together.ListHardwareResponseObject? Type274 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ListJobsResponseDataItem>? Type275 { get; set; }
+        public global::Together.ListJobsResponse? Type275 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListJobsResponseDataItem? Type276 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ListJobsResponseDataItem>? Type276 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListJobsResponseDataItemArgs? Type277 { get; set; }
+        public global::Together.ListJobsResponseDataItem? Type277 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListJobsResponseDataItemStatus? Type278 { get; set; }
+        public global::Together.ListJobsResponseDataItemArgs? Type278 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ListJobsResponseDataItemStatusUpdate>? Type279 { get; set; }
+        public global::Together.ListJobsResponseDataItemStatus? Type279 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.ListJobsResponseDataItemStatusUpdate? Type280 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ListJobsResponseDataItemStatusUpdate>? Type280 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.GetJobResponse? Type281 { get; set; }
+        public global::Together.ListJobsResponseDataItemStatusUpdate? Type281 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.GetJobResponseArgs? Type282 { get; set; }
+        public global::Together.GetJobResponse? Type282 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.GetJobResponseStatus? Type283 { get; set; }
+        public global::Together.GetJobResponseArgs? Type283 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.GetJobResponseStatusUpdate>? Type284 { get; set; }
+        public global::Together.GetJobResponseStatus? Type284 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.GetJobResponseStatusUpdate? Type285 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GetJobResponseStatusUpdate>? Type285 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.UploadModelResponse? Type286 { get; set; }
+        public global::Together.GetJobResponseStatusUpdate? Type286 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.UploadModelResponseData? Type287 { get; set; }
+        public global::Together.UploadModelResponse? Type287 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.UploadModelResponseData? Type288 { get; set; }
     }
 }
