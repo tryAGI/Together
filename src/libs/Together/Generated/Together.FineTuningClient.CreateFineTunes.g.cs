@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateFineTunesArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request request);
+            global::Together.Request2 request);
         partial void PrepareCreateFineTunesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request request);
+            global::Together.Request2 request);
         partial void ProcessCreateFineTunesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -29,7 +29,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
-            global::Together.Request request,
+            global::Together.Request2 request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -259,7 +259,7 @@ namespace Together
             float? weightDecay = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request
+            var __request = new global::Together.Request2
             {
                 BatchSize = batchSize,
                 FromCheckpoint = fromCheckpoint,
