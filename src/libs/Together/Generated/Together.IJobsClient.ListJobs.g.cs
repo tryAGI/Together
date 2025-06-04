@@ -10,7 +10,7 @@ namespace Together
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.ListJobsResponse> ListJobsAsync(
+        global::System.Threading.Tasks.Task<global::Together.JobsInfoSuccessResponse> ListJobsAsync(
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

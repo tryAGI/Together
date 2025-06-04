@@ -25,7 +25,7 @@ namespace Together
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.ListJobsResponse> ListJobsAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.JobsInfoSuccessResponse> ListJobsAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -117,7 +117,7 @@ namespace Together
                 }
 
                 return
-                    global::Together.ListJobsResponse.FromJson(__content, JsonSerializerContext) ??
+                    global::Together.JobsInfoSuccessResponse.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -147,7 +147,7 @@ namespace Together
                 ).ConfigureAwait(false);
 
                 return
-                    await global::Together.ListJobsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::Together.JobsInfoSuccessResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }

@@ -11,8 +11,8 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.UploadModelResponse> UploadModelAsync(
-            global::Together.UploadModelRequest request,
+        global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
+            global::Together.ModelUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -50,14 +50,14 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.UploadModelResponse> UploadModelAsync(
+        global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
             string modelName,
             string modelSource,
             string? baseModel = default,
             string? description = default,
             string? hfToken = default,
             string? loraModel = default,
-            global::Together.UploadModelRequestModelType? modelType = default,
+            global::Together.ModelUploadRequestModelType? modelType = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

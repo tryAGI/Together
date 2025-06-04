@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareUploadModelArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.UploadModelRequest request);
+            global::Together.ModelUploadRequest request);
         partial void PrepareUploadModelRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.UploadModelRequest request);
+            global::Together.ModelUploadRequest request);
         partial void ProcessUploadModelResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,8 +28,8 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.UploadModelResponse> UploadModelAsync(
-            global::Together.UploadModelRequest request,
+        public async global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
+            global::Together.ModelUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -131,7 +131,7 @@ namespace Together
                 }
 
                 return
-                    global::Together.UploadModelResponse.FromJson(__content, JsonSerializerContext) ??
+                    global::Together.ModelUploadSuccessResponse.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -161,7 +161,7 @@ namespace Together
                 ).ConfigureAwait(false);
 
                 return
-                    await global::Together.UploadModelResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::Together.ModelUploadSuccessResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
@@ -201,17 +201,17 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.UploadModelResponse> UploadModelAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
             string modelName,
             string modelSource,
             string? baseModel = default,
             string? description = default,
             string? hfToken = default,
             string? loraModel = default,
-            global::Together.UploadModelRequestModelType? modelType = default,
+            global::Together.ModelUploadRequestModelType? modelType = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.UploadModelRequest
+            var __request = new global::Together.ModelUploadRequest
             {
                 BaseModel = baseModel,
                 Description = description,
