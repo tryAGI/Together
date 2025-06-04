@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace Together
@@ -14,9 +12,9 @@ namespace Together
         /// The content of the message, which can either be a simple string or a structured format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant1, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant2, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant3>>>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant1, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant2, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant3>>> Content { get; set; }
+        public required global::Together.ChatCompletionUserMessageContent Content { get; set; }
 
         /// <summary>
         /// 
@@ -49,7 +47,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionUserMessageParam(
-            global::Together.OneOf<string, global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant1, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant2, global::Together.ChatCompletionUserMessageParamContentVariant2ItemVariant3>>> content,
+            global::Together.ChatCompletionUserMessageContent content,
             string? name,
             global::Together.ChatCompletionUserMessageParamRole role)
         {
