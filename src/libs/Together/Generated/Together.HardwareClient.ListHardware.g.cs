@@ -38,7 +38,7 @@ namespace Together
                 httpClient: HttpClient,
                 model: ref model);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Together.PathBuilder(
                 path: "/hardware",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

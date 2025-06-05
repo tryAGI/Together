@@ -32,7 +32,7 @@ namespace Together
             PrepareSessionsListArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Together.PathBuilder(
                 path: "/tci/sessions",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

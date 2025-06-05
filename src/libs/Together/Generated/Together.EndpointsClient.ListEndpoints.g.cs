@@ -38,7 +38,7 @@ namespace Together
                 httpClient: HttpClient,
                 type: ref type);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Together.PathBuilder(
                 path: "/endpoints",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

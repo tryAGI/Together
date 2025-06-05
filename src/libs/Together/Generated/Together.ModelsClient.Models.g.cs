@@ -33,7 +33,7 @@ namespace Together
             PrepareModelsArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Together.PathBuilder(
                 path: "/models",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
