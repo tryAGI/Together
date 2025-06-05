@@ -53,7 +53,7 @@ namespace Together
                 checkpoint: ref checkpoint,
                 output: ref output);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Together.PathBuilder(
                 path: "/finetune/download",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 

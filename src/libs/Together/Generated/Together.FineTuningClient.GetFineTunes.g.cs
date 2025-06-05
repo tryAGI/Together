@@ -33,7 +33,7 @@ namespace Together
             PrepareGetFineTunesArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Together.PathBuilder(
                 path: "/fine-tunes",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
