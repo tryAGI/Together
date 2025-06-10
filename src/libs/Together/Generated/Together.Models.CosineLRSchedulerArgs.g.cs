@@ -12,15 +12,19 @@ namespace Together
         /// The ratio of the final learning rate to the peak learning rate<br/>
         /// Default Value: 0F
         /// </summary>
+        /// <default>0F</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_lr_ratio")]
-        public float? MinLrRatio { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float MinLrRatio { get; set; } = 0F;
 
         /// <summary>
         /// Number or fraction of cycles for the cosine learning rate scheduler<br/>
         /// Default Value: 0.5F
         /// </summary>
+        /// <default>0.5F</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_cycles")]
-        public float? NumCycles { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float NumCycles { get; set; } = 0.5F;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,8 +47,8 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CosineLRSchedulerArgs(
-            float? minLrRatio,
-            float? numCycles)
+            float minLrRatio,
+            float numCycles)
         {
             this.MinLrRatio = minLrRatio;
             this.NumCycles = numCycles;

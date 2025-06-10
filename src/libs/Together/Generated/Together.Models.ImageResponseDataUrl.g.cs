@@ -6,14 +6,8 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ImageResponseDataItem
+    public sealed partial class ImageResponseDataUrl
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("b64_json")]
-        public string? B64Json { get; set; }
-
         /// <summary>
         /// 
         /// </summary>
@@ -25,7 +19,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        public string? Url { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Url { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,28 +29,25 @@ namespace Together
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageResponseDataItem" /> class.
+        /// Initializes a new instance of the <see cref="ImageResponseDataUrl" /> class.
         /// </summary>
-        /// <param name="b64Json"></param>
         /// <param name="index"></param>
         /// <param name="url"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ImageResponseDataItem(
+        public ImageResponseDataUrl(
             int index,
-            string? b64Json,
-            string? url)
+            string url)
         {
             this.Index = index;
-            this.B64Json = b64Json;
-            this.Url = url;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImageResponseDataItem" /> class.
+        /// Initializes a new instance of the <see cref="ImageResponseDataUrl" /> class.
         /// </summary>
-        public ImageResponseDataItem()
+        public ImageResponseDataUrl()
         {
         }
     }
