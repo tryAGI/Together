@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -13,7 +15,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.ImageResponseDataItem> Data { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ImageResponseDataB64, global::Together.ImageResponseDataUrl>> Data { get; set; }
 
         /// <summary>
         /// 
@@ -56,7 +58,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ImageResponse(
-            global::System.Collections.Generic.IList<global::Together.ImageResponseDataItem> data,
+            global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ImageResponseDataB64, global::Together.ImageResponseDataUrl>> data,
             string id,
             string model,
             global::Together.ImageResponseObject @object)

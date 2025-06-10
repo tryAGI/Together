@@ -214,6 +214,7 @@ namespace Together
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.ImageResponseDataB64, global::Together.ImageResponseDataUrl>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>),
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RerankRequestModel?, string>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<string, object>),

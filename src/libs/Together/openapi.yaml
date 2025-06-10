@@ -2044,6 +2044,9 @@ components:
         text:
           type: string
     CosineLRSchedulerArgs:
+      required:
+        - min_lr_ratio
+        - num_cycles
       type: object
       properties:
         min_lr_ratio:
@@ -3034,21 +3037,9 @@ components:
         data:
           type: array
           items:
-            required:
-              - index
-            type: object
             oneOf:
-              - required:
-                  - b64_json
-              - required:
-                  - url
-            properties:
-              b64_json:
-                type: string
-              index:
-                type: integer
-              url:
-                type: string
+              - $ref: '#/components/schemas/ImageResponseDataB64'
+              - $ref: '#/components/schemas/ImageResponseDataUrl'
         id:
           type: string
         model:
@@ -3057,6 +3048,26 @@ components:
           enum:
             - list
           example: list
+    ImageResponseDataB64:
+      required:
+        - index
+        - b64_json
+      type: object
+      properties:
+        b64_json:
+          type: string
+        index:
+          type: integer
+    ImageResponseDataUrl:
+      required:
+        - index
+        - url
+      type: object
+      properties:
+        index:
+          type: integer
+        url:
+          type: string
     InterpreterOutput:
       title: InterpreterOutput
       oneOf:
