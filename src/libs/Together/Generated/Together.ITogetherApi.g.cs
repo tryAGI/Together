@@ -45,6 +45,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public BatchesClient Batches { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ChatClient Chat { get; }
 
         /// <summary>

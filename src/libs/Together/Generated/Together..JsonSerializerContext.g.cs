@@ -27,6 +27,8 @@ namespace Together
             typeof(global::Together.JsonConverters.AudioSpeechStreamChunkObjectNullableJsonConverter),
             typeof(global::Together.JsonConverters.StreamSentinelDataJsonConverter),
             typeof(global::Together.JsonConverters.StreamSentinelDataNullableJsonConverter),
+            typeof(global::Together.JsonConverters.BatchJobStatusJsonConverter),
+            typeof(global::Together.JsonConverters.BatchJobStatusNullableJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleNullableJsonConverter),
             typeof(global::Together.JsonConverters.ToolChoiceTypeJsonConverter),
