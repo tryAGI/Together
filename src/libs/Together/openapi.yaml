@@ -3947,10 +3947,24 @@ components:
           type: number
           format: float
           default: 0.1
+        dpo_normalize_logratios_by_length:
+          type: boolean
+          default: false
+        dpo_reference_free:
+          type: boolean
+          default: false
         method:
           enum:
             - dpo
           type: string
+        rpo_alpha:
+          type: number
+          format: float
+          default: 0
+        simpo_gamma:
+          type: number
+          format: float
+          default: 0
     TrainingMethodSFT:
       required:
         - method
