@@ -48,9 +48,9 @@ namespace Together
         /// A structured message with mixed content types.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>? Value2 { get; init; }
+        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>? Value2 { get; init; }
 #else
-        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>? Value2 { get; }
+        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>? Value2 { get; }
 #endif
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ChatCompletionUserMessageContent(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>? value)
+        public ChatCompletionUserMessageContent(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>? value)
         {
             Value2 = value;
         }
@@ -74,7 +74,7 @@ namespace Together
         /// </summary>
         public ChatCompletionUserMessageContent(
             string? value1,
-            global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>? value2
+            global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>? value2
             )
         {
             Value1 = value1;
@@ -110,7 +110,7 @@ namespace Together
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string?, TResult>? value1 = null,
-            global::System.Func<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>?, TResult>? value2 = null,
+            global::System.Func<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>?, TResult>? value2 = null,
             bool validate = true)
         {
             if (validate)
@@ -135,7 +135,7 @@ namespace Together
         /// </summary>
         public void Match(
             global::System.Action<string?>? value1 = null,
-            global::System.Action<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>?>? value2 = null,
+            global::System.Action<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>?>? value2 = null,
             bool validate = true)
         {
             if (validate)
@@ -163,7 +163,7 @@ namespace Together
                 Value1,
                 typeof(string),
                 Value2,
-                typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>),
+                typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -181,7 +181,7 @@ namespace Together
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3>>?>.Default.Equals(Value2, other.Value2) 
+                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant3, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant4, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant5>>?>.Default.Equals(Value2, other.Value2) 
                 ;
         }
 

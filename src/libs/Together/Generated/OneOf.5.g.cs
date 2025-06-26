@@ -6,7 +6,7 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public readonly partial struct OneOf<T1, T2, T3> : global::System.IEquatable<OneOf<T1, T2, T3>>
+    public readonly partial struct OneOf<T1, T2, T3, T4, T5> : global::System.IEquatable<OneOf<T1, T2, T3, T4, T5>>
     {
         /// <summary>
         /// 
@@ -28,12 +28,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3>(T1 value) => new OneOf<T1, T2, T3>((T1?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5>(T1 value) => new OneOf<T1, T2, T3, T4, T5>((T1?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T1?(OneOf<T1, T2, T3> @this) => @this.Value1;
+        public static implicit operator T1?(OneOf<T1, T2, T3, T4, T5> @this) => @this.Value1;
 
         /// <summary>
         /// 
@@ -63,12 +63,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3>(T2 value) => new OneOf<T1, T2, T3>((T2?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5>(T2 value) => new OneOf<T1, T2, T3, T4, T5>((T2?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T2?(OneOf<T1, T2, T3> @this) => @this.Value2;
+        public static implicit operator T2?(OneOf<T1, T2, T3, T4, T5> @this) => @this.Value2;
 
         /// <summary>
         /// 
@@ -98,12 +98,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3>(T3 value) => new OneOf<T1, T2, T3>((T3?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5>(T3 value) => new OneOf<T1, T2, T3, T4, T5>((T3?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T3?(OneOf<T1, T2, T3> @this) => @this.Value3;
+        public static implicit operator T3?(OneOf<T1, T2, T3, T4, T5> @this) => @this.Value3;
 
         /// <summary>
         /// 
@@ -116,21 +116,97 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public T4? Value4 { get; init; }
+#else
+        public T4? Value4 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value4))]
+#endif
+        public bool IsValue4 => Value4 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator OneOf<T1, T2, T3, T4, T5>(T4 value) => new OneOf<T1, T2, T3, T4, T5>((T4?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator T4?(OneOf<T1, T2, T3, T4, T5> @this) => @this.Value4;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public OneOf(T4? value)
+        {
+            Value4 = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public T5? Value5 { get; init; }
+#else
+        public T5? Value5 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value5))]
+#endif
+        public bool IsValue5 => Value5 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator OneOf<T1, T2, T3, T4, T5>(T5 value) => new OneOf<T1, T2, T3, T4, T5>((T5?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator T5?(OneOf<T1, T2, T3, T4, T5> @this) => @this.Value5;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public OneOf(T5? value)
+        {
+            Value5 = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public OneOf(
             T1? value1,
             T2? value2,
-            T3? value3
+            T3? value3,
+            T4? value4,
+            T5? value5
             )
         {
             Value1 = value1;
             Value2 = value2;
             Value3 = value3;
+            Value4 = value4;
+            Value5 = value5;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Value5 as object ??
+            Value4 as object ??
             Value3 as object ??
             Value2 as object ??
             Value1 as object 
@@ -142,7 +218,9 @@ namespace Together
         public override string? ToString() =>
             Value1?.ToString() ??
             Value2?.ToString() ??
-            Value3?.ToString() 
+            Value3?.ToString() ??
+            Value4?.ToString() ??
+            Value5?.ToString() 
             ;
 
         /// <summary>
@@ -150,7 +228,7 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 && !IsValue3 || !IsValue1 && IsValue2 && !IsValue3 || !IsValue1 && !IsValue2 && IsValue3;
+            return IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 || !IsValue1 && IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 || !IsValue1 && !IsValue2 && IsValue3 && !IsValue4 && !IsValue5 || !IsValue1 && !IsValue2 && !IsValue3 && IsValue4 && !IsValue5 || !IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && IsValue5;
         }
 
         /// <summary>
@@ -160,6 +238,8 @@ namespace Together
             global::System.Func<T1, TResult>? value1 = null,
             global::System.Func<T2, TResult>? value2 = null,
             global::System.Func<T3, TResult>? value3 = null,
+            global::System.Func<T4, TResult>? value4 = null,
+            global::System.Func<T5, TResult>? value5 = null,
             bool validate = true)
         {
             if (validate)
@@ -179,6 +259,14 @@ namespace Together
             {
                 return value3(Value3!);
             }
+            else if (IsValue4 && value4 != null)
+            {
+                return value4(Value4!);
+            }
+            else if (IsValue5 && value5 != null)
+            {
+                return value5(Value5!);
+            }
 
             return default(TResult);
         }
@@ -190,6 +278,8 @@ namespace Together
             global::System.Action<T1>? value1 = null,
             global::System.Action<T2>? value2 = null,
             global::System.Action<T3>? value3 = null,
+            global::System.Action<T4>? value4 = null,
+            global::System.Action<T5>? value5 = null,
             bool validate = true)
         {
             if (validate)
@@ -209,6 +299,14 @@ namespace Together
             {
                 value3?.Invoke(Value3!);
             }
+            else if (IsValue4)
+            {
+                value4?.Invoke(Value4!);
+            }
+            else if (IsValue5)
+            {
+                value5?.Invoke(Value5!);
+            }
         }
 
         /// <summary>
@@ -224,6 +322,10 @@ namespace Together
                 typeof(T2),
                 Value3,
                 typeof(T3),
+                Value4,
+                typeof(T4),
+                Value5,
+                typeof(T5),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -237,27 +339,29 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public bool Equals(OneOf<T1, T2, T3> other)
+        public bool Equals(OneOf<T1, T2, T3, T4, T5> other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<T1?>.Default.Equals(Value1, other.Value1) &&
                 global::System.Collections.Generic.EqualityComparer<T2?>.Default.Equals(Value2, other.Value2) &&
-                global::System.Collections.Generic.EqualityComparer<T3?>.Default.Equals(Value3, other.Value3) 
+                global::System.Collections.Generic.EqualityComparer<T3?>.Default.Equals(Value3, other.Value3) &&
+                global::System.Collections.Generic.EqualityComparer<T4?>.Default.Equals(Value4, other.Value4) &&
+                global::System.Collections.Generic.EqualityComparer<T5?>.Default.Equals(Value5, other.Value5) 
                 ;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator ==(OneOf<T1, T2, T3> obj1, OneOf<T1, T2, T3> obj2)
+        public static bool operator ==(OneOf<T1, T2, T3, T4, T5> obj1, OneOf<T1, T2, T3, T4, T5> obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<OneOf<T1, T2, T3>>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<OneOf<T1, T2, T3, T4, T5>>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator !=(OneOf<T1, T2, T3> obj1, OneOf<T1, T2, T3> obj2)
+        public static bool operator !=(OneOf<T1, T2, T3, T4, T5> obj1, OneOf<T1, T2, T3, T4, T5> obj2)
         {
             return !(obj1 == obj2);
         }
@@ -267,7 +371,7 @@ namespace Together
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is OneOf<T1, T2, T3> o && Equals(o);
+            return obj is OneOf<T1, T2, T3, T4, T5> o && Equals(o);
         }
     }
 }

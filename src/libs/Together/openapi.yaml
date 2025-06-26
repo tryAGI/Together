@@ -1989,6 +1989,48 @@ components:
                   url:
                     type: string
                     description: The URL of the video
+          - title: Audio
+            required:
+              - type
+              - audio_url
+            type: object
+            properties:
+              audio_url:
+                required:
+                  - url
+                type: object
+                properties:
+                  url:
+                    type: string
+                    description: The URL of the audio
+              type:
+                enum:
+                  - audio_url
+                type: string
+          - title: Input Audio
+            required:
+              - type
+              - input_audio
+            type: object
+            properties:
+              input_audio:
+                required:
+                  - data
+                  - format
+                type: object
+                properties:
+                  data:
+                    type: string
+                    description: The base64 encoded audio data
+                  format:
+                    enum:
+                      - wav
+                    type: string
+                    description: The format of the audio data
+              type:
+                enum:
+                  - input_audio
+                type: string
       description: A structured message with mixed content types.
     ChatCompletionUserMessageContentString:
       type: string
