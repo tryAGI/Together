@@ -14,8 +14,8 @@ namespace Together
         /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
         /// Default Value: 3.5
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("guidance")]
-        public double? Guidance { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("guidance_scale")]
+        public double? GuidanceScale { get; set; }
 
         /// <summary>
         /// Height of the image to generate in number of pixels.<br/>
@@ -112,7 +112,7 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="Request3" /> class.
         /// </summary>
-        /// <param name="guidance">
+        /// <param name="guidanceScale">
         /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
         /// Default Value: 3.5
         /// </param>
@@ -165,7 +165,7 @@ namespace Together
         public Request3(
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
-            double? guidance,
+            double? guidanceScale,
             int? height,
             global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras,
             string? imageUrl,
@@ -179,7 +179,7 @@ namespace Together
         {
             this.Model = model;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.Guidance = guidance;
+            this.GuidanceScale = guidanceScale;
             this.Height = height;
             this.ImageLoras = imageLoras;
             this.ImageUrl = imageUrl;
