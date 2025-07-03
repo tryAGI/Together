@@ -11,6 +11,12 @@ namespace Together
     public sealed partial class Request3
     {
         /// <summary>
+        /// If true, disables the safety checker for image generation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_safety_checker")]
+        public bool? DisableSafetyChecker { get; set; }
+
+        /// <summary>
         /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
         /// Default Value: 3.5
         /// </summary>
@@ -112,6 +118,9 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="Request3" /> class.
         /// </summary>
+        /// <param name="disableSafetyChecker">
+        /// If true, disables the safety checker for image generation.
+        /// </param>
         /// <param name="guidanceScale">
         /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
         /// Default Value: 3.5
@@ -165,6 +174,7 @@ namespace Together
         public Request3(
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
+            bool? disableSafetyChecker,
             double? guidanceScale,
             int? height,
             global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras,
@@ -179,6 +189,7 @@ namespace Together
         {
             this.Model = model;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.DisableSafetyChecker = disableSafetyChecker;
             this.GuidanceScale = guidanceScale;
             this.Height = height;
             this.ImageLoras = imageLoras;
