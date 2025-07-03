@@ -1019,6 +1019,9 @@ paths:
                 - model
               type: object
               properties:
+                disable_safety_checker:
+                  type: boolean
+                  description: 'If true, disables the safety checker for image generation.'
                 guidance_scale:
                   type: number
                   description: 'Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.'
@@ -3309,6 +3312,8 @@ components:
             oneOf:
               - $ref: '#/components/schemas/ImageResponseDataB64'
               - $ref: '#/components/schemas/ImageResponseDataUrl'
+            discriminator:
+              propertyName: type
         id:
           type: string
         model:
@@ -3321,20 +3326,30 @@ components:
       required:
         - index
         - b64_json
+        - type
       type: object
       properties:
         b64_json:
           type: string
         index:
           type: integer
+        type:
+          enum:
+            - b64_json
+          type: string
     ImageResponseDataUrl:
       required:
         - index
         - url
+        - type
       type: object
       properties:
         index:
           type: integer
+        type:
+          enum:
+            - url
+          type: string
         url:
           type: string
     InterpreterOutput:

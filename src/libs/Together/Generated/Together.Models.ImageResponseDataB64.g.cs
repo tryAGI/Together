@@ -23,6 +23,13 @@ namespace Together
         public required int Index { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ImageResponseDataB64TypeJsonConverter))]
+        public global::Together.ImageResponseDataB64Type Type { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -33,15 +40,18 @@ namespace Together
         /// </summary>
         /// <param name="b64Json"></param>
         /// <param name="index"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ImageResponseDataB64(
             string b64Json,
-            int index)
+            int index,
+            global::Together.ImageResponseDataB64Type type)
         {
             this.B64Json = b64Json ?? throw new global::System.ArgumentNullException(nameof(b64Json));
             this.Index = index;
+            this.Type = type;
         }
 
         /// <summary>

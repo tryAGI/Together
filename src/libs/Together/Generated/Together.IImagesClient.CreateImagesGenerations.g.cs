@@ -19,6 +19,9 @@ namespace Together
         /// Create image<br/>
         /// Use an image model to generate an image for a given prompt.
         /// </summary>
+        /// <param name="disableSafetyChecker">
+        /// If true, disables the safety checker for image generation.
+        /// </param>
         /// <param name="guidanceScale">
         /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
         /// Default Value: 3.5
@@ -71,6 +74,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
             global::Together.AnyOf<global::Together.RequestModel?, string> model,
             string prompt,
+            bool? disableSafetyChecker = default,
             double? guidanceScale = default,
             int? height = default,
             global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras = default,
