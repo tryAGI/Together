@@ -177,6 +177,12 @@ namespace Together
         /// <param name="fromCheckpoint">
         /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </param>
+        /// <param name="hfApiToken">
+        /// The API token for the Hugging Face Hub.
+        /// </param>
+        /// <param name="hfOutputRepoName">
+        /// The name of the Hugging Face repository to upload the fine-tuned model to.
+        /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 1E-05F
@@ -241,6 +247,8 @@ namespace Together
             string trainingFile,
             global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize = default,
             string? fromCheckpoint = default,
+            string? hfApiToken = default,
+            string? hfOutputRepoName = default,
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
             float? maxGradNorm = default,
@@ -263,6 +271,8 @@ namespace Together
             {
                 BatchSize = batchSize,
                 FromCheckpoint = fromCheckpoint,
+                HfApiToken = hfApiToken,
+                HfOutputRepoName = hfOutputRepoName,
                 LearningRate = learningRate,
                 LrScheduler = lrScheduler,
                 MaxGradNorm = maxGradNorm,
