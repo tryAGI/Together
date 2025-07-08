@@ -45,6 +45,16 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public TranscribeClient Transcribe { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public TranslateClient Translate { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public BatchesClient Batches { get; }
 
         /// <summary>
