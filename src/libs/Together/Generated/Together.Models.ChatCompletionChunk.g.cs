@@ -57,6 +57,12 @@ namespace Together
         public global::Together.UsageData? Usage { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
+        public global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkWarning>? Warnings { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,6 +80,7 @@ namespace Together
         /// <param name="object"></param>
         /// <param name="systemFingerprint"></param>
         /// <param name="usage"></param>
+        /// <param name="warnings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,7 +91,8 @@ namespace Together
             string model,
             global::Together.ChatCompletionChunkObject @object,
             string? systemFingerprint,
-            global::Together.UsageData? usage)
+            global::Together.UsageData? usage,
+            global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkWarning>? warnings)
         {
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Created = created;
@@ -93,6 +101,7 @@ namespace Together
             this.Object = @object;
             this.SystemFingerprint = systemFingerprint;
             this.Usage = usage;
+            this.Warnings = warnings;
         }
 
         /// <summary>

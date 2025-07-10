@@ -50,6 +50,12 @@ namespace Together
         public global::Together.UsageData? Usage { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
+        public global::System.Collections.Generic.IList<global::Together.ChatCompletionResponseWarning>? Warnings { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +70,7 @@ namespace Together
         /// <param name="model"></param>
         /// <param name="object"></param>
         /// <param name="usage"></param>
+        /// <param name="warnings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,7 +80,8 @@ namespace Together
             string id,
             string model,
             global::Together.ChatCompletionResponseObject @object,
-            global::Together.UsageData? usage)
+            global::Together.UsageData? usage,
+            global::System.Collections.Generic.IList<global::Together.ChatCompletionResponseWarning>? warnings)
         {
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Created = created;
@@ -81,6 +89,7 @@ namespace Together
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Object = @object;
             this.Usage = usage;
+            this.Warnings = warnings;
         }
 
         /// <summary>
