@@ -60,7 +60,6 @@ paths:
     post:
       tags:
         - Audio
-        - Transcribe
       summary: Create audio transcription request
       description: Transcribes audio into text
       operationId: audio-transcriptions
@@ -99,7 +98,6 @@ paths:
     post:
       tags:
         - Audio
-        - Translate
       summary: Create audio translation request
       description: Translates audio into English
       operationId: audio-translations
