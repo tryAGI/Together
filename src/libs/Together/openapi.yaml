@@ -1987,6 +1987,13 @@ components:
           type: string
         usage:
           $ref: '#/components/schemas/UsageData'
+        warnings:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
     ChatCompletionEvent:
       required:
         - data
@@ -2200,6 +2207,13 @@ components:
           type: string
         usage:
           $ref: '#/components/schemas/UsageData'
+        warnings:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
     ChatCompletionStream:
       oneOf:
         - $ref: '#/components/schemas/ChatCompletionEvent'
