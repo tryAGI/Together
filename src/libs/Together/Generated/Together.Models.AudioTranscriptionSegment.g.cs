@@ -45,13 +45,6 @@ namespace Together
         public required string Text { get; set; }
 
         /// <summary>
-        /// Array of token IDs for the segment
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<int> Tokens { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -76,9 +69,6 @@ namespace Together
         /// The text content of the segment<br/>
         /// Example: Hello, world!
         /// </param>
-        /// <param name="tokens">
-        /// Array of token IDs for the segment
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -86,14 +76,12 @@ namespace Together
             float end,
             int id,
             float start,
-            string text,
-            global::System.Collections.Generic.IList<int> tokens)
+            string text)
         {
             this.End = end;
             this.Id = id;
             this.Start = start;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
-            this.Tokens = tokens ?? throw new global::System.ArgumentNullException(nameof(tokens));
         }
 
         /// <summary>
