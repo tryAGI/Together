@@ -57,12 +57,14 @@ namespace Together
         public float? Temperature { get; set; }
 
         /// <summary>
-        /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json.<br/>
-        /// Default Value: segment
+        /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
+        /// Default Value: segment<br/>
+        /// Example: word
         /// </summary>
+        /// <example>word</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp_granularities")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AudioTranscriptionRequestTimestampGranularitiesJsonConverter))]
-        public global::Together.AudioTranscriptionRequestTimestampGranularities? TimestampGranularities { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>))]
+        public global::Together.OneOf<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>? TimestampGranularities { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -97,8 +99,9 @@ namespace Together
         /// Default Value: 0F
         /// </param>
         /// <param name="timestampGranularities">
-        /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json.<br/>
-        /// Default Value: segment
+        /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
+        /// Default Value: segment<br/>
+        /// Example: word
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -110,7 +113,7 @@ namespace Together
             string? prompt,
             global::Together.AudioTranscriptionRequestResponseFormat? responseFormat,
             float? temperature,
-            global::Together.AudioTranscriptionRequestTimestampGranularities? timestampGranularities)
+            global::Together.OneOf<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>? timestampGranularities)
         {
             this.File = file;
             this.Language = language;
