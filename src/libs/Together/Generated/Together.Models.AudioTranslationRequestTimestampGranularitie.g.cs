@@ -6,7 +6,7 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public enum AudioTranslationRequestTimestampGranularities
+    public enum AudioTranslationRequestTimestampGranularitie
     {
         /// <summary>
         /// 
@@ -21,29 +21,29 @@ namespace Together
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AudioTranslationRequestTimestampGranularitiesExtensions
+    public static class AudioTranslationRequestTimestampGranularitieExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AudioTranslationRequestTimestampGranularities value)
+        public static string ToValueString(this AudioTranslationRequestTimestampGranularitie value)
         {
             return value switch
             {
-                AudioTranslationRequestTimestampGranularities.Segment => "segment",
-                AudioTranslationRequestTimestampGranularities.Word => "word",
+                AudioTranslationRequestTimestampGranularitie.Segment => "segment",
+                AudioTranslationRequestTimestampGranularitie.Word => "word",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AudioTranslationRequestTimestampGranularities? ToEnum(string value)
+        public static AudioTranslationRequestTimestampGranularitie? ToEnum(string value)
         {
             return value switch
             {
-                "segment" => AudioTranslationRequestTimestampGranularities.Segment,
-                "word" => AudioTranslationRequestTimestampGranularities.Word,
+                "segment" => AudioTranslationRequestTimestampGranularitie.Segment,
+                "word" => AudioTranslationRequestTimestampGranularitie.Word,
                 _ => null,
             };
         }

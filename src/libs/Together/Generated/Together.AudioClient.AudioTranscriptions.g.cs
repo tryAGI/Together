@@ -104,7 +104,7 @@ namespace Together
             if (request.TimestampGranularities != default)
             {
                 __httpRequestContent.Add(
-                    content: new global::System.Net.Http.StringContent($"{request.TimestampGranularities?.ToValueString()}"),
+                    content: new global::System.Net.Http.StringContent(request.TimestampGranularities?.ToString() ?? string.Empty),
                     name: "timestamp_granularities");
             }
             __httpRequest.Content = __httpRequestContent;
@@ -340,8 +340,9 @@ namespace Together
         /// Default Value: 0F
         /// </param>
         /// <param name="timestampGranularities">
-        /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json.<br/>
-        /// Default Value: segment
+        /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
+        /// Default Value: segment<br/>
+        /// Example: word
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -352,7 +353,7 @@ namespace Together
             string? prompt = default,
             global::Together.AudioTranscriptionRequestResponseFormat? responseFormat = default,
             float? temperature = default,
-            global::Together.AudioTranscriptionRequestTimestampGranularities? timestampGranularities = default,
+            global::Together.OneOf<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>? timestampGranularities = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.AudioTranscriptionRequest

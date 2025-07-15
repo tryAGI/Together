@@ -6,7 +6,7 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public enum AudioTranslationRequestTimestampGranularities
+    public enum AudioTranscriptionRequestTimestampGranularitie
     {
         /// <summary>
         /// 
@@ -21,29 +21,29 @@ namespace Together
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AudioTranslationRequestTimestampGranularitiesExtensions
+    public static class AudioTranscriptionRequestTimestampGranularitieExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AudioTranslationRequestTimestampGranularities value)
+        public static string ToValueString(this AudioTranscriptionRequestTimestampGranularitie value)
         {
             return value switch
             {
-                AudioTranslationRequestTimestampGranularities.Segment => "segment",
-                AudioTranslationRequestTimestampGranularities.Word => "word",
+                AudioTranscriptionRequestTimestampGranularitie.Segment => "segment",
+                AudioTranscriptionRequestTimestampGranularitie.Word => "word",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AudioTranslationRequestTimestampGranularities? ToEnum(string value)
+        public static AudioTranscriptionRequestTimestampGranularitie? ToEnum(string value)
         {
             return value switch
             {
-                "segment" => AudioTranslationRequestTimestampGranularities.Segment,
-                "word" => AudioTranslationRequestTimestampGranularities.Word,
+                "segment" => AudioTranscriptionRequestTimestampGranularitie.Segment,
+                "word" => AudioTranscriptionRequestTimestampGranularitie.Word,
                 _ => null,
             };
         }

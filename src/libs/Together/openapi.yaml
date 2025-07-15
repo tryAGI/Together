@@ -1525,12 +1525,23 @@ components:
           format: float
           default: 0
         timestamp_granularities:
-          enum:
-            - segment
-            - word
-          type: string
-          description: Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json.
+          oneOf:
+            - enum:
+                - segment
+                - word
+              type: string
+            - maxItems: 2
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                enum:
+                  - segment
+                  - word
+                type: string
+          description: Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.
           default: segment
+          example: word
     AudioTranscriptionResponse:
       oneOf:
         - $ref: '#/components/schemas/AudioTranscriptionJsonResponse'
@@ -1673,12 +1684,23 @@ components:
           format: float
           default: 0
         timestamp_granularities:
-          enum:
-            - segment
-            - word
-          type: string
-          description: Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json.
+          oneOf:
+            - enum:
+                - segment
+                - word
+              type: string
+            - maxItems: 2
+              minItems: 1
+              uniqueItems: true
+              type: array
+              items:
+                enum:
+                  - segment
+                  - word
+                type: string
+          description: Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.
           default: segment
+          example: word
     AudioTranslationResponse:
       oneOf:
         - $ref: '#/components/schemas/AudioTranslationJsonResponse'

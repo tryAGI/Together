@@ -4,8 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json.<br/>
-    /// Default Value: segment
+    /// 
     /// </summary>
     public enum AudioTranscriptionRequestTimestampGranularities
     {
