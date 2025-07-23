@@ -6,13 +6,14 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ChatCompletionResponseWarning
+    public sealed partial class InferenceWarning
     {
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
-        public string? Message { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Message { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -21,22 +22,22 @@ namespace Together
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChatCompletionResponseWarning" /> class.
+        /// Initializes a new instance of the <see cref="InferenceWarning" /> class.
         /// </summary>
         /// <param name="message"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ChatCompletionResponseWarning(
-            string? message)
+        public InferenceWarning(
+            string message)
         {
-            this.Message = message;
+            this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChatCompletionResponseWarning" /> class.
+        /// Initializes a new instance of the <see cref="InferenceWarning" /> class.
         /// </summary>
-        public ChatCompletionResponseWarning()
+        public InferenceWarning()
         {
         }
     }

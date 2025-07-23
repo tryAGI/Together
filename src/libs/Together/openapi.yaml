@@ -2429,10 +2429,7 @@ components:
         warnings:
           type: array
           items:
-            type: object
-            properties:
-              message:
-                type: string
+            $ref: '#/components/schemas/InferenceWarning'
     ChatCompletionEvent:
       required:
         - data
@@ -2649,10 +2646,7 @@ components:
         warnings:
           type: array
           items:
-            type: object
-            properties:
-              message:
-                type: string
+            $ref: '#/components/schemas/InferenceWarning'
     ChatCompletionStream:
       oneOf:
         - $ref: '#/components/schemas/ChatCompletionEvent'
@@ -4135,6 +4129,13 @@ components:
             - url
           type: string
         url:
+          type: string
+    InferenceWarning:
+      required:
+        - message
+      type: object
+      properties:
+        message:
           type: string
     InterpreterOutput:
       title: InterpreterOutput

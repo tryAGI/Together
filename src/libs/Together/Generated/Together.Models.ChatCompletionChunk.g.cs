@@ -60,7 +60,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
-        public global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkWarning>? Warnings { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.InferenceWarning>? Warnings { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -92,7 +92,7 @@ namespace Together
             global::Together.ChatCompletionChunkObject @object,
             string? systemFingerprint,
             global::Together.UsageData? usage,
-            global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkWarning>? warnings)
+            global::System.Collections.Generic.IList<global::Together.InferenceWarning>? warnings)
         {
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Created = created;
