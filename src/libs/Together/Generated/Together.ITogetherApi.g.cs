@@ -70,6 +70,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public EvaluationsClient Evaluations { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public FilesClient Files { get; }
 
         /// <summary>
