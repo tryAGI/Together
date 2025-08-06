@@ -55,6 +55,10 @@ namespace Together
         /// <param name="presencePenalty">
         /// A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.
         /// </param>
+        /// <param name="reasoningEffort">
+        /// Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.<br/>
+        /// Example: medium
+        /// </param>
         /// <param name="repetitionPenalty">
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
@@ -105,6 +109,7 @@ namespace Together
             float? minP = default,
             int? n = default,
             float? presencePenalty = default,
+            global::Together.ChatCompletionRequestReasoningEffort? reasoningEffort = default,
             double? repetitionPenalty = default,
             global::Together.ChatCompletionRequestResponseFormat? responseFormat = default,
             string? safetyModel = default,

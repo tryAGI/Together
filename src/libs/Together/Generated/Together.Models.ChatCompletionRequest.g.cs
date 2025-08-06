@@ -91,6 +91,15 @@ namespace Together
         public float? PresencePenalty { get; set; }
 
         /// <summary>
+        /// Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.<br/>
+        /// Example: medium
+        /// </summary>
+        /// <example>medium</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionRequestReasoningEffortJsonConverter))]
+        public global::Together.ChatCompletionRequestReasoningEffort? ReasoningEffort { get; set; }
+
+        /// <summary>
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("repetition_penalty")]
@@ -206,6 +215,10 @@ namespace Together
         /// <param name="presencePenalty">
         /// A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.
         /// </param>
+        /// <param name="reasoningEffort">
+        /// Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.<br/>
+        /// Example: medium
+        /// </param>
         /// <param name="repetitionPenalty">
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
@@ -257,6 +270,7 @@ namespace Together
             float? minP,
             int? n,
             float? presencePenalty,
+            global::Together.ChatCompletionRequestReasoningEffort? reasoningEffort,
             double? repetitionPenalty,
             global::Together.ChatCompletionRequestResponseFormat? responseFormat,
             string? safetyModel,
@@ -281,6 +295,7 @@ namespace Together
             this.MinP = minP;
             this.N = n;
             this.PresencePenalty = presencePenalty;
+            this.ReasoningEffort = reasoningEffort;
             this.RepetitionPenalty = repetitionPenalty;
             this.ResponseFormat = responseFormat;
             this.SafetyModel = safetyModel;
