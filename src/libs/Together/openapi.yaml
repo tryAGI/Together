@@ -2881,6 +2881,14 @@ components:
           type: number
           description: A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.
           format: float
+        reasoning_effort:
+          enum:
+            - low
+            - medium
+            - high
+          type: string
+          description: Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.
+          example: medium
         repetition_penalty:
           type: number
           description: A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
