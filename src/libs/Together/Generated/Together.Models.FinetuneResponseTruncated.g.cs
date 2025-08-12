@@ -36,6 +36,18 @@ namespace Together
         public string? FromCheckpoint { get; set; }
 
         /// <summary>
+        /// Hugging Face Hub repo to start training from
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_hf_model")]
+        public string? FromHfModel { get; set; }
+
+        /// <summary>
+        /// The revision of the Hugging Face Hub model to continue training from
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hf_model_revision")]
+        public string? HfModelRevision { get; set; }
+
+        /// <summary>
         /// Unique identifier for the fine-tune job
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -206,6 +218,12 @@ namespace Together
         /// <param name="fromCheckpoint">
         /// Checkpoint used to continue training
         /// </param>
+        /// <param name="fromHfModel">
+        /// Hugging Face Hub repo to start training from
+        /// </param>
+        /// <param name="hfModelRevision">
+        /// The revision of the Hugging Face Hub model to continue training from
+        /// </param>
         /// <param name="id">
         /// Unique identifier for the fine-tune job
         /// </param>
@@ -283,6 +301,8 @@ namespace Together
             int? batchSize,
             global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? events,
             string? fromCheckpoint,
+            string? fromHfModel,
+            string? hfModelRevision,
             float? learningRate,
             global::Together.LRScheduler? lrScheduler,
             float? maxGradNorm,
@@ -312,6 +332,8 @@ namespace Together
             this.BatchSize = batchSize;
             this.Events = events;
             this.FromCheckpoint = fromCheckpoint;
+            this.FromHfModel = fromHfModel;
+            this.HfModelRevision = hfModelRevision;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;
             this.MaxGradNorm = maxGradNorm;
