@@ -347,7 +347,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.AudioTranscriptionResponse> AudioTranscriptionsAsync(
-            global::Together.OneOf<byte[], string> file,
+            global::Together.File file,
             string? language = default,
             global::Together.AudioTranscriptionRequestModel? model = default,
             string? prompt = default,
