@@ -50,6 +50,18 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_hf_model")]
+        public string? FromHfModel { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hf_model_revision")]
+        public string? HfModelRevision { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Guid Id { get; set; }
@@ -238,6 +250,8 @@ namespace Together
         /// <param name="evalSteps"></param>
         /// <param name="events"></param>
         /// <param name="fromCheckpoint"></param>
+        /// <param name="fromHfModel"></param>
+        /// <param name="hfModelRevision"></param>
         /// <param name="id"></param>
         /// <param name="jobId"></param>
         /// <param name="learningRate"></param>
@@ -280,6 +294,8 @@ namespace Together
             int? evalSteps,
             global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? events,
             string? fromCheckpoint,
+            string? fromHfModel,
+            string? hfModelRevision,
             string? jobId,
             double? learningRate,
             global::Together.LRScheduler? lrScheduler,
@@ -315,6 +331,8 @@ namespace Together
             this.EvalSteps = evalSteps;
             this.Events = events;
             this.FromCheckpoint = fromCheckpoint;
+            this.FromHfModel = fromHfModel;
+            this.HfModelRevision = hfModelRevision;
             this.JobId = jobId;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;

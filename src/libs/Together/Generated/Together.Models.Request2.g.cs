@@ -25,10 +25,22 @@ namespace Together
         public string? FromCheckpoint { get; set; }
 
         /// <summary>
+        /// The Hugging Face Hub repo to start training from. Should be as close as possible to the base model (specified by the `model` argument) in terms of architecture and size.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_hf_model")]
+        public string? FromHfModel { get; set; }
+
+        /// <summary>
         /// The API token for the Hugging Face Hub.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hf_api_token")]
         public string? HfApiToken { get; set; }
+
+        /// <summary>
+        /// The revision of the Hugging Face Hub model to continue training from. E.g., hf_model_revision=main (default, used if the argument is not provided) or hf_model_revision='607a30d783dfa663caf39e06633721c8d4cfcd7e' (specific commit).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hf_model_revision")]
+        public string? HfModelRevision { get; set; }
 
         /// <summary>
         /// The name of the Hugging Face repository to upload the fine-tuned model to.
@@ -179,8 +191,14 @@ namespace Together
         /// <param name="fromCheckpoint">
         /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </param>
+        /// <param name="fromHfModel">
+        /// The Hugging Face Hub repo to start training from. Should be as close as possible to the base model (specified by the `model` argument) in terms of architecture and size.
+        /// </param>
         /// <param name="hfApiToken">
         /// The API token for the Hugging Face Hub.
+        /// </param>
+        /// <param name="hfModelRevision">
+        /// The revision of the Hugging Face Hub model to continue training from. E.g., hf_model_revision=main (default, used if the argument is not provided) or hf_model_revision='607a30d783dfa663caf39e06633721c8d4cfcd7e' (specific commit).
         /// </param>
         /// <param name="hfOutputRepoName">
         /// The name of the Hugging Face repository to upload the fine-tuned model to.
@@ -250,7 +268,9 @@ namespace Together
             string trainingFile,
             global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize,
             string? fromCheckpoint,
+            string? fromHfModel,
             string? hfApiToken,
+            string? hfModelRevision,
             string? hfOutputRepoName,
             float? learningRate,
             global::Together.LRScheduler? lrScheduler,
@@ -273,7 +293,9 @@ namespace Together
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.BatchSize = batchSize;
             this.FromCheckpoint = fromCheckpoint;
+            this.FromHfModel = fromHfModel;
             this.HfApiToken = hfApiToken;
+            this.HfModelRevision = hfModelRevision;
             this.HfOutputRepoName = hfOutputRepoName;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;
