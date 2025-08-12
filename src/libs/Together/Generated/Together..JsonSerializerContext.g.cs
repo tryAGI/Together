@@ -13,6 +13,10 @@ namespace Together
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         Converters = new global::System.Type[] 
         { 
+            typeof(global::Together.JsonConverters.AudioFileBinaryTypeJsonConverter),
+            typeof(global::Together.JsonConverters.AudioFileBinaryTypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.AudioFileUrlTypeJsonConverter),
+            typeof(global::Together.JsonConverters.AudioFileUrlTypeNullableJsonConverter),
             typeof(global::Together.JsonConverters.AudioSpeechRequestLanguageJsonConverter),
             typeof(global::Together.JsonConverters.AudioSpeechRequestLanguageNullableJsonConverter),
             typeof(global::Together.JsonConverters.AudioSpeechRequestModelJsonConverter),
@@ -234,6 +238,7 @@ namespace Together
             typeof(global::Together.JsonConverters.ListHardwareResponseObjectJsonConverter),
             typeof(global::Together.JsonConverters.ListHardwareResponseObjectNullableJsonConverter),
             typeof(global::Together.JsonConverters.AudioSpeechStreamResponseJsonConverter),
+            typeof(global::Together.JsonConverters.FileJsonConverter),
             typeof(global::Together.JsonConverters.AudioTranscriptionResponseJsonConverter),
             typeof(global::Together.JsonConverters.AudioTranslationResponseJsonConverter),
             typeof(global::Together.JsonConverters.ChatCompletionMessageParamJsonConverter),
@@ -249,7 +254,6 @@ namespace Together
             typeof(global::Together.JsonConverters.SessionListResponseJsonConverter),
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.AudioSpeechRequestModel?, string>),
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.AudioSpeechRequestVoice?, string>),
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<byte[], string>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<byte[], string>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.AudioTranslationRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranslationRequestTimestampGranularitie>>),
