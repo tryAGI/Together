@@ -14,9 +14,9 @@ namespace Together
         /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<byte[], string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.File File { get; set; }
+        public required global::Together.OneOf<byte[], string> File { get; set; }
 
         /// <summary>
         /// Optional ISO 639-1 language code. If `auto` is provided, language is auto-detected.<br/>
@@ -107,7 +107,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranscriptionRequest(
-            global::Together.File file,
+            global::Together.OneOf<byte[], string> file,
             string? language,
             global::Together.AudioTranscriptionRequestModel? model,
             string? prompt,
