@@ -468,16 +468,16 @@ paths:
       x-codeSamples:
         - label: Together AI SDK (Python)
           lang: Python
-          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.completions.create(\n    model=\"meta-llama/Llama-2-70b-hf\",\n    prompt=\"The largest city in France is\",\n)\n\nprint(response.choices[0].text)\n"
+          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.completions.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    prompt=\"The largest city in France is\",\n    max_tokens=1\n)\n\nprint(response.choices[0].text)\n"
         - label: Together AI SDK (TypeScript)
           lang: TypeScript
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"meta-llama/Llama-2-70b-hf\",\n  prompt: \"The largest city in France is\",\n});\n\nconsole.log(response.choices[0].text);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  prompt: \"The largest city in France is\",\n  max_tokens: 1\n});\n\nconsole.log(response.choices[0].text);\n"
         - label: Together AI SDK (JavaScript)
           lang: JavaScript
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"meta-llama/Llama-2-70b-hf\",\n  prompt: \"The largest city in France is\",\n});\n\nconsole.log(response.choices[0].text);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  prompt: \"The largest city in France is\",\n  max_tokens: 1\n});\n\nconsole.log(response.choices[0].text);\n"
         - label: cURL
           lang: Shell
-          source: "curl -X POST \"https://api.together.xyz/v1/completions\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"meta-llama/Llama-2-70b-hf\",\n       \"prompt\": \"The largest city in France is\"\n     }'\n"
+          source: "curl -X POST \"https://api.together.xyz/v1/completions\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n       \"prompt\": \"The largest city in France is\",\n       \"max_tokens\": 1\n     }'\n"
   /embeddings:
     post:
       tags:
