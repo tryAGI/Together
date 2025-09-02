@@ -276,6 +276,7 @@ namespace Together
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RerankRequestModel?, string>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<string, object>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<string, object>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.RequestBatchSize?>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.RequestTrainOnInputs?>),
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>),

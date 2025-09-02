@@ -9,10 +9,10 @@ namespace Together
     public sealed partial class EvaluationScoreResults
     {
         /// <summary>
-        /// Aggregated score statistics
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aggregated_scores")]
-        public object? AggregatedScores { get; set; }
+        public global::Together.EvaluationScoreResultsAggregatedScores? AggregatedScores { get; set; }
 
         /// <summary>
         /// number of failed samples generated from model
@@ -59,9 +59,7 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationScoreResults" /> class.
         /// </summary>
-        /// <param name="aggregatedScores">
-        /// Aggregated score statistics
-        /// </param>
+        /// <param name="aggregatedScores"></param>
         /// <param name="failedSamples">
         /// number of failed samples generated from model
         /// </param>
@@ -84,7 +82,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationScoreResults(
-            object? aggregatedScores,
+            global::Together.EvaluationScoreResultsAggregatedScores? aggregatedScores,
             double? failedSamples,
             double? generationFailCount,
             double? invalidScoreCount,
