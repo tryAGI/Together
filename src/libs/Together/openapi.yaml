@@ -1040,8 +1040,10 @@ paths:
                   type: string
                   description: Error message
                 results:
-                  type: object
-                  description: Job results (required when status is 'completed')
+                  oneOf:
+                    - $ref: '#/components/schemas/EvaluationClassifyResults'
+                    - $ref: '#/components/schemas/EvaluationScoreResults'
+                    - $ref: '#/components/schemas/EvaluationCompareResults'
                 status:
                   enum:
                     - completed
@@ -4000,7 +4002,16 @@ components:
       properties:
         aggregated_scores:
           type: object
-          description: Aggregated score statistics
+          properties:
+            mean_score:
+              type: number
+              format: float
+            pass_percentage:
+              type: number
+              format: float
+            std_score:
+              type: number
+              format: float
         failed_samples:
           type: number
           description: number of failed samples generated from model

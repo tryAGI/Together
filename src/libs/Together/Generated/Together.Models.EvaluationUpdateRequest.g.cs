@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -15,10 +17,11 @@ namespace Together
         public string? Error { get; set; }
 
         /// <summary>
-        /// Job results (required when status is 'completed')
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
-        public object? Results { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>))]
+        public global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? Results { get; set; }
 
         /// <summary>
         /// The new status for the job
@@ -40,9 +43,7 @@ namespace Together
         /// <param name="error">
         /// Error message
         /// </param>
-        /// <param name="results">
-        /// Job results (required when status is 'completed')
-        /// </param>
+        /// <param name="results"></param>
         /// <param name="status">
         /// The new status for the job
         /// </param>
@@ -52,7 +53,7 @@ namespace Together
         public EvaluationUpdateRequest(
             global::Together.EvaluationUpdateRequestStatus status,
             string? error,
-            object? results)
+            global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? results)
         {
             this.Status = status;
             this.Error = error;

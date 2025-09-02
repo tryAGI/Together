@@ -25,9 +25,7 @@ namespace Together
         /// <param name="error">
         /// Error message
         /// </param>
-        /// <param name="results">
-        /// Job results (required when status is 'completed')
-        /// </param>
+        /// <param name="results"></param>
         /// <param name="status">
         /// The new status for the job
         /// </param>
@@ -37,7 +35,7 @@ namespace Together
             string id,
             global::Together.EvaluationUpdateRequestStatus status,
             string? error = default,
-            object? results = default,
+            global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? results = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
