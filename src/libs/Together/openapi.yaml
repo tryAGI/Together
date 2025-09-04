@@ -1511,6 +1511,55 @@ paths:
           lang: Shell
           source: "curl -X POST \"https://api.together.xyz/v1/fine-tunes\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Reference\",\n       \"training_file\": \"file-id\"\n     }'\n"
   '/fine-tunes/{id}':
+    delete:
+      tags:
+        - Fine-tuning
+      summary: Delete a fine-tune job
+      description: Delete a fine-tuning job.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: force
+          in: query
+          required: true
+          schema:
+            type: boolean
+            default: 
+      responses:
+        '200':
+          description: Fine-tune job deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinetuneDeleteResponse'
+        '404':
+          description: Fine-tune job not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
+      x-codeSamples:
+        - label: Together AI SDK (Python)
+          lang: Python
+          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.fine_tuning.delete(id=\"ft-id\")\n\nprint(response)\n"
+        - label: Together AI SDK (TypeScript)
+          lang: TypeScript
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.fineTune.delete(\"ft-id\");\n\nconsole.log(response);\n"
+        - label: Together AI SDK (JavaScript)
+          lang: JavaScript
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.fineTune.delete(\"ft-id\");\n\nconsole.log(response);\n"
+        - label: cURL
+          lang: Shell
+          source: "curl -X \"DELETE\" \"https://api.together.xyz/v1/fine-tunes/ft-id?force=false\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\"\n"
     get:
       tags:
         - Fine-tuning
@@ -4363,6 +4412,12 @@ components:
           $ref: '#/components/schemas/FinetuneEventType'
         wandb_url:
           type: string
+    FinetuneDeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message indicating the result of the deletion
     FinetuneDownloadResult:
       type: object
       properties:
