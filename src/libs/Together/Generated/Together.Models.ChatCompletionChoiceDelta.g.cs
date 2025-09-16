@@ -24,6 +24,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public string? Reasoning { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChoiceDeltaRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -51,6 +57,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionChoiceDelta" /> class.
         /// </summary>
         /// <param name="content"></param>
+        /// <param name="reasoning"></param>
         /// <param name="role"></param>
         /// <param name="tokenId"></param>
         /// <param name="toolCalls"></param>
@@ -60,11 +67,13 @@ namespace Together
         public ChatCompletionChoiceDelta(
             global::Together.ChatCompletionChoiceDeltaRole role,
             string? content,
+            string? reasoning,
             int? tokenId,
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls)
         {
             this.Role = role;
             this.Content = content;
+            this.Reasoning = reasoning;
             this.TokenId = tokenId;
             this.ToolCalls = toolCalls;
         }
