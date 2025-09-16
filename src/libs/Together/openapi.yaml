@@ -2685,6 +2685,9 @@ components:
                   type: string
               nullable: true
               deprecated: true
+            reasoning:
+              type: string
+              nullable: true
             role:
               enum:
                 - system
@@ -2848,6 +2851,9 @@ components:
             name:
               type: string
           deprecated: true
+        reasoning:
+          type: string
+          nullable: true
         role:
           enum:
             - assistant

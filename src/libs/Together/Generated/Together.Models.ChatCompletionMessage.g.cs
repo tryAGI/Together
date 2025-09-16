@@ -25,6 +25,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public string? Reasoning { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionMessageRoleJsonConverter))]
         public global::Together.ChatCompletionMessageRole Role { get; set; }
@@ -45,6 +51,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionMessage" /> class.
         /// </summary>
         /// <param name="content"></param>
+        /// <param name="reasoning"></param>
         /// <param name="role"></param>
         /// <param name="toolCalls"></param>
 #if NET7_0_OR_GREATER
@@ -52,10 +59,12 @@ namespace Together
 #endif
         public ChatCompletionMessage(
             string? content,
+            string? reasoning,
             global::Together.ChatCompletionMessageRole role,
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls)
         {
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
+            this.Reasoning = reasoning;
             this.Role = role;
             this.ToolCalls = toolCalls;
         }
