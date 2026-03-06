@@ -7,11 +7,15 @@ namespace Together
     {
         partial void PrepareListEndpointsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::Together.ListEndpointsType? type);
+            ref global::Together.ListEndpointsType? type,
+            ref global::Together.ListEndpointsUsageType? usageType,
+            ref bool? mine);
         partial void PrepareListEndpointsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.ListEndpointsType? type);
+            global::Together.ListEndpointsType? type,
+            global::Together.ListEndpointsUsageType? usageType,
+            bool? mine);
         partial void ProcessListEndpointsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,24 +29,38 @@ namespace Together
         /// List all endpoints, can be filtered by type<br/>
         /// Returns a list of all endpoints associated with your account. You can filter the results by type (dedicated or serverless).
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="type">
+        /// Filter endpoints by type
+        /// </param>
+        /// <param name="usageType">
+        /// Filter endpoints by usage type
+        /// </param>
+        /// <param name="mine">
+        /// If true, return only endpoints owned by the caller
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ListEndpointsResponse> ListEndpointsAsync(
             global::Together.ListEndpointsType? type = default,
+            global::Together.ListEndpointsUsageType? usageType = default,
+            bool? mine = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareListEndpointsArguments(
                 httpClient: HttpClient,
-                type: ref type);
+                type: ref type,
+                usageType: ref usageType,
+                mine: ref mine);
 
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/endpoints",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddOptionalParameter("type", type?.ToValueString()) 
+            __pathBuilder
+                .AddOptionalParameter("type", type?.ToValueString())
+                .AddOptionalParameter("usage_type", usageType?.ToValueString())
+                .AddOptionalParameter("mine", mine?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -75,7 +93,9 @@ namespace Together
             PrepareListEndpointsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                type: type);
+                type: type,
+                usageType: usageType,
+                mine: mine);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

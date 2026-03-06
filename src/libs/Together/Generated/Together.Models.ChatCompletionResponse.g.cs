@@ -37,11 +37,18 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `chat.completion`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionResponseObjectJsonConverter))]
         public global::Together.ChatCompletionResponseObject Object { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.PromptPartItem> Prompt { get; set; }
 
         /// <summary>
         /// 
@@ -68,7 +75,10 @@ namespace Together
         /// <param name="created"></param>
         /// <param name="id"></param>
         /// <param name="model"></param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `chat.completion`.
+        /// </param>
+        /// <param name="prompt"></param>
         /// <param name="usage"></param>
         /// <param name="warnings"></param>
 #if NET7_0_OR_GREATER
@@ -79,6 +89,7 @@ namespace Together
             int created,
             string id,
             string model,
+            global::System.Collections.Generic.IList<global::Together.PromptPartItem> prompt,
             global::Together.ChatCompletionResponseObject @object,
             global::Together.UsageData? usage,
             global::System.Collections.Generic.IList<global::Together.InferenceWarning>? warnings)
@@ -87,6 +98,7 @@ namespace Together
             this.Created = created;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Object = @object;
             this.Usage = usage;
             this.Warnings = warnings;

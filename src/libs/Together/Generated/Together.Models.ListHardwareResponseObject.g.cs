@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// The object type, which is always `list`.
     /// </summary>
     public enum ListHardwareResponseObject
     {

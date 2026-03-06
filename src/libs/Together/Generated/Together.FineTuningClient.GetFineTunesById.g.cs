@@ -25,7 +25,9 @@ namespace Together
         /// List job<br/>
         /// List the metadata for a single fine-tuning job.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the job to retrieve
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> GetFineTunesByIdAsync(

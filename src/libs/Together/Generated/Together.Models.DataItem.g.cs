@@ -13,19 +13,35 @@ namespace Together
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.ImageResponseDataB64? ImageResponseB64 { get; init; }
+        public global::Together.ImageResponseDataB64? B64Json { get; init; }
 #else
-        public global::Together.ImageResponseDataB64? ImageResponseB64 { get; }
+        public global::Together.ImageResponseDataB64? B64Json { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageResponseB64))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(B64Json))]
 #endif
-        public bool IsImageResponseB64 => ImageResponseB64 != null;
+        public bool IsB64Json => B64Json != null;
 
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.ImageResponseDataUrl? Url { get; init; }
+#else
+        public global::Together.ImageResponseDataUrl? Url { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Url))]
+#endif
+        public bool IsUrl => Url != null;
         /// <summary>
         /// 
         /// </summary>
@@ -34,32 +50,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.ImageResponseDataB64?(DataItem @this) => @this.ImageResponseB64;
+        public static implicit operator global::Together.ImageResponseDataB64?(DataItem @this) => @this.B64Json;
 
         /// <summary>
         /// 
         /// </summary>
         public DataItem(global::Together.ImageResponseDataB64? value)
         {
-            ImageResponseB64 = value;
+            B64Json = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ImageResponseDataUrl? ImageResponseUrl { get; init; }
-#else
-        public global::Together.ImageResponseDataUrl? ImageResponseUrl { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageResponseUrl))]
-#endif
-        public bool IsImageResponseUrl => ImageResponseUrl != null;
 
         /// <summary>
         /// 
@@ -69,42 +68,42 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.ImageResponseDataUrl?(DataItem @this) => @this.ImageResponseUrl;
+        public static implicit operator global::Together.ImageResponseDataUrl?(DataItem @this) => @this.Url;
 
         /// <summary>
         /// 
         /// </summary>
         public DataItem(global::Together.ImageResponseDataUrl? value)
         {
-            ImageResponseUrl = value;
+            Url = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public DataItem(
-            global::Together.ImageResponseDataB64? imageResponseB64,
-            global::Together.ImageResponseDataUrl? imageResponseUrl
+            global::Together.ImageResponseDataB64? b64Json,
+            global::Together.ImageResponseDataUrl? url
             )
         {
-            ImageResponseB64 = imageResponseB64;
-            ImageResponseUrl = imageResponseUrl;
+            B64Json = b64Json;
+            Url = url;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            ImageResponseUrl as object ??
-            ImageResponseB64 as object 
+            Url as object ??
+            B64Json as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            ImageResponseB64?.ToString() ??
-            ImageResponseUrl?.ToString() 
+            B64Json?.ToString() ??
+            Url?.ToString() 
             ;
 
         /// <summary>
@@ -112,15 +111,15 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsImageResponseB64 && !IsImageResponseUrl || !IsImageResponseB64 && IsImageResponseUrl;
+            return IsB64Json && !IsUrl || !IsB64Json && IsUrl;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.ImageResponseDataB64?, TResult>? imageResponseB64 = null,
-            global::System.Func<global::Together.ImageResponseDataUrl?, TResult>? imageResponseUrl = null,
+            global::System.Func<global::Together.ImageResponseDataB64?, TResult>? b64Json = null,
+            global::System.Func<global::Together.ImageResponseDataUrl?, TResult>? url = null,
             bool validate = true)
         {
             if (validate)
@@ -128,13 +127,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsImageResponseB64 && imageResponseB64 != null)
+            if (IsB64Json && b64Json != null)
             {
-                return imageResponseB64(ImageResponseB64!);
+                return b64Json(B64Json!);
             }
-            else if (IsImageResponseUrl && imageResponseUrl != null)
+            else if (IsUrl && url != null)
             {
-                return imageResponseUrl(ImageResponseUrl!);
+                return url(Url!);
             }
 
             return default(TResult);
@@ -144,8 +143,8 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.ImageResponseDataB64?>? imageResponseB64 = null,
-            global::System.Action<global::Together.ImageResponseDataUrl?>? imageResponseUrl = null,
+            global::System.Action<global::Together.ImageResponseDataB64?>? b64Json = null,
+            global::System.Action<global::Together.ImageResponseDataUrl?>? url = null,
             bool validate = true)
         {
             if (validate)
@@ -153,13 +152,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsImageResponseB64)
+            if (IsB64Json)
             {
-                imageResponseB64?.Invoke(ImageResponseB64!);
+                b64Json?.Invoke(B64Json!);
             }
-            else if (IsImageResponseUrl)
+            else if (IsUrl)
             {
-                imageResponseUrl?.Invoke(ImageResponseUrl!);
+                url?.Invoke(Url!);
             }
         }
 
@@ -170,9 +169,9 @@ namespace Together
         {
             var fields = new object?[]
             {
-                ImageResponseB64,
+                B64Json,
                 typeof(global::Together.ImageResponseDataB64),
-                ImageResponseUrl,
+                Url,
                 typeof(global::Together.ImageResponseDataUrl),
             };
             const int offset = unchecked((int)2166136261);
@@ -190,8 +189,8 @@ namespace Together
         public bool Equals(DataItem other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Together.ImageResponseDataB64?>.Default.Equals(ImageResponseB64, other.ImageResponseB64) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ImageResponseDataUrl?>.Default.Equals(ImageResponseUrl, other.ImageResponseUrl) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ImageResponseDataB64?>.Default.Equals(B64Json, other.B64Json) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.ImageResponseDataUrl?>.Default.Equals(Url, other.Url) 
                 ;
         }
 

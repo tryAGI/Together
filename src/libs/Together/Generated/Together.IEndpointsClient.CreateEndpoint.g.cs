@@ -12,6 +12,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> CreateEndpointAsync(
+
             global::Together.CreateEndpointRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -22,9 +23,8 @@ namespace Together
         /// <param name="autoscaling">
         /// Configuration for automatic scaling of replicas based on demand.
         /// </param>
-        /// <param name="disablePromptCache">
-        /// Whether to disable the prompt cache for this endpoint<br/>
-        /// Default Value: false
+        /// <param name="availabilityZone">
+        /// Create the endpoint in a specified availability zone (e.g., us-central-4b)
         /// </param>
         /// <param name="disableSpeculativeDecoding">
         /// Whether to disable speculative decoding for this endpoint<br/>
@@ -57,7 +57,7 @@ namespace Together
             global::Together.Autoscaling autoscaling,
             string hardware,
             string model,
-            bool? disablePromptCache = default,
+            string? availabilityZone = default,
             bool? disableSpeculativeDecoding = default,
             string? displayName = default,
             int? inactiveTimeout = default,

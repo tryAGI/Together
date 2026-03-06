@@ -11,23 +11,23 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        QwenQwen2572BInstructTurbo,
+        QwenQwen2572bInstructTurbo,
         /// <summary>
         /// 
         /// </summary>
-        QwenQwen257BInstructTurbo,
+        QwenQwen257bInstructTurbo,
         /// <summary>
         /// 
         /// </summary>
-        MetaLlamaMetaLlama31405BInstructTurbo,
+        MetaLlamaMetaLlama31405bInstructTurbo,
         /// <summary>
         /// 
         /// </summary>
-        MetaLlamaMetaLlama3170BInstructTurbo,
+        MetaLlamaMetaLlama3170bInstructTurbo,
         /// <summary>
         /// 
         /// </summary>
-        MetaLlamaMetaLlama318BInstructTurbo,
+        MetaLlamaMetaLlama318bInstructTurbo,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Together
         {
             return value switch
             {
-                ChatCompletionRequestModel.QwenQwen2572BInstructTurbo => "Qwen/Qwen2.5-72B-Instruct-Turbo",
-                ChatCompletionRequestModel.QwenQwen257BInstructTurbo => "Qwen/Qwen2.5-7B-Instruct-Turbo",
-                ChatCompletionRequestModel.MetaLlamaMetaLlama31405BInstructTurbo => "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
-                ChatCompletionRequestModel.MetaLlamaMetaLlama3170BInstructTurbo => "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
-                ChatCompletionRequestModel.MetaLlamaMetaLlama318BInstructTurbo => "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+                ChatCompletionRequestModel.QwenQwen2572bInstructTurbo => "Qwen/Qwen2.5-72B-Instruct-Turbo",
+                ChatCompletionRequestModel.QwenQwen257bInstructTurbo => "Qwen/Qwen2.5-7B-Instruct-Turbo",
+                ChatCompletionRequestModel.MetaLlamaMetaLlama31405bInstructTurbo => "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+                ChatCompletionRequestModel.MetaLlamaMetaLlama3170bInstructTurbo => "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+                ChatCompletionRequestModel.MetaLlamaMetaLlama318bInstructTurbo => "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Together
         {
             return value switch
             {
-                "Qwen/Qwen2.5-72B-Instruct-Turbo" => ChatCompletionRequestModel.QwenQwen2572BInstructTurbo,
-                "Qwen/Qwen2.5-7B-Instruct-Turbo" => ChatCompletionRequestModel.QwenQwen257BInstructTurbo,
-                "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama31405BInstructTurbo,
-                "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama3170BInstructTurbo,
-                "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama318BInstructTurbo,
+                "Qwen/Qwen2.5-72B-Instruct-Turbo" => ChatCompletionRequestModel.QwenQwen2572bInstructTurbo,
+                "Qwen/Qwen2.5-7B-Instruct-Turbo" => ChatCompletionRequestModel.QwenQwen257bInstructTurbo,
+                "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama31405bInstructTurbo,
+                "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama3170bInstructTurbo,
+                "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama318bInstructTurbo,
                 _ => null,
             };
         }

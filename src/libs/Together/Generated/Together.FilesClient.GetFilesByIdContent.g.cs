@@ -25,10 +25,12 @@ namespace Together
         /// Get file contents<br/>
         /// Get the contents of a single uploaded data file.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the file to get the content of
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FileObject> GetFilesByIdContentAsync(
+        public async global::System.Threading.Tasks.Task<byte[]> GetFilesByIdContentAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -145,7 +147,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.FileObject.FromJson(__content, JsonSerializerContext) ??
+                        global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(byte[]), JsonSerializerContext) as byte[] ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -176,7 +178,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.FileObject.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(byte[]), JsonSerializerContext).ConfigureAwait(false) as byte[] ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

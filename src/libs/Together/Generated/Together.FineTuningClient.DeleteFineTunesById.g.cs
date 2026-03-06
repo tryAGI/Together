@@ -8,12 +8,12 @@ namespace Together
         partial void PrepareDeleteFineTunesByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
-            ref bool force);
+            ref bool? force);
         partial void PrepareDeleteFineTunesByIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
-            bool force);
+            bool? force);
         partial void ProcessDeleteFineTunesByIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -27,13 +27,18 @@ namespace Together
         /// Delete a fine-tune job<br/>
         /// Delete a fine-tuning job.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="force"></param>
+        /// <param name="id">
+        /// The ID of the fine-tune job to delete
+        /// </param>
+        /// <param name="force">
+        /// Deprecated and unused parameter.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneDeleteResponse> DeleteFineTunesByIdAsync(
             string id,
-            bool force,
+            bool? force = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -46,8 +51,8 @@ namespace Together
             var __pathBuilder = new global::Together.PathBuilder(
                 path: $"/fine-tunes/{id}",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("force", force.ToString()) 
+            __pathBuilder
+                .AddOptionalParameter("force", force?.ToString()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

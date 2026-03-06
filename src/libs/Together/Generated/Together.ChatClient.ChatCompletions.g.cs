@@ -23,12 +23,13 @@ namespace Together
 
         /// <summary>
         /// Create chat completion<br/>
-        /// Query a chat model.
+        /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
+
             global::Together.ChatCompletionRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -390,8 +391,12 @@ namespace Together
 
         /// <summary>
         /// Create chat completion<br/>
-        /// Query a chat model.
+        /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
         /// </summary>
+        /// <param name="chatTemplateKwargs">
+        /// Additional configuration to pass to model engine.
+        /// </param>
+        /// <param name="compliance"></param>
         /// <param name="contextLengthExceededBehavior">
         /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
         /// Default Value: error
@@ -404,7 +409,8 @@ namespace Together
         /// </param>
         /// <param name="functionCall"></param>
         /// <param name="logitBias">
-        /// Adjusts the likelihood of specific tokens appearing in the generated output.
+        /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="logprobs">
         /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
@@ -428,6 +434,9 @@ namespace Together
         /// <param name="presencePenalty">
         /// A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.
         /// </param>
+        /// <param name="reasoning">
+        /// For models that support toggling reasoning functionality, this object can be used to control that functionality.
+        /// </param>
         /// <param name="reasoningEffort">
         /// Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.<br/>
         /// Example: medium
@@ -436,7 +445,14 @@ namespace Together
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
         /// <param name="responseFormat">
-        /// An object specifying the format that the model must output.
+        /// An object specifying the format that the model must output.<br/>
+        /// Setting to `{ "type": "json_schema", "json_schema": {...} }` enables<br/>
+        /// Structured Outputs which ensures the model will match your supplied JSON<br/>
+        /// schema. Learn more in the [Structured Outputs<br/>
+        /// guide](https://docs.together.ai/docs/json-mode).<br/>
+        /// Setting to `{ "type": "json_object" }` enables the older JSON mode, which<br/>
+        /// ensures the message the model generates is valid JSON. Using `json_schema`<br/>
+        /// is preferred for models that support it.
         /// </param>
         /// <param name="safetyModel">
         /// The name of the moderation model used to validate tokens. Choose from the available moderation models found [here](https://docs.together.ai/docs/inference-models#moderation-models).<br/>
@@ -472,6 +488,8 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> messages,
             global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
+            object? chatTemplateKwargs = default,
+            global::Together.ChatCompletionRequestCompliance? compliance = default,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior = default,
             bool? echo = default,
             float? frequencyPenalty = default,
@@ -482,9 +500,10 @@ namespace Together
             float? minP = default,
             int? n = default,
             float? presencePenalty = default,
+            global::Together.ChatCompletionRequestReasoning? reasoning = default,
             global::Together.ChatCompletionRequestReasoningEffort? reasoningEffort = default,
             double? repetitionPenalty = default,
-            global::Together.ChatCompletionRequestResponseFormat? responseFormat = default,
+            global::Together.ResponseFormat? responseFormat = default,
             string? safetyModel = default,
             int? seed = default,
             global::System.Collections.Generic.IList<string>? stop = default,
@@ -498,6 +517,8 @@ namespace Together
         {
             var __request = new global::Together.ChatCompletionRequest
             {
+                ChatTemplateKwargs = chatTemplateKwargs,
+                Compliance = compliance,
                 ContextLengthExceededBehavior = contextLengthExceededBehavior,
                 Echo = echo,
                 FrequencyPenalty = frequencyPenalty,
@@ -510,6 +531,7 @@ namespace Together
                 Model = model,
                 N = n,
                 PresencePenalty = presencePenalty,
+                Reasoning = reasoning,
                 ReasoningEffort = reasoningEffort,
                 RepetitionPenalty = repetitionPenalty,
                 ResponseFormat = responseFormat,

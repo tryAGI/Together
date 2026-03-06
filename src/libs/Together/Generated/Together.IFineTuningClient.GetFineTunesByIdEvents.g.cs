@@ -8,7 +8,9 @@ namespace Together
         /// List job events<br/>
         /// List the events for a single fine-tuning job.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the fine-tune job to list events for
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneListEvents> GetFineTunesByIdEventsAsync(

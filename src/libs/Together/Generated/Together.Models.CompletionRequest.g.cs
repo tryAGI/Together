@@ -23,8 +23,10 @@ namespace Together
         public float? FrequencyPenalty { get; set; }
 
         /// <summary>
-        /// Adjusts the likelihood of specific tokens appearing in the generated output.
+        /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </summary>
+        /// <example>{"1024":-10.5,"105":21.4}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("logit_bias")]
         public global::System.Collections.Generic.Dictionary<string, float>? LogitBias { get; set; }
 
@@ -146,7 +148,8 @@ namespace Together
         /// A number between -2.0 and 2.0 where a positive value decreases the likelihood of repeating tokens that have already been mentioned.
         /// </param>
         /// <param name="logitBias">
-        /// Adjusts the likelihood of specific tokens appearing in the generated output.
+        /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="logprobs">
         /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.

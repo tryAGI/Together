@@ -46,6 +46,12 @@ namespace Together
         public string? Text { get; set; }
 
         /// <summary>
+        /// Top log probabilities for the tokens.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("top_logprobs")]
+        public global::System.Collections.Generic.Dictionary<string, double>? TopLogprobs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -60,6 +66,9 @@ namespace Together
         /// <param name="message"></param>
         /// <param name="seed"></param>
         /// <param name="text"></param>
+        /// <param name="topLogprobs">
+        /// Top log probabilities for the tokens.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -69,7 +78,8 @@ namespace Together
             global::Together.LogprobsPart? logprobs,
             global::Together.ChatCompletionMessage? message,
             int? seed,
-            string? text)
+            string? text,
+            global::System.Collections.Generic.Dictionary<string, double>? topLogprobs)
         {
             this.FinishReason = finishReason;
             this.Index = index;
@@ -77,6 +87,7 @@ namespace Together
             this.Message = message;
             this.Seed = seed;
             this.Text = text;
+            this.TopLogprobs = topLogprobs;
         }
 
         /// <summary>

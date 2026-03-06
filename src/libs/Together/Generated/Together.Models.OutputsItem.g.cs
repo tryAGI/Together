@@ -13,137 +13,136 @@ namespace Together
         /// Outputs that were printed to stdout or stderr
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.ExecuteResponseVariant1DataOutputVariant1? Value1 { get; init; }
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? StreamOutput { get; init; }
 #else
-        public global::Together.ExecuteResponseVariant1DataOutputVariant1? Value1 { get; }
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? StreamOutput { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamOutput))]
 #endif
-        public bool IsValue1 => Value1 != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant1 value) => new OutputsItem((global::Together.ExecuteResponseVariant1DataOutputVariant1?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::Together.ExecuteResponseVariant1DataOutputVariant1?(OutputsItem @this) => @this.Value1;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant1? value)
-        {
-            Value1 = value;
-        }
+        public bool IsStreamOutput => StreamOutput != null;
 
         /// <summary>
         /// Errors and exceptions that occurred. If this output type is present, your code did not execute successfully.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.ExecuteResponseVariant1DataOutputVariant2? Value2 { get; init; }
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput? Error { get; init; }
 #else
-        public global::Together.ExecuteResponseVariant1DataOutputVariant2? Value2 { get; }
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput? Error { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Error))]
 #endif
-        public bool IsValue2 => Value2 != null;
+        public bool IsError => Error != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant2 value) => new OutputsItem((global::Together.ExecuteResponseVariant1DataOutputVariant2?)value);
+#if NET6_0_OR_GREATER
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; init; }
+#else
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; }
+#endif
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.ExecuteResponseVariant1DataOutputVariant2?(OutputsItem @this) => @this.Value2;
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DisplayorExecuteOutput))]
+#endif
+        public bool IsDisplayorExecuteOutput => DisplayorExecuteOutput != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput value) => new OutputsItem((global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant2? value)
+        public static implicit operator global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?(OutputsItem @this) => @this.StreamOutput;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? value)
         {
-            Value2 = value;
+            StreamOutput = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ExecuteResponseVariant1DataOutputVariant3? Value3 { get; init; }
-#else
-        public global::Together.ExecuteResponseVariant1DataOutputVariant3? Value3 { get; }
-#endif
+        public static implicit operator OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput value) => new OutputsItem((global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value3))]
-#endif
-        public bool IsValue3 => Value3 != null;
+        public static implicit operator global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?(OutputsItem @this) => @this.Error;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant3 value) => new OutputsItem((global::Together.ExecuteResponseVariant1DataOutputVariant3?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::Together.ExecuteResponseVariant1DataOutputVariant3?(OutputsItem @this) => @this.Value3;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public OutputsItem(global::Together.ExecuteResponseVariant1DataOutputVariant3? value)
+        public OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput? value)
         {
-            Value3 = value;
+            Error = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput value) => new OutputsItem((global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?(OutputsItem @this) => @this.DisplayorExecuteOutput;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? value)
+        {
+            DisplayorExecuteOutput = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public OutputsItem(
-            global::Together.ExecuteResponseVariant1DataOutputVariant1? value1,
-            global::Together.ExecuteResponseVariant1DataOutputVariant2? value2,
-            global::Together.ExecuteResponseVariant1DataOutputVariant3? value3
+            global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? streamOutput,
+            global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput? error,
+            global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? displayorExecuteOutput
             )
         {
-            Value1 = value1;
-            Value2 = value2;
-            Value3 = value3;
+            StreamOutput = streamOutput;
+            Error = error;
+            DisplayorExecuteOutput = displayorExecuteOutput;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value3 as object ??
-            Value2 as object ??
-            Value1 as object 
+            DisplayorExecuteOutput as object ??
+            Error as object ??
+            StreamOutput as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
-            Value2?.ToString() ??
-            Value3?.ToString() 
+            StreamOutput?.ToString() ??
+            Error?.ToString() ??
+            DisplayorExecuteOutput?.ToString() 
             ;
 
         /// <summary>
@@ -151,16 +150,16 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 && !IsValue3 || !IsValue1 && IsValue2 && !IsValue3 || !IsValue1 && !IsValue2 && IsValue3;
+            return IsStreamOutput && !IsError && !IsDisplayorExecuteOutput || !IsStreamOutput && IsError && !IsDisplayorExecuteOutput || !IsStreamOutput && !IsError && IsDisplayorExecuteOutput;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.ExecuteResponseVariant1DataOutputVariant1?, TResult>? value1 = null,
-            global::System.Func<global::Together.ExecuteResponseVariant1DataOutputVariant2?, TResult>? value2 = null,
-            global::System.Func<global::Together.ExecuteResponseVariant1DataOutputVariant3?, TResult>? value3 = null,
+            global::System.Func<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?, TResult>? streamOutput = null,
+            global::System.Func<global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?, TResult>? error = null,
+            global::System.Func<global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?, TResult>? displayorExecuteOutput = null,
             bool validate = true)
         {
             if (validate)
@@ -168,17 +167,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsStreamOutput && streamOutput != null)
             {
-                return value1(Value1!);
+                return streamOutput(StreamOutput!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsError && error != null)
             {
-                return value2(Value2!);
+                return error(Error!);
             }
-            else if (IsValue3 && value3 != null)
+            else if (IsDisplayorExecuteOutput && displayorExecuteOutput != null)
             {
-                return value3(Value3!);
+                return displayorExecuteOutput(DisplayorExecuteOutput!);
             }
 
             return default(TResult);
@@ -188,9 +187,9 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.ExecuteResponseVariant1DataOutputVariant1?>? value1 = null,
-            global::System.Action<global::Together.ExecuteResponseVariant1DataOutputVariant2?>? value2 = null,
-            global::System.Action<global::Together.ExecuteResponseVariant1DataOutputVariant3?>? value3 = null,
+            global::System.Action<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?>? streamOutput = null,
+            global::System.Action<global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?>? error = null,
+            global::System.Action<global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?>? displayorExecuteOutput = null,
             bool validate = true)
         {
             if (validate)
@@ -198,17 +197,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsStreamOutput)
             {
-                value1?.Invoke(Value1!);
+                streamOutput?.Invoke(StreamOutput!);
             }
-            else if (IsValue2)
+            else if (IsError)
             {
-                value2?.Invoke(Value2!);
+                error?.Invoke(Error!);
             }
-            else if (IsValue3)
+            else if (IsDisplayorExecuteOutput)
             {
-                value3?.Invoke(Value3!);
+                displayorExecuteOutput?.Invoke(DisplayorExecuteOutput!);
             }
         }
 
@@ -219,12 +218,12 @@ namespace Together
         {
             var fields = new object?[]
             {
-                Value1,
-                typeof(global::Together.ExecuteResponseVariant1DataOutputVariant1),
-                Value2,
-                typeof(global::Together.ExecuteResponseVariant1DataOutputVariant2),
-                Value3,
-                typeof(global::Together.ExecuteResponseVariant1DataOutputVariant3),
+                StreamOutput,
+                typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput),
+                Error,
+                typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput),
+                DisplayorExecuteOutput,
+                typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -241,9 +240,9 @@ namespace Together
         public bool Equals(OutputsItem other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseVariant1DataOutputVariant1?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseVariant1DataOutputVariant2?>.Default.Equals(Value2, other.Value2) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseVariant1DataOutputVariant3?>.Default.Equals(Value3, other.Value3) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?>.Default.Equals(StreamOutput, other.StreamOutput) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?>.Default.Equals(Error, other.Error) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?>.Default.Equals(DisplayorExecuteOutput, other.DisplayorExecuteOutput) 
                 ;
         }
 

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Structured information describing a file uploaded to Together.
     /// </summary>
     public sealed partial class FileResponse
     {
@@ -21,36 +21,28 @@ namespace Together
         public required global::Together.FileType FileType { get; set; } = global::Together.FileType.Jsonl;
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("LineCount")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LineCount { get; set; }
-
-        /// <summary>
-        /// 
+        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Processed")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Processed { get; set; }
 
         /// <summary>
-        /// Example: 2664
+        /// The number of bytes in the file.
         /// </summary>
-        /// <example>2664</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Bytes { get; set; }
 
         /// <summary>
-        /// Example: 1715021438
+        /// The timestamp when the file was created.
         /// </summary>
-        /// <example>1715021438</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CreatedAt { get; set; }
 
         /// <summary>
+        /// The name of the file as it was uploaded.<br/>
         /// Example: my_file.jsonl
         /// </summary>
         /// <example>my_file.jsonl</example>
@@ -59,19 +51,18 @@ namespace Together
         public required string Filename { get; set; }
 
         /// <summary>
-        /// 
+        /// ID of the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// Example: file
+        /// The object type, which is always `file`.
         /// </summary>
-        /// <example>file</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Object { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileResponseObjectJsonConverter))]
+        public global::Together.FileResponseObject Object { get; set; }
 
         /// <summary>
         /// The purpose of the file<br/>
@@ -97,20 +88,24 @@ namespace Together
         /// Default Value: jsonl<br/>
         /// Example: jsonl
         /// </param>
-        /// <param name="lineCount"></param>
-        /// <param name="processed"></param>
+        /// <param name="processed">
+        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
+        /// </param>
         /// <param name="bytes">
-        /// Example: 2664
+        /// The number of bytes in the file.
         /// </param>
         /// <param name="createdAt">
-        /// Example: 1715021438
+        /// The timestamp when the file was created.
         /// </param>
         /// <param name="filename">
+        /// The name of the file as it was uploaded.<br/>
         /// Example: my_file.jsonl
         /// </param>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// ID of the file.
+        /// </param>
         /// <param name="object">
-        /// Example: file
+        /// The object type, which is always `file`.
         /// </param>
         /// <param name="purpose">
         /// The purpose of the file<br/>
@@ -121,24 +116,22 @@ namespace Together
 #endif
         public FileResponse(
             global::Together.FileType fileType,
-            int lineCount,
             bool processed,
             int bytes,
             int createdAt,
             string filename,
             string id,
-            string @object,
-            global::Together.FilePurpose purpose)
+            global::Together.FilePurpose purpose,
+            global::Together.FileResponseObject @object)
         {
             this.FileType = fileType;
-            this.LineCount = lineCount;
             this.Processed = processed;
             this.Bytes = bytes;
             this.CreatedAt = createdAt;
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.Purpose = purpose;
+            this.Object = @object;
         }
 
         /// <summary>

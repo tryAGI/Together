@@ -38,7 +38,7 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `chat.completion.chunk`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChunkObjectJsonConverter))]
@@ -77,7 +77,9 @@ namespace Together
         /// <param name="model">
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `chat.completion.chunk`.
+        /// </param>
         /// <param name="systemFingerprint"></param>
         /// <param name="usage"></param>
         /// <param name="warnings"></param>

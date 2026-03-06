@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// The format of audio output<br/>
+    /// The format of audio output. Supported formats are mp3, wav, raw if streaming is false. If streaming is true, the only supported format is raw.<br/>
     /// Default Value: wav
     /// </summary>
     public enum AudioSpeechRequestResponseFormat

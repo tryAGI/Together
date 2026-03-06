@@ -55,7 +55,52 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public EndpointsClient Endpoints { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public CompletionClient Completion { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GPUClusterServiceClient GPUClusterService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SharedVolumeServiceClient SharedVolumeService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RegionServiceClient RegionService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeploymentsClient Deployments { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SecretsClient Secrets { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeploymentsVolumesClient DeploymentsVolumes { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VolumesClient Volumes { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeploymentsStorageClient DeploymentsStorage { get; }
 
         /// <summary>
         /// 
@@ -70,7 +115,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public EvaluationsClient Evaluations { get; }
+        public EvaluationClient Evaluation { get; }
 
         /// <summary>
         /// 
@@ -105,12 +150,32 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public QueueClient Queue { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public RerankClient Rerank { get; }
 
         /// <summary>
         /// 
         /// </summary>
+        public RlClient Rl { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public CodeInterpreterClient CodeInterpreter { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VideoClient Video { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VoicesClient Voices { get; }
 
     }
 }

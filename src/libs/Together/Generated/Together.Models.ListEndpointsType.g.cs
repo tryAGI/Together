@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Filter endpoints by type
     /// </summary>
     public enum ListEndpointsType
     {

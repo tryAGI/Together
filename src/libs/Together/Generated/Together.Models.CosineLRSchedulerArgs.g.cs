@@ -10,21 +10,19 @@ namespace Together
     {
         /// <summary>
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </summary>
-        /// <default>0F</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_lr_ratio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MinLrRatio { get; set; } = 0F;
+        public required float MinLrRatio { get; set; }
 
         /// <summary>
         /// Number or fraction of cycles for the cosine learning rate scheduler<br/>
-        /// Default Value: 0.5F
+        /// Default Value: 0.5
         /// </summary>
-        /// <default>0.5F</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_cycles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float NumCycles { get; set; } = 0.5F;
+        public required float NumCycles { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -37,11 +35,11 @@ namespace Together
         /// </summary>
         /// <param name="minLrRatio">
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="numCycles">
         /// Number or fraction of cycles for the cosine learning rate scheduler<br/>
-        /// Default Value: 0.5F
+        /// Default Value: 0.5
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

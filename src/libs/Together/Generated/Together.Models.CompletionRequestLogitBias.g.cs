@@ -4,7 +4,8 @@
 namespace Together
 {
     /// <summary>
-    /// Adjusts the likelihood of specific tokens appearing in the generated output.
+    /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+    /// Example: {"1024":-10.5,"105":21.4}
     /// </summary>
     public sealed partial class CompletionRequestLogitBias
     {

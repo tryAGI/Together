@@ -12,27 +12,27 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        PENDING,
+        Pending,
         /// <summary>
         /// 
         /// </summary>
-        STARTING,
+        Starting,
         /// <summary>
         /// 
         /// </summary>
-        STARTED,
+        Started,
         /// <summary>
         /// 
         /// </summary>
-        STOPPING,
+        Stopping,
         /// <summary>
         /// 
         /// </summary>
-        STOPPED,
+        Stopped,
         /// <summary>
         /// 
         /// </summary>
-        ERROR,
+        Error,
     }
 
     /// <summary>
@@ -47,12 +47,12 @@ namespace Together
         {
             return value switch
             {
-                DedicatedEndpointState.PENDING => "PENDING",
-                DedicatedEndpointState.STARTING => "STARTING",
-                DedicatedEndpointState.STARTED => "STARTED",
-                DedicatedEndpointState.STOPPING => "STOPPING",
-                DedicatedEndpointState.STOPPED => "STOPPED",
-                DedicatedEndpointState.ERROR => "ERROR",
+                DedicatedEndpointState.Pending => "PENDING",
+                DedicatedEndpointState.Starting => "STARTING",
+                DedicatedEndpointState.Started => "STARTED",
+                DedicatedEndpointState.Stopping => "STOPPING",
+                DedicatedEndpointState.Stopped => "STOPPED",
+                DedicatedEndpointState.Error => "ERROR",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -63,12 +63,12 @@ namespace Together
         {
             return value switch
             {
-                "PENDING" => DedicatedEndpointState.PENDING,
-                "STARTING" => DedicatedEndpointState.STARTING,
-                "STARTED" => DedicatedEndpointState.STARTED,
-                "STOPPING" => DedicatedEndpointState.STOPPING,
-                "STOPPED" => DedicatedEndpointState.STOPPED,
-                "ERROR" => DedicatedEndpointState.ERROR,
+                "PENDING" => DedicatedEndpointState.Pending,
+                "STARTING" => DedicatedEndpointState.Starting,
+                "STARTED" => DedicatedEndpointState.Started,
+                "STOPPING" => DedicatedEndpointState.Stopping,
+                "STOPPED" => DedicatedEndpointState.Stopped,
+                "ERROR" => DedicatedEndpointState.Error,
                 _ => null,
             };
         }

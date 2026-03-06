@@ -9,6 +9,18 @@ namespace Together
     public sealed partial class EvaluationModelRequest
     {
         /// <summary>
+        /// Bearer/API token for external models.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_api_token")]
+        public string? ExternalApiToken { get; set; }
+
+        /// <summary>
+        /// Base URL for external models. Must be OpenAI-compatible base URL
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("external_base_url")]
+        public string? ExternalBaseUrl { get; set; }
+
+        /// <summary>
         /// Input prompt template<br/>
         /// Example: Please classify {{prompt}} based on the labels below
         /// </summary>
@@ -31,9 +43,17 @@ namespace Together
         /// Example: meta-llama/Llama-3-70B-Instruct-Turbo
         /// </summary>
         /// <example>meta-llama/Llama-3-70B-Instruct-Turbo</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public required string Model { get; set; }
+
+        /// <summary>
+        /// Source of the model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationModelRequestModelSourceJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.EvaluationModelRequestModelSource ModelSource { get; set; }
 
         /// <summary>
         /// System prompt template<br/>
@@ -46,9 +66,9 @@ namespace Together
 
         /// <summary>
         /// Sampling temperature<br/>
-        /// Example: 0.7F
+        /// Example: 0.7
         /// </summary>
-        /// <example>0.7F</example>
+        /// <example>0.7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float Temperature { get; set; }
@@ -62,6 +82,12 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationModelRequest" /> class.
         /// </summary>
+        /// <param name="externalApiToken">
+        /// Bearer/API token for external models.
+        /// </param>
+        /// <param name="externalBaseUrl">
+        /// Base URL for external models. Must be OpenAI-compatible base URL
+        /// </param>
         /// <param name="inputTemplate">
         /// Input prompt template<br/>
         /// Example: Please classify {{prompt}} based on the labels below
@@ -70,9 +96,12 @@ namespace Together
         /// Maximum number of tokens to generate<br/>
         /// Example: 512
         /// </param>
-        /// <param name="modelName">
+        /// <param name="model">
         /// Name of the model to evaluate<br/>
         /// Example: meta-llama/Llama-3-70B-Instruct-Turbo
+        /// </param>
+        /// <param name="modelSource">
+        /// Source of the model.
         /// </param>
         /// <param name="systemTemplate">
         /// System prompt template<br/>
@@ -80,7 +109,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature<br/>
-        /// Example: 0.7F
+        /// Example: 0.7
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -88,15 +117,21 @@ namespace Together
         public EvaluationModelRequest(
             string inputTemplate,
             int maxTokens,
-            string modelName,
+            string model,
+            global::Together.EvaluationModelRequestModelSource modelSource,
             string systemTemplate,
-            float temperature)
+            float temperature,
+            string? externalApiToken,
+            string? externalBaseUrl)
         {
             this.InputTemplate = inputTemplate ?? throw new global::System.ArgumentNullException(nameof(inputTemplate));
             this.MaxTokens = maxTokens;
-            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.ModelSource = modelSource;
             this.SystemTemplate = systemTemplate ?? throw new global::System.ArgumentNullException(nameof(systemTemplate));
             this.Temperature = temperature;
+            this.ExternalApiToken = externalApiToken;
+            this.ExternalBaseUrl = externalBaseUrl;
         }
 
         /// <summary>

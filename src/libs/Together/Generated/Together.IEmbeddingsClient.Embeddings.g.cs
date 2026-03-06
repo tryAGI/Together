@@ -6,18 +6,19 @@ namespace Together
     {
         /// <summary>
         /// Create embedding<br/>
-        /// Query an embedding model for a given string of text.
+        /// Generate vector embeddings for one or more text inputs. Returns numerical arrays representing semantic meaning, useful for search, classification, and retrieval.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.EmbeddingsResponse> EmbeddingsAsync(
+
             global::Together.EmbeddingsRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create embedding<br/>
-        /// Query an embedding model for a given string of text.
+        /// Generate vector embeddings for one or more text inputs. Returns numerical arrays representing semantic meaning, useful for search, classification, and retrieval.
         /// </summary>
         /// <param name="input">
         /// Example: Our solar system orbits the Milky Way galaxy at about 515,000 mph

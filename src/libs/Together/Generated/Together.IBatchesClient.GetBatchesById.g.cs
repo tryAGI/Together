@@ -8,7 +8,10 @@ namespace Together
         /// Get a batch job<br/>
         /// Get details of a batch job by ID
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the batch job to retrieve<br/>
+        /// Example: batch_job_abc123def456
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.BatchJob> GetBatchesByIdAsync(

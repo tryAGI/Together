@@ -17,63 +17,63 @@ namespace Together.JsonConverters
 
             var
             readerCopy = reader;
-            global::Together.InterpreterOutputVariant1? value1 = default;
+            global::Together.InterpreterOutputStreamOutput? streamOutput = default;
             try
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant1> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant1).Name}");
-                value1 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputStreamOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputStreamOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputStreamOutput).Name}");
+                streamOutput = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
             catch (global::System.Text.Json.JsonException)
             {
             }
 
             readerCopy = reader;
-            global::Together.InterpreterOutputVariant2? value2 = default;
+            global::Together.InterpreterOutputErrorOutput? error = default;
             try
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant2> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant2).Name}");
-                value2 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputErrorOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputErrorOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputErrorOutput).Name}");
+                error = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
             catch (global::System.Text.Json.JsonException)
             {
             }
 
             readerCopy = reader;
-            global::Together.InterpreterOutputVariant3? value3 = default;
+            global::Together.InterpreterOutputDisplayorExecuteOutput? displayorExecuteOutput = default;
             try
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant3> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant3).Name}");
-                value3 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputDisplayorExecuteOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputDisplayorExecuteOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputDisplayorExecuteOutput).Name}");
+                displayorExecuteOutput = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
             catch (global::System.Text.Json.JsonException)
             {
             }
 
             var result = new global::Together.InterpreterOutput(
-                value1,
-                value2,
-                value3
+                streamOutput,
+                error,
+                displayorExecuteOutput
                 );
 
-            if (value1 != null)
+            if (streamOutput != null)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant1> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant1).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputStreamOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputStreamOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputStreamOutput).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            else if (value2 != null)
+            else if (error != null)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant2> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant2).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputErrorOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputErrorOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputErrorOutput).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            else if (value3 != null)
+            else if (displayorExecuteOutput != null)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant3> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant3).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputDisplayorExecuteOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputDisplayorExecuteOutput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputDisplayorExecuteOutput).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
@@ -89,23 +89,23 @@ namespace Together.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsValue1)
+            if (value.IsStreamOutput)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant1?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value1, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputStreamOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputStreamOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputStreamOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamOutput, typeInfo);
             }
-            else if (value.IsValue2)
+            else if (value.IsError)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant2?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputErrorOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputErrorOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputErrorOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Error, typeInfo);
             }
-            else if (value.IsValue3)
+            else if (value.IsDisplayorExecuteOutput)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputVariant3?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value3, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputDisplayorExecuteOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputDisplayorExecuteOutput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputDisplayorExecuteOutput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DisplayorExecuteOutput, typeInfo);
             }
         }
     }

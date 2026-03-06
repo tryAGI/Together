@@ -25,8 +25,10 @@ namespace Together
         public string? Status { get; set; }
 
         /// <summary>
-        /// When this update occurred
+        /// When this update occurred<br/>
+        /// Example: 2025-07-23T17:10:04.8378880+00:00
         /// </summary>
+        /// <example>2025-07-23T17:10:04.8378880+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp")]
         public global::System.DateTime? Timestamp { get; set; }
 
@@ -48,7 +50,8 @@ namespace Together
         /// Example: pending
         /// </param>
         /// <param name="timestamp">
-        /// When this update occurred
+        /// When this update occurred<br/>
+        /// Example: 2025-07-23T17:10:04.8378880+00:00
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

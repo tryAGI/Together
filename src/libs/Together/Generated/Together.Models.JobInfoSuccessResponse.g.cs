@@ -16,8 +16,9 @@ namespace Together
         public required global::Together.JobInfoSuccessResponseArgs Args { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: 2025-03-11T22:05:43.0000000+00:00
         /// </summary>
+        /// <example>2025-03-11T22:05:43.0000000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.DateTime CreatedAt { get; set; }
@@ -55,8 +56,9 @@ namespace Together
         public required string Type { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: 2025-03-11T22:36:12.0000000+00:00
         /// </summary>
+        /// <example>2025-03-11T22:36:12.0000000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.DateTime UpdatedAt { get; set; }
@@ -71,7 +73,9 @@ namespace Together
         /// Initializes a new instance of the <see cref="JobInfoSuccessResponse" /> class.
         /// </summary>
         /// <param name="args"></param>
-        /// <param name="createdAt"></param>
+        /// <param name="createdAt">
+        /// Example: 2025-03-11T22:05:43.0000000+00:00
+        /// </param>
         /// <param name="jobId">
         /// Example: job-a15dad11-8d8e-4007-97c5-a211304de284
         /// </param>
@@ -82,7 +86,9 @@ namespace Together
         /// <param name="type">
         /// Example: model_upload
         /// </param>
-        /// <param name="updatedAt"></param>
+        /// <param name="updatedAt">
+        /// Example: 2025-03-11T22:36:12.0000000+00:00
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

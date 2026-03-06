@@ -17,12 +17,12 @@ namespace Together.JsonConverters
 
             var
             readerCopy = reader;
-            global::Together.SessionListResponseVariant1? value1 = default;
+            global::Together.SessionListResponseResponse? response = default;
             try
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant1> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant1).Name}");
-                value1 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseResponse).Name}");
+                response = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
             }
             catch (global::System.Text.Json.JsonException)
             {
@@ -41,14 +41,14 @@ namespace Together.JsonConverters
             }
 
             var result = new global::Together.SessionListResponse(
-                value1,
+                response,
                 value2
                 );
 
-            if (value1 != null)
+            if (response != null)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant1> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant1).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseResponse).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             else if (value2 != null)
@@ -70,11 +70,11 @@ namespace Together.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsValue1)
+            if (value.IsResponse)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant1?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value1, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Response, typeInfo);
             }
             else if (value.IsValue2)
             {

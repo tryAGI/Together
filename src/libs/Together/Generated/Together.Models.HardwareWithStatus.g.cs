@@ -24,7 +24,7 @@ namespace Together
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `hardware`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.HardwareWithStatusObjectJsonConverter))]
@@ -67,7 +67,9 @@ namespace Together
         /// Unique identifier for the hardware configuration<br/>
         /// Example: 2x_nvidia_a100_80gb_sxm
         /// </param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `hardware`.
+        /// </param>
         /// <param name="pricing">
         /// Pricing details for using an endpoint
         /// </param>

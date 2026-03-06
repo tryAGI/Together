@@ -12,6 +12,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.AudioTranslationResponse> AudioTranslationsAsync(
+
             global::Together.AudioTranslationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -40,7 +41,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>

@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        STARTED,
+        Started,
         /// <summary>
         /// 
         /// </summary>
-        STOPPED,
+        Stopped,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace Together
         {
             return value switch
             {
-                UpdateEndpointRequestState.STARTED => "STARTED",
-                UpdateEndpointRequestState.STOPPED => "STOPPED",
+                UpdateEndpointRequestState.Started => "STARTED",
+                UpdateEndpointRequestState.Stopped => "STOPPED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace Together
         {
             return value switch
             {
-                "STARTED" => UpdateEndpointRequestState.STARTED,
-                "STOPPED" => UpdateEndpointRequestState.STOPPED,
+                "STARTED" => UpdateEndpointRequestState.Started,
+                "STOPPED" => UpdateEndpointRequestState.Stopped,
                 _ => null,
             };
         }

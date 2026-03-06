@@ -4,8 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// The type of object<br/>
-    /// Example: endpoint
+    /// The object type, which is always `endpoint`.
     /// </summary>
     public enum DedicatedEndpointObject
     {

@@ -25,7 +25,9 @@ namespace Together
         /// List checkpoints<br/>
         /// List the checkpoints for a single fine-tuning job.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the fine-tune job to list checkpoints for
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneListCheckpoints> GetFineTunesByIdCheckpointsAsync(

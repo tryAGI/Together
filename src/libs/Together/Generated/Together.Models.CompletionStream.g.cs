@@ -29,6 +29,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.StreamSentinel? Sentinel { get; init; }
+#else
+        public global::Together.StreamSentinel? Sentinel { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Sentinel))]
+#endif
+        public bool IsSentinel => Sentinel != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator CompletionStream(global::Together.CompletionEvent value) => new CompletionStream((global::Together.CompletionEvent?)value);
 
         /// <summary>
@@ -43,23 +59,6 @@ namespace Together
         {
             Event = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.StreamSentinel? Sentinel { get; init; }
-#else
-        public global::Together.StreamSentinel? Sentinel { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Sentinel))]
-#endif
-        public bool IsSentinel => Sentinel != null;
 
         /// <summary>
         /// 

@@ -11,8 +11,10 @@ namespace Together
     public sealed partial class EvaluationJob
     {
         /// <summary>
-        /// When the job was created
+        /// When the job was created<br/>
+        /// Example: 2025-07-23T17:10:04.8378880+00:00
         /// </summary>
+        /// <example>2025-07-23T17:10:04.8378880+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public global::System.DateTime? CreatedAt { get; set; }
 
@@ -60,8 +62,10 @@ namespace Together
         public global::Together.EvaluationJobType? Type { get; set; }
 
         /// <summary>
-        /// When the job was last updated
+        /// When the job was last updated<br/>
+        /// Example: 2025-07-23T17:10:04.8378880+00:00
         /// </summary>
+        /// <example>2025-07-23T17:10:04.8378880+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         public global::System.DateTime? UpdatedAt { get; set; }
 
@@ -83,7 +87,8 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationJob" /> class.
         /// </summary>
         /// <param name="createdAt">
-        /// When the job was created
+        /// When the job was created<br/>
+        /// Example: 2025-07-23T17:10:04.8378880+00:00
         /// </param>
         /// <param name="ownerId">
         /// ID of the job owner (admin only)
@@ -106,7 +111,8 @@ namespace Together
         /// Example: classify
         /// </param>
         /// <param name="updatedAt">
-        /// When the job was last updated
+        /// When the job was last updated<br/>
+        /// Example: 2025-07-23T17:10:04.8378880+00:00
         /// </param>
         /// <param name="workflowId">
         /// The evaluation job ID<br/>

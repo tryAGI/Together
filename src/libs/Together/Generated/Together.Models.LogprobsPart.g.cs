@@ -27,6 +27,12 @@ namespace Together
         public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
 
         /// <summary>
+        /// Top log probabilities for the tokens.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("top_logprobs")]
+        public global::System.Collections.Generic.Dictionary<string, double>? TopLogprobs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +50,22 @@ namespace Together
         /// <param name="tokens">
         /// List of token strings
         /// </param>
+        /// <param name="topLogprobs">
+        /// Top log probabilities for the tokens.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LogprobsPart(
             global::System.Collections.Generic.IList<double>? tokenIds,
             global::System.Collections.Generic.IList<double>? tokenLogprobs,
-            global::System.Collections.Generic.IList<string>? tokens)
+            global::System.Collections.Generic.IList<string>? tokens,
+            global::System.Collections.Generic.Dictionary<string, double>? topLogprobs)
         {
             this.TokenIds = tokenIds;
             this.TokenLogprobs = tokenLogprobs;
             this.Tokens = tokens;
+            this.TopLogprobs = topLogprobs;
         }
 
         /// <summary>

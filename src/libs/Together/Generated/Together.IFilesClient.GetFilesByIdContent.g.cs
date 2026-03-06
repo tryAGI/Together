@@ -8,10 +8,12 @@ namespace Together
         /// Get file contents<br/>
         /// Get the contents of a single uploaded data file.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the file to get the content of
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.FileObject> GetFilesByIdContentAsync(
+        global::System.Threading.Tasks.Task<byte[]> GetFilesByIdContentAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

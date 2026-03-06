@@ -6,7 +6,8 @@
 namespace Together
 {
     /// <summary>
-    /// A truncated version of the fine-tune response, used for POST /fine-tunes, GET /fine-tunes and POST /fine-tunes/{id}/cancel endpoints
+    /// A truncated version of the fine-tune response, used for POST /fine-tunes, GET /fine-tunes and POST /fine-tunes/{id}/cancel endpoints<br/>
+    /// Example: {"created_at":"2023-05-17T17:35:45.1230000\u002B00:00","events":[],"id":"ft-01234567890123456789","model":"meta-llama/Llama-2-7b-hf","model_output_name":"mynamespace/meta-llama/Llama-2-7b-hf-32162631","n_epochs":3,"owner_address":"user@example.com","status":"completed","token_count":850000,"total_price":1500,"training_file":"file-01234567890123456789","updated_at":"2023-05-17T18:46:23.4560000\u002B00:00","user_id":"user_01234567890123456789","wandb_project_name":"my-finetune-project"}
     /// </summary>
     public sealed partial class FinetuneResponseTruncated
     {
@@ -107,6 +108,18 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("owner_address")]
         public string? OwnerAddress { get; set; }
+
+        /// <summary>
+        /// Progress information for a fine-tuning job
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
+        public global::Together.FineTuneProgress? Progress { get; set; }
+
+        /// <summary>
+        /// Start timestamp of the current stage of the fine-tune job
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("started_at")]
+        public global::System.DateTime? StartedAt { get; set; }
 
         /// <summary>
         /// 
@@ -250,6 +263,12 @@ namespace Together
         /// <param name="ownerAddress">
         /// Owner address information
         /// </param>
+        /// <param name="progress">
+        /// Progress information for a fine-tuning job
+        /// </param>
+        /// <param name="startedAt">
+        /// Start timestamp of the current stage of the fine-tune job
+        /// </param>
         /// <param name="status"></param>
         /// <param name="suffix">
         /// Suffix added to the fine-tuned model name
@@ -312,6 +331,8 @@ namespace Together
             int? nEpochs,
             int? nEvals,
             string? ownerAddress,
+            global::Together.FineTuneProgress? progress,
+            global::System.DateTime? startedAt,
             string? suffix,
             int? tokenCount,
             int? totalPrice,
@@ -343,6 +364,8 @@ namespace Together
             this.NEpochs = nEpochs;
             this.NEvals = nEvals;
             this.OwnerAddress = ownerAddress;
+            this.Progress = progress;
+            this.StartedAt = startedAt;
             this.Suffix = suffix;
             this.TokenCount = tokenCount;
             this.TotalPrice = totalPrice;

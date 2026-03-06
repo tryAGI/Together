@@ -29,6 +29,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.EvaluationModelRequest? Value2 { get; init; }
+#else
+        public global::Together.EvaluationModelRequest? Value2 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+#endif
+        public bool IsValue2 => Value2 != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator EvaluationModelOrString(string value) => new EvaluationModelOrString((string?)value);
 
         /// <summary>
@@ -43,23 +59,6 @@ namespace Together
         {
             Value1 = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.EvaluationModelRequest? Value2 { get; init; }
-#else
-        public global::Together.EvaluationModelRequest? Value2 { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
-#endif
-        public bool IsValue2 => Value2 != null;
 
         /// <summary>
         /// 

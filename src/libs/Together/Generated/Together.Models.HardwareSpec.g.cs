@@ -28,9 +28,9 @@ namespace Together
 
         /// <summary>
         /// Amount of GPU memory in GB<br/>
-        /// Example: 80F
+        /// Example: 80
         /// </summary>
-        /// <example>80F</example>
+        /// <example>80</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_memory")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float GpuMemory { get; set; }
@@ -63,7 +63,7 @@ namespace Together
         /// </param>
         /// <param name="gpuMemory">
         /// Amount of GPU memory in GB<br/>
-        /// Example: 80F
+        /// Example: 80
         /// </param>
         /// <param name="gpuType">
         /// The type/model of GPU<br/>

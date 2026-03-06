@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Specifies checkpoint type to download - `merged` vs `adapter`. This field is required if the checkpoint_step is not set.
     /// </summary>
     public enum Checkpoint
     {
@@ -16,6 +16,10 @@ namespace Together
         /// 
         /// </summary>
         Adapter,
+        /// <summary>
+        /// 
+        /// </summary>
+        ModelOutputPath,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace Together
             {
                 Checkpoint.Merged => "merged",
                 Checkpoint.Adapter => "adapter",
+                Checkpoint.ModelOutputPath => "model_output_path",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace Together
             {
                 "merged" => Checkpoint.Merged,
                 "adapter" => Checkpoint.Adapter,
+                "model_output_path" => Checkpoint.ModelOutputPath,
                 _ => null,
             };
         }

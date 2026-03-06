@@ -29,6 +29,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.AudioTranslationResponse> AudioTranslationsAsync(
+
             global::Together.AudioTranslationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -70,42 +71,48 @@ namespace Together
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent(request.File.ToString() ?? string.Empty),
-                name: "file");
+                name: "\"file\"");
             if (request.Language != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Language}"),
-                    name: "language");
+                    name: "\"language\"");
             } 
             if (request.Model != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Model?.ToValueString()}"),
-                    name: "model");
+                    name: "\"model\"");
             } 
             if (request.Prompt != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Prompt}"),
-                    name: "prompt");
+                    name: "\"prompt\"");
             } 
             if (request.ResponseFormat != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.ResponseFormat?.ToValueString()}"),
-                    name: "response_format");
+                    name: "\"response_format\"");
             } 
             if (request.Temperature != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent($"{request.Temperature}"),
-                    name: "temperature");
+                    name: "\"temperature\"");
             } 
             if (request.TimestampGranularities != default)
             {
+
                 __httpRequestContent.Add(
                     content: new global::System.Net.Http.StringContent(request.TimestampGranularities?.ToString() ?? string.Empty),
-                    name: "timestamp_granularities");
+                    name: "\"timestamp_granularities\"");
             }
             __httpRequest.Content = __httpRequestContent;
 
@@ -337,7 +344,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>

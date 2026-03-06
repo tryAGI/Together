@@ -18,9 +18,9 @@ namespace Together
 
         /// <summary>
         /// Number of invalid labels<br/>
-        /// Example: 0F
+        /// Example: 0
         /// </summary>
-        /// <example>0F</example>
+        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("invalid_label_count")]
         public float? InvalidLabelCount { get; set; }
 
@@ -71,7 +71,7 @@ namespace Together
         /// </param>
         /// <param name="invalidLabelCount">
         /// Number of invalid labels<br/>
-        /// Example: 0F
+        /// Example: 0
         /// </param>
         /// <param name="judgeFailCount">
         /// Number of failed judge generations<br/>

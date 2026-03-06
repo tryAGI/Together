@@ -30,9 +30,8 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// Example: list
+        /// The object type, which is always `list`.
         /// </summary>
-        /// <example>list</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ImageResponseObjectJsonConverter))]
         public global::Together.ImageResponseObject Object { get; set; }
@@ -50,7 +49,7 @@ namespace Together
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <param name="object">
-        /// Example: list
+        /// The object type, which is always `list`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

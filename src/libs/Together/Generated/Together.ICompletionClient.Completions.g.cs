@@ -6,18 +6,19 @@ namespace Together
     {
         /// <summary>
         /// Create completion<br/>
-        /// Query a language, code, or image model.
+        /// Generate text completions for a given prompt using a language, code, or image model.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.CompletionResponse> CompletionsAsync(
+
             global::Together.CompletionRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create completion<br/>
-        /// Query a language, code, or image model.
+        /// Generate text completions for a given prompt using a language, code, or image model.
         /// </summary>
         /// <param name="echo">
         /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
@@ -26,7 +27,8 @@ namespace Together
         /// A number between -2.0 and 2.0 where a positive value decreases the likelihood of repeating tokens that have already been mentioned.
         /// </param>
         /// <param name="logitBias">
-        /// Adjusts the likelihood of specific tokens appearing in the generated output.
+        /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="logprobs">
         /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.

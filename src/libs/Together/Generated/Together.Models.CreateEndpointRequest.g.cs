@@ -16,10 +16,17 @@ namespace Together
         public required global::Together.Autoscaling Autoscaling { get; set; }
 
         /// <summary>
-        /// Whether to disable the prompt cache for this endpoint<br/>
+        /// Create the endpoint in a specified availability zone (e.g., us-central-4b)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("availability_zone")]
+        public string? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// This parameter is deprecated and no longer has any effect.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_prompt_cache")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisablePromptCache { get; set; }
 
         /// <summary>
@@ -85,9 +92,8 @@ namespace Together
         /// <param name="autoscaling">
         /// Configuration for automatic scaling of replicas based on demand.
         /// </param>
-        /// <param name="disablePromptCache">
-        /// Whether to disable the prompt cache for this endpoint<br/>
-        /// Default Value: false
+        /// <param name="availabilityZone">
+        /// Create the endpoint in a specified availability zone (e.g., us-central-4b)
         /// </param>
         /// <param name="disableSpeculativeDecoding">
         /// Whether to disable speculative decoding for this endpoint<br/>
@@ -121,7 +127,7 @@ namespace Together
             global::Together.Autoscaling autoscaling,
             string hardware,
             string model,
-            bool? disablePromptCache,
+            string? availabilityZone,
             bool? disableSpeculativeDecoding,
             string? displayName,
             int? inactiveTimeout,
@@ -130,7 +136,7 @@ namespace Together
             this.Autoscaling = autoscaling ?? throw new global::System.ArgumentNullException(nameof(autoscaling));
             this.Hardware = hardware ?? throw new global::System.ArgumentNullException(nameof(hardware));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.DisablePromptCache = disablePromptCache;
+            this.AvailabilityZone = availabilityZone;
             this.DisableSpeculativeDecoding = disableSpeculativeDecoding;
             this.DisplayName = displayName;
             this.InactiveTimeout = inactiveTimeout;
