@@ -51,7 +51,7 @@ namespace Together
         public required string ModelPath { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `fine-tune-event`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventObjectJsonConverter))]
@@ -122,7 +122,9 @@ namespace Together
         /// <param name="level"></param>
         /// <param name="message"></param>
         /// <param name="modelPath"></param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `fine-tune-event`.
+        /// </param>
         /// <param name="paramCount"></param>
         /// <param name="step"></param>
         /// <param name="tokenCount"></param>

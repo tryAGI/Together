@@ -1,0 +1,224 @@
+
+#nullable enable
+
+namespace Together
+{
+    public partial class RlClient
+    {
+        partial void PrepareListTrainingSessionsArguments(
+            global::System.Net.Http.HttpClient httpClient,
+            ref global::Together.RlTrainingSessionStatus? status,
+            ref int? limit,
+            ref int? offset);
+        partial void PrepareListTrainingSessionsRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::Together.RlTrainingSessionStatus? status,
+            int? limit,
+            int? offset);
+        partial void ProcessListTrainingSessionsResponse(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessListTrainingSessionsResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
+        /// <summary>
+        /// List training sessions<br/>
+        /// Lists all training sessions.
+        /// </summary>
+        /// <param name="status">
+        /// Status of the training session<br/>
+        /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
+        /// </param>
+        /// <param name="limit">
+        /// Maximum number of sessions to return (1-100), defaults to 20<br/>
+        /// Default Value: 20
+        /// </param>
+        /// <param name="offset">
+        /// Number of sessions to skip<br/>
+        /// Default Value: 0
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSessionsListResponse> ListTrainingSessionsAsync(
+            global::Together.RlTrainingSessionStatus? status = default,
+            int? limit = default,
+            int? offset = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            PrepareArguments(
+                client: HttpClient);
+            PrepareListTrainingSessionsArguments(
+                httpClient: HttpClient,
+                status: ref status,
+                limit: ref limit,
+                offset: ref offset);
+
+            var __pathBuilder = new global::Together.PathBuilder(
+                path: "/rl/training-sessions",
+                baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("status", status?.ToValueString())
+                .AddOptionalParameter("limit", limit?.ToString())
+                .AddOptionalParameter("offset", offset?.ToString()) 
+                ; 
+            var __path = __pathBuilder.ToString();
+            using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                method: global::System.Net.Http.HttpMethod.Get,
+                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+#if NET6_0_OR_GREATER
+            __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+            __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+#endif
+
+            foreach (var __authorization in Authorizations)
+            {
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2")
+                {
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
+                }
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
+                {
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
+                }
+            }
+
+            PrepareRequest(
+                client: HttpClient,
+                request: __httpRequest);
+            PrepareListTrainingSessionsRequest(
+                httpClient: HttpClient,
+                httpRequestMessage: __httpRequest,
+                status: status,
+                limit: limit,
+                offset: offset);
+
+            using var __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+
+            ProcessResponse(
+                client: HttpClient,
+                response: __response);
+            ProcessListTrainingSessionsResponse(
+                httpClient: HttpClient,
+                httpResponseMessage: __response);
+            // An unexpected error response.
+            if (!__response.IsSuccessStatusCode)
+            {
+                string? __content_default = null;
+                global::System.Exception? __exception_default = null;
+                global::Together.RpcStatus? __value_default = null;
+                try
+                {
+                    if (ReadResponseAsString)
+                    {
+                        __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_default = global::Together.RpcStatus.FromJson(__content_default, JsonSerializerContext);
+                    }
+                    else
+                    {
+                        var __contentStream_default = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                        __value_default = await global::Together.RpcStatus.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
+                    }
+                }
+                catch (global::System.Exception __ex)
+                {
+                    __exception_default = __ex;
+                }
+
+                throw new global::Together.ApiException<global::Together.RpcStatus>(
+                    message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_default,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_default,
+                    ResponseObject = __value_default,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
+
+            if (ReadResponseAsString)
+            {
+                var __content = await __response.Content.ReadAsStringAsync(
+#if NET5_0_OR_GREATER
+                    cancellationToken
+#endif
+                ).ConfigureAwait(false);
+
+                ProcessResponseContent(
+                    client: HttpClient,
+                    response: __response,
+                    content: ref __content);
+                ProcessListTrainingSessionsResponseContent(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response,
+                    content: ref __content);
+
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+
+                    return
+                        global::Together.RlTrainingSessionsListResponse.FromJson(__content, JsonSerializerContext) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                }
+                catch (global::System.Exception __ex)
+                {
+                    throw new global::Together.ApiException(
+                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseBody = __content,
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+            }
+            else
+            {
+                try
+                {
+                    __response.EnsureSuccessStatusCode();
+
+                    using var __content = await __response.Content.ReadAsStreamAsync(
+#if NET5_0_OR_GREATER
+                        cancellationToken
+#endif
+                    ).ConfigureAwait(false);
+
+                    return
+                        await global::Together.RlTrainingSessionsListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                }
+                catch (global::System.Exception __ex)
+                {
+                    throw new global::Together.ApiException(
+                        message: __response.ReasonPhrase ?? string.Empty,
+                        innerException: __ex,
+                        statusCode: __response.StatusCode)
+                    {
+                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                            __response.Headers,
+                            h => h.Key,
+                            h => h.Value),
+                    };
+                }
+            }
+        }
+    }
+}

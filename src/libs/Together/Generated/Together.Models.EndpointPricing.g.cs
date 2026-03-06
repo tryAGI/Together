@@ -10,9 +10,9 @@ namespace Together
     {
         /// <summary>
         /// Cost per minute of endpoint uptime in cents<br/>
-        /// Example: 5.42F
+        /// Example: 5.42
         /// </summary>
-        /// <example>5.42F</example>
+        /// <example>5.42</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float CentsPerMinute { get; set; }
@@ -28,7 +28,7 @@ namespace Together
         /// </summary>
         /// <param name="centsPerMinute">
         /// Cost per minute of endpoint uptime in cents<br/>
-        /// Example: 5.42F
+        /// Example: 5.42
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

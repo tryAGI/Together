@@ -52,12 +52,11 @@ namespace Together
         public string? Link { get; set; }
 
         /// <summary>
-        /// Example: model
+        /// The object type, which is always `model`.
         /// </summary>
-        /// <example>model</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Object { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ModelInfoObjectJsonConverter))]
+        public global::Together.ModelInfoObject Object { get; set; }
 
         /// <summary>
         /// Example: Austism
@@ -107,7 +106,7 @@ namespace Together
         /// </param>
         /// <param name="link"></param>
         /// <param name="object">
-        /// Example: model
+        /// The object type, which is always `model`.
         /// </param>
         /// <param name="organization">
         /// Example: Austism
@@ -122,23 +121,23 @@ namespace Together
         public ModelInfo(
             int created,
             string id,
-            string @object,
             global::Together.ModelInfoType type,
             int? contextLength,
             string? displayName,
             string? license,
             string? link,
+            global::Together.ModelInfoObject @object,
             string? organization,
             global::Together.Pricing? pricing)
         {
             this.Created = created;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.Type = type;
             this.ContextLength = contextLength;
             this.DisplayName = displayName;
             this.License = license;
             this.Link = link;
+            this.Object = @object;
             this.Organization = organization;
             this.Pricing = pricing;
         }

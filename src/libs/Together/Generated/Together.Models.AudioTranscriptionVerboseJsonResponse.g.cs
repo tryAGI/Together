@@ -10,9 +10,9 @@ namespace Together
     {
         /// <summary>
         /// The duration of the audio in seconds<br/>
-        /// Example: 3.5F
+        /// Example: 3.5
         /// </summary>
-        /// <example>3.5F</example>
+        /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float Duration { get; set; }
@@ -32,6 +32,12 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> Segments { get; set; }
+
+        /// <summary>
+        /// Array of transcription speaker segments (only when diarize is enabled)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("speaker_segments")]
+        public global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSpeakerSegment>? SpeakerSegments { get; set; }
 
         /// <summary>
         /// The task performed<br/>
@@ -69,7 +75,7 @@ namespace Together
         /// </summary>
         /// <param name="duration">
         /// The duration of the audio in seconds<br/>
-        /// Example: 3.5F
+        /// Example: 3.5
         /// </param>
         /// <param name="language">
         /// The language of the audio<br/>
@@ -77,6 +83,9 @@ namespace Together
         /// </param>
         /// <param name="segments">
         /// Array of transcription segments
+        /// </param>
+        /// <param name="speakerSegments">
+        /// Array of transcription speaker segments (only when diarize is enabled)
         /// </param>
         /// <param name="task">
         /// The task performed<br/>
@@ -98,6 +107,7 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> segments,
             global::Together.AudioTranscriptionVerboseJsonResponseTask task,
             string text,
+            global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSpeakerSegment>? speakerSegments,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord>? words)
         {
             this.Duration = duration;
@@ -105,6 +115,7 @@ namespace Together
             this.Segments = segments ?? throw new global::System.ArgumentNullException(nameof(segments));
             this.Task = task;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.SpeakerSegments = speakerSegments;
             this.Words = words;
         }
 

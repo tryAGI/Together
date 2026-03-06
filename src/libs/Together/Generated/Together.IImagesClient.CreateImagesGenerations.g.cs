@@ -12,7 +12,8 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
-            global::Together.Request3 request,
+
+            global::Together.Request4 request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -55,6 +56,9 @@ namespace Together
         /// A description of the desired images. Maximum length varies by model.<br/>
         /// Example: cat floating in space, cinematic
         /// </param>
+        /// <param name="referenceImages">
+        /// An array of image URLs that guide the overall appearance and style of the generated image. These reference images influence the visual characteristics consistently across the generation.
+        /// </param>
         /// <param name="responseFormat">
         /// Format of the image response. Can be either a base64 string or a URL.
         /// </param>
@@ -82,6 +86,7 @@ namespace Together
             int? n = default,
             string? negativePrompt = default,
             global::Together.RequestOutputFormat? outputFormat = default,
+            global::System.Collections.Generic.IList<string>? referenceImages = default,
             global::Together.RequestResponseFormat? responseFormat = default,
             int? seed = default,
             int? steps = default,

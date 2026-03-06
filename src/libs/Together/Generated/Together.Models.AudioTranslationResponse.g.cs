@@ -29,6 +29,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.AudioTranslationVerboseJsonResponse? VerboseJson { get; init; }
+#else
+        public global::Together.AudioTranslationVerboseJsonResponse? VerboseJson { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VerboseJson))]
+#endif
+        public bool IsVerboseJson => VerboseJson != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AudioTranslationResponse(global::Together.AudioTranslationJsonResponse value) => new AudioTranslationResponse((global::Together.AudioTranslationJsonResponse?)value);
 
         /// <summary>
@@ -43,23 +59,6 @@ namespace Together
         {
             Json = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.AudioTranslationVerboseJsonResponse? VerboseJson { get; init; }
-#else
-        public global::Together.AudioTranslationVerboseJsonResponse? VerboseJson { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VerboseJson))]
-#endif
-        public bool IsVerboseJson => VerboseJson != null;
 
         /// <summary>
         /// 

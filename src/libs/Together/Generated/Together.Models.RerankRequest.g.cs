@@ -11,8 +11,10 @@ namespace Together
     public sealed partial class RerankRequest
     {
         /// <summary>
-        /// List of documents, which can be either strings or objects.
+        /// List of documents, which can be either strings or objects.<br/>
+        /// Example: {"text":"The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.","title":"Llama"}
         /// </summary>
+        /// <example>{"text":"The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.","title":"Llama"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -71,7 +73,8 @@ namespace Together
         /// Initializes a new instance of the <see cref="RerankRequest" /> class.
         /// </summary>
         /// <param name="documents">
-        /// List of documents, which can be either strings or objects.
+        /// List of documents, which can be either strings or objects.<br/>
+        /// Example: {"text":"The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.","title":"Llama"}
         /// </param>
         /// <param name="model">
         /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>

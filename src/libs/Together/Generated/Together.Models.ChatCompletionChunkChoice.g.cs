@@ -43,6 +43,12 @@ namespace Together
         public int? Seed { get; set; }
 
         /// <summary>
+        /// Top log probabilities for the tokens.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("top_logprobs")]
+        public global::System.Collections.Generic.Dictionary<string, double>? TopLogprobs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +62,9 @@ namespace Together
         /// <param name="index"></param>
         /// <param name="logprobs"></param>
         /// <param name="seed"></param>
+        /// <param name="topLogprobs">
+        /// Top log probabilities for the tokens.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,13 +73,15 @@ namespace Together
             global::Together.FinishReason finishReason,
             int index,
             double? logprobs,
-            int? seed)
+            int? seed,
+            global::System.Collections.Generic.Dictionary<string, double>? topLogprobs)
         {
             this.Delta = delta ?? throw new global::System.ArgumentNullException(nameof(delta));
             this.FinishReason = finishReason;
             this.Index = index;
             this.Logprobs = logprobs;
             this.Seed = seed;
+            this.TopLogprobs = topLogprobs;
         }
 
         /// <summary>

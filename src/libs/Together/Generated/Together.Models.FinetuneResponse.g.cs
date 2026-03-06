@@ -21,7 +21,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; }
+        public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// 
@@ -111,6 +111,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multimodal_params")]
+        public global::Together.MultimodalParams? MultimodalParams { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_checkpoints")]
         public int? NCheckpoints { get; set; }
 
@@ -133,10 +139,22 @@ namespace Together
         public int? ParamCount { get; set; }
 
         /// <summary>
+        /// Progress information for a fine-tuning job
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
+        public global::Together.FineTuneProgress? Progress { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_depth")]
         public int? QueueDepth { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("started_at")]
+        public global::System.DateTime? StartedAt { get; set; }
 
         /// <summary>
         /// 
@@ -201,7 +219,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; }
+        public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// 
@@ -260,11 +278,16 @@ namespace Together
         /// <param name="model"></param>
         /// <param name="modelOutputName"></param>
         /// <param name="modelOutputPath"></param>
+        /// <param name="multimodalParams"></param>
         /// <param name="nCheckpoints"></param>
         /// <param name="nEpochs"></param>
         /// <param name="nEvals"></param>
         /// <param name="paramCount"></param>
+        /// <param name="progress">
+        /// Progress information for a fine-tuning job
+        /// </param>
         /// <param name="queueDepth"></param>
+        /// <param name="startedAt"></param>
         /// <param name="status"></param>
         /// <param name="tokenCount"></param>
         /// <param name="totalPrice"></param>
@@ -289,7 +312,7 @@ namespace Together
             global::System.Guid id,
             global::Together.FinetuneJobStatus status,
             global::Together.OneOf<int?, global::Together.FinetuneResponseBatchSize?>? batchSize,
-            string? createdAt,
+            global::System.DateTime? createdAt,
             int? epochsCompleted,
             int? evalSteps,
             global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? events,
@@ -303,11 +326,14 @@ namespace Together
             string? model,
             string? modelOutputName,
             string? modelOutputPath,
+            global::Together.MultimodalParams? multimodalParams,
             int? nCheckpoints,
             int? nEpochs,
             int? nEvals,
             int? paramCount,
+            global::Together.FineTuneProgress? progress,
             int? queueDepth,
+            global::System.DateTime? startedAt,
             int? tokenCount,
             int? totalPrice,
             global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? trainOnInputs,
@@ -316,7 +342,7 @@ namespace Together
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             int? trainingfileNumlines,
             int? trainingfileSize,
-            string? updatedAt,
+            global::System.DateTime? updatedAt,
             string? validationFile,
             string? wandbProjectName,
             string? wandbUrl,
@@ -340,11 +366,14 @@ namespace Together
             this.Model = model;
             this.ModelOutputName = modelOutputName;
             this.ModelOutputPath = modelOutputPath;
+            this.MultimodalParams = multimodalParams;
             this.NCheckpoints = nCheckpoints;
             this.NEpochs = nEpochs;
             this.NEvals = nEvals;
             this.ParamCount = paramCount;
+            this.Progress = progress;
             this.QueueDepth = queueDepth;
+            this.StartedAt = startedAt;
             this.TokenCount = tokenCount;
             this.TotalPrice = totalPrice;
             this.TrainOnInputs = trainOnInputs;

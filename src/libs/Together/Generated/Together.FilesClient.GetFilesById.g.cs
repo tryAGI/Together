@@ -22,10 +22,12 @@ namespace Together
             ref string content);
 
         /// <summary>
-        /// List file<br/>
-        /// List the metadata for a single uploaded data file.
+        /// Retrieve file metadata<br/>
+        /// Retrieve the metadata for a single uploaded data file.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// The ID of the file to retrieve
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FileResponse> GetFilesByIdAsync(

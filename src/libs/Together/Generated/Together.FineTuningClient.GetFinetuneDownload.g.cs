@@ -9,15 +9,13 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref string ftId,
             ref int? checkpointStep,
-            ref global::Together.Checkpoint? checkpoint,
-            ref string? output);
+            ref global::Together.Checkpoint? checkpoint);
         partial void PrepareGetFinetuneDownloadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string ftId,
             int? checkpointStep,
-            global::Together.Checkpoint? checkpoint,
-            string? output);
+            global::Together.Checkpoint? checkpoint);
         partial void ProcessGetFinetuneDownloadResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,23 +23,27 @@ namespace Together
         partial void ProcessGetFinetuneDownloadResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
+            ref byte[] content);
 
         /// <summary>
         /// Download model<br/>
-        /// Download a compressed fine-tuned model or checkpoint to local disk.
+        /// Receive a compressed fine-tuned model or checkpoint.
         /// </summary>
-        /// <param name="ftId"></param>
-        /// <param name="checkpointStep"></param>
-        /// <param name="checkpoint"></param>
-        /// <param name="output"></param>
+        /// <param name="ftId">
+        /// Fine-tune ID to download. A string that starts with `ft-`.
+        /// </param>
+        /// <param name="checkpointStep">
+        /// Specifies step number for checkpoint to download. Ignores `checkpoint` value if set.
+        /// </param>
+        /// <param name="checkpoint">
+        /// Specifies checkpoint type to download - `merged` vs `adapter`. This field is required if the checkpoint_step is not set.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneDownloadResult> GetFinetuneDownloadAsync(
+        public async global::System.Threading.Tasks.Task<byte[]> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
             global::Together.Checkpoint? checkpoint = default,
-            string? output = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -50,17 +52,15 @@ namespace Together
                 httpClient: HttpClient,
                 ftId: ref ftId,
                 checkpointStep: ref checkpointStep,
-                checkpoint: ref checkpoint,
-                output: ref output);
+                checkpoint: ref checkpoint);
 
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/finetune/download",
                 baseUri: HttpClient.BaseAddress); 
-            __pathBuilder 
-                .AddRequiredParameter("ft_id", ftId) 
-                .AddOptionalParameter("checkpoint_step", checkpointStep?.ToString()) 
+            __pathBuilder
+                .AddRequiredParameter("ft_id", ftId)
+                .AddOptionalParameter("checkpoint_step", checkpointStep?.ToString())
                 .AddOptionalParameter("checkpoint", checkpoint?.ToValueString()) 
-                .AddOptionalParameter("output", output) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -95,8 +95,7 @@ namespace Together
                 httpRequestMessage: __httpRequest,
                 ftId: ftId,
                 checkpointStep: checkpointStep,
-                checkpoint: checkpoint,
-                output: output);
+                checkpoint: checkpoint);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -178,16 +177,12 @@ namespace Together
 
             if (ReadResponseAsString)
             {
-                var __content = await __response.Content.ReadAsStringAsync(
+                var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                     cancellationToken
 #endif
                 ).ConfigureAwait(false);
 
-                ProcessResponseContent(
-                    client: HttpClient,
-                    response: __response,
-                    content: ref __content);
                 ProcessGetFinetuneDownloadResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
@@ -197,18 +192,15 @@ namespace Together
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return
-                        global::Together.FinetuneDownloadResult.FromJson(__content, JsonSerializerContext) ??
-                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {
                     throw new global::Together.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                        message: __response.ReasonPhrase ?? string.Empty,
                         innerException: __ex,
                         statusCode: __response.StatusCode)
                     {
-                        ResponseBody = __content,
                         ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                             __response.Headers,
                             h => h.Key,
@@ -222,15 +214,13 @@ namespace Together
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    using var __content = await __response.Content.ReadAsStreamAsync(
+                    var __content = await __response.Content.ReadAsByteArrayAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return
-                        await global::Together.FinetuneDownloadResult.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                    return __content;
                 }
                 catch (global::System.Exception __ex)
                 {

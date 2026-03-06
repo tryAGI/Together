@@ -29,6 +29,73 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.ChatCompletionUserMessageParam? User { get; init; }
+#else
+        public global::Together.ChatCompletionUserMessageParam? User { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(User))]
+#endif
+        public bool IsUser => User != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.ChatCompletionAssistantMessageParam? Assistant { get; init; }
+#else
+        public global::Together.ChatCompletionAssistantMessageParam? Assistant { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
+#endif
+        public bool IsAssistant => Assistant != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.ChatCompletionToolMessageParam? Tool { get; init; }
+#else
+        public global::Together.ChatCompletionToolMessageParam? Tool { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
+#endif
+        public bool IsTool => Tool != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Together.ChatCompletionFunctionMessageParam? Function { get; init; }
+#else
+        public global::Together.ChatCompletionFunctionMessageParam? Function { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Function))]
+#endif
+        public bool IsFunction => Function != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionSystemMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionSystemMessageParam?)value);
 
         /// <summary>
@@ -43,23 +110,6 @@ namespace Together
         {
             System = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ChatCompletionUserMessageParam? User { get; init; }
-#else
-        public global::Together.ChatCompletionUserMessageParam? User { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(User))]
-#endif
-        public bool IsUser => User != null;
 
         /// <summary>
         /// 
@@ -82,23 +132,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ChatCompletionAssistantMessageParam? Assistant { get; init; }
-#else
-        public global::Together.ChatCompletionAssistantMessageParam? Assistant { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
-#endif
-        public bool IsAssistant => Assistant != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionAssistantMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionAssistantMessageParam?)value);
 
         /// <summary>
@@ -117,23 +150,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ChatCompletionToolMessageParam? Tool { get; init; }
-#else
-        public global::Together.ChatCompletionToolMessageParam? Tool { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
-#endif
-        public bool IsTool => Tool != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionToolMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionToolMessageParam?)value);
 
         /// <summary>
@@ -148,23 +164,6 @@ namespace Together
         {
             Tool = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ChatCompletionFunctionMessageParam? Function { get; init; }
-#else
-        public global::Together.ChatCompletionFunctionMessageParam? Function { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Function))]
-#endif
-        public bool IsFunction => Function != null;
 
         /// <summary>
         /// 

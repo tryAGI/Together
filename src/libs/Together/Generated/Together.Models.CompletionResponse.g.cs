@@ -37,7 +37,7 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `text.completion`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CompletionResponseObjectJsonConverter))]
@@ -47,7 +47,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public global::System.Collections.Generic.IList<global::Together.PromptPartItem>? Prompt { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.PromptPartItem> Prompt { get; set; }
 
         /// <summary>
         /// 
@@ -69,7 +70,9 @@ namespace Together
         /// <param name="created"></param>
         /// <param name="id"></param>
         /// <param name="model"></param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `text.completion`.
+        /// </param>
         /// <param name="prompt"></param>
         /// <param name="usage"></param>
 #if NET7_0_OR_GREATER
@@ -80,17 +83,17 @@ namespace Together
             int created,
             string id,
             string model,
+            global::System.Collections.Generic.IList<global::Together.PromptPartItem> prompt,
             global::Together.UsageData? usage,
-            global::Together.CompletionResponseObject @object,
-            global::System.Collections.Generic.IList<global::Together.PromptPartItem>? prompt)
+            global::Together.CompletionResponseObject @object)
         {
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Created = created;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Usage = usage ?? throw new global::System.ArgumentNullException(nameof(usage));
             this.Object = @object;
-            this.Prompt = prompt;
         }
 
         /// <summary>

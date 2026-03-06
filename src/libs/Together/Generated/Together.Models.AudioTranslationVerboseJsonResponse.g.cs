@@ -10,9 +10,9 @@ namespace Together
     {
         /// <summary>
         /// The duration of the audio in seconds<br/>
-        /// Example: 3.5F
+        /// Example: 3.5
         /// </summary>
-        /// <example>3.5F</example>
+        /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float Duration { get; set; }
@@ -69,7 +69,7 @@ namespace Together
         /// </summary>
         /// <param name="duration">
         /// The duration of the audio in seconds<br/>
-        /// Example: 3.5F
+        /// Example: 3.5
         /// </param>
         /// <param name="language">
         /// The target language of the translation<br/>

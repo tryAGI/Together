@@ -11,7 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        DONE,
+        done,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Together
         {
             return value switch
             {
-                StreamSentinelData.DONE => "[DONE]",
+                StreamSentinelData.done => "[DONE]",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Together
         {
             return value switch
             {
-                "[DONE]" => StreamSentinelData.DONE,
+                "[DONE]" => StreamSentinelData.done,
                 _ => null,
             };
         }

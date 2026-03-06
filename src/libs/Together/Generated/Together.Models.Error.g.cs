@@ -29,24 +29,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Error(string value) => new Error((string?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator string?(Error @this) => @this.Value1;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Error(string? value)
-        {
-            Value1 = value;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
 #if NET6_0_OR_GREATER
         public object? Value2 { get; init; }
 #else
@@ -60,13 +42,22 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
 #endif
         public bool IsValue2 => Value2 != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Error(string value) => new Error((string?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public Error(object? value)
+        public static implicit operator string?(Error @this) => @this.Value1;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Error(string? value)
         {
-            Value2 = value;
+            Value1 = value;
         }
 
         /// <summary>

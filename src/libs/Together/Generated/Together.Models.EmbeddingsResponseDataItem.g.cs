@@ -23,7 +23,7 @@ namespace Together
         public required int Index { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `embedding`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EmbeddingsResponseDataItemObjectJsonConverter))]
@@ -40,7 +40,9 @@ namespace Together
         /// </summary>
         /// <param name="embedding"></param>
         /// <param name="index"></param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `embedding`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

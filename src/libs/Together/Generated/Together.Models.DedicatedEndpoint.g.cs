@@ -16,8 +16,10 @@ namespace Together
         public required global::Together.Autoscaling Autoscaling { get; set; }
 
         /// <summary>
-        /// Timestamp when the endpoint was created
+        /// Timestamp when the endpoint was created<br/>
+        /// Example: 2025-02-04T10:43:55.4050000+00:00
         /// </summary>
+        /// <example>2025-02-04T10:43:55.4050000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.DateTime CreatedAt { get; set; }
@@ -68,10 +70,8 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// The type of object<br/>
-        /// Example: endpoint
+        /// The object type, which is always `endpoint`.
         /// </summary>
-        /// <example>endpoint</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DedicatedEndpointObjectJsonConverter))]
         public global::Together.DedicatedEndpointObject Object { get; set; }
@@ -117,7 +117,8 @@ namespace Together
         /// Configuration for automatic scaling of replicas based on demand.
         /// </param>
         /// <param name="createdAt">
-        /// Timestamp when the endpoint was created
+        /// Timestamp when the endpoint was created<br/>
+        /// Example: 2025-02-04T10:43:55.4050000+00:00
         /// </param>
         /// <param name="displayName">
         /// Human-readable name for the endpoint<br/>
@@ -140,8 +141,7 @@ namespace Together
         /// Example: devuser/meta-llama/Llama-3-8b-chat-hf-a32b82a1
         /// </param>
         /// <param name="object">
-        /// The type of object<br/>
-        /// Example: endpoint
+        /// The object type, which is always `endpoint`.
         /// </param>
         /// <param name="owner">
         /// The owner of this endpoint<br/>

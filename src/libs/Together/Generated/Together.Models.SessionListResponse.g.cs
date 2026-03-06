@@ -13,36 +13,18 @@ namespace Together
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.SessionListResponseVariant1? Value1 { get; init; }
+        public global::Together.SessionListResponseResponse? Response { get; init; }
 #else
-        public global::Together.SessionListResponseVariant1? Value1 { get; }
+        public global::Together.SessionListResponseResponse? Response { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Response))]
 #endif
-        public bool IsValue1 => Value1 != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant1 value) => new SessionListResponse((global::Together.SessionListResponseVariant1?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::Together.SessionListResponseVariant1?(SessionListResponse @this) => @this.Value1;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SessionListResponse(global::Together.SessionListResponseVariant1? value)
-        {
-            Value1 = value;
-        }
+        public bool IsResponse => Response != null;
 
         /// <summary>
         /// 
@@ -60,6 +42,23 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
 #endif
         public bool IsValue2 => Value2 != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator SessionListResponse(global::Together.SessionListResponseResponse value) => new SessionListResponse((global::Together.SessionListResponseResponse?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Together.SessionListResponseResponse?(SessionListResponse @this) => @this.Response;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SessionListResponse(global::Together.SessionListResponseResponse? value)
+        {
+            Response = value;
+        }
 
         /// <summary>
         /// 
@@ -83,11 +82,11 @@ namespace Together
         /// 
         /// </summary>
         public SessionListResponse(
-            global::Together.SessionListResponseVariant1? value1,
+            global::Together.SessionListResponseResponse? response,
             global::Together.SessionListResponseVariant2? value2
             )
         {
-            Value1 = value1;
+            Response = response;
             Value2 = value2;
         }
 
@@ -96,14 +95,14 @@ namespace Together
         /// </summary>
         public object? Object =>
             Value2 as object ??
-            Value1 as object 
+            Response as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
+            Response?.ToString() ??
             Value2?.ToString() 
             ;
 
@@ -112,14 +111,14 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && IsValue2;
+            return IsResponse && IsValue2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.SessionListResponseVariant1?, TResult>? value1 = null,
+            global::System.Func<global::Together.SessionListResponseResponse?, TResult>? response = null,
             global::System.Func<global::Together.SessionListResponseVariant2?, TResult>? value2 = null,
             bool validate = true)
         {
@@ -128,9 +127,9 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsResponse && response != null)
             {
-                return value1(Value1!);
+                return response(Response!);
             }
             else if (IsValue2 && value2 != null)
             {
@@ -144,7 +143,7 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.SessionListResponseVariant1?>? value1 = null,
+            global::System.Action<global::Together.SessionListResponseResponse?>? response = null,
             global::System.Action<global::Together.SessionListResponseVariant2?>? value2 = null,
             bool validate = true)
         {
@@ -153,9 +152,9 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsResponse)
             {
-                value1?.Invoke(Value1!);
+                response?.Invoke(Response!);
             }
             else if (IsValue2)
             {
@@ -170,8 +169,8 @@ namespace Together
         {
             var fields = new object?[]
             {
-                Value1,
-                typeof(global::Together.SessionListResponseVariant1),
+                Response,
+                typeof(global::Together.SessionListResponseResponse),
                 Value2,
                 typeof(global::Together.SessionListResponseVariant2),
             };
@@ -190,7 +189,7 @@ namespace Together
         public bool Equals(SessionListResponse other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Together.SessionListResponseVariant1?>.Default.Equals(Value1, other.Value1) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.SessionListResponseResponse?>.Default.Equals(Response, other.Response) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.SessionListResponseVariant2?>.Default.Equals(Value2, other.Value2) 
                 ;
         }

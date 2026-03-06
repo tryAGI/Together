@@ -11,6 +11,19 @@ namespace Together
     public sealed partial class ChatCompletionRequest
     {
         /// <summary>
+        /// Additional configuration to pass to model engine.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chat_template_kwargs")]
+        public object? ChatTemplateKwargs { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("compliance")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionRequestComplianceJsonConverter))]
+        public global::Together.ChatCompletionRequestCompliance? Compliance { get; set; }
+
+        /// <summary>
         /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
         /// Default Value: error
         /// </summary>
@@ -38,8 +51,10 @@ namespace Together
         public global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? FunctionCall { get; set; }
 
         /// <summary>
-        /// Adjusts the likelihood of specific tokens appearing in the generated output.
+        /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </summary>
+        /// <example>{"1024":-10.5,"105":21.4}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("logit_bias")]
         public global::System.Collections.Generic.Dictionary<string, float>? LogitBias { get; set; }
 
@@ -91,6 +106,12 @@ namespace Together
         public float? PresencePenalty { get; set; }
 
         /// <summary>
+        /// For models that support toggling reasoning functionality, this object can be used to control that functionality.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
+        public global::Together.ChatCompletionRequestReasoning? Reasoning { get; set; }
+
+        /// <summary>
         /// Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.<br/>
         /// Example: medium
         /// </summary>
@@ -106,10 +127,18 @@ namespace Together
         public double? RepetitionPenalty { get; set; }
 
         /// <summary>
-        /// An object specifying the format that the model must output.
+        /// An object specifying the format that the model must output.<br/>
+        /// Setting to `{ "type": "json_schema", "json_schema": {...} }` enables<br/>
+        /// Structured Outputs which ensures the model will match your supplied JSON<br/>
+        /// schema. Learn more in the [Structured Outputs<br/>
+        /// guide](https://docs.together.ai/docs/json-mode).<br/>
+        /// Setting to `{ "type": "json_object" }` enables the older JSON mode, which<br/>
+        /// ensures the message the model generates is valid JSON. Using `json_schema`<br/>
+        /// is preferred for models that support it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::Together.ChatCompletionRequestResponseFormat? ResponseFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ResponseFormatJsonConverter))]
+        public global::Together.ResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// The name of the moderation model used to validate tokens. Choose from the available moderation models found [here](https://docs.together.ai/docs/inference-models#moderation-models).<br/>
@@ -179,6 +208,10 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionRequest" /> class.
         /// </summary>
+        /// <param name="chatTemplateKwargs">
+        /// Additional configuration to pass to model engine.
+        /// </param>
+        /// <param name="compliance"></param>
         /// <param name="contextLengthExceededBehavior">
         /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
         /// Default Value: error
@@ -191,7 +224,8 @@ namespace Together
         /// </param>
         /// <param name="functionCall"></param>
         /// <param name="logitBias">
-        /// Adjusts the likelihood of specific tokens appearing in the generated output.
+        /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="logprobs">
         /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
@@ -215,6 +249,9 @@ namespace Together
         /// <param name="presencePenalty">
         /// A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.
         /// </param>
+        /// <param name="reasoning">
+        /// For models that support toggling reasoning functionality, this object can be used to control that functionality.
+        /// </param>
         /// <param name="reasoningEffort">
         /// Controls the level of reasoning effort the model should apply when generating responses. Higher values may result in more thoughtful and detailed responses but may take longer to generate.<br/>
         /// Example: medium
@@ -223,7 +260,14 @@ namespace Together
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
         /// <param name="responseFormat">
-        /// An object specifying the format that the model must output.
+        /// An object specifying the format that the model must output.<br/>
+        /// Setting to `{ "type": "json_schema", "json_schema": {...} }` enables<br/>
+        /// Structured Outputs which ensures the model will match your supplied JSON<br/>
+        /// schema. Learn more in the [Structured Outputs<br/>
+        /// guide](https://docs.together.ai/docs/json-mode).<br/>
+        /// Setting to `{ "type": "json_object" }` enables the older JSON mode, which<br/>
+        /// ensures the message the model generates is valid JSON. Using `json_schema`<br/>
+        /// is preferred for models that support it.
         /// </param>
         /// <param name="safetyModel">
         /// The name of the moderation model used to validate tokens. Choose from the available moderation models found [here](https://docs.together.ai/docs/inference-models#moderation-models).<br/>
@@ -260,6 +304,8 @@ namespace Together
         public ChatCompletionRequest(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> messages,
             global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
+            object? chatTemplateKwargs,
+            global::Together.ChatCompletionRequestCompliance? compliance,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior,
             bool? echo,
             float? frequencyPenalty,
@@ -270,9 +316,10 @@ namespace Together
             float? minP,
             int? n,
             float? presencePenalty,
+            global::Together.ChatCompletionRequestReasoning? reasoning,
             global::Together.ChatCompletionRequestReasoningEffort? reasoningEffort,
             double? repetitionPenalty,
-            global::Together.ChatCompletionRequestResponseFormat? responseFormat,
+            global::Together.ResponseFormat? responseFormat,
             string? safetyModel,
             int? seed,
             global::System.Collections.Generic.IList<string>? stop,
@@ -285,6 +332,8 @@ namespace Together
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.Model = model;
+            this.ChatTemplateKwargs = chatTemplateKwargs;
+            this.Compliance = compliance;
             this.ContextLengthExceededBehavior = contextLengthExceededBehavior;
             this.Echo = echo;
             this.FrequencyPenalty = frequencyPenalty;
@@ -295,6 +344,7 @@ namespace Together
             this.MinP = minP;
             this.N = n;
             this.PresencePenalty = presencePenalty;
+            this.Reasoning = reasoning;
             this.ReasoningEffort = reasoningEffort;
             this.RepetitionPenalty = repetitionPenalty;
             this.ResponseFormat = responseFormat;

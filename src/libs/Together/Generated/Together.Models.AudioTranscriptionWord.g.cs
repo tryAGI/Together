@@ -10,18 +10,26 @@ namespace Together
     {
         /// <summary>
         /// End time of the word in seconds<br/>
-        /// Example: 0.5F
+        /// Example: 0.5
         /// </summary>
-        /// <example>0.5F</example>
+        /// <example>0.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float End { get; set; }
 
         /// <summary>
-        /// Start time of the word in seconds<br/>
-        /// Example: 0F
+        /// The speaker id for the word (only when diarize is enabled)<br/>
+        /// Example: SPEAKER_00
         /// </summary>
-        /// <example>0F</example>
+        /// <example>SPEAKER_00</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
+        public string? SpeakerId { get; set; }
+
+        /// <summary>
+        /// Start time of the word in seconds<br/>
+        /// Example: 0
+        /// </summary>
+        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float Start { get; set; }
@@ -46,11 +54,15 @@ namespace Together
         /// </summary>
         /// <param name="end">
         /// End time of the word in seconds<br/>
-        /// Example: 0.5F
+        /// Example: 0.5
+        /// </param>
+        /// <param name="speakerId">
+        /// The speaker id for the word (only when diarize is enabled)<br/>
+        /// Example: SPEAKER_00
         /// </param>
         /// <param name="start">
         /// Start time of the word in seconds<br/>
-        /// Example: 0F
+        /// Example: 0
         /// </param>
         /// <param name="word">
         /// The word<br/>
@@ -62,11 +74,13 @@ namespace Together
         public AudioTranscriptionWord(
             float end,
             float start,
-            string word)
+            string word,
+            string? speakerId)
         {
             this.End = end;
             this.Start = start;
             this.Word = word ?? throw new global::System.ArgumentNullException(nameof(word));
+            this.SpeakerId = speakerId;
         }
 
         /// <summary>

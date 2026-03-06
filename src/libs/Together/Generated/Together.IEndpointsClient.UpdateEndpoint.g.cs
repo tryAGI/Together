@@ -8,12 +8,16 @@ namespace Together
         /// Update endpoint, this can also be used to start or stop a dedicated endpoint<br/>
         /// Updates an existing endpoint's configuration. You can modify the display name, autoscaling settings, or change the endpoint's state (start/stop).
         /// </summary>
-        /// <param name="endpointId"></param>
+        /// <param name="endpointId">
+        /// The ID of the endpoint to update<br/>
+        /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
+        /// </param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> UpdateEndpointAsync(
             string endpointId,
+
             global::Together.UpdateEndpointRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -21,7 +25,10 @@ namespace Together
         /// Update endpoint, this can also be used to start or stop a dedicated endpoint<br/>
         /// Updates an existing endpoint's configuration. You can modify the display name, autoscaling settings, or change the endpoint's state (start/stop).
         /// </summary>
-        /// <param name="endpointId"></param>
+        /// <param name="endpointId">
+        /// The ID of the endpoint to update<br/>
+        /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
+        /// </param>
         /// <param name="autoscaling">
         /// Configuration for automatic scaling of replicas based on demand.
         /// </param>

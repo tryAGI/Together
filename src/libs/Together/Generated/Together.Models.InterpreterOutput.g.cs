@@ -13,137 +13,136 @@ namespace Together
         /// Outputs that were printed to stdout or stderr
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.InterpreterOutputVariant1? Value1 { get; init; }
+        public global::Together.InterpreterOutputStreamOutput? StreamOutput { get; init; }
 #else
-        public global::Together.InterpreterOutputVariant1? Value1 { get; }
+        public global::Together.InterpreterOutputStreamOutput? StreamOutput { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamOutput))]
 #endif
-        public bool IsValue1 => Value1 != null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant1 value) => new InterpreterOutput((global::Together.InterpreterOutputVariant1?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::Together.InterpreterOutputVariant1?(InterpreterOutput @this) => @this.Value1;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public InterpreterOutput(global::Together.InterpreterOutputVariant1? value)
-        {
-            Value1 = value;
-        }
+        public bool IsStreamOutput => StreamOutput != null;
 
         /// <summary>
         /// Errors and exceptions that occurred. If this output type is present, your code did not execute successfully.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.InterpreterOutputVariant2? Value2 { get; init; }
+        public global::Together.InterpreterOutputErrorOutput? Error { get; init; }
 #else
-        public global::Together.InterpreterOutputVariant2? Value2 { get; }
+        public global::Together.InterpreterOutputErrorOutput? Error { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Error))]
 #endif
-        public bool IsValue2 => Value2 != null;
+        public bool IsError => Error != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant2 value) => new InterpreterOutput((global::Together.InterpreterOutputVariant2?)value);
+#if NET6_0_OR_GREATER
+        public global::Together.InterpreterOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; init; }
+#else
+        public global::Together.InterpreterOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; }
+#endif
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.InterpreterOutputVariant2?(InterpreterOutput @this) => @this.Value2;
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DisplayorExecuteOutput))]
+#endif
+        public bool IsDisplayorExecuteOutput => DisplayorExecuteOutput != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputStreamOutput value) => new InterpreterOutput((global::Together.InterpreterOutputStreamOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public InterpreterOutput(global::Together.InterpreterOutputVariant2? value)
+        public static implicit operator global::Together.InterpreterOutputStreamOutput?(InterpreterOutput @this) => @this.StreamOutput;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public InterpreterOutput(global::Together.InterpreterOutputStreamOutput? value)
         {
-            Value2 = value;
+            StreamOutput = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.InterpreterOutputVariant3? Value3 { get; init; }
-#else
-        public global::Together.InterpreterOutputVariant3? Value3 { get; }
-#endif
+        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputErrorOutput value) => new InterpreterOutput((global::Together.InterpreterOutputErrorOutput?)value);
 
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value3))]
-#endif
-        public bool IsValue3 => Value3 != null;
+        public static implicit operator global::Together.InterpreterOutputErrorOutput?(InterpreterOutput @this) => @this.Error;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputVariant3 value) => new InterpreterOutput((global::Together.InterpreterOutputVariant3?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::Together.InterpreterOutputVariant3?(InterpreterOutput @this) => @this.Value3;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public InterpreterOutput(global::Together.InterpreterOutputVariant3? value)
+        public InterpreterOutput(global::Together.InterpreterOutputErrorOutput? value)
         {
-            Value3 = value;
+            Error = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator InterpreterOutput(global::Together.InterpreterOutputDisplayorExecuteOutput value) => new InterpreterOutput((global::Together.InterpreterOutputDisplayorExecuteOutput?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Together.InterpreterOutputDisplayorExecuteOutput?(InterpreterOutput @this) => @this.DisplayorExecuteOutput;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public InterpreterOutput(global::Together.InterpreterOutputDisplayorExecuteOutput? value)
+        {
+            DisplayorExecuteOutput = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public InterpreterOutput(
-            global::Together.InterpreterOutputVariant1? value1,
-            global::Together.InterpreterOutputVariant2? value2,
-            global::Together.InterpreterOutputVariant3? value3
+            global::Together.InterpreterOutputStreamOutput? streamOutput,
+            global::Together.InterpreterOutputErrorOutput? error,
+            global::Together.InterpreterOutputDisplayorExecuteOutput? displayorExecuteOutput
             )
         {
-            Value1 = value1;
-            Value2 = value2;
-            Value3 = value3;
+            StreamOutput = streamOutput;
+            Error = error;
+            DisplayorExecuteOutput = displayorExecuteOutput;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value3 as object ??
-            Value2 as object ??
-            Value1 as object 
+            DisplayorExecuteOutput as object ??
+            Error as object ??
+            StreamOutput as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
-            Value2?.ToString() ??
-            Value3?.ToString() 
+            StreamOutput?.ToString() ??
+            Error?.ToString() ??
+            DisplayorExecuteOutput?.ToString() 
             ;
 
         /// <summary>
@@ -151,16 +150,16 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 && !IsValue3 || !IsValue1 && IsValue2 && !IsValue3 || !IsValue1 && !IsValue2 && IsValue3;
+            return IsStreamOutput && !IsError && !IsDisplayorExecuteOutput || !IsStreamOutput && IsError && !IsDisplayorExecuteOutput || !IsStreamOutput && !IsError && IsDisplayorExecuteOutput;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.InterpreterOutputVariant1?, TResult>? value1 = null,
-            global::System.Func<global::Together.InterpreterOutputVariant2?, TResult>? value2 = null,
-            global::System.Func<global::Together.InterpreterOutputVariant3?, TResult>? value3 = null,
+            global::System.Func<global::Together.InterpreterOutputStreamOutput?, TResult>? streamOutput = null,
+            global::System.Func<global::Together.InterpreterOutputErrorOutput?, TResult>? error = null,
+            global::System.Func<global::Together.InterpreterOutputDisplayorExecuteOutput?, TResult>? displayorExecuteOutput = null,
             bool validate = true)
         {
             if (validate)
@@ -168,17 +167,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsStreamOutput && streamOutput != null)
             {
-                return value1(Value1!);
+                return streamOutput(StreamOutput!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsError && error != null)
             {
-                return value2(Value2!);
+                return error(Error!);
             }
-            else if (IsValue3 && value3 != null)
+            else if (IsDisplayorExecuteOutput && displayorExecuteOutput != null)
             {
-                return value3(Value3!);
+                return displayorExecuteOutput(DisplayorExecuteOutput!);
             }
 
             return default(TResult);
@@ -188,9 +187,9 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.InterpreterOutputVariant1?>? value1 = null,
-            global::System.Action<global::Together.InterpreterOutputVariant2?>? value2 = null,
-            global::System.Action<global::Together.InterpreterOutputVariant3?>? value3 = null,
+            global::System.Action<global::Together.InterpreterOutputStreamOutput?>? streamOutput = null,
+            global::System.Action<global::Together.InterpreterOutputErrorOutput?>? error = null,
+            global::System.Action<global::Together.InterpreterOutputDisplayorExecuteOutput?>? displayorExecuteOutput = null,
             bool validate = true)
         {
             if (validate)
@@ -198,17 +197,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsStreamOutput)
             {
-                value1?.Invoke(Value1!);
+                streamOutput?.Invoke(StreamOutput!);
             }
-            else if (IsValue2)
+            else if (IsError)
             {
-                value2?.Invoke(Value2!);
+                error?.Invoke(Error!);
             }
-            else if (IsValue3)
+            else if (IsDisplayorExecuteOutput)
             {
-                value3?.Invoke(Value3!);
+                displayorExecuteOutput?.Invoke(DisplayorExecuteOutput!);
             }
         }
 
@@ -219,12 +218,12 @@ namespace Together
         {
             var fields = new object?[]
             {
-                Value1,
-                typeof(global::Together.InterpreterOutputVariant1),
-                Value2,
-                typeof(global::Together.InterpreterOutputVariant2),
-                Value3,
-                typeof(global::Together.InterpreterOutputVariant3),
+                StreamOutput,
+                typeof(global::Together.InterpreterOutputStreamOutput),
+                Error,
+                typeof(global::Together.InterpreterOutputErrorOutput),
+                DisplayorExecuteOutput,
+                typeof(global::Together.InterpreterOutputDisplayorExecuteOutput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -241,9 +240,9 @@ namespace Together
         public bool Equals(InterpreterOutput other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputVariant1?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputVariant2?>.Default.Equals(Value2, other.Value2) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputVariant3?>.Default.Equals(Value3, other.Value3) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputStreamOutput?>.Default.Equals(StreamOutput, other.StreamOutput) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputErrorOutput?>.Default.Equals(Error, other.Error) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputDisplayorExecuteOutput?>.Default.Equals(DisplayorExecuteOutput, other.DisplayorExecuteOutput) 
                 ;
         }
 

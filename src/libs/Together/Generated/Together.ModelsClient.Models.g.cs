@@ -6,10 +6,12 @@ namespace Together
     public partial class ModelsClient
     {
         partial void PrepareModelsArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref bool? dedicated);
         partial void PrepareModelsRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? dedicated);
         partial void ProcessModelsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -23,19 +25,27 @@ namespace Together
         /// List all models<br/>
         /// Lists all of Together's open-source models
         /// </summary>
+        /// <param name="dedicated">
+        /// Filter models to only return dedicated models
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::Together.ModelInfo>> ModelsAsync(
+            bool? dedicated = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareModelsArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                dedicated: ref dedicated);
 
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/models",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("dedicated", dedicated?.ToString()) 
+                ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -66,7 +76,8 @@ namespace Together
                 request: __httpRequest);
             PrepareModelsRequest(
                 httpClient: HttpClient,
-                httpRequestMessage: __httpRequest);
+                httpRequestMessage: __httpRequest,
+                dedicated: dedicated);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

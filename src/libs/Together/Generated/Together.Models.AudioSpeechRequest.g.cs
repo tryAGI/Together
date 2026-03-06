@@ -18,7 +18,7 @@ namespace Together
         public required string Input { get; set; }
 
         /// <summary>
-        /// Language of input text<br/>
+        /// Language of input text.<br/>
         /// Default Value: en
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -26,10 +26,10 @@ namespace Together
         public global::Together.AudioSpeechRequestLanguage? Language { get; set; }
 
         /// <summary>
-        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#audio-models)<br/>
-        /// Example: cartesia/sonic
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#audio-models) The current supported tts models are: - cartesia/sonic - hexgrad/Kokoro-82M - canopylabs/orpheus-3b-0.1-ft<br/>
+        /// Example: canopylabs/orpheus-3b-0.1-ft
         /// </summary>
-        /// <example>cartesia/sonic</example>
+        /// <example>canopylabs/orpheus-3b-0.1-ft</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.AudioSpeechRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -44,7 +44,7 @@ namespace Together
         public global::Together.AudioSpeechRequestResponseEncoding? ResponseEncoding { get; set; }
 
         /// <summary>
-        /// The format of audio output<br/>
+        /// The format of audio output. Supported formats are mp3, wav, raw if streaming is false. If streaming is true, the only supported format is raw.<br/>
         /// Default Value: wav
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
@@ -52,11 +52,11 @@ namespace Together
         public global::Together.AudioSpeechRequestResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
-        /// Sampling rate to use for the output audio<br/>
+        /// Sampling rate to use for the output audio. The default sampling rate for canopylabs/orpheus-3b-0.1-ft and hexgrad/Kokoro-82M is 24000 and for cartesia/sonic is 44100.<br/>
         /// Default Value: 44100
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sample_rate")]
-        public double? SampleRate { get; set; }
+        public int? SampleRate { get; set; }
 
         /// <summary>
         /// If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream<br/>
@@ -66,12 +66,11 @@ namespace Together
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// The voice to use for generating the audio. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).
+        /// The voice to use for generating the audio. The voices supported are different for each model. For eg - for canopylabs/orpheus-3b-0.1-ft, one of the voices supported is tara, for hexgrad/Kokoro-82M, one of the voices supported is af_alloy and for cartesia/sonic, one of the voices supported is "friendly sidekick".   You can view the voices supported for each model using the /v1/voices endpoint sending the model name as the query parameter. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.AudioSpeechRequestVoice?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.AudioSpeechRequestVoice?, string> Voice { get; set; }
+        public required string Voice { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -86,23 +85,23 @@ namespace Together
         /// Input text to generate the audio for
         /// </param>
         /// <param name="language">
-        /// Language of input text<br/>
+        /// Language of input text.<br/>
         /// Default Value: en
         /// </param>
         /// <param name="model">
-        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#audio-models)<br/>
-        /// Example: cartesia/sonic
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#audio-models) The current supported tts models are: - cartesia/sonic - hexgrad/Kokoro-82M - canopylabs/orpheus-3b-0.1-ft<br/>
+        /// Example: canopylabs/orpheus-3b-0.1-ft
         /// </param>
         /// <param name="responseEncoding">
         /// Audio encoding of response<br/>
         /// Default Value: pcm_f32le
         /// </param>
         /// <param name="responseFormat">
-        /// The format of audio output<br/>
+        /// The format of audio output. Supported formats are mp3, wav, raw if streaming is false. If streaming is true, the only supported format is raw.<br/>
         /// Default Value: wav
         /// </param>
         /// <param name="sampleRate">
-        /// Sampling rate to use for the output audio<br/>
+        /// Sampling rate to use for the output audio. The default sampling rate for canopylabs/orpheus-3b-0.1-ft and hexgrad/Kokoro-82M is 24000 and for cartesia/sonic is 44100.<br/>
         /// Default Value: 44100
         /// </param>
         /// <param name="stream">
@@ -110,7 +109,7 @@ namespace Together
         /// Default Value: false
         /// </param>
         /// <param name="voice">
-        /// The voice to use for generating the audio. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).
+        /// The voice to use for generating the audio. The voices supported are different for each model. For eg - for canopylabs/orpheus-3b-0.1-ft, one of the voices supported is tara, for hexgrad/Kokoro-82M, one of the voices supported is af_alloy and for cartesia/sonic, one of the voices supported is "friendly sidekick".   You can view the voices supported for each model using the /v1/voices endpoint sending the model name as the query parameter. [View all supported voices here](https://docs.together.ai/docs/text-to-speech#voices-available).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -118,16 +117,16 @@ namespace Together
         public AudioSpeechRequest(
             string input,
             global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string> model,
-            global::Together.AnyOf<global::Together.AudioSpeechRequestVoice?, string> voice,
+            string voice,
             global::Together.AudioSpeechRequestLanguage? language,
             global::Together.AudioSpeechRequestResponseEncoding? responseEncoding,
             global::Together.AudioSpeechRequestResponseFormat? responseFormat,
-            double? sampleRate,
+            int? sampleRate,
             bool? stream)
         {
             this.Input = input ?? throw new global::System.ArgumentNullException(nameof(input));
             this.Model = model;
-            this.Voice = voice;
+            this.Voice = voice ?? throw new global::System.ArgumentNullException(nameof(voice));
             this.Language = language;
             this.ResponseEncoding = responseEncoding;
             this.ResponseFormat = responseFormat;

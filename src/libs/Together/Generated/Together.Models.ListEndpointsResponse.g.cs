@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Example: {"data":[{"created_at":"2024-02-28T21:34:35.4440000\u002B00:00","id":"endpoint-5c0c20db-62fe-4f41-8ffc-d9e4ea1a264e","model":"allenai/OLMo-7B","name":"allenai/OLMo-7B","object":"endpoint","owner":"together","state":"STARTED","type":"serverless"}],"object":"list"}
     /// </summary>
     public sealed partial class ListEndpointsResponse
     {
@@ -16,7 +16,7 @@ namespace Together
         public required global::System.Collections.Generic.IList<global::Together.ListEndpoint> Data { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `list`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ListEndpointsResponseObjectJsonConverter))]
@@ -32,7 +32,9 @@ namespace Together
         /// Initializes a new instance of the <see cref="ListEndpointsResponse" /> class.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `list`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

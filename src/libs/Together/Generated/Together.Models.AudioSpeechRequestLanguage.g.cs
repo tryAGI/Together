@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Language of input text<br/>
+    /// Language of input text.<br/>
     /// Default Value: en
     /// </summary>
     public enum AudioSpeechRequestLanguage

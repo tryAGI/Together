@@ -29,6 +29,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
+
             global::Together.Request2 request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -191,16 +192,17 @@ namespace Together
         /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
-        /// Default Value: 1E-05F
+        /// Default Value: 0.00001
         /// </param>
         /// <param name="lrScheduler"></param>
         /// <param name="maxGradNorm">
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1F
+        /// Default Value: 1
         /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
         /// </param>
+        /// <param name="multimodalParams"></param>
         /// <param name="nCheckpoints">
         /// Number of intermediate model versions saved during training for evaluation<br/>
         /// Default Value: 1
@@ -222,7 +224,9 @@ namespace Together
         /// <param name="trainingMethod">
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
-        /// <param name="trainingType"></param>
+        /// <param name="trainingType">
+        /// The training type to use. If not provided, the job will default to LoRA training type.
+        /// </param>
         /// <param name="validationFile">
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
@@ -232,6 +236,9 @@ namespace Together
         /// <param name="wandbBaseUrl">
         /// The base URL of a dedicated Weights &amp; Biases instance.
         /// </param>
+        /// <param name="wandbEntity">
+        /// The Weights &amp; Biases entity for your run.
+        /// </param>
         /// <param name="wandbName">
         /// The Weights &amp; Biases name for your run.
         /// </param>
@@ -240,11 +247,11 @@ namespace Together
         /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -260,15 +267,17 @@ namespace Together
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
             float? maxGradNorm = default,
+            global::Together.MultimodalParams? multimodalParams = default,
             int? nCheckpoints = default,
             int? nEpochs = default,
             int? nEvals = default,
             string? suffix = default,
             global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod = default,
-            global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
+            global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? validationFile = default,
             string? wandbApiKey = default,
             string? wandbBaseUrl = default,
+            string? wandbEntity = default,
             string? wandbName = default,
             string? wandbProjectName = default,
             float? warmupRatio = default,
@@ -287,6 +296,7 @@ namespace Together
                 LrScheduler = lrScheduler,
                 MaxGradNorm = maxGradNorm,
                 Model = model,
+                MultimodalParams = multimodalParams,
                 NCheckpoints = nCheckpoints,
                 NEpochs = nEpochs,
                 NEvals = nEvals,
@@ -297,6 +307,7 @@ namespace Together
                 ValidationFile = validationFile,
                 WandbApiKey = wandbApiKey,
                 WandbBaseUrl = wandbBaseUrl,
+                WandbEntity = wandbEntity,
                 WandbName = wandbName,
                 WandbProjectName = wandbProjectName,
                 WarmupRatio = warmupRatio,

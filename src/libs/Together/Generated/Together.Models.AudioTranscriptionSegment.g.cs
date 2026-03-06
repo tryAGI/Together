@@ -10,9 +10,9 @@ namespace Together
     {
         /// <summary>
         /// End time of the segment in seconds<br/>
-        /// Example: 3.5F
+        /// Example: 3.5
         /// </summary>
-        /// <example>3.5F</example>
+        /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float End { get; set; }
@@ -28,9 +28,9 @@ namespace Together
 
         /// <summary>
         /// Start time of the segment in seconds<br/>
-        /// Example: 0F
+        /// Example: 0
         /// </summary>
-        /// <example>0F</example>
+        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float Start { get; set; }
@@ -55,7 +55,7 @@ namespace Together
         /// </summary>
         /// <param name="end">
         /// End time of the segment in seconds<br/>
-        /// Example: 3.5F
+        /// Example: 3.5
         /// </param>
         /// <param name="id">
         /// Unique identifier for the segment<br/>
@@ -63,7 +63,7 @@ namespace Together
         /// </param>
         /// <param name="start">
         /// Start time of the segment in seconds<br/>
-        /// Example: 0F
+        /// Example: 0
         /// </param>
         /// <param name="text">
         /// The text content of the segment<br/>

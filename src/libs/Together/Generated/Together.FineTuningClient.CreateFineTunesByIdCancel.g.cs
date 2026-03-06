@@ -25,7 +25,9 @@ namespace Together
         /// Cancel job<br/>
         /// Cancel a currently running fine-tuning job. Returns a FinetuneResponseTruncated object.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// Fine-tune ID to cancel. A string that starts with `ft-`.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesByIdCancelAsync(

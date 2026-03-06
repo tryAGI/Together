@@ -9,8 +9,10 @@ namespace Together
     public sealed partial class ListEndpoint
     {
         /// <summary>
-        /// Timestamp when the endpoint was created
+        /// Timestamp when the endpoint was created<br/>
+        /// Example: 2024-02-28T21:34:35.4440000+00:00
         /// </summary>
+        /// <example>2024-02-28T21:34:35.4440000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.DateTime CreatedAt { get; set; }
@@ -43,10 +45,8 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// The type of object<br/>
-        /// Example: endpoint
+        /// The object type, which is always `endpoint`.
         /// </summary>
-        /// <example>endpoint</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ListEndpointObjectJsonConverter))]
         public global::Together.ListEndpointObject Object { get; set; }
@@ -90,7 +90,8 @@ namespace Together
         /// Initializes a new instance of the <see cref="ListEndpoint" /> class.
         /// </summary>
         /// <param name="createdAt">
-        /// Timestamp when the endpoint was created
+        /// Timestamp when the endpoint was created<br/>
+        /// Example: 2024-02-28T21:34:35.4440000+00:00
         /// </param>
         /// <param name="id">
         /// Unique identifier for the endpoint<br/>
@@ -105,8 +106,7 @@ namespace Together
         /// Example: allenai/OLMo-7B
         /// </param>
         /// <param name="object">
-        /// The type of object<br/>
-        /// Example: endpoint
+        /// The object type, which is always `endpoint`.
         /// </param>
         /// <param name="owner">
         /// The owner of this endpoint<br/>

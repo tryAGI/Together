@@ -4,8 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Object type<br/>
-    /// Example: rerank
+    /// The object type, which is always `rerank`.
     /// </summary>
     public enum RerankResponseObject
     {

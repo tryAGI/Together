@@ -13,98 +13,97 @@ namespace Together
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Together.ExecuteResponseVariant1? Value1 { get; init; }
+        public global::Together.ExecuteResponseSuccessfulExecution? SuccessfulExecution { get; init; }
 #else
-        public global::Together.ExecuteResponseVariant1? Value1 { get; }
+        public global::Together.ExecuteResponseSuccessfulExecution? SuccessfulExecution { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SuccessfulExecution))]
 #endif
-        public bool IsValue1 => Value1 != null;
+        public bool IsSuccessfulExecution => SuccessfulExecution != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseVariant1 value) => new ExecuteResponse((global::Together.ExecuteResponseVariant1?)value);
+#if NET6_0_OR_GREATER
+        public global::Together.ExecuteResponseFailedExecution? FailedExecution { get; init; }
+#else
+        public global::Together.ExecuteResponseFailedExecution? FailedExecution { get; }
+#endif
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.ExecuteResponseVariant1?(ExecuteResponse @this) => @this.Value1;
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(FailedExecution))]
+#endif
+        public bool IsFailedExecution => FailedExecution != null;
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseSuccessfulExecution value) => new ExecuteResponse((global::Together.ExecuteResponseSuccessfulExecution?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public ExecuteResponse(global::Together.ExecuteResponseVariant1? value)
+        public static implicit operator global::Together.ExecuteResponseSuccessfulExecution?(ExecuteResponse @this) => @this.SuccessfulExecution;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ExecuteResponse(global::Together.ExecuteResponseSuccessfulExecution? value)
         {
-            Value1 = value;
+            SuccessfulExecution = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ExecuteResponseVariant2? Value2 { get; init; }
-#else
-        public global::Together.ExecuteResponseVariant2? Value2 { get; }
-#endif
+        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseFailedExecution value) => new ExecuteResponse((global::Together.ExecuteResponseFailedExecution?)value);
 
         /// <summary>
         /// 
         /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
-#endif
-        public bool IsValue2 => Value2 != null;
+        public static implicit operator global::Together.ExecuteResponseFailedExecution?(ExecuteResponse @this) => @this.FailedExecution;
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator ExecuteResponse(global::Together.ExecuteResponseVariant2 value) => new ExecuteResponse((global::Together.ExecuteResponseVariant2?)value);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static implicit operator global::Together.ExecuteResponseVariant2?(ExecuteResponse @this) => @this.Value2;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ExecuteResponse(global::Together.ExecuteResponseVariant2? value)
+        public ExecuteResponse(global::Together.ExecuteResponseFailedExecution? value)
         {
-            Value2 = value;
+            FailedExecution = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public ExecuteResponse(
-            global::Together.ExecuteResponseVariant1? value1,
-            global::Together.ExecuteResponseVariant2? value2
+            global::Together.ExecuteResponseSuccessfulExecution? successfulExecution,
+            global::Together.ExecuteResponseFailedExecution? failedExecution
             )
         {
-            Value1 = value1;
-            Value2 = value2;
+            SuccessfulExecution = successfulExecution;
+            FailedExecution = failedExecution;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value2 as object ??
-            Value1 as object 
+            FailedExecution as object ??
+            SuccessfulExecution as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
-            Value2?.ToString() 
+            SuccessfulExecution?.ToString() ??
+            FailedExecution?.ToString() 
             ;
 
         /// <summary>
@@ -112,15 +111,15 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 || !IsValue1 && IsValue2;
+            return IsSuccessfulExecution && !IsFailedExecution || !IsSuccessfulExecution && IsFailedExecution;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.ExecuteResponseVariant1?, TResult>? value1 = null,
-            global::System.Func<global::Together.ExecuteResponseVariant2?, TResult>? value2 = null,
+            global::System.Func<global::Together.ExecuteResponseSuccessfulExecution?, TResult>? successfulExecution = null,
+            global::System.Func<global::Together.ExecuteResponseFailedExecution?, TResult>? failedExecution = null,
             bool validate = true)
         {
             if (validate)
@@ -128,13 +127,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsSuccessfulExecution && successfulExecution != null)
             {
-                return value1(Value1!);
+                return successfulExecution(SuccessfulExecution!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsFailedExecution && failedExecution != null)
             {
-                return value2(Value2!);
+                return failedExecution(FailedExecution!);
             }
 
             return default(TResult);
@@ -144,8 +143,8 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.ExecuteResponseVariant1?>? value1 = null,
-            global::System.Action<global::Together.ExecuteResponseVariant2?>? value2 = null,
+            global::System.Action<global::Together.ExecuteResponseSuccessfulExecution?>? successfulExecution = null,
+            global::System.Action<global::Together.ExecuteResponseFailedExecution?>? failedExecution = null,
             bool validate = true)
         {
             if (validate)
@@ -153,13 +152,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsSuccessfulExecution)
             {
-                value1?.Invoke(Value1!);
+                successfulExecution?.Invoke(SuccessfulExecution!);
             }
-            else if (IsValue2)
+            else if (IsFailedExecution)
             {
-                value2?.Invoke(Value2!);
+                failedExecution?.Invoke(FailedExecution!);
             }
         }
 
@@ -170,10 +169,10 @@ namespace Together
         {
             var fields = new object?[]
             {
-                Value1,
-                typeof(global::Together.ExecuteResponseVariant1),
-                Value2,
-                typeof(global::Together.ExecuteResponseVariant2),
+                SuccessfulExecution,
+                typeof(global::Together.ExecuteResponseSuccessfulExecution),
+                FailedExecution,
+                typeof(global::Together.ExecuteResponseFailedExecution),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -190,8 +189,8 @@ namespace Together
         public bool Equals(ExecuteResponse other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseVariant1?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseVariant2?>.Default.Equals(Value2, other.Value2) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecution?>.Default.Equals(SuccessfulExecution, other.SuccessfulExecution) &&
+                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseFailedExecution?>.Default.Equals(FailedExecution, other.FailedExecution) 
                 ;
         }
 

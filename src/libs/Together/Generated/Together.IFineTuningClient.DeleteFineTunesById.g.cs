@@ -8,13 +8,18 @@ namespace Together
         /// Delete a fine-tune job<br/>
         /// Delete a fine-tuning job.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="force"></param>
+        /// <param name="id">
+        /// The ID of the fine-tune job to delete
+        /// </param>
+        /// <param name="force">
+        /// Deprecated and unused parameter.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneDeleteResponse> DeleteFineTunesByIdAsync(
             string id,
-            bool force,
+            bool? force = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

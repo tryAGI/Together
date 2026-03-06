@@ -16,7 +16,7 @@ namespace Together
         public required int LoraAlpha { get; set; }
 
         /// <summary>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_dropout")]
         public float? LoraDropout { get; set; }
@@ -52,7 +52,7 @@ namespace Together
         /// </summary>
         /// <param name="loraAlpha"></param>
         /// <param name="loraDropout">
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="loraR"></param>
         /// <param name="loraTrainableModules">

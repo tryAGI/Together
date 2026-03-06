@@ -12,6 +12,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
+
             global::Together.ModelUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

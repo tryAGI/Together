@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class TrainingMethodDPO
     {
         /// <summary>
-        /// Default Value: 0.1F
+        /// Default Value: 0.1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dpo_beta")]
         public float? DpoBeta { get; set; }
@@ -34,13 +34,13 @@ namespace Together
         public global::Together.TrainingMethodDPOMethod Method { get; set; }
 
         /// <summary>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rpo_alpha")]
         public float? RpoAlpha { get; set; }
 
         /// <summary>
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simpo_gamma")]
         public float? SimpoGamma { get; set; }
@@ -55,7 +55,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="TrainingMethodDPO" /> class.
         /// </summary>
         /// <param name="dpoBeta">
-        /// Default Value: 0.1F
+        /// Default Value: 0.1
         /// </param>
         /// <param name="dpoNormalizeLogratiosByLength">
         /// Default Value: false
@@ -65,10 +65,10 @@ namespace Together
         /// </param>
         /// <param name="method"></param>
         /// <param name="rpoAlpha">
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
         /// <param name="simpoGamma">
-        /// Default Value: 0F
+        /// Default Value: 0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

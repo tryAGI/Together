@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// The object type, which is always `audio.tts.chunk`.
     /// </summary>
     public enum AudioSpeechStreamChunkObject
     {

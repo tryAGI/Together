@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// The object type, which is always `fine-tune-event`.
     /// </summary>
     public enum FineTuneEventObject
     {

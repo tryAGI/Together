@@ -18,6 +18,12 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleJsonConverter))]
         public global::Together.ChatCompletionToolMessageParamRole Role { get; set; }
@@ -39,6 +45,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionToolMessageParam" /> class.
         /// </summary>
         /// <param name="content"></param>
+        /// <param name="name"></param>
         /// <param name="role"></param>
         /// <param name="toolCallId"></param>
 #if NET7_0_OR_GREATER
@@ -47,10 +54,12 @@ namespace Together
         public ChatCompletionToolMessageParam(
             string content,
             string toolCallId,
+            string? name,
             global::Together.ChatCompletionToolMessageParamRole role)
         {
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.ToolCallId = toolCallId ?? throw new global::System.ArgumentNullException(nameof(toolCallId));
+            this.Name = name;
             this.Role = role;
         }
 

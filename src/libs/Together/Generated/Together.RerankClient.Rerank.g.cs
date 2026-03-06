@@ -23,12 +23,13 @@ namespace Together
 
         /// <summary>
         /// Create a rerank request<br/>
-        /// Query a reranker model
+        /// Rerank a list of documents by relevance to a query. Returns a relevance score and ordering index for each document.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RerankResponse> RerankAsync(
+
             global::Together.RerankRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -390,10 +391,11 @@ namespace Together
 
         /// <summary>
         /// Create a rerank request<br/>
-        /// Query a reranker model
+        /// Rerank a list of documents by relevance to a query. Returns a relevance score and ordering index for each document.
         /// </summary>
         /// <param name="documents">
-        /// List of documents, which can be either strings or objects.
+        /// List of documents, which can be either strings or objects.<br/>
+        /// Example: {"text":"The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.","title":"Llama"}
         /// </param>
         /// <param name="model">
         /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>

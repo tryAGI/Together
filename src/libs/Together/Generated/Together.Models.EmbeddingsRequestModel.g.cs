@@ -15,15 +15,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        BAAIBgeLargeEnV15,
+        BaaiBgeLargeEnV15,
         /// <summary>
         /// 
         /// </summary>
-        BAAIBgeBaseEnV15,
+        BaaiBgeBaseEnV15,
         /// <summary>
         /// 
         /// </summary>
-        TogethercomputerM2Bert80M8kRetrieval,
+        TogethercomputerM2Bert80m8kRetrieval,
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ namespace Together
             return value switch
             {
                 EmbeddingsRequestModel.WhereIsAIUAELargeV1 => "WhereIsAI/UAE-Large-V1",
-                EmbeddingsRequestModel.BAAIBgeLargeEnV15 => "BAAI/bge-large-en-v1.5",
-                EmbeddingsRequestModel.BAAIBgeBaseEnV15 => "BAAI/bge-base-en-v1.5",
-                EmbeddingsRequestModel.TogethercomputerM2Bert80M8kRetrieval => "togethercomputer/m2-bert-80M-8k-retrieval",
+                EmbeddingsRequestModel.BaaiBgeLargeEnV15 => "BAAI/bge-large-en-v1.5",
+                EmbeddingsRequestModel.BaaiBgeBaseEnV15 => "BAAI/bge-base-en-v1.5",
+                EmbeddingsRequestModel.TogethercomputerM2Bert80m8kRetrieval => "togethercomputer/m2-bert-80M-8k-retrieval",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,9 +53,9 @@ namespace Together
             return value switch
             {
                 "WhereIsAI/UAE-Large-V1" => EmbeddingsRequestModel.WhereIsAIUAELargeV1,
-                "BAAI/bge-large-en-v1.5" => EmbeddingsRequestModel.BAAIBgeLargeEnV15,
-                "BAAI/bge-base-en-v1.5" => EmbeddingsRequestModel.BAAIBgeBaseEnV15,
-                "togethercomputer/m2-bert-80M-8k-retrieval" => EmbeddingsRequestModel.TogethercomputerM2Bert80M8kRetrieval,
+                "BAAI/bge-large-en-v1.5" => EmbeddingsRequestModel.BaaiBgeLargeEnV15,
+                "BAAI/bge-base-en-v1.5" => EmbeddingsRequestModel.BaaiBgeBaseEnV15,
+                "togethercomputer/m2-bert-80M-8k-retrieval" => EmbeddingsRequestModel.TogethercomputerM2Bert80m8kRetrieval,
                 _ => null,
             };
         }

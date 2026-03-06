@@ -12,27 +12,27 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        VALIDATING,
+        Validating,
         /// <summary>
         /// 
         /// </summary>
-        INPROGRESS,
+        InProgress,
         /// <summary>
         /// 
         /// </summary>
-        COMPLETED,
+        Completed,
         /// <summary>
         /// 
         /// </summary>
-        FAILED,
+        Failed,
         /// <summary>
         /// 
         /// </summary>
-        EXPIRED,
+        Expired,
         /// <summary>
         /// 
         /// </summary>
-        CANCELLED,
+        Cancelled,
     }
 
     /// <summary>
@@ -47,12 +47,12 @@ namespace Together
         {
             return value switch
             {
-                BatchJobStatus.VALIDATING => "VALIDATING",
-                BatchJobStatus.INPROGRESS => "IN_PROGRESS",
-                BatchJobStatus.COMPLETED => "COMPLETED",
-                BatchJobStatus.FAILED => "FAILED",
-                BatchJobStatus.EXPIRED => "EXPIRED",
-                BatchJobStatus.CANCELLED => "CANCELLED",
+                BatchJobStatus.Validating => "VALIDATING",
+                BatchJobStatus.InProgress => "IN_PROGRESS",
+                BatchJobStatus.Completed => "COMPLETED",
+                BatchJobStatus.Failed => "FAILED",
+                BatchJobStatus.Expired => "EXPIRED",
+                BatchJobStatus.Cancelled => "CANCELLED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -63,12 +63,12 @@ namespace Together
         {
             return value switch
             {
-                "VALIDATING" => BatchJobStatus.VALIDATING,
-                "IN_PROGRESS" => BatchJobStatus.INPROGRESS,
-                "COMPLETED" => BatchJobStatus.COMPLETED,
-                "FAILED" => BatchJobStatus.FAILED,
-                "EXPIRED" => BatchJobStatus.EXPIRED,
-                "CANCELLED" => BatchJobStatus.CANCELLED,
+                "VALIDATING" => BatchJobStatus.Validating,
+                "IN_PROGRESS" => BatchJobStatus.InProgress,
+                "COMPLETED" => BatchJobStatus.Completed,
+                "FAILED" => BatchJobStatus.Failed,
+                "EXPIRED" => BatchJobStatus.Expired,
+                "CANCELLED" => BatchJobStatus.Cancelled,
                 _ => null,
             };
         }

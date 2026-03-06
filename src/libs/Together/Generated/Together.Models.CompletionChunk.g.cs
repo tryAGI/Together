@@ -37,7 +37,7 @@ namespace Together
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        /// The object type, which is always `completion.chunk`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CompletionChunkObjectJsonConverter))]
@@ -76,7 +76,9 @@ namespace Together
         /// <param name="created"></param>
         /// <param name="finishReason"></param>
         /// <param name="id"></param>
-        /// <param name="object"></param>
+        /// <param name="object">
+        /// The object type, which is always `completion.chunk`.
+        /// </param>
         /// <param name="seed"></param>
         /// <param name="token"></param>
         /// <param name="usage"></param>

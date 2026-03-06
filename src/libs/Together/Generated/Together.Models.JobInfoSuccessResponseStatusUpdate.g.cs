@@ -25,8 +25,9 @@ namespace Together
         public required string Status { get; set; }
 
         /// <summary>
-        /// 
+        /// Example: 2025-03-11T22:36:12.0000000+00:00
         /// </summary>
+        /// <example>2025-03-11T22:36:12.0000000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.DateTime Timestamp { get; set; }
@@ -46,7 +47,9 @@ namespace Together
         /// <param name="status">
         /// Example: Complete
         /// </param>
-        /// <param name="timestamp"></param>
+        /// <param name="timestamp">
+        /// Example: 2025-03-11T22:36:12.0000000+00:00
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
