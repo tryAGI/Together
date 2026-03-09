@@ -15,7 +15,7 @@ namespace Together
         /// <example>print('Hello, world!')</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Code { get; set; }
+        public string Code { get; set; } = default!;
 
         /// <summary>
         /// Files to upload to the session. If present, files will be uploaded before executing the given code.

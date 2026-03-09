@@ -27,7 +27,7 @@ namespace Together
         /// <example>Please classify {{prompt}} based on the labels below</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_template")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputTemplate { get; set; }
+        public string InputTemplate { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of tokens to generate<br/>
@@ -36,7 +36,7 @@ namespace Together
         /// <example>512</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxTokens { get; set; }
+        public int MaxTokens { get; set; } = default!;
 
         /// <summary>
         /// Name of the model to evaluate<br/>
@@ -45,7 +45,7 @@ namespace Together
         /// <example>meta-llama/Llama-3-70B-Instruct-Turbo</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// Source of the model.
@@ -53,7 +53,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationModelRequestModelSourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EvaluationModelRequestModelSource ModelSource { get; set; }
+        public global::Together.EvaluationModelRequestModelSource ModelSource { get; set; } = default!;
 
         /// <summary>
         /// System prompt template<br/>
@@ -62,7 +62,7 @@ namespace Together
         /// <example>Imagine you are helpful assistant</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_template")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SystemTemplate { get; set; }
+        public string SystemTemplate { get; set; } = default!;
 
         /// <summary>
         /// Sampling temperature<br/>
@@ -71,7 +71,7 @@ namespace Together
         /// <example>0.7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Temperature { get; set; }
+        public float Temperature { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

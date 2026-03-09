@@ -13,28 +13,28 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Id { get; set; }
+        public int Id { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprob")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Logprob { get; set; }
+        public double Logprob { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("special")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Special { get; set; }
+        public bool Special { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

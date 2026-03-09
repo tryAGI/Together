@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<double> Embedding { get; set; }
+        public global::System.Collections.Generic.IList<double> Embedding { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Index { get; set; }
+        public int Index { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `embedding`.

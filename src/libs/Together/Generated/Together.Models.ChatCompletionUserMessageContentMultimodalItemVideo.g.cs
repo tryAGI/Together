@@ -20,7 +20,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionUserMessageContentMultimodalItemVideoVideoUrl VideoUrl { get; set; }
+        public global::Together.ChatCompletionUserMessageContentMultimodalItemVideoVideoUrl VideoUrl { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

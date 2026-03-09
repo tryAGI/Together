@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.CompletionChoice> Choices { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.CompletionChoice> Choices { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -27,14 +27,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FinishReason FinishReason { get; set; }
+        public global::Together.FinishReason FinishReason { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `completion.chunk`.
@@ -54,14 +54,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.CompletionToken Token { get; set; }
+        public global::Together.CompletionToken Token { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.UsageData? Usage { get; set; }
+        public global::Together.UsageData? Usage { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

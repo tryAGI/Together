@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_alpha")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LoraAlpha { get; set; }
+        public int LoraAlpha { get; set; } = default!;
 
         /// <summary>
         /// Default Value: 0
@@ -26,7 +26,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_r")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int LoraR { get; set; }
+        public int LoraR { get; set; } = default!;
 
         /// <summary>
         /// Default Value: all-linear

@@ -15,7 +15,7 @@ namespace Together
         /// <example>5.42</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float CentsPerMinute { get; set; }
+        public float CentsPerMinute { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

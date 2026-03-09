@@ -22,7 +22,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlModelInput Prompt { get; set; }
+        public global::Together.RlModelInput Prompt { get; set; } = default!;
 
         /// <summary>
         /// 

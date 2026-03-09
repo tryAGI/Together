@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completion_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CompletionTokens { get; set; }
+        public int CompletionTokens { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int PromptTokens { get; set; }
+        public int PromptTokens { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalTokens { get; set; }
+        public int TotalTokens { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

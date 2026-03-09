@@ -47,7 +47,7 @@ namespace Together
         /// <example>Qwen2.5-72B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public string ModelName { get; set; } = default!;
 
         /// <summary>
         /// The source location of the model (Hugging Face repo or S3 path)<br/>
@@ -56,7 +56,7 @@ namespace Together
         /// <example>unsloth/Qwen2.5-72B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelSource { get; set; }
+        public string ModelSource { get; set; } = default!;
 
         /// <summary>
         /// Whether the model is a full model or an adapter<br/>

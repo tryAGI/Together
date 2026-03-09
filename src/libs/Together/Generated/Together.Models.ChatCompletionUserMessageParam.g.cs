@@ -14,7 +14,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionUserMessageContent Content { get; set; }
+        public global::Together.ChatCompletionUserMessageContent Content { get; set; } = default!;
 
         /// <summary>
         /// 

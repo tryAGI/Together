@@ -75,7 +75,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> Messages { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> Messages { get; set; } = default!;
 
         /// <summary>
         /// A number between 0 and 1 that can be used as an alternative to top_p and top-k.
@@ -91,7 +91,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.ChatCompletionRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> Model { get; set; }
+        public global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> Model { get; set; } = default!;
 
         /// <summary>
         /// The number of completions to generate for each prompt.

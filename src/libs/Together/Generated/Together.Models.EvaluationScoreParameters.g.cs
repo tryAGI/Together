@@ -15,14 +15,14 @@ namespace Together
         /// <example>file-01234567890123456789</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputDataFilePath { get; set; }
+        public string InputDataFilePath { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
+        public global::Together.EvaluationJudgeModelConfig Judge { get; set; } = default!;
 
         /// <summary>
         /// Maximum possible score<br/>
@@ -31,7 +31,7 @@ namespace Together
         /// <example>10</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MaxScore { get; set; }
+        public float MaxScore { get; set; } = default!;
 
         /// <summary>
         /// Minimum possible score<br/>
@@ -40,7 +40,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MinScore { get; set; }
+        public float MinScore { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace Together
         /// <example>7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_threshold")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float PassThreshold { get; set; }
+        public float PassThreshold { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

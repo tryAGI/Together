@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CheckpointPath { get; set; }
+        public string CheckpointPath { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedAt { get; set; }
+        public string CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Hash { get; set; }
+        public string Hash { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -41,14 +41,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
+        public string Message { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelPath { get; set; }
+        public string ModelPath { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `fine-tune-event`.
@@ -62,35 +62,35 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int ParamCount { get; set; }
+        public int ParamCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("step")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Step { get; set; }
+        public int Step { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TokenCount { get; set; }
+        public int TokenCount { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_steps")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalSteps { get; set; }
+        public int TotalSteps { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_offset")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TrainingOffset { get; set; }
+        public int TrainingOffset { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -98,14 +98,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FinetuneEventType Type { get; set; }
+        public global::Together.FinetuneEventType Type { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string WandbUrl { get; set; }
+        public string WandbUrl { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

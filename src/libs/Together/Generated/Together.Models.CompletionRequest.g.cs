@@ -56,7 +56,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CompletionRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.CompletionRequestModel?, string> Model { get; set; }
+        public global::Together.AnyOf<global::Together.CompletionRequestModel?, string> Model { get; set; } = default!;
 
         /// <summary>
         /// The number of completions to generate for each prompt.
@@ -77,7 +77,7 @@ namespace Together
         /// <example>&lt;s&gt;[INST] What is the capital of France? [/INST]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string Prompt { get; set; } = default!;
 
         /// <summary>
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.

@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("loss")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLossConfig Loss { get; set; }
+        public global::Together.RlLossConfig Loss { get; set; } = default!;
 
         /// <summary>
         /// Batch of training samples to process
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("samples")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.RlTrainingSample> Samples { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RlTrainingSample> Samples { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

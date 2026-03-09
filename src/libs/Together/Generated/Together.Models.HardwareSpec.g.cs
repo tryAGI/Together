@@ -15,7 +15,7 @@ namespace Together
         /// <example>2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int GpuCount { get; set; }
+        public int GpuCount { get; set; } = default!;
 
         /// <summary>
         /// The GPU interconnect technology<br/>
@@ -24,7 +24,7 @@ namespace Together
         /// <example>sxm</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_link")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string GpuLink { get; set; }
+        public string GpuLink { get; set; } = default!;
 
         /// <summary>
         /// Amount of GPU memory in GB<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>80</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_memory")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float GpuMemory { get; set; }
+        public float GpuMemory { get; set; } = default!;
 
         /// <summary>
         /// The type/model of GPU<br/>
@@ -42,7 +42,7 @@ namespace Together
         /// <example>a100-80gb</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string GpuType { get; set; }
+        public string GpuType { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

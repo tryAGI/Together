@@ -103,17 +103,12 @@ namespace Together
         public DeploymentsStorageClient DeploymentsStorage { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingsClient Embeddings { get; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public EndpointsClient Endpoints { get; }
-
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationClient Evaluation { get; }
 

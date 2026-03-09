@@ -15,7 +15,7 @@ namespace Together
         /// <example>[-1.2, -0.8]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<float> Data { get; set; }
+        public global::System.Collections.Generic.IList<float> Data { get; set; } = default!;
 
         /// <summary>
         /// Default Value: D_TYPE_UNSPECIFIED

@@ -21,7 +21,7 @@ namespace Together
         /// <example>1692896905</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Created { get; set; }
+        public int Created { get; set; } = default!;
 
         /// <summary>
         /// Example: Chronos Hermes (13B)
@@ -36,7 +36,7 @@ namespace Together
         /// <example>Austism/chronos-hermes-13b</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Example: other
@@ -78,7 +78,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ModelInfoTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ModelInfoType Type { get; set; }
+        public global::Together.ModelInfoType Type { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

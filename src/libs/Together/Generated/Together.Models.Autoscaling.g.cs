@@ -15,7 +15,7 @@ namespace Together
         /// <example>5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_replicas")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxReplicas { get; set; }
+        public int MaxReplicas { get; set; } = default!;
 
         /// <summary>
         /// The minimum number of replicas to maintain, even when there is no load<br/>
@@ -24,7 +24,7 @@ namespace Together
         /// <example>2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_replicas")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MinReplicas { get; set; }
+        public int MinReplicas { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -25,7 +25,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputImage { get; set; }
+        public string InputImage { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

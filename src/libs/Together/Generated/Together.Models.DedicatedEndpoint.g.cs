@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("autoscaling")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.Autoscaling Autoscaling { get; set; }
+        public global::Together.Autoscaling Autoscaling { get; set; } = default!;
 
         /// <summary>
         /// Timestamp when the endpoint was created<br/>
@@ -22,7 +22,7 @@ namespace Together
         /// <example>2025-02-04T10:43:55.4050000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreatedAt { get; set; }
+        public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// Human-readable name for the endpoint<br/>
@@ -31,7 +31,7 @@ namespace Together
         /// <example>My Llama3 70b endpoint</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string DisplayName { get; set; }
+        public string DisplayName { get; set; } = default!;
 
         /// <summary>
         /// The hardware configuration used for this endpoint<br/>
@@ -40,7 +40,7 @@ namespace Together
         /// <example>1x_nvidia_a100_80gb_sxm</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("hardware")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Hardware { get; set; }
+        public string Hardware { get; set; } = default!;
 
         /// <summary>
         /// Unique identifier for the endpoint<br/>
@@ -49,7 +49,7 @@ namespace Together
         /// <example>endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The model deployed on this endpoint<br/>
@@ -58,7 +58,7 @@ namespace Together
         /// <example>meta-llama/Llama-3-8b-chat-hf</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// System name for the endpoint<br/>
@@ -67,7 +67,7 @@ namespace Together
         /// <example>devuser/meta-llama/Llama-3-8b-chat-hf-a32b82a1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `endpoint`.
@@ -83,7 +83,7 @@ namespace Together
         /// <example>devuser</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("owner")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Owner { get; set; }
+        public string Owner { get; set; } = default!;
 
         /// <summary>
         /// Current state of the endpoint<br/>
@@ -93,7 +93,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DedicatedEndpointStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.DedicatedEndpointState State { get; set; }
+        public global::Together.DedicatedEndpointState State { get; set; } = default!;
 
         /// <summary>
         /// The type of endpoint<br/>

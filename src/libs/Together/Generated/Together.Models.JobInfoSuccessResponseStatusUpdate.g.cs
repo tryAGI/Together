@@ -14,7 +14,7 @@ namespace Together
         /// <example>Job is Complete</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
+        public string Message { get; set; } = default!;
 
         /// <summary>
         /// Example: Complete
@@ -22,7 +22,7 @@ namespace Together
         /// <example>Complete</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// Example: 2025-03-11T22:36:12.0000000+00:00
@@ -30,7 +30,7 @@ namespace Together
         /// <example>2025-03-11T22:36:12.0000000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("timestamp")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime Timestamp { get; set; }
+        public global::System.DateTime Timestamp { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

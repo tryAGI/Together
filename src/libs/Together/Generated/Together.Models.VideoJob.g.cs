@@ -19,7 +19,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double CreatedAt { get; set; }
+        public double CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// Error payload that explains why generation failed, if applicable.
@@ -32,14 +32,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The video generation model that produced the job.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always video.
@@ -59,14 +59,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("seconds")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Seconds { get; set; }
+        public string Seconds { get; set; } = default!;
 
         /// <summary>
         /// The resolution of the generated video.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Size { get; set; }
+        public string Size { get; set; } = default!;
 
         /// <summary>
         /// Current lifecycle status of the video job.
@@ -74,7 +74,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.VideoStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.VideoStatus Status { get; set; }
+        public global::Together.VideoStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

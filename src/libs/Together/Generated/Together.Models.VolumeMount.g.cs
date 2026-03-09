@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mount_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string MountPath { get; set; }
+        public string MountPath { get; set; } = default!;
 
         /// <summary>
         /// Name is the name of the volume to mount. Must reference an existing volume by name or ID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Version is the volume version to mount. On create, defaults to the latest version. On update, defaults to the currently mounted version.

@@ -15,7 +15,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
         [global::System.Obsolete("This property marked as deprecated.")]
-        public required string Content { get; set; }
+        public string Content { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -23,7 +23,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         [global::System.Obsolete("This property marked as deprecated.")]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// 

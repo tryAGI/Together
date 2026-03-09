@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ClusterId { get; set; }
+        public string ClusterId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ClusterName { get; set; }
+        public string ClusterName { get; set; } = default!;
 
         /// <summary>
         /// Type of cluster.
@@ -28,14 +28,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoClusterTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterInfoClusterType ClusterType { get; set; }
+        public global::Together.GPUClusterInfoClusterType ClusterType { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("control_plane_nodes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.GPUClusterControlPlaneNode> ControlPlaneNodes { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GPUClusterControlPlaneNode> ControlPlaneNodes { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -43,14 +43,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("driver_version")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoDriverVersionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterInfoDriverVersion DriverVersion { get; set; }
+        public global::Together.GPUClusterInfoDriverVersion DriverVersion { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_hours")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DurationHours { get; set; }
+        public int DurationHours { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -58,35 +58,35 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoGpuTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterInfoGpuType GpuType { get; set; }
+        public global::Together.GPUClusterInfoGpuType GpuType { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_worker_nodes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.GPUClusterGPUWorkerNode> GpuWorkerNodes { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GPUClusterGPUWorkerNode> GpuWorkerNodes { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("kube_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string KubeConfig { get; set; }
+        public string KubeConfig { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NumGpus { get; set; }
+        public int NumGpus { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("region")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Region { get; set; }
+        public string Region { get; set; } = default!;
 
         /// <summary>
         /// Current status of the GPU cluster.
@@ -94,14 +94,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterInfoStatus Status { get; set; }
+        public global::Together.GPUClusterInfoStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volumes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.GPUClusterVolume> Volumes { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GPUClusterVolume> Volumes { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

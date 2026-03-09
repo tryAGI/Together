@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volumes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.GPUClustersSharedVolume> Volumes { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GPUClustersSharedVolume> Volumes { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("autoscaling")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.Autoscaling Autoscaling { get; set; }
+        public global::Together.Autoscaling Autoscaling { get; set; } = default!;
 
         /// <summary>
         /// Create the endpoint in a specified availability zone (e.g., us-central-4b)
@@ -51,7 +51,7 @@ namespace Together
         /// <example>1x_nvidia_a100_80gb_sxm</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("hardware")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Hardware { get; set; }
+        public string Hardware { get; set; } = default!;
 
         /// <summary>
         /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.<br/>
@@ -68,7 +68,7 @@ namespace Together
         /// <example>meta-llama/Llama-3-8b-chat-hf</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The desired state of the endpoint<br/>

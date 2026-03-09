@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Created { get; set; }
+        public int Created { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
@@ -35,7 +35,7 @@ namespace Together
         /// <example>mistralai/Mixtral-8x7B-Instruct-v0.1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `chat.completion.chunk`.

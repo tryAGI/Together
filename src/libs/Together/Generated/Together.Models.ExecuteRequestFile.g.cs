@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Content { get; set; }
+        public string Content { get; set; } = default!;
 
         /// <summary>
         /// Encoding of the file content. Use `string` for text files such as code, and `base64` for binary files, such as images.
@@ -21,14 +21,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("encoding")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ExecuteRequestFileEncodingJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ExecuteRequestFileEncoding Encoding { get; set; }
+        public global::Together.ExecuteRequestFileEncoding Encoding { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

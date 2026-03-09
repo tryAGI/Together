@@ -15,14 +15,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterCreateRequestBillingTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterCreateRequestBillingType BillingType { get; set; }
+        public global::Together.GPUClusterCreateRequestBillingType BillingType { get; set; } = default!;
 
         /// <summary>
         /// Name of the GPU cluster.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ClusterName { get; set; }
+        public string ClusterName { get; set; } = default!;
 
         /// <summary>
         /// Type of cluster to create.
@@ -37,7 +37,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("driver_version")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterCreateRequestDriverVersionJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterCreateRequestDriverVersion DriverVersion { get; set; }
+        public global::Together.GPUClusterCreateRequestDriverVersion DriverVersion { get; set; } = default!;
 
         /// <summary>
         /// Duration in days to keep the cluster running.
@@ -51,21 +51,21 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterCreateRequestGpuTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterCreateRequestGpuType GpuType { get; set; }
+        public global::Together.GPUClusterCreateRequestGpuType GpuType { get; set; } = default!;
 
         /// <summary>
         /// Number of GPUs to allocate in the cluster. This must be multiple of 8. For example, 8, 16 or 24
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NumGpus { get; set; }
+        public int NumGpus { get; set; } = default!;
 
         /// <summary>
         /// Region to create the GPU cluster in. Usable regions can be found from `client.clusters.list_regions()`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("region")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Region { get; set; }
+        public string Region { get; set; } = default!;
 
         /// <summary>
         /// 

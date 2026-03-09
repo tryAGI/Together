@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("advantages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLossAdvantages Advantages { get; set; }
+        public global::Together.RlLossAdvantages Advantages { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generator_logprobs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLossLogprobs GeneratorLogprobs { get; set; }
+        public global::Together.RlLossLogprobs GeneratorLogprobs { get; set; } = default!;
 
         /// <summary>
         /// 

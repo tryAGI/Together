@@ -14,7 +14,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ResponseFormatJsonSchemaJsonSchema JsonSchema { get; set; }
+        public global::Together.ResponseFormatJsonSchemaJsonSchema JsonSchema { get; set; } = default!;
 
         /// <summary>
         /// The type of response format being defined. Always `json_schema`.

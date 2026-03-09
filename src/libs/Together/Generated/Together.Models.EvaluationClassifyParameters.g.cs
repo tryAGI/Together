@@ -15,14 +15,14 @@ namespace Together
         /// <example>file-1234-aefd</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputDataFilePath { get; set; }
+        public string InputDataFilePath { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
+        public global::Together.EvaluationJudgeModelConfig Judge { get; set; } = default!;
 
         /// <summary>
         /// List of possible classification labels<br/>
@@ -31,7 +31,7 @@ namespace Together
         /// <example>[yes, no]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Labels { get; set; }
+        public global::System.Collections.Generic.IList<string> Labels { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -47,7 +47,7 @@ namespace Together
         /// <example>[yes]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> PassLabels { get; set; }
+        public global::System.Collections.Generic.IList<string> PassLabels { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

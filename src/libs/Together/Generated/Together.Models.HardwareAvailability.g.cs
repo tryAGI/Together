@@ -14,7 +14,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.HardwareAvailabilityStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.HardwareAvailabilityStatus Status { get; set; }
+        public global::Together.HardwareAvailabilityStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

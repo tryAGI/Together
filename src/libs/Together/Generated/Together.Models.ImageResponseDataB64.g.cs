@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("b64_json")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string B64Json { get; set; }
+        public string B64Json { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Index { get; set; }
+        public int Index { get; set; } = default!;
 
         /// <summary>
         /// 

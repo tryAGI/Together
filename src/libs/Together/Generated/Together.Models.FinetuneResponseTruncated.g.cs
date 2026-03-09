@@ -22,7 +22,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreatedAt { get; set; }
+        public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// Events related to this fine-tune job
@@ -53,7 +53,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Learning rate used for training
@@ -127,7 +127,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FinetuneJobStatus Status { get; set; }
+        public global::Together.FinetuneJobStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Suffix added to the fine-tuned model name
@@ -172,7 +172,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime UpdatedAt { get; set; }
+        public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
         /// Identifier for the user who created the job

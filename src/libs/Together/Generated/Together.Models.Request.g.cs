@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required byte[] File { get; set; }
+        public byte[] File { get; set; } = default!;
 
         /// <summary>
         /// The content of the file being uploaded
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Filename { get; set; }
+        public string Filename { get; set; } = default!;
 
         /// <summary>
         /// The name of the file being uploaded<br/>
@@ -29,7 +29,7 @@ namespace Together
         /// <example>dataset.csv</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string FileName { get; set; }
+        public string FileName { get; set; } = default!;
 
         /// <summary>
         /// The type of the file<br/>
@@ -49,7 +49,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FilePurposeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FilePurpose Purpose { get; set; }
+        public global::Together.FilePurpose Purpose { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

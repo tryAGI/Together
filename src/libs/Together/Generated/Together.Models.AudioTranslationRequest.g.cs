@@ -16,7 +16,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<byte[], string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<byte[], string> File { get; set; }
+        public global::Together.OneOf<byte[], string> File { get; set; } = default!;
 
         /// <summary>
         /// Target output language. Optional ISO 639-1 language code. If omitted, language is set to English.<br/>

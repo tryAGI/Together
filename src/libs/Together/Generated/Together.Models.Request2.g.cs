@@ -73,7 +73,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -121,7 +121,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string TrainingFile { get; set; }
+        public string TrainingFile { get; set; } = default!;
 
         /// <summary>
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.

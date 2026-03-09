@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("estimate_available")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EstimateAvailable { get; set; }
+        public bool EstimateAvailable { get; set; } = default!;
 
         /// <summary>
         /// Estimated time remaining in seconds for the fine-tuning job to next state
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("seconds_remaining")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SecondsRemaining { get; set; }
+        public int SecondsRemaining { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

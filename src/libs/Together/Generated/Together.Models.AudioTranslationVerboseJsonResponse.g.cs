@@ -15,7 +15,7 @@ namespace Together
         /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Duration { get; set; }
+        public float Duration { get; set; } = default!;
 
         /// <summary>
         /// The target language of the translation<br/>
@@ -24,14 +24,14 @@ namespace Together
         /// <example>english</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Language { get; set; }
+        public string Language { get; set; } = default!;
 
         /// <summary>
         /// Array of translation segments
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> Segments { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> Segments { get; set; } = default!;
 
         /// <summary>
         /// The task performed<br/>
@@ -41,7 +41,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("task")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AudioTranslationVerboseJsonResponseTaskJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AudioTranslationVerboseJsonResponseTask Task { get; set; }
+        public global::Together.AudioTranslationVerboseJsonResponseTask Task { get; set; } = default!;
 
         /// <summary>
         /// The translated text<br/>
@@ -50,7 +50,7 @@ namespace Together
         /// <example>Hello, world!</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Array of translation words (only when timestamp_granularities includes 'word')

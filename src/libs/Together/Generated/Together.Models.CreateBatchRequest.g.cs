@@ -23,7 +23,7 @@ namespace Together
         /// <example>/v1/chat/completions</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Endpoint { get; set; }
+        public string Endpoint { get; set; } = default!;
 
         /// <summary>
         /// ID of the uploaded input file containing batch requests<br/>
@@ -32,7 +32,7 @@ namespace Together
         /// <example>file-abc123def456ghi789</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_file_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputFileId { get; set; }
+        public string InputFileId { get; set; } = default!;
 
         /// <summary>
         /// Model to use for processing batch requests<br/>

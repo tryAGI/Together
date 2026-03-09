@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("args")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.JobInfoSuccessResponseArgs Args { get; set; }
+        public global::Together.JobInfoSuccessResponseArgs Args { get; set; } = default!;
 
         /// <summary>
         /// Example: 2025-03-11T22:05:43.0000000+00:00
@@ -21,7 +21,7 @@ namespace Together
         /// <example>2025-03-11T22:05:43.0000000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreatedAt { get; set; }
+        public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// Example: job-a15dad11-8d8e-4007-97c5-a211304de284
@@ -29,7 +29,7 @@ namespace Together
         /// <example>job-a15dad11-8d8e-4007-97c5-a211304de284</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("job_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string JobId { get; set; }
+        public string JobId { get; set; } = default!;
 
         /// <summary>
         /// Example: Complete
@@ -38,14 +38,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.JobInfoSuccessResponseStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.JobInfoSuccessResponseStatus Status { get; set; }
+        public global::Together.JobInfoSuccessResponseStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_updates")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponseStatusUpdate> StatusUpdates { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponseStatusUpdate> StatusUpdates { get; set; } = default!;
 
         /// <summary>
         /// Example: model_upload
@@ -53,7 +53,7 @@ namespace Together
         /// <example>model_upload</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Type { get; set; }
+        public string Type { get; set; } = default!;
 
         /// <summary>
         /// Example: 2025-03-11T22:36:12.0000000+00:00
@@ -61,7 +61,7 @@ namespace Together
         /// <example>2025-03-11T22:36:12.0000000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime UpdatedAt { get; set; }
+        public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

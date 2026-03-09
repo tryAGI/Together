@@ -23,7 +23,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.LRSchedulerLrSchedulerType LrSchedulerType { get; set; }
+        public global::Together.LRSchedulerLrSchedulerType LrSchedulerType { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.VolumeContentRequest Content { get; set; }
+        public global::Together.VolumeContentRequest Content { get; set; } = default!;
 
         /// <summary>
         /// Name is the unique identifier for the volume within the project
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Type is the volume type (currently only "readOnly" is supported)

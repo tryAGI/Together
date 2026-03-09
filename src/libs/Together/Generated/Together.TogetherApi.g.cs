@@ -155,7 +155,7 @@ namespace Together
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingsClient Embeddings => new EmbeddingsClient(HttpClient, authorizations: Authorizations)
         {
@@ -164,16 +164,7 @@ namespace Together
         };
 
         /// <summary>
-        /// 
-        /// </summary>
-        public EndpointsClient Endpoints => new EndpointsClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationClient Evaluation => new EvaluationClient(HttpClient, authorizations: Authorizations)
         {

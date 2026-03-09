@@ -14,7 +14,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("base")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Base { get; set; }
+        public double Base { get; set; } = default!;
 
         /// <summary>
         /// Example: 0
@@ -22,7 +22,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("finetune")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Finetune { get; set; }
+        public double Finetune { get; set; } = default!;
 
         /// <summary>
         /// Example: 0
@@ -30,7 +30,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("hourly")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Hourly { get; set; }
+        public double Hourly { get; set; } = default!;
 
         /// <summary>
         /// Example: 0.3
@@ -38,7 +38,7 @@ namespace Together
         /// <example>0.3</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Input { get; set; }
+        public double Input { get; set; } = default!;
 
         /// <summary>
         /// Example: 0.3
@@ -46,7 +46,7 @@ namespace Together
         /// <example>0.3</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double Output { get; set; }
+        public double Output { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

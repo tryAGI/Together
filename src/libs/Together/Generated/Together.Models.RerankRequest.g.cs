@@ -18,7 +18,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> Documents { get; set; }
+        public global::Together.OneOf<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>> Documents { get; set; } = default!;
 
         /// <summary>
         /// The model to be used for the rerank request.  [See all of Together AI's rerank models](https://docs.together.ai/docs/serverless-models#rerank-models)<br/>
@@ -28,7 +28,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RerankRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.RerankRequestModel?, string> Model { get; set; }
+        public global::Together.AnyOf<global::Together.RerankRequestModel?, string> Model { get; set; } = default!;
 
         /// <summary>
         /// The search query to be used for ranking.<br/>
@@ -37,7 +37,7 @@ namespace Together
         /// <example>What animals can I find near Peru?</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Query { get; set; }
+        public string Query { get; set; } = default!;
 
         /// <summary>
         /// List of keys in the JSON Object document to rank by. Defaults to use all supplied keys for ranking.<br/>

@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages_running")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MessagesRunning { get; set; }
+        public int MessagesRunning { get; set; } = default!;
 
         /// <summary>
         /// Number of jobs waiting to be claimed by a worker
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("messages_waiting")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MessagesWaiting { get; set; }
+        public int MessagesWaiting { get; set; } = default!;
 
         /// <summary>
         /// Total number of active jobs (waiting + running)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_jobs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int TotalJobs { get; set; }
+        public int TotalJobs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -15,14 +15,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required object? Data { get; set; }
+        public object? Data { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("errors")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.OneOf<string, object>> Errors { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.OneOf<string, object>> Errors { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

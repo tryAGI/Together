@@ -21,7 +21,7 @@ namespace Together
         /// <example>2x_nvidia_a100_80gb_sxm</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `hardware`.
@@ -35,21 +35,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EndpointPricing Pricing { get; set; }
+        public global::Together.EndpointPricing Pricing { get; set; } = default!;
 
         /// <summary>
         /// Detailed specifications of a hardware configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("specs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.HardwareSpec Specs { get; set; }
+        public global::Together.HardwareSpec Specs { get; set; } = default!;
 
         /// <summary>
         /// Timestamp of when the hardware status was last updated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime UpdatedAt { get; set; }
+        public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

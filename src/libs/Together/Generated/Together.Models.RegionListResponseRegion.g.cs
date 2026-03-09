@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("driver_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> DriverVersions { get; set; }
+        public global::System.Collections.Generic.IList<string> DriverVersions { get; set; } = default!;
 
         /// <summary>
         /// Identifiable name of the region.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// List of supported identifiable gpus available in the region.

@@ -15,7 +15,7 @@ namespace Together
         /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float End { get; set; }
+        public float End { get; set; } = default!;
 
         /// <summary>
         /// Unique identifier for the segment<br/>
@@ -24,7 +24,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Id { get; set; }
+        public int Id { get; set; } = default!;
 
         /// <summary>
         /// Start time of the segment in seconds<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Start { get; set; }
+        public float Start { get; set; } = default!;
 
         /// <summary>
         /// The text content of the segment<br/>
@@ -42,7 +42,7 @@ namespace Together
         /// <example>Hello, world!</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

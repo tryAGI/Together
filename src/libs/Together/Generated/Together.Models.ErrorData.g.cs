@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ErrorDataError Error { get; set; }
+        public global::Together.ErrorDataError Error { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

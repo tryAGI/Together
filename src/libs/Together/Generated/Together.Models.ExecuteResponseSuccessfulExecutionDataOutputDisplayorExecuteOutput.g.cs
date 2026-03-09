@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputData Data { get; set; }
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputData Data { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType Type { get; set; }
+        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType Type { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

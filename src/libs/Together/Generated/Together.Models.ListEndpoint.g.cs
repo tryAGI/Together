@@ -15,7 +15,7 @@ namespace Together
         /// <example>2024-02-28T21:34:35.4440000+00:00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime CreatedAt { get; set; }
+        public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// Unique identifier for the endpoint<br/>
@@ -24,7 +24,7 @@ namespace Together
         /// <example>endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The model deployed on this endpoint<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>allenai/OLMo-7B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// System name for the endpoint<br/>
@@ -42,7 +42,7 @@ namespace Together
         /// <example>allenai/OLMo-7B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `endpoint`.
@@ -58,7 +58,7 @@ namespace Together
         /// <example>together</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("owner")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Owner { get; set; }
+        public string Owner { get; set; } = default!;
 
         /// <summary>
         /// Current state of the endpoint<br/>
@@ -68,7 +68,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ListEndpointStateJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ListEndpointState State { get; set; }
+        public global::Together.ListEndpointState State { get; set; } = default!;
 
         /// <summary>
         /// The type of endpoint<br/>
@@ -78,7 +78,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ListEndpointTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ListEndpointType Type { get; set; }
+        public global::Together.ListEndpointType Type { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

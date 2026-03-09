@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("models")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Models { get; set; }
+        public global::System.Collections.Generic.IList<string> Models { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

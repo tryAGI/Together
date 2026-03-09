@@ -25,63 +25,63 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_learning_rate")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MaxLearningRate { get; set; }
+        public double MaxLearningRate { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of training epochs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_num_epochs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxNumEpochs { get; set; }
+        public int MaxNumEpochs { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of evaluations.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_num_evals")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MaxNumEvals { get; set; }
+        public int MaxNumEvals { get; set; } = default!;
 
         /// <summary>
         /// Whether to merge the output LoRA.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("merge_output_lora")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool MergeOutputLora { get; set; }
+        public bool MergeOutputLora { get; set; } = default!;
 
         /// <summary>
         /// Minimum learning rate.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_learning_rate")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MinLearningRate { get; set; }
+        public double MinLearningRate { get; set; } = default!;
 
         /// <summary>
         /// The name of the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public string ModelName { get; set; } = default!;
 
         /// <summary>
         /// Whether the model supports reasoning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_reasoning")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool SupportsReasoning { get; set; }
+        public bool SupportsReasoning { get; set; } = default!;
 
         /// <summary>
         /// Whether the model supports tool/function calling.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool SupportsTools { get; set; }
+        public bool SupportsTools { get; set; } = default!;
 
         /// <summary>
         /// Whether the model supports vision/multimodal inputs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_vision")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool SupportsVision { get; set; }
+        public bool SupportsVision { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

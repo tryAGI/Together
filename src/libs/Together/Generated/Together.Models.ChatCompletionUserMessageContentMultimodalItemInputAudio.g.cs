@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudio InputAudio { get; set; }
+        public global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudio InputAudio { get; set; } = default!;
 
         /// <summary>
         /// 

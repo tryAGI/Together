@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cost")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Cost { get; set; }
+        public int Cost { get; set; } = default!;
 
         /// <summary>
         /// URL hosting the generated video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VideoUrl { get; set; }
+        public string VideoUrl { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

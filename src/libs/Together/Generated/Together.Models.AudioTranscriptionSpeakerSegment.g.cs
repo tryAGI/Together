@@ -15,7 +15,7 @@ namespace Together
         /// <example>30.02</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float End { get; set; }
+        public float End { get; set; } = default!;
 
         /// <summary>
         /// Unique identifier for the speaker segment<br/>
@@ -24,7 +24,7 @@ namespace Together
         /// <example>1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Id { get; set; }
+        public int Id { get; set; } = default!;
 
         /// <summary>
         /// The speaker identifier<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>SPEAKER_00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SpeakerId { get; set; }
+        public string SpeakerId { get; set; } = default!;
 
         /// <summary>
         /// Start time of the speaker segment in seconds<br/>
@@ -42,7 +42,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Start { get; set; }
+        public float Start { get; set; } = default!;
 
         /// <summary>
         /// The full text spoken by this speaker in this segment<br/>
@@ -51,14 +51,14 @@ namespace Together
         /// <example>Hello, how are you doing today?</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Text { get; set; }
+        public string Text { get; set; } = default!;
 
         /// <summary>
         /// Array of words spoken by this speaker in this segment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("words")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> Words { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> Words { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

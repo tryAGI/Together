@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionToolFunction Function { get; set; }
+        public global::Together.ChatCompletionToolFunction Function { get; set; } = default!;
 
         /// <summary>
         /// 

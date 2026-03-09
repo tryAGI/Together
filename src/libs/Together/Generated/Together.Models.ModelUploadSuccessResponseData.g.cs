@@ -14,7 +14,7 @@ namespace Together
         /// <example>job-a15dad11-8d8e-4007-97c5-a211304de284</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("job_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string JobId { get; set; }
+        public string JobId { get; set; } = default!;
 
         /// <summary>
         /// Example: model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7
@@ -22,7 +22,7 @@ namespace Together
         /// <example>model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelId { get; set; }
+        public string ModelId { get; set; } = default!;
 
         /// <summary>
         /// Example: necolinehubner/Qwen2.5-72B-Instruct
@@ -30,7 +30,7 @@ namespace Together
         /// <example>necolinehubner/Qwen2.5-72B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public string ModelName { get; set; } = default!;
 
         /// <summary>
         /// Example: huggingface
@@ -38,7 +38,7 @@ namespace Together
         /// <example>huggingface</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelSource { get; set; }
+        public string ModelSource { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("success")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Success { get; set; }
+        public bool Success { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

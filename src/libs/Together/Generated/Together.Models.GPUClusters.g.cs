@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("clusters")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.GPUClusterInfo> Clusters { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GPUClusterInfo> Clusters { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

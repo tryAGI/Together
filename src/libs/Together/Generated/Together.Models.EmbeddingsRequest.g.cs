@@ -17,7 +17,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; }
+        public global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; } = default!;
 
         /// <summary>
         /// The name of the embedding model to use.  [See all of Together AI's embedding models](https://docs.together.ai/docs/serverless-models#embedding-models)<br/>
@@ -27,7 +27,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.EmbeddingsRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> Model { get; set; }
+        public global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> Model { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

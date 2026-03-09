@@ -27,7 +27,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlLossTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLossType Type { get; set; } = global::Together.RlLossType.LossTypeUnspecified;
+        public global::Together.RlLossType Type { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

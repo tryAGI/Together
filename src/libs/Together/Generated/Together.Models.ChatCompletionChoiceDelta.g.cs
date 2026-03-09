@@ -33,7 +33,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChoiceDeltaRoleJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionChoiceDeltaRole Role { get; set; }
+        public global::Together.ChatCompletionChoiceDeltaRole Role { get; set; } = default!;
 
         /// <summary>
         /// 

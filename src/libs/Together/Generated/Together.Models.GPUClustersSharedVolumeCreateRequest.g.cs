@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("region")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Region { get; set; }
+        public string Region { get; set; } = default!;
 
         /// <summary>
         /// Volume size in whole tebibytes (TiB).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeTib { get; set; }
+        public int SizeTib { get; set; } = default!;
 
         /// <summary>
         /// Customizable name of the volume to create.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VolumeName { get; set; }
+        public string VolumeName { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

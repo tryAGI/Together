@@ -64,7 +64,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Guid Id { get; set; }
+        public global::System.Guid Id { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -162,7 +162,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FinetuneJobStatus Status { get; set; }
+        public global::Together.FinetuneJobStatus Status { get; set; } = default!;
 
         /// <summary>
         /// 

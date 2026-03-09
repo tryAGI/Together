@@ -45,7 +45,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// Freeform model output, populated when the job reaches done status. Contents are model-specific.
@@ -64,7 +64,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RequestId { get; set; }
+        public string RequestId { get; set; } = default!;
 
         /// <summary>
         /// Number of times this job has been retried. Workers set a claim<br/>
@@ -82,7 +82,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.QueueJobStatusResponseStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.QueueJobStatusResponseStatus Status { get; set; }
+        public global::Together.QueueJobStatusResponseStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Non-fatal messages about the request (e.g. deprecation notices)

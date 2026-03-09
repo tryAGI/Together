@@ -13,28 +13,28 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CheckpointType { get; set; }
+        public string CheckpointType { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CreatedAt { get; set; }
+        public string CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Path { get; set; }
+        public string Path { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("step")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Step { get; set; }
+        public int Step { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

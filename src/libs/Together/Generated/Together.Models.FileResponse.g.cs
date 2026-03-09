@@ -18,28 +18,28 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("FileType")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FileType FileType { get; set; } = global::Together.FileType.Jsonl;
+        public global::Together.FileType FileType { get; set; } = default!;
 
         /// <summary>
         /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Processed")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Processed { get; set; }
+        public bool Processed { get; set; } = default!;
 
         /// <summary>
         /// The number of bytes in the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Bytes { get; set; }
+        public int Bytes { get; set; } = default!;
 
         /// <summary>
         /// The timestamp when the file was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedAt { get; set; }
+        public int CreatedAt { get; set; } = default!;
 
         /// <summary>
         /// The name of the file as it was uploaded.<br/>
@@ -48,14 +48,14 @@ namespace Together
         /// <example>my_file.jsonl</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Filename { get; set; }
+        public string Filename { get; set; } = default!;
 
         /// <summary>
         /// ID of the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `file`.
@@ -72,7 +72,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FilePurposeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FilePurpose Purpose { get; set; }
+        public global::Together.FilePurpose Purpose { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -56,7 +56,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.CreateDeploymentRequestGpuType GpuType { get; set; }
+        public global::Together.CreateDeploymentRequestGpuType GpuType { get; set; } = default!;
 
         /// <summary>
         /// HealthCheckPath is the HTTP path for health checks (e.g., "/health"). If set, the platform will check this endpoint to determine container health
@@ -69,7 +69,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Image { get; set; }
+        public string Image { get; set; } = default!;
 
         /// <summary>
         /// MaxReplicas is the maximum number of container instances that can be scaled up to. If not set, will be set to MinReplicas
@@ -94,7 +94,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic

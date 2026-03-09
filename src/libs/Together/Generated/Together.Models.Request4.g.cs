@@ -50,7 +50,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.RequestModel?, string> Model { get; set; }
+        public global::Together.AnyOf<global::Together.RequestModel?, string> Model { get; set; } = default!;
 
         /// <summary>
         /// Number of image results to generate.<br/>
@@ -80,7 +80,7 @@ namespace Together
         /// <example>cat floating in space, cinematic</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string Prompt { get; set; } = default!;
 
         /// <summary>
         /// An array of image URLs that guide the overall appearance and style of the generated image. These reference images influence the visual characteristics consistently across the generation.

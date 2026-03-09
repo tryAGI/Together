@@ -15,7 +15,7 @@ namespace Together
         /// <example>meta-llama/Meta-Llama-3-8B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BaseModel { get; set; }
+        public string BaseModel { get; set; } = default!;
 
         /// <summary>
         /// Checkpoint ID to use for the training session<br/>

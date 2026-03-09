@@ -14,7 +14,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_lr_ratio")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MinLrRatio { get; set; }
+        public float MinLrRatio { get; set; } = default!;
 
         /// <summary>
         /// Number or fraction of cycles for the cosine learning rate scheduler<br/>
@@ -22,7 +22,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_cycles")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float NumCycles { get; set; }
+        public float NumCycles { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

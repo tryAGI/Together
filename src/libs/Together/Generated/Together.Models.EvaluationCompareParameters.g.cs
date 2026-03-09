@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string InputDataFilePath { get; set; }
+        public string InputDataFilePath { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
+        public global::Together.EvaluationJudgeModelConfig Judge { get; set; } = default!;
 
         /// <summary>
         /// 

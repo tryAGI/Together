@@ -16,7 +16,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("parameters")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters> Parameters { get; set; }
+        public global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters> Parameters { get; set; } = default!;
 
         /// <summary>
         /// The type of evaluation to perform<br/>
@@ -26,7 +26,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationTypedRequestTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EvaluationTypedRequestType Type { get; set; }
+        public global::Together.EvaluationTypedRequestType Type { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

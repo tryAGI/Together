@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("loss_inputs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLossInputs LossInputs { get; set; }
+        public global::Together.RlLossInputs LossInputs { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlModelInput ModelInput { get; set; }
+        public global::Together.RlModelInput ModelInput { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

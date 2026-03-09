@@ -15,7 +15,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Input { get; set; }
+        public string Input { get; set; } = default!;
 
         /// <summary>
         /// Language of input text.<br/>
@@ -33,7 +33,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.AudioSpeechRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string> Model { get; set; }
+        public global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string> Model { get; set; } = default!;
 
         /// <summary>
         /// Audio encoding of response<br/>
@@ -70,7 +70,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Voice { get; set; }
+        public string Voice { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

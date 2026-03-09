@@ -13,28 +13,28 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeTib { get; set; }
+        public int SizeTib { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VolumeId { get; set; }
+        public string VolumeId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VolumeName { get; set; }
+        public string VolumeName { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

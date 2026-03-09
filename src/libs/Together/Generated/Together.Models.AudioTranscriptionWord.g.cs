@@ -15,7 +15,7 @@ namespace Together
         /// <example>0.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float End { get; set; }
+        public float End { get; set; } = default!;
 
         /// <summary>
         /// The speaker id for the word (only when diarize is enabled)<br/>
@@ -32,7 +32,7 @@ namespace Together
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Start { get; set; }
+        public float Start { get; set; } = default!;
 
         /// <summary>
         /// The word<br/>
@@ -41,7 +41,7 @@ namespace Together
         /// <example>Hello</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("word")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Word { get; set; }
+        public string Word { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

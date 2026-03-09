@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeTib { get; set; }
+        public int SizeTib { get; set; } = default!;
 
         /// <summary>
         /// Deployment status of the volume.
@@ -21,21 +21,21 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClustersSharedVolumeStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClustersSharedVolumeStatus Status { get; set; }
+        public global::Together.GPUClustersSharedVolumeStatus Status { get; set; } = default!;
 
         /// <summary>
         /// ID of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VolumeId { get; set; }
+        public string VolumeId { get; set; } = default!;
 
         /// <summary>
         /// Provided name of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string VolumeName { get; set; }
+        public string VolumeName { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

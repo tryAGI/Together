@@ -27,7 +27,7 @@ namespace Together
         /// <example>meta-llama/Llama-3-70B-Instruct-Turbo</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// Source of the judge model.
@@ -35,7 +35,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationJudgeModelConfigModelSourceJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.EvaluationJudgeModelConfigModelSource ModelSource { get; set; }
+        public global::Together.EvaluationJudgeModelConfigModelSource ModelSource { get; set; } = default!;
 
         /// <summary>
         /// System prompt template for the judge<br/>
@@ -44,7 +44,7 @@ namespace Together
         /// <example>Imagine you are a helpful assistant</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_template")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SystemTemplate { get; set; }
+        public string SystemTemplate { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

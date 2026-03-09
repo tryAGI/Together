@@ -25,7 +25,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("train_on_inputs")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.TrainingMethodSFTTrainOnInputs?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.OneOf<bool?, global::Together.TrainingMethodSFTTrainOnInputs?> TrainOnInputs { get; set; } = global::Together.TrainingMethodSFTTrainOnInputs.Auto;
+        public global::Together.OneOf<bool?, global::Together.TrainingMethodSFTTrainOnInputs?> TrainOnInputs { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

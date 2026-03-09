@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RerankResponseResultDocument Document { get; set; }
+        public global::Together.RerankResponseResultDocument Document { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Index { get; set; }
+        public int Index { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("relevance_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double RelevanceScore { get; set; }
+        public double RelevanceScore { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

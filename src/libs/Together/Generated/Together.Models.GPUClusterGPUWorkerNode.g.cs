@@ -13,56 +13,56 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("host_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string HostName { get; set; }
+        public string HostName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("memory_gib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MemoryGib { get; set; }
+        public double MemoryGib { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("networks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Networks { get; set; }
+        public global::System.Collections.Generic.IList<string> Networks { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("node_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string NodeId { get; set; }
+        public string NodeId { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("node_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string NodeName { get; set; }
+        public string NodeName { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_cpu_cores")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NumCpuCores { get; set; }
+        public int NumCpuCores { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_gpus")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int NumGpus { get; set; }
+        public int NumGpus { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Status { get; set; }
+        public string Status { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

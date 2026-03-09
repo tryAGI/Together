@@ -23,7 +23,7 @@ namespace Together
         /// <example>salesforce/turboranker-0.8-3778-6328</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `rerank`.
@@ -38,7 +38,7 @@ namespace Together
         /// <example>[{"document":{"text":"{\u0022title\u0022:\u0022Llama\u0022,\u0022text\u0022:\u0022The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era.\u0022}"},"index":0,"relevance_score":0.29980177813003117}, {"document":{"text":"{\u0022title\u0022:\u0022Guanaco\u0022,\u0022text\u0022:\u0022The guanaco is a camelid native to South America, closely related to the llama. Guanacos are one of two wild South American camelids; the other species is the vicu\u00F1a, which lives at higher elevations.\u0022}"},"index":2,"relevance_score":0.2752447527354349}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.RerankResponseResult> Results { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RerankResponseResult> Results { get; set; } = default!;
 
         /// <summary>
         /// 

@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The request ID returned from the submit endpoint
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string RequestId { get; set; }
+        public string RequestId { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

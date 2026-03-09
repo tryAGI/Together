@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delta")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.ChatCompletionChunkChoiceDelta Delta { get; set; }
+        public global::Together.ChatCompletionChunkChoiceDelta Delta { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -21,14 +21,14 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.FinishReason FinishReason { get; set; }
+        public global::Together.FinishReason FinishReason { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Index { get; set; }
+        public int Index { get; set; } = default!;
 
         /// <summary>
         /// 

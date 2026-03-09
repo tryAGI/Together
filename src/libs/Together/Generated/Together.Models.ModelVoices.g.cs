@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// List of available voices for the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.ModelVoicesVoice> Voices { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ModelVoicesVoice> Voices { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

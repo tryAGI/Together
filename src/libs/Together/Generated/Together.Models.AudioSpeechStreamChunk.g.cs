@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("b64")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string B64 { get; set; }
+        public string B64 { get; set; } = default!;
 
         /// <summary>
         /// Example: cartesia/sonic
@@ -21,7 +21,7 @@ namespace Together
         /// <example>cartesia/sonic</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Model { get; set; }
+        public string Model { get; set; } = default!;
 
         /// <summary>
         /// The object type, which is always `audio.tts.chunk`.

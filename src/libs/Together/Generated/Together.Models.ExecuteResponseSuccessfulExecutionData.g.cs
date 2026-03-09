@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("outputs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.OutputsItem> Outputs { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.OutputsItem> Outputs { get; set; } = default!;
 
         /// <summary>
         /// Identifier of the current session. Used to make follow-up calls.<br/>
@@ -22,7 +22,7 @@ namespace Together
         /// <example>ses_abcDEF123</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("session_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string SessionId { get; set; }
+        public string SessionId { get; set; } = default!;
 
         /// <summary>
         /// Status of the execution. Currently only supports success.
