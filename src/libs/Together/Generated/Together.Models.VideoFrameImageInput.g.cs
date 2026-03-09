@@ -11,6 +11,13 @@ namespace Together
     public sealed partial class VideoFrameImageInput
     {
         /// <summary>
+        /// URL path to hosted image that is used for a frame
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_image")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string InputImage { get; set; }
+
+        /// <summary>
         /// Optional param to specify where to insert the frame. If this is omitted, the following heuristics are applied:<br/>
         /// - frame_images size is one, frame is first.<br/>
         /// - If size is two, frames are first and last.<br/>
@@ -21,13 +28,6 @@ namespace Together
         public global::Together.AnyOf<double?, global::Together.VideoFrameImageInputFrame?>? Frame { get; set; }
 
         /// <summary>
-        /// URL path to hosted image that is used for a frame
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input_image")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string InputImage { get; set; } = default!;
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,14 +36,14 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoFrameImageInput" /> class.
         /// </summary>
+        /// <param name="inputImage">
+        /// URL path to hosted image that is used for a frame
+        /// </param>
         /// <param name="frame">
         /// Optional param to specify where to insert the frame. If this is omitted, the following heuristics are applied:<br/>
         /// - frame_images size is one, frame is first.<br/>
         /// - If size is two, frames are first and last.<br/>
         /// - If size is larger, frames are first, last and evenly spaced between.
-        /// </param>
-        /// <param name="inputImage">
-        /// URL path to hosted image that is used for a frame
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
