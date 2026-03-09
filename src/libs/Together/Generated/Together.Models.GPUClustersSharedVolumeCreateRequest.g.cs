@@ -9,25 +9,25 @@ namespace Together
     public sealed partial class GPUClustersSharedVolumeCreateRequest
     {
         /// <summary>
-        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
+        /// Customizable name of the volume to create.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("region")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Region { get; set; } = default!;
+        public required string VolumeName { get; set; }
 
         /// <summary>
         /// Volume size in whole tebibytes (TiB).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int SizeTib { get; set; } = default!;
+        public required int SizeTib { get; set; }
 
         /// <summary>
-        /// Customizable name of the volume to create.
+        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("region")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string VolumeName { get; set; } = default!;
+        public required string Region { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,26 +38,26 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="GPUClustersSharedVolumeCreateRequest" /> class.
         /// </summary>
-        /// <param name="region">
-        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
+        /// <param name="volumeName">
+        /// Customizable name of the volume to create.
         /// </param>
         /// <param name="sizeTib">
         /// Volume size in whole tebibytes (TiB).
         /// </param>
-        /// <param name="volumeName">
-        /// Customizable name of the volume to create.
+        /// <param name="region">
+        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GPUClustersSharedVolumeCreateRequest(
-            string region,
+            string volumeName,
             int sizeTib,
-            string volumeName)
+            string region)
         {
-            this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
-            this.SizeTib = sizeTib;
             this.VolumeName = volumeName ?? throw new global::System.ArgumentNullException(nameof(volumeName));
+            this.SizeTib = sizeTib;
+            this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
         }
 
         /// <summary>

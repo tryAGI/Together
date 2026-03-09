@@ -15,12 +15,6 @@ namespace Together
         public global::Together.EvaluationScoreResultsAggregatedScores? AggregatedScores { get; set; }
 
         /// <summary>
-        /// number of failed samples generated from model
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("failed_samples")]
-        public double? FailedSamples { get; set; }
-
-        /// <summary>
         /// Number of failed generations.<br/>
         /// Example: 0
         /// </summary>
@@ -29,18 +23,24 @@ namespace Together
         public double? GenerationFailCount { get; set; }
 
         /// <summary>
-        /// number of invalid scores generated from model
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("invalid_score_count")]
-        public double? InvalidScoreCount { get; set; }
-
-        /// <summary>
         /// Number of failed judge generations<br/>
         /// Example: 0
         /// </summary>
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge_fail_count")]
         public double? JudgeFailCount { get; set; }
+
+        /// <summary>
+        /// number of invalid scores generated from model
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("invalid_score_count")]
+        public double? InvalidScoreCount { get; set; }
+
+        /// <summary>
+        /// number of failed samples generated from model
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("failed_samples")]
+        public double? FailedSamples { get; set; }
 
         /// <summary>
         /// Data File ID<br/>
@@ -60,19 +60,19 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationScoreResults" /> class.
         /// </summary>
         /// <param name="aggregatedScores"></param>
-        /// <param name="failedSamples">
-        /// number of failed samples generated from model
-        /// </param>
         /// <param name="generationFailCount">
         /// Number of failed generations.<br/>
+        /// Example: 0
+        /// </param>
+        /// <param name="judgeFailCount">
+        /// Number of failed judge generations<br/>
         /// Example: 0
         /// </param>
         /// <param name="invalidScoreCount">
         /// number of invalid scores generated from model
         /// </param>
-        /// <param name="judgeFailCount">
-        /// Number of failed judge generations<br/>
-        /// Example: 0
+        /// <param name="failedSamples">
+        /// number of failed samples generated from model
         /// </param>
         /// <param name="resultFileId">
         /// Data File ID<br/>
@@ -83,17 +83,17 @@ namespace Together
 #endif
         public EvaluationScoreResults(
             global::Together.EvaluationScoreResultsAggregatedScores? aggregatedScores,
-            double? failedSamples,
             double? generationFailCount,
-            double? invalidScoreCount,
             double? judgeFailCount,
+            double? invalidScoreCount,
+            double? failedSamples,
             string? resultFileId)
         {
             this.AggregatedScores = aggregatedScores;
-            this.FailedSamples = failedSamples;
             this.GenerationFailCount = generationFailCount;
-            this.InvalidScoreCount = invalidScoreCount;
             this.JudgeFailCount = judgeFailCount;
+            this.InvalidScoreCount = invalidScoreCount;
+            this.FailedSamples = failedSamples;
             this.ResultFileId = resultFileId;
         }
 
