@@ -115,8 +115,7 @@ namespace Together
         /// The object type, which is always `deployment`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeploymentResponseItemObjectJsonConverter))]
-        public global::Together.DeploymentResponseItemObject? Object { get; set; }
+        public string? Object { get; set; }
 
         /// <summary>
         /// Port is the container port that the deployment exposes
@@ -266,7 +265,7 @@ namespace Together
             double? memory,
             int? minReplicas,
             string? name,
-            global::Together.DeploymentResponseItemObject? @object,
+            string? @object,
             int? port,
             int? readyReplicas,
             global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>? replicaEvents,

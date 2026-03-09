@@ -9,12 +9,6 @@ namespace Together
     public sealed partial class RlOptimStepBody
     {
         /// <summary>
-        /// AdamW optimizer parameters
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adamw_params")]
-        public global::Together.RlAdamWOptimizerParams? AdamwParams { get; set; }
-
-        /// <summary>
         /// Learning rate for this step.<br/>
         /// Default Value: 0.0001<br/>
         /// Example: 0.0001
@@ -22,6 +16,12 @@ namespace Together
         /// <example>0.0001</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
         public float? LearningRate { get; set; }
+
+        /// <summary>
+        /// AdamW optimizer parameters
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adamw_params")]
+        public global::Together.RlAdamWOptimizerParams? AdamwParams { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,23 +32,23 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlOptimStepBody" /> class.
         /// </summary>
-        /// <param name="adamwParams">
-        /// AdamW optimizer parameters
-        /// </param>
         /// <param name="learningRate">
         /// Learning rate for this step.<br/>
         /// Default Value: 0.0001<br/>
         /// Example: 0.0001
         /// </param>
+        /// <param name="adamwParams">
+        /// AdamW optimizer parameters
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlOptimStepBody(
-            global::Together.RlAdamWOptimizerParams? adamwParams,
-            float? learningRate)
+            float? learningRate,
+            global::Together.RlAdamWOptimizerParams? adamwParams)
         {
-            this.AdamwParams = adamwParams;
             this.LearningRate = learningRate;
+            this.AdamwParams = adamwParams;
         }
 
         /// <summary>

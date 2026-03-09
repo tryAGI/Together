@@ -295,37 +295,37 @@ namespace Together
         /// The ID of the endpoint to update<br/>
         /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
         /// </param>
-        /// <param name="autoscaling">
-        /// Configuration for automatic scaling of replicas based on demand.
-        /// </param>
         /// <param name="displayName">
         /// A human-readable name for the endpoint<br/>
         /// Example: My Llama3 70b endpoint
-        /// </param>
-        /// <param name="inactiveTimeout">
-        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
-        /// Example: 60
         /// </param>
         /// <param name="state">
         /// The desired state of the endpoint<br/>
         /// Example: STARTED
         /// </param>
+        /// <param name="autoscaling">
+        /// New autoscaling configuration for the endpoint
+        /// </param>
+        /// <param name="inactiveTimeout">
+        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
+        /// Example: 60
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> UpdateEndpointAsync(
             string endpointId,
-            global::Together.Autoscaling? autoscaling = default,
             string? displayName = default,
-            int? inactiveTimeout = default,
             global::Together.UpdateEndpointRequestState? state = default,
+            global::Together.Autoscaling? autoscaling = default,
+            int? inactiveTimeout = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.UpdateEndpointRequest
             {
-                Autoscaling = autoscaling,
                 DisplayName = displayName,
-                InactiveTimeout = inactiveTimeout,
                 State = state,
+                Autoscaling = autoscaling,
+                InactiveTimeout = inactiveTimeout,
             };
 
             return await UpdateEndpointAsync(
