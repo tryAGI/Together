@@ -9,37 +9,26 @@ namespace Together
     public sealed partial class FileResponse
     {
         /// <summary>
-        /// The type of the file<br/>
-        /// Default Value: jsonl<br/>
-        /// Example: jsonl
+        /// ID of the file.
         /// </summary>
-        /// <default>global::Together.FileType.Jsonl</default>
-        /// <example>jsonl</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("FileType")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.FileType FileType { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
-        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
+        /// The object type, which is always `file`.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("Processed")]
+        /// <default>"file"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Processed { get; set; } = default!;
-
-        /// <summary>
-        /// The number of bytes in the file.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("bytes")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int Bytes { get; set; } = default!;
+        public required string Object { get; set; } = "file";
 
         /// <summary>
         /// The timestamp when the file was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int CreatedAt { get; set; } = default!;
+        public required int CreatedAt { get; set; }
 
         /// <summary>
         /// The name of the file as it was uploaded.<br/>
@@ -48,31 +37,43 @@ namespace Together
         /// <example>my_file.jsonl</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Filename { get; set; } = default!;
+        public required string Filename { get; set; }
 
         /// <summary>
-        /// ID of the file.
+        /// The number of bytes in the file.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required int Bytes { get; set; }
 
         /// <summary>
-        /// The object type, which is always `file`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileResponseObjectJsonConverter))]
-        public global::Together.FileResponseObject Object { get; set; }
-
-        /// <summary>
-        /// The purpose of the file<br/>
+        /// The purpose of the file as it was uploaded.<br/>
         /// Example: fine-tune
         /// </summary>
         /// <example>fine-tune</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("purpose")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FilePurposeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.FilePurpose Purpose { get; set; } = default!;
+        public required global::Together.FilePurpose Purpose { get; set; }
+
+        /// <summary>
+        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("Processed")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool Processed { get; set; }
+
+        /// <summary>
+        /// The type of the file such as `jsonl`, `csv`, or `parquet`.<br/>
+        /// Default Value: jsonl<br/>
+        /// Example: jsonl
+        /// </summary>
+        /// <default>global::Together.FileType.Jsonl</default>
+        /// <example>jsonl</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("FileType")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.FileType FileType { get; set; } = global::Together.FileType.Jsonl;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -83,16 +84,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="FileResponse" /> class.
         /// </summary>
-        /// <param name="fileType">
-        /// The type of the file<br/>
-        /// Default Value: jsonl<br/>
-        /// Example: jsonl
+        /// <param name="id">
+        /// ID of the file.
         /// </param>
-        /// <param name="processed">
-        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
-        /// </param>
-        /// <param name="bytes">
-        /// The number of bytes in the file.
+        /// <param name="object">
+        /// The object type, which is always `file`.
         /// </param>
         /// <param name="createdAt">
         /// The timestamp when the file was created.
@@ -101,37 +97,42 @@ namespace Together
         /// The name of the file as it was uploaded.<br/>
         /// Example: my_file.jsonl
         /// </param>
-        /// <param name="id">
-        /// ID of the file.
-        /// </param>
-        /// <param name="object">
-        /// The object type, which is always `file`.
+        /// <param name="bytes">
+        /// The number of bytes in the file.
         /// </param>
         /// <param name="purpose">
-        /// The purpose of the file<br/>
+        /// The purpose of the file as it was uploaded.<br/>
         /// Example: fine-tune
+        /// </param>
+        /// <param name="processed">
+        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
+        /// </param>
+        /// <param name="fileType">
+        /// The type of the file such as `jsonl`, `csv`, or `parquet`.<br/>
+        /// Default Value: jsonl<br/>
+        /// Example: jsonl
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FileResponse(
-            global::Together.FileType fileType,
-            bool processed,
-            int bytes,
+            string id,
+            string @object,
             int createdAt,
             string filename,
-            string id,
+            int bytes,
             global::Together.FilePurpose purpose,
-            global::Together.FileResponseObject @object)
+            bool processed,
+            global::Together.FileType fileType)
         {
-            this.FileType = fileType;
-            this.Processed = processed;
-            this.Bytes = bytes;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.CreatedAt = createdAt;
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Bytes = bytes;
             this.Purpose = purpose;
-            this.Object = @object;
+            this.Processed = processed;
+            this.FileType = fileType;
         }
 
         /// <summary>

@@ -9,18 +9,18 @@ namespace Together
     public sealed partial class RegionListResponseRegion
     {
         /// <summary>
-        /// List of supported identifiable driver versions available in the region.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("driver_versions")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> DriverVersions { get; set; } = default!;
-
-        /// <summary>
         /// Identifiable name of the region.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
+
+        /// <summary>
+        /// List of supported identifiable driver versions available in the region.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("driver_versions")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<string> DriverVersions { get; set; }
 
         /// <summary>
         /// List of supported identifiable gpus available in the region.
@@ -37,11 +37,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionListResponseRegion" /> class.
         /// </summary>
-        /// <param name="driverVersions">
-        /// List of supported identifiable driver versions available in the region.
-        /// </param>
         /// <param name="name">
         /// Identifiable name of the region.
+        /// </param>
+        /// <param name="driverVersions">
+        /// List of supported identifiable driver versions available in the region.
         /// </param>
         /// <param name="supportedInstanceTypes">
         /// List of supported identifiable gpus available in the region.
@@ -50,12 +50,12 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RegionListResponseRegion(
-            global::System.Collections.Generic.IList<string> driverVersions,
             string name,
+            global::System.Collections.Generic.IList<string> driverVersions,
             global::System.Collections.Generic.IList<string>? supportedInstanceTypes)
         {
-            this.DriverVersions = driverVersions ?? throw new global::System.ArgumentNullException(nameof(driverVersions));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.DriverVersions = driverVersions ?? throw new global::System.ArgumentNullException(nameof(driverVersions));
             this.SupportedInstanceTypes = supportedInstanceTypes;
         }
 

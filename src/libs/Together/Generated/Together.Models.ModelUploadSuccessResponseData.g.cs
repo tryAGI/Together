@@ -14,15 +14,7 @@ namespace Together
         /// <example>job-a15dad11-8d8e-4007-97c5-a211304de284</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("job_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string JobId { get; set; } = default!;
-
-        /// <summary>
-        /// Example: model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7
-        /// </summary>
-        /// <example>model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelId { get; set; } = default!;
+        public required string JobId { get; set; }
 
         /// <summary>
         /// Example: necolinehubner/Qwen2.5-72B-Instruct
@@ -30,7 +22,15 @@ namespace Together
         /// <example>necolinehubner/Qwen2.5-72B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
+
+        /// <summary>
+        /// Example: model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7
+        /// </summary>
+        /// <example>model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ModelId { get; set; }
 
         /// <summary>
         /// Example: huggingface
@@ -38,7 +38,7 @@ namespace Together
         /// <example>huggingface</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelSource { get; set; } = default!;
+        public required string ModelSource { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -52,11 +52,11 @@ namespace Together
         /// <param name="jobId">
         /// Example: job-a15dad11-8d8e-4007-97c5-a211304de284
         /// </param>
-        /// <param name="modelId">
-        /// Example: model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7
-        /// </param>
         /// <param name="modelName">
         /// Example: necolinehubner/Qwen2.5-72B-Instruct
+        /// </param>
+        /// <param name="modelId">
+        /// Example: model-c0e32dfc-637e-47b2-bf4e-e9b2e58c9da7
         /// </param>
         /// <param name="modelSource">
         /// Example: huggingface
@@ -66,13 +66,13 @@ namespace Together
 #endif
         public ModelUploadSuccessResponseData(
             string jobId,
-            string modelId,
             string modelName,
+            string modelId,
             string modelSource)
         {
             this.JobId = jobId ?? throw new global::System.ArgumentNullException(nameof(jobId));
-            this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.ModelId = modelId ?? throw new global::System.ArgumentNullException(nameof(modelId));
             this.ModelSource = modelSource ?? throw new global::System.ArgumentNullException(nameof(modelSource));
         }
 

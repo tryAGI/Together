@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -11,9 +13,8 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
-        public global::Together.FinishReason? FinishReason { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("text")]
+        public string? Text { get; set; }
 
         /// <summary>
         /// 
@@ -24,8 +25,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
-        public global::Together.LogprobsPart? Logprobs { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public int? Seed { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
+        public global::Together.FinishReason? FinishReason { get; set; }
 
         /// <summary>
         /// 
@@ -36,14 +44,9 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
-        public int? Seed { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("text")]
-        public string? Text { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverter<object, global::Together.LogprobsPart>))]
+        public global::Together.AllOf<object, global::Together.LogprobsPart>? Logprobs { get; set; }
 
         /// <summary>
         /// Top log probabilities for the tokens.
@@ -60,12 +63,12 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionChoicesDataItem" /> class.
         /// </summary>
-        /// <param name="finishReason"></param>
-        /// <param name="index"></param>
-        /// <param name="logprobs"></param>
-        /// <param name="message"></param>
-        /// <param name="seed"></param>
         /// <param name="text"></param>
+        /// <param name="index"></param>
+        /// <param name="seed"></param>
+        /// <param name="finishReason"></param>
+        /// <param name="message"></param>
+        /// <param name="logprobs"></param>
         /// <param name="topLogprobs">
         /// Top log probabilities for the tokens.
         /// </param>
@@ -73,20 +76,20 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionChoicesDataItem(
-            global::Together.FinishReason? finishReason,
-            int? index,
-            global::Together.LogprobsPart? logprobs,
-            global::Together.ChatCompletionMessage? message,
-            int? seed,
             string? text,
+            int? index,
+            int? seed,
+            global::Together.FinishReason? finishReason,
+            global::Together.ChatCompletionMessage? message,
+            global::Together.AllOf<object, global::Together.LogprobsPart>? logprobs,
             global::System.Collections.Generic.Dictionary<string, double>? topLogprobs)
         {
-            this.FinishReason = finishReason;
-            this.Index = index;
-            this.Logprobs = logprobs;
-            this.Message = message;
-            this.Seed = seed;
             this.Text = text;
+            this.Index = index;
+            this.Seed = seed;
+            this.FinishReason = finishReason;
+            this.Message = message;
+            this.Logprobs = logprobs;
             this.TopLogprobs = topLogprobs;
         }
 
