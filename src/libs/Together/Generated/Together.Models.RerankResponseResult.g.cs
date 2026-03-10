@@ -11,23 +11,23 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("document")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.RerankResponseResultDocument Document { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Index { get; set; } = default!;
+        public required int Index { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("relevance_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double RelevanceScore { get; set; } = default!;
+        public required double RelevanceScore { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RerankResponseResultDocument Document { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,20 +38,20 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RerankResponseResult" /> class.
         /// </summary>
-        /// <param name="document"></param>
         /// <param name="index"></param>
         /// <param name="relevanceScore"></param>
+        /// <param name="document"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RerankResponseResult(
-            global::Together.RerankResponseResultDocument document,
             int index,
-            double relevanceScore)
+            double relevanceScore,
+            global::Together.RerankResponseResultDocument document)
         {
-            this.Document = document ?? throw new global::System.ArgumentNullException(nameof(document));
             this.Index = index;
             this.RelevanceScore = relevanceScore;
+            this.Document = document ?? throw new global::System.ArgumentNullException(nameof(document));
         }
 
         /// <summary>

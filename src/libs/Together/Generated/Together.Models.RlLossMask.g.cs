@@ -15,9 +15,10 @@ namespace Together
         /// <example>[0, 0, 1]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Data { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> Data { get; set; }
 
         /// <summary>
+        /// Data type of the integer array (must be D_TYPE_INT64)<br/>
         /// Default Value: D_TYPE_UNSPECIFIED
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dtype")]
@@ -38,6 +39,7 @@ namespace Together
         /// Example: [0, 0, 1]
         /// </param>
         /// <param name="dtype">
+        /// Data type of the integer array (must be D_TYPE_INT64)<br/>
         /// Default Value: D_TYPE_UNSPECIFIED
         /// </param>
 #if NET7_0_OR_GREATER

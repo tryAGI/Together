@@ -243,24 +243,24 @@ namespace Together
         /// <summary>
         /// Create an evaluation job
         /// </summary>
-        /// <param name="parameters">
-        /// Type-specific parameters for the evaluation
-        /// </param>
         /// <param name="type">
         /// The type of evaluation to perform<br/>
         /// Example: classify
         /// </param>
+        /// <param name="parameters">
+        /// Type-specific parameters for the evaluation
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.EvaluationResponse> CreateEvaluationJobAsync(
-            global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters> parameters,
             global::Together.EvaluationTypedRequestType type,
+            global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters> parameters,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.EvaluationTypedRequest
             {
-                Parameters = parameters,
                 Type = type,
+                Parameters = parameters,
             };
 
             return await CreateEvaluationJobAsync(
