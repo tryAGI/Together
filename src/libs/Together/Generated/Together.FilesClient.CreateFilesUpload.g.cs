@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateFilesUploadArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request request);
+            global::Together.Request2 request);
         partial void PrepareCreateFilesUploadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request request);
+            global::Together.Request2 request);
         partial void ProcessCreateFilesUploadResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,7 +30,7 @@ namespace Together
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
 
-            global::Together.Request request,
+            global::Together.Request2 request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -69,15 +69,9 @@ namespace Together
                 }
             }
             using var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: __contentFile,
-                name: "\"file\"",
-                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-            if (__contentFile.Headers.ContentDisposition != null)
-            {
-                __contentFile.Headers.ContentDisposition.FileNameStar = null;
-            }
+                content: new global::System.Net.Http.StringContent($"{request.Purpose.ToValueString()}"),
+                name: "\"purpose\"");
             __httpRequestContent.Add(
                 content: new global::System.Net.Http.StringContent($"{request.FileName}"),
                 name: "\"file_name\"");
@@ -88,9 +82,15 @@ namespace Together
                     content: new global::System.Net.Http.StringContent($"{request.FileType?.ToValueString()}"),
                     name: "\"file_type\"");
             }
+            var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
             __httpRequestContent.Add(
-                content: new global::System.Net.Http.StringContent($"{request.Purpose.ToValueString()}"),
-                name: "\"purpose\"");
+                content: __contentFile,
+                name: "\"file\"",
+                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+            if (__contentFile.Headers.ContentDisposition != null)
+            {
+                __contentFile.Headers.ContentDisposition.FileNameStar = null;
+            }
             __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
@@ -112,6 +112,43 @@ namespace Together
             ProcessCreateFilesUploadResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
+            // Internal Server Error
+            if ((int)__response.StatusCode == 500)
+            {
+                string? __content_500 = null;
+                global::System.Exception? __exception_500 = null;
+                global::Together.ErrorData? __value_500 = null;
+                try
+                {
+                    if (ReadResponseAsString)
+                    {
+                        __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_500 = global::Together.ErrorData.FromJson(__content_500, JsonSerializerContext);
+                    }
+                    else
+                    {
+                        var __contentStream_500 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                        __value_500 = await global::Together.ErrorData.FromJsonStreamAsync(__contentStream_500, JsonSerializerContext).ConfigureAwait(false);
+                    }
+                }
+                catch (global::System.Exception __ex)
+                {
+                    __exception_500 = __ex;
+                }
+
+                throw new global::Together.ApiException<global::Together.ErrorData>(
+                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_500,
+                    statusCode: __response.StatusCode)
+                {
+                    ResponseBody = __content_500,
+                    ResponseObject = __value_500,
+                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                        __response.Headers,
+                        h => h.Key,
+                        h => h.Value),
+                };
+            }
             // Bad Request
             if ((int)__response.StatusCode == 400)
             {
@@ -180,43 +217,6 @@ namespace Together
                 {
                     ResponseBody = __content_401,
                     ResponseObject = __value_401,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
-            // Internal Server Error
-            if ((int)__response.StatusCode == 500)
-            {
-                string? __content_500 = null;
-                global::System.Exception? __exception_500 = null;
-                global::Together.ErrorData? __value_500 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_500 = global::Together.ErrorData.FromJson(__content_500, JsonSerializerContext);
-                    }
-                    else
-                    {
-                        var __contentStream_500 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                        __value_500 = await global::Together.ErrorData.FromJsonStreamAsync(__contentStream_500, JsonSerializerContext).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_500 = __ex;
-                }
-
-                throw new global::Together.ApiException<global::Together.ErrorData>(
-                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_500,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_500,
-                    ResponseObject = __value_500,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,
@@ -300,11 +300,9 @@ namespace Together
         /// Upload a file<br/>
         /// Upload a file with specified purpose, file name, and file type.
         /// </summary>
-        /// <param name="file">
-        /// The content of the file being uploaded
-        /// </param>
-        /// <param name="filename">
-        /// The content of the file being uploaded
+        /// <param name="purpose">
+        /// The purpose of the file<br/>
+        /// Example: fine-tune
         /// </param>
         /// <param name="fileName">
         /// The name of the file being uploaded<br/>
@@ -315,27 +313,29 @@ namespace Together
         /// Default Value: jsonl<br/>
         /// Example: jsonl
         /// </param>
-        /// <param name="purpose">
-        /// The purpose of the file<br/>
-        /// Example: fine-tune
+        /// <param name="file">
+        /// The content of the file being uploaded
+        /// </param>
+        /// <param name="filename">
+        /// The content of the file being uploaded
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
+            global::Together.FilePurpose purpose,
+            string fileName,
             byte[] file,
             string filename,
-            string fileName,
-            global::Together.FilePurpose purpose,
             global::Together.FileType? fileType = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request
+            var __request = new global::Together.Request2
             {
-                File = file,
-                Filename = filename,
+                Purpose = purpose,
                 FileName = fileName,
                 FileType = fileType,
-                Purpose = purpose,
+                File = file,
+                Filename = filename,
             };
 
             return await CreateFilesUploadAsync(

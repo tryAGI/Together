@@ -171,23 +171,23 @@ namespace Together
         /// Update a shared volume.<br/>
         /// Update the configuration of an existing shared volume.
         /// </summary>
-        /// <param name="sizeTib">
-        /// Size of the volume in whole tebibytes (TiB).
-        /// </param>
         /// <param name="volumeId">
         /// ID of the volume to update.
+        /// </param>
+        /// <param name="sizeTib">
+        /// Size of the volume in whole tebibytes (TiB).
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceUpdateAsync(
-            int? sizeTib = default,
             string? volumeId = default,
+            int? sizeTib = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.GPUClustersSharedVolumeUpdateRequest
             {
-                SizeTib = sizeTib,
                 VolumeId = volumeId,
+                SizeTib = sizeTib,
             };
 
             return await SharedVolumeServiceUpdateAsync(
