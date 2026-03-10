@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Path { get; set; } = default!;
+        public required string Path { get; set; }
 
         /// <summary>
         /// The strength of the LoRA's influence. Most LoRA's recommend a value of 1.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scale")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double Scale { get; set; } = default!;
+        public required double Scale { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

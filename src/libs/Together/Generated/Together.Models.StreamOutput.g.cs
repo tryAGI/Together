@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Data { get; set; } = default!;
+        public required string Data { get; set; }
 
         /// <summary>
         /// 
@@ -21,7 +21,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.StreamOutputTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.StreamOutputType Type { get; set; } = default!;
+        public required global::Together.StreamOutputType Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

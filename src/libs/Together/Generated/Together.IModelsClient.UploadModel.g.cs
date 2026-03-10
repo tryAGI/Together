@@ -20,22 +20,6 @@ namespace Together
         /// Upload a custom model or adapter<br/>
         /// Upload a custom model or adapter from Hugging Face or S3
         /// </summary>
-        /// <param name="baseModel">
-        /// The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.<br/>
-        /// Example: Qwen/Qwen2.5-72B-Instruct
-        /// </param>
-        /// <param name="description">
-        /// A description of your model<br/>
-        /// Example: Finetuned Qwen2.5-72B-Instruct by Unsloth
-        /// </param>
-        /// <param name="hfToken">
-        /// Hugging Face token (if uploading from Hugging Face)<br/>
-        /// Example: hf_examplehuggingfacetoken
-        /// </param>
-        /// <param name="loraModel">
-        /// The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.<br/>
-        /// Example: my_username/Qwen2.5-72B-Instruct-lora
-        /// </param>
         /// <param name="modelName">
         /// The name to give to your uploaded model<br/>
         /// Example: Qwen2.5-72B-Instruct
@@ -49,16 +33,32 @@ namespace Together
         /// Default Value: model<br/>
         /// Example: model
         /// </param>
+        /// <param name="hfToken">
+        /// Hugging Face token (if uploading from Hugging Face)<br/>
+        /// Example: hf_examplehuggingfacetoken
+        /// </param>
+        /// <param name="description">
+        /// A description of your model<br/>
+        /// Example: Finetuned Qwen2.5-72B-Instruct by Unsloth
+        /// </param>
+        /// <param name="baseModel">
+        /// The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.<br/>
+        /// Example: Qwen/Qwen2.5-72B-Instruct
+        /// </param>
+        /// <param name="loraModel">
+        /// The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.<br/>
+        /// Example: my_username/Qwen2.5-72B-Instruct-lora
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
             string modelName,
             string modelSource,
-            string? baseModel = default,
-            string? description = default,
-            string? hfToken = default,
-            string? loraModel = default,
             global::Together.ModelUploadRequestModelType? modelType = default,
+            string? hfToken = default,
+            string? description = default,
+            string? baseModel = default,
+            string? loraModel = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
