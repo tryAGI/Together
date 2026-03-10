@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sessions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.SessionListResponseVariant2DataSession> Sessions { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::Together.SessionListResponseVariant2DataSession> Sessions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

@@ -11,16 +11,16 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("function")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.ChatCompletionToolFunction Function { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionToolTypeJsonConverter))]
+        public global::Together.ChatCompletionToolType Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionToolTypeJsonConverter))]
-        public global::Together.ChatCompletionToolType Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("function")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.ChatCompletionToolFunction Function { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,8 +31,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionTool" /> class.
         /// </summary>
-        /// <param name="function"></param>
         /// <param name="type"></param>
+        /// <param name="function"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
