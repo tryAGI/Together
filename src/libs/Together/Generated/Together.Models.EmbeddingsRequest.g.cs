@@ -11,15 +11,6 @@ namespace Together
     public sealed partial class EmbeddingsRequest
     {
         /// <summary>
-        /// Example: Our solar system orbits the Milky Way galaxy at about 515,000 mph
-        /// </summary>
-        /// <example>Our solar system orbits the Milky Way galaxy at about 515,000 mph</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; } = default!;
-
-        /// <summary>
         /// The name of the embedding model to use.  [See all of Together AI's embedding models](https://docs.together.ai/docs/serverless-models#embedding-models)<br/>
         /// Example: togethercomputer/m2-bert-80M-8k-retrieval
         /// </summary>
@@ -27,7 +18,16 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.EmbeddingsRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> Model { get; set; } = default!;
+        public required global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> Model { get; set; }
+
+        /// <summary>
+        /// Example: Our solar system orbits the Milky Way galaxy at about 515,000 mph
+        /// </summary>
+        /// <example>Our solar system orbits the Milky Way galaxy at about 515,000 mph</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> Input { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,22 +38,22 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingsRequest" /> class.
         /// </summary>
-        /// <param name="input">
-        /// Example: Our solar system orbits the Milky Way galaxy at about 515,000 mph
-        /// </param>
         /// <param name="model">
         /// The name of the embedding model to use.  [See all of Together AI's embedding models](https://docs.together.ai/docs/serverless-models#embedding-models)<br/>
         /// Example: togethercomputer/m2-bert-80M-8k-retrieval
+        /// </param>
+        /// <param name="input">
+        /// Example: Our solar system orbits the Milky Way galaxy at about 515,000 mph
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EmbeddingsRequest(
-            global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> input,
-            global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> model)
+            global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> model,
+            global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> input)
         {
-            this.Input = input;
             this.Model = model;
+            this.Input = input;
         }
 
         /// <summary>

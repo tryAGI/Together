@@ -9,32 +9,6 @@ namespace Together
     public sealed partial class RlTrainingSession
     {
         /// <summary>
-        /// Base model used for the training session<br/>
-        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
-        /// </summary>
-        /// <example>meta-llama/Meta-Llama-3-8B-Instruct</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
-        public string? BaseModel { get; set; }
-
-        /// <summary>
-        /// Checkpoint ID to use for the training session
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_id")]
-        public string? CheckpointId { get; set; }
-
-        /// <summary>
-        /// Timestamp when the training session was created
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public global::System.DateTime? CreatedAt { get; set; }
-
-        /// <summary>
-        /// LoRA adapter configuration
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
-        public global::Together.RlLoraConfig? LoraConfig { get; set; }
-
-        /// <summary>
         /// ID of the training session
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("session_id")]
@@ -49,6 +23,20 @@ namespace Together
         public global::Together.RlTrainingSessionStatus? Status { get; set; }
 
         /// <summary>
+        /// Base model used for the training session<br/>
+        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
+        /// </summary>
+        /// <example>meta-llama/Meta-Llama-3-8B-Instruct</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
+        public string? BaseModel { get; set; }
+
+        /// <summary>
+        /// Checkpoint ID to use for the training session
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_id")]
+        public string? CheckpointId { get; set; }
+
+        /// <summary>
         /// Current training step<br/>
         /// Default Value: 0
         /// </summary>
@@ -56,10 +44,22 @@ namespace Together
         public string? Step { get; set; }
 
         /// <summary>
+        /// Timestamp when the training session was created
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        public global::System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
         /// Timestamp when the training session was last updated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         public global::System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// LoRA adapter configuration
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
+        public global::Together.RlLoraConfig? LoraConfig { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,19 +70,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlTrainingSession" /> class.
         /// </summary>
-        /// <param name="baseModel">
-        /// Base model used for the training session<br/>
-        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
-        /// </param>
-        /// <param name="checkpointId">
-        /// Checkpoint ID to use for the training session
-        /// </param>
-        /// <param name="createdAt">
-        /// Timestamp when the training session was created
-        /// </param>
-        /// <param name="loraConfig">
-        /// LoRA adapter configuration
-        /// </param>
         /// <param name="sessionId">
         /// ID of the training session
         /// </param>
@@ -90,34 +77,47 @@ namespace Together
         /// Status of the training session<br/>
         /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
         /// </param>
+        /// <param name="baseModel">
+        /// Base model used for the training session<br/>
+        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
+        /// </param>
+        /// <param name="checkpointId">
+        /// Checkpoint ID to use for the training session
+        /// </param>
         /// <param name="step">
         /// Current training step<br/>
         /// Default Value: 0
         /// </param>
+        /// <param name="createdAt">
+        /// Timestamp when the training session was created
+        /// </param>
         /// <param name="updatedAt">
         /// Timestamp when the training session was last updated
+        /// </param>
+        /// <param name="loraConfig">
+        /// LoRA adapter configuration
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingSession(
-            string? baseModel,
-            string? checkpointId,
-            global::System.DateTime? createdAt,
-            global::Together.RlLoraConfig? loraConfig,
             string? sessionId,
             global::Together.RlTrainingSessionStatus? status,
+            string? baseModel,
+            string? checkpointId,
             string? step,
-            global::System.DateTime? updatedAt)
+            global::System.DateTime? createdAt,
+            global::System.DateTime? updatedAt,
+            global::Together.RlLoraConfig? loraConfig)
         {
-            this.BaseModel = baseModel;
-            this.CheckpointId = checkpointId;
-            this.CreatedAt = createdAt;
-            this.LoraConfig = loraConfig;
             this.SessionId = sessionId;
             this.Status = status;
+            this.BaseModel = baseModel;
+            this.CheckpointId = checkpointId;
             this.Step = step;
+            this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
+            this.LoraConfig = loraConfig;
         }
 
         /// <summary>

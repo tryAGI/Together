@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `text.completion`.
     /// </summary>
-    public enum CompletionResponseObject
+    public sealed partial class CompletionResponseObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        TextCompletion,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class CompletionResponseObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this CompletionResponseObject value)
-        {
-            return value switch
-            {
-                CompletionResponseObject.TextCompletion => "text.completion",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static CompletionResponseObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "text.completion" => CompletionResponseObject.TextCompletion,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }
