@@ -9,18 +9,19 @@ namespace Together
     public sealed partial class ListHardwareResponse
     {
         /// <summary>
+        /// The object type, which is always `list`.
+        /// </summary>
+        /// <default>"list"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Object { get; set; } = "list";
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.HardwareWithStatus> Data { get; set; } = default!;
-
-        /// <summary>
-        /// The object type, which is always `list`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ListHardwareResponseObjectJsonConverter))]
-        public global::Together.ListHardwareResponseObject Object { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.HardwareWithStatus> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,19 +32,19 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ListHardwareResponse" /> class.
         /// </summary>
-        /// <param name="data"></param>
         /// <param name="object">
         /// The object type, which is always `list`.
         /// </param>
+        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ListHardwareResponse(
-            global::System.Collections.Generic.IList<global::Together.HardwareWithStatus> data,
-            global::Together.ListHardwareResponseObject @object)
+            string @object,
+            global::System.Collections.Generic.IList<global::Together.HardwareWithStatus> data)
         {
+            this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
-            this.Object = @object;
         }
 
         /// <summary>

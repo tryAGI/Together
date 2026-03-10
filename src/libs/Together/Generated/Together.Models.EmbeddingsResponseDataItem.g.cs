@@ -9,25 +9,26 @@ namespace Together
     public sealed partial class EmbeddingsResponseDataItem
     {
         /// <summary>
+        /// The object type, which is always `embedding`.
+        /// </summary>
+        /// <default>"embedding"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Object { get; set; } = "embedding";
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<double> Embedding { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<double> Embedding { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Index { get; set; } = default!;
-
-        /// <summary>
-        /// The object type, which is always `embedding`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EmbeddingsResponseDataItemObjectJsonConverter))]
-        public global::Together.EmbeddingsResponseDataItemObject Object { get; set; }
+        public required int Index { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,22 +39,22 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingsResponseDataItem" /> class.
         /// </summary>
-        /// <param name="embedding"></param>
-        /// <param name="index"></param>
         /// <param name="object">
         /// The object type, which is always `embedding`.
         /// </param>
+        /// <param name="embedding"></param>
+        /// <param name="index"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EmbeddingsResponseDataItem(
+            string @object,
             global::System.Collections.Generic.IList<double> embedding,
-            int index,
-            global::Together.EmbeddingsResponseDataItemObject @object)
+            int index)
         {
+            this.Object = @object ?? throw new global::System.ArgumentNullException(nameof(@object));
             this.Embedding = embedding ?? throw new global::System.ArgumentNullException(nameof(embedding));
             this.Index = index;
-            this.Object = @object;
         }
 
         /// <summary>

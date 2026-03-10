@@ -9,18 +9,18 @@ namespace Together
     public sealed partial class RlTrainingSample
     {
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("loss_inputs")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.RlLossInputs LossInputs { get; set; } = default!;
-
-        /// <summary>
-        /// 
+        /// Model input
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_input")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.RlModelInput ModelInput { get; set; } = default!;
+        public required global::Together.RlModelInput ModelInput { get; set; }
+
+        /// <summary>
+        /// Loss function inputs
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("loss_inputs")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlLossInputs LossInputs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,17 +31,21 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlTrainingSample" /> class.
         /// </summary>
-        /// <param name="lossInputs"></param>
-        /// <param name="modelInput"></param>
+        /// <param name="modelInput">
+        /// Model input
+        /// </param>
+        /// <param name="lossInputs">
+        /// Loss function inputs
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingSample(
-            global::Together.RlLossInputs lossInputs,
-            global::Together.RlModelInput modelInput)
+            global::Together.RlModelInput modelInput,
+            global::Together.RlLossInputs lossInputs)
         {
-            this.LossInputs = lossInputs ?? throw new global::System.ArgumentNullException(nameof(lossInputs));
             this.ModelInput = modelInput ?? throw new global::System.ArgumentNullException(nameof(modelInput));
+            this.LossInputs = lossInputs ?? throw new global::System.ArgumentNullException(nameof(lossInputs));
         }
 
         /// <summary>
