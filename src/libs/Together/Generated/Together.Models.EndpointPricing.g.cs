@@ -9,13 +9,11 @@ namespace Together
     public sealed partial class EndpointPricing
     {
         /// <summary>
-        /// Cost per minute of endpoint uptime in cents<br/>
-        /// Example: 5.42
+        /// Cost per minute of endpoint uptime in cents
         /// </summary>
-        /// <example>5.42</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float CentsPerMinute { get; set; } = default!;
+        public required float CentsPerMinute { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,8 +25,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="EndpointPricing" /> class.
         /// </summary>
         /// <param name="centsPerMinute">
-        /// Cost per minute of endpoint uptime in cents<br/>
-        /// Example: 5.42
+        /// Cost per minute of endpoint uptime in cents
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
