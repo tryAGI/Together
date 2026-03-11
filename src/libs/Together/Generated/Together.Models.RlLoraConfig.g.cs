@@ -9,6 +9,15 @@ namespace Together
     public sealed partial class RlLoraConfig
     {
         /// <summary>
+        /// Rank of the LoRA adapter<br/>
+        /// Default Value: 8<br/>
+        /// Example: 8
+        /// </summary>
+        /// <example>8</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("rank")]
+        public long? Rank { get; set; }
+
+        /// <summary>
         /// Alpha of the LoRA adapter<br/>
         /// Default Value: 16<br/>
         /// Example: 16
@@ -27,15 +36,6 @@ namespace Together
         public float? Dropout { get; set; }
 
         /// <summary>
-        /// Rank of the LoRA adapter<br/>
-        /// Default Value: 8<br/>
-        /// Example: 8
-        /// </summary>
-        /// <example>8</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("rank")]
-        public long? Rank { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,6 +44,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlLoraConfig" /> class.
         /// </summary>
+        /// <param name="rank">
+        /// Rank of the LoRA adapter<br/>
+        /// Default Value: 8<br/>
+        /// Example: 8
+        /// </param>
         /// <param name="alpha">
         /// Alpha of the LoRA adapter<br/>
         /// Default Value: 16<br/>
@@ -54,22 +59,17 @@ namespace Together
         /// Default Value: 0.05<br/>
         /// Example: 0.05
         /// </param>
-        /// <param name="rank">
-        /// Rank of the LoRA adapter<br/>
-        /// Default Value: 8<br/>
-        /// Example: 8
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlLoraConfig(
+            long? rank,
             long? alpha,
-            float? dropout,
-            long? rank)
+            float? dropout)
         {
+            this.Rank = rank;
             this.Alpha = alpha;
             this.Dropout = dropout;
-            this.Rank = rank;
         }
 
         /// <summary>

@@ -9,6 +9,12 @@ namespace Together
     public sealed partial class EvaluationCompareResults
     {
         /// <summary>
+        /// Total number of samples compared
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_samples")]
+        public int? NumSamples { get; set; }
+
+        /// <summary>
         /// Number of times model A won
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("A_wins")]
@@ -43,12 +49,6 @@ namespace Together
         public double? JudgeFailCount { get; set; }
 
         /// <summary>
-        /// Total number of samples compared
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("num_samples")]
-        public int? NumSamples { get; set; }
-
-        /// <summary>
         /// Data File ID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_file_id")]
@@ -63,6 +63,9 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationCompareResults" /> class.
         /// </summary>
+        /// <param name="numSamples">
+        /// Total number of samples compared
+        /// </param>
         /// <param name="aWins">
         /// Number of times model A won
         /// </param>
@@ -80,9 +83,6 @@ namespace Together
         /// Number of failed judge generations<br/>
         /// Example: 0
         /// </param>
-        /// <param name="numSamples">
-        /// Total number of samples compared
-        /// </param>
         /// <param name="resultFileId">
         /// Data File ID
         /// </param>
@@ -90,20 +90,20 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationCompareResults(
+            int? numSamples,
             int? aWins,
             int? bWins,
             int? ties,
             double? generationFailCount,
             double? judgeFailCount,
-            int? numSamples,
             string? resultFileId)
         {
+            this.NumSamples = numSamples;
             this.AWins = aWins;
             this.BWins = bWins;
             this.Ties = ties;
             this.GenerationFailCount = generationFailCount;
             this.JudgeFailCount = judgeFailCount;
-            this.NumSamples = numSamples;
             this.ResultFileId = resultFileId;
         }
 
