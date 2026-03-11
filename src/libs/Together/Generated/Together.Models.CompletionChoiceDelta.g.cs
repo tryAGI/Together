@@ -11,15 +11,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        public string? Content { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_id")]
+        public int? TokenId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Together.CompletionChoiceDeltaFunctionCall? FunctionCall { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CompletionChoiceDeltaRoleJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.CompletionChoiceDeltaRole Role { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content")]
+        public string? Content { get; set; }
 
         /// <summary>
         /// 
@@ -30,22 +37,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CompletionChoiceDeltaRoleJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.CompletionChoiceDeltaRole Role { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("token_id")]
-        public int? TokenId { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
         public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::Together.CompletionChoiceDeltaFunctionCall? FunctionCall { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -56,25 +56,25 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="CompletionChoiceDelta" /> class.
         /// </summary>
+        /// <param name="tokenId"></param>
+        /// <param name="role"></param>
         /// <param name="content"></param>
         /// <param name="reasoning"></param>
-        /// <param name="role"></param>
-        /// <param name="tokenId"></param>
         /// <param name="toolCalls"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CompletionChoiceDelta(
             global::Together.CompletionChoiceDeltaRole role,
+            int? tokenId,
             string? content,
             string? reasoning,
-            int? tokenId,
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls)
         {
             this.Role = role;
+            this.TokenId = tokenId;
             this.Content = content;
             this.Reasoning = reasoning;
-            this.TokenId = tokenId;
             this.ToolCalls = toolCalls;
         }
 

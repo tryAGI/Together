@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -15,10 +17,11 @@ namespace Together
         public global::System.Collections.Generic.IList<string>? Args { get; set; }
 
         /// <summary>
-        /// Autoscaling configuration as key-value pairs. Example: {"metric": "QueueBacklogPerWorker", "target": "10"} to scale based on queue backlog
+        /// Autoscaling configuration for the deployment. Omit or set to null to disable autoscaling
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("autoscaling")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Autoscaling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>))]
+        public global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? Autoscaling { get; set; }
 
         /// <summary>
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
@@ -130,7 +133,7 @@ namespace Together
         /// Args overrides the container's CMD. Provide as an array of arguments (e.g., ["python", "app.py"])
         /// </param>
         /// <param name="autoscaling">
-        /// Autoscaling configuration as key-value pairs. Example: {"metric": "QueueBacklogPerWorker", "target": "10"} to scale based on queue backlog
+        /// Autoscaling configuration for the deployment. Omit or set to null to disable autoscaling
         /// </param>
         /// <param name="command">
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
@@ -185,7 +188,7 @@ namespace Together
 #endif
         public UpdateDeploymentRequest(
             global::System.Collections.Generic.IList<string>? args,
-            global::System.Collections.Generic.Dictionary<string, string>? autoscaling,
+            global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
             global::System.Collections.Generic.IList<string>? command,
             double? cpu,
             string? description,

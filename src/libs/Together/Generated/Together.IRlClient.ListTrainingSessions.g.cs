@@ -9,7 +9,7 @@ namespace Together
         /// Lists all training sessions.
         /// </summary>
         /// <param name="status">
-        /// Status of the training session<br/>
+        /// Status of the training sessions to list<br/>
         /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
         /// </param>
         /// <param name="limit">

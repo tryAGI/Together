@@ -18,8 +18,7 @@ namespace Together
         /// The object type, which is always `list`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeploymentListResponseObjectJsonConverter))]
-        public global::Together.DeploymentListResponseObject? Object { get; set; }
+        public string? Object { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,7 +40,7 @@ namespace Together
 #endif
         public DeploymentListResponse(
             global::System.Collections.Generic.IList<global::Together.DeploymentResponseItem>? data,
-            global::Together.DeploymentListResponseObject? @object)
+            string? @object)
         {
             this.Data = data;
             this.Object = @object;
