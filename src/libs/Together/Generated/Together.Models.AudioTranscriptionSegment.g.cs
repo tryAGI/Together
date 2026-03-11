@@ -9,31 +9,31 @@ namespace Together
     public sealed partial class AudioTranscriptionSegment
     {
         /// <summary>
-        /// End time of the segment in seconds<br/>
-        /// Example: 3.5
-        /// </summary>
-        /// <example>3.5</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("end")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public float End { get; set; } = default!;
-
-        /// <summary>
         /// Unique identifier for the segment<br/>
         /// Example: 0
         /// </summary>
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Id { get; set; } = default!;
+        public required int Id { get; set; }
 
         /// <summary>
         /// Start time of the segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float Start { get; set; } = default!;
+        public required float Start { get; set; }
+
+        /// <summary>
+        /// End time of the segment in seconds<br/>
+        /// Example: 3.5
+        /// </summary>
+        /// <example>3.5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float End { get; set; }
 
         /// <summary>
         /// The text content of the segment<br/>
@@ -42,7 +42,7 @@ namespace Together
         /// <example>Hello, world!</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -53,17 +53,17 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioTranscriptionSegment" /> class.
         /// </summary>
-        /// <param name="end">
-        /// End time of the segment in seconds<br/>
-        /// Example: 3.5
-        /// </param>
         /// <param name="id">
         /// Unique identifier for the segment<br/>
         /// Example: 0
         /// </param>
         /// <param name="start">
         /// Start time of the segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
+        /// </param>
+        /// <param name="end">
+        /// End time of the segment in seconds<br/>
+        /// Example: 3.5
         /// </param>
         /// <param name="text">
         /// The text content of the segment<br/>
@@ -73,14 +73,14 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranscriptionSegment(
-            float end,
             int id,
             float start,
+            float end,
             string text)
         {
-            this.End = end;
             this.Id = id;
             this.Start = start;
+            this.End = end;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
         }
 

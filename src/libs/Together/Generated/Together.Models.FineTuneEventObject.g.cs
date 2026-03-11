@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `fine-tune-event`.
     /// </summary>
-    public enum FineTuneEventObject
+    public sealed partial class FineTuneEventObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        FineTuneEvent,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class FineTuneEventObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this FineTuneEventObject value)
-        {
-            return value switch
-            {
-                FineTuneEventObject.FineTuneEvent => "fine-tune-event",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static FineTuneEventObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "fine-tune-event" => FineTuneEventObject.FineTuneEvent,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }

@@ -17,9 +17,9 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Together.ChatCompletionAssistantMessageParamFunctionCall? FunctionCall { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleJsonConverter))]
+        public global::Together.ChatCompletionAssistantMessageParamRole Role { get; set; }
 
         /// <summary>
         /// 
@@ -30,15 +30,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleJsonConverter))]
-        public global::Together.ChatCompletionAssistantMessageParamRole Role { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
+        public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
-        public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::Together.ChatCompletionAssistantMessageParamFunctionCall? FunctionCall { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,21 +50,21 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionAssistantMessageParam" /> class.
         /// </summary>
         /// <param name="content"></param>
-        /// <param name="name"></param>
         /// <param name="role"></param>
+        /// <param name="name"></param>
         /// <param name="toolCalls"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionAssistantMessageParam(
             string? content,
-            string? name,
             global::Together.ChatCompletionAssistantMessageParamRole role,
+            string? name,
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls)
         {
             this.Content = content;
-            this.Name = name;
             this.Role = role;
+            this.Name = name;
             this.ToolCalls = toolCalls;
         }
 

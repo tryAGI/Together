@@ -9,22 +9,18 @@ namespace Together
     public sealed partial class Autoscaling
     {
         /// <summary>
-        /// The maximum number of replicas to scale up to under load<br/>
-        /// Example: 5
+        /// The minimum number of replicas to maintain, even when there is no load
         /// </summary>
-        /// <example>5</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_replicas")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxReplicas { get; set; } = default!;
-
-        /// <summary>
-        /// The minimum number of replicas to maintain, even when there is no load<br/>
-        /// Example: 2
-        /// </summary>
-        /// <example>2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_replicas")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MinReplicas { get; set; } = default!;
+        public required int MinReplicas { get; set; }
+
+        /// <summary>
+        /// The maximum number of replicas to scale up to under load
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_replicas")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int MaxReplicas { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,23 +31,21 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="Autoscaling" /> class.
         /// </summary>
-        /// <param name="maxReplicas">
-        /// The maximum number of replicas to scale up to under load<br/>
-        /// Example: 5
-        /// </param>
         /// <param name="minReplicas">
-        /// The minimum number of replicas to maintain, even when there is no load<br/>
-        /// Example: 2
+        /// The minimum number of replicas to maintain, even when there is no load
+        /// </param>
+        /// <param name="maxReplicas">
+        /// The maximum number of replicas to scale up to under load
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Autoscaling(
-            int maxReplicas,
-            int minReplicas)
+            int minReplicas,
+            int maxReplicas)
         {
-            this.MaxReplicas = maxReplicas;
             this.MinReplicas = minReplicas;
+            this.MaxReplicas = maxReplicas;
         }
 
         /// <summary>
