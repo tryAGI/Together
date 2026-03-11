@@ -13,17 +13,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_args")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>))]
-        public global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>? LrSchedulerArgs { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.LRSchedulerLrSchedulerType LrSchedulerType { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.LRSchedulerLrSchedulerType LrSchedulerType { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_args")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>))]
+        public global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>? LrSchedulerArgs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,8 +34,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="LRScheduler" /> class.
         /// </summary>
-        /// <param name="lrSchedulerArgs"></param>
         /// <param name="lrSchedulerType"></param>
+        /// <param name="lrSchedulerArgs"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

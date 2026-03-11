@@ -40,8 +40,9 @@ namespace Together.JsonConverters
             {
             }
 
-            var result = new global::Together.ChatCompletionUserMessageContent(
+            var __value = new global::Together.ChatCompletionUserMessageContent(
                 value1,
+
                 value2
                 );
 
@@ -58,7 +59,7 @@ namespace Together.JsonConverters
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

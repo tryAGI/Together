@@ -9,13 +9,31 @@ namespace Together
     public sealed partial class AudioTranscriptionWord
     {
         /// <summary>
+        /// The word<br/>
+        /// Example: Hello
+        /// </summary>
+        /// <example>Hello</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Word { get; set; }
+
+        /// <summary>
+        /// Start time of the word in seconds<br/>
+        /// Example: 0.0
+        /// </summary>
+        /// <example>0.0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("start")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float Start { get; set; }
+
+        /// <summary>
         /// End time of the word in seconds<br/>
         /// Example: 0.5
         /// </summary>
         /// <example>0.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float End { get; set; } = default!;
+        public required float End { get; set; }
 
         /// <summary>
         /// The speaker id for the word (only when diarize is enabled)<br/>
@@ -26,24 +44,6 @@ namespace Together
         public string? SpeakerId { get; set; }
 
         /// <summary>
-        /// Start time of the word in seconds<br/>
-        /// Example: 0
-        /// </summary>
-        /// <example>0</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("start")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public float Start { get; set; } = default!;
-
-        /// <summary>
-        /// The word<br/>
-        /// Example: Hello
-        /// </summary>
-        /// <example>Hello</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("word")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Word { get; set; } = default!;
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -52,6 +52,14 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioTranscriptionWord" /> class.
         /// </summary>
+        /// <param name="word">
+        /// The word<br/>
+        /// Example: Hello
+        /// </param>
+        /// <param name="start">
+        /// Start time of the word in seconds<br/>
+        /// Example: 0.0
+        /// </param>
         /// <param name="end">
         /// End time of the word in seconds<br/>
         /// Example: 0.5
@@ -60,26 +68,18 @@ namespace Together
         /// The speaker id for the word (only when diarize is enabled)<br/>
         /// Example: SPEAKER_00
         /// </param>
-        /// <param name="start">
-        /// Start time of the word in seconds<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="word">
-        /// The word<br/>
-        /// Example: Hello
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranscriptionWord(
-            float end,
-            float start,
             string word,
+            float start,
+            float end,
             string? speakerId)
         {
-            this.End = end;
-            this.Start = start;
             this.Word = word ?? throw new global::System.ArgumentNullException(nameof(word));
+            this.Start = start;
+            this.End = end;
             this.SpeakerId = speakerId;
         }
 
