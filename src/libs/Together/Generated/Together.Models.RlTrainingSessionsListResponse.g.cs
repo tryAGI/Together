@@ -15,7 +15,7 @@ namespace Together
         public global::System.Collections.Generic.IList<global::Together.RlTrainingSession>? Data { get; set; }
 
         /// <summary>
-        /// 
+        /// Pagination metadata
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("meta")]
         public global::Together.RlListMeta? Meta { get; set; }
@@ -32,7 +32,9 @@ namespace Together
         /// <param name="data">
         /// List of training sessions
         /// </param>
-        /// <param name="meta"></param>
+        /// <param name="meta">
+        /// Pagination metadata
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

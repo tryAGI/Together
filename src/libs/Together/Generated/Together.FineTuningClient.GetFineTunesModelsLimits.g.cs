@@ -95,18 +95,18 @@ namespace Together
             {
                 string? __content_404 = null;
                 global::System.Exception? __exception_404 = null;
-                global::Together.Response41? __value_404 = null;
+                global::Together.Response42? __value_404 = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = global::Together.Response41.FromJson(__content_404, JsonSerializerContext);
+                        __value_404 = global::Together.Response42.FromJson(__content_404, JsonSerializerContext);
                     }
                     else
                     {
                         var __contentStream_404 = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = await global::Together.Response41.FromJsonStreamAsync(__contentStream_404, JsonSerializerContext).ConfigureAwait(false);
+                        __value_404 = await global::Together.Response42.FromJsonStreamAsync(__contentStream_404, JsonSerializerContext).ConfigureAwait(false);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -114,7 +114,7 @@ namespace Together
                     __exception_404 = __ex;
                 }
 
-                throw new global::Together.ApiException<global::Together.Response41>(
+                throw new global::Together.ApiException<global::Together.Response42>(
                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_404,
                     statusCode: __response.StatusCode)

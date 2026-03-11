@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `embedding`.
     /// </summary>
-    public enum EmbeddingsResponseDataItemObject
+    public sealed partial class EmbeddingsResponseDataItemObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        Embedding,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class EmbeddingsResponseDataItemObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this EmbeddingsResponseDataItemObject value)
-        {
-            return value switch
-            {
-                EmbeddingsResponseDataItemObject.Embedding => "embedding",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static EmbeddingsResponseDataItemObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "embedding" => EmbeddingsResponseDataItemObject.Embedding,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }

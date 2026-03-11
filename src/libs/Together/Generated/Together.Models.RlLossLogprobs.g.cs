@@ -15,9 +15,10 @@ namespace Together
         /// <example>[-1.2, -0.8]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<float> Data { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<float> Data { get; set; }
 
         /// <summary>
+        /// Data type of the float array (D_TYPE_FLOAT32 or D_TYPE_BFLOAT16)<br/>
         /// Default Value: D_TYPE_UNSPECIFIED
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dtype")]
@@ -38,6 +39,7 @@ namespace Together
         /// Example: [-1.2, -0.8]
         /// </param>
         /// <param name="dtype">
+        /// Data type of the float array (D_TYPE_FLOAT32 or D_TYPE_BFLOAT16)<br/>
         /// Default Value: D_TYPE_UNSPECIFIED
         /// </param>
 #if NET7_0_OR_GREATER
