@@ -13,28 +13,28 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Id { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("logprob")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public double Logprob { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("special")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public bool Special { get; set; } = default!;
+        public required int Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("logprob")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double Logprob { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("special")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool Special { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -46,22 +46,22 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionToken" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="text"></param>
         /// <param name="logprob"></param>
         /// <param name="special"></param>
-        /// <param name="text"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionToken(
             int id,
+            string text,
             double logprob,
-            bool special,
-            string text)
+            bool special)
         {
             this.Id = id;
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Logprob = logprob;
             this.Special = special;
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
         }
 
         /// <summary>

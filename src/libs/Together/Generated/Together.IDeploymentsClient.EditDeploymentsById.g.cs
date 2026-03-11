@@ -31,7 +31,7 @@ namespace Together
         /// Args overrides the container's CMD. Provide as an array of arguments (e.g., ["python", "app.py"])
         /// </param>
         /// <param name="autoscaling">
-        /// Autoscaling configuration as key-value pairs. Example: {"metric": "QueueBacklogPerWorker", "target": "10"} to scale based on queue backlog
+        /// Autoscaling configuration for the deployment. Omit or set to null to disable autoscaling
         /// </param>
         /// <param name="command">
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
@@ -86,7 +86,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> EditDeploymentsByIdAsync(
             string id,
             global::System.Collections.Generic.IList<string>? args = default,
-            global::System.Collections.Generic.Dictionary<string, string>? autoscaling = default,
+            global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling = default,
             global::System.Collections.Generic.IList<string>? command = default,
             double? cpu = default,
             string? description = default,

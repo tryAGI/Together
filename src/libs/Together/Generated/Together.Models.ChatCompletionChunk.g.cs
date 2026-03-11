@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -11,38 +13,23 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; } = default!;
+        public required string Id { get; set; }
+
+        /// <summary>
+        /// The object type, which is always `chat.completion.chunk`.
+        /// </summary>
+        /// <default>"chat.completion.chunk"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        public string Object { get; set; } = "chat.completion.chunk";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Created { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
-        /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
-        /// </summary>
-        /// <example>mistralai/Mixtral-8x7B-Instruct-v0.1</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Model { get; set; } = default!;
-
-        /// <summary>
-        /// The object type, which is always `chat.completion.chunk`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChunkObjectJsonConverter))]
-        public global::Together.ChatCompletionChunkObject Object { get; set; }
+        public required int Created { get; set; }
 
         /// <summary>
         /// 
@@ -51,10 +38,26 @@ namespace Together
         public string? SystemFingerprint { get; set; }
 
         /// <summary>
+        /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
+        /// </summary>
+        /// <example>mistralai/Mixtral-8x7B-Instruct-v0.1</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Model { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
-        public global::Together.UsageData? Usage { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>))]
+        public global::Together.AllOf<global::Together.UsageData, object>? Usage { get; set; }
 
         /// <summary>
         /// 
@@ -71,35 +74,35 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionChunk" /> class.
         /// </summary>
-        /// <param name="choices"></param>
-        /// <param name="created"></param>
         /// <param name="id"></param>
-        /// <param name="model">
-        /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
-        /// </param>
         /// <param name="object">
         /// The object type, which is always `chat.completion.chunk`.
         /// </param>
+        /// <param name="created"></param>
         /// <param name="systemFingerprint"></param>
+        /// <param name="model">
+        /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
+        /// </param>
+        /// <param name="choices"></param>
         /// <param name="usage"></param>
         /// <param name="warnings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionChunk(
-            global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> choices,
-            int created,
             string id,
+            int created,
             string model,
-            global::Together.ChatCompletionChunkObject @object,
+            global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> choices,
             string? systemFingerprint,
-            global::Together.UsageData? usage,
-            global::System.Collections.Generic.IList<global::Together.InferenceWarning>? warnings)
+            global::Together.AllOf<global::Together.UsageData, object>? usage,
+            global::System.Collections.Generic.IList<global::Together.InferenceWarning>? warnings,
+            string @object = "chat.completion.chunk")
         {
-            this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
-            this.Created = created;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Created = created;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Object = @object;
             this.SystemFingerprint = systemFingerprint;
             this.Usage = usage;

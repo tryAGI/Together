@@ -13,13 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Content { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string? Name { get; set; }
+        public required string Content { get; set; }
 
         /// <summary>
         /// 
@@ -27,6 +21,12 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionSystemMessageParamRoleJsonConverter))]
         public global::Together.ChatCompletionSystemMessageParamRole Role { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,19 +38,19 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionSystemMessageParam" /> class.
         /// </summary>
         /// <param name="content"></param>
-        /// <param name="name"></param>
         /// <param name="role"></param>
+        /// <param name="name"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionSystemMessageParam(
             string content,
-            string? name,
-            global::Together.ChatCompletionSystemMessageParamRole role)
+            global::Together.ChatCompletionSystemMessageParamRole role,
+            string? name)
         {
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
-            this.Name = name;
             this.Role = role;
+            this.Name = name;
         }
 
         /// <summary>

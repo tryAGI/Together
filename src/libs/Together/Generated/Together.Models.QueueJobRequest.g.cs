@@ -21,14 +21,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Model { get; set; } = default!;
+        public required string Model { get; set; }
 
         /// <summary>
         /// Freeform model input. Passed unchanged to the model. Contents are model-specific.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("payload")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public object Payload { get; set; } = default!;
+        public required object Payload { get; set; }
 
         /// <summary>
         /// Job priority. Higher values are processed first (strict priority<br/>
