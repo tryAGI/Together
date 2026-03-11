@@ -15,16 +15,16 @@ namespace Together
         public global::System.Collections.Generic.IList<double>? TokenIds { get; set; }
 
         /// <summary>
-        /// List of token log probabilities
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("token_logprobs")]
-        public global::System.Collections.Generic.IList<double>? TokenLogprobs { get; set; }
-
-        /// <summary>
         /// List of token strings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
         public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
+
+        /// <summary>
+        /// List of token log probabilities
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_logprobs")]
+        public global::System.Collections.Generic.IList<double>? TokenLogprobs { get; set; }
 
         /// <summary>
         /// Top log probabilities for the tokens.
@@ -44,11 +44,11 @@ namespace Together
         /// <param name="tokenIds">
         /// List of token IDs corresponding to the logprobs
         /// </param>
-        /// <param name="tokenLogprobs">
-        /// List of token log probabilities
-        /// </param>
         /// <param name="tokens">
         /// List of token strings
+        /// </param>
+        /// <param name="tokenLogprobs">
+        /// List of token log probabilities
         /// </param>
         /// <param name="topLogprobs">
         /// Top log probabilities for the tokens.
@@ -58,13 +58,13 @@ namespace Together
 #endif
         public LogprobsPart(
             global::System.Collections.Generic.IList<double>? tokenIds,
-            global::System.Collections.Generic.IList<double>? tokenLogprobs,
             global::System.Collections.Generic.IList<string>? tokens,
+            global::System.Collections.Generic.IList<double>? tokenLogprobs,
             global::System.Collections.Generic.Dictionary<string, double>? topLogprobs)
         {
             this.TokenIds = tokenIds;
-            this.TokenLogprobs = tokenLogprobs;
             this.Tokens = tokens;
+            this.TokenLogprobs = tokenLogprobs;
             this.TopLogprobs = topLogprobs;
         }
 

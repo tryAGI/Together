@@ -9,16 +9,54 @@ namespace Together
     public sealed partial class BatchJob
     {
         /// <summary>
-        /// Example: 2024-01-15T15:45:30.0000000+00:00
+        /// Example: 01234567-8901-2345-6789-012345678901
         /// </summary>
-        /// <example>2024-01-15T15:45:30.0000000+00:00</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
-        public global::System.DateTime? CompletedAt { get; set; }
+        /// <example>01234567-8901-2345-6789-012345678901</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public global::System.Guid? Id { get; set; }
 
         /// <summary>
-        /// Example: 2024-01-15T14:30:00.0000000+00:00
+        /// Example: user_789xyz012
         /// </summary>
-        /// <example>2024-01-15T14:30:00.0000000+00:00</example>
+        /// <example>user_789xyz012</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        public string? UserId { get; set; }
+
+        /// <summary>
+        /// Example: file-input123abc456def
+        /// </summary>
+        /// <example>file-input123abc456def</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_file_id")]
+        public string? InputFileId { get; set; }
+
+        /// <summary>
+        /// Size of input file in bytes<br/>
+        /// Example: 1048576
+        /// </summary>
+        /// <example>1048576</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("file_size_bytes")]
+        public long? FileSizeBytes { get; set; }
+
+        /// <summary>
+        /// Current status of the batch job<br/>
+        /// Example: IN_PROGRESS
+        /// </summary>
+        /// <example>IN_PROGRESS</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.BatchJobStatusJsonConverter))]
+        public global::Together.BatchJobStatus? Status { get; set; }
+
+        /// <summary>
+        /// Example: 2024-01-15T15:30:00Z
+        /// </summary>
+        /// <example>2024-01-15T15:30:00Z</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("job_deadline")]
+        public global::System.DateTime? JobDeadline { get; set; }
+
+        /// <summary>
+        /// Example: 2024-01-15T14:30:00Z
+        /// </summary>
+        /// <example>2024-01-15T14:30:00Z</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public global::System.DateTime? CreatedAt { get; set; }
 
@@ -30,46 +68,12 @@ namespace Together
         public string? Endpoint { get; set; }
 
         /// <summary>
-        /// 
+        /// Completion progress (0.0 to 100)<br/>
+        /// Example: 75.0
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
-        public string? Error { get; set; }
-
-        /// <summary>
-        /// Example: file-errors456def789jkl
-        /// </summary>
-        /// <example>file-errors456def789jkl</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("error_file_id")]
-        public string? ErrorFileId { get; set; }
-
-        /// <summary>
-        /// Size of input file in bytes<br/>
-        /// Example: 1048576
-        /// </summary>
-        /// <example>1048576</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("file_size_bytes")]
-        public long? FileSizeBytes { get; set; }
-
-        /// <summary>
-        /// Example: 01234567-8901-2345-6789-012345678901
-        /// </summary>
-        /// <example>01234567-8901-2345-6789-012345678901</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public global::System.Guid? Id { get; set; }
-
-        /// <summary>
-        /// Example: file-input123abc456def
-        /// </summary>
-        /// <example>file-input123abc456def</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input_file_id")]
-        public string? InputFileId { get; set; }
-
-        /// <summary>
-        /// Example: 2024-01-15T15:30:00.0000000+00:00
-        /// </summary>
-        /// <example>2024-01-15T15:30:00.0000000+00:00</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("job_deadline")]
-        public global::System.DateTime? JobDeadline { get; set; }
+        /// <example>75.0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
+        public double? Progress { get; set; }
 
         /// <summary>
         /// Model used for processing requests<br/>
@@ -87,28 +91,24 @@ namespace Together
         public string? OutputFileId { get; set; }
 
         /// <summary>
-        /// Completion progress (0.0 to 100)<br/>
-        /// Example: 75
+        /// Example: file-errors456def789jkl
         /// </summary>
-        /// <example>75</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
-        public double? Progress { get; set; }
+        /// <example>file-errors456def789jkl</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error_file_id")]
+        public string? ErrorFileId { get; set; }
 
         /// <summary>
-        /// Current status of the batch job<br/>
-        /// Example: IN_PROGRESS
+        /// 
         /// </summary>
-        /// <example>IN_PROGRESS</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.BatchJobStatusJsonConverter))]
-        public global::Together.BatchJobStatus? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public string? Error { get; set; }
 
         /// <summary>
-        /// Example: user_789xyz012
+        /// Example: 2024-01-15T15:45:30Z
         /// </summary>
-        /// <example>user_789xyz012</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
-        public string? UserId { get; set; }
+        /// <example>2024-01-15T15:45:30Z</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
+        public global::System.DateTime? CompletedAt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -119,31 +119,35 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchJob" /> class.
         /// </summary>
-        /// <param name="completedAt">
-        /// Example: 2024-01-15T15:45:30.0000000+00:00
+        /// <param name="id">
+        /// Example: 01234567-8901-2345-6789-012345678901
         /// </param>
-        /// <param name="createdAt">
-        /// Example: 2024-01-15T14:30:00.0000000+00:00
+        /// <param name="userId">
+        /// Example: user_789xyz012
         /// </param>
-        /// <param name="endpoint">
-        /// Example: /v1/chat/completions
-        /// </param>
-        /// <param name="error"></param>
-        /// <param name="errorFileId">
-        /// Example: file-errors456def789jkl
+        /// <param name="inputFileId">
+        /// Example: file-input123abc456def
         /// </param>
         /// <param name="fileSizeBytes">
         /// Size of input file in bytes<br/>
         /// Example: 1048576
         /// </param>
-        /// <param name="id">
-        /// Example: 01234567-8901-2345-6789-012345678901
-        /// </param>
-        /// <param name="inputFileId">
-        /// Example: file-input123abc456def
+        /// <param name="status">
+        /// Current status of the batch job<br/>
+        /// Example: IN_PROGRESS
         /// </param>
         /// <param name="jobDeadline">
-        /// Example: 2024-01-15T15:30:00.0000000+00:00
+        /// Example: 2024-01-15T15:30:00Z
+        /// </param>
+        /// <param name="createdAt">
+        /// Example: 2024-01-15T14:30:00Z
+        /// </param>
+        /// <param name="endpoint">
+        /// Example: /v1/chat/completions
+        /// </param>
+        /// <param name="progress">
+        /// Completion progress (0.0 to 100)<br/>
+        /// Example: 75.0
         /// </param>
         /// <param name="modelId">
         /// Model used for processing requests<br/>
@@ -152,50 +156,46 @@ namespace Together
         /// <param name="outputFileId">
         /// Example: file-output789xyz012ghi
         /// </param>
-        /// <param name="progress">
-        /// Completion progress (0.0 to 100)<br/>
-        /// Example: 75
+        /// <param name="errorFileId">
+        /// Example: file-errors456def789jkl
         /// </param>
-        /// <param name="status">
-        /// Current status of the batch job<br/>
-        /// Example: IN_PROGRESS
-        /// </param>
-        /// <param name="userId">
-        /// Example: user_789xyz012
+        /// <param name="error"></param>
+        /// <param name="completedAt">
+        /// Example: 2024-01-15T15:45:30Z
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public BatchJob(
-            global::System.DateTime? completedAt,
+            global::System.Guid? id,
+            string? userId,
+            string? inputFileId,
+            long? fileSizeBytes,
+            global::Together.BatchJobStatus? status,
+            global::System.DateTime? jobDeadline,
             global::System.DateTime? createdAt,
             string? endpoint,
-            string? error,
-            string? errorFileId,
-            long? fileSizeBytes,
-            global::System.Guid? id,
-            string? inputFileId,
-            global::System.DateTime? jobDeadline,
+            double? progress,
             string? modelId,
             string? outputFileId,
-            double? progress,
-            global::Together.BatchJobStatus? status,
-            string? userId)
+            string? errorFileId,
+            string? error,
+            global::System.DateTime? completedAt)
         {
-            this.CompletedAt = completedAt;
+            this.Id = id;
+            this.UserId = userId;
+            this.InputFileId = inputFileId;
+            this.FileSizeBytes = fileSizeBytes;
+            this.Status = status;
+            this.JobDeadline = jobDeadline;
             this.CreatedAt = createdAt;
             this.Endpoint = endpoint;
-            this.Error = error;
-            this.ErrorFileId = errorFileId;
-            this.FileSizeBytes = fileSizeBytes;
-            this.Id = id;
-            this.InputFileId = inputFileId;
-            this.JobDeadline = jobDeadline;
+            this.Progress = progress;
             this.ModelId = modelId;
             this.OutputFileId = outputFileId;
-            this.Progress = progress;
-            this.Status = status;
-            this.UserId = userId;
+            this.ErrorFileId = errorFileId;
+            this.Error = error;
+            this.CompletedAt = completedAt;
         }
 
         /// <summary>

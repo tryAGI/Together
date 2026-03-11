@@ -11,16 +11,16 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("b64_json")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string B64Json { get; set; } = default!;
+        public required int Index { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("index")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("b64_json")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Index { get; set; } = default!;
+        public required string B64Json { get; set; }
 
         /// <summary>
         /// 
@@ -38,19 +38,19 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageResponseDataB64" /> class.
         /// </summary>
-        /// <param name="b64Json"></param>
         /// <param name="index"></param>
+        /// <param name="b64Json"></param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ImageResponseDataB64(
-            string b64Json,
             int index,
+            string b64Json,
             global::Together.ImageResponseDataB64Type type)
         {
-            this.B64Json = b64Json ?? throw new global::System.ArgumentNullException(nameof(b64Json));
             this.Index = index;
+            this.B64Json = b64Json ?? throw new global::System.ArgumentNullException(nameof(b64Json));
             this.Type = type;
         }
 
