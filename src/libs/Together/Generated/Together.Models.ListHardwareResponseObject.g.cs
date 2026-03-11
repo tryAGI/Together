@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `list`.
     /// </summary>
-    public enum ListHardwareResponseObject
+    public sealed partial class ListHardwareResponseObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        List,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class ListHardwareResponseObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this ListHardwareResponseObject value)
-        {
-            return value switch
-            {
-                ListHardwareResponseObject.List => "list",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static ListHardwareResponseObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "list" => ListHardwareResponseObject.List,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }
