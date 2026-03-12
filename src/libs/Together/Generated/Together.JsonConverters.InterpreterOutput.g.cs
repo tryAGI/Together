@@ -52,9 +52,11 @@ namespace Together.JsonConverters
             {
             }
 
-            var result = new global::Together.InterpreterOutput(
+            var __value = new global::Together.InterpreterOutput(
                 streamOutput,
+
                 error,
+
                 displayorExecuteOutput
                 );
 
@@ -77,7 +79,7 @@ namespace Together.JsonConverters
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />
