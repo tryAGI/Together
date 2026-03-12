@@ -9,21 +9,21 @@ namespace Together
     public sealed partial class RlGRPOLossInputs
     {
         /// <summary>
-        /// 
+        /// Per-token advantages for GRPO
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("advantages")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.RlLossAdvantages Advantages { get; set; } = default!;
+        public required global::Together.RlLossAdvantages Advantages { get; set; }
 
         /// <summary>
-        /// 
+        /// Generator log probabilities for GRPO
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generator_logprobs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.RlLossLogprobs GeneratorLogprobs { get; set; } = default!;
+        public required global::Together.RlLossLogprobs GeneratorLogprobs { get; set; }
 
         /// <summary>
-        /// 
+        /// Reference model log probabilities (required if beta &gt; 0)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reference_logprobs")]
         public global::Together.RlLossLogprobs? ReferenceLogprobs { get; set; }
@@ -37,9 +37,15 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlGRPOLossInputs" /> class.
         /// </summary>
-        /// <param name="advantages"></param>
-        /// <param name="generatorLogprobs"></param>
-        /// <param name="referenceLogprobs"></param>
+        /// <param name="advantages">
+        /// Per-token advantages for GRPO
+        /// </param>
+        /// <param name="generatorLogprobs">
+        /// Generator log probabilities for GRPO
+        /// </param>
+        /// <param name="referenceLogprobs">
+        /// Reference model log probabilities (required if beta &gt; 0)
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

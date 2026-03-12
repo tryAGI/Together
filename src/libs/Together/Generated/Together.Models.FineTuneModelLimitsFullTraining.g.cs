@@ -13,21 +13,21 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxBatchSize { get; set; } = default!;
+        public required int MaxBatchSize { get; set; }
 
         /// <summary>
         /// Maximum batch size for DPO full training.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size_dpo")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxBatchSizeDpo { get; set; } = default!;
+        public required int MaxBatchSizeDpo { get; set; }
 
         /// <summary>
         /// Minimum batch size for full training.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_batch_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MinBatchSize { get; set; } = default!;
+        public required int MinBatchSize { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
