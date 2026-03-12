@@ -11,17 +11,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Data { get; set; } = default!;
+        public required global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType Type { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType Type { get; set; } = default!;
+        public required string Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,17 +32,17 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecuteResponseSuccessfulExecutionDataOutputStreamOutput" /> class.
         /// </summary>
-        /// <param name="data"></param>
         /// <param name="type"></param>
+        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ExecuteResponseSuccessfulExecutionDataOutputStreamOutput(
-            string data,
-            global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType type)
+            global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType type,
+            string data)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Type = type;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

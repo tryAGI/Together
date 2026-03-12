@@ -9,38 +9,38 @@ namespace Together
     public sealed partial class EvaluationScoreParameters
     {
         /// <summary>
-        /// Data file ID<br/>
-        /// Example: file-01234567890123456789
-        /// </summary>
-        /// <example>file-01234567890123456789</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string InputDataFilePath { get; set; } = default!;
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.EvaluationJudgeModelConfig Judge { get; set; } = default!;
-
-        /// <summary>
-        /// Maximum possible score<br/>
-        /// Example: 10
-        /// </summary>
-        /// <example>10</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_score")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public float MaxScore { get; set; } = default!;
+        public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
 
         /// <summary>
         /// Minimum possible score<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float MinScore { get; set; } = default!;
+        public required float MinScore { get; set; }
+
+        /// <summary>
+        /// Maximum possible score<br/>
+        /// Example: 10.0
+        /// </summary>
+        /// <example>10.0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_score")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float MaxScore { get; set; }
+
+        /// <summary>
+        /// Score threshold for passing<br/>
+        /// Example: 7.0
+        /// </summary>
+        /// <example>7.0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pass_threshold")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float PassThreshold { get; set; }
 
         /// <summary>
         /// 
@@ -50,13 +50,13 @@ namespace Together
         public global::Together.EvaluationModelOrString? ModelToEvaluate { get; set; }
 
         /// <summary>
-        /// Score threshold for passing<br/>
-        /// Example: 7
+        /// Data file ID<br/>
+        /// Example: file-01234567890123456789
         /// </summary>
-        /// <example>7</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("pass_threshold")]
+        /// <example>file-01234567890123456789</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float PassThreshold { get; set; } = default!;
+        public required string InputDataFilePath { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -67,40 +67,40 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationScoreParameters" /> class.
         /// </summary>
+        /// <param name="judge"></param>
+        /// <param name="minScore">
+        /// Minimum possible score<br/>
+        /// Example: 0.0
+        /// </param>
+        /// <param name="maxScore">
+        /// Maximum possible score<br/>
+        /// Example: 10.0
+        /// </param>
+        /// <param name="passThreshold">
+        /// Score threshold for passing<br/>
+        /// Example: 7.0
+        /// </param>
+        /// <param name="modelToEvaluate"></param>
         /// <param name="inputDataFilePath">
         /// Data file ID<br/>
         /// Example: file-01234567890123456789
-        /// </param>
-        /// <param name="judge"></param>
-        /// <param name="maxScore">
-        /// Maximum possible score<br/>
-        /// Example: 10
-        /// </param>
-        /// <param name="minScore">
-        /// Minimum possible score<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="modelToEvaluate"></param>
-        /// <param name="passThreshold">
-        /// Score threshold for passing<br/>
-        /// Example: 7
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationScoreParameters(
-            string inputDataFilePath,
             global::Together.EvaluationJudgeModelConfig judge,
-            float maxScore,
             float minScore,
+            float maxScore,
             float passThreshold,
+            string inputDataFilePath,
             global::Together.EvaluationModelOrString? modelToEvaluate)
         {
-            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.Judge = judge ?? throw new global::System.ArgumentNullException(nameof(judge));
-            this.MaxScore = maxScore;
             this.MinScore = minScore;
+            this.MaxScore = maxScore;
             this.PassThreshold = passThreshold;
+            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.ModelToEvaluate = modelToEvaluate;
         }
 

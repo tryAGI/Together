@@ -9,11 +9,10 @@ namespace Together
     public sealed partial class Response42
     {
         /// <summary>
-        /// List of supported model names.
+        /// Error message explaining the model is not available.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("models")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> Models { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonPropertyName("message")]
+        public string? Message { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -24,16 +23,16 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="Response42" /> class.
         /// </summary>
-        /// <param name="models">
-        /// List of supported model names.
+        /// <param name="message">
+        /// Error message explaining the model is not available.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Response42(
-            global::System.Collections.Generic.IList<string> models)
+            string? message)
         {
-            this.Models = models ?? throw new global::System.ArgumentNullException(nameof(models));
+            this.Message = message;
         }
 
         /// <summary>
