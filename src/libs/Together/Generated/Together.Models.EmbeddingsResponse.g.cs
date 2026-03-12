@@ -9,25 +9,25 @@ namespace Together
     public sealed partial class EmbeddingsResponse
     {
         /// <summary>
-        /// 
+        /// The object type, which is always `list`.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem> Data { get; set; } = default!;
+        /// <default>"list"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        public string Object { get; set; } = "list";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Model { get; set; } = default!;
+        public required string Model { get; set; }
 
         /// <summary>
-        /// The object type, which is always `list`.
+        /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EmbeddingsResponseObjectJsonConverter))]
-        public global::Together.EmbeddingsResponseObject Object { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,21 +38,21 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingsResponse" /> class.
         /// </summary>
-        /// <param name="data"></param>
-        /// <param name="model"></param>
         /// <param name="object">
         /// The object type, which is always `list`.
         /// </param>
+        /// <param name="model"></param>
+        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EmbeddingsResponse(
-            global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem> data,
             string model,
-            global::Together.EmbeddingsResponseObject @object)
+            global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem> data,
+            string @object = "list")
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
         }
 

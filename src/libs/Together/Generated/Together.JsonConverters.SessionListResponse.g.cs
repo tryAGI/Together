@@ -40,8 +40,9 @@ namespace Together.JsonConverters
             {
             }
 
-            var result = new global::Together.SessionListResponse(
+            var __value = new global::Together.SessionListResponse(
                 response,
+
                 value2
                 );
 
@@ -58,7 +59,7 @@ namespace Together.JsonConverters
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

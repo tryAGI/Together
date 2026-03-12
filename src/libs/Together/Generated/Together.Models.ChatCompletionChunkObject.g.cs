@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `chat.completion.chunk`.
     /// </summary>
-    public enum ChatCompletionChunkObject
+    public sealed partial class ChatCompletionChunkObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        ChatCompletionChunk,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class ChatCompletionChunkObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this ChatCompletionChunkObject value)
-        {
-            return value switch
-            {
-                ChatCompletionChunkObject.ChatCompletionChunk => "chat.completion.chunk",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static ChatCompletionChunkObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "chat.completion.chunk" => ChatCompletionChunkObject.ChatCompletionChunk,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }

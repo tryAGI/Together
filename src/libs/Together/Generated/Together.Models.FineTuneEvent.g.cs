@@ -9,25 +9,18 @@ namespace Together
     public sealed partial class FineTuneEvent
     {
         /// <summary>
-        /// 
+        /// The object type, which is always `fine-tune-event`.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_path")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string CheckpointPath { get; set; } = default!;
+        /// <default>"fine-tune-event"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        public string Object { get; set; } = "fine-tune-event";
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedAt { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Hash { get; set; } = default!;
+        public required string CreatedAt { get; set; }
 
         /// <summary>
         /// 
@@ -41,56 +34,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Message { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_path")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelPath { get; set; } = default!;
-
-        /// <summary>
-        /// The object type, which is always `fine-tune-event`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FineTuneEventObjectJsonConverter))]
-        public global::Together.FineTuneEventObject Object { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int ParamCount { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("step")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int Step { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int TokenCount { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("total_steps")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int TotalSteps { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("training_offset")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int TrainingOffset { get; set; } = default!;
+        public required string Message { get; set; }
 
         /// <summary>
         /// 
@@ -98,14 +42,70 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneEventTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.FinetuneEventType Type { get; set; } = default!;
+        public required global::Together.FinetuneEventType Type { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ParamCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int TokenCount { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("total_steps")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int TotalSteps { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string WandbUrl { get; set; } = default!;
+        public required string WandbUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("step")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int Step { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_path")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string CheckpointPath { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_path")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ModelPath { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_offset")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int TrainingOffset { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hash")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Hash { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -116,55 +116,55 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="FineTuneEvent" /> class.
         /// </summary>
-        /// <param name="checkpointPath"></param>
-        /// <param name="createdAt"></param>
-        /// <param name="hash"></param>
-        /// <param name="level"></param>
-        /// <param name="message"></param>
-        /// <param name="modelPath"></param>
         /// <param name="object">
         /// The object type, which is always `fine-tune-event`.
         /// </param>
+        /// <param name="createdAt"></param>
+        /// <param name="level"></param>
+        /// <param name="message"></param>
+        /// <param name="type"></param>
         /// <param name="paramCount"></param>
-        /// <param name="step"></param>
         /// <param name="tokenCount"></param>
         /// <param name="totalSteps"></param>
-        /// <param name="trainingOffset"></param>
-        /// <param name="type"></param>
         /// <param name="wandbUrl"></param>
+        /// <param name="step"></param>
+        /// <param name="checkpointPath"></param>
+        /// <param name="modelPath"></param>
+        /// <param name="trainingOffset"></param>
+        /// <param name="hash"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FineTuneEvent(
-            string checkpointPath,
             string createdAt,
-            string hash,
             string message,
-            string modelPath,
+            global::Together.FinetuneEventType type,
             int paramCount,
-            int step,
             int tokenCount,
             int totalSteps,
-            int trainingOffset,
-            global::Together.FinetuneEventType type,
             string wandbUrl,
+            int step,
+            string checkpointPath,
+            string modelPath,
+            int trainingOffset,
+            string hash,
             global::Together.FinetuneEventLevels? level,
-            global::Together.FineTuneEventObject @object)
+            string @object = "fine-tune-event")
         {
-            this.CheckpointPath = checkpointPath ?? throw new global::System.ArgumentNullException(nameof(checkpointPath));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
-            this.Hash = hash ?? throw new global::System.ArgumentNullException(nameof(hash));
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
-            this.ModelPath = modelPath ?? throw new global::System.ArgumentNullException(nameof(modelPath));
+            this.Type = type;
             this.ParamCount = paramCount;
-            this.Step = step;
             this.TokenCount = tokenCount;
             this.TotalSteps = totalSteps;
-            this.TrainingOffset = trainingOffset;
-            this.Type = type;
             this.WandbUrl = wandbUrl ?? throw new global::System.ArgumentNullException(nameof(wandbUrl));
-            this.Level = level;
+            this.Step = step;
+            this.CheckpointPath = checkpointPath ?? throw new global::System.ArgumentNullException(nameof(checkpointPath));
+            this.ModelPath = modelPath ?? throw new global::System.ArgumentNullException(nameof(modelPath));
+            this.TrainingOffset = trainingOffset;
+            this.Hash = hash ?? throw new global::System.ArgumentNullException(nameof(hash));
             this.Object = @object;
+            this.Level = level;
         }
 
         /// <summary>
