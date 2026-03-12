@@ -28,6 +28,10 @@ namespace Together
         /// 
         /// </summary>
         TrainingOperationErrorCodeSessionNotActive,
+        /// <summary>
+        /// 
+        /// </summary>
+        TrainingOperationErrorCodeInvalidInput,
     }
 
     /// <summary>
@@ -47,6 +51,7 @@ namespace Together
                 RlTrainingOperationErrorCode.TrainingOperationErrorCodeTimeout => "TRAINING_OPERATION_ERROR_CODE_TIMEOUT",
                 RlTrainingOperationErrorCode.TrainingOperationErrorCodeInternalError => "TRAINING_OPERATION_ERROR_CODE_INTERNAL_ERROR",
                 RlTrainingOperationErrorCode.TrainingOperationErrorCodeSessionNotActive => "TRAINING_OPERATION_ERROR_CODE_SESSION_NOT_ACTIVE",
+                RlTrainingOperationErrorCode.TrainingOperationErrorCodeInvalidInput => "TRAINING_OPERATION_ERROR_CODE_INVALID_INPUT",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +67,7 @@ namespace Together
                 "TRAINING_OPERATION_ERROR_CODE_TIMEOUT" => RlTrainingOperationErrorCode.TrainingOperationErrorCodeTimeout,
                 "TRAINING_OPERATION_ERROR_CODE_INTERNAL_ERROR" => RlTrainingOperationErrorCode.TrainingOperationErrorCodeInternalError,
                 "TRAINING_OPERATION_ERROR_CODE_SESSION_NOT_ACTIVE" => RlTrainingOperationErrorCode.TrainingOperationErrorCodeSessionNotActive,
+                "TRAINING_OPERATION_ERROR_CODE_INVALID_INPUT" => RlTrainingOperationErrorCode.TrainingOperationErrorCodeInvalidInput,
                 _ => null,
             };
         }

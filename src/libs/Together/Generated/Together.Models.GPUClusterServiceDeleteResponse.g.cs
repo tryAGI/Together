@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ClusterId { get; set; } = default!;
+        public required string ClusterId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

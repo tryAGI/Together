@@ -17,14 +17,14 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("pass_percentage")]
-        public float? PassPercentage { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("std_score")]
+        public float? StdScore { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("std_score")]
-        public float? StdScore { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("pass_percentage")]
+        public float? PassPercentage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,19 +36,19 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationScoreResultsAggregatedScores" /> class.
         /// </summary>
         /// <param name="meanScore"></param>
-        /// <param name="passPercentage"></param>
         /// <param name="stdScore"></param>
+        /// <param name="passPercentage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationScoreResultsAggregatedScores(
             float? meanScore,
-            float? passPercentage,
-            float? stdScore)
+            float? stdScore,
+            float? passPercentage)
         {
             this.MeanScore = meanScore;
-            this.PassPercentage = passPercentage;
             this.StdScore = stdScore;
+            this.PassPercentage = passPercentage;
         }
 
         /// <summary>
