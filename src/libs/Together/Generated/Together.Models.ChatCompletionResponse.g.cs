@@ -11,50 +11,50 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.ChatCompletionChoicesDataItem> Choices { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int Created { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Model { get; set; } = default!;
-
-        /// <summary>
-        /// The object type, which is always `chat.completion`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionResponseObjectJsonConverter))]
-        public global::Together.ChatCompletionResponseObject Object { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.PromptPartItem> Prompt { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<global::Together.ChatCompletionChoicesDataItem> Choices { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         public global::Together.UsageData? Usage { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int Created { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Model { get; set; }
+
+        /// <summary>
+        /// When `echo` is true, the prompt is included in the response. Additionally, when `logprobs` is also provided, log probability information is provided on the prompt.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.PromptPartItem> Prompt { get; set; }
+
+        /// <summary>
+        /// The object type, which is always `chat.completion`.
+        /// </summary>
+        /// <default>"chat.completion"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        public string Object { get; set; } = "chat.completion";
 
         /// <summary>
         /// 
@@ -71,36 +71,38 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionResponse" /> class.
         /// </summary>
-        /// <param name="choices"></param>
-        /// <param name="created"></param>
         /// <param name="id"></param>
+        /// <param name="choices"></param>
+        /// <param name="usage"></param>
+        /// <param name="created"></param>
         /// <param name="model"></param>
+        /// <param name="prompt">
+        /// When `echo` is true, the prompt is included in the response. Additionally, when `logprobs` is also provided, log probability information is provided on the prompt.
+        /// </param>
         /// <param name="object">
         /// The object type, which is always `chat.completion`.
         /// </param>
-        /// <param name="prompt"></param>
-        /// <param name="usage"></param>
         /// <param name="warnings"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionResponse(
+            string id,
             global::System.Collections.Generic.IList<global::Together.ChatCompletionChoicesDataItem> choices,
             int created,
-            string id,
             string model,
             global::System.Collections.Generic.IList<global::Together.PromptPartItem> prompt,
-            global::Together.ChatCompletionResponseObject @object,
             global::Together.UsageData? usage,
-            global::System.Collections.Generic.IList<global::Together.InferenceWarning>? warnings)
+            global::System.Collections.Generic.IList<global::Together.InferenceWarning>? warnings,
+            string @object = "chat.completion")
         {
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Created = created;
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.Object = @object;
             this.Usage = usage;
+            this.Object = @object;
             this.Warnings = warnings;
         }
 

@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `audio.tts.chunk`.
     /// </summary>
-    public enum AudioSpeechStreamChunkObject
+    public sealed partial class AudioSpeechStreamChunkObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        AudioTtsChunk,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class AudioSpeechStreamChunkObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this AudioSpeechStreamChunkObject value)
-        {
-            return value switch
-            {
-                AudioSpeechStreamChunkObject.AudioTtsChunk => "audio.tts.chunk",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static AudioSpeechStreamChunkObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "audio.tts.chunk" => AudioSpeechStreamChunkObject.AudioTtsChunk,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }
