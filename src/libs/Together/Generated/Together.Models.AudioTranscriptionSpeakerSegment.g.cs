@@ -9,40 +9,38 @@ namespace Together
     public sealed partial class AudioTranscriptionSpeakerSegment
     {
         /// <summary>
-        /// End time of the speaker segment in seconds<br/>
-        /// Example: 30.02
-        /// </summary>
-        /// <example>30.02</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("end")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public float End { get; set; } = default!;
-
-        /// <summary>
-        /// Unique identifier for the speaker segment<br/>
-        /// Example: 1
-        /// </summary>
-        /// <example>1</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int Id { get; set; } = default!;
-
-        /// <summary>
         /// The speaker identifier<br/>
         /// Example: SPEAKER_00
         /// </summary>
         /// <example>SPEAKER_00</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string SpeakerId { get; set; } = default!;
+        public required string SpeakerId { get; set; }
 
         /// <summary>
         /// Start time of the speaker segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float Start { get; set; } = default!;
+        public required float Start { get; set; }
+
+        /// <summary>
+        /// End time of the speaker segment in seconds<br/>
+        /// Example: 30.02
+        /// </summary>
+        /// <example>30.02</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required float End { get; set; }
+
+        /// <summary>
+        /// Array of words spoken by this speaker in this segment
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("words")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> Words { get; set; }
 
         /// <summary>
         /// The full text spoken by this speaker in this segment<br/>
@@ -51,14 +49,16 @@ namespace Together
         /// <example>Hello, how are you doing today?</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
 
         /// <summary>
-        /// Array of words spoken by this speaker in this segment
+        /// Unique identifier for the speaker segment<br/>
+        /// Example: 1
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("words")]
+        /// <example>1</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> Words { get; set; } = default!;
+        public required int Id { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -69,46 +69,46 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioTranscriptionSpeakerSegment" /> class.
         /// </summary>
-        /// <param name="end">
-        /// End time of the speaker segment in seconds<br/>
-        /// Example: 30.02
-        /// </param>
-        /// <param name="id">
-        /// Unique identifier for the speaker segment<br/>
-        /// Example: 1
-        /// </param>
         /// <param name="speakerId">
         /// The speaker identifier<br/>
         /// Example: SPEAKER_00
         /// </param>
         /// <param name="start">
         /// Start time of the speaker segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
+        /// </param>
+        /// <param name="end">
+        /// End time of the speaker segment in seconds<br/>
+        /// Example: 30.02
+        /// </param>
+        /// <param name="words">
+        /// Array of words spoken by this speaker in this segment
         /// </param>
         /// <param name="text">
         /// The full text spoken by this speaker in this segment<br/>
         /// Example: Hello, how are you doing today?
         /// </param>
-        /// <param name="words">
-        /// Array of words spoken by this speaker in this segment
+        /// <param name="id">
+        /// Unique identifier for the speaker segment<br/>
+        /// Example: 1
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranscriptionSpeakerSegment(
-            float end,
-            int id,
             string speakerId,
             float start,
+            float end,
+            global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> words,
             string text,
-            global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> words)
+            int id)
         {
-            this.End = end;
-            this.Id = id;
             this.SpeakerId = speakerId ?? throw new global::System.ArgumentNullException(nameof(speakerId));
             this.Start = start;
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.End = end;
             this.Words = words ?? throw new global::System.ArgumentNullException(nameof(words));
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.Id = id;
         }
 
         /// <summary>

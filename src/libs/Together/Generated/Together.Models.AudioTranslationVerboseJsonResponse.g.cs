@@ -9,13 +9,14 @@ namespace Together
     public sealed partial class AudioTranslationVerboseJsonResponse
     {
         /// <summary>
-        /// The duration of the audio in seconds<br/>
-        /// Example: 3.5
+        /// The task performed<br/>
+        /// Example: translate
         /// </summary>
-        /// <example>3.5</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
+        /// <example>translate</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("task")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AudioTranslationVerboseJsonResponseTaskJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public float Duration { get; set; } = default!;
+        public required global::Together.AudioTranslationVerboseJsonResponseTask Task { get; set; }
 
         /// <summary>
         /// The target language of the translation<br/>
@@ -24,24 +25,16 @@ namespace Together
         /// <example>english</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Language { get; set; } = default!;
+        public required string Language { get; set; }
 
         /// <summary>
-        /// Array of translation segments
+        /// The duration of the audio in seconds<br/>
+        /// Example: 3.5
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
+        /// <example>3.5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> Segments { get; set; } = default!;
-
-        /// <summary>
-        /// The task performed<br/>
-        /// Example: translate
-        /// </summary>
-        /// <example>translate</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("task")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AudioTranslationVerboseJsonResponseTaskJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.AudioTranslationVerboseJsonResponseTask Task { get; set; } = default!;
+        public required float Duration { get; set; }
 
         /// <summary>
         /// The translated text<br/>
@@ -50,7 +43,14 @@ namespace Together
         /// <example>Hello, world!</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Text { get; set; } = default!;
+        public required string Text { get; set; }
+
+        /// <summary>
+        /// Array of translation segments
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("segments")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> Segments { get; set; }
 
         /// <summary>
         /// Array of translation words (only when timestamp_granularities includes 'word')
@@ -67,24 +67,24 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioTranslationVerboseJsonResponse" /> class.
         /// </summary>
-        /// <param name="duration">
-        /// The duration of the audio in seconds<br/>
-        /// Example: 3.5
+        /// <param name="task">
+        /// The task performed<br/>
+        /// Example: translate
         /// </param>
         /// <param name="language">
         /// The target language of the translation<br/>
         /// Example: english
         /// </param>
-        /// <param name="segments">
-        /// Array of translation segments
-        /// </param>
-        /// <param name="task">
-        /// The task performed<br/>
-        /// Example: translate
+        /// <param name="duration">
+        /// The duration of the audio in seconds<br/>
+        /// Example: 3.5
         /// </param>
         /// <param name="text">
         /// The translated text<br/>
         /// Example: Hello, world!
+        /// </param>
+        /// <param name="segments">
+        /// Array of translation segments
         /// </param>
         /// <param name="words">
         /// Array of translation words (only when timestamp_granularities includes 'word')
@@ -93,18 +93,18 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranslationVerboseJsonResponse(
-            float duration,
-            string language,
-            global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> segments,
             global::Together.AudioTranslationVerboseJsonResponseTask task,
+            string language,
+            float duration,
             string text,
+            global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> segments,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord>? words)
         {
-            this.Duration = duration;
-            this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
-            this.Segments = segments ?? throw new global::System.ArgumentNullException(nameof(segments));
             this.Task = task;
+            this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
+            this.Duration = duration;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
+            this.Segments = segments ?? throw new global::System.ArgumentNullException(nameof(segments));
             this.Words = words;
         }
 

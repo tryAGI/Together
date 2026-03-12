@@ -9,18 +9,11 @@ namespace Together
     public sealed partial class EvaluationCompareParameters
     {
         /// <summary>
-        /// Data file name
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string InputDataFilePath { get; set; } = default!;
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.EvaluationJudgeModelConfig Judge { get; set; } = default!;
+        public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
 
         /// <summary>
         /// 
@@ -37,6 +30,13 @@ namespace Together
         public global::Together.EvaluationModelOrString? ModelB { get; set; }
 
         /// <summary>
+        /// Data file name
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string InputDataFilePath { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,23 +45,23 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationCompareParameters" /> class.
         /// </summary>
-        /// <param name="inputDataFilePath">
-        /// Data file name
-        /// </param>
         /// <param name="judge"></param>
         /// <param name="modelA"></param>
         /// <param name="modelB"></param>
+        /// <param name="inputDataFilePath">
+        /// Data file name
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationCompareParameters(
-            string inputDataFilePath,
             global::Together.EvaluationJudgeModelConfig judge,
+            string inputDataFilePath,
             global::Together.EvaluationModelOrString? modelA,
             global::Together.EvaluationModelOrString? modelB)
         {
-            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.Judge = judge ?? throw new global::System.ArgumentNullException(nameof(judge));
+            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.ModelA = modelA;
             this.ModelB = modelB;
         }
