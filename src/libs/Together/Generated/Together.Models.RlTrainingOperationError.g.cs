@@ -9,6 +9,7 @@ namespace Together
     public sealed partial class RlTrainingOperationError
     {
         /// <summary>
+        /// Application error code<br/>
         /// Default Value: TRAINING_OPERATION_ERROR_CODE_UNSPECIFIED
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
@@ -33,6 +34,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="RlTrainingOperationError" /> class.
         /// </summary>
         /// <param name="code">
+        /// Application error code<br/>
         /// Default Value: TRAINING_OPERATION_ERROR_CODE_UNSPECIFIED
         /// </param>
         /// <param name="message">

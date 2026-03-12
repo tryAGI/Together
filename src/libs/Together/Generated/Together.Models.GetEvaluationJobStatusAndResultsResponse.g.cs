@@ -11,18 +11,18 @@ namespace Together
     public sealed partial class GetEvaluationJobStatusAndResultsResponse
     {
         /// <summary>
-        /// The results of the evaluation job
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("results")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>))]
-        public global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? Results { get; set; }
-
-        /// <summary>
         /// The status of the evaluation job
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusJsonConverter))]
         public global::Together.GetEvaluationJobStatusAndResultsResponseStatus? Status { get; set; }
+
+        /// <summary>
+        /// The results of the evaluation job
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("results")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>))]
+        public global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? Results { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,21 +33,21 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="GetEvaluationJobStatusAndResultsResponse" /> class.
         /// </summary>
-        /// <param name="results">
-        /// The results of the evaluation job
-        /// </param>
         /// <param name="status">
         /// The status of the evaluation job
+        /// </param>
+        /// <param name="results">
+        /// The results of the evaluation job
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetEvaluationJobStatusAndResultsResponse(
-            global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? results,
-            global::Together.GetEvaluationJobStatusAndResultsResponseStatus? status)
+            global::Together.GetEvaluationJobStatusAndResultsResponseStatus? status,
+            global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? results)
         {
-            this.Results = results;
             this.Status = status;
+            this.Results = results;
         }
 
         /// <summary>
