@@ -139,7 +139,7 @@ namespace Together
         /// </param>
         /// <param name="model">
         /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
-        /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+        /// Example: Qwen/Qwen3.5-9B
         /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate.

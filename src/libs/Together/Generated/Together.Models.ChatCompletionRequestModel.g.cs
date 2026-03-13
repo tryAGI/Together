@@ -19,15 +19,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        QwenQwen359b,
+        /// <summary>
+        /// 
+        /// </summary>
         MetaLlamaMetaLlama31405bInstructTurbo,
         /// <summary>
         /// 
         /// </summary>
         MetaLlamaMetaLlama3170bInstructTurbo,
-        /// <summary>
-        /// 
-        /// </summary>
-        MetaLlamaMetaLlama318bInstructTurbo,
     }
 
     /// <summary>
@@ -44,9 +44,9 @@ namespace Together
             {
                 ChatCompletionRequestModel.QwenQwen2572bInstructTurbo => "Qwen/Qwen2.5-72B-Instruct-Turbo",
                 ChatCompletionRequestModel.QwenQwen257bInstructTurbo => "Qwen/Qwen2.5-7B-Instruct-Turbo",
+                ChatCompletionRequestModel.QwenQwen359b => "Qwen/Qwen3.5-9B",
                 ChatCompletionRequestModel.MetaLlamaMetaLlama31405bInstructTurbo => "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
                 ChatCompletionRequestModel.MetaLlamaMetaLlama3170bInstructTurbo => "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
-                ChatCompletionRequestModel.MetaLlamaMetaLlama318bInstructTurbo => "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -59,9 +59,9 @@ namespace Together
             {
                 "Qwen/Qwen2.5-72B-Instruct-Turbo" => ChatCompletionRequestModel.QwenQwen2572bInstructTurbo,
                 "Qwen/Qwen2.5-7B-Instruct-Turbo" => ChatCompletionRequestModel.QwenQwen257bInstructTurbo,
+                "Qwen/Qwen3.5-9B" => ChatCompletionRequestModel.QwenQwen359b,
                 "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama31405bInstructTurbo,
                 "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama3170bInstructTurbo,
-                "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo" => ChatCompletionRequestModel.MetaLlamaMetaLlama318bInstructTurbo,
                 _ => null,
             };
         }
