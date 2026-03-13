@@ -13,35 +13,35 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxBatchSize { get; set; } = default!;
+        public required int MaxBatchSize { get; set; }
 
         /// <summary>
         /// Maximum batch size for DPO LoRA training.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_batch_size_dpo")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxBatchSizeDpo { get; set; } = default!;
-
-        /// <summary>
-        /// Maximum LoRA rank.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_rank")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public int MaxRank { get; set; } = default!;
+        public required int MaxBatchSizeDpo { get; set; }
 
         /// <summary>
         /// Minimum batch size for LoRA training.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_batch_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int MinBatchSize { get; set; } = default!;
+        public required int MinBatchSize { get; set; }
+
+        /// <summary>
+        /// Maximum LoRA rank.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_rank")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int MaxRank { get; set; }
 
         /// <summary>
         /// Available target modules for LoRA.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_modules")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Collections.Generic.IList<string> TargetModules { get; set; } = default!;
+        public required global::System.Collections.Generic.IList<string> TargetModules { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -58,11 +58,11 @@ namespace Together
         /// <param name="maxBatchSizeDpo">
         /// Maximum batch size for DPO LoRA training.
         /// </param>
-        /// <param name="maxRank">
-        /// Maximum LoRA rank.
-        /// </param>
         /// <param name="minBatchSize">
         /// Minimum batch size for LoRA training.
+        /// </param>
+        /// <param name="maxRank">
+        /// Maximum LoRA rank.
         /// </param>
         /// <param name="targetModules">
         /// Available target modules for LoRA.
@@ -73,14 +73,14 @@ namespace Together
         public FineTuneModelLimitsLoraTraining(
             int maxBatchSize,
             int maxBatchSizeDpo,
-            int maxRank,
             int minBatchSize,
+            int maxRank,
             global::System.Collections.Generic.IList<string> targetModules)
         {
             this.MaxBatchSize = maxBatchSize;
             this.MaxBatchSizeDpo = maxBatchSizeDpo;
-            this.MaxRank = maxRank;
             this.MinBatchSize = minBatchSize;
+            this.MaxRank = maxRank;
             this.TargetModules = targetModules ?? throw new global::System.ArgumentNullException(nameof(targetModules));
         }
 

@@ -11,109 +11,58 @@ namespace Together
     public sealed partial class Request4
     {
         /// <summary>
-        /// If true, disables the safety checker for image generation.
+        /// File-ID of a training file uploaded to the Together API
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("disable_safety_checker")]
-        public bool? DisableSafetyChecker { get; set; }
-
-        /// <summary>
-        /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
-        /// Default Value: 3.5
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("guidance_scale")]
-        public double? GuidanceScale { get; set; }
-
-        /// <summary>
-        /// Height of the image to generate in number of pixels.<br/>
-        /// Default Value: 1024
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("height")]
-        public int? Height { get; set; }
-
-        /// <summary>
-        /// An array of objects that define LoRAs (Low-Rank Adaptations) to influence the generated image.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("image_loras")]
-        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? ImageLoras { get; set; }
-
-        /// <summary>
-        /// URL of an image to use for image models that support it.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
-        public string? ImageUrl { get; set; }
-
-        /// <summary>
-        /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
-        /// Example: black-forest-labs/FLUX.1-schnell
-        /// </summary>
-        /// <example>black-forest-labs/FLUX.1-schnell</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>))]
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_file")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.AnyOf<global::Together.RequestModel?, string> Model { get; set; } = default!;
+        public required string TrainingFile { get; set; }
 
         /// <summary>
-        /// Number of image results to generate.<br/>
+        /// File-ID of a validation file uploaded to the Together API
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("validation_file")]
+        public string? ValidationFile { get; set; }
+
+        /// <summary>
+        /// Name of the base model to run fine-tune job on
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        public string? Model { get; set; }
+
+        /// <summary>
+        /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("n")]
-        public int? N { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("n_epochs")]
+        public int? NEpochs { get; set; }
 
         /// <summary>
-        /// The prompt or prompts not to guide the image generation.
+        /// Number of evaluations to be run on a given validation set during training<br/>
+        /// Default Value: 0
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("negative_prompt")]
-        public string? NegativePrompt { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("n_evals")]
+        public int? NEvals { get; set; }
 
         /// <summary>
-        /// The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.<br/>
-        /// Default Value: jpeg
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("output_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RequestOutputFormatJsonConverter))]
-        public global::Together.RequestOutputFormat? OutputFormat { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>))]
+        public global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? TrainingMethod { get; set; }
 
         /// <summary>
-        /// A description of the desired images. Maximum length varies by model.<br/>
-        /// Example: cat floating in space, cinematic
+        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </summary>
-        /// <example>cat floating in space, cinematic</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Prompt { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>))]
+        public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? TrainingType { get; set; }
 
         /// <summary>
-        /// An array of image URLs that guide the overall appearance and style of the generated image. These reference images influence the visual characteristics consistently across the generation.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("reference_images")]
-        public global::System.Collections.Generic.IList<string>? ReferenceImages { get; set; }
-
-        /// <summary>
-        /// Format of the image response. Can be either a base64 string or a URL.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RequestResponseFormatJsonConverter))]
-        public global::Together.RequestResponseFormat? ResponseFormat { get; set; }
-
-        /// <summary>
-        /// Seed used for generation. Can be used to reproduce image generations.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
-        public int? Seed { get; set; }
-
-        /// <summary>
-        /// Number of generation steps.<br/>
-        /// Default Value: 20
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("steps")]
-        public int? Steps { get; set; }
-
-        /// <summary>
-        /// Width of the image to generate in number of pixels.<br/>
-        /// Default Value: 1024
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("width")]
-        public int? Width { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
+        public string? FromCheckpoint { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -124,94 +73,54 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="Request4" /> class.
         /// </summary>
-        /// <param name="disableSafetyChecker">
-        /// If true, disables the safety checker for image generation.
+        /// <param name="trainingFile">
+        /// File-ID of a training file uploaded to the Together API
         /// </param>
-        /// <param name="guidanceScale">
-        /// Adjusts the alignment of the generated image with the input prompt. Higher values (e.g., 8-10) make the output more faithful to the prompt, while lower values (e.g., 1-5) encourage more creative freedom.<br/>
-        /// Default Value: 3.5
-        /// </param>
-        /// <param name="height">
-        /// Height of the image to generate in number of pixels.<br/>
-        /// Default Value: 1024
-        /// </param>
-        /// <param name="imageLoras">
-        /// An array of objects that define LoRAs (Low-Rank Adaptations) to influence the generated image.
-        /// </param>
-        /// <param name="imageUrl">
-        /// URL of an image to use for image models that support it.
+        /// <param name="validationFile">
+        /// File-ID of a validation file uploaded to the Together API
         /// </param>
         /// <param name="model">
-        /// The model to use for image generation.  [See all of Together AI's image models](https://docs.together.ai/docs/serverless-models#image-models)<br/>
-        /// Example: black-forest-labs/FLUX.1-schnell
+        /// Name of the base model to run fine-tune job on
         /// </param>
-        /// <param name="n">
-        /// Number of image results to generate.<br/>
+        /// <param name="nEpochs">
+        /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
         /// </param>
-        /// <param name="negativePrompt">
-        /// The prompt or prompts not to guide the image generation.
+        /// <param name="nEvals">
+        /// Number of evaluations to be run on a given validation set during training<br/>
+        /// Default Value: 0
         /// </param>
-        /// <param name="outputFormat">
-        /// The format of the image response. Can be either be `jpeg` or `png`. Defaults to `jpeg`.<br/>
-        /// Default Value: jpeg
+        /// <param name="trainingMethod">
+        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
-        /// <param name="prompt">
-        /// A description of the desired images. Maximum length varies by model.<br/>
-        /// Example: cat floating in space, cinematic
+        /// <param name="trainingType">
+        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
-        /// <param name="referenceImages">
-        /// An array of image URLs that guide the overall appearance and style of the generated image. These reference images influence the visual characteristics consistently across the generation.
-        /// </param>
-        /// <param name="responseFormat">
-        /// Format of the image response. Can be either a base64 string or a URL.
-        /// </param>
-        /// <param name="seed">
-        /// Seed used for generation. Can be used to reproduce image generations.
-        /// </param>
-        /// <param name="steps">
-        /// Number of generation steps.<br/>
-        /// Default Value: 20
-        /// </param>
-        /// <param name="width">
-        /// Width of the image to generate in number of pixels.<br/>
-        /// Default Value: 1024
+        /// <param name="fromCheckpoint">
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Request4(
-            global::Together.AnyOf<global::Together.RequestModel?, string> model,
-            string prompt,
-            bool? disableSafetyChecker,
-            double? guidanceScale,
-            int? height,
-            global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras,
-            string? imageUrl,
-            int? n,
-            string? negativePrompt,
-            global::Together.RequestOutputFormat? outputFormat,
-            global::System.Collections.Generic.IList<string>? referenceImages,
-            global::Together.RequestResponseFormat? responseFormat,
-            int? seed,
-            int? steps,
-            int? width)
+            string trainingFile,
+            string? validationFile,
+            string? model,
+            int? nEpochs,
+            int? nEvals,
+            global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod,
+            global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
+            string? fromCheckpoint)
         {
+            this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
+            this.ValidationFile = validationFile;
             this.Model = model;
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.DisableSafetyChecker = disableSafetyChecker;
-            this.GuidanceScale = guidanceScale;
-            this.Height = height;
-            this.ImageLoras = imageLoras;
-            this.ImageUrl = imageUrl;
-            this.N = n;
-            this.NegativePrompt = negativePrompt;
-            this.OutputFormat = outputFormat;
-            this.ReferenceImages = referenceImages;
-            this.ResponseFormat = responseFormat;
-            this.Seed = seed;
-            this.Steps = steps;
-            this.Width = width;
+            this.NEpochs = nEpochs;
+            this.NEvals = nEvals;
+            this.TrainingMethod = trainingMethod;
+            this.TrainingType = trainingType;
+            this.FromCheckpoint = fromCheckpoint;
         }
 
         /// <summary>

@@ -9,45 +9,13 @@ namespace Together
     public sealed partial class ModelUploadRequest
     {
         /// <summary>
-        /// The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.<br/>
-        /// Example: Qwen/Qwen2.5-72B-Instruct
-        /// </summary>
-        /// <example>Qwen/Qwen2.5-72B-Instruct</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
-        public string? BaseModel { get; set; }
-
-        /// <summary>
-        /// A description of your model<br/>
-        /// Example: Finetuned Qwen2.5-72B-Instruct by Unsloth
-        /// </summary>
-        /// <example>Finetuned Qwen2.5-72B-Instruct by Unsloth</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// Hugging Face token (if uploading from Hugging Face)<br/>
-        /// Example: hf_examplehuggingfacetoken
-        /// </summary>
-        /// <example>hf_examplehuggingfacetoken</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("hf_token")]
-        public string? HfToken { get; set; }
-
-        /// <summary>
-        /// The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.<br/>
-        /// Example: my_username/Qwen2.5-72B-Instruct-lora
-        /// </summary>
-        /// <example>my_username/Qwen2.5-72B-Instruct-lora</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("lora_model")]
-        public string? LoraModel { get; set; }
-
-        /// <summary>
         /// The name to give to your uploaded model<br/>
         /// Example: Qwen2.5-72B-Instruct
         /// </summary>
         /// <example>Qwen2.5-72B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelName { get; set; } = default!;
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// The source location of the model (Hugging Face repo or S3 path)<br/>
@@ -56,7 +24,7 @@ namespace Together
         /// <example>unsloth/Qwen2.5-72B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string ModelSource { get; set; } = default!;
+        public required string ModelSource { get; set; }
 
         /// <summary>
         /// Whether the model is a full model or an adapter<br/>
@@ -69,6 +37,38 @@ namespace Together
         public global::Together.ModelUploadRequestModelType? ModelType { get; set; }
 
         /// <summary>
+        /// Hugging Face token (if uploading from Hugging Face)<br/>
+        /// Example: hf_examplehuggingfacetoken
+        /// </summary>
+        /// <example>hf_examplehuggingfacetoken</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hf_token")]
+        public string? HfToken { get; set; }
+
+        /// <summary>
+        /// A description of your model<br/>
+        /// Example: Finetuned Qwen2.5-72B-Instruct by Unsloth
+        /// </summary>
+        /// <example>Finetuned Qwen2.5-72B-Instruct by Unsloth</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.<br/>
+        /// Example: Qwen/Qwen2.5-72B-Instruct
+        /// </summary>
+        /// <example>Qwen/Qwen2.5-72B-Instruct</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
+        public string? BaseModel { get; set; }
+
+        /// <summary>
+        /// The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.<br/>
+        /// Example: my_username/Qwen2.5-72B-Instruct-lora
+        /// </summary>
+        /// <example>my_username/Qwen2.5-72B-Instruct-lora</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("lora_model")]
+        public string? LoraModel { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,22 +77,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelUploadRequest" /> class.
         /// </summary>
-        /// <param name="baseModel">
-        /// The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.<br/>
-        /// Example: Qwen/Qwen2.5-72B-Instruct
-        /// </param>
-        /// <param name="description">
-        /// A description of your model<br/>
-        /// Example: Finetuned Qwen2.5-72B-Instruct by Unsloth
-        /// </param>
-        /// <param name="hfToken">
-        /// Hugging Face token (if uploading from Hugging Face)<br/>
-        /// Example: hf_examplehuggingfacetoken
-        /// </param>
-        /// <param name="loraModel">
-        /// The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.<br/>
-        /// Example: my_username/Qwen2.5-72B-Instruct-lora
-        /// </param>
         /// <param name="modelName">
         /// The name to give to your uploaded model<br/>
         /// Example: Qwen2.5-72B-Instruct
@@ -106,25 +90,41 @@ namespace Together
         /// Default Value: model<br/>
         /// Example: model
         /// </param>
+        /// <param name="hfToken">
+        /// Hugging Face token (if uploading from Hugging Face)<br/>
+        /// Example: hf_examplehuggingfacetoken
+        /// </param>
+        /// <param name="description">
+        /// A description of your model<br/>
+        /// Example: Finetuned Qwen2.5-72B-Instruct by Unsloth
+        /// </param>
+        /// <param name="baseModel">
+        /// The base model to use for an adapter if setting it to run against a serverless pool.  Only used for model_type `adapter`.<br/>
+        /// Example: Qwen/Qwen2.5-72B-Instruct
+        /// </param>
+        /// <param name="loraModel">
+        /// The lora pool to use for an adapter if setting it to run against, say, a dedicated pool.  Only used for model_type `adapter`.<br/>
+        /// Example: my_username/Qwen2.5-72B-Instruct-lora
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ModelUploadRequest(
             string modelName,
             string modelSource,
-            string? baseModel,
-            string? description,
+            global::Together.ModelUploadRequestModelType? modelType,
             string? hfToken,
-            string? loraModel,
-            global::Together.ModelUploadRequestModelType? modelType)
+            string? description,
+            string? baseModel,
+            string? loraModel)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.ModelSource = modelSource ?? throw new global::System.ArgumentNullException(nameof(modelSource));
-            this.BaseModel = baseModel;
-            this.Description = description;
-            this.HfToken = hfToken;
-            this.LoraModel = loraModel;
             this.ModelType = modelType;
+            this.HfToken = hfToken;
+            this.Description = description;
+            this.BaseModel = baseModel;
+            this.LoraModel = loraModel;
         }
 
         /// <summary>

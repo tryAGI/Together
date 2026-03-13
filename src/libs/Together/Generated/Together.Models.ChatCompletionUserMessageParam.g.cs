@@ -14,13 +14,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.ChatCompletionUserMessageContent Content { get; set; } = default!;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string? Name { get; set; }
+        public required global::Together.ChatCompletionUserMessageContent Content { get; set; }
 
         /// <summary>
         /// 
@@ -28,6 +22,12 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionUserMessageParamRoleJsonConverter))]
         public global::Together.ChatCompletionUserMessageParamRole Role { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,19 +41,19 @@ namespace Together
         /// <param name="content">
         /// The content of the message, which can either be a simple string or a structured format.
         /// </param>
-        /// <param name="name"></param>
         /// <param name="role"></param>
+        /// <param name="name"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionUserMessageParam(
             global::Together.ChatCompletionUserMessageContent content,
-            string? name,
-            global::Together.ChatCompletionUserMessageParamRole role)
+            global::Together.ChatCompletionUserMessageParamRole role,
+            string? name)
         {
             this.Content = content;
-            this.Name = name;
             this.Role = role;
+            this.Name = name;
         }
 
         /// <summary>
