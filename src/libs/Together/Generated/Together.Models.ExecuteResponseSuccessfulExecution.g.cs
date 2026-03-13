@@ -11,16 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.ExecuteResponseSuccessfulExecutionData Data { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonPropertyName("errors")]
+        public object? Errors { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("errors")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public object? Errors { get; set; } = default!;
+        public required global::Together.ExecuteResponseSuccessfulExecutionData Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,8 +30,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecuteResponseSuccessfulExecution" /> class.
         /// </summary>
-        /// <param name="data"></param>
         /// <param name="errors"></param>
+        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,7 +40,7 @@ namespace Together
             object? errors)
         {
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
-            this.Errors = errors ?? throw new global::System.ArgumentNullException(nameof(errors));
+            this.Errors = errors;
         }
 
         /// <summary>

@@ -177,21 +177,11 @@ namespace Together
         /// Kubernetes and Slurm cluster flavors, a REST API, and Terraform support,<br/>
         /// you can run workloads flexibly without complex infrastructure management.
         /// </summary>
-        /// <param name="billingType">
-        /// RESERVED billing types allow you to specify the duration of the cluster reservation via the duration_days field.<br/>
-        /// ON_DEMAND billing types will give you ownership of the cluster until you delete it.
-        /// </param>
-        /// <param name="clusterName">
-        /// Name of the GPU cluster.
-        /// </param>
         /// <param name="clusterType">
         /// Type of cluster to create.
         /// </param>
-        /// <param name="driverVersion">
-        /// NVIDIA driver version to use in the cluster.
-        /// </param>
-        /// <param name="durationDays">
-        /// Duration in days to keep the cluster running.
+        /// <param name="region">
+        /// Region to create the GPU cluster in. Usable regions can be found from `client.clusters.list_regions()`
         /// </param>
         /// <param name="gpuType">
         /// Type of GPU to use in the cluster
@@ -199,22 +189,34 @@ namespace Together
         /// <param name="numGpus">
         /// Number of GPUs to allocate in the cluster. This must be multiple of 8. For example, 8, 16 or 24
         /// </param>
-        /// <param name="region">
-        /// Region to create the GPU cluster in. Usable regions can be found from `client.clusters.list_regions()`
+        /// <param name="clusterName">
+        /// Name of the GPU cluster.
         /// </param>
-        /// <param name="sharedVolume"></param>
+        /// <param name="durationDays">
+        /// Duration in days to keep the cluster running.
+        /// </param>
+        /// <param name="driverVersion">
+        /// NVIDIA driver version to use in the cluster.
+        /// </param>
+        /// <param name="sharedVolume">
+        /// Inline configuration to create a shared volume with the cluster creation.
+        /// </param>
         /// <param name="volumeId">
         /// ID of an existing volume to use with the cluster creation.
+        /// </param>
+        /// <param name="billingType">
+        /// RESERVED billing types allow you to specify the duration of the cluster reservation via the duration_days field.<br/>
+        /// ON_DEMAND billing types will give you ownership of the cluster until you delete it.
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClusterInfo> GPUClusterServiceCreateAsync(
-            global::Together.GPUClusterCreateRequestBillingType billingType,
-            string clusterName,
-            global::Together.GPUClusterCreateRequestDriverVersion driverVersion,
+            string region,
             global::Together.GPUClusterCreateRequestGpuType gpuType,
             int numGpus,
-            string region,
+            string clusterName,
+            global::Together.GPUClusterCreateRequestDriverVersion driverVersion,
+            global::Together.GPUClusterCreateRequestBillingType billingType,
             global::Together.GPUClusterCreateRequestClusterType? clusterType = default,
             int? durationDays = default,
             global::Together.GPUClustersSharedVolumeCreateRequest? sharedVolume = default,
@@ -223,16 +225,16 @@ namespace Together
         {
             var __request = new global::Together.GPUClusterCreateRequest
             {
-                BillingType = billingType,
-                ClusterName = clusterName,
                 ClusterType = clusterType,
-                DriverVersion = driverVersion,
-                DurationDays = durationDays,
+                Region = region,
                 GpuType = gpuType,
                 NumGpus = numGpus,
-                Region = region,
+                ClusterName = clusterName,
+                DurationDays = durationDays,
+                DriverVersion = driverVersion,
                 SharedVolume = sharedVolume,
                 VolumeId = volumeId,
+                BillingType = billingType,
             };
 
             return await GPUClusterServiceCreateAsync(
