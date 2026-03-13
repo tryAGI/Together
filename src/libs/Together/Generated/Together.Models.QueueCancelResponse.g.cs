@@ -16,7 +16,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.QueueCancelResponseStatusJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.QueueCancelResponseStatus Status { get; set; } = default!;
+        public required global::Together.QueueCancelResponseStatus Status { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

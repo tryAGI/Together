@@ -40,52 +40,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public AudioClient Audio { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public BatchesClient Batches { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ChatClient Chat { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EndpointsClient Endpoints { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CompletionClient Completion { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GPUClusterServiceClient GPUClusterService { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SharedVolumeServiceClient SharedVolumeService { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public RegionServiceClient RegionService { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public DeploymentsClient Deployments { get; }
 
         /// <summary>
         /// 
         /// </summary>
         public SecretsClient Secrets { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeploymentsStorageClient DeploymentsStorage { get; }
 
         /// <summary>
         /// 
@@ -100,17 +65,42 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public DeploymentsStorageClient DeploymentsStorage { get; }
+        public VoicesClient Voices { get; }
 
         /// <summary>
-        ///
+        /// 
+        /// </summary>
+        public VideoClient Video { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChatClient Chat { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CompletionClient Completion { get; }
+
+        /// <summary>
+        /// 
         /// </summary>
         public EmbeddingsClient Embeddings { get; }
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
-        public EvaluationClient Evaluation { get; }
+        public ModelsClient Models { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public JobsClient Jobs { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ImagesClient Images { get; }
 
         /// <summary>
         /// 
@@ -125,37 +115,42 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public HardwareClient Hardware { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ImagesClient Images { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public JobsClient Jobs { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ModelsClient Models { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public QueueClient Queue { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public RerankClient Rerank { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public RlClient Rl { get; }
+        public AudioClient Audio { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GPUClusterServiceClient GPUClusterService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RegionServiceClient RegionService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SharedVolumeServiceClient SharedVolumeService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public EndpointsClient Endpoints { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public EndpointsClient Endpoints { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public HardwareClient Hardware { get; }
 
         /// <summary>
         /// 
@@ -165,12 +160,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public VideoClient Video { get; }
+        public BatchesClient Batches { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public VoicesClient Voices { get; }
+        public EvaluationClient Evaluation { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public QueueClient Queue { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RlClient Rl { get; }
 
     }
 }
