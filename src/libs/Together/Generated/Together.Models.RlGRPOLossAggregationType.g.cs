@@ -19,7 +19,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        GrpoLossAggregationTypePerToken,
+        GrpoLossAggregationTypeTokenMean,
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ namespace Together
             {
                 RlGRPOLossAggregationType.GrpoLossAggregationTypeUnspecified => "GRPO_LOSS_AGGREGATION_TYPE_UNSPECIFIED",
                 RlGRPOLossAggregationType.GrpoLossAggregationTypeFixedHorizon => "GRPO_LOSS_AGGREGATION_TYPE_FIXED_HORIZON",
-                RlGRPOLossAggregationType.GrpoLossAggregationTypePerToken => "GRPO_LOSS_AGGREGATION_TYPE_PER_TOKEN",
+                RlGRPOLossAggregationType.GrpoLossAggregationTypeTokenMean => "GRPO_LOSS_AGGREGATION_TYPE_TOKEN_MEAN",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,7 +49,7 @@ namespace Together
             {
                 "GRPO_LOSS_AGGREGATION_TYPE_UNSPECIFIED" => RlGRPOLossAggregationType.GrpoLossAggregationTypeUnspecified,
                 "GRPO_LOSS_AGGREGATION_TYPE_FIXED_HORIZON" => RlGRPOLossAggregationType.GrpoLossAggregationTypeFixedHorizon,
-                "GRPO_LOSS_AGGREGATION_TYPE_PER_TOKEN" => RlGRPOLossAggregationType.GrpoLossAggregationTypePerToken,
+                "GRPO_LOSS_AGGREGATION_TYPE_TOKEN_MEAN" => RlGRPOLossAggregationType.GrpoLossAggregationTypeTokenMean,
                 _ => null,
             };
         }
