@@ -18,22 +18,6 @@ namespace Together
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// Random seed for reproducibility<br/>
-        /// Example: 42
-        /// </summary>
-        /// <example>42</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
-        public string? Seed { get; set; }
-
-        /// <summary>
-        /// Generation stops when any of these strings is produced<br/>
-        /// Example: [, END]
-        /// </summary>
-        /// <example>[, END]</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
-        public global::System.Collections.Generic.IList<string>? Stop { get; set; }
-
-        /// <summary>
         /// Sampling temperature<br/>
         /// Default Value: 1.0<br/>
         /// Example: 1
@@ -41,6 +25,15 @@ namespace Together
         /// <example>1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public float? Temperature { get; set; }
+
+        /// <summary>
+        /// Nucleus sampling probability threshold<br/>
+        /// Default Value: 1.0<br/>
+        /// Example: 1
+        /// </summary>
+        /// <example>1</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
+        public float? TopP { get; set; }
 
         /// <summary>
         /// Top-k sampling limit<br/>
@@ -52,13 +45,20 @@ namespace Together
         public int? TopK { get; set; }
 
         /// <summary>
-        /// Nucleus sampling probability threshold<br/>
-        /// Default Value: 1.0<br/>
-        /// Example: 1
+        /// Generation stops when any of these strings is produced<br/>
+        /// Example: [, END]
         /// </summary>
-        /// <example>1</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
-        public float? TopP { get; set; }
+        /// <example>[, END]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
+        public global::System.Collections.Generic.IList<string>? Stop { get; set; }
+
+        /// <summary>
+        /// Random seed for reproducibility<br/>
+        /// Example: 42
+        /// </summary>
+        /// <example>42</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        public string? Seed { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -74,16 +74,13 @@ namespace Together
         /// Default Value: 100<br/>
         /// Example: 100
         /// </param>
-        /// <param name="seed">
-        /// Random seed for reproducibility<br/>
-        /// Example: 42
-        /// </param>
-        /// <param name="stop">
-        /// Generation stops when any of these strings is produced<br/>
-        /// Example: [, END]
-        /// </param>
         /// <param name="temperature">
         /// Sampling temperature<br/>
+        /// Default Value: 1.0<br/>
+        /// Example: 1
+        /// </param>
+        /// <param name="topP">
+        /// Nucleus sampling probability threshold<br/>
         /// Default Value: 1.0<br/>
         /// Example: 1
         /// </param>
@@ -92,28 +89,31 @@ namespace Together
         /// Default Value: -1<br/>
         /// Example: -1
         /// </param>
-        /// <param name="topP">
-        /// Nucleus sampling probability threshold<br/>
-        /// Default Value: 1.0<br/>
-        /// Example: 1
+        /// <param name="stop">
+        /// Generation stops when any of these strings is produced<br/>
+        /// Example: [, END]
+        /// </param>
+        /// <param name="seed">
+        /// Random seed for reproducibility<br/>
+        /// Example: 42
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSamplingParams(
             int? maxTokens,
-            string? seed,
-            global::System.Collections.Generic.IList<string>? stop,
             float? temperature,
+            float? topP,
             int? topK,
-            float? topP)
+            global::System.Collections.Generic.IList<string>? stop,
+            string? seed)
         {
             this.MaxTokens = maxTokens;
-            this.Seed = seed;
-            this.Stop = stop;
             this.Temperature = temperature;
-            this.TopK = topK;
             this.TopP = topP;
+            this.TopK = topK;
+            this.Stop = stop;
+            this.Seed = seed;
         }
 
         /// <summary>

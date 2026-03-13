@@ -6,40 +6,13 @@ namespace Together
     /// <summary>
     /// The object type, which is always `endpoint`.
     /// </summary>
-    public enum ListEndpointObject
+    public sealed partial class ListEndpointObject
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        Endpoint,
-    }
 
-    /// <summary>
-    /// Enum extensions to do fast conversions without the reflection.
-    /// </summary>
-    public static class ListEndpointObjectExtensions
-    {
         /// <summary>
-        /// Converts an enum to a string.
+        /// Additional properties that are not explicitly defined in the schema
         /// </summary>
-        public static string ToValueString(this ListEndpointObject value)
-        {
-            return value switch
-            {
-                ListEndpointObject.Endpoint => "endpoint",
-                _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
-            };
-        }
-        /// <summary>
-        /// Converts an string to a enum.
-        /// </summary>
-        public static ListEndpointObject? ToEnum(string value)
-        {
-            return value switch
-            {
-                "endpoint" => ListEndpointObject.Endpoint,
-                _ => null,
-            };
-        }
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
     }
 }

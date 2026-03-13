@@ -48,8 +48,7 @@ namespace Together
         /// The object type, which is always `secret`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.SecretResponseItemObjectJsonConverter))]
-        public global::Together.SecretResponseItemObject? Object { get; set; }
+        public string? Object { get; set; }
 
         /// <summary>
         /// UpdatedAt is the ISO8601 timestamp when this secret was last updated
@@ -100,7 +99,7 @@ namespace Together
             string? id,
             string? lastUpdatedBy,
             string? name,
-            global::Together.SecretResponseItemObject? @object,
+            string? @object,
             string? updatedAt)
         {
             this.CreatedAt = createdAt;

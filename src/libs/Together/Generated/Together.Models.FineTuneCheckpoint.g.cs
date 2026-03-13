@@ -11,30 +11,30 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_type")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("step")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CheckpointType { get; set; } = default!;
+        public required int Step { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string CreatedAt { get; set; } = default!;
+        public required string CreatedAt { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("path")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Path { get; set; } = default!;
+        public required string Path { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("step")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Step { get; set; } = default!;
+        public required string CheckpointType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,23 +45,23 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="FineTuneCheckpoint" /> class.
         /// </summary>
-        /// <param name="checkpointType"></param>
+        /// <param name="step"></param>
         /// <param name="createdAt"></param>
         /// <param name="path"></param>
-        /// <param name="step"></param>
+        /// <param name="checkpointType"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FineTuneCheckpoint(
-            string checkpointType,
+            int step,
             string createdAt,
             string path,
-            int step)
+            string checkpointType)
         {
-            this.CheckpointType = checkpointType ?? throw new global::System.ArgumentNullException(nameof(checkpointType));
+            this.Step = step;
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.Path = path ?? throw new global::System.ArgumentNullException(nameof(path));
-            this.Step = step;
+            this.CheckpointType = checkpointType ?? throw new global::System.ArgumentNullException(nameof(checkpointType));
         }
 
         /// <summary>

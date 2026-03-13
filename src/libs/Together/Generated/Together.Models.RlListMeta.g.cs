@@ -17,20 +17,12 @@ namespace Together
         public int? Limit { get; set; }
 
         /// <summary>
-        /// Number of items skipped<br/>
-        /// Example: 0
+        /// Whether more items exist beyond this page<br/>
+        /// Example: true
         /// </summary>
-        /// <example>0</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("offset")]
-        public int? Offset { get; set; }
-
-        /// <summary>
-        /// Total number of items matching the filter<br/>
-        /// Example: 42
-        /// </summary>
-        /// <example>42</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("total")]
-        public string? Total { get; set; }
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
+        public bool? HasMore { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,25 +37,19 @@ namespace Together
         /// Maximum number of items returned per page<br/>
         /// Example: 20
         /// </param>
-        /// <param name="offset">
-        /// Number of items skipped<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="total">
-        /// Total number of items matching the filter<br/>
-        /// Example: 42
+        /// <param name="hasMore">
+        /// Whether more items exist beyond this page<br/>
+        /// Example: true
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlListMeta(
             int? limit,
-            int? offset,
-            string? total)
+            bool? hasMore)
         {
             this.Limit = limit;
-            this.Offset = offset;
-            this.Total = total;
+            this.HasMore = hasMore;
         }
 
         /// <summary>

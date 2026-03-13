@@ -9,6 +9,14 @@ namespace Together
     public sealed partial class RlSampleSequence
     {
         /// <summary>
+        /// Generated token IDs<br/>
+        /// Example: [123, 456, 789]
+        /// </summary>
+        /// <example>[123, 456, 789]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
+        public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
+
+        /// <summary>
         /// Log probabilities for each generated token<br/>
         /// Example: [-0.5, -1.2, -0.3]
         /// </summary>
@@ -25,14 +33,6 @@ namespace Together
         public string? StopReason { get; set; }
 
         /// <summary>
-        /// Generated token IDs<br/>
-        /// Example: [123, 456, 789]
-        /// </summary>
-        /// <example>[123, 456, 789]</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
-        public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,6 +41,10 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlSampleSequence" /> class.
         /// </summary>
+        /// <param name="tokens">
+        /// Generated token IDs<br/>
+        /// Example: [123, 456, 789]
+        /// </param>
         /// <param name="logprobs">
         /// Log probabilities for each generated token<br/>
         /// Example: [-0.5, -1.2, -0.3]
@@ -49,21 +53,17 @@ namespace Together
         /// Reason for stopping generation<br/>
         /// Example: length
         /// </param>
-        /// <param name="tokens">
-        /// Generated token IDs<br/>
-        /// Example: [123, 456, 789]
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSampleSequence(
+            global::System.Collections.Generic.IList<string>? tokens,
             global::System.Collections.Generic.IList<double>? logprobs,
-            string? stopReason,
-            global::System.Collections.Generic.IList<string>? tokens)
+            string? stopReason)
         {
+            this.Tokens = tokens;
             this.Logprobs = logprobs;
             this.StopReason = stopReason;
-            this.Tokens = tokens;
         }
 
         /// <summary>
