@@ -9,11 +9,19 @@ namespace Together
     public sealed partial class ModelInfo
     {
         /// <summary>
-        /// Example: 2048
+        /// Example: Austism/chronos-hermes-13b
         /// </summary>
-        /// <example>2048</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
-        public int? ContextLength { get; set; }
+        /// <example>Austism/chronos-hermes-13b</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
+
+        /// <summary>
+        /// The object type, which is always `model`.
+        /// </summary>
+        /// <default>"model"</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        public string Object { get; set; } = "model";
 
         /// <summary>
         /// Example: 1692896905
@@ -21,7 +29,16 @@ namespace Together
         /// <example>1692896905</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int Created { get; set; } = default!;
+        public required int Created { get; set; }
+
+        /// <summary>
+        /// Example: chat
+        /// </summary>
+        /// <example>chat</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ModelInfoTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.ModelInfoType Type { get; set; }
 
         /// <summary>
         /// Example: Chronos Hermes (13B)
@@ -29,34 +46,6 @@ namespace Together
         /// <example>Chronos Hermes (13B)</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
-
-        /// <summary>
-        /// Example: Austism/chronos-hermes-13b
-        /// </summary>
-        /// <example>Austism/chronos-hermes-13b</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
-        /// Example: other
-        /// </summary>
-        /// <example>other</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("license")]
-        public string? License { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("link")]
-        public string? Link { get; set; }
-
-        /// <summary>
-        /// The object type, which is always `model`.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ModelInfoObjectJsonConverter))]
-        public global::Together.ModelInfoObject Object { get; set; }
 
         /// <summary>
         /// Example: Austism
@@ -68,17 +57,28 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
-        public global::Together.Pricing? Pricing { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("link")]
+        public string? Link { get; set; }
 
         /// <summary>
-        /// Example: chat
+        /// Example: other
         /// </summary>
-        /// <example>chat</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ModelInfoTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.ModelInfoType Type { get; set; } = default!;
+        /// <example>other</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("license")]
+        public string? License { get; set; }
+
+        /// <summary>
+        /// Example: 2048
+        /// </summary>
+        /// <example>2048</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("context_length")]
+        public int? ContextLength { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
+        public global::Together.Pricing? Pricing { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -89,56 +89,56 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelInfo" /> class.
         /// </summary>
-        /// <param name="contextLength">
-        /// Example: 2048
+        /// <param name="id">
+        /// Example: Austism/chronos-hermes-13b
+        /// </param>
+        /// <param name="object">
+        /// The object type, which is always `model`.
         /// </param>
         /// <param name="created">
         /// Example: 1692896905
         /// </param>
+        /// <param name="type">
+        /// Example: chat
+        /// </param>
         /// <param name="displayName">
         /// Example: Chronos Hermes (13B)
-        /// </param>
-        /// <param name="id">
-        /// Example: Austism/chronos-hermes-13b
-        /// </param>
-        /// <param name="license">
-        /// Example: other
-        /// </param>
-        /// <param name="link"></param>
-        /// <param name="object">
-        /// The object type, which is always `model`.
         /// </param>
         /// <param name="organization">
         /// Example: Austism
         /// </param>
-        /// <param name="pricing"></param>
-        /// <param name="type">
-        /// Example: chat
+        /// <param name="link"></param>
+        /// <param name="license">
+        /// Example: other
         /// </param>
+        /// <param name="contextLength">
+        /// Example: 2048
+        /// </param>
+        /// <param name="pricing"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ModelInfo(
-            int created,
             string id,
+            int created,
             global::Together.ModelInfoType type,
-            int? contextLength,
             string? displayName,
-            string? license,
-            string? link,
-            global::Together.ModelInfoObject @object,
             string? organization,
-            global::Together.Pricing? pricing)
+            string? link,
+            string? license,
+            int? contextLength,
+            global::Together.Pricing? pricing,
+            string @object = "model")
         {
-            this.Created = created;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Created = created;
             this.Type = type;
-            this.ContextLength = contextLength;
-            this.DisplayName = displayName;
-            this.License = license;
-            this.Link = link;
             this.Object = @object;
+            this.DisplayName = displayName;
             this.Organization = organization;
+            this.Link = link;
+            this.License = license;
+            this.ContextLength = contextLength;
             this.Pricing = pricing;
         }
 
