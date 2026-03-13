@@ -76,11 +76,15 @@ namespace Together.JsonConverters
             {
             }
 
-            var result = new global::Together.ChatCompletionMessageParam(
+            var __value = new global::Together.ChatCompletionMessageParam(
                 system,
+
                 user,
+
                 assistant,
+
                 tool,
+
                 function
                 );
 
@@ -115,7 +119,7 @@ namespace Together.JsonConverters
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />

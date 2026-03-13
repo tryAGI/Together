@@ -9,17 +9,59 @@ namespace Together
     public sealed partial class VideoJob
     {
         /// <summary>
-        /// Unix timestamp (seconds) for when the job completed, if finished.
+        /// Unique identifier for the video job.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
-        public double? CompletedAt { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
+
+        /// <summary>
+        /// The object type, which is always video.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
+        public string? Object { get; set; }
+
+        /// <summary>
+        /// The video generation model that produced the job.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Model { get; set; }
+
+        /// <summary>
+        /// Current lifecycle status of the video job.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.VideoStatusJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.VideoStatus Status { get; set; }
 
         /// <summary>
         /// Unix timestamp (seconds) for when the job was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public double CreatedAt { get; set; } = default!;
+        public required double CreatedAt { get; set; }
+
+        /// <summary>
+        /// Unix timestamp (seconds) for when the job completed, if finished.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
+        public double? CompletedAt { get; set; }
+
+        /// <summary>
+        /// The resolution of the generated video.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("size")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Size { get; set; }
+
+        /// <summary>
+        /// Duration of the generated clip in seconds.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seconds")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Seconds { get; set; }
 
         /// <summary>
         /// Error payload that explains why generation failed, if applicable.
@@ -28,53 +70,10 @@ namespace Together
         public global::Together.VideoJobError? Error { get; set; }
 
         /// <summary>
-        /// Unique identifier for the video job.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
-        /// The video generation model that produced the job.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Model { get; set; } = default!;
-
-        /// <summary>
-        /// The object type, which is always video.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.VideoJobObjectJsonConverter))]
-        public global::Together.VideoJobObject? Object { get; set; }
-
-        /// <summary>
         /// Available upon completion, the outputs provides the cost charged and the hosted url to access the video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("outputs")]
         public global::Together.VideoJobOutputs? Outputs { get; set; }
-
-        /// <summary>
-        /// Duration of the generated clip in seconds.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("seconds")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Seconds { get; set; } = default!;
-
-        /// <summary>
-        /// The resolution of the generated video.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("size")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public string Size { get; set; } = default!;
-
-        /// <summary>
-        /// Current lifecycle status of the video job.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.VideoStatusJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.VideoStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -85,60 +84,60 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoJob" /> class.
         /// </summary>
-        /// <param name="completedAt">
-        /// Unix timestamp (seconds) for when the job completed, if finished.
-        /// </param>
-        /// <param name="createdAt">
-        /// Unix timestamp (seconds) for when the job was created.
-        /// </param>
-        /// <param name="error">
-        /// Error payload that explains why generation failed, if applicable.
-        /// </param>
         /// <param name="id">
         /// Unique identifier for the video job.
-        /// </param>
-        /// <param name="model">
-        /// The video generation model that produced the job.
         /// </param>
         /// <param name="object">
         /// The object type, which is always video.
         /// </param>
-        /// <param name="outputs">
-        /// Available upon completion, the outputs provides the cost charged and the hosted url to access the video
+        /// <param name="model">
+        /// The video generation model that produced the job.
         /// </param>
-        /// <param name="seconds">
-        /// Duration of the generated clip in seconds.
+        /// <param name="status">
+        /// Current lifecycle status of the video job.
+        /// </param>
+        /// <param name="createdAt">
+        /// Unix timestamp (seconds) for when the job was created.
+        /// </param>
+        /// <param name="completedAt">
+        /// Unix timestamp (seconds) for when the job completed, if finished.
         /// </param>
         /// <param name="size">
         /// The resolution of the generated video.
         /// </param>
-        /// <param name="status">
-        /// Current lifecycle status of the video job.
+        /// <param name="seconds">
+        /// Duration of the generated clip in seconds.
+        /// </param>
+        /// <param name="error">
+        /// Error payload that explains why generation failed, if applicable.
+        /// </param>
+        /// <param name="outputs">
+        /// Available upon completion, the outputs provides the cost charged and the hosted url to access the video
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VideoJob(
-            double createdAt,
             string id,
             string model,
-            string seconds,
-            string size,
             global::Together.VideoStatus status,
+            double createdAt,
+            string size,
+            string seconds,
+            string? @object,
             double? completedAt,
             global::Together.VideoJobError? error,
-            global::Together.VideoJobObject? @object,
             global::Together.VideoJobOutputs? outputs)
         {
-            this.CreatedAt = createdAt;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Seconds = seconds ?? throw new global::System.ArgumentNullException(nameof(seconds));
-            this.Size = size ?? throw new global::System.ArgumentNullException(nameof(size));
             this.Status = status;
+            this.CreatedAt = createdAt;
+            this.Size = size ?? throw new global::System.ArgumentNullException(nameof(size));
+            this.Seconds = seconds ?? throw new global::System.ArgumentNullException(nameof(seconds));
+            this.Object = @object;
             this.CompletedAt = completedAt;
             this.Error = error;
-            this.Object = @object;
             this.Outputs = outputs;
         }
 

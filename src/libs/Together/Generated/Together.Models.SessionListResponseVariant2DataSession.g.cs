@@ -13,14 +13,14 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("execute_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public int ExecuteCount { get; set; } = default!;
+        public required int ExecuteCount { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTime ExpiresAt { get; set; } = default!;
+        public required global::System.DateTime ExpiresAt { get; set; }
 
         /// <summary>
         /// Session Identifier. Used to make follow-up calls.<br/>
@@ -29,21 +29,21 @@ namespace Together
         /// <example>ses_abcDEF123</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Id { get; set; } = default!;
+        public required string Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_execute_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTime LastExecuteAt { get; set; } = default!;
+        public required global::System.DateTime LastExecuteAt { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("started_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.DateTime StartedAt { get; set; } = default!;
+        public required global::System.DateTime StartedAt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

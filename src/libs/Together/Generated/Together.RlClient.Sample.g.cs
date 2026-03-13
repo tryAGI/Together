@@ -107,18 +107,18 @@ namespace Together
             {
                 string? __content_default = null;
                 global::System.Exception? __exception_default = null;
-                global::Together.RpcStatus? __value_default = null;
+                global::Together.ErrorData? __value_default = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = global::Together.RpcStatus.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerContext);
                     }
                     else
                     {
                         var __contentStream_default = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = await global::Together.RpcStatus.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
+                        __value_default = await global::Together.ErrorData.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -126,7 +126,7 @@ namespace Together
                     __exception_default = __ex;
                 }
 
-                throw new global::Together.ApiException<global::Together.RpcStatus>(
+                throw new global::Together.ApiException<global::Together.ErrorData>(
                     message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_default,
                     statusCode: __response.StatusCode)
@@ -219,27 +219,31 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="prompt">
+        /// Input prompt as tokenized chunks
+        /// </param>
+        /// <param name="samplingParams">
+        /// Optional sampling parameters
+        /// </param>
         /// <param name="numSamples">
         /// Number of completions to generate for this prompt<br/>
         /// Default Value: 1<br/>
         /// Example: 1
         /// </param>
-        /// <param name="prompt"></param>
-        /// <param name="samplingParams"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RlSampleOperation> SampleAsync(
             string sessionId,
             global::Together.RlModelInput prompt,
-            long? numSamples = default,
             global::Together.RlSamplingParams? samplingParams = default,
+            long? numSamples = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.RlSampleBody
             {
-                NumSamples = numSamples,
                 Prompt = prompt,
                 SamplingParams = samplingParams,
+                NumSamples = numSamples,
             };
 
             return await SampleAsync(
