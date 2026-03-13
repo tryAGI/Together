@@ -887,19 +887,19 @@ paths:
       x-codeSamples:
         - lang: Python
           label: Together AI SDK (v2)
-          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.chat.completions.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"What are some fun things to do in New York?\"},\n    ]\n)\n"
+          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.chat.completions.create(\n    model=\"Qwen/Qwen3.5-9B\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"What are some fun things to do in New York?\"},\n    ],\n    reasoning={\"enabled\": False}\n)\n"
         - lang: Python
           label: Together AI SDK (v1)
-          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.chat.completions.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"What are some fun things to do in New York?\"},\n    ]\n)\n\nprint(response.choices[0].message.content)\n"
+          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.chat.completions.create(\n    model=\"Qwen/Qwen3.5-9B\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"What are some fun things to do in New York?\"},\n    ],\n    reasoning={\"enabled\": False}\n)\n\nprint(response.choices[0].message.content)\n"
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.chat.completions.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  messages: [\n    { role: \"system\", content: \"You are a helpful assistant.\" },\n    { role: \"user\", \"content\": \"What are some fun things to do in New York?\" },\n  ],\n});\n\nconsole.log(response.choices[0].message?.content);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.chat.completions.create({\n  model: \"Qwen/Qwen3.5-9B\",\n  messages: [\n    { role: \"system\", content: \"You are a helpful assistant.\" },\n    { role: \"user\", \"content\": \"What are some fun things to do in New York?\" },\n  ],\n  reasoning: { enabled: false },\n});\n\nconsole.log(response.choices[0].message?.content);\n"
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.chat.completions.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  messages: [\n    { role: \"system\", content: \"You are a helpful assistant.\" },\n    { role: \"user\", \"content\": \"What are some fun things to do in New York?\" },\n  ],\n});\n\nconsole.log(response.choices[0].message?.content);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.chat.completions.create({\n  model: \"Qwen/Qwen3.5-9B\",\n  messages: [\n    { role: \"system\", content: \"You are a helpful assistant.\" },\n    { role: \"user\", \"content\": \"What are some fun things to do in New York?\" },\n  ],\n  reasoning: { enabled: false },\n});\n\nconsole.log(response.choices[0].message?.content);\n"
         - lang: Shell
           label: cURL
-          source: "curl -X POST \"https://api.together.xyz/v1/chat/completions\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n       \"messages\": [\n         {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n         {\"role\": \"user\", \"content\": \"What are some fun things to do in New York?\"}\n       ]\n     }'\n"
+          source: "curl -X POST \"https://api.together.xyz/v1/chat/completions\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"Qwen/Qwen3.5-9B\",\n       \"messages\": [\n         {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n         {\"role\": \"user\", \"content\": \"What are some fun things to do in New York?\"}\n       ],\n       \"reasoning\": {\"enabled\": false}\n     }'\n"
   /completions:
     post:
       tags:
@@ -961,19 +961,19 @@ paths:
       x-codeSamples:
         - lang: Python
           label: Together AI SDK (v2)
-          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.completions.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    prompt=\"The largest city in France is\",\n    max_tokens=1\n)\n\nprint(response.choices[0].text)\n"
+          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.completions.create(\n    model=\"Qwen/Qwen3.5-9B\",\n    prompt=\"The largest city in France is\",\n    max_tokens=1\n)\n\nprint(response.choices[0].text)\n"
         - lang: Python
           label: Together AI SDK (v1)
-          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.completions.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    prompt=\"The largest city in France is\",\n    max_tokens=1\n)\n\nprint(response.choices[0].text)\n"
+          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.completions.create(\n    model=\"Qwen/Qwen3.5-9B\",\n    prompt=\"The largest city in France is\",\n    max_tokens=1\n)\n\nprint(response.choices[0].text)\n"
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  prompt: \"The largest city in France is\",\n  max_tokens: 1,\n});\n\nconsole.log(response.choices[0].text);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"Qwen/Qwen3.5-9B\",\n  prompt: \"The largest city in France is\",\n  max_tokens: 1,\n});\n\nconsole.log(response.choices[0].text);\n"
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  prompt: \"The largest city in France is\",\n  max_tokens: 1\n});\n\nconsole.log(response.choices[0].text);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.completions.create({\n  model: \"Qwen/Qwen3.5-9B\",\n  prompt: \"The largest city in France is\",\n  max_tokens: 1\n});\n\nconsole.log(response.choices[0].text);\n"
         - lang: Shell
           label: cURL
-          source: "curl -X POST \"https://api.together.xyz/v1/completions\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n       \"prompt\": \"The largest city in France is\",\n       \"max_tokens\": 1\n     }'\n"
+          source: "curl -X POST \"https://api.together.xyz/v1/completions\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"Qwen/Qwen3.5-9B\",\n       \"prompt\": \"The largest city in France is\",\n       \"max_tokens\": 1\n     }'\n"
   /embeddings:
     post:
       tags:
@@ -2862,19 +2862,19 @@ paths:
       x-codeSamples:
         - lang: Python
           label: Together AI SDK (v2)
-          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nendpoint = client.endpoints.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    hardware=\"1x_nvidia_a100_80gb_sxm\",\n    autoscaling={\n      \"min_replicas\": 2,\n      \"max_replicas\": 5,\n    }\n)\n\nprint(endpoint.id)\n"
+          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nendpoint = client.endpoints.create(\n    model=\"Qwen/Qwen3.5-9B-FP8\",\n    hardware=\"1x_nvidia_a100_80gb_sxm\",\n    autoscaling={\n      \"min_replicas\": 2,\n      \"max_replicas\": 5,\n    }\n)\n\nprint(endpoint.id)\n"
         - lang: Python
           label: Together AI SDK (v1)
-          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nendpoint = client.endpoints.create(\n    model=\"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n    hardware=\"1x_nvidia_a100_80gb_sxm\",\n    min_replicas=2,\n    max_replicas=5,\n)\n\nprint(endpoint.id)\n"
+          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nendpoint = client.endpoints.create(\n    model=\"Qwen/Qwen3.5-9B-FP8\",\n    hardware=\"1x_nvidia_a100_80gb_sxm\",\n    min_replicas=2,\n    max_replicas=5,\n)\n\nprint(endpoint.id)\n"
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst endpoint = await client.endpoints.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  hardware: \"1x_nvidia_a100_80gb_sxm\",\n  autoscaling: {\n    max_replicas: 5,\n    min_replicas: 2,\n  }\n});\n\nconsole.log(endpoint.id);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst endpoint = await client.endpoints.create({\n  model: \"Qwen/Qwen3.5-9B-FP8\",\n  hardware: \"1x_nvidia_a100_80gb_sxm\",\n  autoscaling: {\n    max_replicas: 5,\n    min_replicas: 2,\n  }\n});\n\nconsole.log(endpoint.id);\n"
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst endpoint = await client.endpoints.create({\n  model: \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n  hardware: \"1x_nvidia_a100_80gb_sxm\",\n  autoscaling: {\n    max_replicas: 5,\n    min_replicas: 2,\n  }\n});\n\nconsole.log(endpoint.id);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst endpoint = await client.endpoints.create({\n  model: \"Qwen/Qwen3.5-9B-FP8\",\n  hardware: \"1x_nvidia_a100_80gb_sxm\",\n  autoscaling: {\n    max_replicas: 5,\n    min_replicas: 2,\n  }\n});\n\nconsole.log(endpoint.id);\n"
         - lang: Shell
           label: cURL
-          source: "curl -X POST \"https://api.together.xyz/v1/endpoints\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo\",\n       \"hardware\": \"1x_nvidia_a100_80gb_sxm\",\n       \"autoscaling\": {\n         \"max_replicas\": 5,\n         \"min_replicas\": 2\n       }\n     }'\n"
+          source: "curl -X POST \"https://api.together.xyz/v1/endpoints\" \\\n     -H \"Authorization: Bearer $TOGETHER_API_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n       \"model\": \"Qwen/Qwen3.5-9B-FP8\",\n       \"hardware\": \"1x_nvidia_a100_80gb_sxm\",\n       \"autoscaling\": {\n         \"max_replicas\": 5,\n         \"min_replicas\": 2\n       }\n     }'\n"
   '/endpoints/{endpointId}':
     get:
       tags:
@@ -3465,16 +3465,16 @@ paths:
       x-codeSamples:
         - lang: Python
           label: Together AI SDK (v2)
-          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.evals.create(\n    type=\"classify\",\n    parameters=ParametersEvaluationClassifyParameters(\n        judge=ParametersEvaluationClassifyParametersJudge(\n            model=\"meta-llama/Llama-3.1-70B-Instruct-Turbo\",\n            model_source=\"serverless\",\n            system_template=\"You are an expert evaluator...\",\n        ),\n        input_data_file_path=\"file-abc123\",\n        labels=[\"good\", \"bad\"],\n        pass_labels=[\"good\"],\n        model_to_evaluate=\"meta-llama/Llama-3.1-8B-Instruct-Turbo\"\n    )\n)\n\nprint(response.workflow_id)\n"
+          source: "# Docs for v1 can be found by changing the above selector ^\nfrom together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.evals.create(\n    type=\"classify\",\n    parameters=ParametersEvaluationClassifyParameters(\n        judge=ParametersEvaluationClassifyParametersJudge(\n            model=\"openai/gpt-oss-120b\",\n            model_source=\"serverless\",\n            system_template=\"You are an expert evaluator...\",\n        ),\n        input_data_file_path=\"file-abc123\",\n        labels=[\"good\", \"bad\"],\n        pass_labels=[\"good\"],\n        model_to_evaluate=\"Qwen/Qwen3.5-9B\"\n    )\n)\n\nprint(response.workflow_id)\n"
         - lang: Python
           label: Together AI SDK (v1)
-          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.evaluation.create(\n    type=\"classify\",\n    judge_model_name=\"meta-llama/Llama-3.1-70B-Instruct-Turbo\",\n    judge_system_template=\"You are an expert evaluator...\",\n    input_data_file_path=\"file-abc123\",\n    labels=[\"good\", \"bad\"],\n    pass_labels=[\"good\"],\n    model_to_evaluate=\"meta-llama/Llama-3.1-8B-Instruct-Turbo\"\n)\n\nprint(response.workflow_id)\n"
+          source: "from together import Together\nimport os\n\nclient = Together(\n    api_key=os.environ.get(\"TOGETHER_API_KEY\"),\n)\n\nresponse = client.evaluation.create(\n    type=\"classify\",\n    judge_model_name=\"openai/gpt-oss-120b\",\n    judge_system_template=\"You are an expert evaluator...\",\n    input_data_file_path=\"file-abc123\",\n    labels=[\"good\", \"bad\"],\n    pass_labels=[\"good\"],\n    model_to_evaluate=\"Qwen/Qwen3.5-9B\"\n)\n\nprint(response.workflow_id)\n"
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.evals.create({\n  type: 'classify',\n  parameters: {\n    judge: {\n      model: 'meta-llama/Llama-3.1-70B-Instruct-Turbo',\n      model_source: 'serverless',\n      system_template: 'You are an expert evaluator...',\n    },\n    input_data_file_path: 'file-abc123',\n    labels: ['good', 'bad'],\n    pass_labels: ['good'],\n    model_to_evaluate: 'meta-llama/Llama-3.1-8B-Instruct-Turbo',\n  },\n});\n\nconsole.log(response.workflow_id);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.evals.create({\n  type: 'classify',\n  parameters: {\n    judge: {\n      model: 'openai/gpt-oss-120b',\n      model_source: 'serverless',\n      system_template: 'You are an expert evaluator...',\n    },\n    input_data_file_path: 'file-abc123',\n    labels: ['good', 'bad'],\n    pass_labels: ['good'],\n    model_to_evaluate: 'Qwen/Qwen3.5-9B',\n  },\n});\n\nconsole.log(response.workflow_id);\n"
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
-          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.evals.create({\n  type: 'classify',\n  parameters: {\n    judge: {\n      model: 'meta-llama/Llama-3.1-70B-Instruct-Turbo',\n      model_source: 'serverless',\n      system_template: 'You are an expert evaluator...',\n    },\n    input_data_file_path: 'file-abc123',\n    labels: ['good', 'bad'],\n    pass_labels: ['good'],\n    model_to_evaluate: 'meta-llama/Llama-3.1-8B-Instruct-Turbo',\n  },\n});\n\nconsole.log(response.workflow_id);\n"
+          source: "import Together from \"together-ai\";\n\nconst client = new Together({\n  apiKey: process.env.TOGETHER_API_KEY,\n});\n\nconst response = await client.evals.create({\n  type: 'classify',\n  parameters: {\n    judge: {\n      model: 'openai/gpt-oss-120b',\n      model_source: 'serverless',\n      system_template: 'You are an expert evaluator...',\n    },\n    input_data_file_path: 'file-abc123',\n    labels: ['good', 'bad'],\n    pass_labels: ['good'],\n    model_to_evaluate: 'Qwen/Qwen3.5-9B',\n  },\n});\n\nconsole.log(response.workflow_id);\n"
     get:
       tags:
         - evaluation
@@ -5839,13 +5839,13 @@ components:
             - enum:
                 - Qwen/Qwen2.5-72B-Instruct-Turbo
                 - Qwen/Qwen2.5-7B-Instruct-Turbo
+                - Qwen/Qwen3.5-9B
                 - meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo
                 - meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
-                - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
               type: string
             - type: string
           description: "The name of the model to query.<br> <br> [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)\n"
-          example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+          example: Qwen/Qwen3.5-9B
         max_tokens:
           type: integer
           description: The maximum number of tokens to generate.
@@ -8591,7 +8591,7 @@ components:
         model_id:
           type: string
           description: Model to use for processing batch requests
-          example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+          example: Qwen/Qwen3.5-9B
     BatchErrorResponse:
       type: object
       properties:
@@ -8643,7 +8643,7 @@ components:
         model_id:
           type: string
           description: Model used for processing requests
-          example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+          example: Qwen/Qwen3.5-9B
         output_file_id:
           type: string
           example: file-output789xyz012ghi

@@ -38,7 +38,7 @@ namespace Together
         /// </param>
         /// <param name="modelId">
         /// Model to use for processing batch requests<br/>
-        /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+        /// Example: Qwen/Qwen3.5-9B
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

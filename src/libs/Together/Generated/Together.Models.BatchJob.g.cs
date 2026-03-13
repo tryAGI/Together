@@ -77,9 +77,9 @@ namespace Together
 
         /// <summary>
         /// Model used for processing requests<br/>
-        /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+        /// Example: Qwen/Qwen3.5-9B
         /// </summary>
-        /// <example>meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo</example>
+        /// <example>Qwen/Qwen3.5-9B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_id")]
         public string? ModelId { get; set; }
 
@@ -151,7 +151,7 @@ namespace Together
         /// </param>
         /// <param name="modelId">
         /// Model used for processing requests<br/>
-        /// Example: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+        /// Example: Qwen/Qwen3.5-9B
         /// </param>
         /// <param name="outputFileId">
         /// Example: file-output789xyz012ghi
