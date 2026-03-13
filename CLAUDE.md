@@ -10,10 +10,10 @@ C# SDK for the [Together AI](https://www.together.ai/) inference platform, auto-
 
 ```bash
 # Build the solution
-dotnet build Together.sln
+dotnet build Together.slnx
 
 # Build for release (also produces NuGet package)
-dotnet build Together.sln -c Release
+dotnet build Together.slnx -c Release
 
 # Run integration tests (requires TOGETHER_API_KEY env var)
 dotnet test src/tests/Together.IntegrationTests/Together.IntegrationTests.csproj
