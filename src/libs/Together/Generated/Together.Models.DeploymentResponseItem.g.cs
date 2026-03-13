@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -15,10 +17,11 @@ namespace Together
         public global::System.Collections.Generic.IList<string>? Args { get; set; }
 
         /// <summary>
-        /// Autoscaling contains autoscaling configuration parameters for this deployment
+        /// Autoscaling contains autoscaling configuration parameters for this deployment. Omitted when autoscaling is disabled (nil)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("autoscaling")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Autoscaling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>))]
+        public global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? Autoscaling { get; set; }
 
         /// <summary>
         /// Command is the entrypoint command run in the container
@@ -115,8 +118,7 @@ namespace Together
         /// The object type, which is always `deployment`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeploymentResponseItemObjectJsonConverter))]
-        public global::Together.DeploymentResponseItemObject? Object { get; set; }
+        public string? Object { get; set; }
 
         /// <summary>
         /// Port is the container port that the deployment exposes
@@ -174,7 +176,7 @@ namespace Together
         /// Args are the arguments passed to the container's command
         /// </param>
         /// <param name="autoscaling">
-        /// Autoscaling contains autoscaling configuration parameters for this deployment
+        /// Autoscaling contains autoscaling configuration parameters for this deployment. Omitted when autoscaling is disabled (nil)
         /// </param>
         /// <param name="command">
         /// Command is the entrypoint command run in the container
@@ -250,7 +252,7 @@ namespace Together
 #endif
         public DeploymentResponseItem(
             global::System.Collections.Generic.IList<string>? args,
-            global::System.Collections.Generic.Dictionary<string, string>? autoscaling,
+            global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
             global::System.Collections.Generic.IList<string>? command,
             double? cpu,
             string? createdAt,
@@ -266,7 +268,7 @@ namespace Together
             double? memory,
             int? minReplicas,
             string? name,
-            global::Together.DeploymentResponseItemObject? @object,
+            string? @object,
             int? port,
             int? readyReplicas,
             global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>? replicaEvents,

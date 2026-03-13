@@ -11,6 +11,10 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
+        /// <summary>
+        /// 
+        /// </summary>
         Info,
         /// <summary>
         /// 
@@ -46,6 +50,7 @@ namespace Together
         {
             return value switch
             {
+                FinetuneEventLevels.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464 => "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464",
                 FinetuneEventLevels.Info => "info",
                 FinetuneEventLevels.Warning => "warning",
                 FinetuneEventLevels.Error => "error",
@@ -62,6 +67,7 @@ namespace Together
         {
             return value switch
             {
+                "openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464" => FinetuneEventLevels.OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
                 "info" => FinetuneEventLevels.Info,
                 "warning" => FinetuneEventLevels.Warning,
                 "error" => FinetuneEventLevels.Error,

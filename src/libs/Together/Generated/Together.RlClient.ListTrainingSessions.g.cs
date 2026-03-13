@@ -9,13 +9,13 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref global::Together.RlTrainingSessionStatus? status,
             ref int? limit,
-            ref int? offset);
+            ref string? after);
         partial void PrepareListTrainingSessionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::Together.RlTrainingSessionStatus? status,
             int? limit,
-            int? offset);
+            string? after);
         partial void ProcessListTrainingSessionsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -30,23 +30,22 @@ namespace Together
         /// Lists all training sessions.
         /// </summary>
         /// <param name="status">
-        /// Status of the training session<br/>
+        /// Status of the training sessions to list<br/>
         /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
         /// </param>
         /// <param name="limit">
-        /// Maximum number of sessions to return (1-100), defaults to 20<br/>
+        /// Maximum number of sessions to return (1-100)<br/>
         /// Default Value: 20
         /// </param>
-        /// <param name="offset">
-        /// Number of sessions to skip<br/>
-        /// Default Value: 0
+        /// <param name="after">
+        /// Cursor for pagination (ID of the last session from the previous page)
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSessionsListResponse> ListTrainingSessionsAsync(
             global::Together.RlTrainingSessionStatus? status = default,
             int? limit = default,
-            int? offset = default,
+            string? after = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -55,7 +54,7 @@ namespace Together
                 httpClient: HttpClient,
                 status: ref status,
                 limit: ref limit,
-                offset: ref offset);
+                after: ref after);
 
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/rl/training-sessions",
@@ -63,7 +62,7 @@ namespace Together
             __pathBuilder
                 .AddOptionalParameter("status", status?.ToValueString())
                 .AddOptionalParameter("limit", limit?.ToString())
-                .AddOptionalParameter("offset", offset?.ToString()) 
+                .AddOptionalParameter("after", after) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -98,7 +97,7 @@ namespace Together
                 httpRequestMessage: __httpRequest,
                 status: status,
                 limit: limit,
-                offset: offset);
+                after: after);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -116,18 +115,18 @@ namespace Together
             {
                 string? __content_default = null;
                 global::System.Exception? __exception_default = null;
-                global::Together.RpcStatus? __value_default = null;
+                global::Together.ErrorData? __value_default = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = global::Together.RpcStatus.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerContext);
                     }
                     else
                     {
                         var __contentStream_default = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = await global::Together.RpcStatus.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
+                        __value_default = await global::Together.ErrorData.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -135,7 +134,7 @@ namespace Together
                     __exception_default = __ex;
                 }
 
-                throw new global::Together.ApiException<global::Together.RpcStatus>(
+                throw new global::Together.ApiException<global::Together.ErrorData>(
                     message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_default,
                     statusCode: __response.StatusCode)

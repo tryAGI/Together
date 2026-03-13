@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.ModelUploadSuccessResponseData Data { get; set; } = default!;
+        public required global::Together.ModelUploadSuccessResponseData Data { get; set; }
 
         /// <summary>
         /// Example: Processing model weights. Job created.
@@ -21,7 +21,7 @@ namespace Together
         /// <example>Processing model weights. Job created.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Message { get; set; } = default!;
+        public required string Message { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

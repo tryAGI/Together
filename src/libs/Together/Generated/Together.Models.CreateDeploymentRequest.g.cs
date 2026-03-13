@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -15,10 +17,11 @@ namespace Together
         public global::System.Collections.Generic.IList<string>? Args { get; set; }
 
         /// <summary>
-        /// Autoscaling configuration as key-value pairs. Example: {"metric": "QueueBacklogPerWorker", "target": "10"} to scale based on queue backlog
+        /// Autoscaling configuration. Example: {"metric": "QueueBacklogPerWorker", "target": 1.01} to scale based on queue backlog. Omit or set to null to disable autoscaling
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("autoscaling")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Autoscaling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>))]
+        public global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? Autoscaling { get; set; }
 
         /// <summary>
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
@@ -56,7 +59,7 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Together.CreateDeploymentRequestGpuType GpuType { get; set; } = default!;
+        public required global::Together.CreateDeploymentRequestGpuType GpuType { get; set; }
 
         /// <summary>
         /// HealthCheckPath is the HTTP path for health checks (e.g., "/health"). If set, the platform will check this endpoint to determine container health
@@ -69,7 +72,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Image { get; set; } = default!;
+        public required string Image { get; set; }
 
         /// <summary>
         /// MaxReplicas is the maximum number of container instances that can be scaled up to. If not set, will be set to MinReplicas
@@ -94,7 +97,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public string Name { get; set; } = default!;
+        public required string Name { get; set; }
 
         /// <summary>
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
@@ -133,7 +136,7 @@ namespace Together
         /// Args overrides the container's CMD. Provide as an array of arguments (e.g., ["python", "app.py"])
         /// </param>
         /// <param name="autoscaling">
-        /// Autoscaling configuration as key-value pairs. Example: {"metric": "QueueBacklogPerWorker", "target": "10"} to scale based on queue backlog
+        /// Autoscaling configuration. Example: {"metric": "QueueBacklogPerWorker", "target": 1.01} to scale based on queue backlog. Omit or set to null to disable autoscaling
         /// </param>
         /// <param name="command">
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
@@ -191,7 +194,7 @@ namespace Together
             string image,
             string name,
             global::System.Collections.Generic.IList<string>? args,
-            global::System.Collections.Generic.Dictionary<string, string>? autoscaling,
+            global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
             global::System.Collections.Generic.IList<string>? command,
             double? cpu,
             string? description,

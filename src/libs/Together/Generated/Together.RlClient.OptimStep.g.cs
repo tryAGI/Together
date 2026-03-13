@@ -107,18 +107,18 @@ namespace Together
             {
                 string? __content_default = null;
                 global::System.Exception? __exception_default = null;
-                global::Together.RpcStatus? __value_default = null;
+                global::Together.ErrorData? __value_default = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = global::Together.RpcStatus.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerContext);
                     }
                     else
                     {
                         var __contentStream_default = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = await global::Together.RpcStatus.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
+                        __value_default = await global::Together.ErrorData.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -126,7 +126,7 @@ namespace Together
                     __exception_default = __ex;
                 }
 
-                throw new global::Together.ApiException<global::Together.RpcStatus>(
+                throw new global::Together.ApiException<global::Together.ErrorData>(
                     message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_default,
                     statusCode: __response.StatusCode)
@@ -219,26 +219,26 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
-        /// <param name="adamwParams">
-        /// AdamW optimizer parameters
-        /// </param>
         /// <param name="learningRate">
         /// Learning rate for this step.<br/>
         /// Default Value: 0.0001<br/>
         /// Example: 0.0001
         /// </param>
+        /// <param name="adamwParams">
+        /// AdamW optimizer parameters
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RlOptimStepOperation> OptimStepAsync(
             string sessionId,
-            global::Together.RlAdamWOptimizerParams? adamwParams = default,
             float? learningRate = default,
+            global::Together.RlAdamWOptimizerParams? adamwParams = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.RlOptimStepBody
             {
-                AdamwParams = adamwParams,
                 LearningRate = learningRate,
+                AdamwParams = adamwParams,
             };
 
             return await OptimStepAsync(
