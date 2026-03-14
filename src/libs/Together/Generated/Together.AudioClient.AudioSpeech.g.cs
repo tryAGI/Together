@@ -5,14 +5,14 @@ namespace Together
 {
     public partial class AudioClient
     {
-        partial void PrepareAudioSpeechAsStreamArguments(
+        partial void PrepareAudioSpeechArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::Together.AudioSpeechRequest request);
-        partial void PrepareAudioSpeechAsStreamRequest(
+        partial void PrepareAudioSpeechRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::Together.AudioSpeechRequest request);
-        partial void ProcessAudioSpeechAsStreamResponse(
+        partial void ProcessAudioSpeechResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
@@ -23,7 +23,7 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsync(
 
             global::Together.AudioSpeechRequest request,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
@@ -32,7 +32,7 @@ namespace Together
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareAudioSpeechAsStreamArguments(
+            PrepareAudioSpeechArguments(
                 httpClient: HttpClient,
                 request: request);
 
@@ -73,7 +73,7 @@ namespace Together
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareAudioSpeechAsStreamRequest(
+            PrepareAudioSpeechRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -86,7 +86,7 @@ namespace Together
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessAudioSpeechAsStreamResponse(
+            ProcessAudioSpeechResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
 
@@ -166,7 +166,7 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsStreamAsync(
+        public async global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsync(
             global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string> model,
             string input,
             string voice,
@@ -189,7 +189,7 @@ namespace Together
                 Stream = stream,
             };
 
-            var __enumerable = AudioSpeechAsStreamAsync(
+            var __enumerable = AudioSpeechAsync(
                 request: __request,
                 cancellationToken: cancellationToken);
 

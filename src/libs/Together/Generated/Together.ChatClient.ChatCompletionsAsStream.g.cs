@@ -30,6 +30,37 @@ namespace Together
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
+
+            request = new global::Together.ChatCompletionRequest
+            {
+                Messages = request.Messages,
+                Model = request.Model,
+                MaxTokens = request.MaxTokens,
+                Stop = request.Stop,
+                Temperature = request.Temperature,
+                TopP = request.TopP,
+                TopK = request.TopK,
+                ContextLengthExceededBehavior = request.ContextLengthExceededBehavior,
+                RepetitionPenalty = request.RepetitionPenalty,
+                Stream = true,
+                Logprobs = request.Logprobs,
+                Echo = request.Echo,
+                N = request.N,
+                MinP = request.MinP,
+                PresencePenalty = request.PresencePenalty,
+                FrequencyPenalty = request.FrequencyPenalty,
+                LogitBias = request.LogitBias,
+                Seed = request.Seed,
+                FunctionCall = request.FunctionCall,
+                ResponseFormat = request.ResponseFormat,
+                Tools = request.Tools,
+                ToolChoice = request.ToolChoice,
+                Compliance = request.Compliance,
+                ChatTemplateKwargs = request.ChatTemplateKwargs,
+                SafetyModel = request.SafetyModel,
+                ReasoningEffort = request.ReasoningEffort,
+                Reasoning = request.Reasoning,
+            };
             PrepareArguments(
                 client: HttpClient);
             PrepareChatCompletionsAsStreamArguments(
@@ -163,9 +194,6 @@ namespace Together
         /// <param name="repetitionPenalty">
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
-        /// <param name="stream">
-        /// If true, stream tokens as Server-Sent Events as the model generates them instead of waiting for the full model response. The stream terminates with `data: [DONE]`. If false, return a single JSON object containing the results.
-        /// </param>
         /// <param name="logprobs">
         /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
         /// </param>
@@ -236,7 +264,6 @@ namespace Together
             int? topK = default,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior = default,
             double? repetitionPenalty = default,
-            bool? stream = default,
             int? logprobs = default,
             bool? echo = default,
             int? n = default,
@@ -267,7 +294,7 @@ namespace Together
                 TopK = topK,
                 ContextLengthExceededBehavior = contextLengthExceededBehavior,
                 RepetitionPenalty = repetitionPenalty,
-                Stream = stream,
+                Stream = true,
                 Logprobs = logprobs,
                 Echo = echo,
                 N = n,
