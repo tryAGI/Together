@@ -3,8 +3,7 @@ namespace Together.IntegrationTests;
 [TestClass]
 public partial class Tests
 {
-    [TestMethod]
-    public TogetherApi GetAuthenticatedApi()
+    private static TogetherApi GetAuthenticatedApi()
     {
         var apiKey =
             Environment.GetEnvironmentVariable("TOGETHER_API_KEY") ??
