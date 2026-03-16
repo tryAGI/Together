@@ -24,7 +24,7 @@ namespace Together
         /// Size is the file size in bytes
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size")]
-        public int? Size { get; set; }
+        public long? Size { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,7 +50,7 @@ namespace Together
         public FileInfo(
             string? lastModified,
             string? name,
-            int? size)
+            long? size)
         {
             this.LastModified = lastModified;
             this.Name = name;

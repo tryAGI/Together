@@ -18,7 +18,7 @@ namespace Together
         /// Size of the volume in whole tebibytes (TiB).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
-        public int? SizeTib { get; set; }
+        public long? SizeTib { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace Together
 #endif
         public GPUClustersSharedVolumeUpdateRequest(
             string? volumeId,
-            int? sizeTib)
+            long? sizeTib)
         {
             this.VolumeId = volumeId;
             this.SizeTib = sizeTib;

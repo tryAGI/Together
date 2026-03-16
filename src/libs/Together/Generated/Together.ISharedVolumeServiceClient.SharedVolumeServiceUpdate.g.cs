@@ -30,7 +30,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceUpdateAsync(
             string? volumeId = default,
-            int? sizeTib = default,
+            long? sizeTib = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

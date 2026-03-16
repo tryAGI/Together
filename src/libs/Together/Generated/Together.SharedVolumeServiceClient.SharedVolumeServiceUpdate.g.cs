@@ -181,7 +181,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceUpdateAsync(
             string? volumeId = default,
-            int? sizeTib = default,
+            long? sizeTib = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Together.GPUClustersSharedVolumeUpdateRequest

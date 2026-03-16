@@ -20,7 +20,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeTib { get; set; }
+        public required long SizeTib { get; set; }
 
         /// <summary>
         /// Region name. Usable regions can be found from `client.clusters.list_regions()`
@@ -52,7 +52,7 @@ namespace Together
 #endif
         public GPUClustersSharedVolumeCreateRequest(
             string volumeName,
-            int sizeTib,
+            long sizeTib,
             string region)
         {
             this.VolumeName = volumeName ?? throw new global::System.ArgumentNullException(nameof(volumeName));

@@ -27,7 +27,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int SizeTib { get; set; }
+        public required long SizeTib { get; set; }
 
         /// <summary>
         /// Deployment status of the volume.
@@ -64,7 +64,7 @@ namespace Together
         public GPUClustersSharedVolume(
             string volumeId,
             string volumeName,
-            int sizeTib,
+            long sizeTib,
             global::Together.GPUClustersSharedVolumeStatus status)
         {
             this.VolumeId = volumeId ?? throw new global::System.ArgumentNullException(nameof(volumeId));
