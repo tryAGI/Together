@@ -43,7 +43,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("bytes")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Bytes { get; set; }
+        public required long Bytes { get; set; }
 
         /// <summary>
         /// The purpose of the file as it was uploaded.<br/>
@@ -118,7 +118,7 @@ namespace Together
             string id,
             int createdAt,
             string filename,
-            int bytes,
+            long bytes,
             global::Together.FilePurpose purpose,
             bool processed,
             global::Together.FileType fileType,
