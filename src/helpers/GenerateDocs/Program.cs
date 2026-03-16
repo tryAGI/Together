@@ -27,7 +27,13 @@ foreach (var path in Directory.EnumerateFiles(sampleDirectory, "Tests.*.cs", Sea
     code = code
         .Replace(
             "using var api = GetAuthorizedApi();",
-            "using var api = new TogetherApi(apiKey);")
+            "using var client = new TogetherClient(apiKey);")
+        .Replace(
+            "using var api = GetAuthenticatedApi();",
+            "using var client = new TogetherClient(apiKey);")
+        .Replace(
+            "using var client = GetAuthenticatedClient();",
+            "using var client = new TogetherClient(apiKey);")
         ;
     
     var newPath = Path.Combine(newDir, $"{Path.GetExtension(Path.GetFileNameWithoutExtension(path)).TrimStart('.')}.md");
@@ -43,4 +49,3 @@ var newMkDocs = mkDocs.Replace(
     .Select(x => $@"
   - {Path.GetFileNameWithoutExtension(x)}: samples/{Path.GetFileNameWithoutExtension(x)}.md"))}");
 await File.WriteAllTextAsync(mkDocsPath, newMkDocs);
-

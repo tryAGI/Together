@@ -3,7 +3,7 @@
 
 namespace Together
 {
-    public partial interface ITogetherApi
+    public partial interface ITogetherClient
     {
         /// <summary>
         /// Authorize using bearer authentication.

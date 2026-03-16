@@ -3,10 +3,10 @@
 
 namespace Together
 {
-    public sealed partial class TogetherApi
+    public sealed partial class TogetherClient
     {
-        /// <inheritdoc cref="TogetherApi(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Together.EndPointAuthorization}?, bool)"/>
-        public TogetherApi(
+        /// <inheritdoc cref="TogetherClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Together.EndPointAuthorization}?, bool)"/>
+        public TogetherClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,

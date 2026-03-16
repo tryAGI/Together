@@ -16,7 +16,7 @@
 ```csharp
 using Together;
 
-using var api = new TogetherApi(apiKey);
+using var client = new TogetherClient(apiKey);
 ```
 
 ## Support

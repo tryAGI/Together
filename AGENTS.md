@@ -37,7 +37,7 @@ The SDK code is **entirely auto-generated** -- do not manually edit files in `sr
 
 | Project | Purpose |
 |---------|---------|
-| `src/libs/Together/` | Main SDK library (`TogetherApi`) |
+| `src/libs/Together/` | Main SDK library (`TogetherClient`) |
 | `src/tests/Together.IntegrationTests/` | Integration tests against real Together API |
 | `src/helpers/FixOpenApiSpec/` | OpenAPI spec fixer tool |
 | `src/helpers/GenerateDocs/` | Documentation generator from integration tests |

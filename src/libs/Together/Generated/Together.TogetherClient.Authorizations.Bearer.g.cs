@@ -3,7 +3,7 @@
 
 namespace Together
 {
-    public sealed partial class TogetherApi
+    public sealed partial class TogetherClient
     {
         /// <inheritdoc/>
         public void AuthorizeUsingBearer(

@@ -3,14 +3,14 @@ namespace Together.IntegrationTests;
 [TestClass]
 public partial class Tests
 {
-    private static TogetherApi GetAuthenticatedApi()
+    private static TogetherClient GetAuthenticatedClient()
     {
         var apiKey =
             Environment.GetEnvironmentVariable("TOGETHER_API_KEY") ??
             throw new AssertInconclusiveException("TOGETHER_API_KEY environment variable is not found.");
 
-        var api = new TogetherApi(apiKey);
+        var client = new TogetherClient(apiKey);
         
-        return api;
+        return client;
     }
 }
