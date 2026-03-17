@@ -18,12 +18,12 @@ namespace Together
         public required string BaseModel { get; set; }
 
         /// <summary>
-        /// Checkpoint ID to use for the training session<br/>
-        /// Example: checkpoint-123
+        /// Checkpoint ID to resume from<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
-        /// <example>checkpoint-123</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_id")]
-        public string? CheckpointId { get; set; }
+        /// <example>123e4567-e89b-12d3-a456-426614174000</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resume_from_checkpoint_id")]
+        public string? ResumeFromCheckpointId { get; set; }
 
         /// <summary>
         /// LoRA adapter configuration
@@ -44,9 +44,9 @@ namespace Together
         /// Base model to use for the training session<br/>
         /// Example: meta-llama/Meta-Llama-3-8B-Instruct
         /// </param>
-        /// <param name="checkpointId">
-        /// Checkpoint ID to use for the training session<br/>
-        /// Example: checkpoint-123
+        /// <param name="resumeFromCheckpointId">
+        /// Checkpoint ID to resume from<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="loraConfig">
         /// LoRA adapter configuration
@@ -56,11 +56,11 @@ namespace Together
 #endif
         public RlStartTrainingSessionRequest(
             string baseModel,
-            string? checkpointId,
+            string? resumeFromCheckpointId,
             global::Together.RlLoraConfig? loraConfig)
         {
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
-            this.CheckpointId = checkpointId;
+            this.ResumeFromCheckpointId = resumeFromCheckpointId;
             this.LoraConfig = loraConfig;
         }
 

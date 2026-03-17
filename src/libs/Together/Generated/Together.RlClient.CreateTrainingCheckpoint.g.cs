@@ -5,44 +5,43 @@ namespace Together
 {
     public partial class RlClient
     {
-        partial void PrepareStartTrainingSessionArguments(
+        partial void PrepareCreateTrainingCheckpointArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.RlStartTrainingSessionRequest request);
-        partial void PrepareStartTrainingSessionRequest(
+            ref string sessionId);
+        partial void PrepareCreateTrainingCheckpointRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.RlStartTrainingSessionRequest request);
-        partial void ProcessStartTrainingSessionResponse(
+            string sessionId);
+        partial void ProcessCreateTrainingCheckpointResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessStartTrainingSessionResponseContent(
+        partial void ProcessCreateTrainingCheckpointResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create training session<br/>
-        /// Creates a training session and returns its details.
+        /// Save training checkpoint<br/>
+        /// Submits an operation that will asynchronously save the full training state (adapter + optimizer + step).
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="sessionId">
+        /// Training session ID
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
-
-            global::Together.RlStartTrainingSessionRequest request,
+        public async global::System.Threading.Tasks.Task<global::Together.RlTrainingCheckpointOperation> CreateTrainingCheckpointAsync(
+            string sessionId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareStartTrainingSessionArguments(
+            PrepareCreateTrainingCheckpointArguments(
                 httpClient: HttpClient,
-                request: request);
+                sessionId: ref sessionId);
 
             var __pathBuilder = new global::Together.PathBuilder(
-                path: "/rl/training-sessions",
+                path: $"/rl/training-sessions/{sessionId}/operations/training-checkpoint",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -68,20 +67,14 @@ namespace Together
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                content: __httpRequestContentBody,
-                encoding: global::System.Text.Encoding.UTF8,
-                mediaType: "application/json");
-            __httpRequest.Content = __httpRequestContent;
 
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareStartTrainingSessionRequest(
+            PrepareCreateTrainingCheckpointRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                request: request);
+                sessionId: sessionId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,
@@ -91,7 +84,7 @@ namespace Together
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessStartTrainingSessionResponse(
+            ProcessCreateTrainingCheckpointResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // An unexpected error response.
@@ -144,7 +137,7 @@ namespace Together
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessStartTrainingSessionResponseContent(
+                ProcessCreateTrainingCheckpointResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -154,7 +147,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.RlTrainingSession.FromJson(__content, JsonSerializerContext) ??
+                        global::Together.RlTrainingCheckpointOperation.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -185,7 +178,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.RlTrainingSession.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Together.RlTrainingCheckpointOperation.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -202,41 +195,6 @@ namespace Together
                     };
                 }
             }
-        }
-
-        /// <summary>
-        /// Create training session<br/>
-        /// Creates a training session and returns its details.
-        /// </summary>
-        /// <param name="baseModel">
-        /// Base model to use for the training session<br/>
-        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
-        /// </param>
-        /// <param name="resumeFromCheckpointId">
-        /// Checkpoint ID to resume from<br/>
-        /// Example: 123e4567-e89b-12d3-a456-426614174000
-        /// </param>
-        /// <param name="loraConfig">
-        /// LoRA adapter configuration
-        /// </param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
-            string baseModel,
-            string? resumeFromCheckpointId = default,
-            global::Together.RlLoraConfig? loraConfig = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::Together.RlStartTrainingSessionRequest
-            {
-                BaseModel = baseModel,
-                ResumeFromCheckpointId = resumeFromCheckpointId,
-                LoraConfig = loraConfig,
-            };
-
-            return await StartTrainingSessionAsync(
-                request: __request,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
