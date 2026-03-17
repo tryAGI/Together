@@ -39,6 +39,20 @@ namespace Together
         public global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint>? InferenceCheckpoints { get; set; }
 
         /// <summary>
+        /// List of saved training checkpoints for this session
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_checkpoints")]
+        public global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint>? TrainingCheckpoints { get; set; }
+
+        /// <summary>
+        /// Checkpoint ID this session was resumed from<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
+        /// </summary>
+        /// <example>123e4567-e89b-12d3-a456-426614174000</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resume_from_checkpoint_id")]
+        public string? ResumeFromCheckpointId { get; set; }
+
+        /// <summary>
         /// Current training step<br/>
         /// Default Value: 0<br/>
         /// Example: 100
@@ -93,6 +107,13 @@ namespace Together
         /// <param name="inferenceCheckpoints">
         /// List of saved inference checkpoints for this session
         /// </param>
+        /// <param name="trainingCheckpoints">
+        /// List of saved training checkpoints for this session
+        /// </param>
+        /// <param name="resumeFromCheckpointId">
+        /// Checkpoint ID this session was resumed from<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
+        /// </param>
         /// <param name="step">
         /// Current training step<br/>
         /// Default Value: 0<br/>
@@ -117,6 +138,8 @@ namespace Together
             global::Together.RlTrainingSessionStatus? status,
             string? baseModel,
             global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint>? inferenceCheckpoints,
+            global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint>? trainingCheckpoints,
+            string? resumeFromCheckpointId,
             string? step,
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt,
@@ -126,6 +149,8 @@ namespace Together
             this.Status = status;
             this.BaseModel = baseModel;
             this.InferenceCheckpoints = inferenceCheckpoints;
+            this.TrainingCheckpoints = trainingCheckpoints;
+            this.ResumeFromCheckpointId = resumeFromCheckpointId;
             this.Step = step;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;

@@ -24,9 +24,9 @@ namespace Together
         /// Base model to use for the training session<br/>
         /// Example: meta-llama/Meta-Llama-3-8B-Instruct
         /// </param>
-        /// <param name="checkpointId">
-        /// Checkpoint ID to use for the training session<br/>
-        /// Example: checkpoint-123
+        /// <param name="resumeFromCheckpointId">
+        /// Checkpoint ID to resume from<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="loraConfig">
         /// LoRA adapter configuration
@@ -35,7 +35,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
             string baseModel,
-            string? checkpointId = default,
+            string? resumeFromCheckpointId = default,
             global::Together.RlLoraConfig? loraConfig = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
