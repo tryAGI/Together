@@ -1,6 +1,7 @@
+set -e
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
-curl -o openapi.yaml https://raw.githubusercontent.com/togethercomputer/openapi/main/openapi.yaml
+curl --fail --silent --show-error -o openapi.yaml https://raw.githubusercontent.com/togethercomputer/openapi/main/openapi.yaml
 autosdk generate openapi.yaml \
   --namespace Together \
   --clientClassName TogetherClient \
