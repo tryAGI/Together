@@ -21,13 +21,16 @@ namespace Together
         /// Creates a new dedicated endpoint for serving models. The endpoint will automatically start after creation. You can deploy any supported model on hardware configurations that meet the model's requirements.
         /// </summary>
         /// <param name="displayName">
-        /// A human-readable name for the endpoint
+        /// A human-readable name for the endpoint<br/>
+        /// Example: My Llama3 70b endpoint
         /// </param>
         /// <param name="model">
-        /// The model to deploy on this endpoint
+        /// The model to deploy on this endpoint<br/>
+        /// Example: deepseek-ai/DeepSeek-R1
         /// </param>
         /// <param name="hardware">
-        /// The hardware configuration to use for this endpoint
+        /// The hardware configuration to use for this endpoint<br/>
+        /// Example: 1x_nvidia_a100_80gb_sxm
         /// </param>
         /// <param name="autoscaling">
         /// Configuration for automatic scaling of the endpoint

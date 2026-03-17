@@ -11,7 +11,8 @@ namespace Together
         /// <param name="model">
         /// Filter hardware configurations by model compatibility. When provided,<br/>
         /// the response includes availability status for each compatible configuration.<br/>
-        /// Example: meta-llama/Llama-3-70b-chat-hf
+        /// [See all of Together AI's dedicated models](https://docs.together.ai/docs/dedicated-models)<br/>
+        /// Example: deepseek-ai/DeepSeek-R1
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>

@@ -18,14 +18,11 @@ namespace Together
         public required global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> Messages { get; set; }
 
         /// <summary>
-        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
-        /// Example: Qwen/Qwen3.5-9B
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)
         /// </summary>
-        /// <example>Qwen/Qwen3.5-9B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.ChatCompletionRequestModel?, string>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> Model { get; set; }
+        public required string Model { get; set; }
 
         /// <summary>
         /// The maximum number of tokens to generate.
@@ -211,8 +208,7 @@ namespace Together
         /// A list of messages comprising the conversation so far.
         /// </param>
         /// <param name="model">
-        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)<br/>
-        /// Example: Qwen/Qwen3.5-9B
+        /// The name of the model to query.  [See all of Together AI's chat models](https://docs.together.ai/docs/serverless-models#chat-models)
         /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate.
@@ -302,7 +298,7 @@ namespace Together
 #endif
         public ChatCompletionRequest(
             global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam> messages,
-            global::Together.AnyOf<global::Together.ChatCompletionRequestModel?, string> model,
+            string model,
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? stop,
             float? temperature,
@@ -330,7 +326,7 @@ namespace Together
             global::Together.ChatCompletionRequestReasoning? reasoning)
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
-            this.Model = model;
+            this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.MaxTokens = maxTokens;
             this.Stop = stop;
             this.Temperature = temperature;

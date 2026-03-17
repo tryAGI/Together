@@ -9,21 +9,27 @@ namespace Together
     public sealed partial class CreateEndpointRequest
     {
         /// <summary>
-        /// A human-readable name for the endpoint
+        /// A human-readable name for the endpoint<br/>
+        /// Example: My Llama3 70b endpoint
         /// </summary>
+        /// <example>My Llama3 70b endpoint</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// The model to deploy on this endpoint
+        /// The model to deploy on this endpoint<br/>
+        /// Example: deepseek-ai/DeepSeek-R1
         /// </summary>
+        /// <example>deepseek-ai/DeepSeek-R1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
 
         /// <summary>
-        /// The hardware configuration to use for this endpoint
+        /// The hardware configuration to use for this endpoint<br/>
+        /// Example: 1x_nvidia_a100_80gb_sxm
         /// </summary>
+        /// <example>1x_nvidia_a100_80gb_sxm</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("hardware")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Hardware { get; set; }
@@ -84,13 +90,16 @@ namespace Together
         /// Initializes a new instance of the <see cref="CreateEndpointRequest" /> class.
         /// </summary>
         /// <param name="displayName">
-        /// A human-readable name for the endpoint
+        /// A human-readable name for the endpoint<br/>
+        /// Example: My Llama3 70b endpoint
         /// </param>
         /// <param name="model">
-        /// The model to deploy on this endpoint
+        /// The model to deploy on this endpoint<br/>
+        /// Example: deepseek-ai/DeepSeek-R1
         /// </param>
         /// <param name="hardware">
-        /// The hardware configuration to use for this endpoint
+        /// The hardware configuration to use for this endpoint<br/>
+        /// Example: 1x_nvidia_a100_80gb_sxm
         /// </param>
         /// <param name="autoscaling">
         /// Configuration for automatic scaling of the endpoint

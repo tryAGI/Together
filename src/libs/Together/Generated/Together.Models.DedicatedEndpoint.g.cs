@@ -26,36 +26,36 @@ namespace Together
 
         /// <summary>
         /// System name for the endpoint<br/>
-        /// Example: devuser/meta-llama/Llama-3-8b-chat-hf-a32b82a1
+        /// Example: devuser/deepseek-ai/DeepSeek-R1-a32b82a1
         /// </summary>
-        /// <example>devuser/meta-llama/Llama-3-8b-chat-hf-a32b82a1</example>
+        /// <example>devuser/deepseek-ai/DeepSeek-R1-a32b82a1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
         /// Human-readable name for the endpoint<br/>
-        /// Example: My Llama3 70b endpoint
+        /// Example: My DeepSeek R1 endpoint
         /// </summary>
-        /// <example>My Llama3 70b endpoint</example>
+        /// <example>My DeepSeek R1 endpoint</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DisplayName { get; set; }
 
         /// <summary>
         /// The model deployed on this endpoint<br/>
-        /// Example: meta-llama/Llama-3-8b-chat-hf
+        /// Example: deepseek-ai/DeepSeek-R1
         /// </summary>
-        /// <example>meta-llama/Llama-3-8b-chat-hf</example>
+        /// <example>deepseek-ai/DeepSeek-R1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
 
         /// <summary>
         /// The hardware configuration used for this endpoint<br/>
-        /// Example: 1x_nvidia_a100_80gb_sxm
+        /// Example: 8x_nvidia_h200_140gb_sxm
         /// </summary>
-        /// <example>1x_nvidia_a100_80gb_sxm</example>
+        /// <example>8x_nvidia_h200_140gb_sxm</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("hardware")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Hardware { get; set; }
@@ -122,19 +122,19 @@ namespace Together
         /// </param>
         /// <param name="name">
         /// System name for the endpoint<br/>
-        /// Example: devuser/meta-llama/Llama-3-8b-chat-hf-a32b82a1
+        /// Example: devuser/deepseek-ai/DeepSeek-R1-a32b82a1
         /// </param>
         /// <param name="displayName">
         /// Human-readable name for the endpoint<br/>
-        /// Example: My Llama3 70b endpoint
+        /// Example: My DeepSeek R1 endpoint
         /// </param>
         /// <param name="model">
         /// The model deployed on this endpoint<br/>
-        /// Example: meta-llama/Llama-3-8b-chat-hf
+        /// Example: deepseek-ai/DeepSeek-R1
         /// </param>
         /// <param name="hardware">
         /// The hardware configuration used for this endpoint<br/>
-        /// Example: 1x_nvidia_a100_80gb_sxm
+        /// Example: 8x_nvidia_h200_140gb_sxm
         /// </param>
         /// <param name="type">
         /// The type of endpoint<br/>
