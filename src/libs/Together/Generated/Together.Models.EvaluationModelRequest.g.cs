@@ -10,9 +10,9 @@ namespace Together
     {
         /// <summary>
         /// Name of the model to evaluate<br/>
-        /// Example: meta-llama/Llama-3-70B-Instruct-Turbo
+        /// Example: Qwen/Qwen3.5-9B
         /// </summary>
-        /// <example>meta-llama/Llama-3-70B-Instruct-Turbo</example>
+        /// <example>Qwen/Qwen3.5-9B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
@@ -84,7 +84,7 @@ namespace Together
         /// </summary>
         /// <param name="model">
         /// Name of the model to evaluate<br/>
-        /// Example: meta-llama/Llama-3-70B-Instruct-Turbo
+        /// Example: Qwen/Qwen3.5-9B
         /// </param>
         /// <param name="maxTokens">
         /// Maximum number of tokens to generate<br/>
