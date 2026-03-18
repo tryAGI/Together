@@ -13,4 +13,6 @@ public partial class Tests
         
         return client;
     }
+
+    private static TogetherClient CreateTestClient() => new(apiKey: "test-key");
 }
