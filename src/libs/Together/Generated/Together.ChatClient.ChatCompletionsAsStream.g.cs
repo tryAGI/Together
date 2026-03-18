@@ -127,11 +127,25 @@ namespace Together
             }
             catch (global::System.Net.Http.HttpRequestException __ex)
             {
+                string? __content = null;
+                try
+                {
+                    __content = await __response.Content.ReadAsStringAsync(
+#if NET5_0_OR_GREATER
+                        cancellationToken
+#endif
+                    ).ConfigureAwait(false);
+                }
+                catch (global::System.Exception)
+                {
+                }
+
                 throw new global::Together.ApiException(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __ex,
                     statusCode: __response.StatusCode)
                 {
+                    ResponseBody = __content,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,
@@ -155,7 +169,16 @@ namespace Together
                 }
 
                 var __streamedResponse = global::Together.ChatCompletionStream.FromJson(__content, JsonSerializerContext) ??
-                                       throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                       throw new global::Together.ApiException(
+                                           message: $"Response deserialization failed for \"{__content}\" ",
+                                           statusCode: __response.StatusCode)
+                                       {
+                                           ResponseBody = __content,
+                                           ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                               __response.Headers,
+                                               h => h.Key,
+                                               h => h.Value),
+                                       };
 
                 yield return __streamedResponse;
             }
