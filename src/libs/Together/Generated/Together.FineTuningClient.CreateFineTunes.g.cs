@@ -230,6 +230,9 @@ namespace Together
         /// Weight decay. Regularization parameter for the optimizer.<br/>
         /// Default Value: 0.0
         /// </param>
+        /// <param name="randomSeed">
+        /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
+        /// </param>
         /// <param name="suffix">
         /// Suffix that will be added to your fine-tuned model name
         /// </param>
@@ -286,6 +289,7 @@ namespace Together
             float? warmupRatio = default,
             float? maxGradNorm = default,
             float? weightDecay = default,
+            int? randomSeed = default,
             string? suffix = default,
             string? wandbApiKey = default,
             string? wandbBaseUrl = default,
@@ -316,6 +320,7 @@ namespace Together
                 WarmupRatio = warmupRatio,
                 MaxGradNorm = maxGradNorm,
                 WeightDecay = weightDecay,
+                RandomSeed = randomSeed,
                 Suffix = suffix,
                 WandbApiKey = wandbApiKey,
                 WandbBaseUrl = wandbBaseUrl,
