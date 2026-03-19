@@ -29,7 +29,7 @@ public partial class Tests
 
         var options = new Meai.ChatOptions
         {
-            ModelId = ToolCallingModel,
+            ModelId = "meta-llama/Llama-3.3-70B-Instruct-Turbo",
             Tools = [getWeatherTool],
         };
 

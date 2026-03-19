@@ -116,7 +116,7 @@ public partial class TogetherClient : Meai.IChatClient
         }
     }
 
-    private ChatCompletionRequest CreateChatRequest(
+    private static ChatCompletionRequest CreateChatRequest(
         IEnumerable<Meai.ChatMessage> messages,
         Meai.ChatOptions? options)
     {
