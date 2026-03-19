@@ -6,8 +6,9 @@ public partial class Tests
     private static TogetherClient GetAuthenticatedClient()
     {
         var apiKey =
-            Environment.GetEnvironmentVariable("TOGETHER_API_KEY") ??
-            throw new AssertInconclusiveException("TOGETHER_API_KEY environment variable is not found.");
+            Environment.GetEnvironmentVariable("TOGETHER_API_KEY") is { Length: > 0 } apiKeyValue
+                ? apiKeyValue
+                : throw new AssertInconclusiveException("TOGETHER_API_KEY environment variable is not found.");
 
         var client = new TogetherClient(apiKey);
         
