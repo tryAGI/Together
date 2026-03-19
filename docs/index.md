@@ -11,6 +11,7 @@
 - Updated and supported automatically if there are no breaking changes
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
+- Microsoft.Extensions.AI `IChatClient` and `IEmbeddingGenerator` support
 
 ### Usage
 ```csharp
@@ -18,6 +19,28 @@ using Together;
 
 using var client = new TogetherClient(apiKey);
 ```
+
+### Microsoft.Extensions.AI
+
+The SDK implements [`IChatClient`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient) and [`IEmbeddingGenerator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.iembeddinggenerator-2):
+```csharp
+using Together;
+using Meai = Microsoft.Extensions.AI;
+
+// IChatClient
+Meai.IChatClient chatClient = new TogetherClient(apiKey);
+var response = await chatClient.GetResponseAsync(
+    [new Meai.ChatMessage(Meai.ChatRole.User, "Hello!")],
+    new Meai.ChatOptions { ModelId = "meta-llama/Llama-3.3-70B-Instruct-Turbo" });
+
+// IEmbeddingGenerator
+Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = new TogetherClient(apiKey);
+var embeddings = await generator.GenerateAsync(
+    ["Hello, world!"],
+    new Meai.EmbeddingGenerationOptions { ModelId = "BAAI/bge-large-en-v1.5" });
+```
+
+> **Note:** Use the `Meai` alias because the Together SDK has its own generated `IChatClient` interface.
 
 ## Support
 

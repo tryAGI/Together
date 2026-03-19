@@ -1,3 +1,9 @@
+/*
+order: 160
+title: Test
+slug: test
+*/
+
 namespace Together.IntegrationTests;
 
 public partial class Tests
