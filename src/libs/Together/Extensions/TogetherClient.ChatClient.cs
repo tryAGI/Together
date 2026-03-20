@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.Json;
 using Meai = Microsoft.Extensions.AI;
 
@@ -44,6 +45,8 @@ public partial class TogetherClient : Meai.IChatClient
         var request = CreateChatRequest(messages, options);
         request.Stream = true;
 
+        var toolCallBuilders = new Dictionary<int, (string Id, string Name, StringBuilder Args)>();
+
         await foreach (var streamItem in Chat.ChatCompletionsAsStreamAsync(request, cancellationToken).ConfigureAwait(false))
         {
             if (!streamItem.IsEvent || streamItem.Event?.Data is not { } chunk)
@@ -82,14 +85,47 @@ public partial class TogetherClient : Meai.IChatClient
                 {
                     foreach (var toolCall in toolCalls)
                     {
-                        update.Contents.Add(new Meai.FunctionCallContent(
-                            callId: toolCall.Id,
-                            name: toolCall.Function.Name,
-                            arguments: ParseArguments(toolCall.Function.Arguments))
+                        var index = (int)toolCall.Index;
+
+                        if (!toolCallBuilders.TryGetValue(index, out var builder))
                         {
-                            RawRepresentation = toolCall,
-                        });
+                            builder = (
+                                Id: toolCall.Id ?? string.Empty,
+                                Name: toolCall.Function.Name ?? string.Empty,
+                                Args: new StringBuilder());
+                            toolCallBuilders[index] = builder;
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(toolCall.Id))
+                            {
+                                builder = builder with { Id = toolCall.Id };
+                                toolCallBuilders[index] = builder;
+                            }
+
+                            if (!string.IsNullOrEmpty(toolCall.Function.Name))
+                            {
+                                builder = builder with { Name = toolCall.Function.Name };
+                                toolCallBuilders[index] = builder;
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(toolCall.Function.Arguments))
+                        {
+                            builder.Args.Append(toolCall.Function.Arguments);
+                        }
                     }
+                }
+
+                if (choice.FinishReason is FinishReason.ToolCalls or FinishReason.FunctionCall && toolCallBuilders.Count > 0)
+                {
+                    foreach (var (_, builder) in toolCallBuilders)
+                    {
+                        update.Contents.Add(new Meai.FunctionCallContent(
+                            builder.Id, builder.Name, ParseArguments(builder.Args.ToString())));
+                    }
+
+                    toolCallBuilders.Clear();
                 }
 
                 yield return update;
