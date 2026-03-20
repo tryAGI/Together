@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IJobsClient
     {
+
         /// <summary>
         /// Get job status<br/>
         /// Get the status of a specific job

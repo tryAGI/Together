@@ -23,6 +23,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Download checkpoint<br/>
         /// Returns presigned URLs for downloading a checkpoint's model files. Only inference checkpoints support downloading.

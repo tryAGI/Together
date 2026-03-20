@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IQueueClient
     {
+
         /// <summary>
         /// Get job status<br/>
         /// Poll the current status of a previously submitted job. Provide the request_id and model as query parameters.

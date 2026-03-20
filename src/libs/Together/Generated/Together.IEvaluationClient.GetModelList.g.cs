@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IEvaluationClient
     {
+
         /// <summary>
         /// Get model list
         /// </summary>

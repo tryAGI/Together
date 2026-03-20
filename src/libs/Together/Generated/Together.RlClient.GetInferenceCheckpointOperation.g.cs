@@ -23,6 +23,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Get inference checkpoint operation<br/>
         /// Retrieves the current status and result of an inference checkpoint operation.

@@ -4,13 +4,29 @@ namespace Together
 {
     public partial interface ICodeInterpreterClient
     {
+
         /// <summary>
         /// Executes the given code snippet and returns the output. Without a session_id, a new session will be created to run the code. If you do pass in a valid session_id, the code will be run in that session. This is useful for running multiple code snippets in the same environment, because dependencies and similar things are persisted<br/>
         /// between calls to the same session.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.code_interpreter.execute(<br/>
+        ///     code="print('Hello world!')",<br/>
+        ///     language="python",<br/>
+        /// )<br/>
+        /// print(response.data.outputs[0].data);
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ExecuteResponse> TciExecuteAsync(
 
             global::Together.ExecuteRequest request,

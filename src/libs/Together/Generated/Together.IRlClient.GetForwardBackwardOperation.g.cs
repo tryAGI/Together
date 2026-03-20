@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IRlClient
     {
+
         /// <summary>
         /// Get forward-backward operation<br/>
         /// Retrieves the current status and result of a forward-backward operation.

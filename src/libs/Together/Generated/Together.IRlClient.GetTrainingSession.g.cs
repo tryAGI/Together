@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IRlClient
     {
+
         /// <summary>
         /// Get training session<br/>
         /// Gets a training session by its ID and returns its details.

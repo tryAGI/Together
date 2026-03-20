@@ -21,15 +21,27 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Create a shared volume.<br/>
         /// Instant Clusters supports long-lived, resizable in-DC shared storage with user data persistence.<br/>
         /// You can dynamically create and attach volumes to your cluster at cluster creation time, and resize as your data grows.<br/>
         /// All shared storage is backed by multi-NIC bare metal paths, ensuring high-throughput and low-latency performance for shared storage.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// volume = client.beta.clusters.storage.create(<br/>
+        ///   volume_name="my-shared-volume",<br/>
+        ///   size_tib=2,<br/>
+        ///   region="us-west-2"<br/>
+        /// )
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceCreateAsync(
 
             global::Together.GPUClustersSharedVolumeCreateRequest request,

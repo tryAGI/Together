@@ -23,6 +23,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Get job status<br/>
         /// Poll the current status of a previously submitted job. Provide the request_id and model as query parameters.

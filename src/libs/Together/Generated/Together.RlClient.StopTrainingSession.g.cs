@@ -21,6 +21,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Stop training session<br/>
         /// Stops a training session.
