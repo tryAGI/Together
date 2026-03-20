@@ -28,12 +28,6 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// volumes = client.beta.jig.volumes.create(name="my-volume")<br/>
-        /// print(volumes)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> CreateDeploymentsStorageVolumesAsync(
 
             global::Together.CreateVolumeRequest request,
@@ -262,6 +256,7 @@ namespace Together
                 }
             }
         }
+
         /// <summary>
         /// Create a new volume<br/>
         /// Create a new volume to preload files in deployments

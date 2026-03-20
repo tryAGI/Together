@@ -175,12 +175,6 @@ namespace Together
         public float? WeightDecay { get; set; }
 
         /// <summary>
-        /// Random seed used for training. Integer when set; null if not stored (e.g. legacy jobs) or no explicit seed was recorded.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("random_seed")]
-        public int? RandomSeed { get; set; }
-
-        /// <summary>
         /// Weights &amp; Biases project name
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_project_name")]
@@ -299,9 +293,6 @@ namespace Together
         /// <param name="weightDecay">
         /// Weight decay value used
         /// </param>
-        /// <param name="randomSeed">
-        /// Random seed used for training. Integer when set; null if not stored (e.g. legacy jobs) or no explicit seed was recorded.
-        /// </param>
         /// <param name="wandbProjectName">
         /// Weights &amp; Biases project name
         /// </param>
@@ -350,7 +341,6 @@ namespace Together
             float? warmupRatio,
             float? maxGradNorm,
             float? weightDecay,
-            int? randomSeed,
             string? wandbProjectName,
             string? wandbName,
             string? fromCheckpoint,
@@ -384,7 +374,6 @@ namespace Together
             this.WarmupRatio = warmupRatio;
             this.MaxGradNorm = maxGradNorm;
             this.WeightDecay = weightDecay;
-            this.RandomSeed = randomSeed;
             this.WandbProjectName = wandbProjectName;
             this.WandbName = wandbName;
             this.FromCheckpoint = fromCheckpoint;

@@ -19,6 +19,7 @@ namespace Together
 
             global::Together.RlForwardBackwardBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Forward-backward pass<br/>
         /// Submits a forward-backward pass operation that will asynchronously compute gradients via backpropagation.

@@ -11,23 +11,11 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.models.upload(<br/>
-        ///     model_name="My-Fine-Tuned-Model",<br/>
-        ///     model_source="https://ml-models.s3.us-west-2.amazonaws.com/models/my-fine-tuned-model.tar.gz",<br/>
-        /// )<br/>
-        /// print(response.data.job_id)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ModelUploadSuccessResponse> UploadModelAsync(
 
             global::Together.ModelUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Upload a custom model or adapter<br/>
         /// Upload a custom model or adapter from Hugging Face or S3

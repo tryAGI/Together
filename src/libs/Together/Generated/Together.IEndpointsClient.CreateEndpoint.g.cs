@@ -11,27 +11,11 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// endpoint = client.endpoints.create(<br/>
-        ///     model="Qwen/Qwen3.5-9B-FP8",<br/>
-        ///     hardware="1x_nvidia_a100_80gb_sxm",<br/>
-        ///     autoscaling={<br/>
-        ///       "min_replicas": 2,<br/>
-        ///       "max_replicas": 5,<br/>
-        ///     }<br/>
-        /// )<br/>
-        /// print(endpoint.id)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> CreateEndpointAsync(
 
             global::Together.CreateEndpointRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Create a dedicated endpoint, it will start automatically<br/>
         /// Creates a new dedicated endpoint for serving models. The endpoint will automatically start after creation. You can deploy any supported model on hardware configurations that meet the model's requirements.

@@ -335,6 +335,7 @@ namespace Together
                 }
             }
         }
+
         /// <summary>
         /// Cancel a queued job<br/>
         /// Cancel a pending job. Only jobs in pending status can be canceled.<br/>

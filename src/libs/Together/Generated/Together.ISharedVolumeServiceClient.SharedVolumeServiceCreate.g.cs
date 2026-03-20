@@ -13,19 +13,11 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.create(<br/>
-        ///   volume_name="my-shared-volume",<br/>
-        ///   size_tib=2,<br/>
-        ///   region="us-west-2"<br/>
-        /// )
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceCreateAsync(
 
             global::Together.GPUClustersSharedVolumeCreateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Create a shared volume.<br/>
         /// Instant Clusters supports long-lived, resizable in-DC shared storage with user data persistence.<br/>

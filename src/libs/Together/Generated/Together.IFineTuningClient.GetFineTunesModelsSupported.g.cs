@@ -10,10 +10,6 @@ namespace Together
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// curl "https://api.together.xyz/v1/fine-tunes/models/supported" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.Response41> GetFineTunesModelsSupportedAsync(
             global::System.Threading.CancellationToken cancellationToken = default);
     }

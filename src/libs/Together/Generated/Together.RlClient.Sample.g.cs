@@ -226,6 +226,7 @@ namespace Together
                 }
             }
         }
+
         /// <summary>
         /// Sample<br/>
         /// Submits a sample operation that will asynchronously generate text completions with logprobs.

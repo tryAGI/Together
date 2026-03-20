@@ -30,12 +30,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// deployment = client.beta.jig.retrieve("my-deployment")<br/>
-        /// print(deployment)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> GetDeploymentsByIdAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)

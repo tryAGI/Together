@@ -11,25 +11,11 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// file = open("audio.wav", "rb")<br/>
-        /// response = client.audio.translations.create(<br/>
-        ///     model="openai/whisper-large-v3",<br/>
-        ///     file=file,<br/>
-        ///     language="es",<br/>
-        /// )<br/>
-        /// print(response.text)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AudioTranslationResponse> AudioTranslationsAsync(
 
             global::Together.AudioTranslationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Create audio translation request<br/>
         /// Translates audio into English

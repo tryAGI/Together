@@ -18,6 +18,7 @@ namespace Together
 
             global::Together.QueueCancelRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Cancel a queued job<br/>
         /// Cancel a pending job. Only jobs in pending status can be canceled.<br/>

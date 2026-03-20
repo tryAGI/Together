@@ -11,23 +11,11 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.fine_tuning.create(<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="file-id"<br/>
-        /// )<br/>
-        /// print(response)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
 
             global::Together.Request3 request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Create job<br/>
         /// Create a fine-tuning job with the provided model and training data.
@@ -76,9 +64,6 @@ namespace Together
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
         /// Default Value: 0.0
-        /// </param>
-        /// <param name="randomSeed">
-        /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
         /// </param>
         /// <param name="suffix">
         /// Suffix that will be added to your fine-tuned model name
@@ -136,7 +121,6 @@ namespace Together
             float? warmupRatio = default,
             float? maxGradNorm = default,
             float? weightDecay = default,
-            int? randomSeed = default,
             string? suffix = default,
             string? wandbApiKey = default,
             string? wandbBaseUrl = default,

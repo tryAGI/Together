@@ -11,23 +11,11 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.videos.create(<br/>
-        ///     model="together/video-model",<br/>
-        ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
-        /// )<br/>
-        /// print(response.id)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.VideoJob> CreateVideoAsync(
 
             global::Together.CreateVideoBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Create video<br/>
         /// Create a video

@@ -18,6 +18,7 @@ namespace Together
 
             global::Together.QueueJobRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Submit a queued job<br/>
         /// Submit a new job to the queue for asynchronous processing. Jobs are<br/>

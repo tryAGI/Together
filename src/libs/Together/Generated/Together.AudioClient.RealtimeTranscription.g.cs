@@ -92,54 +92,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import asyncio<br/>
-        /// import websockets<br/>
-        /// import json<br/>
-        /// import base64<br/>
-        /// import os<br/>
-        /// async def transcribe_audio():<br/>
-        ///     api_key = os.environ.get("TOGETHER_API_KEY")<br/>
-        ///     url = "wss://api.together.ai/v1/realtime?model=openai/whisper-large-v3&amp;input_audio_format=pcm_s16le_16000"<br/>
-        ///     headers = {<br/>
-        ///         "Authorization": f"Bearer {api_key}"<br/>
-        ///     }<br/>
-        ///     async with websockets.connect(url, additional_headers=headers) as ws:<br/>
-        ///         # Read audio file<br/>
-        ///         with open("audio.wav", "rb") as f:<br/>
-        ///             audio_data = f.read()<br/>
-        ///         # Send audio in chunks with delay to simulate real-time<br/>
-        ///         chunk_size = 8192<br/>
-        ///         bytes_per_second = 16000 * 2  # 16kHz * 2 bytes (16-bit)<br/>
-        ///         delay_per_chunk = chunk_size / bytes_per_second<br/>
-        ///         for i in range(0, len(audio_data), chunk_size):<br/>
-        ///             chunk = audio_data[i:i+chunk_size]<br/>
-        ///             base64_chunk = base64.b64encode(chunk).decode('utf-8')<br/>
-        ///             await ws.send(json.dumps({<br/>
-        ///                 "type": "input_audio_buffer.append",<br/>
-        ///                 "audio": base64_chunk<br/>
-        ///             }))<br/>
-        ///             # Simulate real-time streaming<br/>
-        ///             if i + chunk_size &lt; len(audio_data):<br/>
-        ///                 await asyncio.sleep(delay_per_chunk)<br/>
-        ///         # Commit the audio buffer<br/>
-        ///         await ws.send(json.dumps({<br/>
-        ///             "type": "input_audio_buffer.commit"<br/>
-        ///         }))<br/>
-        ///         # Receive transcription results<br/>
-        ///         async for message in ws:<br/>
-        ///             data = json.loads(message)<br/>
-        ///             if data["type"] == "conversation.item.input_audio_transcription.delta":<br/>
-        ///                 print(f"Partial: {data['delta']}")<br/>
-        ///             elif data["type"] == "conversation.item.input_audio_transcription.completed":<br/>
-        ///                 print(f"Final: {data['transcript']}")<br/>
-        ///                 break<br/>
-        ///             elif data["type"] == "conversation.item.input_audio_transcription.failed":<br/>
-        ///                 error = data.get("error", {})<br/>
-        ///                 print(f"Error: {error.get('message')}")<br/>
-        ///                 break<br/>
-        /// asyncio.run(transcribe_audio())
-        /// </remarks>
         public async global::System.Threading.Tasks.Task RealtimeTranscriptionAsync(
             string model,
             global::Together.RealtimeTranscriptionInputAudioFormat inputAudioFormat = global::Together.RealtimeTranscriptionInputAudioFormat.PcmS16le16000,

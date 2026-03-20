@@ -33,11 +33,6 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// client.beta.jig.secrets.update("my-secret", value="my-new-value")
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.SecretResponseItem> EditDeploymentsSecretsByIdAsync(
             string id,
 
@@ -307,6 +302,7 @@ namespace Together
                 }
             }
         }
+
         /// <summary>
         /// Update a secret<br/>
         /// Update an existing secret's value or metadata

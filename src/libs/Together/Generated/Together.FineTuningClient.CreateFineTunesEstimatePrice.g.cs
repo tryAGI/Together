@@ -218,6 +218,7 @@ namespace Together
                 }
             }
         }
+
         /// <summary>
         /// Estimate price<br/>
         /// Estimate the price of a fine-tuning job.

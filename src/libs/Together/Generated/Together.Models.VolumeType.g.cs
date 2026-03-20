@@ -11,7 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        VolumeTypeReadOnly,
+        ReadOnly,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Together
         {
             return value switch
             {
-                VolumeType.VolumeTypeReadOnly => "readOnly",
+                VolumeType.ReadOnly => "readOnly",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Together
         {
             return value switch
             {
-                "readOnly" => VolumeType.VolumeTypeReadOnly,
+                "readOnly" => VolumeType.ReadOnly,
                 _ => null,
             };
         }
