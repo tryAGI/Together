@@ -4,16 +4,13 @@ namespace Together
 {
     public partial interface IFineTuningClient
     {
-
         /// <summary>
         /// Create job<br/>
         /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
@@ -31,7 +28,6 @@ namespace Together
 
             global::Together.Request3 request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create job<br/>
         /// Create a fine-tuning job with the provided model and training data.

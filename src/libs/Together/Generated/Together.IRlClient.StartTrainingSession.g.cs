@@ -4,12 +4,10 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Create training session<br/>
         /// Creates a training session and returns its details.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -17,7 +15,6 @@ namespace Together
 
             global::Together.RlStartTrainingSessionRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create training session<br/>
         /// Creates a training session and returns its details.

@@ -16,7 +16,6 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-
         /// <summary>
         /// Delete endpoint<br/>
         /// Permanently deletes an endpoint. This action cannot be undone.
@@ -27,7 +26,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>

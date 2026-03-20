@@ -4,16 +4,13 @@ namespace Together
 {
     public partial interface ISharedVolumeServiceClient
     {
-
         /// <summary>
         /// Update a shared volume.<br/>
         /// Update the configuration of an existing shared volume.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -27,7 +24,6 @@ namespace Together
 
             global::Together.GPUClustersSharedVolumeUpdateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update a shared volume.<br/>
         /// Update the configuration of an existing shared volume.

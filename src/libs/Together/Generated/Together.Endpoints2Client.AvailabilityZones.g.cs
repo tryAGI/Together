@@ -19,14 +19,12 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List all available availability zones.<br/>
         /// List all available availability zones.
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// import os<br/>

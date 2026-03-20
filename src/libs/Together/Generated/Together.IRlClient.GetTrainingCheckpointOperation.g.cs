@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Get save training checkpoint operation<br/>
         /// Retrieves the current status and result of a save training checkpoint operation.

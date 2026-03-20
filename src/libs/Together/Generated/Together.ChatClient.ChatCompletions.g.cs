@@ -21,16 +21,13 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create chat completion<br/>
         /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
@@ -458,7 +455,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Create chat completion<br/>
         /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.

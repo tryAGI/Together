@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IDeploymentsClient
     {
-
         /// <summary>
         /// Get a deployment by ID or name<br/>
         /// Retrieve details of a specific deployment by its ID or name
@@ -14,7 +13,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>

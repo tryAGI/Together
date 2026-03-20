@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IAudioClient
     {
-
         /// <summary>
         /// Real-time text-to-speech via WebSocket<br/>
         /// Establishes a WebSocket connection for real-time text-to-speech generation. This endpoint uses WebSocket protocol (wss://api.together.ai/v1/audio/speech/websocket) for bidirectional streaming communication.<br/>
@@ -121,7 +120,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// import asyncio<br/>
         /// import websockets<br/>

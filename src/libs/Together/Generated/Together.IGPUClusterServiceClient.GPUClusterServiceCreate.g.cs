@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IGPUClusterServiceClient
     {
-
         /// <summary>
         /// Create GPU Cluster<br/>
         /// Create an Instant Cluster on Together's high-performance GPU clusters.<br/>
@@ -12,11 +11,9 @@ namespace Together
         /// Kubernetes and Slurm cluster flavors, a REST API, and Terraform support,<br/>
         /// you can run workloads flexibly without complex infrastructure management.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -34,7 +31,6 @@ namespace Together
 
             global::Together.GPUClusterCreateRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create GPU Cluster<br/>
         /// Create an Instant Cluster on Together's high-performance GPU clusters.<br/>

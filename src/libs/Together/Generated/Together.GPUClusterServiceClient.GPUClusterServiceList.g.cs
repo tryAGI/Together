@@ -19,14 +19,12 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List all GPU clusters.<br/>
         /// List all GPU clusters.
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// import os<br/>

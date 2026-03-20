@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IVolumesClient
     {
-
         /// <summary>
         /// Delete a volume<br/>
         /// Delete an existing volume

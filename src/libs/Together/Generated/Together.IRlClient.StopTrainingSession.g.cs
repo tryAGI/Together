@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Stop training session<br/>
         /// Stops a training session.

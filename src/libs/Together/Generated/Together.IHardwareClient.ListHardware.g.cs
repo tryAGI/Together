@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IHardwareClient
     {
-
         /// <summary>
         /// List available hardware configurations<br/>
         /// Returns a list of available hardware configurations for deploying models. When a model parameter is provided, it returns only hardware configurations compatible with that model, including their current availability status.
@@ -17,7 +16,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>

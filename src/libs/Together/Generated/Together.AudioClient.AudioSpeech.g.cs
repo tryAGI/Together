@@ -16,16 +16,13 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-
         /// <summary>
         /// Create audio generation request<br/>
         /// Generate audio from input text
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
@@ -170,7 +167,6 @@ namespace Together
                 yield return __streamedResponse;
             }
         }
-
         /// <summary>
         /// Create audio generation request<br/>
         /// Generate audio from input text

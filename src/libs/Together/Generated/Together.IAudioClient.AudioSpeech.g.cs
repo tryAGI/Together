@@ -4,16 +4,13 @@ namespace Together
 {
     public partial interface IAudioClient
     {
-
         /// <summary>
         /// Create audio generation request<br/>
         /// Generate audio from input text
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
@@ -33,7 +30,6 @@ namespace Together
 
             global::Together.AudioSpeechRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create audio generation request<br/>
         /// Generate audio from input text

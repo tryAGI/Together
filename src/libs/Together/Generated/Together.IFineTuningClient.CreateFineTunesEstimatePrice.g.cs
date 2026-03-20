@@ -4,12 +4,10 @@ namespace Together
 {
     public partial interface IFineTuningClient
     {
-
         /// <summary>
         /// Estimate price<br/>
         /// Estimate the price of a fine-tuning job.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -17,7 +15,6 @@ namespace Together
 
             global::Together.Request4 request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Estimate price<br/>
         /// Estimate the price of a fine-tuning job.

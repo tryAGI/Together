@@ -23,7 +23,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get logs for a deployment<br/>
         /// Retrieve logs from a deployment, optionally filtered by replica ID.
@@ -36,7 +35,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>

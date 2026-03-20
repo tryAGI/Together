@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Optimizer step<br/>
         /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.
@@ -12,7 +11,6 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Together
 
             global::Together.RlOptimStepBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Optimizer step<br/>
         /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.

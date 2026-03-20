@@ -21,7 +21,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get a volume by ID or name<br/>
         /// Retrieve details of a specific volume by its ID or name

@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Forward-backward pass<br/>
         /// Submits a forward-backward pass operation that will asynchronously compute gradients via backpropagation.
@@ -12,7 +11,6 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -21,7 +19,6 @@ namespace Together
 
             global::Together.RlForwardBackwardBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Forward-backward pass<br/>
         /// Submits a forward-backward pass operation that will asynchronously compute gradients via backpropagation.

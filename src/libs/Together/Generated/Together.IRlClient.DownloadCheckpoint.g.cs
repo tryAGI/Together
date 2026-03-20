@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Download checkpoint<br/>
         /// Returns presigned URLs for downloading a checkpoint's model files. Only inference checkpoints support downloading.

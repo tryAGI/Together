@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Get optim-step operation<br/>
         /// Retrieves the current status and result of an optim-step operation.
