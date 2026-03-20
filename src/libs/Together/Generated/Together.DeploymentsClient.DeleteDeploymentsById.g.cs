@@ -21,6 +21,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Delete a deployment<br/>
         /// Delete an existing deployment
@@ -30,6 +31,13 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// deployment = client.beta.jig.destroy("my-deployment")<br/>
+        /// print(deployment)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<string> DeleteDeploymentsByIdAsync(
             string id,
             global::System.Threading.CancellationToken cancellationToken = default)

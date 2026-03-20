@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IQueueClient
     {
+
         /// <summary>
         /// Cancel a queued job<br/>
         /// Cancel a pending job. Only jobs in pending status can be canceled.<br/>
@@ -11,6 +12,7 @@ namespace Together
         /// attempt. If the job is not pending, returns 409 with the current status<br/>
         /// unchanged.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>

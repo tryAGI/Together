@@ -21,6 +21,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Get job status<br/>
         /// Get the status of a specific job

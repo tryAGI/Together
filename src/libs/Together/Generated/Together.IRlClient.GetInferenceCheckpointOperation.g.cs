@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IRlClient
     {
+
         /// <summary>
         /// Get inference checkpoint operation<br/>
         /// Retrieves the current status and result of an inference checkpoint operation.

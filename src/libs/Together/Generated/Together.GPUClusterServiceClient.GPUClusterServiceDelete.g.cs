@@ -21,6 +21,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Delete GPU cluster by cluster ID<br/>
         /// Delete a GPU cluster by cluster ID.
@@ -30,6 +31,13 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// cluster = client.beta.clusters.delete("cluster_id")<br/>
+        /// print(cluster)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClusterServiceDeleteResponse> GPUClusterServiceDeleteAsync(
             string clusterId,
             global::System.Threading.CancellationToken cancellationToken = default)

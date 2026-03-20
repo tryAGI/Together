@@ -19,6 +19,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// List all jobs<br/>
         /// List all jobs and their statuses

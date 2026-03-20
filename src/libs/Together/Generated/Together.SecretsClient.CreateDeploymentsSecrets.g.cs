@@ -21,13 +21,21 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Create a new secret<br/>
         /// Create a new secret to store sensitive configuration values
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// client.beta.jig.secrets.create(name="my-secret", value="my-value")
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.SecretResponseItem> CreateDeploymentsSecretsAsync(
 
             global::Together.CreateSecretRequest request,

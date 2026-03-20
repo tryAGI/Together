@@ -23,6 +23,7 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Update a GPU Cluster.<br/>
         /// Update the configuration of an existing GPU cluster.
@@ -30,9 +31,17 @@ namespace Together
         /// <param name="clusterId">
         /// The ID of the cluster to update
         /// </param>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// cluster = client.beta.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)<br/>
+        /// print(cluster)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClusterInfo> GPUClusterServiceUpdateAsync(
             string clusterId,
 

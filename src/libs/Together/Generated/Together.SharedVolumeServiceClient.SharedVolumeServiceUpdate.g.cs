@@ -21,13 +21,25 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Update a shared volume.<br/>
         /// Update the configuration of an existing shared volume.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// volume = client.beta.clusters.storage.update(<br/>
+        ///   volume_id="12345-67890-12345-67890",<br/>
+        ///   size_tib=3<br/>
+        /// )<br/>
+        /// print(volume)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceUpdateAsync(
 
             global::Together.GPUClustersSharedVolumeUpdateRequest request,

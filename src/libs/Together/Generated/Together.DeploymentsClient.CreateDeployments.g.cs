@@ -21,13 +21,26 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
+
         /// <summary>
         /// Create a new deployment<br/>
         /// Create a new deployment with specified configuration
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// deployment = client.beta.jig.deploy(<br/>
+        ///   name="my-deployment",<br/>
+        ///   gpu_type="h100-80gb",<br/>
+        ///   image="registry.together.xyz/proj_abcdefg1234567890/my-image:latest"<br/>
+        /// )<br/>
+        /// print(deployment)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> CreateDeploymentsAsync(
 
             global::Together.CreateDeploymentRequest request,

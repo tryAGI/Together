@@ -4,13 +4,32 @@ namespace Together
 {
     public partial interface IChatClient
     {
+
         /// <summary>
         /// Create chat completion<br/>
         /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
         /// </summary>
+
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.chat.completions.create(<br/>
+        ///     model="Qwen/Qwen3.5-9B",<br/>
+        ///     messages=[<br/>
+        ///         {"role": "system", "content": "You are a helpful assistant."},<br/>
+        ///         {"role": "user", "content": "What are some fun things to do in New York?"},<br/>
+        ///     ],<br/>
+        ///     reasoning={"enabled": False}<br/>
+        /// )
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
 
             global::Together.ChatCompletionRequest request,

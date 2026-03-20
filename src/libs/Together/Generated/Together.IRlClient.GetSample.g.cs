@@ -4,6 +4,7 @@ namespace Together
 {
     public partial interface IRlClient
     {
+
         /// <summary>
         /// Get sample operation<br/>
         /// Retrieves the current status and result of a sample operation.
