@@ -17,7 +17,7 @@ var response = await chatClient.GetResponseAsync(
     [new Meai.ChatMessage(Meai.ChatRole.User, "What's the weather in Seattle?")],
     new Meai.ChatOptions
     {
-        ModelId = ToolCallingModel,
+        ModelId = "meta-llama/Llama-3.3-70B-Instruct-Turbo",
         Tools = [getWeatherTool],
     });
 
