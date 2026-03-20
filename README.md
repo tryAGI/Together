@@ -44,8 +44,6 @@ var embeddings = await generator.GenerateAsync(
 
 <!-- EXAMPLES:START -->
 ### Chat Client Five Random Words Streaming
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 
@@ -70,8 +68,6 @@ await foreach (var update in updates)
 ```
 
 ### Chat Client Five Random Words
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 
@@ -87,8 +83,6 @@ var response = await chatClient.GetResponseAsync(
 ```
 
 ### Chat Client Get Service Returns Chat Client Metadata
-
-
 ```csharp
 using var client = CreateTestClient();
 Meai.IChatClient chatClient = client;
@@ -97,8 +91,6 @@ var metadata = Meai.ChatClientExtensions.GetService<Meai.ChatClientMetadata>(cha
 ```
 
 ### Chat Client Get Service Returns Null For Unknown Key
-
-
 ```csharp
 using var client = CreateTestClient();
 Meai.IChatClient chatClient = client;
@@ -107,8 +99,6 @@ var result = Meai.ChatClientExtensions.GetService<Meai.ChatClientMetadata>(chatC
 ```
 
 ### Chat Client Get Service Returns Self
-
-
 ```csharp
 using var client = CreateTestClient();
 Meai.IChatClient chatClient = client;
@@ -117,8 +107,6 @@ var self = Meai.ChatClientExtensions.GetService<TogetherClient>(chatClient);
 ```
 
 ### Chat Client Reasoning Non Streaming
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 Meai.IChatClient chatClient = client;
@@ -144,8 +132,6 @@ var text = response.Messages
 ```
 
 ### Chat Client Reasoning Streaming
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 Meai.IChatClient chatClient = client;
@@ -177,8 +163,6 @@ await foreach (var update in updates)
 ```
 
 ### Chat Client Tool Calling Multi Turn
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 Meai.IChatClient chatClient = client;
@@ -223,8 +207,6 @@ var finalResponse = await chatClient.GetResponseAsync(messages, options);
 ```
 
 ### Chat Client Tool Calling Single Turn
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 Meai.IChatClient chatClient = client;
@@ -249,8 +231,6 @@ var functionCall = response.Messages
 ```
 
 ### Chat Client Tool Calling Streaming
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 Meai.IChatClient chatClient = client;
@@ -276,8 +256,6 @@ await foreach (var update in updates)
 ```
 
 ### Embedding Generator Batch Texts
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 
@@ -295,8 +273,6 @@ foreach (var embedding in embeddings)
 ```
 
 ### Embedding Generator Get Service Returns Metadata
-
-
 ```csharp
 using var client = CreateTestClient();
 Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
@@ -305,8 +281,6 @@ var metadata = Meai.EmbeddingGeneratorExtensions.GetService<Meai.EmbeddingGenera
 ```
 
 ### Embedding Generator Get Service Returns Null For Unknown Key
-
-
 ```csharp
 using var client = CreateTestClient();
 Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
@@ -315,8 +289,6 @@ var result = Meai.EmbeddingGeneratorExtensions.GetService<Meai.EmbeddingGenerato
 ```
 
 ### Embedding Generator Get Service Returns Self
-
-
 ```csharp
 using var client = CreateTestClient();
 Meai.IEmbeddingGenerator<string, Meai.Embedding<float>> generator = client;
@@ -325,8 +297,6 @@ var self = Meai.EmbeddingGeneratorExtensions.GetService<TogetherClient>(generato
 ```
 
 ### Embedding Generator Single Text
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 
@@ -340,8 +310,6 @@ var embeddings = await generator.GenerateAsync(
 ```
 
 ### Test
-
-
 ```csharp
 using var client = new TogetherClient(apiKey);
 ```
@@ -358,7 +326,3 @@ Discord: https://discord.gg/Ca2xhfBf3v
 ![JetBrains logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png)
 
 This project is supported by JetBrains through the [Open Source Support Program](https://jb.gg/OpenSourceSupport).
-
-![CodeRabbit logo](https://opengraph.githubassets.com/1c51002d7d0bbe0c4fd72ff8f2e58192702f73a7037102f77e4dbb98ac00ea8f/marketplace/coderabbitai)
-
-This project is supported by CodeRabbit through the [Open Source Support Program](https://github.com/marketplace/coderabbitai).
