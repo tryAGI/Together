@@ -23,7 +23,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Update a deployment<br/>
         /// Update an existing deployment configuration
@@ -31,11 +30,9 @@ namespace Together
         /// <param name="id">
         /// Deployment ID or name
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -311,7 +308,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Update a deployment<br/>
         /// Update an existing deployment configuration

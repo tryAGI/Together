@@ -16,7 +16,6 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-
         /// <summary>
         /// Download a file<br/>
         /// Download a file by redirecting to a signed URL

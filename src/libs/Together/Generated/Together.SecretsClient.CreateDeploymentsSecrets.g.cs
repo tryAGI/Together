@@ -21,16 +21,13 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Create a new secret<br/>
         /// Create a new secret to store sensitive configuration values
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -264,7 +261,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Create a new secret<br/>
         /// Create a new secret to store sensitive configuration values

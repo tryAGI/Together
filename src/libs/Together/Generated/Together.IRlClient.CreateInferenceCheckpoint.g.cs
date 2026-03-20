@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IRlClient
     {
-
         /// <summary>
         /// Create inference checkpoint<br/>
         /// Submits an operation that will asynchronously save the current LoRA adapter as an inference checkpoint and upload it to object storage.

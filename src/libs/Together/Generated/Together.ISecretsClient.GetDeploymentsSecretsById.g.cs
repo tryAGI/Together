@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface ISecretsClient
     {
-
         /// <summary>
         /// Get a secret by ID or name<br/>
         /// Retrieve details of a specific secret by its ID or name
@@ -14,7 +13,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>

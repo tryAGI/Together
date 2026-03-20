@@ -4,16 +4,13 @@ namespace Together
 {
     public partial interface ISecretsClient
     {
-
         /// <summary>
         /// Create a new secret<br/>
         /// Create a new secret to store sensitive configuration values
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -23,7 +20,6 @@ namespace Together
 
             global::Together.CreateSecretRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a new secret<br/>
         /// Create a new secret to store sensitive configuration values

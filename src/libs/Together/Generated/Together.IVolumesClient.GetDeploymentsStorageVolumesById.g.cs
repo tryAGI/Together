@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IVolumesClient
     {
-
         /// <summary>
         /// Get a volume by ID or name<br/>
         /// Retrieve details of a specific volume by its ID or name

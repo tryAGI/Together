@@ -4,16 +4,13 @@ namespace Together
 {
     public partial interface IModelsClient
     {
-
         /// <summary>
         /// Upload a custom model or adapter<br/>
         /// Upload a custom model or adapter from Hugging Face or S3
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
@@ -31,7 +28,6 @@ namespace Together
 
             global::Together.ModelUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Upload a custom model or adapter<br/>
         /// Upload a custom model or adapter from Hugging Face or S3

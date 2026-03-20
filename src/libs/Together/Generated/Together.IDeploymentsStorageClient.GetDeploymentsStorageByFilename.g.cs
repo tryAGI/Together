@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IDeploymentsStorageClient
     {
-
         /// <summary>
         /// Download a file<br/>
         /// Download a file by redirecting to a signed URL

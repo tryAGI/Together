@@ -21,7 +21,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get training session<br/>
         /// Gets a training session by its ID and returns its details.

@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IQueueClient
     {
-
         /// <summary>
         /// Submit a queued job<br/>
         /// Submit a new job to the queue for asynchronous processing. Jobs are<br/>
@@ -12,7 +11,6 @@ namespace Together
         /// the same priority). Returns a request ID that can be used to poll status<br/>
         /// or cancel the job.
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -20,7 +18,6 @@ namespace Together
 
             global::Together.QueueJobRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Submit a queued job<br/>
         /// Submit a new job to the queue for asynchronous processing. Jobs are<br/>

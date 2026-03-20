@@ -25,7 +25,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// List training sessions<br/>
         /// Lists all training sessions.

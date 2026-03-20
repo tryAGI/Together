@@ -23,7 +23,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Update a GPU Cluster.<br/>
         /// Update the configuration of an existing GPU cluster.
@@ -31,11 +30,9 @@ namespace Together
         /// <param name="clusterId">
         /// The ID of the cluster to update
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -197,7 +194,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Update a GPU Cluster.<br/>
         /// Update the configuration of an existing GPU cluster.

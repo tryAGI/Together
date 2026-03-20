@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IEndpointsClient
     {
-
         /// <summary>
         /// List all endpoints, can be filtered by type<br/>
         /// Returns a list of all endpoints associated with your account. You can filter the results by type (dedicated or serverless).
@@ -20,7 +19,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>

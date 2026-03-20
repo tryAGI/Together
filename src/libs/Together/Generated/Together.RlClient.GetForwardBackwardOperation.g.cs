@@ -23,7 +23,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Get forward-backward operation<br/>
         /// Retrieves the current status and result of a forward-backward operation.

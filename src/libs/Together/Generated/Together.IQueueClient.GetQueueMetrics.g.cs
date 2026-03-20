@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IQueueClient
     {
-
         /// <summary>
         /// Get queue metrics<br/>
         /// Get the current queue statistics for a model, including pending and running job counts.

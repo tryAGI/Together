@@ -4,16 +4,13 @@ namespace Together
 {
     public partial interface IDeploymentsVolumesClient
     {
-
         /// <summary>
         /// Create a new volume<br/>
         /// Create a new volume to preload files in deployments
         /// </summary>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
@@ -24,7 +21,6 @@ namespace Together
 
             global::Together.CreateVolumeRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a new volume<br/>
         /// Create a new volume to preload files in deployments

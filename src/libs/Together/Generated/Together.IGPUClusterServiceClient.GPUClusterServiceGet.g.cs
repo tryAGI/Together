@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IGPUClusterServiceClient
     {
-
         /// <summary>
         /// Get GPU cluster by cluster ID<br/>
         /// Retrieve information about a specific GPU cluster.
@@ -14,7 +13,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>

@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IEvaluationClient
     {
-
         /// <summary>
         /// Get evaluation job status and results
         /// </summary>
@@ -13,7 +12,6 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>

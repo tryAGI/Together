@@ -4,7 +4,6 @@ namespace Together
 {
     public partial interface IJobsClient
     {
-
         /// <summary>
         /// List all jobs<br/>
         /// List all jobs and their statuses

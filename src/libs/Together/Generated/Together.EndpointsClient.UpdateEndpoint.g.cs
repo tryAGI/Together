@@ -23,7 +23,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Update endpoint, this can also be used to start or stop a dedicated endpoint<br/>
         /// Updates an existing endpoint's configuration. You can modify the display name, autoscaling settings, or change the endpoint's state (start/stop).
@@ -32,11 +31,9 @@ namespace Together
         /// The ID of the endpoint to update<br/>
         /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
         /// </param>
-
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-
         /// <remarks>
         /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
@@ -319,7 +316,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Update endpoint, this can also be used to start or stop a dedicated endpoint<br/>
         /// Updates an existing endpoint's configuration. You can modify the display name, autoscaling settings, or change the endpoint's state (start/stop).

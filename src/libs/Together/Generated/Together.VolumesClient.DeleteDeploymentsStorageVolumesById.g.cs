@@ -21,7 +21,6 @@ namespace Together
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
-
         /// <summary>
         /// Delete a volume<br/>
         /// Delete an existing volume
