@@ -98,7 +98,7 @@ namespace Together
             __httpRequestContent.Add(
                 content: __contentFile,
                 name: "\"file\"",
-                fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+                fileName: request.FileName != null ? $"\"{request.FileName}\"" : string.Empty);
             if (__contentFile.Headers.ContentDisposition != null)
             {
                 __contentFile.Headers.ContentDisposition.FileNameStar = null;
@@ -344,16 +344,12 @@ namespace Together
         /// <param name="file">
         /// The content of the file being uploaded
         /// </param>
-        /// <param name="filename">
-        /// The content of the file being uploaded
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
             global::Together.FilePurpose purpose,
             string fileName,
             byte[] file,
-            string filename,
             global::Together.FileType? fileType = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -363,7 +359,6 @@ namespace Together
                 FileName = fileName,
                 FileType = fileType,
                 File = file,
-                Filename = filename,
             };
 
             return await CreateFilesUploadAsync(
