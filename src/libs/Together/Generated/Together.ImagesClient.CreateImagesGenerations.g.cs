@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateImagesGenerationsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request request);
+            global::Together.CreateImagesGenerationsRequest request);
         partial void PrepareCreateImagesGenerationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request request);
+            global::Together.CreateImagesGenerationsRequest request);
         partial void ProcessCreateImagesGenerationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,7 +44,7 @@ namespace Together
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
 
-            global::Together.Request request,
+            global::Together.CreateImagesGenerationsRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -255,7 +255,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
             string prompt,
-            global::Together.AnyOf<global::Together.RequestModel?, string> model,
+            global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string> model,
             int? steps = default,
             string? imageUrl = default,
             int? seed = default,
@@ -263,15 +263,15 @@ namespace Together
             int? height = default,
             int? width = default,
             string? negativePrompt = default,
-            global::Together.RequestResponseFormat? responseFormat = default,
+            global::Together.CreateImagesGenerationsRequestResponseFormat? responseFormat = default,
             double? guidanceScale = default,
-            global::Together.RequestOutputFormat? outputFormat = default,
-            global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras = default,
+            global::Together.CreateImagesGenerationsRequestOutputFormat? outputFormat = default,
+            global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>? imageLoras = default,
             global::System.Collections.Generic.IList<string>? referenceImages = default,
             bool? disableSafetyChecker = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request
+            var __request = new global::Together.CreateImagesGenerationsRequest
             {
                 Prompt = prompt,
                 Model = model,

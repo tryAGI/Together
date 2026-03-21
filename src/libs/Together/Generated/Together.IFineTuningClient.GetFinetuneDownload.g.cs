@@ -35,7 +35,7 @@ namespace Together
         global::System.Threading.Tasks.Task<byte[]> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
-            global::Together.Checkpoint? checkpoint = default,
+            global::Together.GetFinetuneDownloadCheckpoint? checkpoint = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

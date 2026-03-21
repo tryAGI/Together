@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateFilesUploadArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request2 request);
+            global::Together.CreateFilesUploadRequest request);
         partial void PrepareCreateFilesUploadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request2 request);
+            global::Together.CreateFilesUploadRequest request);
         partial void ProcessCreateFilesUploadResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,7 +42,7 @@ namespace Together
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
 
-            global::Together.Request2 request,
+            global::Together.CreateFilesUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -357,7 +357,7 @@ namespace Together
             global::Together.FileType? fileType = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request2
+            var __request = new global::Together.CreateFilesUploadRequest
             {
                 Purpose = purpose,
                 FileName = fileName,

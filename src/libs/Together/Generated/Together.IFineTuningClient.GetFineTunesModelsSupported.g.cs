@@ -14,7 +14,7 @@ namespace Together
         /// curl "https://api.together.xyz/v1/fine-tunes/models/supported" \<br/>
         ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Together.Response41> GetFineTunesModelsSupportedAsync(
+        global::System.Threading.Tasks.Task<global::Together.GetFineTunesModelsSupportedResponse> GetFineTunesModelsSupportedAsync(
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

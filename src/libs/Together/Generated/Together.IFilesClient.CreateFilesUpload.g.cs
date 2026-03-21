@@ -25,7 +25,7 @@ namespace Together
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
 
-            global::Together.Request2 request,
+            global::Together.CreateFilesUploadRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a file<br/>

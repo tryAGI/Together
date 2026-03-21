@@ -9,13 +9,13 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref string ftId,
             ref int? checkpointStep,
-            ref global::Together.Checkpoint? checkpoint);
+            ref global::Together.GetFinetuneDownloadCheckpoint? checkpoint);
         partial void PrepareGetFinetuneDownloadRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string ftId,
             int? checkpointStep,
-            global::Together.Checkpoint? checkpoint);
+            global::Together.GetFinetuneDownloadCheckpoint? checkpoint);
         partial void ProcessGetFinetuneDownloadResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -56,7 +56,7 @@ namespace Together
         public async global::System.Threading.Tasks.Task<byte[]> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
-            global::Together.Checkpoint? checkpoint = default,
+            global::Together.GetFinetuneDownloadCheckpoint? checkpoint = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(

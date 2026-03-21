@@ -11,9 +11,9 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.Response40> CreateFineTunesEstimatePriceAsync(
+        global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
 
-            global::Together.Request4 request,
+            global::Together.CreateFineTunesEstimatePriceRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Estimate price<br/>
@@ -48,7 +48,7 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::Together.Response40> CreateFineTunesEstimatePriceAsync(
+        global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
             string trainingFile,
             string? validationFile = default,
             string? model = default,

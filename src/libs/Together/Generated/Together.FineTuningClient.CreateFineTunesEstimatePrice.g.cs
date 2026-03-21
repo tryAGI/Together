@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateFineTunesEstimatePriceArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request4 request);
+            global::Together.CreateFineTunesEstimatePriceRequest request);
         partial void PrepareCreateFineTunesEstimatePriceRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request4 request);
+            global::Together.CreateFineTunesEstimatePriceRequest request);
         partial void ProcessCreateFineTunesEstimatePriceResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -28,9 +28,9 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.Response40> CreateFineTunesEstimatePriceAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
 
-            global::Together.Request4 request,
+            global::Together.CreateFineTunesEstimatePriceRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -155,7 +155,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.Response40.FromJson(__content, JsonSerializerContext) ??
+                        global::Together.CreateFineTunesEstimatePriceResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -186,7 +186,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.Response40.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Together.CreateFineTunesEstimatePriceResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -251,7 +251,7 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.Response40> CreateFineTunesEstimatePriceAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
             string trainingFile,
             string? validationFile = default,
             string? model = default,
@@ -262,7 +262,7 @@ namespace Together
             string? fromCheckpoint = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request4
+            var __request = new global::Together.CreateFineTunesEstimatePriceRequest
             {
                 TrainingFile = trainingFile,
                 ValidationFile = validationFile,

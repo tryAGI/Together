@@ -1,0 +1,92 @@
+
+#nullable enable
+
+namespace Together
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class CreateFineTunesEstimatePriceResponse
+    {
+        /// <summary>
+        /// The price of the fine-tuning job
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("estimated_total_price")]
+        public double? EstimatedTotalPrice { get; set; }
+
+        /// <summary>
+        /// Whether the user is allowed to proceed with the fine-tuning job<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allowed_to_proceed")]
+        public bool? AllowedToProceed { get; set; }
+
+        /// <summary>
+        /// The user's credit limit in dollars
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_limit")]
+        public double? UserLimit { get; set; }
+
+        /// <summary>
+        /// The estimated number of tokens to be trained
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("estimated_train_token_count")]
+        public double? EstimatedTrainTokenCount { get; set; }
+
+        /// <summary>
+        /// The estimated number of tokens for evaluation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("estimated_eval_token_count")]
+        public double? EstimatedEvalTokenCount { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateFineTunesEstimatePriceResponse" /> class.
+        /// </summary>
+        /// <param name="estimatedTotalPrice">
+        /// The price of the fine-tuning job
+        /// </param>
+        /// <param name="allowedToProceed">
+        /// Whether the user is allowed to proceed with the fine-tuning job<br/>
+        /// Example: true
+        /// </param>
+        /// <param name="userLimit">
+        /// The user's credit limit in dollars
+        /// </param>
+        /// <param name="estimatedTrainTokenCount">
+        /// The estimated number of tokens to be trained
+        /// </param>
+        /// <param name="estimatedEvalTokenCount">
+        /// The estimated number of tokens for evaluation
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public CreateFineTunesEstimatePriceResponse(
+            double? estimatedTotalPrice,
+            bool? allowedToProceed,
+            double? userLimit,
+            double? estimatedTrainTokenCount,
+            double? estimatedEvalTokenCount)
+        {
+            this.EstimatedTotalPrice = estimatedTotalPrice;
+            this.AllowedToProceed = allowedToProceed;
+            this.UserLimit = userLimit;
+            this.EstimatedTrainTokenCount = estimatedTrainTokenCount;
+            this.EstimatedEvalTokenCount = estimatedEvalTokenCount;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateFineTunesEstimatePriceResponse" /> class.
+        /// </summary>
+        public CreateFineTunesEstimatePriceResponse()
+        {
+        }
+    }
+}

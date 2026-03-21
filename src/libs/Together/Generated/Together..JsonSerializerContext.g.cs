@@ -489,33 +489,33 @@ namespace Together
 
             typeof(global::Together.JsonConverters.QueueJobStatusResponseStatusNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestModelJsonConverter),
+            typeof(global::Together.JsonConverters.CreateImagesGenerationsRequestModelJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestModelNullableJsonConverter),
+            typeof(global::Together.JsonConverters.CreateImagesGenerationsRequestModelNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestResponseFormatJsonConverter),
+            typeof(global::Together.JsonConverters.CreateImagesGenerationsRequestResponseFormatJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestResponseFormatNullableJsonConverter),
+            typeof(global::Together.JsonConverters.CreateImagesGenerationsRequestResponseFormatNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestOutputFormatJsonConverter),
+            typeof(global::Together.JsonConverters.CreateImagesGenerationsRequestOutputFormatJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestOutputFormatNullableJsonConverter),
+            typeof(global::Together.JsonConverters.CreateImagesGenerationsRequestOutputFormatNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestBatchSizeJsonConverter),
+            typeof(global::Together.JsonConverters.CreateFineTunesRequestBatchSizeJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestBatchSizeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.CreateFineTunesRequestBatchSizeNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestTrainOnInputsJsonConverter),
+            typeof(global::Together.JsonConverters.CreateFineTunesRequestTrainOnInputsJsonConverter),
 
-            typeof(global::Together.JsonConverters.RequestTrainOnInputsNullableJsonConverter),
+            typeof(global::Together.JsonConverters.CreateFineTunesRequestTrainOnInputsNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.UpdateEndpointRequestStateJsonConverter),
 
             typeof(global::Together.JsonConverters.UpdateEndpointRequestStateNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.CheckpointJsonConverter),
+            typeof(global::Together.JsonConverters.GetFinetuneDownloadCheckpointJsonConverter),
 
-            typeof(global::Together.JsonConverters.CheckpointNullableJsonConverter),
+            typeof(global::Together.JsonConverters.GetFinetuneDownloadCheckpointNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.RealtimeTtsModelJsonConverter),
 
@@ -637,11 +637,11 @@ namespace Together
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>),
 
-            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RequestModel?, string>),
+            typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CreateImagesGenerationsRequestModel?, string>),
 
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.RequestBatchSize?>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.CreateFineTunesRequestBatchSize?>),
 
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.RequestTrainOnInputs?>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>),
 
@@ -1147,32 +1147,32 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobStatusResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobStatusResponseStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Request))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.RequestModel?, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RequestModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RequestResponseFormat))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RequestOutputFormat))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RequestImageLora>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RequestImageLora))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Request2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Request3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.RequestBatchSize?>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RequestBatchSize))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RequestTrainOnInputs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestModel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestResponseFormat))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestOutputFormat))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestImageLora))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFilesUploadRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestBatchSize))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestTrainOnInputs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Request4))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequestState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Checkpoint))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFinetuneDownloadCheckpoint))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTtsModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsUsageType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTranscriptionInputAudioFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Response40))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Response41))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Response42))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsSupportedResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsLimitsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterServiceDeleteResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListEndpoint>))]
@@ -1245,7 +1245,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.SecretResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VolumeResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FileInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RequestImageLora>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CreateImagesGenerationsRequestImageLora>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListEndpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.HardwareWithStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.BatchJob>))]
