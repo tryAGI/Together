@@ -297,7 +297,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Submit a queued job<br/>
         /// Submit a new job to the queue for asynchronous processing. Jobs are<br/>

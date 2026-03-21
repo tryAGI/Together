@@ -19,7 +19,6 @@ namespace Together
 
             global::Together.UpdateVolumeRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Update a volume<br/>
         /// Update an existing volume's configuration or contents

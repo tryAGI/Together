@@ -25,13 +25,13 @@ namespace Together
 
             typeof(global::Together.JsonConverters.RlGRPOLossAggregationTypeNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.RlTrainingOperationStatusJsonConverter),
-
-            typeof(global::Together.JsonConverters.RlTrainingOperationStatusNullableJsonConverter),
-
             typeof(global::Together.JsonConverters.RlTrainingOperationErrorCodeJsonConverter),
 
             typeof(global::Together.JsonConverters.RlTrainingOperationErrorCodeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RlTrainingOperationStatusJsonConverter),
+
+            typeof(global::Together.JsonConverters.RlTrainingOperationStatusNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.RlTrainingSessionStatusJsonConverter),
 
@@ -105,14 +105,6 @@ namespace Together
 
             typeof(global::Together.JsonConverters.CompletionChoiceDeltaRoleNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.ToolChoiceTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.ToolChoiceTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.StreamSentinelDataJsonConverter),
-
-            typeof(global::Together.JsonConverters.StreamSentinelDataNullableJsonConverter),
-
             typeof(global::Together.JsonConverters.ChatCompletionMessageRoleJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionMessageRoleNullableJsonConverter),
@@ -121,9 +113,37 @@ namespace Together
 
             typeof(global::Together.JsonConverters.ChatCompletionToolTypeNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.ChatCompletionRequestContextLengthExceededBehaviorJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionRequestContextLengthExceededBehaviorNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionRequestFunctionCallEnumJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionRequestFunctionCallEnumNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionRequestReasoningEffortJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionRequestReasoningEffortNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ResponseFormatTextTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.ResponseFormatTextTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ResponseFormatJsonObjectTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.ResponseFormatJsonObjectTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ResponseFormatJsonSchemaTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.ResponseFormatJsonSchemaTypeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.ChatCompletionSystemMessageParamRoleJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionSystemMessageParamRoleNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionUserMessageParamRoleJsonConverter),
+
+            typeof(global::Together.JsonConverters.ChatCompletionUserMessageParamRoleNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentMultimodalItemVariant1TypeJsonConverter),
 
@@ -149,45 +169,17 @@ namespace Together
 
             typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormatNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.ChatCompletionUserMessageParamRoleJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionUserMessageParamRoleNullableJsonConverter),
-
             typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.ChatCompletionRequestContextLengthExceededBehaviorJsonConverter),
+            typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleJsonConverter),
 
-            typeof(global::Together.JsonConverters.ChatCompletionRequestContextLengthExceededBehaviorNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionRequestFunctionCallEnumJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionRequestFunctionCallEnumNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatTextTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatTextTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatJsonSchemaTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatJsonSchemaTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatJsonObjectTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatJsonObjectTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionRequestReasoningEffortJsonConverter),
-
-            typeof(global::Together.JsonConverters.ChatCompletionRequestReasoningEffortNullableJsonConverter),
+            typeof(global::Together.JsonConverters.ChatCompletionToolMessageParamRoleNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionChunkChoiceDeltaRoleJsonConverter),
 
@@ -249,6 +241,10 @@ namespace Together
 
             typeof(global::Together.JsonConverters.AudioTranslationVerboseJsonResponseTaskNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.StreamSentinelDataJsonConverter),
+
+            typeof(global::Together.JsonConverters.StreamSentinelDataNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.ChatCompletionChoiceDeltaRoleJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionChoiceDeltaRoleNullableJsonConverter),
@@ -277,6 +273,10 @@ namespace Together
 
             typeof(global::Together.JsonConverters.JobInfoSuccessResponseStatusNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.ToolChoiceTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.ToolChoiceTypeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.FilePurposeJsonConverter),
 
             typeof(global::Together.JsonConverters.FilePurposeNullableJsonConverter),
@@ -289,13 +289,29 @@ namespace Together
 
             typeof(global::Together.JsonConverters.FinetuneResponseBatchSizeNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeNullableJsonConverter),
-
             typeof(global::Together.JsonConverters.FinetuneResponseTrainOnInputsJsonConverter),
 
             typeof(global::Together.JsonConverters.FinetuneResponseTrainOnInputsNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter),
+
+            typeof(global::Together.JsonConverters.FinetuneJobStatusNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.FinetuneEventLevelsJsonConverter),
+
+            typeof(global::Together.JsonConverters.FinetuneEventLevelsNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.FinetuneEventTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.FinetuneEventTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.FullTrainingTypeTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.FullTrainingTypeTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.LoRATrainingTypeTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.LoRATrainingTypeTypeNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.TrainingMethodSFTMethodJsonConverter),
 
@@ -309,25 +325,9 @@ namespace Together
 
             typeof(global::Together.JsonConverters.TrainingMethodDPOMethodNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.FullTrainingTypeTypeJsonConverter),
+            typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter),
 
-            typeof(global::Together.JsonConverters.FullTrainingTypeTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.LoRATrainingTypeTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.LoRATrainingTypeTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter),
-
-            typeof(global::Together.JsonConverters.FinetuneJobStatusNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.FinetuneEventLevelsJsonConverter),
-
-            typeof(global::Together.JsonConverters.FinetuneEventLevelsNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.FinetuneEventTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.FinetuneEventTypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.HardwareAvailabilityStatusJsonConverter),
 
@@ -429,17 +429,29 @@ namespace Together
 
             typeof(global::Together.JsonConverters.EvaluationJobStatusNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.VideoOutputFormatJsonConverter),
+            typeof(global::Together.JsonConverters.VideoStatusJsonConverter),
 
-            typeof(global::Together.JsonConverters.VideoOutputFormatNullableJsonConverter),
+            typeof(global::Together.JsonConverters.VideoStatusNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.VideoFrameImageInputFrameJsonConverter),
 
             typeof(global::Together.JsonConverters.VideoFrameImageInputFrameNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.VideoStatusJsonConverter),
+            typeof(global::Together.JsonConverters.VideoOutputFormatJsonConverter),
 
-            typeof(global::Together.JsonConverters.VideoStatusNullableJsonConverter),
+            typeof(global::Together.JsonConverters.VideoOutputFormatNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.DeploymentResponseItemGpuTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.DeploymentResponseItemGpuTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.DeploymentStatusJsonConverter),
+
+            typeof(global::Together.JsonConverters.DeploymentStatusNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.HTTPAutoscalingConfigMetricJsonConverter),
 
@@ -453,33 +465,21 @@ namespace Together
 
             typeof(global::Together.JsonConverters.CustomMetricAutoscalingConfigMetricNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter),
+            typeof(global::Together.JsonConverters.UpdateDeploymentRequestGpuTypeJsonConverter),
 
-            typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.UpdateDeploymentRequestGpuTypeNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.VolumeContentRequestTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.VolumeContentRequestTypeNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.VolumeTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.VolumeTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.DeploymentResponseItemGpuTypeJsonConverter),
-
-            typeof(global::Together.JsonConverters.DeploymentResponseItemGpuTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.DeploymentStatusJsonConverter),
-
-            typeof(global::Together.JsonConverters.DeploymentStatusNullableJsonConverter),
-
             typeof(global::Together.JsonConverters.VolumeContentTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.VolumeContentTypeNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.UpdateDeploymentRequestGpuTypeJsonConverter),
+            typeof(global::Together.JsonConverters.VolumeTypeJsonConverter),
 
-            typeof(global::Together.JsonConverters.UpdateDeploymentRequestGpuTypeNullableJsonConverter),
+            typeof(global::Together.JsonConverters.VolumeTypeNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.QueueCancelResponseStatusJsonConverter),
 
@@ -539,11 +539,11 @@ namespace Together
 
             typeof(global::Together.JsonConverters.CompletionStreamJsonConverter),
 
+            typeof(global::Together.JsonConverters.ResponseFormatJsonConverter),
+
             typeof(global::Together.JsonConverters.ChatCompletionMessageParamJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentJsonConverter),
-
-            typeof(global::Together.JsonConverters.ResponseFormatJsonConverter),
 
             typeof(global::Together.JsonConverters.ChatCompletionStreamJsonConverter),
 
@@ -581,11 +581,11 @@ namespace Together
 
             typeof(global::Together.JsonConverters.AllOfJsonConverter<object, global::Together.LogprobsPart>),
 
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>),
-
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice2>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>),
 
             typeof(global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>),
 
@@ -605,19 +605,19 @@ namespace Together
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.FinetuneResponseBatchSize?>),
 
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>),
-
             typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.FinetuneResponseTrainOnInputs?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.TrainingMethodSFTTrainOnInputs?>),
 
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
-
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>),
-
-            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>),
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<string, object>),
 
@@ -661,37 +661,36 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlAdamWOptimizerParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSampleBody))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelInput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlInputChunk>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInputChunk))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEncodedText))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSamplingParams))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlForwardBackwardBody))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlTrainingSample>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingSample))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossInputs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossTargetTokens))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlDType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossMask))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlGRPOLossInputs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossAdvantages))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<float>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossLogprobs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlInputChunk>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInputChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEncodedText))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlListMeta))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlDType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlGRPOLossParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlGRPOLossAggregationType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlListMeta))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossTargetTokens))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossMask))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossAdvantages))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<float>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossLogprobs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlGRPOLossInputs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossInputs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlOptimStepOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingOperationStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlOptimStepResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingOperationError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingOperationErrorCode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSampleOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSampleResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlSampleSequence>))]
@@ -701,20 +700,21 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlForwardBackwardOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlForwardBackwardResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, double>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingOperationErrorCode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlStartTrainingSessionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLoraConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingSessionStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingSession))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInferenceCheckpoint))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInferenceCheckpointRegistration))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingCheckpoint))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingSessionsListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlTrainingSession>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInferenceCheckpointOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInferenceCheckpointResult))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlInferenceCheckpointRegistration))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingCheckpointResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingCheckpointOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointVariant))]
@@ -789,37 +789,56 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionStream))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionEvent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.CompletionChoice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoice))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<global::Together.UsageData, object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<global::Together.FinishReason?, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDelta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDeltaRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolChoice2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoice2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceFunction))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDeltaFunctionCall))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<global::Together.UsageData, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<global::Together.FinishReason?, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinelData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ChatCompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoicesDataItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<object, global::Together.LogprobsPart>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageFunctionCall))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<object, global::Together.LogprobsPart>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionTool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolFunction))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageParam))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestContextLengthExceededBehavior))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestFunctionCallEnum))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestFunctionCallEnum2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormat))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatText))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonObject))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestResponseFormatDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolsPart>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPart))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.ToolChoice2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoningEffort))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoning))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatTextType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonObjectType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonSchemaType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonSchemaJsonSchema))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionSystemMessageParam))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionSystemMessageParamRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParam))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParam))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParam))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParam))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionSystemMessageParamRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParamRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1))]
@@ -837,33 +856,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudio))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParamRole))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamFunctionCall))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParam))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParamRole))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParamRole))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestContextLengthExceededBehavior))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestFunctionCallEnum))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestFunctionCallEnum2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormat))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatText))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatTextType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonSchema))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonSchemaType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonSchemaJsonSchema))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonObject))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonObjectType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestResponseFormatDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolsPart>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPart))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPartFunction))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.ToolChoice2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoningEffort))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoning))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParamRole))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.InferenceWarning>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionStream))]
@@ -913,6 +909,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechStreamResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechStreamEvent))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechStreamChunk))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinelData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoiceDelta))]
@@ -937,10 +934,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DataItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataB64))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataB64Type))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataUrl))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataUrlType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataItemDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataB64Type))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataUrlType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponseStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponseStatusUpdate>))]
@@ -948,6 +945,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponseArgs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobsInfoSuccessResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPartFunction))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceFunction))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FilePurpose))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileType))]
@@ -959,42 +959,42 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.FinetuneResponseBatchSize?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneResponseBatchSize))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LRScheduler))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LRSchedulerLrSchedulerType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LinearLRSchedulerArgs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CosineLRSchedulerArgs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneResponseTrainOnInputs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodSFT))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodSFTMethod))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.TrainingMethodSFTTrainOnInputs?>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodSFTTrainOnInputs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodDPO))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodDPOMethod))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FullTrainingType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FullTrainingTypeType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LoRATrainingType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LoRATrainingTypeType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.MultimodalParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneJobStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FineTuneEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FineTuneEvent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneEventLevels))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneEventType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FineTuneProgress))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneResponseTruncated))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneDeleteResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FineTuneModelLimits))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FineTuneModelLimitsFullTraining))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FineTuneModelLimitsLoraTraining))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneEventLevels))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneEventType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneTruncatedList))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FinetuneResponseTruncated>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneListEvents))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinetuneListCheckpoints))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FineTuneCheckpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FineTuneCheckpoint))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FullTrainingTypeType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LoRATrainingTypeType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodSFTMethod))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.TrainingMethodSFTTrainOnInputs?>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodSFTTrainOnInputs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodDPOMethod))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LRSchedulerLrSchedulerType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LinearLRSchedulerArgs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CosineLRSchedulerArgs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Autoscaling))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HardwareSpec))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EndpointPricing))]
@@ -1064,13 +1064,13 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequestType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationClassifyParameters))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfigModelSource))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelOrString))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequestModelSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreParameters))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationCompareParameters))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelOrString))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfigModelSource))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequestModelSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponseStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJob))]
@@ -1081,16 +1081,16 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationClassifyResults))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResults))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResultsAggregatedScores))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationCompareResults))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobResults))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResultsAggregatedScores))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVideoBody))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoOutputFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<double?, global::Together.VideoFrameImageInputFrame?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInputFrame))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJob))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobOutputs))]
@@ -1098,11 +1098,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfigMetric))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfigMetric))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfigMetric))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EnvironmentVariable))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestGpuType))]
@@ -1111,16 +1108,18 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateSecretRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVolumeRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeploymentResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentLogs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemGpuType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ReplicaEvent))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentLogs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfigMetric))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfigMetric))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfigMetric))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.KubernetesEvent))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListSecretsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.SecretResponseItem>))]
@@ -1128,16 +1127,17 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListVolumesResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeResponseItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FileInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VersionHistoryItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestGpuType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateSecretRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateVolumeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VersionHistoryItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FileInfo>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileInfo))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueMetricsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueCancelRequest))]
@@ -1184,9 +1184,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlTrainingSample>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlInputChunk>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlTrainingSample>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<float>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlSampleSequence>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
@@ -1212,8 +1212,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolChoice2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ChatCompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ChatCompletionMessageParam>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolsPart>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.InferenceWarning>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ChatCompletionChunkChoice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.List<global::Together.AudioTranscriptionRequestTimestampGranularitie>>))]

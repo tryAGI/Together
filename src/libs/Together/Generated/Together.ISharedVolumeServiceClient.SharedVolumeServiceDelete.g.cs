@@ -13,6 +13,12 @@ namespace Together
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// volume = client.beta.clusters.storage.delete("volume_id")<br/>
+        /// print(volume)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolumeDeleteResponse> SharedVolumeServiceDeleteAsync(
             string volumeId,
             global::System.Threading.CancellationToken cancellationToken = default);

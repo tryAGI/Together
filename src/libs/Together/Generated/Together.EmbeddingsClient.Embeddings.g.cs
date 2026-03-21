@@ -28,6 +28,19 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.embeddings.create(<br/>
+        ///     model="BAAI/bge-large-en-v1.5",<br/>
+        ///     input="New York City",<br/>
+        /// )<br/>
+        /// print(response.data[0].embedding)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.EmbeddingsResponse> EmbeddingsAsync(
 
             global::Together.EmbeddingsRequest request,
@@ -408,7 +421,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Create embedding<br/>
         /// Generate vector embeddings for one or more text inputs. Returns numerical arrays representing semantic meaning, useful for search, classification, and retrieval.
