@@ -40,7 +40,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public DeploymentsClient Deployments => new DeploymentsClient(HttpClient, authorizations: Authorizations)
+        public AudioClient Audio => new AudioClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -49,7 +49,43 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public SecretsClient Secrets => new SecretsClient(HttpClient, authorizations: Authorizations)
+        public BatchesClient Batches => new BatchesClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChatClient Chat => new ChatClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CodeInterpreterClient CodeInterpreter => new CodeInterpreterClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CompletionClient Completion => new CompletionClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeploymentsClient Deployments => new DeploymentsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -76,51 +112,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public VolumesClient Volumes => new VolumesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public VideoClient Video => new VideoClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ChatClient Chat => new ChatClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CompletionClient Completion => new CompletionClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public EmbeddingsClient Embeddings => new EmbeddingsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -130,7 +121,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
+        public EndpointsClient Endpoints => new EndpointsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -139,7 +130,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public JobsClient Jobs => new JobsClient(HttpClient, authorizations: Authorizations)
+        public Endpoints2Client Endpoints2 => new Endpoints2Client(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -148,7 +139,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public ImagesClient Images => new ImagesClient(HttpClient, authorizations: Authorizations)
+        public EvaluationClient Evaluation => new EvaluationClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -175,61 +166,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public RerankClient Rerank => new RerankClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AudioClient Audio => new AudioClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public GPUClusterServiceClient GPUClusterService => new GPUClusterServiceClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public RegionServiceClient RegionService => new RegionServiceClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SharedVolumeServiceClient SharedVolumeService => new SharedVolumeServiceClient(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Endpoints2Client Endpoints2 => new Endpoints2Client(HttpClient, authorizations: Authorizations)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EndpointsClient Endpoints => new EndpointsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -247,7 +184,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public CodeInterpreterClient CodeInterpreter => new CodeInterpreterClient(HttpClient, authorizations: Authorizations)
+        public ImagesClient Images => new ImagesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -256,7 +193,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public BatchesClient Batches => new BatchesClient(HttpClient, authorizations: Authorizations)
+        public JobsClient Jobs => new JobsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -265,7 +202,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public EvaluationClient Evaluation => new EvaluationClient(HttpClient, authorizations: Authorizations)
+        public ModelsClient Models => new ModelsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -283,7 +220,70 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public RegionServiceClient RegionService => new RegionServiceClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RerankClient Rerank => new RerankClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public RlClient Rl => new RlClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SecretsClient Secrets => new SecretsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SharedVolumeServiceClient SharedVolumeService => new SharedVolumeServiceClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VideoClient Video => new VideoClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VoicesClient Voices => new VoicesClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VolumesClient Volumes => new VolumesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

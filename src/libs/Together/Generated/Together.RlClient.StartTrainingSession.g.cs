@@ -218,7 +218,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Create training session<br/>
         /// Creates a training session and returns its details.

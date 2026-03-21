@@ -34,6 +34,19 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// endpoint = client.endpoints.update(<br/>
+        ///     "endpoint-id",<br/>
+        ///     state="STOPPED"<br/>
+        /// )<br/>
+        /// print(endpoint)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> UpdateEndpointAsync(
             string endpointId,
 
@@ -303,7 +316,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Update endpoint, this can also be used to start or stop a dedicated endpoint<br/>
         /// Updates an existing endpoint's configuration. You can modify the display name, autoscaling settings, or change the endpoint's state (start/stop).

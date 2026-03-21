@@ -43,12 +43,32 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public DeploymentsClient Deployments { get; }
+        public AudioClient Audio { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SecretsClient Secrets { get; }
+        public BatchesClient Batches { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ChatClient Chat { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CodeInterpreterClient CodeInterpreter { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CompletionClient Completion { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DeploymentsClient Deployments { get; }
 
         /// <summary>
         /// 
@@ -63,47 +83,22 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public VolumesClient Volumes { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public VoicesClient Voices { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public VideoClient Video { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ChatClient Chat { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CompletionClient Completion { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public EmbeddingsClient Embeddings { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public ModelsClient Models { get; }
+        public EndpointsClient Endpoints { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public JobsClient Jobs { get; }
+        public Endpoints2Client Endpoints2 { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public ImagesClient Images { get; }
+        public EvaluationClient Evaluation { get; }
 
         /// <summary>
         /// 
@@ -118,37 +113,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public RerankClient Rerank { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AudioClient Audio { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public GPUClusterServiceClient GPUClusterService { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public RegionServiceClient RegionService { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SharedVolumeServiceClient SharedVolumeService { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Endpoints2Client Endpoints2 { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EndpointsClient Endpoints { get; }
 
         /// <summary>
         /// 
@@ -158,17 +123,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public CodeInterpreterClient CodeInterpreter { get; }
+        public ImagesClient Images { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public BatchesClient Batches { get; }
+        public JobsClient Jobs { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public EvaluationClient Evaluation { get; }
+        public ModelsClient Models { get; }
 
         /// <summary>
         /// 
@@ -178,7 +143,42 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public RegionServiceClient RegionService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RerankClient Rerank { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public RlClient Rl { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SecretsClient Secrets { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SharedVolumeServiceClient SharedVolumeService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VideoClient Video { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VoicesClient Voices { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public VolumesClient Volumes { get; }
 
     }
 }

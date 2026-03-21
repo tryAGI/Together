@@ -19,7 +19,6 @@ namespace Together
 
             global::Together.RlOptimStepBody request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Optimizer step<br/>
         /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.

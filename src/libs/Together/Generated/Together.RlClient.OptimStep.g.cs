@@ -226,7 +226,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Optimizer step<br/>
         /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.

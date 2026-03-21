@@ -11,11 +11,25 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.audio.speech.with_streaming_response.create(<br/>
+        ///     model="cartesia/sonic-2",<br/>
+        ///     input="The quick brown fox jumps over the lazy dog.",<br/>
+        ///     voice="laidback woman",<br/>
+        /// )<br/>
+        /// with response as stream:<br/>
+        ///   stream.stream_to_file("audio.wav")
+        /// </remarks>
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsync(
 
             global::Together.AudioSpeechRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create audio generation request<br/>
         /// Generate audio from input text

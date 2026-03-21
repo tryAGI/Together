@@ -33,6 +33,12 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// deployment = client.beta.jig.update("my-deployment", gpu_count=2)<br/>
+        /// print(deployment)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> EditDeploymentsByIdAsync(
             string id,
 
@@ -302,7 +308,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Update a deployment<br/>
         /// Update an existing deployment configuration

@@ -226,7 +226,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Forward-backward pass<br/>
         /// Submits a forward-backward pass operation that will asynchronously compute gradients via backpropagation.

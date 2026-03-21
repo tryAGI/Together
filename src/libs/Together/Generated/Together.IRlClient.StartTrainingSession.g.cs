@@ -15,7 +15,6 @@ namespace Together
 
             global::Together.RlStartTrainingSessionRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create training session<br/>
         /// Creates a training session and returns its details.

@@ -15,7 +15,6 @@ namespace Together
 
             global::Together.Request4 request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Estimate price<br/>
         /// Estimate the price of a fine-tuning job.

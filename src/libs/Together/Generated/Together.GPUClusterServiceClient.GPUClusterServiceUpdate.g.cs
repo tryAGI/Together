@@ -33,6 +33,12 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// cluster = client.beta.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)<br/>
+        /// print(cluster)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClusterInfo> GPUClusterServiceUpdateAsync(
             string clusterId,
 
@@ -188,7 +194,6 @@ namespace Together
                 }
             }
         }
-
         /// <summary>
         /// Update a GPU Cluster.<br/>
         /// Update the configuration of an existing GPU cluster.

@@ -11,11 +11,20 @@ namespace Together
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// deployment = client.beta.jig.deploy(<br/>
+        ///   name="my-deployment",<br/>
+        ///   gpu_type="h100-80gb",<br/>
+        ///   image="registry.together.xyz/proj_abcdefg1234567890/my-image:latest"<br/>
+        /// )<br/>
+        /// print(deployment)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> CreateDeploymentsAsync(
 
             global::Together.CreateDeploymentRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a new deployment<br/>
         /// Create a new deployment with specified configuration
