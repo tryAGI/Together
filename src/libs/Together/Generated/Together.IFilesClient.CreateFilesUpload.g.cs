@@ -47,16 +47,12 @@ namespace Together
         /// <param name="file">
         /// The content of the file being uploaded
         /// </param>
-        /// <param name="filename">
-        /// The content of the file being uploaded
-        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
             global::Together.FilePurpose purpose,
             string fileName,
             byte[] file,
-            string filename,
             global::Together.FileType? fileType = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
