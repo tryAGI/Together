@@ -1992,55 +1992,55 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request? Type491 { get; set; }
+        public global::Together.CreateImagesGenerationsRequest? Type491 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.AnyOf<global::Together.RequestModel?, string>? Type492 { get; set; }
+        public global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>? Type492 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestModel? Type493 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestModel? Type493 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestResponseFormat? Type494 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestResponseFormat? Type494 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestOutputFormat? Type495 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestOutputFormat? Type495 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RequestImageLora>? Type496 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>? Type496 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestImageLora? Type497 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestImageLora? Type497 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request2? Type498 { get; set; }
+        public global::Together.CreateFilesUploadRequest? Type498 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request3? Type499 { get; set; }
+        public global::Together.CreateFineTunesRequest? Type499 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<int?, global::Together.RequestBatchSize?>? Type500 { get; set; }
+        public global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? Type500 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestBatchSize? Type501 { get; set; }
+        public global::Together.CreateFineTunesRequestBatchSize? Type501 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.OneOf<bool?, global::Together.RequestTrainOnInputs?>? Type502 { get; set; }
+        public global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>? Type502 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.RequestTrainOnInputs? Type503 { get; set; }
+        public global::Together.CreateFineTunesRequestTrainOnInputs? Type503 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -2048,7 +2048,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Request4? Type505 { get; set; }
+        public global::Together.CreateFineTunesEstimatePriceRequest? Type505 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -2060,7 +2060,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Checkpoint? Type508 { get; set; }
+        public global::Together.GetFinetuneDownloadCheckpoint? Type508 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -2084,15 +2084,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Response40? Type514 { get; set; }
+        public global::Together.CreateFineTunesEstimatePriceResponse? Type514 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Response41? Type515 { get; set; }
+        public global::Together.GetFineTunesModelsSupportedResponse? Type515 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Together.Response42? Type516 { get; set; }
+        public global::Together.GetFineTunesModelsLimitsResponse? Type516 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -2385,7 +2385,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Together.RequestImageLora>? ListType61 { get; set; }
+        public global::System.Collections.Generic.List<global::Together.CreateImagesGenerationsRequestImageLora>? ListType61 { get; set; }
         /// <summary>
         /// 
         /// </summary>

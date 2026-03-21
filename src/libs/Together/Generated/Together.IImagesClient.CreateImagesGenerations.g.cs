@@ -27,7 +27,7 @@ namespace Together
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
 
-            global::Together.Request request,
+            global::Together.CreateImagesGenerationsRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create image<br/>
@@ -90,7 +90,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
             string prompt,
-            global::Together.AnyOf<global::Together.RequestModel?, string> model,
+            global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string> model,
             int? steps = default,
             string? imageUrl = default,
             int? seed = default,
@@ -98,10 +98,10 @@ namespace Together
             int? height = default,
             int? width = default,
             string? negativePrompt = default,
-            global::Together.RequestResponseFormat? responseFormat = default,
+            global::Together.CreateImagesGenerationsRequestResponseFormat? responseFormat = default,
             double? guidanceScale = default,
-            global::Together.RequestOutputFormat? outputFormat = default,
-            global::System.Collections.Generic.IList<global::Together.RequestImageLora>? imageLoras = default,
+            global::Together.CreateImagesGenerationsRequestOutputFormat? outputFormat = default,
+            global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>? imageLoras = default,
             global::System.Collections.Generic.IList<string>? referenceImages = default,
             bool? disableSafetyChecker = default,
             global::System.Threading.CancellationToken cancellationToken = default);

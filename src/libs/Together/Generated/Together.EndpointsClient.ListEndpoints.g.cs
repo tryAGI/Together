@@ -71,7 +71,7 @@ namespace Together
             __pathBuilder
                 .AddOptionalParameter("type", type?.ToValueString())
                 .AddOptionalParameter("usage_type", usageType?.ToValueString())
-                .AddOptionalParameter("mine", mine?.ToString()) 
+                .AddOptionalParameter("mine", mine?.ToString().ToLowerInvariant()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(

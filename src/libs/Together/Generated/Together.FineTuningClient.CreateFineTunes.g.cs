@@ -7,11 +7,11 @@ namespace Together
     {
         partial void PrepareCreateFineTunesArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.Request3 request);
+            global::Together.CreateFineTunesRequest request);
         partial void PrepareCreateFineTunesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.Request3 request);
+            global::Together.CreateFineTunesRequest request);
         partial void ProcessCreateFineTunesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,7 +43,7 @@ namespace Together
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
 
-            global::Together.Request3 request,
+            global::Together.CreateFineTunesRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -295,7 +295,7 @@ namespace Together
             int? nEpochs = default,
             int? nCheckpoints = default,
             int? nEvals = default,
-            global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize = default,
+            global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize = default,
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
             float? warmupRatio = default,
@@ -318,7 +318,7 @@ namespace Together
             string? hfOutputRepoName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.Request3
+            var __request = new global::Together.CreateFineTunesRequest
             {
                 TrainingFile = trainingFile,
                 ValidationFile = validationFile,

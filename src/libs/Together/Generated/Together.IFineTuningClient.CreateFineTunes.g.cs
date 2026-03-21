@@ -26,7 +26,7 @@ namespace Together
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
 
-            global::Together.Request3 request,
+            global::Together.CreateFineTunesRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create job<br/>
@@ -130,7 +130,7 @@ namespace Together
             int? nEpochs = default,
             int? nCheckpoints = default,
             int? nEvals = default,
-            global::Together.OneOf<int?, global::Together.RequestBatchSize?>? batchSize = default,
+            global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize = default,
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
             float? warmupRatio = default,

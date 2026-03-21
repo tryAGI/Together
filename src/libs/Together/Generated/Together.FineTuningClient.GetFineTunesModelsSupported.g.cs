@@ -29,7 +29,7 @@ namespace Together
         /// curl "https://api.together.xyz/v1/fine-tunes/models/supported" \<br/>
         ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Together.Response41> GetFineTunesModelsSupportedAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.GetFineTunesModelsSupportedResponse> GetFineTunesModelsSupportedAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -106,7 +106,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.Response41.FromJson(__content, JsonSerializerContext) ??
+                        global::Together.GetFineTunesModelsSupportedResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -137,7 +137,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.Response41.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Together.GetFineTunesModelsSupportedResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

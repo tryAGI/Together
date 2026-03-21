@@ -55,7 +55,7 @@ namespace Together
                 path: "/models",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
-                .AddOptionalParameter("dedicated", dedicated?.ToString()) 
+                .AddOptionalParameter("dedicated", dedicated?.ToString().ToLowerInvariant()) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
