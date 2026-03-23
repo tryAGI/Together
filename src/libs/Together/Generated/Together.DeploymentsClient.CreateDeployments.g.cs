@@ -327,7 +327,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> CreateDeploymentsAsync(
-            global::Together.CreateDeploymentRequestGpuType gpuType,
             string image,
             string name,
             global::System.Collections.Generic.IList<string>? args = default,
@@ -337,6 +336,7 @@ namespace Together
             string? description = default,
             global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>? environmentVariables = default,
             int? gpuCount = default,
+            global::Together.CreateDeploymentRequestGpuType gpuType = default,
             string? healthCheckPath = default,
             int? maxReplicas = default,
             double? memory = default,

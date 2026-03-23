@@ -36,7 +36,7 @@ namespace Together
         /// Args overrides the container's CMD. Provide as an array of arguments (e.g., ["python", "app.py"])
         /// </param>
         /// <param name="autoscaling">
-        /// Autoscaling configuration for the deployment. Omit or set to null to disable autoscaling
+        /// Autoscaling configuration for the deployment. Set to {} to disable autoscaling
         /// </param>
         /// <param name="command">
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
