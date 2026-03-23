@@ -11,6 +11,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        CancelRequested,
+        /// <summary>
+        /// 
+        /// </summary>
+        Cancelled,
+        /// <summary>
+        /// 
+        /// </summary>
+        Completed,
+        /// <summary>
+        /// 
+        /// </summary>
+        Compressing,
+        /// <summary>
+        /// 
+        /// </summary>
+        Error,
+        /// <summary>
+        /// 
+        /// </summary>
         Pending,
         /// <summary>
         /// 
@@ -23,27 +43,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Compressing,
-        /// <summary>
-        /// 
-        /// </summary>
         Uploading,
-        /// <summary>
-        /// 
-        /// </summary>
-        CancelRequested,
-        /// <summary>
-        /// 
-        /// </summary>
-        Cancelled,
-        /// <summary>
-        /// 
-        /// </summary>
-        Error,
-        /// <summary>
-        /// 
-        /// </summary>
-        Completed,
     }
 
     /// <summary>
@@ -58,15 +58,15 @@ namespace Together
         {
             return value switch
             {
+                FinetuneJobStatus.CancelRequested => "cancel_requested",
+                FinetuneJobStatus.Cancelled => "cancelled",
+                FinetuneJobStatus.Completed => "completed",
+                FinetuneJobStatus.Compressing => "compressing",
+                FinetuneJobStatus.Error => "error",
                 FinetuneJobStatus.Pending => "pending",
                 FinetuneJobStatus.Queued => "queued",
                 FinetuneJobStatus.Running => "running",
-                FinetuneJobStatus.Compressing => "compressing",
                 FinetuneJobStatus.Uploading => "uploading",
-                FinetuneJobStatus.CancelRequested => "cancel_requested",
-                FinetuneJobStatus.Cancelled => "cancelled",
-                FinetuneJobStatus.Error => "error",
-                FinetuneJobStatus.Completed => "completed",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -77,15 +77,15 @@ namespace Together
         {
             return value switch
             {
+                "cancel_requested" => FinetuneJobStatus.CancelRequested,
+                "cancelled" => FinetuneJobStatus.Cancelled,
+                "completed" => FinetuneJobStatus.Completed,
+                "compressing" => FinetuneJobStatus.Compressing,
+                "error" => FinetuneJobStatus.Error,
                 "pending" => FinetuneJobStatus.Pending,
                 "queued" => FinetuneJobStatus.Queued,
                 "running" => FinetuneJobStatus.Running,
-                "compressing" => FinetuneJobStatus.Compressing,
                 "uploading" => FinetuneJobStatus.Uploading,
-                "cancel_requested" => FinetuneJobStatus.CancelRequested,
-                "cancelled" => FinetuneJobStatus.Cancelled,
-                "error" => FinetuneJobStatus.Error,
-                "completed" => FinetuneJobStatus.Completed,
                 _ => null,
             };
         }

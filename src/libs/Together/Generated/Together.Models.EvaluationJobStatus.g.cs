@@ -12,6 +12,14 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        Completed,
+        /// <summary>
+        /// 
+        /// </summary>
+        Error,
+        /// <summary>
+        /// 
+        /// </summary>
         Pending,
         /// <summary>
         /// 
@@ -21,14 +29,6 @@ namespace Together
         /// 
         /// </summary>
         Running,
-        /// <summary>
-        /// 
-        /// </summary>
-        Completed,
-        /// <summary>
-        /// 
-        /// </summary>
-        Error,
         /// <summary>
         /// 
         /// </summary>
@@ -47,11 +47,11 @@ namespace Together
         {
             return value switch
             {
+                EvaluationJobStatus.Completed => "completed",
+                EvaluationJobStatus.Error => "error",
                 EvaluationJobStatus.Pending => "pending",
                 EvaluationJobStatus.Queued => "queued",
                 EvaluationJobStatus.Running => "running",
-                EvaluationJobStatus.Completed => "completed",
-                EvaluationJobStatus.Error => "error",
                 EvaluationJobStatus.UserError => "user_error",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -63,11 +63,11 @@ namespace Together
         {
             return value switch
             {
+                "completed" => EvaluationJobStatus.Completed,
+                "error" => EvaluationJobStatus.Error,
                 "pending" => EvaluationJobStatus.Pending,
                 "queued" => EvaluationJobStatus.Queued,
                 "running" => EvaluationJobStatus.Running,
-                "completed" => EvaluationJobStatus.Completed,
-                "error" => EvaluationJobStatus.Error,
                 "user_error" => EvaluationJobStatus.UserError,
                 _ => null,
             };

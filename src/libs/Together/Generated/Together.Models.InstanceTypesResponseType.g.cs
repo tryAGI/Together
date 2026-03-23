@@ -11,7 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        B200Sxm,
+        /// <summary>
+        /// 
+        /// </summary>
         H100Sxm,
+        /// <summary>
+        /// 
+        /// </summary>
+        H100SxmInf,
         /// <summary>
         /// 
         /// </summary>
@@ -19,19 +27,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Rtx6000Pci,
-        /// <summary>
-        /// 
-        /// </summary>
         L40Pcie,
         /// <summary>
         /// 
         /// </summary>
-        B200Sxm,
-        /// <summary>
-        /// 
-        /// </summary>
-        H100SxmInf,
+        Rtx6000Pci,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace Together
         {
             return value switch
             {
-                InstanceTypesResponseType.H100Sxm => "H100_SXM",
-                InstanceTypesResponseType.H200Sxm => "H200_SXM",
-                InstanceTypesResponseType.Rtx6000Pci => "RTX_6000_PCI",
-                InstanceTypesResponseType.L40Pcie => "L40_PCIE",
                 InstanceTypesResponseType.B200Sxm => "B200_SXM",
+                InstanceTypesResponseType.H100Sxm => "H100_SXM",
                 InstanceTypesResponseType.H100SxmInf => "H100_SXM_INF",
+                InstanceTypesResponseType.H200Sxm => "H200_SXM",
+                InstanceTypesResponseType.L40Pcie => "L40_PCIE",
+                InstanceTypesResponseType.Rtx6000Pci => "RTX_6000_PCI",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace Together
         {
             return value switch
             {
-                "H100_SXM" => InstanceTypesResponseType.H100Sxm,
-                "H200_SXM" => InstanceTypesResponseType.H200Sxm,
-                "RTX_6000_PCI" => InstanceTypesResponseType.Rtx6000Pci,
-                "L40_PCIE" => InstanceTypesResponseType.L40Pcie,
                 "B200_SXM" => InstanceTypesResponseType.B200Sxm,
+                "H100_SXM" => InstanceTypesResponseType.H100Sxm,
                 "H100_SXM_INF" => InstanceTypesResponseType.H100SxmInf,
+                "H200_SXM" => InstanceTypesResponseType.H200Sxm,
+                "L40_PCIE" => InstanceTypesResponseType.L40Pcie,
+                "RTX_6000_PCI" => InstanceTypesResponseType.Rtx6000Pci,
                 _ => null,
             };
         }

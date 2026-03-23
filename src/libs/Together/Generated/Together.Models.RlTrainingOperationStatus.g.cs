@@ -11,7 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        TrainingOperationStatusUnspecified,
+        TrainingOperationStatusCompleted,
+        /// <summary>
+        /// 
+        /// </summary>
+        TrainingOperationStatusFailed,
         /// <summary>
         /// 
         /// </summary>
@@ -23,11 +27,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        TrainingOperationStatusCompleted,
-        /// <summary>
-        /// 
-        /// </summary>
-        TrainingOperationStatusFailed,
+        TrainingOperationStatusUnspecified,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Together
         {
             return value switch
             {
-                RlTrainingOperationStatus.TrainingOperationStatusUnspecified => "TRAINING_OPERATION_STATUS_UNSPECIFIED",
-                RlTrainingOperationStatus.TrainingOperationStatusPending => "TRAINING_OPERATION_STATUS_PENDING",
-                RlTrainingOperationStatus.TrainingOperationStatusRunning => "TRAINING_OPERATION_STATUS_RUNNING",
                 RlTrainingOperationStatus.TrainingOperationStatusCompleted => "TRAINING_OPERATION_STATUS_COMPLETED",
                 RlTrainingOperationStatus.TrainingOperationStatusFailed => "TRAINING_OPERATION_STATUS_FAILED",
+                RlTrainingOperationStatus.TrainingOperationStatusPending => "TRAINING_OPERATION_STATUS_PENDING",
+                RlTrainingOperationStatus.TrainingOperationStatusRunning => "TRAINING_OPERATION_STATUS_RUNNING",
+                RlTrainingOperationStatus.TrainingOperationStatusUnspecified => "TRAINING_OPERATION_STATUS_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Together
         {
             return value switch
             {
-                "TRAINING_OPERATION_STATUS_UNSPECIFIED" => RlTrainingOperationStatus.TrainingOperationStatusUnspecified,
-                "TRAINING_OPERATION_STATUS_PENDING" => RlTrainingOperationStatus.TrainingOperationStatusPending,
-                "TRAINING_OPERATION_STATUS_RUNNING" => RlTrainingOperationStatus.TrainingOperationStatusRunning,
                 "TRAINING_OPERATION_STATUS_COMPLETED" => RlTrainingOperationStatus.TrainingOperationStatusCompleted,
                 "TRAINING_OPERATION_STATUS_FAILED" => RlTrainingOperationStatus.TrainingOperationStatusFailed,
+                "TRAINING_OPERATION_STATUS_PENDING" => RlTrainingOperationStatus.TrainingOperationStatusPending,
+                "TRAINING_OPERATION_STATUS_RUNNING" => RlTrainingOperationStatus.TrainingOperationStatusRunning,
+                "TRAINING_OPERATION_STATUS_UNSPECIFIED" => RlTrainingOperationStatus.TrainingOperationStatusUnspecified,
                 _ => null,
             };
         }

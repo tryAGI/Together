@@ -29,11 +29,11 @@ namespace Together.JsonConverters
             var __score0 = 0;
             if (__jsonProps.Contains("text")) __score0++;
             var __score1 = 0;
-            if (__jsonProps.Contains("task")) __score1++;
-            if (__jsonProps.Contains("language")) __score1++;
             if (__jsonProps.Contains("duration")) __score1++;
-            if (__jsonProps.Contains("text")) __score1++;
+            if (__jsonProps.Contains("language")) __score1++;
             if (__jsonProps.Contains("segments")) __score1++;
+            if (__jsonProps.Contains("task")) __score1++;
+            if (__jsonProps.Contains("text")) __score1++;
             if (__jsonProps.Contains("words")) __score1++;
             var __bestScore = 0;
             var __bestIndex = -1;

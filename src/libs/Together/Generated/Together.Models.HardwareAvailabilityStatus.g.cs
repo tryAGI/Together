@@ -15,11 +15,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Unavailable,
+        Insufficient,
         /// <summary>
         /// 
         /// </summary>
-        Insufficient,
+        Unavailable,
     }
 
     /// <summary>
@@ -35,8 +35,8 @@ namespace Together
             return value switch
             {
                 HardwareAvailabilityStatus.Available => "available",
-                HardwareAvailabilityStatus.Unavailable => "unavailable",
                 HardwareAvailabilityStatus.Insufficient => "insufficient",
+                HardwareAvailabilityStatus.Unavailable => "unavailable",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,8 +48,8 @@ namespace Together
             return value switch
             {
                 "available" => HardwareAvailabilityStatus.Available,
-                "unavailable" => HardwareAvailabilityStatus.Unavailable,
                 "insufficient" => HardwareAvailabilityStatus.Insufficient,
+                "unavailable" => HardwareAvailabilityStatus.Unavailable,
                 _ => null,
             };
         }

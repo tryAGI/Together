@@ -11,11 +11,7 @@ namespace Together
         /// <summary>
         /// pending → running → done/failed. A pending job may also be canceled.
         /// </summary>
-        Pending,
-        /// <summary>
-        /// pending → running → done/failed. A pending job may also be canceled.
-        /// </summary>
-        Running,
+        Canceled,
         /// <summary>
         /// pending → running → done/failed. A pending job may also be canceled.
         /// </summary>
@@ -27,7 +23,11 @@ namespace Together
         /// <summary>
         /// pending → running → done/failed. A pending job may also be canceled.
         /// </summary>
-        Canceled,
+        Pending,
+        /// <summary>
+        /// pending → running → done/failed. A pending job may also be canceled.
+        /// </summary>
+        Running,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Together
         {
             return value switch
             {
-                QueueJobStatusResponseStatus.Pending => "pending",
-                QueueJobStatusResponseStatus.Running => "running",
+                QueueJobStatusResponseStatus.Canceled => "canceled",
                 QueueJobStatusResponseStatus.Done => "done",
                 QueueJobStatusResponseStatus.Failed => "failed",
-                QueueJobStatusResponseStatus.Canceled => "canceled",
+                QueueJobStatusResponseStatus.Pending => "pending",
+                QueueJobStatusResponseStatus.Running => "running",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Together
         {
             return value switch
             {
-                "pending" => QueueJobStatusResponseStatus.Pending,
-                "running" => QueueJobStatusResponseStatus.Running,
+                "canceled" => QueueJobStatusResponseStatus.Canceled,
                 "done" => QueueJobStatusResponseStatus.Done,
                 "failed" => QueueJobStatusResponseStatus.Failed,
-                "canceled" => QueueJobStatusResponseStatus.Canceled,
+                "pending" => QueueJobStatusResponseStatus.Pending,
+                "running" => QueueJobStatusResponseStatus.Running,
                 _ => null,
             };
         }

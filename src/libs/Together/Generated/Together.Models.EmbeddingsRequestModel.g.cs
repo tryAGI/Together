@@ -11,7 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        WhereIsAIUAELargeV1,
+        BaaiBgeBaseEnV15,
         /// <summary>
         /// 
         /// </summary>
@@ -19,7 +19,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        BaaiBgeBaseEnV15,
+        WhereIsAIUAELargeV1,
         /// <summary>
         /// 
         /// </summary>
@@ -38,9 +38,9 @@ namespace Together
         {
             return value switch
             {
-                EmbeddingsRequestModel.WhereIsAIUAELargeV1 => "WhereIsAI/UAE-Large-V1",
-                EmbeddingsRequestModel.BaaiBgeLargeEnV15 => "BAAI/bge-large-en-v1.5",
                 EmbeddingsRequestModel.BaaiBgeBaseEnV15 => "BAAI/bge-base-en-v1.5",
+                EmbeddingsRequestModel.BaaiBgeLargeEnV15 => "BAAI/bge-large-en-v1.5",
+                EmbeddingsRequestModel.WhereIsAIUAELargeV1 => "WhereIsAI/UAE-Large-V1",
                 EmbeddingsRequestModel.TogethercomputerM2Bert80m8kRetrieval => "togethercomputer/m2-bert-80M-8k-retrieval",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -52,9 +52,9 @@ namespace Together
         {
             return value switch
             {
-                "WhereIsAI/UAE-Large-V1" => EmbeddingsRequestModel.WhereIsAIUAELargeV1,
-                "BAAI/bge-large-en-v1.5" => EmbeddingsRequestModel.BaaiBgeLargeEnV15,
                 "BAAI/bge-base-en-v1.5" => EmbeddingsRequestModel.BaaiBgeBaseEnV15,
+                "BAAI/bge-large-en-v1.5" => EmbeddingsRequestModel.BaaiBgeLargeEnV15,
+                "WhereIsAI/UAE-Large-V1" => EmbeddingsRequestModel.WhereIsAIUAELargeV1,
                 "togethercomputer/m2-bert-80M-8k-retrieval" => EmbeddingsRequestModel.TogethercomputerM2Bert80m8kRetrieval,
                 _ => null,
             };

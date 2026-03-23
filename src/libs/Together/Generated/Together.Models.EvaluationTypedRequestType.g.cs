@@ -16,11 +16,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Score,
+        Compare,
         /// <summary>
         /// 
         /// </summary>
-        Compare,
+        Score,
     }
 
     /// <summary>
@@ -36,8 +36,8 @@ namespace Together
             return value switch
             {
                 EvaluationTypedRequestType.Classify => "classify",
-                EvaluationTypedRequestType.Score => "score",
                 EvaluationTypedRequestType.Compare => "compare",
+                EvaluationTypedRequestType.Score => "score",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,8 +49,8 @@ namespace Together
             return value switch
             {
                 "classify" => EvaluationTypedRequestType.Classify,
-                "score" => EvaluationTypedRequestType.Score,
                 "compare" => EvaluationTypedRequestType.Compare,
+                "score" => EvaluationTypedRequestType.Score,
                 _ => null,
             };
         }

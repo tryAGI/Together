@@ -11,15 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        LossTypeUnspecified,
-        /// <summary>
-        /// 
-        /// </summary>
         LossTypeCrossEntropy,
         /// <summary>
         /// 
         /// </summary>
         LossTypeGrpo,
+        /// <summary>
+        /// 
+        /// </summary>
+        LossTypeUnspecified,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Together
         {
             return value switch
             {
-                RlLossType.LossTypeUnspecified => "LOSS_TYPE_UNSPECIFIED",
                 RlLossType.LossTypeCrossEntropy => "LOSS_TYPE_CROSS_ENTROPY",
                 RlLossType.LossTypeGrpo => "LOSS_TYPE_GRPO",
+                RlLossType.LossTypeUnspecified => "LOSS_TYPE_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Together
         {
             return value switch
             {
-                "LOSS_TYPE_UNSPECIFIED" => RlLossType.LossTypeUnspecified,
                 "LOSS_TYPE_CROSS_ENTROPY" => RlLossType.LossTypeCrossEntropy,
                 "LOSS_TYPE_GRPO" => RlLossType.LossTypeGrpo,
+                "LOSS_TYPE_UNSPECIFIED" => RlLossType.LossTypeUnspecified,
                 _ => null,
             };
         }

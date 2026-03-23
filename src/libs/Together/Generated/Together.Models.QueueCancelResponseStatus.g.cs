@@ -17,15 +17,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Running,
-        /// <summary>
-        /// 
-        /// </summary>
         Done,
         /// <summary>
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        Running,
     }
 
     /// <summary>
@@ -41,9 +41,9 @@ namespace Together
             return value switch
             {
                 QueueCancelResponseStatus.Canceled => "canceled",
-                QueueCancelResponseStatus.Running => "running",
                 QueueCancelResponseStatus.Done => "done",
                 QueueCancelResponseStatus.Failed => "failed",
+                QueueCancelResponseStatus.Running => "running",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -55,9 +55,9 @@ namespace Together
             return value switch
             {
                 "canceled" => QueueCancelResponseStatus.Canceled,
-                "running" => QueueCancelResponseStatus.Running,
                 "done" => QueueCancelResponseStatus.Done,
                 "failed" => QueueCancelResponseStatus.Failed,
+                "running" => QueueCancelResponseStatus.Running,
                 _ => null,
             };
         }

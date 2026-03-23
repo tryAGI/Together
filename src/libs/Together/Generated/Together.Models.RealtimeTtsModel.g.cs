@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        HexgradKokoro82m,
+        CartesiaSonicEnglish,
         /// <summary>
         /// 
         /// </summary>
-        CartesiaSonicEnglish,
+        HexgradKokoro82m,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace Together
         {
             return value switch
             {
-                RealtimeTtsModel.HexgradKokoro82m => "hexgrad/Kokoro-82M",
                 RealtimeTtsModel.CartesiaSonicEnglish => "cartesia/sonic-english",
+                RealtimeTtsModel.HexgradKokoro82m => "hexgrad/Kokoro-82M",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace Together
         {
             return value switch
             {
-                "hexgrad/Kokoro-82M" => RealtimeTtsModel.HexgradKokoro82m,
                 "cartesia/sonic-english" => RealtimeTtsModel.CartesiaSonicEnglish,
+                "hexgrad/Kokoro-82M" => RealtimeTtsModel.HexgradKokoro82m,
                 _ => null,
             };
         }

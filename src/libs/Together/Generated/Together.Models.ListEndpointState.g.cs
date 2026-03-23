@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Pending,
+        Error,
         /// <summary>
         /// 
         /// </summary>
-        Starting,
+        Pending,
         /// <summary>
         /// 
         /// </summary>
@@ -24,7 +24,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Stopping,
+        Starting,
         /// <summary>
         /// 
         /// </summary>
@@ -32,7 +32,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Error,
+        Stopping,
     }
 
     /// <summary>
@@ -47,12 +47,12 @@ namespace Together
         {
             return value switch
             {
-                ListEndpointState.Pending => "PENDING",
-                ListEndpointState.Starting => "STARTING",
-                ListEndpointState.Started => "STARTED",
-                ListEndpointState.Stopping => "STOPPING",
-                ListEndpointState.Stopped => "STOPPED",
                 ListEndpointState.Error => "ERROR",
+                ListEndpointState.Pending => "PENDING",
+                ListEndpointState.Started => "STARTED",
+                ListEndpointState.Starting => "STARTING",
+                ListEndpointState.Stopped => "STOPPED",
+                ListEndpointState.Stopping => "STOPPING",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -63,12 +63,12 @@ namespace Together
         {
             return value switch
             {
-                "PENDING" => ListEndpointState.Pending,
-                "STARTING" => ListEndpointState.Starting,
-                "STARTED" => ListEndpointState.Started,
-                "STOPPING" => ListEndpointState.Stopping,
-                "STOPPED" => ListEndpointState.Stopped,
                 "ERROR" => ListEndpointState.Error,
+                "PENDING" => ListEndpointState.Pending,
+                "STARTED" => ListEndpointState.Started,
+                "STARTING" => ListEndpointState.Starting,
+                "STOPPED" => ListEndpointState.Stopped,
+                "STOPPING" => ListEndpointState.Stopping,
                 _ => null,
             };
         }

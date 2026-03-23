@@ -11,19 +11,19 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Queued,
-        /// <summary>
-        /// 
-        /// </summary>
-        Running,
-        /// <summary>
-        /// 
-        /// </summary>
         Complete,
         /// <summary>
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        Queued,
+        /// <summary>
+        /// 
+        /// </summary>
+        Running,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace Together
         {
             return value switch
             {
-                JobInfoSuccessResponseStatus.Queued => "Queued",
-                JobInfoSuccessResponseStatus.Running => "Running",
                 JobInfoSuccessResponseStatus.Complete => "Complete",
                 JobInfoSuccessResponseStatus.Failed => "Failed",
+                JobInfoSuccessResponseStatus.Queued => "Queued",
+                JobInfoSuccessResponseStatus.Running => "Running",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace Together
         {
             return value switch
             {
-                "Queued" => JobInfoSuccessResponseStatus.Queued,
-                "Running" => JobInfoSuccessResponseStatus.Running,
                 "Complete" => JobInfoSuccessResponseStatus.Complete,
                 "Failed" => JobInfoSuccessResponseStatus.Failed,
+                "Queued" => JobInfoSuccessResponseStatus.Queued,
+                "Running" => JobInfoSuccessResponseStatus.Running,
                 _ => null,
             };
         }

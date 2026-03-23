@@ -11,6 +11,34 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        Degraded,
+        /// <summary>
+        /// 
+        /// </summary>
+        Deleting,
+        /// <summary>
+        /// 
+        /// </summary>
+        InstallingDrivers,
+        /// <summary>
+        /// 
+        /// </summary>
+        OnDemandComputePaused,
+        /// <summary>
+        /// 
+        /// </summary>
+        Paused,
+        /// <summary>
+        /// 
+        /// </summary>
+        Ready,
+        /// <summary>
+        /// 
+        /// </summary>
+        RunningAcceptanceTests,
+        /// <summary>
+        /// 
+        /// </summary>
         WaitingForControlPlaneNodes,
         /// <summary>
         /// 
@@ -19,39 +47,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        WaitingForSubnet,
-        /// <summary>
-        /// 
-        /// </summary>
         WaitingForSharedVolume,
         /// <summary>
         /// 
         /// </summary>
-        InstallingDrivers,
-        /// <summary>
-        /// 
-        /// </summary>
-        RunningAcceptanceTests,
-        /// <summary>
-        /// 
-        /// </summary>
-        Paused,
-        /// <summary>
-        /// 
-        /// </summary>
-        OnDemandComputePaused,
-        /// <summary>
-        /// 
-        /// </summary>
-        Ready,
-        /// <summary>
-        /// 
-        /// </summary>
-        Degraded,
-        /// <summary>
-        /// 
-        /// </summary>
-        Deleting,
+        WaitingForSubnet,
     }
 
     /// <summary>
@@ -66,17 +66,17 @@ namespace Together
         {
             return value switch
             {
-                GPUClusterInfoStatus.WaitingForControlPlaneNodes => "WaitingForControlPlaneNodes",
-                GPUClusterInfoStatus.WaitingForDataPlaneNodes => "WaitingForDataPlaneNodes",
-                GPUClusterInfoStatus.WaitingForSubnet => "WaitingForSubnet",
-                GPUClusterInfoStatus.WaitingForSharedVolume => "WaitingForSharedVolume",
-                GPUClusterInfoStatus.InstallingDrivers => "InstallingDrivers",
-                GPUClusterInfoStatus.RunningAcceptanceTests => "RunningAcceptanceTests",
-                GPUClusterInfoStatus.Paused => "Paused",
-                GPUClusterInfoStatus.OnDemandComputePaused => "OnDemandComputePaused",
-                GPUClusterInfoStatus.Ready => "Ready",
                 GPUClusterInfoStatus.Degraded => "Degraded",
                 GPUClusterInfoStatus.Deleting => "Deleting",
+                GPUClusterInfoStatus.InstallingDrivers => "InstallingDrivers",
+                GPUClusterInfoStatus.OnDemandComputePaused => "OnDemandComputePaused",
+                GPUClusterInfoStatus.Paused => "Paused",
+                GPUClusterInfoStatus.Ready => "Ready",
+                GPUClusterInfoStatus.RunningAcceptanceTests => "RunningAcceptanceTests",
+                GPUClusterInfoStatus.WaitingForControlPlaneNodes => "WaitingForControlPlaneNodes",
+                GPUClusterInfoStatus.WaitingForDataPlaneNodes => "WaitingForDataPlaneNodes",
+                GPUClusterInfoStatus.WaitingForSharedVolume => "WaitingForSharedVolume",
+                GPUClusterInfoStatus.WaitingForSubnet => "WaitingForSubnet",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -87,17 +87,17 @@ namespace Together
         {
             return value switch
             {
-                "WaitingForControlPlaneNodes" => GPUClusterInfoStatus.WaitingForControlPlaneNodes,
-                "WaitingForDataPlaneNodes" => GPUClusterInfoStatus.WaitingForDataPlaneNodes,
-                "WaitingForSubnet" => GPUClusterInfoStatus.WaitingForSubnet,
-                "WaitingForSharedVolume" => GPUClusterInfoStatus.WaitingForSharedVolume,
-                "InstallingDrivers" => GPUClusterInfoStatus.InstallingDrivers,
-                "RunningAcceptanceTests" => GPUClusterInfoStatus.RunningAcceptanceTests,
-                "Paused" => GPUClusterInfoStatus.Paused,
-                "OnDemandComputePaused" => GPUClusterInfoStatus.OnDemandComputePaused,
-                "Ready" => GPUClusterInfoStatus.Ready,
                 "Degraded" => GPUClusterInfoStatus.Degraded,
                 "Deleting" => GPUClusterInfoStatus.Deleting,
+                "InstallingDrivers" => GPUClusterInfoStatus.InstallingDrivers,
+                "OnDemandComputePaused" => GPUClusterInfoStatus.OnDemandComputePaused,
+                "Paused" => GPUClusterInfoStatus.Paused,
+                "Ready" => GPUClusterInfoStatus.Ready,
+                "RunningAcceptanceTests" => GPUClusterInfoStatus.RunningAcceptanceTests,
+                "WaitingForControlPlaneNodes" => GPUClusterInfoStatus.WaitingForControlPlaneNodes,
+                "WaitingForDataPlaneNodes" => GPUClusterInfoStatus.WaitingForDataPlaneNodes,
+                "WaitingForSharedVolume" => GPUClusterInfoStatus.WaitingForSharedVolume,
+                "WaitingForSubnet" => GPUClusterInfoStatus.WaitingForSubnet,
                 _ => null,
             };
         }

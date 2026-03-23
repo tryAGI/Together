@@ -11,11 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        DeploymentStatusUpdating,
-        /// <summary>
-        /// 
-        /// </summary>
-        DeploymentStatusScaling,
+        DeploymentStatusFailed,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +19,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        DeploymentStatusFailed,
+        DeploymentStatusScaling,
+        /// <summary>
+        /// 
+        /// </summary>
+        DeploymentStatusUpdating,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace Together
         {
             return value switch
             {
-                DeploymentStatus.DeploymentStatusUpdating => "Updating",
-                DeploymentStatus.DeploymentStatusScaling => "Scaling",
-                DeploymentStatus.DeploymentStatusReady => "Ready",
                 DeploymentStatus.DeploymentStatusFailed => "Failed",
+                DeploymentStatus.DeploymentStatusReady => "Ready",
+                DeploymentStatus.DeploymentStatusScaling => "Scaling",
+                DeploymentStatus.DeploymentStatusUpdating => "Updating",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace Together
         {
             return value switch
             {
-                "Updating" => DeploymentStatus.DeploymentStatusUpdating,
-                "Scaling" => DeploymentStatus.DeploymentStatusScaling,
-                "Ready" => DeploymentStatus.DeploymentStatusReady,
                 "Failed" => DeploymentStatus.DeploymentStatusFailed,
+                "Ready" => DeploymentStatus.DeploymentStatusReady,
+                "Scaling" => DeploymentStatus.DeploymentStatusScaling,
+                "Updating" => DeploymentStatus.DeploymentStatusUpdating,
                 _ => null,
             };
         }

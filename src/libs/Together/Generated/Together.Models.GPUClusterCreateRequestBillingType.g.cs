@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Reserved,
+        OnDemand,
         /// <summary>
         /// 
         /// </summary>
-        OnDemand,
+        Reserved,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace Together
         {
             return value switch
             {
-                GPUClusterCreateRequestBillingType.Reserved => "RESERVED",
                 GPUClusterCreateRequestBillingType.OnDemand => "ON_DEMAND",
+                GPUClusterCreateRequestBillingType.Reserved => "RESERVED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace Together
         {
             return value switch
             {
-                "RESERVED" => GPUClusterCreateRequestBillingType.Reserved,
                 "ON_DEMAND" => GPUClusterCreateRequestBillingType.OnDemand,
+                "RESERVED" => GPUClusterCreateRequestBillingType.Reserved,
                 _ => null,
             };
         }
