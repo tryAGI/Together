@@ -11,15 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        GrpoLossAggregationTypeUnspecified,
-        /// <summary>
-        /// 
-        /// </summary>
         GrpoLossAggregationTypeFixedHorizon,
         /// <summary>
         /// 
         /// </summary>
         GrpoLossAggregationTypeTokenMean,
+        /// <summary>
+        /// 
+        /// </summary>
+        GrpoLossAggregationTypeUnspecified,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Together
         {
             return value switch
             {
-                RlGRPOLossAggregationType.GrpoLossAggregationTypeUnspecified => "GRPO_LOSS_AGGREGATION_TYPE_UNSPECIFIED",
                 RlGRPOLossAggregationType.GrpoLossAggregationTypeFixedHorizon => "GRPO_LOSS_AGGREGATION_TYPE_FIXED_HORIZON",
                 RlGRPOLossAggregationType.GrpoLossAggregationTypeTokenMean => "GRPO_LOSS_AGGREGATION_TYPE_TOKEN_MEAN",
+                RlGRPOLossAggregationType.GrpoLossAggregationTypeUnspecified => "GRPO_LOSS_AGGREGATION_TYPE_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Together
         {
             return value switch
             {
-                "GRPO_LOSS_AGGREGATION_TYPE_UNSPECIFIED" => RlGRPOLossAggregationType.GrpoLossAggregationTypeUnspecified,
                 "GRPO_LOSS_AGGREGATION_TYPE_FIXED_HORIZON" => RlGRPOLossAggregationType.GrpoLossAggregationTypeFixedHorizon,
                 "GRPO_LOSS_AGGREGATION_TYPE_TOKEN_MEAN" => RlGRPOLossAggregationType.GrpoLossAggregationTypeTokenMean,
+                "GRPO_LOSS_AGGREGATION_TYPE_UNSPECIFIED" => RlGRPOLossAggregationType.GrpoLossAggregationTypeUnspecified,
                 _ => null,
             };
         }

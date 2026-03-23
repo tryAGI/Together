@@ -16,11 +16,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Wav,
+        Raw,
         /// <summary>
         /// 
         /// </summary>
-        Raw,
+        Wav,
     }
 
     /// <summary>
@@ -36,8 +36,8 @@ namespace Together
             return value switch
             {
                 AudioSpeechRequestResponseFormat.Mp3 => "mp3",
-                AudioSpeechRequestResponseFormat.Wav => "wav",
                 AudioSpeechRequestResponseFormat.Raw => "raw",
+                AudioSpeechRequestResponseFormat.Wav => "wav",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -49,8 +49,8 @@ namespace Together
             return value switch
             {
                 "mp3" => AudioSpeechRequestResponseFormat.Mp3,
-                "wav" => AudioSpeechRequestResponseFormat.Wav,
                 "raw" => AudioSpeechRequestResponseFormat.Raw,
+                "wav" => AudioSpeechRequestResponseFormat.Wav,
                 _ => null,
             };
         }

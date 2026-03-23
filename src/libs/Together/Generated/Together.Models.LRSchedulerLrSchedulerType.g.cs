@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Linear,
+        Cosine,
         /// <summary>
         /// 
         /// </summary>
-        Cosine,
+        Linear,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Together
         {
             return value switch
             {
-                LRSchedulerLrSchedulerType.Linear => "linear",
                 LRSchedulerLrSchedulerType.Cosine => "cosine",
+                LRSchedulerLrSchedulerType.Linear => "linear",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace Together
         {
             return value switch
             {
-                "linear" => LRSchedulerLrSchedulerType.Linear,
                 "cosine" => LRSchedulerLrSchedulerType.Cosine,
+                "linear" => LRSchedulerLrSchedulerType.Linear,
                 _ => null,
             };
         }

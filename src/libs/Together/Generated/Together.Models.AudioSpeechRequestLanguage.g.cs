@@ -12,19 +12,19 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        En,
-        /// <summary>
-        /// 
-        /// </summary>
         De,
         /// <summary>
         /// 
         /// </summary>
-        Fr,
+        En,
         /// <summary>
         /// 
         /// </summary>
         Es,
+        /// <summary>
+        /// 
+        /// </summary>
+        Fr,
         /// <summary>
         /// 
         /// </summary>
@@ -83,10 +83,10 @@ namespace Together
         {
             return value switch
             {
-                AudioSpeechRequestLanguage.En => "en",
                 AudioSpeechRequestLanguage.De => "de",
-                AudioSpeechRequestLanguage.Fr => "fr",
+                AudioSpeechRequestLanguage.En => "en",
                 AudioSpeechRequestLanguage.Es => "es",
+                AudioSpeechRequestLanguage.Fr => "fr",
                 AudioSpeechRequestLanguage.Hi => "hi",
                 AudioSpeechRequestLanguage.It => "it",
                 AudioSpeechRequestLanguage.Ja => "ja",
@@ -108,10 +108,10 @@ namespace Together
         {
             return value switch
             {
-                "en" => AudioSpeechRequestLanguage.En,
                 "de" => AudioSpeechRequestLanguage.De,
-                "fr" => AudioSpeechRequestLanguage.Fr,
+                "en" => AudioSpeechRequestLanguage.En,
                 "es" => AudioSpeechRequestLanguage.Es,
+                "fr" => AudioSpeechRequestLanguage.Fr,
                 "hi" => AudioSpeechRequestLanguage.Hi,
                 "it" => AudioSpeechRequestLanguage.It,
                 "ja" => AudioSpeechRequestLanguage.Ja,

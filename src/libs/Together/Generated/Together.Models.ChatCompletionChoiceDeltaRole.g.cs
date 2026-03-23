@@ -11,14 +11,6 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        System,
-        /// <summary>
-        /// 
-        /// </summary>
-        User,
-        /// <summary>
-        /// 
-        /// </summary>
         Assistant,
         /// <summary>
         /// 
@@ -27,7 +19,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        System,
+        /// <summary>
+        /// 
+        /// </summary>
         Tool,
+        /// <summary>
+        /// 
+        /// </summary>
+        User,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Together
         {
             return value switch
             {
-                ChatCompletionChoiceDeltaRole.System => "system",
-                ChatCompletionChoiceDeltaRole.User => "user",
                 ChatCompletionChoiceDeltaRole.Assistant => "assistant",
                 ChatCompletionChoiceDeltaRole.Function => "function",
+                ChatCompletionChoiceDeltaRole.System => "system",
                 ChatCompletionChoiceDeltaRole.Tool => "tool",
+                ChatCompletionChoiceDeltaRole.User => "user",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Together
         {
             return value switch
             {
-                "system" => ChatCompletionChoiceDeltaRole.System,
-                "user" => ChatCompletionChoiceDeltaRole.User,
                 "assistant" => ChatCompletionChoiceDeltaRole.Assistant,
                 "function" => ChatCompletionChoiceDeltaRole.Function,
+                "system" => ChatCompletionChoiceDeltaRole.System,
                 "tool" => ChatCompletionChoiceDeltaRole.Tool,
+                "user" => ChatCompletionChoiceDeltaRole.User,
                 _ => null,
             };
         }

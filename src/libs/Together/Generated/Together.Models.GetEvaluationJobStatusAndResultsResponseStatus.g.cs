@@ -19,11 +19,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        UserError,
-        /// <summary>
-        /// 
-        /// </summary>
-        Running,
+        Pending,
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +27,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Pending,
+        Running,
+        /// <summary>
+        /// 
+        /// </summary>
+        UserError,
     }
 
     /// <summary>
@@ -48,10 +48,10 @@ namespace Together
             {
                 GetEvaluationJobStatusAndResultsResponseStatus.Completed => "completed",
                 GetEvaluationJobStatusAndResultsResponseStatus.Error => "error",
-                GetEvaluationJobStatusAndResultsResponseStatus.UserError => "user_error",
-                GetEvaluationJobStatusAndResultsResponseStatus.Running => "running",
-                GetEvaluationJobStatusAndResultsResponseStatus.Queued => "queued",
                 GetEvaluationJobStatusAndResultsResponseStatus.Pending => "pending",
+                GetEvaluationJobStatusAndResultsResponseStatus.Queued => "queued",
+                GetEvaluationJobStatusAndResultsResponseStatus.Running => "running",
+                GetEvaluationJobStatusAndResultsResponseStatus.UserError => "user_error",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -64,10 +64,10 @@ namespace Together
             {
                 "completed" => GetEvaluationJobStatusAndResultsResponseStatus.Completed,
                 "error" => GetEvaluationJobStatusAndResultsResponseStatus.Error,
-                "user_error" => GetEvaluationJobStatusAndResultsResponseStatus.UserError,
-                "running" => GetEvaluationJobStatusAndResultsResponseStatus.Running,
-                "queued" => GetEvaluationJobStatusAndResultsResponseStatus.Queued,
                 "pending" => GetEvaluationJobStatusAndResultsResponseStatus.Pending,
+                "queued" => GetEvaluationJobStatusAndResultsResponseStatus.Queued,
+                "running" => GetEvaluationJobStatusAndResultsResponseStatus.Running,
+                "user_error" => GetEvaluationJobStatusAndResultsResponseStatus.UserError,
                 _ => null,
             };
         }

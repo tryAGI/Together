@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Stop,
+        Eos,
         /// <summary>
         /// 
         /// </summary>
-        Eos,
+        FunctionCall,
         /// <summary>
         /// 
         /// </summary>
@@ -23,11 +23,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        ToolCalls,
+        Stop,
         /// <summary>
         /// 
         /// </summary>
-        FunctionCall,
+        ToolCalls,
     }
 
     /// <summary>
@@ -42,11 +42,11 @@ namespace Together
         {
             return value switch
             {
-                FinishReason.Stop => "stop",
                 FinishReason.Eos => "eos",
-                FinishReason.Length => "length",
-                FinishReason.ToolCalls => "tool_calls",
                 FinishReason.FunctionCall => "function_call",
+                FinishReason.Length => "length",
+                FinishReason.Stop => "stop",
+                FinishReason.ToolCalls => "tool_calls",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -57,11 +57,11 @@ namespace Together
         {
             return value switch
             {
-                "stop" => FinishReason.Stop,
                 "eos" => FinishReason.Eos,
-                "length" => FinishReason.Length,
-                "tool_calls" => FinishReason.ToolCalls,
                 "function_call" => FinishReason.FunctionCall,
+                "length" => FinishReason.Length,
+                "stop" => FinishReason.Stop,
+                "tool_calls" => FinishReason.ToolCalls,
                 _ => null,
             };
         }

@@ -13,11 +13,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Model,
+        Adapter,
         /// <summary>
         /// 
         /// </summary>
-        Adapter,
+        Model,
     }
 
     /// <summary>
@@ -32,8 +32,8 @@ namespace Together
         {
             return value switch
             {
-                ModelUploadRequestModelType.Model => "model",
                 ModelUploadRequestModelType.Adapter => "adapter",
+                ModelUploadRequestModelType.Model => "model",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,8 +44,8 @@ namespace Together
         {
             return value switch
             {
-                "model" => ModelUploadRequestModelType.Model,
                 "adapter" => ModelUploadRequestModelType.Adapter,
+                "model" => ModelUploadRequestModelType.Model,
                 _ => null,
             };
         }

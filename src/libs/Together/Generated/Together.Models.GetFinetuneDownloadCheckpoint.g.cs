@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Merged,
+        Adapter,
         /// <summary>
         /// 
         /// </summary>
-        Adapter,
+        Merged,
         /// <summary>
         /// 
         /// </summary>
@@ -34,8 +34,8 @@ namespace Together
         {
             return value switch
             {
-                GetFinetuneDownloadCheckpoint.Merged => "merged",
                 GetFinetuneDownloadCheckpoint.Adapter => "adapter",
+                GetFinetuneDownloadCheckpoint.Merged => "merged",
                 GetFinetuneDownloadCheckpoint.ModelOutputPath => "model_output_path",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -47,8 +47,8 @@ namespace Together
         {
             return value switch
             {
-                "merged" => GetFinetuneDownloadCheckpoint.Merged,
                 "adapter" => GetFinetuneDownloadCheckpoint.Adapter,
+                "merged" => GetFinetuneDownloadCheckpoint.Merged,
                 "model_output_path" => GetFinetuneDownloadCheckpoint.ModelOutputPath,
                 _ => null,
             };

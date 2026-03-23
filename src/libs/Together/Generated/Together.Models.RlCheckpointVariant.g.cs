@@ -12,7 +12,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        CheckpointVariantUnspecified,
+        CheckpointVariantAdapter,
         /// <summary>
         /// 
         /// </summary>
@@ -20,7 +20,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        CheckpointVariantAdapter,
+        CheckpointVariantUnspecified,
     }
 
     /// <summary>
@@ -35,9 +35,9 @@ namespace Together
         {
             return value switch
             {
-                RlCheckpointVariant.CheckpointVariantUnspecified => "CHECKPOINT_VARIANT_UNSPECIFIED",
-                RlCheckpointVariant.CheckpointVariantMerged => "CHECKPOINT_VARIANT_MERGED",
                 RlCheckpointVariant.CheckpointVariantAdapter => "CHECKPOINT_VARIANT_ADAPTER",
+                RlCheckpointVariant.CheckpointVariantMerged => "CHECKPOINT_VARIANT_MERGED",
+                RlCheckpointVariant.CheckpointVariantUnspecified => "CHECKPOINT_VARIANT_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,9 +48,9 @@ namespace Together
         {
             return value switch
             {
-                "CHECKPOINT_VARIANT_UNSPECIFIED" => RlCheckpointVariant.CheckpointVariantUnspecified,
-                "CHECKPOINT_VARIANT_MERGED" => RlCheckpointVariant.CheckpointVariantMerged,
                 "CHECKPOINT_VARIANT_ADAPTER" => RlCheckpointVariant.CheckpointVariantAdapter,
+                "CHECKPOINT_VARIANT_MERGED" => RlCheckpointVariant.CheckpointVariantMerged,
+                "CHECKPOINT_VARIANT_UNSPECIFIED" => RlCheckpointVariant.CheckpointVariantUnspecified,
                 _ => null,
             };
         }

@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Serverless,
+        Dedicated,
         /// <summary>
         /// 
         /// </summary>
-        Dedicated,
+        Serverless,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace Together
         {
             return value switch
             {
-                ListEndpointType.Serverless => "serverless",
                 ListEndpointType.Dedicated => "dedicated",
+                ListEndpointType.Serverless => "serverless",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace Together
         {
             return value switch
             {
-                "serverless" => ListEndpointType.Serverless,
                 "dedicated" => ListEndpointType.Dedicated,
+                "serverless" => ListEndpointType.Serverless,
                 _ => null,
             };
         }

@@ -11,11 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        DTypeUnspecified,
-        /// <summary>
-        /// 
-        /// </summary>
-        DTypeInt64,
+        DTypeBfloat16,
         /// <summary>
         /// 
         /// </summary>
@@ -23,7 +19,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        DTypeBfloat16,
+        DTypeInt64,
+        /// <summary>
+        /// 
+        /// </summary>
+        DTypeUnspecified,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace Together
         {
             return value switch
             {
-                RlDType.DTypeUnspecified => "D_TYPE_UNSPECIFIED",
-                RlDType.DTypeInt64 => "D_TYPE_INT64",
-                RlDType.DTypeFloat32 => "D_TYPE_FLOAT32",
                 RlDType.DTypeBfloat16 => "D_TYPE_BFLOAT16",
+                RlDType.DTypeFloat32 => "D_TYPE_FLOAT32",
+                RlDType.DTypeInt64 => "D_TYPE_INT64",
+                RlDType.DTypeUnspecified => "D_TYPE_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace Together
         {
             return value switch
             {
-                "D_TYPE_UNSPECIFIED" => RlDType.DTypeUnspecified,
-                "D_TYPE_INT64" => RlDType.DTypeInt64,
-                "D_TYPE_FLOAT32" => RlDType.DTypeFloat32,
                 "D_TYPE_BFLOAT16" => RlDType.DTypeBfloat16,
+                "D_TYPE_FLOAT32" => RlDType.DTypeFloat32,
+                "D_TYPE_INT64" => RlDType.DTypeInt64,
+                "D_TYPE_UNSPECIFIED" => RlDType.DTypeUnspecified,
                 _ => null,
             };
         }

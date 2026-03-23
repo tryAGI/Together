@@ -12,15 +12,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        High,
+        /// <summary>
+        /// 
+        /// </summary>
         Low,
         /// <summary>
         /// 
         /// </summary>
         Medium,
-        /// <summary>
-        /// 
-        /// </summary>
-        High,
     }
 
     /// <summary>
@@ -35,9 +35,9 @@ namespace Together
         {
             return value switch
             {
+                ChatCompletionRequestReasoningEffort.High => "high",
                 ChatCompletionRequestReasoningEffort.Low => "low",
                 ChatCompletionRequestReasoningEffort.Medium => "medium",
-                ChatCompletionRequestReasoningEffort.High => "high",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -48,9 +48,9 @@ namespace Together
         {
             return value switch
             {
+                "high" => ChatCompletionRequestReasoningEffort.High,
                 "low" => ChatCompletionRequestReasoningEffort.Low,
                 "medium" => ChatCompletionRequestReasoningEffort.Medium,
-                "high" => ChatCompletionRequestReasoningEffort.High,
                 _ => null,
             };
         }

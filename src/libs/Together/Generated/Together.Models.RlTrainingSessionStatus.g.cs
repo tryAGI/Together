@@ -12,11 +12,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        TrainingSessionStatusUnspecified,
+        TrainingSessionStatusCreating,
         /// <summary>
         /// 
         /// </summary>
-        TrainingSessionStatusCreating,
+        TrainingSessionStatusError,
+        /// <summary>
+        /// 
+        /// </summary>
+        TrainingSessionStatusExpired,
         /// <summary>
         /// 
         /// </summary>
@@ -32,11 +36,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        TrainingSessionStatusError,
-        /// <summary>
-        /// 
-        /// </summary>
-        TrainingSessionStatusExpired,
+        TrainingSessionStatusUnspecified,
     }
 
     /// <summary>
@@ -51,13 +51,13 @@ namespace Together
         {
             return value switch
             {
-                RlTrainingSessionStatus.TrainingSessionStatusUnspecified => "TRAINING_SESSION_STATUS_UNSPECIFIED",
                 RlTrainingSessionStatus.TrainingSessionStatusCreating => "TRAINING_SESSION_STATUS_CREATING",
+                RlTrainingSessionStatus.TrainingSessionStatusError => "TRAINING_SESSION_STATUS_ERROR",
+                RlTrainingSessionStatus.TrainingSessionStatusExpired => "TRAINING_SESSION_STATUS_EXPIRED",
                 RlTrainingSessionStatus.TrainingSessionStatusRunning => "TRAINING_SESSION_STATUS_RUNNING",
                 RlTrainingSessionStatus.TrainingSessionStatusStopped => "TRAINING_SESSION_STATUS_STOPPED",
                 RlTrainingSessionStatus.TrainingSessionStatusStopping => "TRAINING_SESSION_STATUS_STOPPING",
-                RlTrainingSessionStatus.TrainingSessionStatusError => "TRAINING_SESSION_STATUS_ERROR",
-                RlTrainingSessionStatus.TrainingSessionStatusExpired => "TRAINING_SESSION_STATUS_EXPIRED",
+                RlTrainingSessionStatus.TrainingSessionStatusUnspecified => "TRAINING_SESSION_STATUS_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,13 +68,13 @@ namespace Together
         {
             return value switch
             {
-                "TRAINING_SESSION_STATUS_UNSPECIFIED" => RlTrainingSessionStatus.TrainingSessionStatusUnspecified,
                 "TRAINING_SESSION_STATUS_CREATING" => RlTrainingSessionStatus.TrainingSessionStatusCreating,
+                "TRAINING_SESSION_STATUS_ERROR" => RlTrainingSessionStatus.TrainingSessionStatusError,
+                "TRAINING_SESSION_STATUS_EXPIRED" => RlTrainingSessionStatus.TrainingSessionStatusExpired,
                 "TRAINING_SESSION_STATUS_RUNNING" => RlTrainingSessionStatus.TrainingSessionStatusRunning,
                 "TRAINING_SESSION_STATUS_STOPPED" => RlTrainingSessionStatus.TrainingSessionStatusStopped,
                 "TRAINING_SESSION_STATUS_STOPPING" => RlTrainingSessionStatus.TrainingSessionStatusStopping,
-                "TRAINING_SESSION_STATUS_ERROR" => RlTrainingSessionStatus.TrainingSessionStatusError,
-                "TRAINING_SESSION_STATUS_EXPIRED" => RlTrainingSessionStatus.TrainingSessionStatusExpired,
+                "TRAINING_SESSION_STATUS_UNSPECIFIED" => RlTrainingSessionStatus.TrainingSessionStatusUnspecified,
                 _ => null,
             };
         }

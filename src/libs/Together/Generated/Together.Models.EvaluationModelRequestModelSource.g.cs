@@ -11,15 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Serverless,
-        /// <summary>
-        /// 
-        /// </summary>
         Dedicated,
         /// <summary>
         /// 
         /// </summary>
         External,
+        /// <summary>
+        /// 
+        /// </summary>
+        Serverless,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Together
         {
             return value switch
             {
-                EvaluationModelRequestModelSource.Serverless => "serverless",
                 EvaluationModelRequestModelSource.Dedicated => "dedicated",
                 EvaluationModelRequestModelSource.External => "external",
+                EvaluationModelRequestModelSource.Serverless => "serverless",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Together
         {
             return value switch
             {
-                "serverless" => EvaluationModelRequestModelSource.Serverless,
                 "dedicated" => EvaluationModelRequestModelSource.Dedicated,
                 "external" => EvaluationModelRequestModelSource.External,
+                "serverless" => EvaluationModelRequestModelSource.Serverless,
                 _ => null,
             };
         }

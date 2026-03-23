@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        PcmF32le,
+        PcmAlaw,
         /// <summary>
         /// 
         /// </summary>
-        PcmS16le,
+        PcmF32le,
         /// <summary>
         /// 
         /// </summary>
@@ -24,7 +24,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        PcmAlaw,
+        PcmS16le,
     }
 
     /// <summary>
@@ -39,10 +39,10 @@ namespace Together
         {
             return value switch
             {
-                AudioSpeechRequestResponseEncoding.PcmF32le => "pcm_f32le",
-                AudioSpeechRequestResponseEncoding.PcmS16le => "pcm_s16le",
-                AudioSpeechRequestResponseEncoding.PcmMulaw => "pcm_mulaw",
                 AudioSpeechRequestResponseEncoding.PcmAlaw => "pcm_alaw",
+                AudioSpeechRequestResponseEncoding.PcmF32le => "pcm_f32le",
+                AudioSpeechRequestResponseEncoding.PcmMulaw => "pcm_mulaw",
+                AudioSpeechRequestResponseEncoding.PcmS16le => "pcm_s16le",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,10 +53,10 @@ namespace Together
         {
             return value switch
             {
-                "pcm_f32le" => AudioSpeechRequestResponseEncoding.PcmF32le,
-                "pcm_s16le" => AudioSpeechRequestResponseEncoding.PcmS16le,
-                "pcm_mulaw" => AudioSpeechRequestResponseEncoding.PcmMulaw,
                 "pcm_alaw" => AudioSpeechRequestResponseEncoding.PcmAlaw,
+                "pcm_f32le" => AudioSpeechRequestResponseEncoding.PcmF32le,
+                "pcm_mulaw" => AudioSpeechRequestResponseEncoding.PcmMulaw,
+                "pcm_s16le" => AudioSpeechRequestResponseEncoding.PcmS16le,
                 _ => null,
             };
         }

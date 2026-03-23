@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        String,
+        Base64,
         /// <summary>
         /// 
         /// </summary>
-        Base64,
+        String,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Together
         {
             return value switch
             {
-                ExecuteRequestFileEncoding.String => "string",
                 ExecuteRequestFileEncoding.Base64 => "base64",
+                ExecuteRequestFileEncoding.String => "string",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace Together
         {
             return value switch
             {
-                "string" => ExecuteRequestFileEncoding.String,
                 "base64" => ExecuteRequestFileEncoding.Base64,
+                "string" => ExecuteRequestFileEncoding.String,
                 _ => null,
             };
         }

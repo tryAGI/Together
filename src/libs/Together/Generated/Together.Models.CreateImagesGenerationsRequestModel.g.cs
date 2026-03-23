@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        BlackForestLabsFLUX1SchnellFree,
+        BlackForestLabsFLUX1Schnell,
         /// <summary>
         /// 
         /// </summary>
-        BlackForestLabsFLUX1Schnell,
+        BlackForestLabsFLUX1SchnellFree,
         /// <summary>
         /// 
         /// </summary>
@@ -34,8 +34,8 @@ namespace Together
         {
             return value switch
             {
-                CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1SchnellFree => "black-forest-labs/FLUX.1-schnell-Free",
                 CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1Schnell => "black-forest-labs/FLUX.1-schnell",
+                CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1SchnellFree => "black-forest-labs/FLUX.1-schnell-Free",
                 CreateImagesGenerationsRequestModel.BlackForestLabsFLUX11Pro => "black-forest-labs/FLUX.1.1-pro",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -47,8 +47,8 @@ namespace Together
         {
             return value switch
             {
-                "black-forest-labs/FLUX.1-schnell-Free" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1SchnellFree,
                 "black-forest-labs/FLUX.1-schnell" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1Schnell,
+                "black-forest-labs/FLUX.1-schnell-Free" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1SchnellFree,
                 "black-forest-labs/FLUX.1.1-pro" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX11Pro,
                 _ => null,
             };

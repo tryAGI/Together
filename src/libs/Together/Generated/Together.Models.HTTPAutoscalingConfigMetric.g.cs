@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        HTTPTotalRequests,
+        HTTPAvgRequestDuration,
         /// <summary>
         /// 
         /// </summary>
-        HTTPAvgRequestDuration,
+        HTTPTotalRequests,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace Together
         {
             return value switch
             {
-                HTTPAutoscalingConfigMetric.HTTPTotalRequests => "HTTPTotalRequests",
                 HTTPAutoscalingConfigMetric.HTTPAvgRequestDuration => "HTTPAvgRequestDuration",
+                HTTPAutoscalingConfigMetric.HTTPTotalRequests => "HTTPTotalRequests",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace Together
         {
             return value switch
             {
-                "HTTPTotalRequests" => HTTPAutoscalingConfigMetric.HTTPTotalRequests,
                 "HTTPAvgRequestDuration" => HTTPAutoscalingConfigMetric.HTTPAvgRequestDuration,
+                "HTTPTotalRequests" => HTTPAutoscalingConfigMetric.HTTPTotalRequests,
                 _ => null,
             };
         }

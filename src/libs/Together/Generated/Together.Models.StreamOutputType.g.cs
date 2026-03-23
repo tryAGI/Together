@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Stdout,
+        Stderr,
         /// <summary>
         /// 
         /// </summary>
-        Stderr,
+        Stdout,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Together
         {
             return value switch
             {
-                StreamOutputType.Stdout => "stdout",
                 StreamOutputType.Stderr => "stderr",
+                StreamOutputType.Stdout => "stdout",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace Together
         {
             return value switch
             {
-                "stdout" => StreamOutputType.Stdout,
                 "stderr" => StreamOutputType.Stderr,
+                "stdout" => StreamOutputType.Stdout,
                 _ => null,
             };
         }

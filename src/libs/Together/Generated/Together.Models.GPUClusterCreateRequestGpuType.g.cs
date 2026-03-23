@@ -11,7 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        B200Sxm,
+        /// <summary>
+        /// 
+        /// </summary>
         H100Sxm,
+        /// <summary>
+        /// 
+        /// </summary>
+        H100SxmInf,
         /// <summary>
         /// 
         /// </summary>
@@ -19,19 +27,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Rtx6000Pci,
-        /// <summary>
-        /// 
-        /// </summary>
         L40Pcie,
         /// <summary>
         /// 
         /// </summary>
-        B200Sxm,
-        /// <summary>
-        /// 
-        /// </summary>
-        H100SxmInf,
+        Rtx6000Pci,
     }
 
     /// <summary>
@@ -46,12 +46,12 @@ namespace Together
         {
             return value switch
             {
-                GPUClusterCreateRequestGpuType.H100Sxm => "H100_SXM",
-                GPUClusterCreateRequestGpuType.H200Sxm => "H200_SXM",
-                GPUClusterCreateRequestGpuType.Rtx6000Pci => "RTX_6000_PCI",
-                GPUClusterCreateRequestGpuType.L40Pcie => "L40_PCIE",
                 GPUClusterCreateRequestGpuType.B200Sxm => "B200_SXM",
+                GPUClusterCreateRequestGpuType.H100Sxm => "H100_SXM",
                 GPUClusterCreateRequestGpuType.H100SxmInf => "H100_SXM_INF",
+                GPUClusterCreateRequestGpuType.H200Sxm => "H200_SXM",
+                GPUClusterCreateRequestGpuType.L40Pcie => "L40_PCIE",
+                GPUClusterCreateRequestGpuType.Rtx6000Pci => "RTX_6000_PCI",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,12 +62,12 @@ namespace Together
         {
             return value switch
             {
-                "H100_SXM" => GPUClusterCreateRequestGpuType.H100Sxm,
-                "H200_SXM" => GPUClusterCreateRequestGpuType.H200Sxm,
-                "RTX_6000_PCI" => GPUClusterCreateRequestGpuType.Rtx6000Pci,
-                "L40_PCIE" => GPUClusterCreateRequestGpuType.L40Pcie,
                 "B200_SXM" => GPUClusterCreateRequestGpuType.B200Sxm,
+                "H100_SXM" => GPUClusterCreateRequestGpuType.H100Sxm,
                 "H100_SXM_INF" => GPUClusterCreateRequestGpuType.H100SxmInf,
+                "H200_SXM" => GPUClusterCreateRequestGpuType.H200Sxm,
+                "L40_PCIE" => GPUClusterCreateRequestGpuType.L40Pcie,
+                "RTX_6000_PCI" => GPUClusterCreateRequestGpuType.Rtx6000Pci,
                 _ => null,
             };
         }

@@ -11,11 +11,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        None,
+        Auto,
         /// <summary>
         /// 
         /// </summary>
-        Auto,
+        None,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Together
         {
             return value switch
             {
-                ChatCompletionRequestFunctionCallEnum.None => "none",
                 ChatCompletionRequestFunctionCallEnum.Auto => "auto",
+                ChatCompletionRequestFunctionCallEnum.None => "none",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace Together
         {
             return value switch
             {
-                "none" => ChatCompletionRequestFunctionCallEnum.None,
                 "auto" => ChatCompletionRequestFunctionCallEnum.Auto,
+                "none" => ChatCompletionRequestFunctionCallEnum.None,
                 _ => null,
             };
         }

@@ -11,15 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        InProgress,
-        /// <summary>
-        /// 
-        /// </summary>
         Completed,
         /// <summary>
         /// 
         /// </summary>
         Failed,
+        /// <summary>
+        /// 
+        /// </summary>
+        InProgress,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Together
         {
             return value switch
             {
-                VideoStatus.InProgress => "in_progress",
                 VideoStatus.Completed => "completed",
                 VideoStatus.Failed => "failed",
+                VideoStatus.InProgress => "in_progress",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Together
         {
             return value switch
             {
-                "in_progress" => VideoStatus.InProgress,
                 "completed" => VideoStatus.Completed,
                 "failed" => VideoStatus.Failed,
+                "in_progress" => VideoStatus.InProgress,
                 _ => null,
             };
         }

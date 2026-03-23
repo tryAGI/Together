@@ -12,11 +12,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        Truncate,
+        Error,
         /// <summary>
         /// 
         /// </summary>
-        Error,
+        Truncate,
     }
 
     /// <summary>
@@ -31,8 +31,8 @@ namespace Together
         {
             return value switch
             {
-                ChatCompletionRequestContextLengthExceededBehavior.Truncate => "truncate",
                 ChatCompletionRequestContextLengthExceededBehavior.Error => "error",
+                ChatCompletionRequestContextLengthExceededBehavior.Truncate => "truncate",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -43,8 +43,8 @@ namespace Together
         {
             return value switch
             {
-                "truncate" => ChatCompletionRequestContextLengthExceededBehavior.Truncate,
                 "error" => ChatCompletionRequestContextLengthExceededBehavior.Error,
+                "truncate" => ChatCompletionRequestContextLengthExceededBehavior.Truncate,
                 _ => null,
             };
         }
