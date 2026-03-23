@@ -58,8 +58,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.CreateDeploymentRequestGpuType GpuType { get; set; }
+        public global::Together.CreateDeploymentRequestGpuType GpuType { get; set; }
 
         /// <summary>
         /// HealthCheckPath is the HTTP path for health checks (e.g., "/health"). If set, the platform will check this endpoint to determine container health
@@ -190,7 +189,6 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateDeploymentRequest(
-            global::Together.CreateDeploymentRequestGpuType gpuType,
             string image,
             string name,
             global::System.Collections.Generic.IList<string>? args,
@@ -200,6 +198,7 @@ namespace Together
             string? description,
             global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>? environmentVariables,
             int? gpuCount,
+            global::Together.CreateDeploymentRequestGpuType gpuType,
             string? healthCheckPath,
             int? maxReplicas,
             double? memory,
@@ -209,7 +208,6 @@ namespace Together
             int? terminationGracePeriodSeconds,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
         {
-            this.GpuType = gpuType;
             this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Args = args;
@@ -219,6 +217,7 @@ namespace Together
             this.Description = description;
             this.EnvironmentVariables = environmentVariables;
             this.GpuCount = gpuCount;
+            this.GpuType = gpuType;
             this.HealthCheckPath = healthCheckPath;
             this.MaxReplicas = maxReplicas;
             this.Memory = memory;

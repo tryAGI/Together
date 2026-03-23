@@ -39,7 +39,7 @@ namespace Together
         /// CreatedAt is the ISO8601 timestamp when this deployment was created
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; }
+        public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// Description provides a human-readable explanation of the deployment's purpose or content
@@ -155,7 +155,7 @@ namespace Together
         /// UpdatedAt is the ISO8601 timestamp when this deployment was last updated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; }
+        public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// Volumes is a list of volume mounts for this deployment
@@ -255,7 +255,7 @@ namespace Together
             global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
             global::System.Collections.Generic.IList<string>? command,
             double? cpu,
-            string? createdAt,
+            global::System.DateTime? createdAt,
             string? description,
             int? desiredReplicas,
             global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>? environmentVariables,
@@ -274,7 +274,7 @@ namespace Together
             global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>? replicaEvents,
             global::Together.DeploymentStatus? status,
             int? storage,
-            string? updatedAt,
+            global::System.DateTime? updatedAt,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
         {
             this.Args = args;
