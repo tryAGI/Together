@@ -203,6 +203,10 @@ namespace Together
         /// <param name="validationFile">
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
+        /// <param name="packing">
+        /// Whether to use sequence packing for training.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
         /// </param>
@@ -292,6 +296,7 @@ namespace Together
             string trainingFile,
             string model,
             string? validationFile = default,
+            bool? packing = default,
             int? nEpochs = default,
             int? nCheckpoints = default,
             int? nEvals = default,
@@ -322,6 +327,7 @@ namespace Together
             {
                 TrainingFile = trainingFile,
                 ValidationFile = validationFile,
+                Packing = packing,
                 Model = model,
                 NEpochs = nEpochs,
                 NCheckpoints = nCheckpoints,

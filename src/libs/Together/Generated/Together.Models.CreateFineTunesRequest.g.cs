@@ -24,6 +24,13 @@ namespace Together
         public string? ValidationFile { get; set; }
 
         /// <summary>
+        /// Whether to use sequence packing for training.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("packing")]
+        public bool? Packing { get; set; }
+
+        /// <summary>
         /// Name of the base model to run fine-tune job on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -210,6 +217,10 @@ namespace Together
         /// <param name="validationFile">
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
+        /// <param name="packing">
+        /// Whether to use sequence packing for training.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
         /// </param>
@@ -300,6 +311,7 @@ namespace Together
             string trainingFile,
             string model,
             string? validationFile,
+            bool? packing,
             int? nEpochs,
             int? nCheckpoints,
             int? nEvals,
@@ -328,6 +340,7 @@ namespace Together
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.ValidationFile = validationFile;
+            this.Packing = packing;
             this.NEpochs = nEpochs;
             this.NCheckpoints = nCheckpoints;
             this.NEvals = nEvals;
