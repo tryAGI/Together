@@ -26,14 +26,14 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
-        /// <param name="prompt">
-        /// Input prompt as tokenized chunks
+        /// <param name="prompts">
+        /// Input prompts as tokenized chunks
         /// </param>
         /// <param name="samplingParams">
         /// Optional sampling parameters
         /// </param>
         /// <param name="numSamples">
-        /// Number of completions to generate for this prompt<br/>
+        /// Number of completions to generate per prompt<br/>
         /// Default Value: 1<br/>
         /// Example: 1
         /// </param>
@@ -41,7 +41,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlSampleOperation> SampleAsync(
             string sessionId,
-            global::Together.RlModelInput prompt,
+            global::System.Collections.Generic.IList<global::Together.RlModelInput> prompts,
             global::Together.RlSamplingParams? samplingParams = default,
             long? numSamples = default,
             global::System.Threading.CancellationToken cancellationToken = default);

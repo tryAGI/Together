@@ -17,8 +17,10 @@ namespace Together
         public double? Loss { get; set; }
 
         /// <summary>
-        /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)
+        /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)<br/>
+        /// Example: {"loss/clip/high_fraction":0.1,"loss/kl_ref/mean":0.05}
         /// </summary>
+        /// <example>{"loss/clip/high_fraction":0.1,"loss/kl_ref/mean":0.05}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("metrics")]
         public global::System.Collections.Generic.Dictionary<string, double>? Metrics { get; set; }
 
@@ -36,7 +38,8 @@ namespace Together
         /// Example: 2.345
         /// </param>
         /// <param name="metrics">
-        /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)
+        /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)<br/>
+        /// Example: {"loss/clip/high_fraction":0.1,"loss/kl_ref/mean":0.05}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

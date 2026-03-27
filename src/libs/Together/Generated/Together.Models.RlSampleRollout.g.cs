@@ -6,13 +6,13 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class RlSampleResult
+    public sealed partial class RlSampleRollout
     {
         /// <summary>
-        /// Completions grouped by prompt
+        /// Completions generated for one prompt
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("rollouts")]
-        public global::System.Collections.Generic.IList<global::Together.RlSampleRollout>? Rollouts { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("sequences")]
+        public global::System.Collections.Generic.IList<global::Together.RlSampleSequence>? Sequences { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -21,24 +21,24 @@ namespace Together
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RlSampleResult" /> class.
+        /// Initializes a new instance of the <see cref="RlSampleRollout" /> class.
         /// </summary>
-        /// <param name="rollouts">
-        /// Completions grouped by prompt
+        /// <param name="sequences">
+        /// Completions generated for one prompt
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public RlSampleResult(
-            global::System.Collections.Generic.IList<global::Together.RlSampleRollout>? rollouts)
+        public RlSampleRollout(
+            global::System.Collections.Generic.IList<global::Together.RlSampleSequence>? sequences)
         {
-            this.Rollouts = rollouts;
+            this.Sequences = sequences;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RlSampleResult" /> class.
+        /// Initializes a new instance of the <see cref="RlSampleRollout" /> class.
         /// </summary>
-        public RlSampleResult()
+        public RlSampleRollout()
         {
         }
     }
