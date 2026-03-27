@@ -4,7 +4,8 @@
 namespace Together
 {
     /// <summary>
-    /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)
+    /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)<br/>
+    /// Example: {"loss/clip/high_fraction":0.1,"loss/kl_ref/mean":0.05}
     /// </summary>
     public sealed partial class RlForwardBackwardResultMetrics
     {

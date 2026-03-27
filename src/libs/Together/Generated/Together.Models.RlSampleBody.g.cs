@@ -9,11 +9,11 @@ namespace Together
     public sealed partial class RlSampleBody
     {
         /// <summary>
-        /// Input prompt as tokenized chunks
+        /// Input prompts as tokenized chunks
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompts")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlModelInput Prompt { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.RlModelInput> Prompts { get; set; }
 
         /// <summary>
         /// Optional sampling parameters
@@ -22,7 +22,7 @@ namespace Together
         public global::Together.RlSamplingParams? SamplingParams { get; set; }
 
         /// <summary>
-        /// Number of completions to generate for this prompt<br/>
+        /// Number of completions to generate per prompt<br/>
         /// Default Value: 1<br/>
         /// Example: 1
         /// </summary>
@@ -39,14 +39,14 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlSampleBody" /> class.
         /// </summary>
-        /// <param name="prompt">
-        /// Input prompt as tokenized chunks
+        /// <param name="prompts">
+        /// Input prompts as tokenized chunks
         /// </param>
         /// <param name="samplingParams">
         /// Optional sampling parameters
         /// </param>
         /// <param name="numSamples">
-        /// Number of completions to generate for this prompt<br/>
+        /// Number of completions to generate per prompt<br/>
         /// Default Value: 1<br/>
         /// Example: 1
         /// </param>
@@ -54,11 +54,11 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSampleBody(
-            global::Together.RlModelInput prompt,
+            global::System.Collections.Generic.IList<global::Together.RlModelInput> prompts,
             global::Together.RlSamplingParams? samplingParams,
             long? numSamples)
         {
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Prompts = prompts ?? throw new global::System.ArgumentNullException(nameof(prompts));
             this.SamplingParams = samplingParams;
             this.NumSamples = numSamples;
         }
