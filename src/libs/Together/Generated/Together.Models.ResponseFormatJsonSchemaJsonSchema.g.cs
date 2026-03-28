@@ -28,7 +28,7 @@ namespace Together
         /// Learn how to build JSON schemas [here](https://json-schema.org/).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("schema")]
-        public object? Schema { get; set; }
+        public global::Together.ResponseFormatJsonSchemaSchema? Schema { get; set; }
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Together
         public ResponseFormatJsonSchemaJsonSchema(
             string name,
             string? description,
-            object? schema,
+            global::Together.ResponseFormatJsonSchemaSchema? schema,
             bool? strict)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));

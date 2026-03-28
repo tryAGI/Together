@@ -22,7 +22,7 @@ namespace Together
         /// Cross-entropy loss parameters (currently empty).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cross_entropy_params")]
-        public object? CrossEntropyParams { get; set; }
+        public global::Together.RlCrossEntropyLossParams? CrossEntropyParams { get; set; }
 
         /// <summary>
         /// 
@@ -52,7 +52,7 @@ namespace Together
 #endif
         public RlLossConfig(
             global::Together.RlLossType type,
-            object? crossEntropyParams,
+            global::Together.RlCrossEntropyLossParams? crossEntropyParams,
             global::Together.RlGRPOLossParams? grpoParams)
         {
             this.Type = type;
