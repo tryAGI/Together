@@ -30,8 +30,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoJobError" /> class.
         /// </summary>
-        /// <param name="code"></param>
         /// <param name="message"></param>
+        /// <param name="code"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -39,8 +39,8 @@ namespace Together
             string message,
             string? code)
         {
-            this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
             this.Code = code;
+            this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
         }
 
         /// <summary>

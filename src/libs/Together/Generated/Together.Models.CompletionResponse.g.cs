@@ -70,9 +70,9 @@ namespace Together
         /// <param name="prompt">
         /// When `echo` is true, the prompt is included in the response. Additionally, when `logprobs` is also provided, log probability information is provided on the prompt.
         /// </param>
-        /// <param name="usage"></param>
         /// <param name="created"></param>
         /// <param name="model"></param>
+        /// <param name="usage"></param>
         /// <param name="object">
         /// The object type, which is always `text.completion`.
         /// </param>
@@ -91,9 +91,9 @@ namespace Together
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Usage = usage;
             this.Created = created;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Usage = usage;
             this.Object = @object;
         }
 

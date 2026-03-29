@@ -86,9 +86,6 @@ namespace Together
         /// <param name="id">
         /// ID of the file.
         /// </param>
-        /// <param name="object">
-        /// The object type, which is always `file`.
-        /// </param>
         /// <param name="createdAt">
         /// The timestamp when the file was created.
         /// </param>
@@ -111,6 +108,9 @@ namespace Together
         /// Default Value: jsonl<br/>
         /// Example: jsonl
         /// </param>
+        /// <param name="object">
+        /// The object type, which is always `file`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -125,13 +125,13 @@ namespace Together
             string @object = "file")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object;
             this.CreatedAt = createdAt;
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Bytes = bytes;
             this.Purpose = purpose;
             this.Processed = processed;
             this.FileType = fileType;
-            this.Object = @object;
         }
 
         /// <summary>

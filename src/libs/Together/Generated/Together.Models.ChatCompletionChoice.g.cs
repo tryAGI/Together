@@ -47,8 +47,8 @@ namespace Together
         /// </summary>
         /// <param name="index"></param>
         /// <param name="finishReason"></param>
-        /// <param name="logprobs"></param>
         /// <param name="delta"></param>
+        /// <param name="logprobs"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -60,8 +60,8 @@ namespace Together
         {
             this.Index = index;
             this.FinishReason = finishReason;
-            this.Delta = delta ?? throw new global::System.ArgumentNullException(nameof(delta));
             this.Logprobs = logprobs;
+            this.Delta = delta ?? throw new global::System.ArgumentNullException(nameof(delta));
         }
 
         /// <summary>

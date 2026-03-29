@@ -42,9 +42,9 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionFunctionMessageParam" /> class.
         /// </summary>
-        /// <param name="role"></param>
         /// <param name="content"></param>
         /// <param name="name"></param>
+        /// <param name="role"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -53,9 +53,9 @@ namespace Together
             string name,
             global::Together.ChatCompletionFunctionMessageParamRole role)
         {
+            this.Role = role;
             this.Content = content ?? throw new global::System.ArgumentNullException(nameof(content));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Role = role;
         }
 
         /// <summary>

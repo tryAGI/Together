@@ -87,9 +87,6 @@ namespace Together
         /// <param name="id">
         /// Unique identifier for the video job.
         /// </param>
-        /// <param name="object">
-        /// The object type, which is always video.
-        /// </param>
         /// <param name="model">
         /// The video generation model that produced the job.
         /// </param>
@@ -99,14 +96,17 @@ namespace Together
         /// <param name="createdAt">
         /// Unix timestamp (seconds) for when the job was created.
         /// </param>
-        /// <param name="completedAt">
-        /// Unix timestamp (seconds) for when the job completed, if finished.
-        /// </param>
         /// <param name="size">
         /// The resolution of the generated video.
         /// </param>
         /// <param name="seconds">
         /// Duration of the generated clip in seconds.
+        /// </param>
+        /// <param name="object">
+        /// The object type, which is always video.
+        /// </param>
+        /// <param name="completedAt">
+        /// Unix timestamp (seconds) for when the job completed, if finished.
         /// </param>
         /// <param name="error">
         /// Error payload that explains why generation failed, if applicable.
@@ -130,13 +130,13 @@ namespace Together
             global::Together.VideoJobOutputs? outputs)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Status = status;
             this.CreatedAt = createdAt;
+            this.CompletedAt = completedAt;
             this.Size = size ?? throw new global::System.ArgumentNullException(nameof(size));
             this.Seconds = seconds ?? throw new global::System.ArgumentNullException(nameof(seconds));
-            this.Object = @object;
-            this.CompletedAt = completedAt;
             this.Error = error;
             this.Outputs = outputs;
         }

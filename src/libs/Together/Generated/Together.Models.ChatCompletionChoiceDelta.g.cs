@@ -58,8 +58,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionChoiceDelta" /> class.
         /// </summary>
-        /// <param name="tokenId"></param>
         /// <param name="role"></param>
+        /// <param name="tokenId"></param>
         /// <param name="content"></param>
         /// <param name="toolCalls"></param>
         /// <param name="reasoning"></param>
@@ -73,8 +73,8 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls,
             string? reasoning)
         {
-            this.Role = role;
             this.TokenId = tokenId;
+            this.Role = role;
             this.Content = content;
             this.ToolCalls = toolCalls;
             this.Reasoning = reasoning;

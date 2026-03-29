@@ -48,16 +48,16 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="QueueJobRequest" /> class.
         /// </summary>
-        /// <param name="info">
-        /// Arbitrary JSON metadata stored with the job and returned in status<br/>
-        /// responses. The model and system may add or update keys during<br/>
-        /// processing.
-        /// </param>
         /// <param name="model">
         /// Required model identifier
         /// </param>
         /// <param name="payload">
         /// Freeform model input. Passed unchanged to the model. Contents are model-specific.
+        /// </param>
+        /// <param name="info">
+        /// Arbitrary JSON metadata stored with the job and returned in status<br/>
+        /// responses. The model and system may add or update keys during<br/>
+        /// processing.
         /// </param>
         /// <param name="priority">
         /// Job priority. Higher values are processed first (strict priority<br/>
@@ -74,9 +74,9 @@ namespace Together
             object? info,
             int? priority)
         {
+            this.Info = info;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Payload = payload ?? throw new global::System.ArgumentNullException(nameof(payload));
-            this.Info = info;
             this.Priority = priority;
         }
 

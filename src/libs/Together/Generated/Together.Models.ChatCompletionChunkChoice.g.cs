@@ -59,12 +59,12 @@ namespace Together
         /// </summary>
         /// <param name="index"></param>
         /// <param name="finishReason"></param>
+        /// <param name="delta"></param>
         /// <param name="logprobs"></param>
         /// <param name="topLogprobs">
         /// Top log probabilities for the tokens.
         /// </param>
         /// <param name="seed"></param>
-        /// <param name="delta"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -78,10 +78,10 @@ namespace Together
         {
             this.Index = index;
             this.FinishReason = finishReason;
-            this.Delta = delta ?? throw new global::System.ArgumentNullException(nameof(delta));
             this.Logprobs = logprobs;
             this.TopLogprobs = topLogprobs;
             this.Seed = seed;
+            this.Delta = delta ?? throw new global::System.ArgumentNullException(nameof(delta));
         }
 
         /// <summary>

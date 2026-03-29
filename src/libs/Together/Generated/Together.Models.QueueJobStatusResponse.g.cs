@@ -99,6 +99,15 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="QueueJobStatusResponse" /> class.
         /// </summary>
+        /// <param name="model">
+        /// Model identifier the job was submitted to
+        /// </param>
+        /// <param name="requestId">
+        /// The request ID that was returned from the submit endpoint
+        /// </param>
+        /// <param name="status">
+        /// Current job status. Transitions: pending → running → done/failed. A pending job may also be canceled.
+        /// </param>
         /// <param name="claimedAt">
         /// Timestamp when a worker claimed the job
         /// </param>
@@ -116,17 +125,11 @@ namespace Together
         /// <param name="inputs">
         /// Freeform model input, as submitted
         /// </param>
-        /// <param name="model">
-        /// Model identifier the job was submitted to
-        /// </param>
         /// <param name="outputs">
         /// Freeform model output, populated when the job reaches done status. Contents are model-specific.
         /// </param>
         /// <param name="priority">
         /// Job priority. Higher values are processed first.
-        /// </param>
-        /// <param name="requestId">
-        /// The request ID that was returned from the submit endpoint
         /// </param>
         /// <param name="retries">
         /// Number of times this job has been retried. Workers set a claim<br/>
@@ -134,9 +137,6 @@ namespace Together
         /// If no update is received within the timeout, the job is returned to<br/>
         /// the queue and retried. After 3 retries the job is permanently<br/>
         /// failed. Jobs explicitly failed by the model are not retried.
-        /// </param>
-        /// <param name="status">
-        /// Current job status. Transitions: pending → running → done/failed. A pending job may also be canceled.
         /// </param>
         /// <param name="warnings">
         /// Non-fatal messages about the request (e.g. deprecation notices)
@@ -158,17 +158,17 @@ namespace Together
             int? retries,
             global::System.Collections.Generic.IList<string>? warnings)
         {
-            this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
-            this.Status = status;
             this.ClaimedAt = claimedAt;
             this.CreatedAt = createdAt;
             this.DoneAt = doneAt;
             this.Info = info;
             this.Inputs = inputs;
+            this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Outputs = outputs;
             this.Priority = priority;
+            this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.Retries = retries;
+            this.Status = status;
             this.Warnings = warnings;
         }
 

@@ -31,8 +31,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionUserMessageContentMultimodalItemAudio" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="audioUrl"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace Together
             global::Together.ChatCompletionUserMessageContentMultimodalItemAudioAudioUrl audioUrl,
             global::Together.ChatCompletionUserMessageContentMultimodalItemAudioType type)
         {
-            this.AudioUrl = audioUrl ?? throw new global::System.ArgumentNullException(nameof(audioUrl));
             this.Type = type;
+            this.AudioUrl = audioUrl ?? throw new global::System.ArgumentNullException(nameof(audioUrl));
         }
 
         /// <summary>

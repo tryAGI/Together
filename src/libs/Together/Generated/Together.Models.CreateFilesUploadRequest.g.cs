@@ -61,13 +61,13 @@ namespace Together
         /// The name of the file being uploaded<br/>
         /// Example: dataset.csv
         /// </param>
+        /// <param name="file">
+        /// The content of the file being uploaded
+        /// </param>
         /// <param name="fileType">
         /// The type of the file<br/>
         /// Default Value: jsonl<br/>
         /// Example: jsonl
-        /// </param>
-        /// <param name="file">
-        /// The content of the file being uploaded
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -80,8 +80,8 @@ namespace Together
         {
             this.Purpose = purpose;
             this.FileName = fileName ?? throw new global::System.ArgumentNullException(nameof(fileName));
-            this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
             this.FileType = fileType;
+            this.File = file ?? throw new global::System.ArgumentNullException(nameof(file));
         }
 
         /// <summary>

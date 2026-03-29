@@ -36,8 +36,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="CompletionChoice" /> class.
         /// </summary>
-        /// <param name="text"></param>
         /// <param name="index"></param>
+        /// <param name="text"></param>
         /// <param name="delta"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -47,8 +47,8 @@ namespace Together
             string? text,
             global::Together.CompletionChoiceDelta? delta)
         {
-            this.Index = index;
             this.Text = text;
+            this.Index = index;
             this.Delta = delta;
         }
 

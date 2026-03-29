@@ -46,11 +46,11 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationCompareParameters" /> class.
         /// </summary>
         /// <param name="judge"></param>
-        /// <param name="modelA"></param>
-        /// <param name="modelB"></param>
         /// <param name="inputDataFilePath">
         /// Data file name
         /// </param>
+        /// <param name="modelA"></param>
+        /// <param name="modelB"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -61,9 +61,9 @@ namespace Together
             global::Together.EvaluationModelOrString? modelB)
         {
             this.Judge = judge ?? throw new global::System.ArgumentNullException(nameof(judge));
-            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.ModelA = modelA;
             this.ModelB = modelB;
+            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
         }
 
         /// <summary>

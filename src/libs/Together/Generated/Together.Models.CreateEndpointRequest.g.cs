@@ -91,10 +91,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateEndpointRequest" /> class.
         /// </summary>
-        /// <param name="displayName">
-        /// A human-readable name for the endpoint<br/>
-        /// Example: My Llama3 70b endpoint
-        /// </param>
         /// <param name="model">
         /// The model to deploy on this endpoint<br/>
         /// Example: deepseek-ai/DeepSeek-R1
@@ -105,6 +101,10 @@ namespace Together
         /// </param>
         /// <param name="autoscaling">
         /// Configuration for automatic scaling of the endpoint
+        /// </param>
+        /// <param name="displayName">
+        /// A human-readable name for the endpoint<br/>
+        /// Example: My Llama3 70b endpoint
         /// </param>
         /// <param name="disableSpeculativeDecoding">
         /// Whether to disable speculative decoding for this endpoint<br/>
@@ -135,10 +135,10 @@ namespace Together
             int? inactiveTimeout,
             string? availabilityZone)
         {
+            this.DisplayName = displayName;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Hardware = hardware ?? throw new global::System.ArgumentNullException(nameof(hardware));
             this.Autoscaling = autoscaling ?? throw new global::System.ArgumentNullException(nameof(autoscaling));
-            this.DisplayName = displayName;
             this.DisableSpeculativeDecoding = disableSpeculativeDecoding;
             this.State = state;
             this.InactiveTimeout = inactiveTimeout;

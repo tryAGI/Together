@@ -31,8 +31,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionUserMessageContentMultimodalItemVariant1" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="text"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace Together
             string text,
             global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1Type type)
         {
-            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
             this.Type = type;
+            this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
         }
 
         /// <summary>

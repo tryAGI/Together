@@ -11,15 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        CanopylabsOrpheus3b01Ft,
+        CanopylabsDivideorpheus3b01Ft,
         /// <summary>
         /// 
         /// </summary>
-        CartesiaSonic,
+        CartesiaDividesonic,
         /// <summary>
         /// 
         /// </summary>
-        HexgradKokoro82m,
+        HexgradDivideKokoro82m,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Together
         {
             return value switch
             {
-                AudioSpeechRequestModel.CanopylabsOrpheus3b01Ft => "canopylabs/orpheus-3b-0.1-ft",
-                AudioSpeechRequestModel.CartesiaSonic => "cartesia/sonic",
-                AudioSpeechRequestModel.HexgradKokoro82m => "hexgrad/Kokoro-82M",
+                AudioSpeechRequestModel.CanopylabsDivideorpheus3b01Ft => "canopylabs/orpheus-3b-0.1-ft",
+                AudioSpeechRequestModel.CartesiaDividesonic => "cartesia/sonic",
+                AudioSpeechRequestModel.HexgradDivideKokoro82m => "hexgrad/Kokoro-82M",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Together
         {
             return value switch
             {
-                "canopylabs/orpheus-3b-0.1-ft" => AudioSpeechRequestModel.CanopylabsOrpheus3b01Ft,
-                "cartesia/sonic" => AudioSpeechRequestModel.CartesiaSonic,
-                "hexgrad/Kokoro-82M" => AudioSpeechRequestModel.HexgradKokoro82m,
+                "canopylabs/orpheus-3b-0.1-ft" => AudioSpeechRequestModel.CanopylabsDivideorpheus3b01Ft,
+                "cartesia/sonic" => AudioSpeechRequestModel.CartesiaDividesonic,
+                "hexgrad/Kokoro-82M" => AudioSpeechRequestModel.HexgradDivideKokoro82m,
                 _ => null,
             };
         }

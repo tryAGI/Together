@@ -31,10 +31,10 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ListEndpointsResponse" /> class.
         /// </summary>
+        /// <param name="data"></param>
         /// <param name="object">
         /// The object type, which is always `list`.
         /// </param>
-        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -42,8 +42,8 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.ListEndpoint> data,
             string @object = "list")
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

@@ -95,12 +95,6 @@ namespace Together
         /// <param name="modelName">
         /// The name of the model.
         /// </param>
-        /// <param name="fullTraining">
-        /// Limits for full training.
-        /// </param>
-        /// <param name="loraTraining">
-        /// Limits for LoRA training.
-        /// </param>
         /// <param name="maxNumEpochs">
         /// Maximum number of training epochs.
         /// </param>
@@ -125,6 +119,12 @@ namespace Together
         /// <param name="mergeOutputLora">
         /// Whether to merge the output LoRA.
         /// </param>
+        /// <param name="fullTraining">
+        /// Limits for full training.
+        /// </param>
+        /// <param name="loraTraining">
+        /// Limits for LoRA training.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -142,6 +142,8 @@ namespace Together
             global::Together.FineTuneModelLimitsLoraTraining? loraTraining)
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.FullTraining = fullTraining;
+            this.LoraTraining = loraTraining;
             this.MaxNumEpochs = maxNumEpochs;
             this.MaxNumEvals = maxNumEvals;
             this.MaxLearningRate = maxLearningRate;
@@ -150,8 +152,6 @@ namespace Together
             this.SupportsTools = supportsTools;
             this.SupportsReasoning = supportsReasoning;
             this.MergeOutputLora = mergeOutputLora;
-            this.FullTraining = fullTraining;
-            this.LoraTraining = loraTraining;
         }
 
         /// <summary>

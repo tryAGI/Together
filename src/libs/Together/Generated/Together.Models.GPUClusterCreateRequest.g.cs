@@ -88,9 +88,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="GPUClusterCreateRequest" /> class.
         /// </summary>
-        /// <param name="clusterType">
-        /// Type of cluster to create.
-        /// </param>
         /// <param name="region">
         /// Region to create the GPU cluster in. Usable regions can be found from `client.clusters.list_regions()`
         /// </param>
@@ -103,21 +100,24 @@ namespace Together
         /// <param name="clusterName">
         /// Name of the GPU cluster.
         /// </param>
-        /// <param name="durationDays">
-        /// Duration in days to keep the cluster running.
-        /// </param>
         /// <param name="driverVersion">
         /// NVIDIA driver version to use in the cluster.
+        /// </param>
+        /// <param name="billingType">
+        /// RESERVED billing types allow you to specify the duration of the cluster reservation via the duration_days field.<br/>
+        /// ON_DEMAND billing types will give you ownership of the cluster until you delete it.
+        /// </param>
+        /// <param name="clusterType">
+        /// Type of cluster to create.
+        /// </param>
+        /// <param name="durationDays">
+        /// Duration in days to keep the cluster running.
         /// </param>
         /// <param name="sharedVolume">
         /// Inline configuration to create a shared volume with the cluster creation.
         /// </param>
         /// <param name="volumeId">
         /// ID of an existing volume to use with the cluster creation.
-        /// </param>
-        /// <param name="billingType">
-        /// RESERVED billing types allow you to specify the duration of the cluster reservation via the duration_days field.<br/>
-        /// ON_DEMAND billing types will give you ownership of the cluster until you delete it.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -134,16 +134,16 @@ namespace Together
             global::Together.GPUClustersSharedVolumeCreateRequest? sharedVolume,
             string? volumeId)
         {
+            this.ClusterType = clusterType;
             this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
             this.GpuType = gpuType;
             this.NumGpus = numGpus;
             this.ClusterName = clusterName ?? throw new global::System.ArgumentNullException(nameof(clusterName));
-            this.DriverVersion = driverVersion;
-            this.BillingType = billingType;
-            this.ClusterType = clusterType;
             this.DurationDays = durationDays;
+            this.DriverVersion = driverVersion;
             this.SharedVolume = sharedVolume;
             this.VolumeId = volumeId;
+            this.BillingType = billingType;
         }
 
         /// <summary>

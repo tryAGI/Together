@@ -74,14 +74,14 @@ namespace Together
         /// </summary>
         /// <param name="id"></param>
         /// <param name="token"></param>
+        /// <param name="choices"></param>
+        /// <param name="usage"></param>
+        /// <param name="finishReason"></param>
         /// <param name="created"></param>
         /// <param name="object">
         /// The object type, which is always `completion.chunk`.
         /// </param>
-        /// <param name="choices"></param>
-        /// <param name="usage"></param>
         /// <param name="seed"></param>
-        /// <param name="finishReason"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -97,12 +97,12 @@ namespace Together
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
-            this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
-            this.Usage = usage;
-            this.FinishReason = finishReason;
             this.Created = created;
             this.Object = @object;
+            this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
+            this.Usage = usage;
             this.Seed = seed;
+            this.FinishReason = finishReason;
         }
 
         /// <summary>

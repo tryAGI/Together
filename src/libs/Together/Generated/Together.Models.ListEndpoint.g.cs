@@ -89,9 +89,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ListEndpoint" /> class.
         /// </summary>
-        /// <param name="object">
-        /// The object type, which is always `endpoint`.
-        /// </param>
         /// <param name="id">
         /// Unique identifier for the endpoint<br/>
         /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
@@ -120,6 +117,9 @@ namespace Together
         /// Timestamp when the endpoint was created<br/>
         /// Example: 2024-02-28T21:34:35.444Z
         /// </param>
+        /// <param name="object">
+        /// The object type, which is always `endpoint`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -133,6 +133,7 @@ namespace Together
             global::System.DateTime createdAt,
             string @object = "endpoint")
         {
+            this.Object = @object;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
@@ -140,7 +141,6 @@ namespace Together
             this.Owner = owner ?? throw new global::System.ArgumentNullException(nameof(owner));
             this.State = state;
             this.CreatedAt = createdAt;
-            this.Object = @object;
         }
 
         /// <summary>

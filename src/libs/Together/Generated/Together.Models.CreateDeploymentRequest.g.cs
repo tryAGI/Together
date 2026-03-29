@@ -129,6 +129,12 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateDeploymentRequest" /> class.
         /// </summary>
+        /// <param name="image">
+        /// Image is the container image to deploy from registry.together.ai.
+        /// </param>
+        /// <param name="name">
+        /// Name is the unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
+        /// </param>
         /// <param name="args">
         /// Args overrides the container's CMD. Provide as an array of arguments (e.g., ["python", "app.py"])
         /// </param>
@@ -156,9 +162,6 @@ namespace Together
         /// <param name="healthCheckPath">
         /// HealthCheckPath is the HTTP path for health checks (e.g., "/health"). If set, the platform will check this endpoint to determine container health
         /// </param>
-        /// <param name="image">
-        /// Image is the container image to deploy from registry.together.ai.
-        /// </param>
         /// <param name="maxReplicas">
         /// MaxReplicas is the maximum number of container instances that can be scaled up to. If not set, will be set to MinReplicas
         /// </param>
@@ -167,9 +170,6 @@ namespace Together
         /// </param>
         /// <param name="minReplicas">
         /// MinReplicas is the minimum number of container instances to run. Defaults to 1 if not specified
-        /// </param>
-        /// <param name="name">
-        /// Name is the unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
         /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
@@ -206,8 +206,6 @@ namespace Together
             int? terminationGracePeriodSeconds,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
         {
-            this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Args = args;
             this.Autoscaling = autoscaling;
             this.Command = command;
@@ -217,9 +215,11 @@ namespace Together
             this.GpuCount = gpuCount;
             this.GpuType = gpuType;
             this.HealthCheckPath = healthCheckPath;
+            this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
             this.MaxReplicas = maxReplicas;
             this.Memory = memory;
             this.MinReplicas = minReplicas;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Port = port;
             this.Storage = storage;
             this.TerminationGracePeriodSeconds = terminationGracePeriodSeconds;

@@ -38,11 +38,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingsResponse" /> class.
         /// </summary>
+        /// <param name="model"></param>
+        /// <param name="data"></param>
         /// <param name="object">
         /// The object type, which is always `list`.
         /// </param>
-        /// <param name="model"></param>
-        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -51,9 +51,9 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem> data,
             string @object = "list")
         {
+            this.Object = @object;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
-            this.Object = @object;
         }
 
         /// <summary>

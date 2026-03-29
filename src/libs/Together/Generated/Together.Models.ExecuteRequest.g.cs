@@ -56,13 +56,13 @@ namespace Together
         /// <param name="files">
         /// Files to upload to the session. If present, files will be uploaded before executing the given code.
         /// </param>
-        /// <param name="language">
-        /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
-        /// Default Value: python
-        /// </param>
         /// <param name="sessionId">
         /// Identifier of the current session. Used to make follow-up calls. Requests will return an error if the session does not belong to the caller or has expired.<br/>
         /// Example: ses_abcDEF123
+        /// </param>
+        /// <param name="language">
+        /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
+        /// Default Value: python
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
