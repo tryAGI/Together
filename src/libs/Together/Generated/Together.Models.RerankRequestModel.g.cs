@@ -11,7 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        SalesforceDivideLlamaRankV1,
+        SalesforceLlamaRankV1,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Together
         {
             return value switch
             {
-                RerankRequestModel.SalesforceDivideLlamaRankV1 => "Salesforce/Llama-Rank-v1",
+                RerankRequestModel.SalesforceLlamaRankV1 => "Salesforce/Llama-Rank-v1",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Together
         {
             return value switch
             {
-                "Salesforce/Llama-Rank-v1" => RerankRequestModel.SalesforceDivideLlamaRankV1,
+                "Salesforce/Llama-Rank-v1" => RerankRequestModel.SalesforceLlamaRankV1,
                 _ => null,
             };
         }
