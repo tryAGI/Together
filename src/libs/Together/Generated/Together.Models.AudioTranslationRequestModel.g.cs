@@ -12,7 +12,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        OpenaiDividewhisperLargeV3,
+        OpenaiWhisperLargeV3,
     }
 
     /// <summary>
@@ -27,7 +27,7 @@ namespace Together
         {
             return value switch
             {
-                AudioTranslationRequestModel.OpenaiDividewhisperLargeV3 => "openai/whisper-large-v3",
+                AudioTranslationRequestModel.OpenaiWhisperLargeV3 => "openai/whisper-large-v3",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,7 +38,7 @@ namespace Together
         {
             return value switch
             {
-                "openai/whisper-large-v3" => AudioTranslationRequestModel.OpenaiDividewhisperLargeV3,
+                "openai/whisper-large-v3" => AudioTranslationRequestModel.OpenaiWhisperLargeV3,
                 _ => null,
             };
         }

@@ -11,7 +11,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        MetaLlamaDivideLlamaGuard7b,
+        MetaLlamaLlamaGuard7b,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Together
         {
             return value switch
             {
-                CompletionRequestSafetyModel.MetaLlamaDivideLlamaGuard7b => "Meta-Llama/Llama-Guard-7b",
+                CompletionRequestSafetyModel.MetaLlamaLlamaGuard7b => "Meta-Llama/Llama-Guard-7b",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Together
         {
             return value switch
             {
-                "Meta-Llama/Llama-Guard-7b" => CompletionRequestSafetyModel.MetaLlamaDivideLlamaGuard7b,
+                "Meta-Llama/Llama-Guard-7b" => CompletionRequestSafetyModel.MetaLlamaLlamaGuard7b,
                 _ => null,
             };
         }
