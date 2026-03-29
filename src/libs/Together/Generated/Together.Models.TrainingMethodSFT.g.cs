@@ -34,11 +34,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="TrainingMethodSFT" /> class.
         /// </summary>
-        /// <param name="method"></param>
         /// <param name="trainOnInputs">
         /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
         /// Default Value: auto
         /// </param>
+        /// <param name="method"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -46,8 +46,8 @@ namespace Together
             global::Together.OneOf<bool?, global::Together.TrainingMethodSFTTrainOnInputs?> trainOnInputs,
             global::Together.TrainingMethodSFTMethod method)
         {
-            this.TrainOnInputs = trainOnInputs;
             this.Method = method;
+            this.TrainOnInputs = trainOnInputs;
         }
 
         /// <summary>

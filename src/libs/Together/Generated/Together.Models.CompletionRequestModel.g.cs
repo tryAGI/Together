@@ -11,19 +11,19 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        MetaLlamaLlamaGuard7b,
+        MetaLlamaDivideLlamaGuard7b,
         /// <summary>
         /// 
         /// </summary>
-        MetaLlamaLlama270bHf,
+        MetaLlamaDivideLlama270bHf,
         /// <summary>
         /// 
         /// </summary>
-        MistralaiMistral7bV01,
+        MistralaiDivideMistral7bV01,
         /// <summary>
         /// 
         /// </summary>
-        MistralaiMixtral8x7BV01,
+        MistralaiDivideMixtral8x7BV01,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace Together
         {
             return value switch
             {
-                CompletionRequestModel.MetaLlamaLlamaGuard7b => "Meta-Llama/Llama-Guard-7b",
-                CompletionRequestModel.MetaLlamaLlama270bHf => "meta-llama/Llama-2-70b-hf",
-                CompletionRequestModel.MistralaiMistral7bV01 => "mistralai/Mistral-7B-v0.1",
-                CompletionRequestModel.MistralaiMixtral8x7BV01 => "mistralai/Mixtral-8x7B-v0.1",
+                CompletionRequestModel.MetaLlamaDivideLlamaGuard7b => "Meta-Llama/Llama-Guard-7b",
+                CompletionRequestModel.MetaLlamaDivideLlama270bHf => "meta-llama/Llama-2-70b-hf",
+                CompletionRequestModel.MistralaiDivideMistral7bV01 => "mistralai/Mistral-7B-v0.1",
+                CompletionRequestModel.MistralaiDivideMixtral8x7BV01 => "mistralai/Mixtral-8x7B-v0.1",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace Together
         {
             return value switch
             {
-                "Meta-Llama/Llama-Guard-7b" => CompletionRequestModel.MetaLlamaLlamaGuard7b,
-                "meta-llama/Llama-2-70b-hf" => CompletionRequestModel.MetaLlamaLlama270bHf,
-                "mistralai/Mistral-7B-v0.1" => CompletionRequestModel.MistralaiMistral7bV01,
-                "mistralai/Mixtral-8x7B-v0.1" => CompletionRequestModel.MistralaiMixtral8x7BV01,
+                "Meta-Llama/Llama-Guard-7b" => CompletionRequestModel.MetaLlamaDivideLlamaGuard7b,
+                "meta-llama/Llama-2-70b-hf" => CompletionRequestModel.MetaLlamaDivideLlama270bHf,
+                "mistralai/Mistral-7B-v0.1" => CompletionRequestModel.MistralaiDivideMistral7bV01,
+                "mistralai/Mixtral-8x7B-v0.1" => CompletionRequestModel.MistralaiDivideMixtral8x7BV01,
                 _ => null,
             };
         }

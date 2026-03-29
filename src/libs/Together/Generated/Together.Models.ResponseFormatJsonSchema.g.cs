@@ -32,11 +32,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseFormatJsonSchema" /> class.
         /// </summary>
-        /// <param name="type">
-        /// The type of response format being defined. Always `json_schema`.
-        /// </param>
         /// <param name="jsonSchema">
         /// Structured Outputs configuration options, including a JSON Schema.
+        /// </param>
+        /// <param name="type">
+        /// The type of response format being defined. Always `json_schema`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -45,8 +45,8 @@ namespace Together
             global::Together.ResponseFormatJsonSchemaJsonSchema jsonSchema,
             global::Together.ResponseFormatJsonSchemaType type)
         {
-            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
             this.Type = type;
+            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
         }
 
         /// <summary>

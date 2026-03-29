@@ -113,9 +113,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="DedicatedEndpoint" /> class.
         /// </summary>
-        /// <param name="object">
-        /// The object type, which is always `endpoint`.
-        /// </param>
         /// <param name="id">
         /// Unique identifier for the endpoint<br/>
         /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
@@ -136,10 +133,6 @@ namespace Together
         /// The hardware configuration used for this endpoint<br/>
         /// Example: 8x_nvidia_h200_140gb_sxm
         /// </param>
-        /// <param name="type">
-        /// The type of endpoint<br/>
-        /// Example: dedicated
-        /// </param>
         /// <param name="owner">
         /// The owner of this endpoint<br/>
         /// Example: devuser
@@ -154,6 +147,13 @@ namespace Together
         /// <param name="createdAt">
         /// Timestamp when the endpoint was created<br/>
         /// Example: 2025-02-04T10:43:55.405Z
+        /// </param>
+        /// <param name="type">
+        /// The type of endpoint<br/>
+        /// Example: dedicated
+        /// </param>
+        /// <param name="object">
+        /// The object type, which is always `endpoint`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -171,17 +171,17 @@ namespace Together
             global::Together.DedicatedEndpointType type,
             string @object = "endpoint")
         {
+            this.Object = @object;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Hardware = hardware ?? throw new global::System.ArgumentNullException(nameof(hardware));
+            this.Type = type;
             this.Owner = owner ?? throw new global::System.ArgumentNullException(nameof(owner));
             this.State = state;
             this.Autoscaling = autoscaling ?? throw new global::System.ArgumentNullException(nameof(autoscaling));
             this.CreatedAt = createdAt;
-            this.Object = @object;
-            this.Type = type;
         }
 
         /// <summary>

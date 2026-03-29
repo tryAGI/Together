@@ -80,11 +80,11 @@ namespace Together
         /// Score threshold for passing<br/>
         /// Example: 7.0
         /// </param>
-        /// <param name="modelToEvaluate"></param>
         /// <param name="inputDataFilePath">
         /// Data file ID<br/>
         /// Example: file-01234567890123456789
         /// </param>
+        /// <param name="modelToEvaluate"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,8 +100,8 @@ namespace Together
             this.MinScore = minScore;
             this.MaxScore = maxScore;
             this.PassThreshold = passThreshold;
-            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.ModelToEvaluate = modelToEvaluate;
+            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
         }
 
         /// <summary>

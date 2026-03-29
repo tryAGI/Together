@@ -73,17 +73,17 @@ namespace Together
         /// Initializes a new instance of the <see cref="ChatCompletionChunk" /> class.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="object">
-        /// The object type, which is always `chat.completion.chunk`.
-        /// </param>
         /// <param name="created"></param>
-        /// <param name="systemFingerprint"></param>
         /// <param name="model">
         /// Example: mistralai/Mixtral-8x7B-Instruct-v0.1
         /// </param>
         /// <param name="choices"></param>
+        /// <param name="systemFingerprint"></param>
         /// <param name="usage"></param>
         /// <param name="warnings"></param>
+        /// <param name="object">
+        /// The object type, which is always `chat.completion.chunk`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -98,11 +98,11 @@ namespace Together
             string @object = "chat.completion.chunk")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object;
             this.Created = created;
+            this.SystemFingerprint = systemFingerprint;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
-            this.Object = @object;
-            this.SystemFingerprint = systemFingerprint;
             this.Usage = usage;
             this.Warnings = warnings;
         }

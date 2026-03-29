@@ -31,8 +31,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatCompletionUserMessageContentMultimodalItemVideo" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="videoUrl"></param>
+        /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace Together
             global::Together.ChatCompletionUserMessageContentMultimodalItemVideoVideoUrl videoUrl,
             global::Together.ChatCompletionUserMessageContentMultimodalItemVideoType type)
         {
-            this.VideoUrl = videoUrl ?? throw new global::System.ArgumentNullException(nameof(videoUrl));
             this.Type = type;
+            this.VideoUrl = videoUrl ?? throw new global::System.ArgumentNullException(nameof(videoUrl));
         }
 
         /// <summary>

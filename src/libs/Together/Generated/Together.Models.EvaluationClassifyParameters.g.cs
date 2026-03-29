@@ -67,11 +67,11 @@ namespace Together
         /// List of labels that are considered passing<br/>
         /// Example: [yes]
         /// </param>
-        /// <param name="modelToEvaluate"></param>
         /// <param name="inputDataFilePath">
         /// Data file ID<br/>
         /// Example: file-1234-aefd
         /// </param>
+        /// <param name="modelToEvaluate"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,8 +85,8 @@ namespace Together
             this.Judge = judge ?? throw new global::System.ArgumentNullException(nameof(judge));
             this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
             this.PassLabels = passLabels ?? throw new global::System.ArgumentNullException(nameof(passLabels));
-            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
             this.ModelToEvaluate = modelToEvaluate;
+            this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
         }
 
         /// <summary>

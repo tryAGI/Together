@@ -259,6 +259,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="FinetuneResponse" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="status"></param>
         /// <param name="trainingFile"></param>
         /// <param name="validationFile"></param>
         /// <param name="model"></param>
@@ -287,7 +288,6 @@ namespace Together
         /// <param name="trainingMethod"></param>
         /// <param name="trainingType"></param>
         /// <param name="multimodalParams"></param>
-        /// <param name="status"></param>
         /// <param name="jobId"></param>
         /// <param name="events"></param>
         /// <param name="tokenCount"></param>
@@ -348,7 +348,6 @@ namespace Together
             global::Together.FineTuneProgress? progress)
         {
             this.Id = id;
-            this.Status = status;
             this.TrainingFile = trainingFile;
             this.ValidationFile = validationFile;
             this.Model = model;
@@ -373,6 +372,7 @@ namespace Together
             this.TrainingMethod = trainingMethod;
             this.TrainingType = trainingType;
             this.MultimodalParams = multimodalParams;
+            this.Status = status;
             this.JobId = jobId;
             this.Events = events;
             this.TokenCount = tokenCount;

@@ -58,9 +58,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="HardwareWithStatus" /> class.
         /// </summary>
-        /// <param name="object">
-        /// The object type, which is always `hardware`.
-        /// </param>
         /// <param name="id">
         /// Unique identifier for the hardware configuration
         /// </param>
@@ -70,11 +67,14 @@ namespace Together
         /// <param name="specs">
         /// Detailed specifications of a hardware configuration
         /// </param>
+        /// <param name="updatedAt">
+        /// Timestamp of when the hardware status was last updated
+        /// </param>
         /// <param name="availability">
         /// Indicates the current availability status of a hardware configuration
         /// </param>
-        /// <param name="updatedAt">
-        /// Timestamp of when the hardware status was last updated
+        /// <param name="object">
+        /// The object type, which is always `hardware`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -87,12 +87,12 @@ namespace Together
             global::Together.HardwareAvailability? availability,
             string @object = "hardware")
         {
+            this.Object = @object;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Pricing = pricing ?? throw new global::System.ArgumentNullException(nameof(pricing));
             this.Specs = specs ?? throw new global::System.ArgumentNullException(nameof(specs));
-            this.UpdatedAt = updatedAt;
-            this.Object = @object;
             this.Availability = availability;
+            this.UpdatedAt = updatedAt;
         }
 
         /// <summary>

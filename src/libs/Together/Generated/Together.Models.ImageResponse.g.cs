@@ -47,10 +47,10 @@ namespace Together
         /// </summary>
         /// <param name="id"></param>
         /// <param name="model"></param>
+        /// <param name="data"></param>
         /// <param name="object">
         /// The object type, which is always `list`.
         /// </param>
-        /// <param name="data"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,8 +62,8 @@ namespace Together
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Object = @object;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

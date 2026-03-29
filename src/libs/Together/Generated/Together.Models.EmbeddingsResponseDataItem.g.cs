@@ -38,11 +38,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingsResponseDataItem" /> class.
         /// </summary>
+        /// <param name="embedding"></param>
+        /// <param name="index"></param>
         /// <param name="object">
         /// The object type, which is always `embedding`.
         /// </param>
-        /// <param name="embedding"></param>
-        /// <param name="index"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -51,9 +51,9 @@ namespace Together
             int index,
             string @object = "embedding")
         {
+            this.Object = @object;
             this.Embedding = embedding ?? throw new global::System.ArgumentNullException(nameof(embedding));
             this.Index = index;
-            this.Object = @object;
         }
 
         /// <summary>

@@ -43,17 +43,17 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateSecretRequest" /> class.
         /// </summary>
-        /// <param name="description">
-        /// Description is an optional human-readable description of the secret's purpose (max 500 characters)
-        /// </param>
         /// <param name="name">
         /// Name is the unique identifier for the secret. Can contain alphanumeric characters, underscores, hyphens, forward slashes, and periods (1-100 characters)
         /// </param>
-        /// <param name="projectId">
-        /// ProjectID is ignored - the project is automatically determined from your authentication
-        /// </param>
         /// <param name="value">
         /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). This value will be encrypted at rest
+        /// </param>
+        /// <param name="description">
+        /// Description is an optional human-readable description of the secret's purpose (max 500 characters)
+        /// </param>
+        /// <param name="projectId">
+        /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -64,10 +64,10 @@ namespace Together
             string? description,
             string? projectId)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
             this.Description = description;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ProjectId = projectId;
+            this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
         }
 
         /// <summary>

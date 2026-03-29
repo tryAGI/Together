@@ -30,8 +30,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecuteResponseSuccessfulExecution" /> class.
         /// </summary>
-        /// <param name="errors"></param>
         /// <param name="data"></param>
+        /// <param name="errors"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -39,8 +39,8 @@ namespace Together
             global::Together.ExecuteResponseSuccessfulExecutionData data,
             object? errors)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Errors = errors;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

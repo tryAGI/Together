@@ -92,9 +92,6 @@ namespace Together
         /// <param name="id">
         /// Example: Austism/chronos-hermes-13b
         /// </param>
-        /// <param name="object">
-        /// The object type, which is always `model`.
-        /// </param>
         /// <param name="created">
         /// Example: 1692896905
         /// </param>
@@ -115,6 +112,9 @@ namespace Together
         /// Example: 2048
         /// </param>
         /// <param name="pricing"></param>
+        /// <param name="object">
+        /// The object type, which is always `model`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -131,9 +131,9 @@ namespace Together
             string @object = "model")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Object = @object;
             this.Created = created;
             this.Type = type;
-            this.Object = @object;
             this.DisplayName = displayName;
             this.Organization = organization;
             this.Link = link;

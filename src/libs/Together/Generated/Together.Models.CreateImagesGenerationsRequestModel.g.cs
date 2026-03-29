@@ -11,15 +11,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        BlackForestLabsFLUX1Schnell,
+        BlackForestLabsDivideFLUX1Schnell,
         /// <summary>
         /// 
         /// </summary>
-        BlackForestLabsFLUX1SchnellFree,
+        BlackForestLabsDivideFLUX1SchnellFree,
         /// <summary>
         /// 
         /// </summary>
-        BlackForestLabsFLUX11Pro,
+        BlackForestLabsDivideFLUX11Pro,
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ namespace Together
         {
             return value switch
             {
-                CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1Schnell => "black-forest-labs/FLUX.1-schnell",
-                CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1SchnellFree => "black-forest-labs/FLUX.1-schnell-Free",
-                CreateImagesGenerationsRequestModel.BlackForestLabsFLUX11Pro => "black-forest-labs/FLUX.1.1-pro",
+                CreateImagesGenerationsRequestModel.BlackForestLabsDivideFLUX1Schnell => "black-forest-labs/FLUX.1-schnell",
+                CreateImagesGenerationsRequestModel.BlackForestLabsDivideFLUX1SchnellFree => "black-forest-labs/FLUX.1-schnell-Free",
+                CreateImagesGenerationsRequestModel.BlackForestLabsDivideFLUX11Pro => "black-forest-labs/FLUX.1.1-pro",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -47,9 +47,9 @@ namespace Together
         {
             return value switch
             {
-                "black-forest-labs/FLUX.1-schnell" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1Schnell,
-                "black-forest-labs/FLUX.1-schnell-Free" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX1SchnellFree,
-                "black-forest-labs/FLUX.1.1-pro" => CreateImagesGenerationsRequestModel.BlackForestLabsFLUX11Pro,
+                "black-forest-labs/FLUX.1-schnell" => CreateImagesGenerationsRequestModel.BlackForestLabsDivideFLUX1Schnell,
+                "black-forest-labs/FLUX.1-schnell-Free" => CreateImagesGenerationsRequestModel.BlackForestLabsDivideFLUX1SchnellFree,
+                "black-forest-labs/FLUX.1.1-pro" => CreateImagesGenerationsRequestModel.BlackForestLabsDivideFLUX11Pro,
                 _ => null,
             };
         }

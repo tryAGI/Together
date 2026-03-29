@@ -11,19 +11,19 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        BaaiBgeBaseEnV15,
+        BAAIDividebgeBaseEnV15,
         /// <summary>
         /// 
         /// </summary>
-        BaaiBgeLargeEnV15,
+        BAAIDividebgeLargeEnV15,
         /// <summary>
         /// 
         /// </summary>
-        WhereIsAIUAELargeV1,
+        WhereIsAIDivideUAELargeV1,
         /// <summary>
         /// 
         /// </summary>
-        TogethercomputerM2Bert80m8kRetrieval,
+        TogethercomputerDividem2Bert80m8kRetrieval,
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace Together
         {
             return value switch
             {
-                EmbeddingsRequestModel.BaaiBgeBaseEnV15 => "BAAI/bge-base-en-v1.5",
-                EmbeddingsRequestModel.BaaiBgeLargeEnV15 => "BAAI/bge-large-en-v1.5",
-                EmbeddingsRequestModel.WhereIsAIUAELargeV1 => "WhereIsAI/UAE-Large-V1",
-                EmbeddingsRequestModel.TogethercomputerM2Bert80m8kRetrieval => "togethercomputer/m2-bert-80M-8k-retrieval",
+                EmbeddingsRequestModel.BAAIDividebgeBaseEnV15 => "BAAI/bge-base-en-v1.5",
+                EmbeddingsRequestModel.BAAIDividebgeLargeEnV15 => "BAAI/bge-large-en-v1.5",
+                EmbeddingsRequestModel.WhereIsAIDivideUAELargeV1 => "WhereIsAI/UAE-Large-V1",
+                EmbeddingsRequestModel.TogethercomputerDividem2Bert80m8kRetrieval => "togethercomputer/m2-bert-80M-8k-retrieval",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +52,10 @@ namespace Together
         {
             return value switch
             {
-                "BAAI/bge-base-en-v1.5" => EmbeddingsRequestModel.BaaiBgeBaseEnV15,
-                "BAAI/bge-large-en-v1.5" => EmbeddingsRequestModel.BaaiBgeLargeEnV15,
-                "WhereIsAI/UAE-Large-V1" => EmbeddingsRequestModel.WhereIsAIUAELargeV1,
-                "togethercomputer/m2-bert-80M-8k-retrieval" => EmbeddingsRequestModel.TogethercomputerM2Bert80m8kRetrieval,
+                "BAAI/bge-base-en-v1.5" => EmbeddingsRequestModel.BAAIDividebgeBaseEnV15,
+                "BAAI/bge-large-en-v1.5" => EmbeddingsRequestModel.BAAIDividebgeLargeEnV15,
+                "WhereIsAI/UAE-Large-V1" => EmbeddingsRequestModel.WhereIsAIDivideUAELargeV1,
+                "togethercomputer/m2-bert-80M-8k-retrieval" => EmbeddingsRequestModel.TogethercomputerDividem2Bert80m8kRetrieval,
                 _ => null,
             };
         }
