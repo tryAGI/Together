@@ -34,7 +34,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.DataItem> Data { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.DataItem3> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,7 +57,7 @@ namespace Together
         public ImageResponse(
             string id,
             string model,
-            global::System.Collections.Generic.IList<global::Together.DataItem> data,
+            global::System.Collections.Generic.IList<global::Together.DataItem3> data,
             string @object = "list")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));

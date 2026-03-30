@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Result of a save training checkpoint operation
     /// </summary>
     public sealed partial class RlTrainingCheckpointResult
     {
@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>550e8400-e29b-41d4-a716-446655440000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_id")]
-        public string? CheckpointId { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string CheckpointId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,9 +34,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingCheckpointResult(
-            string? checkpointId)
+            string checkpointId)
         {
-            this.CheckpointId = checkpointId;
+            this.CheckpointId = checkpointId ?? throw new global::System.ArgumentNullException(nameof(checkpointId));
         }
 
         /// <summary>

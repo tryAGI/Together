@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// A single generated completion sequence with tokens and logprobs
     /// </summary>
     public sealed partial class RlSampleSequence
     {
@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>[123, 456, 789]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
-        public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<string> Tokens { get; set; }
 
         /// <summary>
         /// Log probabilities for each generated token<br/>
@@ -57,11 +58,11 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSampleSequence(
-            global::System.Collections.Generic.IList<string>? tokens,
+            global::System.Collections.Generic.IList<string> tokens,
             global::System.Collections.Generic.IList<double>? logprobs,
             string? stopReason)
         {
-            this.Tokens = tokens;
+            this.Tokens = tokens ?? throw new global::System.ArgumentNullException(nameof(tokens));
             this.Logprobs = logprobs;
             this.StopReason = stopReason;
         }

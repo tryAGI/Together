@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>[123, 456, 789]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
-        public global::System.Collections.Generic.IList<string>? Tokens { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>> Tokens { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,9 +34,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlEncodedText(
-            global::System.Collections.Generic.IList<string>? tokens)
+            global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>> tokens)
         {
-            this.Tokens = tokens;
+            this.Tokens = tokens ?? throw new global::System.ArgumentNullException(nameof(tokens));
         }
 
         /// <summary>

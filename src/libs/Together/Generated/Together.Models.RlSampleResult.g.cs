@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Result of a sample operation
     /// </summary>
     public sealed partial class RlSampleResult
     {
@@ -12,7 +12,8 @@ namespace Together
         /// Completions grouped by prompt
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rollouts")]
-        public global::System.Collections.Generic.IList<global::Together.RlSampleRollout>? Rollouts { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.RlSampleRollout> Rollouts { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,9 +31,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSampleResult(
-            global::System.Collections.Generic.IList<global::Together.RlSampleRollout>? rollouts)
+            global::System.Collections.Generic.IList<global::Together.RlSampleRollout> rollouts)
         {
-            this.Rollouts = rollouts;
+            this.Rollouts = rollouts ?? throw new global::System.ArgumentNullException(nameof(rollouts));
         }
 
         /// <summary>

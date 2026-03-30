@@ -4,10 +4,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public class DataItemJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.DataItem>
+    public class DataItem3JsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.DataItem3>
     {
         /// <inheritdoc />
-        public override global::Together.DataItem Read(
+        public override global::Together.DataItem3 Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -104,7 +104,7 @@ namespace Together.JsonConverters
                 }
             }
 
-            var __value = new global::Together.DataItem(
+            var __value = new global::Together.DataItem3(
                 b64Json,
 
                 url
@@ -116,7 +116,7 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.DataItem value,
+            global::Together.DataItem3 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));

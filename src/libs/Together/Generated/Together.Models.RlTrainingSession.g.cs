@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// A training session and its current state
     /// </summary>
     public sealed partial class RlTrainingSession
     {
@@ -14,15 +14,18 @@ namespace Together
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public string? Id { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
 
         /// <summary>
         /// Status of the training session<br/>
         /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
         /// </summary>
+        /// <default>global::Together.RlTrainingSessionStatus.TrainingSessionStatusUnspecified</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlTrainingSessionStatusJsonConverter))]
-        public global::Together.RlTrainingSessionStatus? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlTrainingSessionStatus Status { get; set; } = global::Together.RlTrainingSessionStatus.TrainingSessionStatusUnspecified;
 
         /// <summary>
         /// Base model used for the training session<br/>
@@ -30,19 +33,22 @@ namespace Together
         /// </summary>
         /// <example>meta-llama/Meta-Llama-3-8B-Instruct</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
-        public string? BaseModel { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string BaseModel { get; set; }
 
         /// <summary>
         /// List of saved inference checkpoints for this session
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inference_checkpoints")]
-        public global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint>? InferenceCheckpoints { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint> InferenceCheckpoints { get; set; }
 
         /// <summary>
         /// List of saved training checkpoints for this session
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_checkpoints")]
-        public global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint>? TrainingCheckpoints { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint> TrainingCheckpoints { get; set; }
 
         /// <summary>
         /// Checkpoint ID this session was resumed from<br/>
@@ -57,9 +63,11 @@ namespace Together
         /// Default Value: 0<br/>
         /// Example: 100
         /// </summary>
+        /// <default>"0"</default>
         /// <example>100</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("step")]
-        public string? Step { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Step { get; set; } = "0";
 
         /// <summary>
         /// Timestamp when the training session was created<br/>
@@ -67,7 +75,8 @@ namespace Together
         /// </summary>
         /// <example>2026-01-02T00:00:00Z</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public global::System.DateTime? CreatedAt { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Timestamp when the training session was last updated<br/>
@@ -75,13 +84,15 @@ namespace Together
         /// </summary>
         /// <example>2026-01-02T00:00:05Z</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
-        public global::System.DateTime? UpdatedAt { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// LoRA adapter configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
-        public global::Together.RlLoraConfig? LoraConfig { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlLoraConfig LoraConfig { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -110,10 +121,6 @@ namespace Together
         /// <param name="trainingCheckpoints">
         /// List of saved training checkpoints for this session
         /// </param>
-        /// <param name="resumeFromCheckpointId">
-        /// Checkpoint ID this session was resumed from<br/>
-        /// Example: 123e4567-e89b-12d3-a456-426614174000
-        /// </param>
         /// <param name="step">
         /// Current training step<br/>
         /// Default Value: 0<br/>
@@ -130,31 +137,35 @@ namespace Together
         /// <param name="loraConfig">
         /// LoRA adapter configuration
         /// </param>
+        /// <param name="resumeFromCheckpointId">
+        /// Checkpoint ID this session was resumed from<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingSession(
-            string? id,
-            global::Together.RlTrainingSessionStatus? status,
-            string? baseModel,
-            global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint>? inferenceCheckpoints,
-            global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint>? trainingCheckpoints,
-            string? resumeFromCheckpointId,
-            string? step,
-            global::System.DateTime? createdAt,
-            global::System.DateTime? updatedAt,
-            global::Together.RlLoraConfig? loraConfig)
+            string id,
+            global::Together.RlTrainingSessionStatus status,
+            string baseModel,
+            global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint> inferenceCheckpoints,
+            global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint> trainingCheckpoints,
+            string step,
+            global::System.DateTime createdAt,
+            global::System.DateTime updatedAt,
+            global::Together.RlLoraConfig loraConfig,
+            string? resumeFromCheckpointId)
         {
-            this.Id = id;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
-            this.BaseModel = baseModel;
-            this.InferenceCheckpoints = inferenceCheckpoints;
-            this.TrainingCheckpoints = trainingCheckpoints;
+            this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
+            this.InferenceCheckpoints = inferenceCheckpoints ?? throw new global::System.ArgumentNullException(nameof(inferenceCheckpoints));
+            this.TrainingCheckpoints = trainingCheckpoints ?? throw new global::System.ArgumentNullException(nameof(trainingCheckpoints));
             this.ResumeFromCheckpointId = resumeFromCheckpointId;
-            this.Step = step;
+            this.Step = step ?? throw new global::System.ArgumentNullException(nameof(step));
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.LoraConfig = loraConfig;
+            this.LoraConfig = loraConfig ?? throw new global::System.ArgumentNullException(nameof(loraConfig));
         }
 
         /// <summary>

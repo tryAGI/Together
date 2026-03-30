@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Pagination metadata for list responses
     /// </summary>
     public sealed partial class RlListMeta
     {

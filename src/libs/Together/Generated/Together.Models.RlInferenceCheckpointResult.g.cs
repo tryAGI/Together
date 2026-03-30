@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Result of an inference checkpoint operation
     /// </summary>
     public sealed partial class RlInferenceCheckpointResult
     {
@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>username/Meta-Llama-3-8B-rl-step-42-20260216</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
-        public string? ModelName { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,9 +34,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlInferenceCheckpointResult(
-            string? modelName)
+            string modelName)
         {
-            this.ModelName = modelName;
+            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
         }
 
         /// <summary>

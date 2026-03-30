@@ -7,7 +7,7 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public readonly partial struct DataItem : global::System.IEquatable<DataItem>
+    public readonly partial struct DataItem3 : global::System.IEquatable<DataItem3>
     {
         /// <summary>
         /// 
@@ -45,17 +45,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DataItem(global::Together.ImageResponseDataB64 value) => new DataItem((global::Together.ImageResponseDataB64?)value);
+        public static implicit operator DataItem3(global::Together.ImageResponseDataB64 value) => new DataItem3((global::Together.ImageResponseDataB64?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.ImageResponseDataB64?(DataItem @this) => @this.B64Json;
+        public static implicit operator global::Together.ImageResponseDataB64?(DataItem3 @this) => @this.B64Json;
 
         /// <summary>
         /// 
         /// </summary>
-        public DataItem(global::Together.ImageResponseDataB64? value)
+        public DataItem3(global::Together.ImageResponseDataB64? value)
         {
             B64Json = value;
         }
@@ -63,17 +63,17 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator DataItem(global::Together.ImageResponseDataUrl value) => new DataItem((global::Together.ImageResponseDataUrl?)value);
+        public static implicit operator DataItem3(global::Together.ImageResponseDataUrl value) => new DataItem3((global::Together.ImageResponseDataUrl?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Together.ImageResponseDataUrl?(DataItem @this) => @this.Url;
+        public static implicit operator global::Together.ImageResponseDataUrl?(DataItem3 @this) => @this.Url;
 
         /// <summary>
         /// 
         /// </summary>
-        public DataItem(global::Together.ImageResponseDataUrl? value)
+        public DataItem3(global::Together.ImageResponseDataUrl? value)
         {
             Url = value;
         }
@@ -81,7 +81,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public DataItem(
+        public DataItem3(
             global::Together.ImageResponseDataB64? b64Json,
             global::Together.ImageResponseDataUrl? url
             )
@@ -186,7 +186,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public bool Equals(DataItem other)
+        public bool Equals(DataItem3 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.ImageResponseDataB64?>.Default.Equals(B64Json, other.B64Json) &&
@@ -197,15 +197,15 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator ==(DataItem obj1, DataItem obj2)
+        public static bool operator ==(DataItem3 obj1, DataItem3 obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<DataItem>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<DataItem3>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator !=(DataItem obj1, DataItem obj2)
+        public static bool operator !=(DataItem3 obj1, DataItem3 obj2)
         {
             return !(obj1 == obj2);
         }
@@ -215,7 +215,7 @@ namespace Together
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is DataItem o && Equals(o);
+            return obj is DataItem3 o && Equals(o);
         }
     }
 }
