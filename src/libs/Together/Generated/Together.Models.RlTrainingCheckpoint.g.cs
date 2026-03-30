@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public string? Id { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
 
         /// <summary>
         /// Training step at time of save<br/>
@@ -22,7 +23,8 @@ namespace Together
         /// </summary>
         /// <example>42</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("step")]
-        public string? Step { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Step { get; set; }
 
         /// <summary>
         /// Timestamp when the checkpoint was created<br/>
@@ -30,7 +32,8 @@ namespace Together
         /// </summary>
         /// <example>2026-01-02T00:00:00Z</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public global::System.DateTime? CreatedAt { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,12 +60,12 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingCheckpoint(
-            string? id,
-            string? step,
-            global::System.DateTime? createdAt)
+            string id,
+            string step,
+            global::System.DateTime createdAt)
         {
-            this.Id = id;
-            this.Step = step;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Step = step ?? throw new global::System.ArgumentNullException(nameof(step));
             this.CreatedAt = createdAt;
         }
 

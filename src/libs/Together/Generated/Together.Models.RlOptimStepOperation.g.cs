@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Async optimizer step operation
     /// </summary>
     public sealed partial class RlOptimStepOperation
     {
@@ -14,24 +14,27 @@ namespace Together
         /// </summary>
         /// <example>550e8400-e29b-41d4-a716-446655440000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public string? Id { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
 
         /// <summary>
         /// Operation status<br/>
         /// Default Value: TRAINING_OPERATION_STATUS_UNSPECIFIED
         /// </summary>
+        /// <default>global::Together.RlTrainingOperationStatus.TrainingOperationStatusUnspecified</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlTrainingOperationStatusJsonConverter))]
-        public global::Together.RlTrainingOperationStatus? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlTrainingOperationStatus Status { get; set; } = global::Together.RlTrainingOperationStatus.TrainingOperationStatusUnspecified;
 
         /// <summary>
-        /// 
+        /// Result on success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
         public global::Together.RlOptimStepResult? Output { get; set; }
 
         /// <summary>
-        /// 
+        /// Error details on failure
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::Together.RlTrainingOperationError? Error { get; set; }
@@ -53,18 +56,22 @@ namespace Together
         /// Operation status<br/>
         /// Default Value: TRAINING_OPERATION_STATUS_UNSPECIFIED
         /// </param>
-        /// <param name="output"></param>
-        /// <param name="error"></param>
+        /// <param name="output">
+        /// Result on success
+        /// </param>
+        /// <param name="error">
+        /// Error details on failure
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlOptimStepOperation(
-            string? id,
-            global::Together.RlTrainingOperationStatus? status,
+            string id,
+            global::Together.RlTrainingOperationStatus status,
             global::Together.RlOptimStepResult? output,
             global::Together.RlTrainingOperationError? error)
         {
-            this.Id = id;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
             this.Output = output;
             this.Error = error;

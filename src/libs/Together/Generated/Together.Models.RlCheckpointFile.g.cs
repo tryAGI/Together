@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>model-00001-of-00002.safetensors</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
-        public string? Filename { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Filename { get; set; }
 
         /// <summary>
         /// Presigned URL for downloading the file<br/>
@@ -22,7 +23,8 @@ namespace Together
         /// </summary>
         /// <example>https://...</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        public string? Url { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Url { get; set; }
 
         /// <summary>
         /// File size in bytes<br/>
@@ -30,7 +32,8 @@ namespace Together
         /// </summary>
         /// <example>123456789</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("size")]
-        public string? Size { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Size { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,13 +60,13 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlCheckpointFile(
-            string? filename,
-            string? url,
-            string? size)
+            string filename,
+            string url,
+            string size)
         {
-            this.Filename = filename;
-            this.Url = url;
-            this.Size = size;
+            this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.Size = size ?? throw new global::System.ArgumentNullException(nameof(size));
         }
 
         /// <summary>

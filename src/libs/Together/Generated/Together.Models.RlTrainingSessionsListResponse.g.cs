@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Paginated list of training sessions
     /// </summary>
     public sealed partial class RlTrainingSessionsListResponse
     {

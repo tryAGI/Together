@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Error details for a failed training operation
     /// </summary>
     public sealed partial class RlTrainingOperationError
     {

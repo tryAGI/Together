@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>username/Meta-Llama-3-8B-rl-step-42-20260216</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
-        public string? ModelName { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ModelName { get; set; }
 
         /// <summary>
         /// Timestamp when the model was registered<br/>
@@ -22,7 +23,8 @@ namespace Together
         /// </summary>
         /// <example>2026-01-02T00:00:00Z</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("registered_at")]
-        public global::System.DateTime? RegisteredAt { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.DateTime RegisteredAt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,10 +47,10 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlInferenceCheckpointRegistration(
-            string? modelName,
-            global::System.DateTime? registeredAt)
+            string modelName,
+            global::System.DateTime registeredAt)
         {
-            this.ModelName = modelName;
+            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.RegisteredAt = registeredAt;
         }
 

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Result of a forward-backward pass operation
     /// </summary>
     public sealed partial class RlForwardBackwardResult
     {
@@ -14,7 +14,8 @@ namespace Together
         /// </summary>
         /// <example>2.345</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("loss")]
-        public double? Loss { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required double Loss { get; set; }
 
         /// <summary>
         /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)<br/>
@@ -45,7 +46,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlForwardBackwardResult(
-            double? loss,
+            double loss,
             global::System.Collections.Generic.Dictionary<string, double>? metrics)
         {
             this.Loss = loss;

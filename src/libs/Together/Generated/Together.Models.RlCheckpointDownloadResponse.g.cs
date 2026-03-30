@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Presigned download URLs for a checkpoint's files
     /// </summary>
     public sealed partial class RlCheckpointDownloadResponse
     {
@@ -12,7 +12,8 @@ namespace Together
         /// List of files with presigned download URLs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        public global::System.Collections.Generic.IList<global::Together.RlCheckpointFile>? Data { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.RlCheckpointFile> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,9 +31,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlCheckpointDownloadResponse(
-            global::System.Collections.Generic.IList<global::Together.RlCheckpointFile>? data)
+            global::System.Collections.Generic.IList<global::Together.RlCheckpointFile> data)
         {
-            this.Data = data;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
         }
 
         /// <summary>

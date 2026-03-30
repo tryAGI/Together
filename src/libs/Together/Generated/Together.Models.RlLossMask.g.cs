@@ -15,7 +15,7 @@ namespace Together
         /// <example>[0, 0, 1]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Data { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>> Data { get; set; }
 
         /// <summary>
         /// Data type of the integer array (must be D_TYPE_INT64)<br/>
@@ -46,7 +46,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlLossMask(
-            global::System.Collections.Generic.IList<string> data,
+            global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>> data,
             global::Together.RlDType? dtype)
         {
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
