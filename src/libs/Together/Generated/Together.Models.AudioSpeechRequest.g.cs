@@ -64,6 +64,13 @@ namespace Together
         public int? SampleRate { get; set; }
 
         /// <summary>
+        /// Bitrate of the MP3 audio output in bits per second. Only applicable when response_format is mp3. Higher values produce better audio quality at larger file sizes. Default is 128000. Currently supported on Cartesia models.<br/>
+        /// Default Value: 128000
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("bit_rate")]
+        public int? BitRate { get; set; }
+
+        /// <summary>
         /// If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream<br/>
         /// Default Value: false
         /// </summary>
@@ -105,6 +112,10 @@ namespace Together
         /// Sampling rate to use for the output audio. The default sampling rate for canopylabs/orpheus-3b-0.1-ft and hexgrad/Kokoro-82M is 24000 and for cartesia/sonic is 44100.<br/>
         /// Default Value: 44100
         /// </param>
+        /// <param name="bitRate">
+        /// Bitrate of the MP3 audio output in bits per second. Only applicable when response_format is mp3. Higher values produce better audio quality at larger file sizes. Default is 128000. Currently supported on Cartesia models.<br/>
+        /// Default Value: 128000
+        /// </param>
         /// <param name="stream">
         /// If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream<br/>
         /// Default Value: false
@@ -120,6 +131,7 @@ namespace Together
             global::Together.AudioSpeechRequestLanguage? language,
             global::Together.AudioSpeechRequestResponseEncoding? responseEncoding,
             int? sampleRate,
+            int? bitRate,
             bool? stream)
         {
             this.Model = model;
@@ -129,6 +141,7 @@ namespace Together
             this.Language = language;
             this.ResponseEncoding = responseEncoding;
             this.SampleRate = sampleRate;
+            this.BitRate = bitRate;
             this.Stream = stream;
         }
 
