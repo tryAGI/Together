@@ -197,6 +197,10 @@ namespace Together
         /// Sampling rate to use for the output audio. The default sampling rate for canopylabs/orpheus-3b-0.1-ft and hexgrad/Kokoro-82M is 24000 and for cartesia/sonic is 44100.<br/>
         /// Default Value: 44100
         /// </param>
+        /// <param name="bitRate">
+        /// Bitrate of the MP3 audio output in bits per second. Only applicable when response_format is mp3. Higher values produce better audio quality at larger file sizes. Default is 128000. Currently supported on Cartesia models.<br/>
+        /// Default Value: 128000
+        /// </param>
         /// <param name="stream">
         /// If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream<br/>
         /// Default Value: false
@@ -211,6 +215,7 @@ namespace Together
             global::Together.AudioSpeechRequestLanguage? language = default,
             global::Together.AudioSpeechRequestResponseEncoding? responseEncoding = default,
             int? sampleRate = default,
+            int? bitRate = default,
             bool? stream = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -223,6 +228,7 @@ namespace Together
                 Language = language,
                 ResponseEncoding = responseEncoding,
                 SampleRate = sampleRate,
+                BitRate = bitRate,
                 Stream = stream,
             };
 
