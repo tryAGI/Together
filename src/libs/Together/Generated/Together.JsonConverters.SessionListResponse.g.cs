@@ -122,13 +122,13 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Response, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Response!, typeInfo);
             }
             else if (value.IsValue2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2!, typeInfo);
             }
         }
     }

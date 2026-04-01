@@ -255,6 +255,7 @@ namespace Together
             global::System.Collections.Generic.IList<string>? referenceImages = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Together.CreateVideoBody
             {
                 Model = model,

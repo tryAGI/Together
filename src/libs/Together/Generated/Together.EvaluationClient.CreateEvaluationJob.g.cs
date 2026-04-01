@@ -295,6 +295,7 @@ namespace Together
             global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters> parameters,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Together.EvaluationTypedRequest
             {
                 Type = type,

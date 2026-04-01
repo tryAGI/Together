@@ -124,13 +124,13 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ExecuteResponseSuccessfulExecution), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ExecuteResponseSuccessfulExecution?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ExecuteResponseSuccessfulExecution).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SuccessfulExecution, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SuccessfulExecution!, typeInfo);
             }
             else if (value.IsFailedExecution)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ExecuteResponseFailedExecution), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ExecuteResponseFailedExecution?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ExecuteResponseFailedExecution).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.FailedExecution, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.FailedExecution!, typeInfo);
             }
         }
     }

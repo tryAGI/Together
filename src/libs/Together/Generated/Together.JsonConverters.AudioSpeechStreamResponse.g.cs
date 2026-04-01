@@ -122,13 +122,13 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioSpeechStreamEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioSpeechStreamEvent?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioSpeechStreamEvent).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Event, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Event!, typeInfo);
             }
             else if (value.IsSentinel)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.StreamSentinel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.StreamSentinel?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.StreamSentinel).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Sentinel, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Sentinel!, typeInfo);
             }
         }
     }
