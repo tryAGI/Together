@@ -271,7 +271,6 @@ namespace Together
             bool? disableSafetyChecker = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Together.CreateImagesGenerationsRequest
             {
                 Prompt = prompt,

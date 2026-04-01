@@ -355,7 +355,6 @@ namespace Together
             string requestId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Together.QueueCancelRequest
             {
                 Model = model,

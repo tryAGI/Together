@@ -249,7 +249,6 @@ namespace Together
             string? volumeId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Together.GPUClusterCreateRequest
             {
                 ClusterType = clusterType,
