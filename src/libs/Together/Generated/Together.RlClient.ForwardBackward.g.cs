@@ -247,7 +247,6 @@ namespace Together
             global::Together.RlLossConfig loss,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Together.RlForwardBackwardBody
             {
                 Samples = samples,

@@ -48,7 +48,6 @@ namespace Together
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
-
             request = new global::Together.ChatCompletionRequest
             {
                 Messages = request.Messages,
@@ -322,7 +321,6 @@ namespace Together
             global::Together.ChatCompletionRequestReasoning? reasoning = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Together.ChatCompletionRequest
             {
                 Messages = messages,

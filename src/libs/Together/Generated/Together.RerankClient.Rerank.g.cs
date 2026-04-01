@@ -482,7 +482,6 @@ namespace Together
             global::System.Collections.Generic.IList<string>? rankFields = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Together.RerankRequest
             {
                 Model = model,
