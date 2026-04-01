@@ -376,6 +376,7 @@ namespace Together
             string? modelId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Together.CreateBatchRequest
             {
                 Endpoint = endpoint,

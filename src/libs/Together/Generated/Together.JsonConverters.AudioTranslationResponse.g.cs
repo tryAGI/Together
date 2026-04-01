@@ -127,13 +127,13 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationJsonResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationJsonResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Json, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Json!, typeInfo);
             }
             else if (value.IsVerboseJson)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationVerboseJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationVerboseJsonResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationVerboseJsonResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VerboseJson, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VerboseJson!, typeInfo);
             }
         }
     }

@@ -394,6 +394,7 @@ namespace Together
             global::Together.OneOf<global::Together.AudioTranslationRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranslationRequestTimestampGranularitie>>? timestampGranularities = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Together.AudioTranslationRequest
             {
                 File = file,

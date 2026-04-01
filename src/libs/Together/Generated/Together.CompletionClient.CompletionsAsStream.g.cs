@@ -270,6 +270,7 @@ namespace Together
             int? seed = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Together.CompletionRequest
             {
                 Prompt = prompt,
