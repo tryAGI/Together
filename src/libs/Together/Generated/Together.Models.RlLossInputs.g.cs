@@ -9,10 +9,11 @@ namespace Together
     public sealed partial class RlLossInputs
     {
         /// <summary>
-        /// Target tokens for loss computation (optional, defaults to shifted input_ids)
+        /// Target tokens for loss computation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_tokens")]
-        public global::Together.RlLossTargetTokens? TargetTokens { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlLossTargetTokens TargetTokens { get; set; }
 
         /// <summary>
         /// Per-token loss mask (1=compute loss, 0=ignore)
@@ -36,7 +37,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="RlLossInputs" /> class.
         /// </summary>
         /// <param name="targetTokens">
-        /// Target tokens for loss computation (optional, defaults to shifted input_ids)
+        /// Target tokens for loss computation
         /// </param>
         /// <param name="lossMask">
         /// Per-token loss mask (1=compute loss, 0=ignore)
@@ -46,11 +47,11 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlLossInputs(
-            global::Together.RlLossTargetTokens? targetTokens,
+            global::Together.RlLossTargetTokens targetTokens,
             global::Together.RlLossMask? lossMask,
             global::Together.RlGRPOLossInputs? grpoInputs)
         {
-            this.TargetTokens = targetTokens;
+            this.TargetTokens = targetTokens ?? throw new global::System.ArgumentNullException(nameof(targetTokens));
             this.LossMask = lossMask;
             this.GrpoInputs = grpoInputs;
         }

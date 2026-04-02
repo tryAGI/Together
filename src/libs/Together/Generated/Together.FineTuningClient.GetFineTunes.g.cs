@@ -113,7 +113,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.FinetuneTruncatedList.FromJson(__content, JsonSerializerContext) ??
+                        global::Together.FinetuneTruncatedList.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -144,7 +144,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.FinetuneTruncatedList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Together.FinetuneTruncatedList.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

@@ -12,8 +12,7 @@ namespace Together.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -47,9 +46,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ImageResponseDataB64), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ImageResponseDataB64> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ImageResponseDataB64).Name}");
-                        b64Json = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        b64Json = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ImageResponseDataB64>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -62,9 +59,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ImageResponseDataUrl), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ImageResponseDataUrl> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ImageResponseDataUrl).Name}");
-                        url = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        url = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ImageResponseDataUrl>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -79,9 +74,7 @@ namespace Together.JsonConverters
             {
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ImageResponseDataB64), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ImageResponseDataB64> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ImageResponseDataB64).Name}");
-                    b64Json = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    b64Json = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ImageResponseDataB64>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -92,9 +85,7 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ImageResponseDataUrl), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ImageResponseDataUrl> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ImageResponseDataUrl).Name}");
-                    url = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    url = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ImageResponseDataUrl>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -119,20 +110,15 @@ namespace Together.JsonConverters
             global::Together.DataItem3 value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsB64Json)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ImageResponseDataB64), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ImageResponseDataB64?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ImageResponseDataB64).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.B64Json!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.B64Json, typeof(global::Together.ImageResponseDataB64), options);
             }
             else if (value.IsUrl)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ImageResponseDataUrl), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ImageResponseDataUrl?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ImageResponseDataUrl).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Url!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Url, typeof(global::Together.ImageResponseDataUrl), options);
             }
         }
     }

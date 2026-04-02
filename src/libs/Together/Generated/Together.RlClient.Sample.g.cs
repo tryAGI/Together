@@ -75,7 +75,7 @@ namespace Together
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -113,13 +113,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Together.ErrorData.FromJson(__content_default, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -163,7 +163,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.RlSampleOperation.FromJson(__content, JsonSerializerContext) ??
+                        global::Together.RlSampleOperation.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -194,7 +194,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.RlSampleOperation.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Together.RlSampleOperation.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
