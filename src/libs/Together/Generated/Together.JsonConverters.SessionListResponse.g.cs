@@ -36,7 +36,7 @@ namespace Together.JsonConverters
             if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
 
             global::Together.SessionListResponseResponse? response = default;
-            global::Together.SessionListResponseVariant2? value2 = default;
+            global::Together.SessionListResponseVariant2? sessionListResponseVariant2 = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -60,7 +60,7 @@ namespace Together.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant2> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant2).Name}");
-                        value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        sessionListResponseVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -71,7 +71,7 @@ namespace Together.JsonConverters
                 }
             }
 
-            if (response == null && value2 == null)
+            if (response == null && sessionListResponseVariant2 == null)
             {
                 try
                 {
@@ -90,7 +90,7 @@ namespace Together.JsonConverters
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant2).Name}");
-                    value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    sessionListResponseVariant2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -103,7 +103,7 @@ namespace Together.JsonConverters
             var __value = new global::Together.SessionListResponse(
                 response,
 
-                value2
+                sessionListResponseVariant2
                 );
 
             return __value;
@@ -124,11 +124,11 @@ namespace Together.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseResponse).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Response!, typeInfo);
             }
-            else if (value.IsValue2)
+            else if (value.IsSessionListResponseVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.SessionListResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.SessionListResponseVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.SessionListResponseVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SessionListResponseVariant2!, typeInfo);
             }
         }
     }

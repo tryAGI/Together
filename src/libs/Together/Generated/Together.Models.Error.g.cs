@@ -13,35 +13,35 @@ namespace Together
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public string? Value1 { get; init; }
+        public string? ErrorVariant1 { get; init; }
 #else
-        public string? Value1 { get; }
+        public string? ErrorVariant1 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ErrorVariant1))]
 #endif
-        public bool IsValue1 => Value1 != null;
+        public bool IsErrorVariant1 => ErrorVariant1 != null;
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public object? Value2 { get; init; }
+        public object? ErrorVariant2 { get; init; }
 #else
-        public object? Value2 { get; }
+        public object? ErrorVariant2 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ErrorVariant2))]
 #endif
-        public bool IsValue2 => Value2 != null;
+        public bool IsErrorVariant2 => ErrorVariant2 != null;
         /// <summary>
         /// 
         /// </summary>
@@ -50,42 +50,42 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator string?(Error @this) => @this.Value1;
+        public static implicit operator string?(Error @this) => @this.ErrorVariant1;
 
         /// <summary>
         /// 
         /// </summary>
         public Error(string? value)
         {
-            Value1 = value;
+            ErrorVariant1 = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public Error(
-            string? value1,
-            object? value2
+            string? errorVariant1,
+            object? errorVariant2
             )
         {
-            Value1 = value1;
-            Value2 = value2;
+            ErrorVariant1 = errorVariant1;
+            ErrorVariant2 = errorVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value2 as object ??
-            Value1 as object 
+            ErrorVariant2 as object ??
+            ErrorVariant1 as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
-            Value2?.ToString() 
+            ErrorVariant1?.ToString() ??
+            ErrorVariant2?.ToString() 
             ;
 
         /// <summary>
@@ -93,15 +93,15 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 || !IsValue1 && IsValue2;
+            return IsErrorVariant1 && !IsErrorVariant2 || !IsErrorVariant1 && IsErrorVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? value1 = null,
-            global::System.Func<object?, TResult>? value2 = null,
+            global::System.Func<string?, TResult>? errorVariant1 = null,
+            global::System.Func<object?, TResult>? errorVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -109,13 +109,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsErrorVariant1 && errorVariant1 != null)
             {
-                return value1(Value1!);
+                return errorVariant1(ErrorVariant1!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsErrorVariant2 && errorVariant2 != null)
             {
-                return value2(Value2!);
+                return errorVariant2(ErrorVariant2!);
             }
 
             return default(TResult);
@@ -125,8 +125,8 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? value1 = null,
-            global::System.Action<object?>? value2 = null,
+            global::System.Action<string?>? errorVariant1 = null,
+            global::System.Action<object?>? errorVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -134,13 +134,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsErrorVariant1)
             {
-                value1?.Invoke(Value1!);
+                errorVariant1?.Invoke(ErrorVariant1!);
             }
-            else if (IsValue2)
+            else if (IsErrorVariant2)
             {
-                value2?.Invoke(Value2!);
+                errorVariant2?.Invoke(ErrorVariant2!);
             }
         }
 
@@ -151,9 +151,9 @@ namespace Together
         {
             var fields = new object?[]
             {
-                Value1,
+                ErrorVariant1,
                 typeof(string),
-                Value2,
+                ErrorVariant2,
                 typeof(object),
             };
             const int offset = unchecked((int)2166136261);
@@ -171,8 +171,8 @@ namespace Together
         public bool Equals(Error other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<object?>.Default.Equals(Value2, other.Value2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(ErrorVariant1, other.ErrorVariant1) &&
+                global::System.Collections.Generic.EqualityComparer<object?>.Default.Equals(ErrorVariant2, other.ErrorVariant2) 
                 ;
         }
 
