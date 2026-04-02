@@ -13,35 +13,35 @@ namespace Together
         /// A plain text message.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public string? Value1 { get; init; }
+        public string? String { get; init; }
 #else
-        public string? Value1 { get; }
+        public string? String { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(String))]
 #endif
-        public bool IsValue1 => Value1 != null;
+        public bool IsString => String != null;
 
         /// <summary>
         /// A structured message with mixed content types.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>? Value2 { get; init; }
+        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>? Multimodal { get; init; }
 #else
-        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>? Value2 { get; }
+        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>? Multimodal { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Multimodal))]
 #endif
-        public bool IsValue2 => Value2 != null;
+        public bool IsMultimodal => Multimodal != null;
         /// <summary>
         /// 
         /// </summary>
@@ -50,42 +50,42 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator string?(ChatCompletionUserMessageContent @this) => @this.Value1;
+        public static implicit operator string?(ChatCompletionUserMessageContent @this) => @this.String;
 
         /// <summary>
         /// 
         /// </summary>
         public ChatCompletionUserMessageContent(string? value)
         {
-            Value1 = value;
+            String = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public ChatCompletionUserMessageContent(
-            string? value1,
-            global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>? value2
+            string? @string,
+            global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>? multimodal
             )
         {
-            Value1 = value1;
-            Value2 = value2;
+            String = @string;
+            Multimodal = multimodal;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value2 as object ??
-            Value1 as object 
+            Multimodal as object ??
+            String as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToString() ??
-            Value2?.ToString() 
+            String?.ToString() ??
+            Multimodal?.ToString() 
             ;
 
         /// <summary>
@@ -93,15 +93,15 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 || !IsValue1 && IsValue2;
+            return IsString && !IsMultimodal || !IsString && IsMultimodal;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? value1 = null,
-            global::System.Func<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?, TResult>? value2 = null,
+            global::System.Func<string?, TResult>? @string = null,
+            global::System.Func<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?, TResult>? multimodal = null,
             bool validate = true)
         {
             if (validate)
@@ -109,13 +109,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsString && @string != null)
             {
-                return value1(Value1!);
+                return @string(String!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsMultimodal && multimodal != null)
             {
-                return value2(Value2!);
+                return multimodal(Multimodal!);
             }
 
             return default(TResult);
@@ -125,8 +125,8 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? value1 = null,
-            global::System.Action<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?>? value2 = null,
+            global::System.Action<string?>? @string = null,
+            global::System.Action<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?>? multimodal = null,
             bool validate = true)
         {
             if (validate)
@@ -134,13 +134,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsString)
             {
-                value1?.Invoke(Value1!);
+                @string?.Invoke(String!);
             }
-            else if (IsValue2)
+            else if (IsMultimodal)
             {
-                value2?.Invoke(Value2!);
+                multimodal?.Invoke(Multimodal!);
             }
         }
 
@@ -151,9 +151,9 @@ namespace Together
         {
             var fields = new object?[]
             {
-                Value1,
+                String,
                 typeof(string),
-                Value2,
+                Multimodal,
                 typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>),
             };
             const int offset = unchecked((int)2166136261);
@@ -171,8 +171,8 @@ namespace Together
         public bool Equals(ChatCompletionUserMessageContent other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?>.Default.Equals(Value2, other.Value2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(String, other.String) &&
+                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?>.Default.Equals(Multimodal, other.Multimodal) 
                 ;
         }
 
