@@ -12,8 +12,7 @@ namespace Together.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -68,9 +67,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionSystemMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionSystemMessageParam> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionSystemMessageParam).Name}");
-                        system = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        system = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionSystemMessageParam>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -83,9 +80,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionUserMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionUserMessageParam> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionUserMessageParam).Name}");
-                        user = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        user = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionUserMessageParam>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -98,9 +93,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionAssistantMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionAssistantMessageParam> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionAssistantMessageParam).Name}");
-                        assistant = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        assistant = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionAssistantMessageParam>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -113,9 +106,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionToolMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionToolMessageParam> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionToolMessageParam).Name}");
-                        tool = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        tool = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionToolMessageParam>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -128,9 +119,7 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionFunctionMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionFunctionMessageParam> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionFunctionMessageParam).Name}");
-                        function = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        function = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionFunctionMessageParam>(__rawJson, options);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -145,9 +134,7 @@ namespace Together.JsonConverters
             {
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionSystemMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionSystemMessageParam> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionSystemMessageParam).Name}");
-                    system = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    system = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionSystemMessageParam>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -158,9 +145,7 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionUserMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionUserMessageParam> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionUserMessageParam).Name}");
-                    user = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    user = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionUserMessageParam>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -171,9 +156,7 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionAssistantMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionAssistantMessageParam> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionAssistantMessageParam).Name}");
-                    assistant = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    assistant = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionAssistantMessageParam>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -184,9 +167,7 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionToolMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionToolMessageParam> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionToolMessageParam).Name}");
-                    tool = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    tool = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionToolMessageParam>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -197,9 +178,7 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionFunctionMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionFunctionMessageParam> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionFunctionMessageParam).Name}");
-                    function = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    function = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionFunctionMessageParam>(__rawJson, options);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -230,38 +209,27 @@ namespace Together.JsonConverters
             global::Together.ChatCompletionMessageParam value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
 
             if (value.IsSystem)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionSystemMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionSystemMessageParam?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionSystemMessageParam).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.System!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.System, typeof(global::Together.ChatCompletionSystemMessageParam), options);
             }
             else if (value.IsUser)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionUserMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionUserMessageParam?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionUserMessageParam).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.User!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.User, typeof(global::Together.ChatCompletionUserMessageParam), options);
             }
             else if (value.IsAssistant)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionAssistantMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionAssistantMessageParam?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionAssistantMessageParam).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Assistant!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Assistant, typeof(global::Together.ChatCompletionAssistantMessageParam), options);
             }
             else if (value.IsTool)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionToolMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionToolMessageParam?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionToolMessageParam).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Tool, typeof(global::Together.ChatCompletionToolMessageParam), options);
             }
             else if (value.IsFunction)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionFunctionMessageParam), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionFunctionMessageParam?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionFunctionMessageParam).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Function!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Function, typeof(global::Together.ChatCompletionFunctionMessageParam), options);
             }
         }
     }
