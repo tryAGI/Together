@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -32,6 +34,18 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("width")]
         public int? Width { get; set; }
+
+        /// <summary>
+        /// Video resolution.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resolution")]
+        public string? Resolution { get; set; }
+
+        /// <summary>
+        /// Aspect ratio of the video.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ratio")]
+        public string? Ratio { get; set; }
 
         /// <summary>
         /// Clip duration in seconds.
@@ -83,17 +97,31 @@ namespace Together
         public string? NegativePrompt { get; set; }
 
         /// <summary>
-        /// Array of images to guide video generation, similar to keyframes.<br/>
+        /// Whether to generate audio for the video.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generate_audio")]
+        public bool? GenerateAudio { get; set; }
+
+        /// <summary>
+        /// Media inputs for video generation. The accepted fields depend on the model type (e.g. i2v, r2v, t2v, videoedit).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("media")]
+        public global::Together.VideoMedia? Media { get; set; }
+
+        /// <summary>
+        /// Deprecated: use media.frame_images instead. Array of images to guide video generation, similar to keyframes.<br/>
         /// Example: [[{"input_image":"aac49721-1964-481a-ae78-8a4e29b91402","frame":0}, {"input_image":"c00abf5f-6cdb-4642-a01d-1bfff7bc3cf7","frame":48}, {"input_image":"3ad204c3-a9de-4963-8a1a-c3911e3afafe","frame":"last"}]]
         /// </summary>
         /// <example>[[{"input_image":"aac49721-1964-481a-ae78-8a4e29b91402","frame":0}, {"input_image":"c00abf5f-6cdb-4642-a01d-1bfff7bc3cf7","frame":48}, {"input_image":"3ad204c3-a9de-4963-8a1a-c3911e3afafe","frame":"last"}]]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("frame_images")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>? FrameImages { get; set; }
 
         /// <summary>
-        /// Unlike frame_images which constrain specific timeline positions, reference images guide the general appearance that should appear consistently across the video.
+        /// Deprecated: use media.reference_images instead. Unlike frame_images which constrain specific timeline positions, reference images guide the general appearance that should appear consistently across the video.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reference_images")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<string>? ReferenceImages { get; set; }
 
         /// <summary>
@@ -113,6 +141,12 @@ namespace Together
         /// </param>
         /// <param name="height"></param>
         /// <param name="width"></param>
+        /// <param name="resolution">
+        /// Video resolution.
+        /// </param>
+        /// <param name="ratio">
+        /// Aspect ratio of the video.
+        /// </param>
         /// <param name="seconds">
         /// Clip duration in seconds.
         /// </param>
@@ -137,12 +171,11 @@ namespace Together
         /// <param name="negativePrompt">
         /// Similar to prompt, but specifies what to avoid instead of what to include
         /// </param>
-        /// <param name="frameImages">
-        /// Array of images to guide video generation, similar to keyframes.<br/>
-        /// Example: [[{"input_image":"aac49721-1964-481a-ae78-8a4e29b91402","frame":0}, {"input_image":"c00abf5f-6cdb-4642-a01d-1bfff7bc3cf7","frame":48}, {"input_image":"3ad204c3-a9de-4963-8a1a-c3911e3afafe","frame":"last"}]]
+        /// <param name="generateAudio">
+        /// Whether to generate audio for the video.
         /// </param>
-        /// <param name="referenceImages">
-        /// Unlike frame_images which constrain specific timeline positions, reference images guide the general appearance that should appear consistently across the video.
+        /// <param name="media">
+        /// Media inputs for video generation. The accepted fields depend on the model type (e.g. i2v, r2v, t2v, videoedit).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -152,6 +185,8 @@ namespace Together
             string? prompt,
             int? height,
             int? width,
+            string? resolution,
+            string? ratio,
             string? seconds,
             int? fps,
             int? steps,
@@ -160,13 +195,15 @@ namespace Together
             global::Together.VideoOutputFormat? outputFormat,
             int? outputQuality,
             string? negativePrompt,
-            global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>? frameImages,
-            global::System.Collections.Generic.IList<string>? referenceImages)
+            bool? generateAudio,
+            global::Together.VideoMedia? media)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Prompt = prompt;
             this.Height = height;
             this.Width = width;
+            this.Resolution = resolution;
+            this.Ratio = ratio;
             this.Seconds = seconds;
             this.Fps = fps;
             this.Steps = steps;
@@ -175,8 +212,8 @@ namespace Together
             this.OutputFormat = outputFormat;
             this.OutputQuality = outputQuality;
             this.NegativePrompt = negativePrompt;
-            this.FrameImages = frameImages;
-            this.ReferenceImages = referenceImages;
+            this.GenerateAudio = generateAudio;
+            this.Media = media;
         }
 
         /// <summary>
