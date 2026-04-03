@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace Together
 {
     public partial interface IVideoClient
@@ -40,6 +42,12 @@ namespace Together
         /// </param>
         /// <param name="height"></param>
         /// <param name="width"></param>
+        /// <param name="resolution">
+        /// Video resolution.
+        /// </param>
+        /// <param name="ratio">
+        /// Aspect ratio of the video.
+        /// </param>
         /// <param name="seconds">
         /// Clip duration in seconds.
         /// </param>
@@ -64,12 +72,11 @@ namespace Together
         /// <param name="negativePrompt">
         /// Similar to prompt, but specifies what to avoid instead of what to include
         /// </param>
-        /// <param name="frameImages">
-        /// Array of images to guide video generation, similar to keyframes.<br/>
-        /// Example: [[{"input_image":"aac49721-1964-481a-ae78-8a4e29b91402","frame":0}, {"input_image":"c00abf5f-6cdb-4642-a01d-1bfff7bc3cf7","frame":48}, {"input_image":"3ad204c3-a9de-4963-8a1a-c3911e3afafe","frame":"last"}]]
+        /// <param name="generateAudio">
+        /// Whether to generate audio for the video.
         /// </param>
-        /// <param name="referenceImages">
-        /// Unlike frame_images which constrain specific timeline positions, reference images guide the general appearance that should appear consistently across the video.
+        /// <param name="media">
+        /// Media inputs for video generation. The accepted fields depend on the model type (e.g. i2v, r2v, t2v, videoedit).
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -78,6 +85,8 @@ namespace Together
             string? prompt = default,
             int? height = default,
             int? width = default,
+            string? resolution = default,
+            string? ratio = default,
             string? seconds = default,
             int? fps = default,
             int? steps = default,
@@ -86,8 +95,8 @@ namespace Together
             global::Together.VideoOutputFormat? outputFormat = default,
             int? outputQuality = default,
             string? negativePrompt = default,
-            global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>? frameImages = default,
-            global::System.Collections.Generic.IList<string>? referenceImages = default,
+            bool? generateAudio = default,
+            global::Together.VideoMedia? media = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
