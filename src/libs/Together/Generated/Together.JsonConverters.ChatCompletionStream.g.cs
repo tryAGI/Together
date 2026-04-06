@@ -12,7 +12,8 @@ namespace Together.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -42,7 +43,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        @event = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionEvent>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionEvent> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionEvent).Name}");
+                        @event = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -55,7 +58,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        sentinel = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.StreamSentinel>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.StreamSentinel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.StreamSentinel> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.StreamSentinel).Name}");
+                        sentinel = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -70,7 +75,9 @@ namespace Together.JsonConverters
             {
                 try
                 {
-                    @event = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ChatCompletionEvent>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionEvent> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionEvent).Name}");
+                    @event = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -81,7 +88,9 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    sentinel = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.StreamSentinel>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.StreamSentinel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.StreamSentinel> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.StreamSentinel).Name}");
+                    sentinel = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -106,15 +115,20 @@ namespace Together.JsonConverters
             global::Together.ChatCompletionStream value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsEvent)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Event, typeof(global::Together.ChatCompletionEvent), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ChatCompletionEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ChatCompletionEvent?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ChatCompletionEvent).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Event!, typeInfo);
             }
             else if (value.IsSentinel)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Sentinel, typeof(global::Together.StreamSentinel), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.StreamSentinel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.StreamSentinel?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.StreamSentinel).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Sentinel!, typeInfo);
             }
         }
     }

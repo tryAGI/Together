@@ -111,7 +111,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.ListAvailibilityZonesResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::Together.ListAvailibilityZonesResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -141,7 +141,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.ListAvailibilityZonesResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Together.ListAvailibilityZonesResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

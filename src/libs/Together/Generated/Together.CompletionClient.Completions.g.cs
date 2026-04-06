@@ -103,7 +103,7 @@ namespace Together
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -140,13 +140,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerOptions);
+                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
                     }
                     else
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerOptions);
+                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -178,13 +178,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerOptions);
+                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerContext);
                     }
                     else
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerOptions);
+                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -216,13 +216,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = global::Together.ErrorData.FromJson(__content_404, JsonSerializerOptions);
+                        __value_404 = global::Together.ErrorData.FromJson(__content_404, JsonSerializerContext);
                     }
                     else
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_404 = global::Together.ErrorData.FromJson(__content_404, JsonSerializerOptions);
+                        __value_404 = global::Together.ErrorData.FromJson(__content_404, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -254,13 +254,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerOptions);
+                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerContext);
                     }
                     else
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerOptions);
+                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -292,13 +292,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_503 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_503 = global::Together.ErrorData.FromJson(__content_503, JsonSerializerOptions);
+                        __value_503 = global::Together.ErrorData.FromJson(__content_503, JsonSerializerContext);
                     }
                     else
                     {
                         __content_503 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_503 = global::Together.ErrorData.FromJson(__content_503, JsonSerializerOptions);
+                        __value_503 = global::Together.ErrorData.FromJson(__content_503, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -330,13 +330,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_504 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_504 = global::Together.ErrorData.FromJson(__content_504, JsonSerializerOptions);
+                        __value_504 = global::Together.ErrorData.FromJson(__content_504, JsonSerializerContext);
                     }
                     else
                     {
                         __content_504 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_504 = global::Together.ErrorData.FromJson(__content_504, JsonSerializerOptions);
+                        __value_504 = global::Together.ErrorData.FromJson(__content_504, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -380,7 +380,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.CompletionResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::Together.CompletionResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -410,7 +410,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.CompletionResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Together.CompletionResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
