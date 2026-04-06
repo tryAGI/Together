@@ -12,7 +12,8 @@ namespace Together.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -47,7 +48,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        text = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ResponseFormatText>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatText), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatText> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatText).Name}");
+                        text = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -60,7 +63,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        jsonSchema = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ResponseFormatJsonSchema>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatJsonSchema), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatJsonSchema> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatJsonSchema).Name}");
+                        jsonSchema = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -73,7 +78,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        jsonObject = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ResponseFormatJsonObject>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatJsonObject), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatJsonObject> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatJsonObject).Name}");
+                        jsonObject = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -88,7 +95,9 @@ namespace Together.JsonConverters
             {
                 try
                 {
-                    text = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ResponseFormatText>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatText), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatText> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatText).Name}");
+                    text = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -99,7 +108,9 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    jsonSchema = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ResponseFormatJsonSchema>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatJsonSchema), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatJsonSchema> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatJsonSchema).Name}");
+                    jsonSchema = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -110,7 +121,9 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    jsonObject = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.ResponseFormatJsonObject>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatJsonObject), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatJsonObject> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatJsonObject).Name}");
+                    jsonObject = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -137,19 +150,26 @@ namespace Together.JsonConverters
             global::Together.ResponseFormat value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsText)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text, typeof(global::Together.ResponseFormatText), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatText), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatText?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatText).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Text!, typeInfo);
             }
             else if (value.IsJsonSchema)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.JsonSchema, typeof(global::Together.ResponseFormatJsonSchema), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatJsonSchema), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatJsonSchema?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatJsonSchema).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.JsonSchema!, typeInfo);
             }
             else if (value.IsJsonObject)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.JsonObject, typeof(global::Together.ResponseFormatJsonObject), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ResponseFormatJsonObject), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ResponseFormatJsonObject?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ResponseFormatJsonObject).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.JsonObject!, typeInfo);
             }
         }
     }

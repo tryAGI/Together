@@ -104,13 +104,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = global::System.Text.Json.JsonSerializer.Deserialize<string?>(__content_404, JsonSerializerOptions);
+                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                     }
                     else
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_404 = global::System.Text.Json.JsonSerializer.Deserialize<string?>(__content_404, JsonSerializerOptions);
+                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -142,13 +142,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_500 = global::System.Text.Json.JsonSerializer.Deserialize<string?>(__content_500, JsonSerializerOptions);
+                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
                     }
                     else
                     {
                         __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_500 = global::System.Text.Json.JsonSerializer.Deserialize<string?>(__content_500, JsonSerializerOptions);
+                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -192,7 +192,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.DeploymentResponseItem.FromJson(__content, JsonSerializerOptions) ??
+                        global::Together.DeploymentResponseItem.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -222,7 +222,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.DeploymentResponseItem.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Together.DeploymentResponseItem.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

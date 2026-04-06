@@ -180,13 +180,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerOptions);
+                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
                     }
                     else
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerOptions);
+                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -218,13 +218,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerOptions);
+                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerContext);
                     }
                     else
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerOptions);
+                        __value_401 = global::Together.ErrorData.FromJson(__content_401, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -256,13 +256,13 @@ namespace Together
                     if (ReadResponseAsString)
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerOptions);
+                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerContext);
                     }
                     else
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerOptions);
+                        __value_429 = global::Together.ErrorData.FromJson(__content_429, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -306,7 +306,7 @@ namespace Together
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Together.AudioTranscriptionResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::Together.AudioTranscriptionResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -336,7 +336,7 @@ namespace Together
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Together.AudioTranscriptionResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Together.AudioTranscriptionResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

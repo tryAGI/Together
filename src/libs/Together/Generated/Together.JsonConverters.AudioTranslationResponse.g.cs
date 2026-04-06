@@ -12,7 +12,8 @@ namespace Together.JsonConverters
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -47,7 +48,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        json = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.AudioTranslationJsonResponse>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationJsonResponse> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationJsonResponse).Name}");
+                        json = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -60,7 +63,9 @@ namespace Together.JsonConverters
                 {
                     try
                     {
-                        verboseJson = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.AudioTranslationVerboseJsonResponse>(__rawJson, options);
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationVerboseJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationVerboseJsonResponse> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationVerboseJsonResponse).Name}");
+                        verboseJson = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -75,7 +80,9 @@ namespace Together.JsonConverters
             {
                 try
                 {
-                    json = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.AudioTranslationJsonResponse>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationJsonResponse> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationJsonResponse).Name}");
+                    json = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -86,7 +93,9 @@ namespace Together.JsonConverters
 
                 try
                 {
-                    verboseJson = global::System.Text.Json.JsonSerializer.Deserialize<global::Together.AudioTranslationVerboseJsonResponse>(__rawJson, options);
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationVerboseJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationVerboseJsonResponse> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationVerboseJsonResponse).Name}");
+                    verboseJson = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -111,15 +120,20 @@ namespace Together.JsonConverters
             global::Together.AudioTranslationResponse value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
-            options = options ?? throw new global::System.ArgumentNullException(nameof(options)); 
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
             if (value.IsJson)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Json, typeof(global::Together.AudioTranslationJsonResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationJsonResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationJsonResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Json!, typeInfo);
             }
             else if (value.IsVerboseJson)
             {
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VerboseJson, typeof(global::Together.AudioTranslationVerboseJsonResponse), options);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationVerboseJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationVerboseJsonResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationVerboseJsonResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VerboseJson!, typeInfo);
             }
         }
     }
