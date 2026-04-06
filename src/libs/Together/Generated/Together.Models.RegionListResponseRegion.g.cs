@@ -16,17 +16,18 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// List of supported identifiable driver versions available in the region.
+        /// List of supported identifiable cuda/nvidia driver versions pairs available in the region.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("driver_versions")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> DriverVersions { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.ClusterDriverVersionInfo> DriverVersions { get; set; }
 
         /// <summary>
         /// List of supported identifiable gpus available in the region.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supported_instance_types")]
-        public global::System.Collections.Generic.IList<string>? SupportedInstanceTypes { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<string> SupportedInstanceTypes { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,7 +42,7 @@ namespace Together
         /// Identifiable name of the region.
         /// </param>
         /// <param name="driverVersions">
-        /// List of supported identifiable driver versions available in the region.
+        /// List of supported identifiable cuda/nvidia driver versions pairs available in the region.
         /// </param>
         /// <param name="supportedInstanceTypes">
         /// List of supported identifiable gpus available in the region.
@@ -51,12 +52,12 @@ namespace Together
 #endif
         public RegionListResponseRegion(
             string name,
-            global::System.Collections.Generic.IList<string> driverVersions,
-            global::System.Collections.Generic.IList<string>? supportedInstanceTypes)
+            global::System.Collections.Generic.IList<global::Together.ClusterDriverVersionInfo> driverVersions,
+            global::System.Collections.Generic.IList<string> supportedInstanceTypes)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DriverVersions = driverVersions ?? throw new global::System.ArgumentNullException(nameof(driverVersions));
-            this.SupportedInstanceTypes = supportedInstanceTypes;
+            this.SupportedInstanceTypes = supportedInstanceTypes ?? throw new global::System.ArgumentNullException(nameof(supportedInstanceTypes));
         }
 
         /// <summary>
