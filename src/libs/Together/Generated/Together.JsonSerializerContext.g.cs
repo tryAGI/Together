@@ -637,6 +637,10 @@ namespace Together
 
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<double?, global::Together.VideoFrameImageInputFrame?>),
 
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.VideoRef>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.AudioRef>),
+
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>),
@@ -1109,7 +1113,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInputFrame), TypeInfoPropertyName = "VideoFrameImageInputFrame2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoRef>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoRef))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.AudioRef>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.VideoRef>), TypeInfoPropertyName = "OneOfStringVideoRef2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<string, global::Together.AudioRef>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.AudioRef>), TypeInfoPropertyName = "OneOfStringAudioRef2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioRef))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJob))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobError))]
@@ -1264,7 +1270,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJobStatusUpdate>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoFrameImageInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoRef>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.AudioRef>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<string, global::Together.AudioRef>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EnvironmentVariable>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VolumeMount>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeploymentResponseItem>))]
