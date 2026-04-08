@@ -33,16 +33,17 @@ namespace Together
         public global::System.Collections.Generic.IList<global::Together.VideoRef>? ReferenceVideos { get; set; }
 
         /// <summary>
-        /// Source video to edit.
+        /// Source video to edit. Accepts a URL string or an object with a "video" key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_video")]
-        public global::Together.VideoRef? SourceVideo { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.VideoRef>))]
+        public global::Together.OneOf<string, global::Together.VideoRef>? SourceVideo { get; set; }
 
         /// <summary>
-        /// Array of audio inputs.
+        /// Array of audio inputs. Each element accepts a URL string or an object with an "audio" key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_inputs")]
-        public global::System.Collections.Generic.IList<global::Together.AudioRef>? AudioInputs { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.OneOf<string, global::Together.AudioRef>>? AudioInputs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,10 +67,10 @@ namespace Together
         /// Array of reference videos.
         /// </param>
         /// <param name="sourceVideo">
-        /// Source video to edit.
+        /// Source video to edit. Accepts a URL string or an object with a "video" key.
         /// </param>
         /// <param name="audioInputs">
-        /// Array of audio inputs.
+        /// Array of audio inputs. Each element accepts a URL string or an object with an "audio" key.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -79,8 +80,8 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.VideoRef>? frameVideos,
             global::System.Collections.Generic.IList<string>? referenceImages,
             global::System.Collections.Generic.IList<global::Together.VideoRef>? referenceVideos,
-            global::Together.VideoRef? sourceVideo,
-            global::System.Collections.Generic.IList<global::Together.AudioRef>? audioInputs)
+            global::Together.OneOf<string, global::Together.VideoRef>? sourceVideo,
+            global::System.Collections.Generic.IList<global::Together.OneOf<string, global::Together.AudioRef>>? audioInputs)
         {
             this.FrameImages = frameImages;
             this.FrameVideos = frameVideos;
