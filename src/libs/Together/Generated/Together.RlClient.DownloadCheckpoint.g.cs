@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class RlClient
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_DownloadCheckpointSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_DownloadCheckpointSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_DownloadCheckpointSecurityRequirement0,
+            };
         partial void PrepareDownloadCheckpointArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
@@ -48,12 +67,18 @@ namespace Together
                 id: ref id,
                 variant: ref variant);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DownloadCheckpointSecurityRequirements,
+                operationName: "DownloadCheckpointAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: $"/rl/checkpoints/{id}/download",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddRequiredParameter("variant", variant.ToValueString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -63,7 +88,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

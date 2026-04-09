@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class DeploymentsClient
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_GetDeploymentsByIdLogsSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_GetDeploymentsByIdLogsSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_GetDeploymentsByIdLogsSecurityRequirement0,
+            };
         partial void PrepareGetDeploymentsByIdLogsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
@@ -53,12 +72,18 @@ namespace Together
                 id: ref id,
                 replicaId: ref replicaId);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetDeploymentsByIdLogsSecurityRequirements,
+                operationName: "GetDeploymentsByIdLogsAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: $"/deployments/{id}/logs",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("replica_id", replicaId) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -68,7 +93,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
