@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class SecretsClient
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_EditDeploymentsSecretsByIdSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_EditDeploymentsSecretsByIdSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_EditDeploymentsSecretsByIdSecurityRequirement0,
+            };
         partial void PrepareEditDeploymentsSecretsByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
@@ -53,9 +72,15 @@ namespace Together
                 id: ref id,
                 request: request);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_EditDeploymentsSecretsByIdSecurityRequirements,
+                operationName: "EditDeploymentsSecretsByIdAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: $"/deployments/secrets/{id}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: new global::System.Net.Http.HttpMethod("PATCH"),
@@ -65,7 +90,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

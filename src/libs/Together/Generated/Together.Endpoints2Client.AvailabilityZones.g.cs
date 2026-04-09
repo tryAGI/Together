@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class Endpoints2Client
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_AvailabilityZonesSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_AvailabilityZonesSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_AvailabilityZonesSecurityRequirement0,
+            };
         partial void PrepareAvailabilityZonesArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareAvailabilityZonesRequest(
@@ -42,9 +61,15 @@ namespace Together
             PrepareAvailabilityZonesArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_AvailabilityZonesSecurityRequirements,
+                operationName: "AvailabilityZonesAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/clusters/availability-zones",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -54,7 +79,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

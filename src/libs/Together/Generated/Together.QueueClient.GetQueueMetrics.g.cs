@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class QueueClient
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_GetQueueMetricsSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_GetQueueMetricsSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_GetQueueMetricsSecurityRequirement0,
+            };
         partial void PrepareGetQueueMetricsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string model);
@@ -40,12 +59,18 @@ namespace Together
                 httpClient: HttpClient,
                 model: ref model);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetQueueMetricsSecurityRequirements,
+                operationName: "GetQueueMetricsAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/queue/metrics",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddRequiredParameter("model", model) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -55,7 +80,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

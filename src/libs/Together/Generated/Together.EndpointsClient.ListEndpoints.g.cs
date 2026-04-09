@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class EndpointsClient
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_ListEndpointsSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_ListEndpointsSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_ListEndpointsSecurityRequirement0,
+            };
         partial void PrepareListEndpointsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::Together.ListEndpointsType? type,
@@ -65,6 +84,12 @@ namespace Together
                 usageType: ref usageType,
                 mine: ref mine);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListEndpointsSecurityRequirements,
+                operationName: "ListEndpointsAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/endpoints",
                 baseUri: HttpClient.BaseAddress); 
@@ -72,7 +97,7 @@ namespace Together
                 .AddOptionalParameter("type", type?.ToValueString())
                 .AddOptionalParameter("usage_type", usageType?.ToValueString())
                 .AddOptionalParameter("mine", mine?.ToString().ToLowerInvariant()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -82,7 +107,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

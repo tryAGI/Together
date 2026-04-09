@@ -5,6 +5,25 @@ namespace Together
 {
     public partial class DeploymentsVolumesClient
     {
+
+
+        private static readonly global::Together.EndPointSecurityRequirement s_GetDeploymentsStorageVolumesSecurityRequirement0 =
+            new global::Together.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Together.EndPointAuthorizationRequirement[]
+                {                    new global::Together.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Together.EndPointSecurityRequirement[] s_GetDeploymentsStorageVolumesSecurityRequirements =
+            new global::Together.EndPointSecurityRequirement[]
+            {                s_GetDeploymentsStorageVolumesSecurityRequirement0,
+            };
         partial void PrepareGetDeploymentsStorageVolumesArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGetDeploymentsStorageVolumesRequest(
@@ -39,9 +58,15 @@ namespace Together
             PrepareGetDeploymentsStorageVolumesArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetDeploymentsStorageVolumesSecurityRequirements,
+                operationName: "GetDeploymentsStorageVolumesAsync");
+
             var __pathBuilder = new global::Together.PathBuilder(
                 path: "/deployments/storage/volumes",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -51,7 +76,7 @@ namespace Together
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
