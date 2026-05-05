@@ -32,8 +32,9 @@ namespace Together
         /// </summary>
         /// <example>123456789</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("size")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, long?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Size { get; set; }
+        public required global::Together.OneOf<string, long?> Size { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -62,11 +63,11 @@ namespace Together
         public RlCheckpointFile(
             string filename,
             string url,
-            string size)
+            global::Together.OneOf<string, long?> size)
         {
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
-            this.Size = size ?? throw new global::System.ArgumentNullException(nameof(size));
+            this.Size = size;
         }
 
         /// <summary>

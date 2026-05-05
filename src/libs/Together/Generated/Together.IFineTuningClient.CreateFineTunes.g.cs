@@ -11,6 +11,7 @@ namespace Together
         /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -29,6 +30,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
 
             global::Together.CreateFineTunesRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create job<br/>
@@ -43,6 +45,9 @@ namespace Together
         /// <param name="packing">
         /// Whether to use sequence packing for training.<br/>
         /// Default Value: true
+        /// </param>
+        /// <param name="maxSeqLength">
+        /// Maximum sequence length to use for training.
         /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
@@ -127,6 +132,7 @@ namespace Together
         /// <param name="hfOutputRepoName">
         /// The name of the Hugging Face repository to upload the fine-tuned model to.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
@@ -134,6 +140,7 @@ namespace Together
             string model,
             string? validationFile = default,
             bool? packing = default,
+            int? maxSeqLength = default,
             int? nEpochs = default,
             int? nCheckpoints = default,
             int? nEvals = default,
@@ -158,6 +165,7 @@ namespace Together
             string? hfModelRevision = default,
             string? hfApiToken = default,
             string? hfOutputRepoName = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

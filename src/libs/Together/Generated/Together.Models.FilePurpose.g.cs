@@ -16,23 +16,7 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
-        BatchGenerated,
-        /// <summary>
-        /// 
-        /// </summary>
         Eval,
-        /// <summary>
-        /// 
-        /// </summary>
-        EvalOutput,
-        /// <summary>
-        /// 
-        /// </summary>
-        EvalSample,
-        /// <summary>
-        /// 
-        /// </summary>
-        EvalSummary,
         /// <summary>
         /// 
         /// </summary>
@@ -52,11 +36,7 @@ namespace Together
             return value switch
             {
                 FilePurpose.BatchApi => "batch-api",
-                FilePurpose.BatchGenerated => "batch-generated",
                 FilePurpose.Eval => "eval",
-                FilePurpose.EvalOutput => "eval-output",
-                FilePurpose.EvalSample => "eval-sample",
-                FilePurpose.EvalSummary => "eval-summary",
                 FilePurpose.FineTune => "fine-tune",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -69,11 +49,7 @@ namespace Together
             return value switch
             {
                 "batch-api" => FilePurpose.BatchApi,
-                "batch-generated" => FilePurpose.BatchGenerated,
                 "eval" => FilePurpose.Eval,
-                "eval-output" => FilePurpose.EvalOutput,
-                "eval-sample" => FilePurpose.EvalSample,
-                "eval-summary" => FilePurpose.EvalSummary,
                 "fine-tune" => FilePurpose.FineTune,
                 _ => null,
             };

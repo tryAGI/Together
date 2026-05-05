@@ -14,6 +14,7 @@ namespace Together
                 {                    new global::Together.EndPointAuthorizationRequirement
                     {
                         Type = "Http",
+                        SchemeId = "BearerAuth",
                         Location = "Header",
                         Name = "Bearer",
                         FriendlyName = "Bearer",
@@ -28,13 +29,15 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref global::Together.RealtimeTtsModel? model,
             ref string? voice,
-            ref int? maxPartialLength);
+            ref int? maxPartialLength,
+            ref string? language);
         partial void PrepareRealtimeTtsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::Together.RealtimeTtsModel? model,
             string? voice,
-            int? maxPartialLength);
+            int? maxPartialLength,
+            string? language);
         partial void ProcessRealtimeTtsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -45,14 +48,17 @@ namespace Together
         /// **Connection Setup:**<br/>
         /// - Protocol: WebSocket (wss://)<br/>
         /// - Authentication: Pass API key as Bearer token in Authorization header<br/>
-        /// - Parameters: Sent as query parameters (model, voice, max_partial_length)<br/>
+        /// - Parameters: Sent as query parameters (model, voice, max_partial_length, language)<br/>
         /// **Client Events:**<br/>
-        /// - `tts_session.updated`: Update session parameters like voice<br/>
+        /// - `tts_session.updated`: Update session parameters like voice. The `session` object also accepts an `extra_params` field for additional model-specific parameters that fine-tune speech generation behavior, such as `pronunciation_dict` (a list of pronunciation rules for specific characters or symbols, where each entry uses the format `"&lt;source&gt;/&lt;replacement&gt;"` (e.g., `["omg/oh my god"]`) to override how the model pronounces matching tokens).<br/>
         ///   ```json<br/>
         ///   {<br/>
         ///     "type": "tts_session.updated",<br/>
         ///     "session": {<br/>
-        ///       "voice": "tara"<br/>
+        ///       "voice": "tara",<br/>
+        ///       "extra_params": {<br/>
+        ///         "pronunciation_dict": ["omg/oh my god"]<br/>
+        ///       }<br/>
         ///     }<br/>
         ///   }<br/>
         ///   ```<br/>
@@ -130,9 +136,9 @@ namespace Together
         ///   - The partial text exceeds `max_partial_length` characters (default: 250)<br/>
         ///   - The `input_text_buffer.commit` event is received<br/>
         /// **Audio Format:**<br/>
-        /// - Format: WAV (PCM s16le)<br/>
+        /// - Format: Raw PCM (s16le, mono)<br/>
         /// - Sample Rate: 24000 Hz<br/>
-        /// - Encoding: Base64<br/>
+        /// - Encoding: Base64 (per delta event)<br/>
         /// - Delivered via `conversation.item.audio_output.delta` events<br/>
         /// **Error Codes:**<br/>
         /// - `invalid_api_key`: Invalid API key provided (401)<br/>
@@ -153,6 +159,12 @@ namespace Together
         /// even without a sentence ending. Helps reduce latency for long text without punctuation.<br/>
         /// Default Value: 250
         /// </param>
+        /// <param name="language">
+        /// Language or locale of input text. Accepts ISO 639-1 language codes (e.g., `en`, `fr`, `es`, `zh`) as well as locale codes for region-specific variants. Locale codes must be lowercase (e.g., `zh-hk` for Cantonese). Can also be set via `tts_session.updated` event.<br/>
+        /// Default Value: en<br/>
+        /// Example: en
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -163,7 +175,7 @@ namespace Together
         /// import os<br/>
         /// async def generate_speech():<br/>
         ///     api_key = os.environ.get("TOGETHER_API_KEY")<br/>
-        ///     url = "wss://api.together.ai/v1/audio/speech/websocket?model=hexgrad/Kokoro-82M&amp;voice=tara"<br/>
+        ///     url = "wss://api.together.ai/v1/audio/speech/websocket?model=hexgrad/Kokoro-82M&amp;voice=af_heart"<br/>
         ///     headers = {<br/>
         ///         "Authorization": f"Bearer {api_key}"<br/>
         ///     }<br/>
@@ -171,6 +183,9 @@ namespace Together
         ///         # Wait for session created<br/>
         ///         session_msg = await ws.recv()<br/>
         ///         session_data = json.loads(session_msg)<br/>
+        ///         if session_data.get("type") != "session.created":<br/>
+        ///             print(f"Failed to start session: {session_data}")<br/>
+        ///             return<br/>
         ///         print(f"Session created: {session_data['session']['id']}")<br/>
         ///         # Send text for TTS<br/>
         ///         text_chunks = [<br/>
@@ -206,10 +221,10 @@ namespace Together
         ///                     error = data.get("error", {})<br/>
         ///                     print(f"Error: {error.get('message')}")<br/>
         ///                     break<br/>
-        ///             # Save the audio to a file<br/>
-        ///             with open("output.wav", "wb") as f:<br/>
+        ///             # Save the raw PCM samples to a file<br/>
+        ///             with open("output.pcm", "wb") as f:<br/>
         ///                 f.write(audio_data)<br/>
-        ///             print("Audio saved to output.wav")<br/>
+        ///             print("Audio saved to output.pcm")<br/>
         ///         # Run send and receive concurrently<br/>
         ///         await asyncio.gather(send_text(), receive_audio())<br/>
         /// asyncio.run(generate_speech())
@@ -218,6 +233,8 @@ namespace Together
             global::Together.RealtimeTtsModel? model = default,
             string? voice = default,
             int? maxPartialLength = default,
+            string? language = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
@@ -226,7 +243,8 @@ namespace Together
                 httpClient: HttpClient,
                 model: ref model,
                 voice: ref voice,
-                maxPartialLength: ref maxPartialLength);
+                maxPartialLength: ref maxPartialLength,
+                language: ref language);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -234,27 +252,49 @@ namespace Together
                 securityRequirements: s_RealtimeTtsSecurityRequirements,
                 operationName: "RealtimeTtsAsync");
 
-            var __pathBuilder = new global::Together.PathBuilder(
-                path: "/audio/speech/websocket",
-                baseUri: HttpClient.BaseAddress); 
-            __pathBuilder
-                .AddOptionalParameter("model", model?.ToValueString())
-                .AddOptionalParameter("voice", voice)
-                .AddOptionalParameter("max_partial_length", maxPartialLength?.ToString()) 
-                ;
-            var __path = __pathBuilder.ToString();
-            using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                method: global::System.Net.Http.HttpMethod.Get,
-                requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+            using var __timeoutCancellationTokenSource = global::Together.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken);
+            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
+            var __effectiveReadResponseAsString = global::Together.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                fallbackValue: ReadResponseAsString);
+            var __maxAttempts = global::Together.AutoSDKRequestOptionsSupport.GetMaxAttempts(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                supportsRetry: true);
+
+            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
+            {
+                            var __pathBuilder = new global::Together.PathBuilder(
+                                path: "/audio/speech/websocket",
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("model", model?.ToValueString())
+                                .AddOptionalParameter("voice", voice)
+                                .AddOptionalParameter("max_partial_length", maxPartialLength?.ToString())
+                                .AddOptionalParameter("language", language) 
+                                ;
+                            var __path = __pathBuilder.ToString();
+                __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
+                    path: __path,
+                    clientParameters: Options.QueryParameters,
+                    requestParameters: requestOptions?.QueryParameters);
+                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                    method: global::System.Net.Http.HttpMethod.Get,
+                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
-            __httpRequest.Version = global::System.Net.HttpVersion.Version11;
-            __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
             foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
+                    __authorization.Type == "OAuth2" ||
+                    __authorization.Type == "OpenIdConnect")
                 {
                     __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
                         scheme: __authorization.Name,
@@ -264,130 +304,290 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
+                } 
             }
+                global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
+                    request: __httpRequest,
+                    clientHeaders: Options.Headers,
+                    requestHeaders: requestOptions?.Headers);
 
-            PrepareRequest(
-                client: HttpClient,
-                request: __httpRequest);
-            PrepareRealtimeTtsRequest(
-                httpClient: HttpClient,
-                httpRequestMessage: __httpRequest,
-                model: model,
-                voice: voice,
-                maxPartialLength: maxPartialLength);
-
-            using var __response = await HttpClient.SendAsync(
-                request: __httpRequest,
-                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
-
-            ProcessResponse(
-                client: HttpClient,
-                response: __response);
-            ProcessRealtimeTtsResponse(
-                httpClient: HttpClient,
-                httpResponseMessage: __response);
-            // 
-            if ((int)__response.StatusCode == 101)
-            {
-                string? __content_101 = null;
-                global::System.Exception? __exception_101 = null;
-                try
-                {
-                    if (ReadResponseAsString)
-                    {
-                        __content_101 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        __content_101 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    }
-                }
-                catch (global::System.Exception __ex)
-                {
-                    __exception_101 = __ex;
-                }
-
-                throw new global::Together.ApiException(
-                    message: __content_101 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_101,
-                    statusCode: __response.StatusCode)
-                {
-                    ResponseBody = __content_101,
-                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                        __response.Headers,
-                        h => h.Key,
-                        h => h.Value),
-                };
-            }
-
-            if (ReadResponseAsString)
-            {
-                var __content = await __response.Content.ReadAsStringAsync(
-#if NET5_0_OR_GREATER
-                    cancellationToken
-#endif
-                ).ConfigureAwait(false);
-
-                ProcessResponseContent(
+                PrepareRequest(
                     client: HttpClient,
-                    response: __response,
-                    content: ref __content);
+                    request: __httpRequest);
+                PrepareRealtimeTtsRequest(
+                    httpClient: HttpClient,
+                    httpRequestMessage: __httpRequest,
+                    model: model,
+                    voice: voice,
+                    maxPartialLength: maxPartialLength,
+                    language: language);
 
-                try
-                {
-                    __response.EnsureSuccessStatusCode();
-
-                }
-                catch (global::System.Exception __ex)
-                {
-                    throw new global::Together.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
-                    {
-                        ResponseBody = __content,
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
-                }
+                return __httpRequest;
             }
-            else
+
+            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
+            global::System.Net.Http.HttpResponseMessage? __response = null;
+            var __attemptNumber = 0;
+            try
             {
-                try
+                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
                 {
-                    __response.EnsureSuccessStatusCode();
-                }
-                catch (global::System.Exception __ex)
-                {
-                    string? __content = null;
+                    __attemptNumber = __attempt;
+                    __httpRequest = __CreateHttpRequest();
+                    await global::Together.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
+                            clientOptions: Options,
+                            context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RealtimeTts",
+                                methodName: "RealtimeTtsAsync",
+                                pathTemplate: "\"/audio/speech/websocket\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
-                        __content = await __response.Content.ReadAsStringAsync(
-#if NET5_0_OR_GREATER
-                            cancellationToken
-#endif
-                        ).ConfigureAwait(false);
+                        __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                     }
-                    catch (global::System.Exception)
+                    catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
+                        await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RealtimeTts",
+                                methodName: "RealtimeTtsAsync",
+                                pathTemplate: "\"/audio/speech/websocket\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: __exception,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: __willRetry,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        if (!__willRetry)
+                        {
+                            throw;
+                        }
+
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::Together.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
                     }
 
-                    throw new global::Together.ApiException(
-                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                        innerException: __ex,
-                        statusCode: __response.StatusCode)
+                    if (__response != null &&
+                        __attempt < __maxAttempts &&
+                        global::Together.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
-                        ResponseBody = __content,
-                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                            __response.Headers,
-                            h => h.Key,
-                            h => h.Value),
-                    };
+                        await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RealtimeTts",
+                                methodName: "RealtimeTtsAsync",
+                                pathTemplate: "\"/audio/speech/websocket\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: true,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        __response.Dispose();
+                        __response = null;
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::Together.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    break;
                 }
+
+                if (__response == null)
+                {
+                    throw new global::System.InvalidOperationException("No response received.");
+                }
+
+                using (__response)
+                {
+
+                ProcessResponse(
+                    client: HttpClient,
+                    response: __response);
+                ProcessRealtimeTtsResponse(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response);
+                if (__response.IsSuccessStatusCode)
+                {
+                    await global::Together.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
+                            clientOptions: Options,
+                            context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RealtimeTts",
+                                methodName: "RealtimeTtsAsync",
+                                pathTemplate: "\"/audio/speech/websocket\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                else
+                {
+                    await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "RealtimeTts",
+                                methodName: "RealtimeTtsAsync",
+                                pathTemplate: "\"/audio/speech/websocket\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                            // 
+                            if ((int)__response.StatusCode == 101)
+                            {
+                                string? __content_101 = null;
+                                global::System.Exception? __exception_101 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_101 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_101 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_101 = __ex;
+                                }
+
+                                throw new global::Together.ApiException(
+                                    message: __content_101 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_101,
+                                    statusCode: __response.StatusCode)
+                                {
+                                    ResponseBody = __content_101,
+                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value),
+                                };
+                            }
+
+                            if (__effectiveReadResponseAsString)
+                            {
+                                var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                    __effectiveCancellationToken
+                #endif
+                                ).ConfigureAwait(false);
+
+                                ProcessResponseContent(
+                                    client: HttpClient,
+                                    response: __response,
+                                    content: ref __content);
+
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    throw new global::Together.ApiException(
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        statusCode: __response.StatusCode)
+                                    {
+                                        ResponseBody = __content,
+                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value),
+                                    };
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    string? __content = null;
+                                    try
+                                    {
+                                        __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                            __effectiveCancellationToken
+                #endif
+                                        ).ConfigureAwait(false);
+                                    }
+                                    catch (global::System.Exception)
+                                    {
+                                    }
+
+                                    throw new global::Together.ApiException(
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        statusCode: __response.StatusCode)
+                                    {
+                                        ResponseBody = __content,
+                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value),
+                                    };
+                                }
+                            }
+
+                }
+            }
+            finally
+            {
+                __httpRequest?.Dispose();
             }
         }
     }

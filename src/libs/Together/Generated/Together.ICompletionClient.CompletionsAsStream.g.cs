@@ -9,6 +9,7 @@ namespace Together
         /// Generate text completions for a given prompt using a language, code, or image model.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -28,6 +29,7 @@ namespace Together
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.CompletionStream> CompletionsAsStreamAsync(
 
             global::Together.CompletionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create completion<br/>
@@ -89,6 +91,7 @@ namespace Together
         /// Seed value for reproducibility.<br/>
         /// Example: 42
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.CompletionStream> CompletionsAsStreamAsync(
@@ -109,6 +112,7 @@ namespace Together
             float? frequencyPenalty = default,
             global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
             int? seed = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -3,10 +3,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GPUClusterInfoDriverVersionNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.GPUClusterInfoDriverVersion?>
+    public sealed class RlSessionTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.RlSessionType>
     {
         /// <inheritdoc />
-        public override global::Together.GPUClusterInfoDriverVersion? Read(
+        public override global::Together.RlSessionType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Together.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Together.GPUClusterInfoDriverVersionExtensions.ToEnum(stringValue);
+                        return global::Together.RlSessionTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Together.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Together.GPUClusterInfoDriverVersion)numValue;
+                    return (global::Together.RlSessionType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Together.GPUClusterInfoDriverVersion?);
+                    return default(global::Together.RlSessionType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.GPUClusterInfoDriverVersion? value,
+            global::Together.RlSessionType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::Together.GPUClusterInfoDriverVersionExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::Together.RlSessionTypeExtensions.ToValueString(value));
         }
     }
 }

@@ -23,8 +23,9 @@ namespace Together
         /// </summary>
         /// <example>42</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("step")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Step { get; set; }
+        public required global::Together.OneOf<string, int?> Step { get; set; }
 
         /// <summary>
         /// Timestamp when the checkpoint was created<br/>
@@ -70,12 +71,12 @@ namespace Together
 #endif
         public RlInferenceCheckpoint(
             string id,
-            string step,
+            global::Together.OneOf<string, int?> step,
             global::System.DateTime createdAt,
             global::Together.RlInferenceCheckpointRegistration? registration)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Step = step ?? throw new global::System.ArgumentNullException(nameof(step));
+            this.Step = step;
             this.CreatedAt = createdAt;
             this.Registration = registration;
         }

@@ -12,6 +12,7 @@ namespace Together
         /// The ID of the endpoint to delete<br/>
         /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -26,6 +27,7 @@ namespace Together
         /// </remarks>
         global::System.Threading.Tasks.Task DeleteEndpointAsync(
             string endpointId,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

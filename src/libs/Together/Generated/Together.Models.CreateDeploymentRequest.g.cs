@@ -56,7 +56,8 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter))]
-        public global::Together.CreateDeploymentRequestGpuType GpuType { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.CreateDeploymentRequestGpuType GpuType { get; set; }
 
         /// <summary>
         /// HealthCheckPath is the HTTP path for health checks (e.g., "/health"). If set, the platform will check this endpoint to determine container health
@@ -129,6 +130,9 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateDeploymentRequest" /> class.
         /// </summary>
+        /// <param name="gpuType">
+        /// GPUType specifies the GPU hardware to use (e.g., "h100-80gb").
+        /// </param>
         /// <param name="image">
         /// Image is the container image to deploy from registry.together.ai.
         /// </param>
@@ -155,9 +159,6 @@ namespace Together
         /// </param>
         /// <param name="gpuCount">
         /// GPUCount is the number of GPUs to allocate per container instance. Defaults to 0 if not specified
-        /// </param>
-        /// <param name="gpuType">
-        /// GPUType specifies the GPU hardware to use (e.g., "h100-80gb").
         /// </param>
         /// <param name="healthCheckPath">
         /// HealthCheckPath is the HTTP path for health checks (e.g., "/health"). If set, the platform will check this endpoint to determine container health
@@ -187,6 +188,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateDeploymentRequest(
+            global::Together.CreateDeploymentRequestGpuType gpuType,
             string image,
             string name,
             global::System.Collections.Generic.IList<string>? args,
@@ -196,7 +198,6 @@ namespace Together
             string? description,
             global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>? environmentVariables,
             int? gpuCount,
-            global::Together.CreateDeploymentRequestGpuType gpuType,
             string? healthCheckPath,
             int? maxReplicas,
             double? memory,

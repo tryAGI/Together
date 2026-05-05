@@ -9,6 +9,7 @@ namespace Together
         /// Create a new batch job with the given input file and endpoint
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -24,6 +25,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.BatchJobWithWarning> CreateBatchesAsync(
 
             global::Together.CreateBatchRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a batch job<br/>
@@ -49,6 +51,7 @@ namespace Together
         /// Model to use for processing batch requests<br/>
         /// Example: Qwen/Qwen3.5-9B
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.BatchJobWithWarning> CreateBatchesAsync(
@@ -57,6 +60,7 @@ namespace Together
             string? completionWindow = default,
             int? priority = default,
             string? modelId = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

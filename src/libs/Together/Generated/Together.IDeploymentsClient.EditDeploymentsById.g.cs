@@ -12,6 +12,7 @@ namespace Together
         /// Deployment ID or name
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -24,6 +25,7 @@ namespace Together
             string id,
 
             global::Together.UpdateDeploymentRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a deployment<br/>
@@ -86,6 +88,7 @@ namespace Together
         /// <param name="volumes">
         /// Volumes is a list of volume mounts to attach to the container. This will replace all existing volumes
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> EditDeploymentsByIdAsync(
@@ -108,6 +111,7 @@ namespace Together
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

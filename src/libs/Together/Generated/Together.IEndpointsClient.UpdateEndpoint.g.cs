@@ -13,6 +13,7 @@ namespace Together
         /// Example: endpoint-d23901de-ef8f-44bf-b3e7-de9c1ca8f2d7
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -32,6 +33,7 @@ namespace Together
             string endpointId,
 
             global::Together.UpdateEndpointRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update endpoint, this can also be used to start or stop a dedicated endpoint<br/>
@@ -56,6 +58,7 @@ namespace Together
         /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
         /// Example: 60
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> UpdateEndpointAsync(
@@ -64,6 +67,7 @@ namespace Together
             global::Together.UpdateEndpointRequestState? state = default,
             global::Together.Autoscaling? autoscaling = default,
             int? inactiveTimeout = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

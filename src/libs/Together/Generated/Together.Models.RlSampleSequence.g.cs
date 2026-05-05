@@ -15,7 +15,7 @@ namespace Together
         /// <example>[123, 456, 789]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> Tokens { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>> Tokens { get; set; }
 
         /// <summary>
         /// Log probabilities for each generated token<br/>
@@ -58,7 +58,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSampleSequence(
-            global::System.Collections.Generic.IList<string> tokens,
+            global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>> tokens,
             global::System.Collections.Generic.IList<double>? logprobs,
             string? stopReason)
         {

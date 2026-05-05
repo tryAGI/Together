@@ -47,6 +47,14 @@ namespace Together
         public string? ExternalBaseUrl { get; set; }
 
         /// <summary>
+        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Example: 5
+        /// </summary>
+        /// <example>5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_workers")]
+        public int? NumWorkers { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +80,10 @@ namespace Together
         /// <param name="externalBaseUrl">
         /// Base URL for external judge models. Must be OpenAI-compatible base URL.
         /// </param>
+        /// <param name="numWorkers">
+        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Example: 5
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,13 +92,15 @@ namespace Together
             string systemTemplate,
             global::Together.EvaluationJudgeModelConfigModelSource modelSource,
             string? externalApiToken,
-            string? externalBaseUrl)
+            string? externalBaseUrl,
+            int? numWorkers)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.SystemTemplate = systemTemplate ?? throw new global::System.ArgumentNullException(nameof(systemTemplate));
             this.ModelSource = modelSource;
             this.ExternalApiToken = externalApiToken;
             this.ExternalBaseUrl = externalBaseUrl;
+            this.NumWorkers = numWorkers;
         }
 
         /// <summary>

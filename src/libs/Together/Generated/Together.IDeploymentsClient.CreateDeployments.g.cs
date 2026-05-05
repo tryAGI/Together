@@ -9,6 +9,7 @@ namespace Together
         /// Create a new deployment with specified configuration
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -17,13 +18,14 @@ namespace Together
         /// deployment = client.beta.jig.deploy(<br/>
         ///   name="my-deployment",<br/>
         ///   gpu_type="h100-80gb",<br/>
-        ///   image="registry.together.xyz/proj_abcdefg1234567890/my-image:latest"<br/>
+        ///   image="registry.together.ai/proj_abcdefg1234567890/my-image:latest"<br/>
         /// )<br/>
         /// print(deployment)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> CreateDeploymentsAsync(
 
             global::Together.CreateDeploymentRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a new deployment<br/>
@@ -83,9 +85,11 @@ namespace Together
         /// <param name="volumes">
         /// Volumes is a list of volume mounts to attach to the container. Each mount must reference an existing volume by name
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> CreateDeploymentsAsync(
+            global::Together.CreateDeploymentRequestGpuType gpuType,
             string image,
             string name,
             global::System.Collections.Generic.IList<string>? args = default,
@@ -95,7 +99,6 @@ namespace Together
             string? description = default,
             global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>? environmentVariables = default,
             int? gpuCount = default,
-            global::Together.CreateDeploymentRequestGpuType gpuType = default,
             string? healthCheckPath = default,
             int? maxReplicas = default,
             double? memory = default,
@@ -104,6 +107,7 @@ namespace Together
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

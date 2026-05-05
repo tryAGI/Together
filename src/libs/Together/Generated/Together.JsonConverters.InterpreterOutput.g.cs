@@ -23,6 +23,14 @@ namespace Together.JsonConverters
                 foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
                 {
                     __jsonProps.Add(__jsonProp.Name);
+                    if (__jsonProp.Value.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                    {
+                        foreach (var __nestedJsonProp in __jsonProp.Value.EnumerateObject())
+                        {
+                            __jsonProps.Add(__jsonProp.Name + "." + __nestedJsonProp.Name);
+                        }
+                    }
+
                 }
             }
 
@@ -34,6 +42,20 @@ namespace Together.JsonConverters
             if (__jsonProps.Contains("type")) __score1++;
             var __score2 = 0;
             if (__jsonProps.Contains("data")) __score2++;
+            if (__jsonProps.Contains("data.application/geo+json")) __score2++;
+            if (__jsonProps.Contains("data.application/javascript")) __score2++;
+            if (__jsonProps.Contains("data.application/json")) __score2++;
+            if (__jsonProps.Contains("data.application/pdf")) __score2++;
+            if (__jsonProps.Contains("data.application/vnd.vega.v5+json")) __score2++;
+            if (__jsonProps.Contains("data.application/vnd.vegalite.v4+json")) __score2++;
+            if (__jsonProps.Contains("data.image/gif")) __score2++;
+            if (__jsonProps.Contains("data.image/jpeg")) __score2++;
+            if (__jsonProps.Contains("data.image/png")) __score2++;
+            if (__jsonProps.Contains("data.image/svg+xml")) __score2++;
+            if (__jsonProps.Contains("data.text/html")) __score2++;
+            if (__jsonProps.Contains("data.text/latex")) __score2++;
+            if (__jsonProps.Contains("data.text/markdown")) __score2++;
+            if (__jsonProps.Contains("data.text/plain")) __score2++;
             if (__jsonProps.Contains("type")) __score2++;
             var __bestScore = 0;
             var __bestIndex = -1;

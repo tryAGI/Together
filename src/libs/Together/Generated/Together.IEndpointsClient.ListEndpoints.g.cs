@@ -17,6 +17,7 @@ namespace Together
         /// <param name="mine">
         /// If true, return only endpoints owned by the caller
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -34,6 +35,7 @@ namespace Together
             global::Together.ListEndpointsType? type = default,
             global::Together.ListEndpointsUsageType? usageType = default,
             bool? mine = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
