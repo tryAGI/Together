@@ -11,9 +11,9 @@ namespace Together
         /// <summary>
         /// CUDA driver version.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("cuda_driver_version")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("cuda_version")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CudaDriverVersion { get; set; }
+        public required string CudaVersion { get; set; }
 
         /// <summary>
         /// NVIDIA driver version.
@@ -31,7 +31,7 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ClusterDriverVersionInfo" /> class.
         /// </summary>
-        /// <param name="cudaDriverVersion">
+        /// <param name="cudaVersion">
         /// CUDA driver version.
         /// </param>
         /// <param name="nvidiaDriverVersion">
@@ -41,10 +41,10 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ClusterDriverVersionInfo(
-            string cudaDriverVersion,
+            string cudaVersion,
             string nvidiaDriverVersion)
         {
-            this.CudaDriverVersion = cudaDriverVersion ?? throw new global::System.ArgumentNullException(nameof(cudaDriverVersion));
+            this.CudaVersion = cudaVersion ?? throw new global::System.ArgumentNullException(nameof(cudaVersion));
             this.NvidiaDriverVersion = nvidiaDriverVersion ?? throw new global::System.ArgumentNullException(nameof(nvidiaDriverVersion));
         }
 

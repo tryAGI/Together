@@ -9,11 +9,13 @@ namespace Together
         /// Creates a training session and returns its details.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
 
             global::Together.RlStartTrainingSessionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create training session<br/>
@@ -27,15 +29,22 @@ namespace Together
         /// Checkpoint ID to resume from<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
+        /// <param name="type">
+        /// Type of the training session. Defaults to TRAINER_AND_GENERATOR when unspecified. TRAINER_ONLY provisions only the trainer and rejects sample requests.<br/>
+        /// Default Value: SESSION_TYPE_TRAINER_AND_GENERATOR
+        /// </param>
         /// <param name="loraConfig">
         /// LoRA adapter configuration
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
             string baseModel,
             string? resumeFromCheckpointId = default,
+            global::Together.RlSessionType? type = default,
             global::Together.RlLoraConfig? loraConfig = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

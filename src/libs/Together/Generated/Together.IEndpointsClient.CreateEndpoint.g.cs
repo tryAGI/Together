@@ -11,6 +11,7 @@ namespace Together
         /// Creates a new dedicated endpoint for serving models. The endpoint will automatically start after creation. You can deploy any supported model on hardware configurations that meet the model's requirements.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -33,6 +34,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> CreateEndpointAsync(
 
             global::Together.CreateEndpointRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a dedicated endpoint, it will start automatically<br/>
@@ -69,6 +71,7 @@ namespace Together
         /// <param name="availabilityZone">
         /// Create the endpoint in a specified availability zone (e.g., us-central-4b)
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> CreateEndpointAsync(
@@ -80,6 +83,7 @@ namespace Together
             global::Together.CreateEndpointRequestState? state = default,
             int? inactiveTimeout = default,
             string? availabilityZone = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

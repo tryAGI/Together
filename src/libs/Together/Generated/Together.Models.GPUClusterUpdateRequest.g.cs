@@ -22,6 +22,12 @@ namespace Together
         public int? NumGpus { get; set; }
 
         /// <summary>
+        /// Timestamp at which the cluster should be decommissioned. Only accepted for prepaid clusters.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reservation_end_time")]
+        public global::System.DateTime? ReservationEndTime { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +42,20 @@ namespace Together
         /// <param name="numGpus">
         /// Number of GPUs to allocate in the cluster. This must be multiple of 8. For example, 8, 16 or 24
         /// </param>
+        /// <param name="reservationEndTime">
+        /// Timestamp at which the cluster should be decommissioned. Only accepted for prepaid clusters.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GPUClusterUpdateRequest(
             global::Together.GPUClusterUpdateRequestClusterType? clusterType,
-            int? numGpus)
+            int? numGpus,
+            global::System.DateTime? reservationEndTime)
         {
             this.ClusterType = clusterType;
             this.NumGpus = numGpus;
+            this.ReservationEndTime = reservationEndTime;
         }
 
         /// <summary>

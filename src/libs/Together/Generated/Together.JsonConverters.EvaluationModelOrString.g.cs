@@ -23,6 +23,7 @@ namespace Together.JsonConverters
                 foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
                 {
                     __jsonProps.Add(__jsonProp.Name);
+
                 }
             }
 
@@ -34,6 +35,7 @@ namespace Together.JsonConverters
             if (__jsonProps.Contains("max_tokens")) __score1++;
             if (__jsonProps.Contains("model")) __score1++;
             if (__jsonProps.Contains("model_source")) __score1++;
+            if (__jsonProps.Contains("num_workers")) __score1++;
             if (__jsonProps.Contains("system_template")) __score1++;
             if (__jsonProps.Contains("temperature")) __score1++;
             var __bestScore = 0;

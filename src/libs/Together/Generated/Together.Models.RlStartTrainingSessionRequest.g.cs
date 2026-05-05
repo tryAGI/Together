@@ -26,6 +26,14 @@ namespace Together
         public string? ResumeFromCheckpointId { get; set; }
 
         /// <summary>
+        /// Type of the training session. Defaults to TRAINER_AND_GENERATOR when unspecified. TRAINER_ONLY provisions only the trainer and rejects sample requests.<br/>
+        /// Default Value: SESSION_TYPE_TRAINER_AND_GENERATOR
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlSessionTypeJsonConverter))]
+        public global::Together.RlSessionType? Type { get; set; }
+
+        /// <summary>
         /// LoRA adapter configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
@@ -48,6 +56,10 @@ namespace Together
         /// Checkpoint ID to resume from<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
+        /// <param name="type">
+        /// Type of the training session. Defaults to TRAINER_AND_GENERATOR when unspecified. TRAINER_ONLY provisions only the trainer and rejects sample requests.<br/>
+        /// Default Value: SESSION_TYPE_TRAINER_AND_GENERATOR
+        /// </param>
         /// <param name="loraConfig">
         /// LoRA adapter configuration
         /// </param>
@@ -57,10 +69,12 @@ namespace Together
         public RlStartTrainingSessionRequest(
             string baseModel,
             string? resumeFromCheckpointId,
+            global::Together.RlSessionType? type,
             global::Together.RlLoraConfig? loraConfig)
         {
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
             this.ResumeFromCheckpointId = resumeFromCheckpointId;
+            this.Type = type;
             this.LoraConfig = loraConfig;
         }
 

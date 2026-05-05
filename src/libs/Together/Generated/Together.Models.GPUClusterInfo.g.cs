@@ -49,16 +49,7 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_hours")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DurationHours { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("driver_version")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoDriverVersionJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.GPUClusterInfoDriverVersion DriverVersion { get; set; }
+        public int? DurationHours { get; set; }
 
         /// <summary>
         /// 
@@ -104,6 +95,56 @@ namespace Together
         public required int NumGpus { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("slurm_shm_size_gib")]
+        public int? SlurmShmSizeGib { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("capacity_pool_id")]
+        public string? CapacityPoolId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reservation_start_time")]
+        public global::System.DateTime? ReservationStartTime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reservation_end_time")]
+        public global::System.DateTime? ReservationEndTime { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("install_traefik")]
+        public bool? InstallTraefik { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cuda_version")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string CudaVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("nvidia_driver_version")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string NvidiaDriverVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        public global::System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -119,8 +160,6 @@ namespace Together
         /// <param name="region"></param>
         /// <param name="gpuType"></param>
         /// <param name="clusterName"></param>
-        /// <param name="durationHours"></param>
-        /// <param name="driverVersion"></param>
         /// <param name="volumes"></param>
         /// <param name="status">
         /// Current status of the GPU cluster.
@@ -129,6 +168,15 @@ namespace Together
         /// <param name="gpuWorkerNodes"></param>
         /// <param name="kubeConfig"></param>
         /// <param name="numGpus"></param>
+        /// <param name="cudaVersion"></param>
+        /// <param name="nvidiaDriverVersion"></param>
+        /// <param name="durationHours"></param>
+        /// <param name="slurmShmSizeGib"></param>
+        /// <param name="capacityPoolId"></param>
+        /// <param name="reservationStartTime"></param>
+        /// <param name="reservationEndTime"></param>
+        /// <param name="installTraefik"></param>
+        /// <param name="createdAt"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -138,14 +186,21 @@ namespace Together
             string region,
             global::Together.GPUClusterInfoGpuType gpuType,
             string clusterName,
-            int durationHours,
-            global::Together.GPUClusterInfoDriverVersion driverVersion,
             global::System.Collections.Generic.IList<global::Together.GPUClusterVolume> volumes,
             global::Together.GPUClusterInfoStatus status,
             global::System.Collections.Generic.IList<global::Together.GPUClusterControlPlaneNode> controlPlaneNodes,
             global::System.Collections.Generic.IList<global::Together.GPUClusterGPUWorkerNode> gpuWorkerNodes,
             string kubeConfig,
-            int numGpus)
+            int numGpus,
+            string cudaVersion,
+            string nvidiaDriverVersion,
+            int? durationHours,
+            int? slurmShmSizeGib,
+            string? capacityPoolId,
+            global::System.DateTime? reservationStartTime,
+            global::System.DateTime? reservationEndTime,
+            bool? installTraefik,
+            global::System.DateTime? createdAt)
         {
             this.ClusterId = clusterId ?? throw new global::System.ArgumentNullException(nameof(clusterId));
             this.ClusterType = clusterType;
@@ -153,13 +208,20 @@ namespace Together
             this.GpuType = gpuType;
             this.ClusterName = clusterName ?? throw new global::System.ArgumentNullException(nameof(clusterName));
             this.DurationHours = durationHours;
-            this.DriverVersion = driverVersion;
             this.Volumes = volumes ?? throw new global::System.ArgumentNullException(nameof(volumes));
             this.Status = status;
             this.ControlPlaneNodes = controlPlaneNodes ?? throw new global::System.ArgumentNullException(nameof(controlPlaneNodes));
             this.GpuWorkerNodes = gpuWorkerNodes ?? throw new global::System.ArgumentNullException(nameof(gpuWorkerNodes));
             this.KubeConfig = kubeConfig ?? throw new global::System.ArgumentNullException(nameof(kubeConfig));
             this.NumGpus = numGpus;
+            this.SlurmShmSizeGib = slurmShmSizeGib;
+            this.CapacityPoolId = capacityPoolId;
+            this.ReservationStartTime = reservationStartTime;
+            this.ReservationEndTime = reservationEndTime;
+            this.InstallTraefik = installTraefik;
+            this.CudaVersion = cudaVersion ?? throw new global::System.ArgumentNullException(nameof(cudaVersion));
+            this.NvidiaDriverVersion = nvidiaDriverVersion ?? throw new global::System.ArgumentNullException(nameof(nvidiaDriverVersion));
+            this.CreatedAt = createdAt;
         }
 
         /// <summary>

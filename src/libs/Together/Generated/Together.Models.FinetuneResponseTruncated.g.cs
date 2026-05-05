@@ -93,6 +93,12 @@ namespace Together
         public bool? Packing { get; set; }
 
         /// <summary>
+        /// Maximum sequence length to use for training. If not specified, the maximum allowed for the model and training method will be used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_seq_length")]
+        public int? MaxSeqLength { get; set; }
+
+        /// <summary>
         /// Base model used for fine-tuning
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -266,6 +272,9 @@ namespace Together
         /// <param name="packing">
         /// Whether sequence packing is being used for training.
         /// </param>
+        /// <param name="maxSeqLength">
+        /// Maximum sequence length to use for training. If not specified, the maximum allowed for the model and training method will be used.
+        /// </param>
         /// <param name="model">
         /// Base model used for fine-tuning
         /// </param>
@@ -344,6 +353,7 @@ namespace Together
             string? trainingFile,
             string? validationFile,
             bool? packing,
+            int? maxSeqLength,
             string? model,
             string? modelOutputName,
             string? suffix,
@@ -379,6 +389,7 @@ namespace Together
             this.TrainingFile = trainingFile;
             this.ValidationFile = validationFile;
             this.Packing = packing;
+            this.MaxSeqLength = maxSeqLength;
             this.Model = model;
             this.ModelOutputName = modelOutputName;
             this.Suffix = suffix;

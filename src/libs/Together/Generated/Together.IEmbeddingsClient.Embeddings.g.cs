@@ -9,6 +9,7 @@ namespace Together
         /// Generate vector embeddings for one or more text inputs. Returns numerical arrays representing semantic meaning, useful for search, classification, and retrieval.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -27,6 +28,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.EmbeddingsResponse> EmbeddingsAsync(
 
             global::Together.EmbeddingsRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create embedding<br/>
@@ -39,11 +41,13 @@ namespace Together
         /// <param name="input">
         /// Example: Our solar system orbits the Milky Way galaxy at about 515,000 mph
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.EmbeddingsResponse> EmbeddingsAsync(
             global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string> model,
             global::Together.OneOf<string, global::System.Collections.Generic.IList<string>> input,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

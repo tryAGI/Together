@@ -9,6 +9,7 @@ namespace Together
         /// Use an image model to generate an image for a given prompt.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -28,6 +29,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
 
             global::Together.CreateImagesGenerationsRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create image<br/>
@@ -86,6 +88,7 @@ namespace Together
         /// <param name="disableSafetyChecker">
         /// If true, disables the safety checker for image generation.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ImageResponse> CreateImagesGenerationsAsync(
@@ -104,6 +107,7 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>? imageLoras = default,
             global::System.Collections.Generic.IList<string>? referenceImages = default,
             bool? disableSafetyChecker = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

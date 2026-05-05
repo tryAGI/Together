@@ -65,6 +65,12 @@ namespace Together
         public required global::System.Collections.Generic.IList<string> Networks { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instance_id")]
+        public string? InstanceId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -81,6 +87,7 @@ namespace Together
         /// <param name="numGpus"></param>
         /// <param name="memoryGib"></param>
         /// <param name="networks"></param>
+        /// <param name="instanceId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -92,7 +99,8 @@ namespace Together
             int numCpuCores,
             int numGpus,
             double memoryGib,
-            global::System.Collections.Generic.IList<string> networks)
+            global::System.Collections.Generic.IList<string> networks,
+            string? instanceId)
         {
             this.NodeId = nodeId ?? throw new global::System.ArgumentNullException(nameof(nodeId));
             this.NodeName = nodeName ?? throw new global::System.ArgumentNullException(nameof(nodeName));
@@ -102,6 +110,7 @@ namespace Together
             this.NumGpus = numGpus;
             this.MemoryGib = memoryGib;
             this.Networks = networks ?? throw new global::System.ArgumentNullException(nameof(networks));
+            this.InstanceId = instanceId;
         }
 
         /// <summary>

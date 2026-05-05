@@ -11,6 +11,7 @@ namespace Together
         /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -32,6 +33,7 @@ namespace Together
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.ChatCompletionStream> ChatCompletionsAsStreamAsync(
 
             global::Together.ChatCompletionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create chat completion<br/>
@@ -123,6 +125,7 @@ namespace Together
         /// <param name="reasoning">
         /// For models that support toggling reasoning functionality, this object can be used to control that functionality.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.ChatCompletionStream> ChatCompletionsAsStreamAsync(
@@ -152,6 +155,7 @@ namespace Together
             string? safetyModel = default,
             global::Together.ChatCompletionRequestReasoningEffort? reasoningEffort = default,
             global::Together.ChatCompletionRequestReasoning? reasoning = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

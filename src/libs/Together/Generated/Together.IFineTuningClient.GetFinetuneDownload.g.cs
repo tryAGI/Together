@@ -17,6 +17,7 @@ namespace Together
         /// <param name="checkpoint">
         /// Specifies checkpoint type to download - `merged` vs `adapter`. This field is required if the checkpoint_step is not set.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -36,6 +37,7 @@ namespace Together
             string ftId,
             int? checkpointStep = default,
             global::Together.GetFinetuneDownloadCheckpoint? checkpoint = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

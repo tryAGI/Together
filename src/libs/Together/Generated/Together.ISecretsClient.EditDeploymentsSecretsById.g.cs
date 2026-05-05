@@ -12,6 +12,7 @@ namespace Together
         /// Secret ID or name
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -23,6 +24,7 @@ namespace Together
             string id,
 
             global::Together.UpdateSecretRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a secret<br/>
@@ -43,6 +45,7 @@ namespace Together
         /// <param name="value">
         /// Value is the new sensitive data to store securely. Updating this will replace the existing secret value
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.SecretResponseItem> EditDeploymentsSecretsByIdAsync(
@@ -51,6 +54,7 @@ namespace Together
             string? name = default,
             string? projectId = default,
             string? value = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

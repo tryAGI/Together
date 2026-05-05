@@ -33,6 +33,10 @@ namespace Together
 
             typeof(global::Together.JsonConverters.RlTrainingOperationStatusNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.RlSessionTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.RlSessionTypeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.RlTrainingSessionStatusJsonConverter),
 
             typeof(global::Together.JsonConverters.RlTrainingSessionStatusNullableJsonConverter),
@@ -49,10 +53,6 @@ namespace Together
 
             typeof(global::Together.JsonConverters.GPUClusterCreateRequestGpuTypeNullableJsonConverter),
 
-            typeof(global::Together.JsonConverters.GPUClusterCreateRequestDriverVersionJsonConverter),
-
-            typeof(global::Together.JsonConverters.GPUClusterCreateRequestDriverVersionNullableJsonConverter),
-
             typeof(global::Together.JsonConverters.GPUClusterCreateRequestBillingTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClusterCreateRequestBillingTypeNullableJsonConverter),
@@ -64,10 +64,6 @@ namespace Together
             typeof(global::Together.JsonConverters.GPUClusterInfoGpuTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClusterInfoGpuTypeNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.GPUClusterInfoDriverVersionJsonConverter),
-
-            typeof(global::Together.JsonConverters.GPUClusterInfoDriverVersionNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClusterInfoStatusJsonConverter),
 
@@ -192,10 +188,6 @@ namespace Together
             typeof(global::Together.JsonConverters.AudioSpeechRequestResponseFormatJsonConverter),
 
             typeof(global::Together.JsonConverters.AudioSpeechRequestResponseFormatNullableJsonConverter),
-
-            typeof(global::Together.JsonConverters.AudioSpeechRequestLanguageJsonConverter),
-
-            typeof(global::Together.JsonConverters.AudioSpeechRequestLanguageNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.AudioSpeechRequestResponseEncodingJsonConverter),
 
@@ -573,6 +565,20 @@ namespace Together
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
 
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>),
+
+            typeof(global::Together.JsonConverters.OneOfJsonConverter<string, long?>),
+
             typeof(global::Together.JsonConverters.AnyOfJsonConverter<global::Together.RerankRequestModel?, string>),
 
             typeof(global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>),
@@ -683,11 +689,11 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, int?>), TypeInfoPropertyName = "OneOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEncodedText))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlListMeta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<string, int?>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, int?>), TypeInfoPropertyName = "OneOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlDType), TypeInfoPropertyName = "RlDType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossType), TypeInfoPropertyName = "RlLossType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCrossEntropyLossParams))]
@@ -717,6 +723,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingOperationErrorCode), TypeInfoPropertyName = "RlTrainingOperationErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlStartTrainingSessionRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSessionType), TypeInfoPropertyName = "RlSessionType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLoraConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingSessionStatus), TypeInfoPropertyName = "RlTrainingSessionStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingSession))]
@@ -734,6 +741,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingCheckpointOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointVariant), TypeInfoPropertyName = "RlCheckpointVariant2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointFile))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, long?>), TypeInfoPropertyName = "OneOfStringInt642")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointDownloadResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlCheckpointFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorResponse))]
@@ -741,14 +749,12 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestClusterType), TypeInfoPropertyName = "GPUClusterCreateRequestClusterType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestGpuType), TypeInfoPropertyName = "GPUClusterCreateRequestGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestDriverVersion), TypeInfoPropertyName = "GPUClusterCreateRequestDriverVersion2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClustersSharedVolumeCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestBillingType), TypeInfoPropertyName = "GPUClusterCreateRequestBillingType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterGPUWorkerNode))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoClusterType), TypeInfoPropertyName = "GPUClusterInfoClusterType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoGpuType), TypeInfoPropertyName = "GPUClusterInfoGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoDriverVersion), TypeInfoPropertyName = "GPUClusterInfoDriverVersion2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.GPUClusterVolume>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterVolume))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoStatus), TypeInfoPropertyName = "GPUClusterInfoStatus2")]
@@ -893,8 +899,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string>), TypeInfoPropertyName = "AnyOfAudioSpeechRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestModel), TypeInfoPropertyName = "AudioSpeechRequestModel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestResponseFormat), TypeInfoPropertyName = "AudioSpeechRequestResponseFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestLanguage), TypeInfoPropertyName = "AudioSpeechRequestLanguage2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestResponseEncoding), TypeInfoPropertyName = "AudioSpeechRequestResponseEncoding2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestExtraParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioTranscriptionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<byte[], string>), TypeInfoPropertyName = "OneOfByteArrayString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
@@ -1188,6 +1194,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestTrainOnInputs), TypeInfoPropertyName = "CreateFineTunesRequestTrainOnInputs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>), TypeInfoPropertyName = "AnyOfFullTrainingTypeLoRATrainingType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesMetricsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequestState), TypeInfoPropertyName = "UpdateEndpointRequestState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFinetuneDownloadCheckpoint), TypeInfoPropertyName = "GetFinetuneDownloadCheckpoint2")]
@@ -1197,6 +1204,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTranscriptionInputAudioFormat), TypeInfoPropertyName = "RealtimeTranscriptionInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesMetricsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsSupportedResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsLimitsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterServiceDeleteResponse))]
@@ -1278,6 +1287,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VolumeResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FileInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CreateImagesGenerationsRequestImageLora>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.Dictionary<string, double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListEndpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.HardwareWithStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.BatchJob>))]

@@ -11,6 +11,14 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        B200192gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        H10040gbMig,
+        /// <summary>
+        /// 
+        /// </summary>
         H10080gb,
     }
 
@@ -26,6 +34,8 @@ namespace Together
         {
             return value switch
             {
+                CreateDeploymentRequestGpuType.B200192gb => "b200-192gb",
+                CreateDeploymentRequestGpuType.H10040gbMig => "h100-40gb-mig",
                 CreateDeploymentRequestGpuType.H10080gb => "h100-80gb",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -37,6 +47,8 @@ namespace Together
         {
             return value switch
             {
+                "b200-192gb" => CreateDeploymentRequestGpuType.B200192gb,
+                "h100-40gb-mig" => CreateDeploymentRequestGpuType.H10040gbMig,
                 "h100-80gb" => CreateDeploymentRequestGpuType.H10080gb,
                 _ => null,
             };

@@ -9,6 +9,7 @@ namespace Together
         /// Transcribes audio into text
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -27,6 +28,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.AudioTranscriptionResponse> AudioTranscriptionsAsync(
 
             global::Together.AudioTranscriptionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create audio transcription request<br/>
@@ -82,6 +84,7 @@ namespace Together
         /// <param name="maxSpeakers">
         /// Maximum number of speakers expected in the audio. Used to improve diarization accuracy when the approximate number of speakers is known.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.AudioTranscriptionResponse> AudioTranscriptionsAsync(
@@ -95,6 +98,7 @@ namespace Together
             bool? diarize = default,
             int? minSpeakers = default,
             int? maxSpeakers = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

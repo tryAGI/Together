@@ -66,8 +66,9 @@ namespace Together
         /// <default>"0"</default>
         /// <example>100</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("step")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Step { get; set; } = "0";
+        public required global::Together.OneOf<string, int?> Step { get; set; } = "0";
 
         /// <summary>
         /// Timestamp when the training session was created<br/>
@@ -93,6 +94,16 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.RlLoraConfig LoraConfig { get; set; }
+
+        /// <summary>
+        /// Type of the training session. TRAINER_AND_GENERATOR provisions both trainer and generator; TRAINER_ONLY provisions only the trainer and rejects generator-dependent operations such as sample.<br/>
+        /// Default Value: SESSION_TYPE_UNSPECIFIED
+        /// </summary>
+        /// <default>global::Together.RlSessionType.SessionTypeUnspecified</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlSessionTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlSessionType Type { get; set; } = global::Together.RlSessionType.SessionTypeUnspecified;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -137,6 +148,10 @@ namespace Together
         /// <param name="loraConfig">
         /// LoRA adapter configuration
         /// </param>
+        /// <param name="type">
+        /// Type of the training session. TRAINER_AND_GENERATOR provisions both trainer and generator; TRAINER_ONLY provisions only the trainer and rejects generator-dependent operations such as sample.<br/>
+        /// Default Value: SESSION_TYPE_UNSPECIFIED
+        /// </param>
         /// <param name="resumeFromCheckpointId">
         /// Checkpoint ID this session was resumed from<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
@@ -150,10 +165,11 @@ namespace Together
             string baseModel,
             global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint> inferenceCheckpoints,
             global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint> trainingCheckpoints,
-            string step,
+            global::Together.OneOf<string, int?> step,
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
             global::Together.RlLoraConfig loraConfig,
+            global::Together.RlSessionType type,
             string? resumeFromCheckpointId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -162,10 +178,11 @@ namespace Together
             this.InferenceCheckpoints = inferenceCheckpoints ?? throw new global::System.ArgumentNullException(nameof(inferenceCheckpoints));
             this.TrainingCheckpoints = trainingCheckpoints ?? throw new global::System.ArgumentNullException(nameof(trainingCheckpoints));
             this.ResumeFromCheckpointId = resumeFromCheckpointId;
-            this.Step = step ?? throw new global::System.ArgumentNullException(nameof(step));
+            this.Step = step;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.LoraConfig = loraConfig ?? throw new global::System.ArgumentNullException(nameof(loraConfig));
+            this.Type = type;
         }
 
         /// <summary>

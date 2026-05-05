@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Audio encoding of response<br/>
+    /// Audio encoding of response. Only applicable when response_format is raw or pcm. Cartesia models respect this parameter and support all values. Orpheus, Kokoro, and Minimax models always return pcm_s16le regardless of this setting.<br/>
     /// Default Value: pcm_f32le
     /// </summary>
     public enum AudioSpeechRequestResponseEncoding

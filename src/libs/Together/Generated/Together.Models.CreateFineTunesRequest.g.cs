@@ -31,6 +31,12 @@ namespace Together
         public bool? Packing { get; set; }
 
         /// <summary>
+        /// Maximum sequence length to use for training.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_seq_length")]
+        public int? MaxSeqLength { get; set; }
+
+        /// <summary>
         /// Name of the base model to run fine-tune job on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -224,6 +230,9 @@ namespace Together
         /// Whether to use sequence packing for training.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="maxSeqLength">
+        /// Maximum sequence length to use for training.
+        /// </param>
         /// <param name="nEpochs">
         /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
@@ -312,6 +321,7 @@ namespace Together
             string model,
             string? validationFile,
             bool? packing,
+            int? maxSeqLength,
             int? nEpochs,
             int? nCheckpoints,
             int? nEvals,
@@ -340,6 +350,7 @@ namespace Together
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.ValidationFile = validationFile;
             this.Packing = packing;
+            this.MaxSeqLength = maxSeqLength;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.NEpochs = nEpochs;
             this.NCheckpoints = nCheckpoints;

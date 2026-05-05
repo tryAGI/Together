@@ -58,7 +58,8 @@ namespace Together
         /// </summary>
         /// <example>42</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
-        public string? Seed { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>))]
+        public global::Together.OneOf<string, int?>? Seed { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -106,7 +107,7 @@ namespace Together
             float? topP,
             int? topK,
             global::System.Collections.Generic.IList<string>? stop,
-            string? seed)
+            global::Together.OneOf<string, int?>? seed)
         {
             this.MaxTokens = maxTokens;
             this.Temperature = temperature;

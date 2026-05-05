@@ -9,6 +9,7 @@ namespace Together
         /// between calls to the same session.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -27,6 +28,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.ExecuteResponse> TciExecuteAsync(
 
             global::Together.ExecuteRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Executes the given code snippet and returns the output. Without a session_id, a new session will be created to run the code. If you do pass in a valid session_id, the code will be run in that session. This is useful for running multiple code snippets in the same environment, because dependencies and similar things are persisted<br/>
@@ -47,6 +49,7 @@ namespace Together
         /// Identifier of the current session. Used to make follow-up calls. Requests will return an error if the session does not belong to the caller or has expired.<br/>
         /// Example: ses_abcDEF123
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ExecuteResponse> TciExecuteAsync(
@@ -54,6 +57,7 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.ExecuteRequestFile>? files = default,
             global::Together.ExecuteRequestLanguage language = global::Together.ExecuteRequestLanguage.Python,
             string? sessionId = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

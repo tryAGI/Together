@@ -1,0 +1,48 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "List all endpoints, can be filtered by type",
+      "Slug": "listendpoints",
+      "Description": "Returns a list of all endpoints associated with your account. You can filter the results by type (dedicated or serverless).",
+      "Language": "csharp",
+      "Code": "using var client = new TogetherClient(apiKey);\nvar response = await client.Endpoints.ListEndpointsAsync();\n\n// Example response:\n// {\n//   \u0022object\u0022: \u0022list\u0022,\n//   \u0022data\u0022: [\n//     {\n//       \u0022object\u0022: \u0022endpoint\u0022,\n//       \u0022id\u0022: \u0022endpoint-5c0c20db-62fe-4f41-8ffc-d9e4ea1a264e\u0022,\n//       \u0022name\u0022: \u0022allenai/OLMo-7B\u0022,\n//       \u0022model\u0022: \u0022allenai/OLMo-7B\u0022,\n//       \u0022type\u0022: \u0022serverless\u0022,\n//       \u0022owner\u0022: \u0022together\u0022,\n//       \u0022state\u0022: \u0022STARTED\u0022,\n//       \u0022created_at\u0022: \u00222024-02-28T21:34:35.444Z\u0022\n//     }\n//   ]\n// }",
+      "Format": "sdk",
+      "OperationId": "listEndpoints",
+      "Setup": "This example assumes \u0060using Together;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 2,
+      "Title": "Create job",
+      "Slug": "create-job",
+      "Description": "Create a fine-tuning job with the provided model and training data.",
+      "Language": "http",
+      "Code": "### Create job\nPOST {{host}}/fine-tunes\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022training_file\u0022: \u0022string\u0022,\n  \u0022validation_file\u0022: \u0022string\u0022,\n  \u0022packing\u0022: true,\n  \u0022max_seq_length\u0022: 0,\n  \u0022model\u0022: \u0022string\u0022,\n  \u0022n_epochs\u0022: 1,\n  \u0022n_checkpoints\u0022: 1,\n  \u0022n_evals\u0022: 0,\n  \u0022batch_size\u0022: \u0022max\u0022,\n  \u0022learning_rate\u0022: 0.00001,\n  \u0022lr_scheduler\u0022: {\n    \u0022lr_scheduler_type\u0022: \u0022linear\u0022,\n    \u0022lr_scheduler_args\u0022: {\n      \u0022min_lr_ratio\u0022: 0.0\n    }\n  },\n  \u0022warmup_ratio\u0022: 0.0,\n  \u0022max_grad_norm\u0022: 1.0,\n  \u0022weight_decay\u0022: 0.0,\n  \u0022random_seed\u0022: 0,\n  \u0022suffix\u0022: \u0022string\u0022,\n  \u0022wandb_api_key\u0022: \u0022string\u0022,\n  \u0022wandb_base_url\u0022: \u0022string\u0022,\n  \u0022wandb_project_name\u0022: \u0022string\u0022,\n  \u0022wandb_name\u0022: \u0022string\u0022,\n  \u0022wandb_entity\u0022: \u0022string\u0022,\n  \u0022train_on_inputs\u0022: \u0022auto\u0022,\n  \u0022training_method\u0022: {\n    \u0022method\u0022: \u0022sft\u0022,\n    \u0022train_on_inputs\u0022: \u0022auto\u0022\n  },\n  \u0022training_type\u0022: \u0022openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464\u0022,\n  \u0022multimodal_params\u0022: {\n    \u0022train_vision\u0022: true\n  },\n  \u0022from_checkpoint\u0022: \u0022string\u0022,\n  \u0022from_hf_model\u0022: \u0022string\u0022,\n  \u0022hf_model_revision\u0022: \u0022string\u0022,\n  \u0022hf_api_token\u0022: \u0022string\u0022,\n  \u0022hf_output_repo_name\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Fine-tuning job initiated successfully\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "createFineTunes",
+      "Setup": null
+    },
+    {
+      "Order": 3,
+      "Title": "Cancel job",
+      "Slug": "cancel-job",
+      "Description": "Cancel a currently running fine-tuning job. Returns a FinetuneResponseTruncated object.",
+      "Language": "http",
+      "Code": "### Cancel job\nPOST {{host}}/fine-tunes/{{id}}/cancel\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successfully cancelled the fine-tuning job.\n# Content-Type: application/json\n# 400\n# Description: Invalid request parameters.\n# 404\n# Description: Fine-tune ID not found.",
+      "Format": "http",
+      "OperationId": "createFineTunesByIdCancel",
+      "Setup": null
+    },
+    {
+      "Order": 4,
+      "Title": "Get metrics",
+      "Slug": "get-metrics",
+      "Description": "Retrieves recorded training metrics for a fine-tuning job in chronological order. All filter fields are optional \u2014 omit the body or send \u0060{}\u0060 to retrieve all metrics.",
+      "Language": "http",
+      "Code": "### Get metrics\nGET {{host}}/fine-tunes/{{id}}/metrics\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022global_step_from\u0022: 0,\n  \u0022global_step_to\u0022: 500,\n  \u0022logged_at_from\u0022: \u00222024-01-01T00:00:00Z\u0022,\n  \u0022logged_at_to\u0022: \u00222024-01-01T12:00:00Z\u0022,\n  \u0022resolution\u0022: 100\n}\n\n## Responses\n# 200\n# Description: List of metrics snapshots in chronological order.\n# Content-Type: application/json\n# 400\n# Description: Invalid request \u2014 bad JSON body or missing job ID.\n# 404\n# Description: Fine-tune job not found.\n# 500\n# Description: Internal server error \u2014 failed to retrieve metrics.",
+      "Format": "http",
+      "OperationId": "getFineTunesByIdMetrics",
+      "Setup": null
+    }
+  ]
+}

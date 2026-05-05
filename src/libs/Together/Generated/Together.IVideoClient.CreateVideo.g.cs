@@ -11,6 +11,7 @@ namespace Together
         /// Create a video
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -29,6 +30,7 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.VideoJob> CreateVideoAsync(
 
             global::Together.CreateVideoBody request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create video<br/>
@@ -78,6 +80,7 @@ namespace Together
         /// <param name="media">
         /// Media inputs for video generation. The accepted fields depend on the model type (e.g. i2v, r2v, t2v, videoedit).
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.VideoJob> CreateVideoAsync(
@@ -97,6 +100,7 @@ namespace Together
             string? negativePrompt = default,
             bool? generateAudio = default,
             global::Together.VideoMedia? media = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
