@@ -9,11 +9,26 @@ namespace Together
         /// Estimate the price of a fine-tuning job.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
 
             global::Together.CreateFineTunesEstimatePriceRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Estimate price<br/>
+        /// Estimate the price of a fine-tuning job.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.CreateFineTunesEstimatePriceResponse>> CreateFineTunesEstimatePriceAsResponseAsync(
+
+            global::Together.CreateFineTunesEstimatePriceRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Estimate price<br/>
@@ -40,12 +55,13 @@ namespace Together
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
         /// <param name="trainingType">
-        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// The training type to use. Defaults to LoRA if not provided.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
@@ -57,6 +73,7 @@ namespace Together
             global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod = default,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
             string? fromCheckpoint = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

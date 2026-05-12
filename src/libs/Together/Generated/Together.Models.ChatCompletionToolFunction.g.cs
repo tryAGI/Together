@@ -58,5 +58,6 @@ namespace Together
         public ChatCompletionToolFunction()
         {
         }
+
     }
 }

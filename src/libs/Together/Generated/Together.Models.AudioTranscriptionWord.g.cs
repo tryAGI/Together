@@ -89,5 +89,6 @@ namespace Together
         public AudioTranscriptionWord()
         {
         }
+
     }
 }

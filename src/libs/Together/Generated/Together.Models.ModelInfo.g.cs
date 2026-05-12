@@ -148,5 +148,6 @@ namespace Together
         public ModelInfo()
         {
         }
+
     }
 }

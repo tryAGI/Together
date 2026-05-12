@@ -218,5 +218,6 @@ namespace Together
         public CreateImagesGenerationsRequest()
         {
         }
+
     }
 }

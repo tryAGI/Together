@@ -27,6 +27,26 @@ namespace Together
         public bool IsStreamOutput => StreamOutput != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStreamOutput(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.InterpreterOutputStreamOutput? value)
+        {
+            value = StreamOutput;
+            return IsStreamOutput;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.InterpreterOutputStreamOutput PickStreamOutput() => IsStreamOutput
+            ? StreamOutput!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamOutput' but the value was {ToString()}.");
+
+        /// <summary>
         /// Errors and exceptions that occurred. If this output type is present, your code did not execute successfully.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -46,6 +66,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickError(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.InterpreterOutputErrorOutput? value)
+        {
+            value = Error;
+            return IsError;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.InterpreterOutputErrorOutput PickError() => IsError
+            ? Error!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.InterpreterOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; init; }
 #else
@@ -59,6 +99,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DisplayorExecuteOutput))]
 #endif
         public bool IsDisplayorExecuteOutput => DisplayorExecuteOutput != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickDisplayorExecuteOutput(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.InterpreterOutputDisplayorExecuteOutput? value)
+        {
+            value = DisplayorExecuteOutput;
+            return IsDisplayorExecuteOutput;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.InterpreterOutputDisplayorExecuteOutput PickDisplayorExecuteOutput() => IsDisplayorExecuteOutput
+            ? DisplayorExecuteOutput!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'DisplayorExecuteOutput' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -76,6 +136,11 @@ namespace Together
         {
             StreamOutput = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static InterpreterOutput FromStreamOutput(global::Together.InterpreterOutputStreamOutput? value) => new InterpreterOutput(value);
 
         /// <summary>
         /// 
@@ -98,6 +163,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public static InterpreterOutput FromError(global::Together.InterpreterOutputErrorOutput? value) => new InterpreterOutput(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator InterpreterOutput(global::Together.InterpreterOutputDisplayorExecuteOutput value) => new InterpreterOutput((global::Together.InterpreterOutputDisplayorExecuteOutput?)value);
 
         /// <summary>
@@ -112,6 +182,11 @@ namespace Together
         {
             DisplayorExecuteOutput = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static InterpreterOutput FromDisplayorExecuteOutput(global::Together.InterpreterOutputDisplayorExecuteOutput? value) => new InterpreterOutput(value);
 
         /// <summary>
         /// 
@@ -157,9 +232,9 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.InterpreterOutputStreamOutput?, TResult>? streamOutput = null,
-            global::System.Func<global::Together.InterpreterOutputErrorOutput?, TResult>? error = null,
-            global::System.Func<global::Together.InterpreterOutputDisplayorExecuteOutput?, TResult>? displayorExecuteOutput = null,
+            global::System.Func<global::Together.InterpreterOutputStreamOutput, TResult>? streamOutput = null,
+            global::System.Func<global::Together.InterpreterOutputErrorOutput, TResult>? error = null,
+            global::System.Func<global::Together.InterpreterOutputDisplayorExecuteOutput, TResult>? displayorExecuteOutput = null,
             bool validate = true)
         {
             if (validate)
@@ -187,9 +262,39 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.InterpreterOutputStreamOutput?>? streamOutput = null,
-            global::System.Action<global::Together.InterpreterOutputErrorOutput?>? error = null,
-            global::System.Action<global::Together.InterpreterOutputDisplayorExecuteOutput?>? displayorExecuteOutput = null,
+            global::System.Action<global::Together.InterpreterOutputStreamOutput>? streamOutput = null,
+
+            global::System.Action<global::Together.InterpreterOutputErrorOutput>? error = null,
+
+            global::System.Action<global::Together.InterpreterOutputDisplayorExecuteOutput>? displayorExecuteOutput = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStreamOutput)
+            {
+                streamOutput?.Invoke(StreamOutput!);
+            }
+            else if (IsError)
+            {
+                error?.Invoke(Error!);
+            }
+            else if (IsDisplayorExecuteOutput)
+            {
+                displayorExecuteOutput?.Invoke(DisplayorExecuteOutput!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Together.InterpreterOutputStreamOutput>? streamOutput = null,
+            global::System.Action<global::Together.InterpreterOutputErrorOutput>? error = null,
+            global::System.Action<global::Together.InterpreterOutputDisplayorExecuteOutput>? displayorExecuteOutput = null,
             bool validate = true)
         {
             if (validate)

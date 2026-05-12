@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class UpdateVolumeRequest
     {
         /// <summary>
-        /// Content specifies the new content that will be preloaded to this volume
+        /// Content specifies the new content to preload to this volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public global::Together.VolumeContentRequest? Content { get; set; }
@@ -37,7 +37,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="UpdateVolumeRequest" /> class.
         /// </summary>
         /// <param name="content">
-        /// Content specifies the new content that will be preloaded to this volume
+        /// Content specifies the new content to preload to this volume.
         /// </param>
         /// <param name="name">
         /// Name is the new unique identifier for the volume within the project
@@ -64,5 +64,6 @@ namespace Together
         public UpdateVolumeRequest()
         {
         }
+
     }
 }

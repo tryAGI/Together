@@ -55,5 +55,6 @@ namespace Together
         public ResponseFormatJsonSchema()
         {
         }
+
     }
 }

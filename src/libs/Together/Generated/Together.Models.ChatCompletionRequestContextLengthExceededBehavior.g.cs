@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+    /// Defines the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', the API returns 400 with an appropriate error message. When set to 'truncate', overrides max_tokens with the maximum context length of the model.<br/>
     /// Default Value: error
     /// </summary>
     public enum ChatCompletionRequestContextLengthExceededBehavior

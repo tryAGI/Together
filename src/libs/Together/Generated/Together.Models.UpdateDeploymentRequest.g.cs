@@ -40,7 +40,7 @@ namespace Together
         public string? Description { get; set; }
 
         /// <summary>
-        /// EnvironmentVariables is a list of environment variables to set in the container. This will replace all existing environment variables
+        /// EnvironmentVariables is a list of environment variables to set in the container. Replaces all existing environment variables.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("environment_variables")]
         public global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>? EnvironmentVariables { get; set; }
@@ -113,7 +113,7 @@ namespace Together
         public int? TerminationGracePeriodSeconds { get; set; }
 
         /// <summary>
-        /// Volumes is a list of volume mounts to attach to the container. This will replace all existing volumes
+        /// Volumes is a list of volume mounts to attach to the container. Replaces all existing volumes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volumes")]
         public global::System.Collections.Generic.IList<global::Together.VolumeMount>? Volumes { get; set; }
@@ -143,7 +143,7 @@ namespace Together
         /// Description is an optional human-readable description of your deployment
         /// </param>
         /// <param name="environmentVariables">
-        /// EnvironmentVariables is a list of environment variables to set in the container. This will replace all existing environment variables
+        /// EnvironmentVariables is a list of environment variables to set in the container. Replaces all existing environment variables.
         /// </param>
         /// <param name="gpuCount">
         /// GPUCount is the number of GPUs to allocate per container instance
@@ -179,7 +179,7 @@ namespace Together
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
         /// </param>
         /// <param name="volumes">
-        /// Volumes is a list of volume mounts to attach to the container. This will replace all existing volumes
+        /// Volumes is a list of volume mounts to attach to the container. Replaces all existing volumes.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -230,5 +230,6 @@ namespace Together
         public UpdateDeploymentRequest()
         {
         }
+
     }
 }

@@ -59,5 +59,6 @@ namespace Together
         public EvaluationTypedRequest()
         {
         }
+
     }
 }

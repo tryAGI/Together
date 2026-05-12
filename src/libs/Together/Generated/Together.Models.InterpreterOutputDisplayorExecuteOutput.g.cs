@@ -51,5 +51,6 @@ namespace Together
         public InterpreterOutputDisplayorExecuteOutput()
         {
         }
+
     }
 }

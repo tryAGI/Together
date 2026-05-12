@@ -3,10 +3,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GPUClusterCreateRequestDriverVersionNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.GPUClusterCreateRequestDriverVersion?>
+    public sealed class CreateBatchRequestEndpointJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.CreateBatchRequestEndpoint>
     {
         /// <inheritdoc />
-        public override global::Together.GPUClusterCreateRequestDriverVersion? Read(
+        public override global::Together.CreateBatchRequestEndpoint Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Together.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Together.GPUClusterCreateRequestDriverVersionExtensions.ToEnum(stringValue);
+                        return global::Together.CreateBatchRequestEndpointExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Together.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Together.GPUClusterCreateRequestDriverVersion)numValue;
+                    return (global::Together.CreateBatchRequestEndpoint)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Together.GPUClusterCreateRequestDriverVersion?);
+                    return default(global::Together.CreateBatchRequestEndpoint);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.GPUClusterCreateRequestDriverVersion? value,
+            global::Together.CreateBatchRequestEndpoint value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::Together.GPUClusterCreateRequestDriverVersionExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::Together.CreateBatchRequestEndpointExtensions.ToValueString(value));
         }
     }
 }

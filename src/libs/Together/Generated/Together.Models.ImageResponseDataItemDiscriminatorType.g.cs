@@ -4,47 +4,46 @@
 namespace Together
 {
     /// <summary>
-    /// The task performed<br/>
-    /// Example: transcribe
+    /// 
     /// </summary>
-    public enum AudioTranscriptionVerboseJsonResponseTask
+    public enum ImageResponseDataItemDiscriminatorType
     {
         /// <summary>
         /// 
         /// </summary>
-        Transcribe,
+        B64Json,
         /// <summary>
         /// 
         /// </summary>
-        Translate,
+        Url,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AudioTranscriptionVerboseJsonResponseTaskExtensions
+    public static class ImageResponseDataItemDiscriminatorTypeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AudioTranscriptionVerboseJsonResponseTask value)
+        public static string ToValueString(this ImageResponseDataItemDiscriminatorType value)
         {
             return value switch
             {
-                AudioTranscriptionVerboseJsonResponseTask.Transcribe => "transcribe",
-                AudioTranscriptionVerboseJsonResponseTask.Translate => "translate",
+                ImageResponseDataItemDiscriminatorType.B64Json => "b64_json",
+                ImageResponseDataItemDiscriminatorType.Url => "url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AudioTranscriptionVerboseJsonResponseTask? ToEnum(string value)
+        public static ImageResponseDataItemDiscriminatorType? ToEnum(string value)
         {
             return value switch
             {
-                "transcribe" => AudioTranscriptionVerboseJsonResponseTask.Transcribe,
-                "translate" => AudioTranscriptionVerboseJsonResponseTask.Translate,
+                "b64_json" => ImageResponseDataItemDiscriminatorType.B64Json,
+                "url" => ImageResponseDataItemDiscriminatorType.Url,
                 _ => null,
             };
         }

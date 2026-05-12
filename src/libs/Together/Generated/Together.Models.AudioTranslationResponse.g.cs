@@ -29,6 +29,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickJson(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.AudioTranslationJsonResponse? value)
+        {
+            value = Json;
+            return IsJson;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.AudioTranslationJsonResponse PickJson() => IsJson
+            ? Json!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Json' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.AudioTranslationVerboseJsonResponse? VerboseJson { get; init; }
 #else
@@ -42,6 +62,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VerboseJson))]
 #endif
         public bool IsVerboseJson => VerboseJson != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVerboseJson(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.AudioTranslationVerboseJsonResponse? value)
+        {
+            value = VerboseJson;
+            return IsVerboseJson;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.AudioTranslationVerboseJsonResponse PickVerboseJson() => IsVerboseJson
+            ? VerboseJson!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VerboseJson' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -63,6 +103,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public static AudioTranslationResponse FromJson(global::Together.AudioTranslationJsonResponse? value) => new AudioTranslationResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AudioTranslationResponse(global::Together.AudioTranslationVerboseJsonResponse value) => new AudioTranslationResponse((global::Together.AudioTranslationVerboseJsonResponse?)value);
 
         /// <summary>
@@ -77,6 +122,11 @@ namespace Together
         {
             VerboseJson = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AudioTranslationResponse FromVerboseJson(global::Together.AudioTranslationVerboseJsonResponse? value) => new AudioTranslationResponse(value);
 
         /// <summary>
         /// 
@@ -118,8 +168,8 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.AudioTranslationJsonResponse?, TResult>? json = null,
-            global::System.Func<global::Together.AudioTranslationVerboseJsonResponse?, TResult>? verboseJson = null,
+            global::System.Func<global::Together.AudioTranslationJsonResponse, TResult>? json = null,
+            global::System.Func<global::Together.AudioTranslationVerboseJsonResponse, TResult>? verboseJson = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +193,32 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.AudioTranslationJsonResponse?>? json = null,
-            global::System.Action<global::Together.AudioTranslationVerboseJsonResponse?>? verboseJson = null,
+            global::System.Action<global::Together.AudioTranslationJsonResponse>? json = null,
+
+            global::System.Action<global::Together.AudioTranslationVerboseJsonResponse>? verboseJson = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsJson)
+            {
+                json?.Invoke(Json!);
+            }
+            else if (IsVerboseJson)
+            {
+                verboseJson?.Invoke(VerboseJson!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Together.AudioTranslationJsonResponse>? json = null,
+            global::System.Action<global::Together.AudioTranslationVerboseJsonResponse>? verboseJson = null,
             bool validate = true)
         {
             if (validate)

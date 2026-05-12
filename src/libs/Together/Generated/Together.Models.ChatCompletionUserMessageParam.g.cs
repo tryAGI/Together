@@ -62,5 +62,6 @@ namespace Together
         public ChatCompletionUserMessageParam()
         {
         }
+
     }
 }

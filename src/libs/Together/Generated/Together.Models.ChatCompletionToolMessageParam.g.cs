@@ -69,5 +69,6 @@ namespace Together
         public ChatCompletionToolMessageParam()
         {
         }
+
     }
 }

@@ -45,5 +45,6 @@ namespace Together
         public AudioTranscriptionJsonResponse()
         {
         }
+
     }
 }

@@ -23,11 +23,27 @@ namespace Together.JsonConverters
                 foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
                 {
                     __jsonProps.Add(__jsonProp.Name);
+                    if (__jsonProp.Value.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                    {
+                        foreach (var __nestedJsonProp in __jsonProp.Value.EnumerateObject())
+                        {
+                            __jsonProps.Add(__jsonProp.Name + "." + __nestedJsonProp.Name);
+                        }
+                    }
+
                 }
             }
 
             var __score0 = 0;
             if (__jsonProps.Contains("data")) __score0++;
+            if (__jsonProps.Contains("data.choices")) __score0++;
+            if (__jsonProps.Contains("data.created")) __score0++;
+            if (__jsonProps.Contains("data.finish_reason")) __score0++;
+            if (__jsonProps.Contains("data.id")) __score0++;
+            if (__jsonProps.Contains("data.object")) __score0++;
+            if (__jsonProps.Contains("data.seed")) __score0++;
+            if (__jsonProps.Contains("data.token")) __score0++;
+            if (__jsonProps.Contains("data.usage")) __score0++;
             var __score1 = 0;
             if (__jsonProps.Contains("data")) __score1++;
             var __bestScore = 0;
@@ -75,6 +91,7 @@ namespace Together.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.CompletionEvent), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.CompletionEvent> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.CompletionEvent).Name}");
                     @event = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -85,9 +102,13 @@ namespace Together.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (@event == null && sentinel == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.StreamSentinel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.StreamSentinel> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.StreamSentinel).Name}");
                     sentinel = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

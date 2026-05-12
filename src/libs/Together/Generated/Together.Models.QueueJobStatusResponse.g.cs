@@ -178,5 +178,6 @@ namespace Together
         public QueueJobStatusResponse()
         {
         }
+
     }
 }

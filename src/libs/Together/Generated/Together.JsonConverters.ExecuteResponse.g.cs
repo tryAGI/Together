@@ -23,11 +23,22 @@ namespace Together.JsonConverters
                 foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
                 {
                     __jsonProps.Add(__jsonProp.Name);
+                    if (__jsonProp.Value.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                    {
+                        foreach (var __nestedJsonProp in __jsonProp.Value.EnumerateObject())
+                        {
+                            __jsonProps.Add(__jsonProp.Name + "." + __nestedJsonProp.Name);
+                        }
+                    }
+
                 }
             }
 
             var __score0 = 0;
             if (__jsonProps.Contains("data")) __score0++;
+            if (__jsonProps.Contains("data.outputs")) __score0++;
+            if (__jsonProps.Contains("data.session_id")) __score0++;
+            if (__jsonProps.Contains("data.status")) __score0++;
             if (__jsonProps.Contains("errors")) __score0++;
             var __score1 = 0;
             if (__jsonProps.Contains("data")) __score1++;
@@ -77,6 +88,7 @@ namespace Together.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ExecuteResponseSuccessfulExecution), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ExecuteResponseSuccessfulExecution> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ExecuteResponseSuccessfulExecution).Name}");
                     successfulExecution = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -87,9 +99,13 @@ namespace Together.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (successfulExecution == null && failedExecution == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.ExecuteResponseFailedExecution), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.ExecuteResponseFailedExecution> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.ExecuteResponseFailedExecution).Name}");
                     failedExecution = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

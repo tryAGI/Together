@@ -112,5 +112,6 @@ namespace Together
         public ChatCompletionResponse()
         {
         }
+
     }
 }

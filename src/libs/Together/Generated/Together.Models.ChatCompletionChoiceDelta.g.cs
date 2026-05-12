@@ -86,5 +86,6 @@ namespace Together
         public ChatCompletionChoiceDelta()
         {
         }
+
     }
 }

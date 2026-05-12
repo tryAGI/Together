@@ -76,5 +76,6 @@ namespace Together
         public ChatCompletionMessage()
         {
         }
+
     }
 }

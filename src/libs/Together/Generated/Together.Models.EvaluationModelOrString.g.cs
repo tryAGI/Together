@@ -29,6 +29,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEvaluationModelOrStringVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = EvaluationModelOrStringVariant1;
+            return IsEvaluationModelOrStringVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PickEvaluationModelOrStringVariant1() => IsEvaluationModelOrStringVariant1
+            ? EvaluationModelOrStringVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EvaluationModelOrStringVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.EvaluationModelRequest? Request { get; init; }
 #else
@@ -42,6 +62,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Request))]
 #endif
         public bool IsRequest => Request != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickRequest(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.EvaluationModelRequest? value)
+        {
+            value = Request;
+            return IsRequest;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.EvaluationModelRequest PickRequest() => IsRequest
+            ? Request!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Request' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -63,6 +103,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public static EvaluationModelOrString FromEvaluationModelOrStringVariant1(string? value) => new EvaluationModelOrString(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator EvaluationModelOrString(global::Together.EvaluationModelRequest value) => new EvaluationModelOrString((global::Together.EvaluationModelRequest?)value);
 
         /// <summary>
@@ -77,6 +122,11 @@ namespace Together
         {
             Request = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static EvaluationModelOrString FromRequest(global::Together.EvaluationModelRequest? value) => new EvaluationModelOrString(value);
 
         /// <summary>
         /// 
@@ -118,8 +168,8 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? evaluationModelOrStringVariant1 = null,
-            global::System.Func<global::Together.EvaluationModelRequest?, TResult>? request = null,
+            global::System.Func<string, TResult>? evaluationModelOrStringVariant1 = null,
+            global::System.Func<global::Together.EvaluationModelRequest, TResult>? request = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +193,32 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? evaluationModelOrStringVariant1 = null,
-            global::System.Action<global::Together.EvaluationModelRequest?>? request = null,
+            global::System.Action<string>? evaluationModelOrStringVariant1 = null,
+
+            global::System.Action<global::Together.EvaluationModelRequest>? request = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEvaluationModelOrStringVariant1)
+            {
+                evaluationModelOrStringVariant1?.Invoke(EvaluationModelOrStringVariant1!);
+            }
+            else if (IsRequest)
+            {
+                request?.Invoke(Request!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? evaluationModelOrStringVariant1 = null,
+            global::System.Action<global::Together.EvaluationModelRequest>? request = null,
             bool validate = true)
         {
             if (validate)

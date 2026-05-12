@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Content specifies the new content that will be preloaded to this volume
+    /// Content specifies the new content to preload to this volume.
     /// </summary>
     public sealed partial class VolumeContentRequest
     {
@@ -59,5 +59,6 @@ namespace Together
         public VolumeContentRequest()
         {
         }
+
     }
 }

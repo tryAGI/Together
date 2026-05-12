@@ -108,7 +108,10 @@ namespace Together.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (@string == null && multimodal == null)
+            {
                 try
                 {
 

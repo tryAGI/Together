@@ -117,5 +117,6 @@ namespace Together
         public AudioTranscriptionSpeakerSegment()
         {
         }
+
     }
 }

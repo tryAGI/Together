@@ -32,7 +32,7 @@ namespace Together
         public global::Together.Autoscaling? Autoscaling { get; set; }
 
         /// <summary>
-        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
+        /// The number of minutes of inactivity after which the endpoint stops automatically. Set to 0 to disable automatic timeout.<br/>
         /// Example: 60
         /// </summary>
         /// <example>60</example>
@@ -60,7 +60,7 @@ namespace Together
         /// New autoscaling configuration for the endpoint
         /// </param>
         /// <param name="inactiveTimeout">
-        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to 0 to disable automatic timeout.<br/>
+        /// The number of minutes of inactivity after which the endpoint stops automatically. Set to 0 to disable automatic timeout.<br/>
         /// Example: 60
         /// </param>
 #if NET7_0_OR_GREATER
@@ -84,5 +84,6 @@ namespace Together
         public UpdateEndpointRequest()
         {
         }
+
     }
 }

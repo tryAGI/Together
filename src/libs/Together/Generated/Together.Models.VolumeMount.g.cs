@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class VolumeMount
     {
         /// <summary>
-        /// MountPath is the path in the container where the volume will be mounted (e.g., "/data")
+        /// MountPath is the path in the container where the volume mounts (e.g., "/data").
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mount_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -38,7 +38,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="VolumeMount" /> class.
         /// </summary>
         /// <param name="mountPath">
-        /// MountPath is the path in the container where the volume will be mounted (e.g., "/data")
+        /// MountPath is the path in the container where the volume mounts (e.g., "/data").
         /// </param>
         /// <param name="name">
         /// Name is the name of the volume to mount. Must reference an existing volume by name or ID
@@ -65,5 +65,6 @@ namespace Together
         public VolumeMount()
         {
         }
+
     }
 }

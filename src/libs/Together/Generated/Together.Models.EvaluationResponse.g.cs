@@ -56,5 +56,6 @@ namespace Together
         public EvaluationResponse()
         {
         }
+
     }
 }

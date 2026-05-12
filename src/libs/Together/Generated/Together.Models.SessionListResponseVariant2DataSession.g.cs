@@ -85,5 +85,6 @@ namespace Together
         public SessionListResponseVariant2DataSession()
         {
         }
+
     }
 }

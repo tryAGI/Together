@@ -113,5 +113,6 @@ namespace Together
         public ChatCompletionChunk()
         {
         }
+
     }
 }

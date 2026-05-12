@@ -116,5 +116,6 @@ namespace Together
         public JobInfoSuccessResponse()
         {
         }
+
     }
 }

@@ -101,5 +101,6 @@ namespace Together
         public HardwareWithStatus()
         {
         }
+
     }
 }

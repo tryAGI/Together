@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class AudioTranscriptionRequest
     {
         /// <summary>
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<byte[], string>))]
@@ -34,7 +34,7 @@ namespace Together
         public string? Language { get; set; }
 
         /// <summary>
-        /// Optional text to bias decoding.
+        /// Optional text to bias decoding. Supported only on Whisper-family models (e.g. `openai/whisper-large-v3`). Other STT models (e.g. `nvidia/parakeet-tdt-0.6b-v3`) accept the field for API compatibility but ignore it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
@@ -105,7 +105,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="AudioTranscriptionRequest" /> class.
         /// </summary>
         /// <param name="file">
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
         /// </param>
         /// <param name="model">
         /// Model to use for transcription<br/>
@@ -117,7 +117,7 @@ namespace Together
         /// Example: en
         /// </param>
         /// <param name="prompt">
-        /// Optional text to bias decoding.
+        /// Optional text to bias decoding. Supported only on Whisper-family models (e.g. `openai/whisper-large-v3`). Other STT models (e.g. `nvidia/parakeet-tdt-0.6b-v3`) accept the field for API compatibility but ignore it.
         /// </param>
         /// <param name="responseFormat">
         /// The format of the response<br/>
@@ -187,5 +187,6 @@ namespace Together
         public AudioTranscriptionRequest()
         {
         }
+
     }
 }

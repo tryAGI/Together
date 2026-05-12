@@ -111,5 +111,6 @@ namespace Together
         public CompletionChunk()
         {
         }
+
     }
 }

@@ -12,12 +12,31 @@ namespace Together
         /// Training session ID
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlSampleOperation> SampleAsync(
             string sessionId,
 
             global::Together.RlSampleBody request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Sample<br/>
+        /// Submits a sample operation that will asynchronously generate text completions with logprobs.
+        /// </summary>
+        /// <param name="sessionId">
+        /// Training session ID
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlSampleOperation>> SampleAsResponseAsync(
+            string sessionId,
+
+            global::Together.RlSampleBody request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Sample<br/>
@@ -37,6 +56,7 @@ namespace Together
         /// Default Value: 1<br/>
         /// Example: 1
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlSampleOperation> SampleAsync(
@@ -44,6 +64,7 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.RlModelInput> prompts,
             global::Together.RlSamplingParams? samplingParams = default,
             long? numSamples = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

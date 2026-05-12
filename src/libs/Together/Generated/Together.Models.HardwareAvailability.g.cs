@@ -43,5 +43,6 @@ namespace Together
         public HardwareAvailability()
         {
         }
+
     }
 }

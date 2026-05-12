@@ -31,7 +31,7 @@ namespace Together
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// A list of string sequences that will truncate (stop) inference text output. For example, "&lt;/s&gt;" will stop generation as soon as the model generates the given token.
+        /// A list of string sequences that truncate (stop) inference text output. For example, "&lt;/s&gt;" stops generation as soon as the model generates the given token.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stop")]
         public global::System.Collections.Generic.IList<string>? Stop { get; set; }
@@ -55,7 +55,7 @@ namespace Together
         public int? TopK { get; set; }
 
         /// <summary>
-        /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+        /// Defines the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', the API returns 400 with an appropriate error message. When set to 'truncate', overrides max_tokens with the maximum context length of the model.<br/>
         /// Default Value: error
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("context_length_exceeded_behavior")]
@@ -75,13 +75,13 @@ namespace Together
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
+        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of only the sampled token. Log probabilities help assess model confidence in token predictions.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
         public int? Logprobs { get; set; }
 
         /// <summary>
-        /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
+        /// If true, the response contains the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("echo")]
         public bool? Echo { get; set; }
@@ -214,7 +214,7 @@ namespace Together
         /// The maximum number of tokens to generate.
         /// </param>
         /// <param name="stop">
-        /// A list of string sequences that will truncate (stop) inference text output. For example, "&lt;/s&gt;" will stop generation as soon as the model generates the given token.
+        /// A list of string sequences that truncate (stop) inference text output. For example, "&lt;/s&gt;" stops generation as soon as the model generates the given token.
         /// </param>
         /// <param name="temperature">
         /// A decimal number from 0-1 that determines the degree of randomness in the response. A temperature less than 1 favors more correctness and is appropriate for question answering or summarization. A value closer to 1 introduces more randomness in the output.
@@ -226,7 +226,7 @@ namespace Together
         /// An integer that's used to limit the number of choices for the next predicted word or token. It specifies the maximum number of tokens to consider at each step, based on their probability of occurrence. This technique helps to speed up the generation process and can improve the quality of the generated text by focusing on the most likely options.
         /// </param>
         /// <param name="contextLengthExceededBehavior">
-        /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+        /// Defines the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', the API returns 400 with an appropriate error message. When set to 'truncate', overrides max_tokens with the maximum context length of the model.<br/>
         /// Default Value: error
         /// </param>
         /// <param name="repetitionPenalty">
@@ -236,10 +236,10 @@ namespace Together
         /// If true, stream tokens as Server-Sent Events as the model generates them instead of waiting for the full model response. The stream terminates with `data: [DONE]`. If false, return a single JSON object containing the results.
         /// </param>
         /// <param name="logprobs">
-        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
+        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of only the sampled token. Log probabilities help assess model confidence in token predictions.
         /// </param>
         /// <param name="echo">
-        /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
+        /// If true, the response contains the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </param>
         /// <param name="n">
         /// The number of completions to generate for each prompt.
@@ -360,5 +360,6 @@ namespace Together
         public ChatCompletionRequest()
         {
         }
+
     }
 }

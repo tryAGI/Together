@@ -308,5 +308,6 @@ namespace Together
         public DeploymentResponseItem()
         {
         }
+
     }
 }

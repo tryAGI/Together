@@ -100,5 +100,6 @@ namespace Together
         public GPUClusterControlPlaneNode()
         {
         }
+
     }
 }

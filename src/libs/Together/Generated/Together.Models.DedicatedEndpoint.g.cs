@@ -190,5 +190,6 @@ namespace Together
         public DedicatedEndpoint()
         {
         }
+
     }
 }

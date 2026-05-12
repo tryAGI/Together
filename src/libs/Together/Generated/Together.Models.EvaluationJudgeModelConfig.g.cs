@@ -47,6 +47,30 @@ namespace Together
         public string? ExternalBaseUrl { get; set; }
 
         /// <summary>
+        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Example: 5
+        /// </summary>
+        /// <example>5</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_workers")]
+        public int? NumWorkers { get; set; }
+
+        /// <summary>
+        /// Maximum number of tokens the judge model can generate. Defaults to 32768. Increase for reasoning models (e.g. Gemini, o-series) that consume output token budget for chain-of-thought.<br/>
+        /// Example: 8192
+        /// </summary>
+        /// <example>8192</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
+        public int? MaxTokens { get; set; }
+
+        /// <summary>
+        /// Sampling temperature for the judge model. Defaults to 0.05.<br/>
+        /// Example: 0.0
+        /// </summary>
+        /// <example>0.0</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
+        public float? Temperature { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +96,18 @@ namespace Together
         /// <param name="externalBaseUrl">
         /// Base URL for external judge models. Must be OpenAI-compatible base URL.
         /// </param>
+        /// <param name="numWorkers">
+        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Example: 5
+        /// </param>
+        /// <param name="maxTokens">
+        /// Maximum number of tokens the judge model can generate. Defaults to 32768. Increase for reasoning models (e.g. Gemini, o-series) that consume output token budget for chain-of-thought.<br/>
+        /// Example: 8192
+        /// </param>
+        /// <param name="temperature">
+        /// Sampling temperature for the judge model. Defaults to 0.05.<br/>
+        /// Example: 0.0
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,13 +116,19 @@ namespace Together
             string systemTemplate,
             global::Together.EvaluationJudgeModelConfigModelSource modelSource,
             string? externalApiToken,
-            string? externalBaseUrl)
+            string? externalBaseUrl,
+            int? numWorkers,
+            int? maxTokens,
+            float? temperature)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.SystemTemplate = systemTemplate ?? throw new global::System.ArgumentNullException(nameof(systemTemplate));
             this.ModelSource = modelSource;
             this.ExternalApiToken = externalApiToken;
             this.ExternalBaseUrl = externalBaseUrl;
+            this.NumWorkers = numWorkers;
+            this.MaxTokens = maxTokens;
+            this.Temperature = temperature;
         }
 
         /// <summary>
@@ -95,5 +137,6 @@ namespace Together
         public EvaluationJudgeModelConfig()
         {
         }
+
     }
 }

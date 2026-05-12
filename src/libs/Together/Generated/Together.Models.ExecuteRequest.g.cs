@@ -18,13 +18,13 @@ namespace Together
         public required string Code { get; set; }
 
         /// <summary>
-        /// Files to upload to the session. If present, files will be uploaded before executing the given code.
+        /// Files to upload to the session. If present, files are uploaded before executing the given code.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         public global::System.Collections.Generic.IList<global::Together.ExecuteRequestFile>? Files { get; set; }
 
         /// <summary>
-        /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
+        /// Programming language for the code to execute. Currently only supports Python.<br/>
         /// Default Value: python
         /// </summary>
         /// <default>global::Together.ExecuteRequestLanguage.Python</default>
@@ -33,7 +33,7 @@ namespace Together
         public global::Together.ExecuteRequestLanguage Language { get; set; } = global::Together.ExecuteRequestLanguage.Python;
 
         /// <summary>
-        /// Identifier of the current session. Used to make follow-up calls. Requests will return an error if the session does not belong to the caller or has expired.<br/>
+        /// Identifier of the current session. Used to make follow-up calls. Returns an error if the session does not belong to the caller or has expired.<br/>
         /// Example: ses_abcDEF123
         /// </summary>
         /// <example>ses_abcDEF123</example>
@@ -54,14 +54,14 @@ namespace Together
         /// Example: print('Hello, world!')
         /// </param>
         /// <param name="files">
-        /// Files to upload to the session. If present, files will be uploaded before executing the given code.
+        /// Files to upload to the session. If present, files are uploaded before executing the given code.
         /// </param>
         /// <param name="sessionId">
-        /// Identifier of the current session. Used to make follow-up calls. Requests will return an error if the session does not belong to the caller or has expired.<br/>
+        /// Identifier of the current session. Used to make follow-up calls. Returns an error if the session does not belong to the caller or has expired.<br/>
         /// Example: ses_abcDEF123
         /// </param>
         /// <param name="language">
-        /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
+        /// Programming language for the code to execute. Currently only supports Python.<br/>
         /// Default Value: python
         /// </param>
 #if NET7_0_OR_GREATER
@@ -85,5 +85,18 @@ namespace Together
         public ExecuteRequest()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="ExecuteRequest"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static ExecuteRequest FromCode(string code)
+        {
+            return new ExecuteRequest
+            {
+                Code = code,
+            };
+        }
+
     }
 }

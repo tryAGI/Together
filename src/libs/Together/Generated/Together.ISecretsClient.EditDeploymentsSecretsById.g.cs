@@ -12,6 +12,7 @@ namespace Together
         /// Secret ID or name
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -23,6 +24,29 @@ namespace Together
             string id,
 
             global::Together.UpdateSecretRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update a secret<br/>
+        /// Update an existing secret's value or metadata
+        /// </summary>
+        /// <param name="id">
+        /// Secret ID or name
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// client.beta.jig.secrets.update("my-secret", value="my-new-value")
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.SecretResponseItem>> EditDeploymentsSecretsByIdAsResponseAsync(
+            string id,
+
+            global::Together.UpdateSecretRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a secret<br/>
@@ -41,8 +65,9 @@ namespace Together
         /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
         /// <param name="value">
-        /// Value is the new sensitive data to store securely. Updating this will replace the existing secret value
+        /// Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.SecretResponseItem> EditDeploymentsSecretsByIdAsync(
@@ -51,6 +76,7 @@ namespace Together
             string? name = default,
             string? projectId = default,
             string? value = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

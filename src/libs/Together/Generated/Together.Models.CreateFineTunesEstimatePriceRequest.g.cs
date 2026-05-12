@@ -49,7 +49,7 @@ namespace Together
         public global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? TrainingMethod { get; set; }
 
         /// <summary>
-        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// The training type to use. Defaults to LoRA if not provided.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
@@ -57,7 +57,7 @@ namespace Together
         public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? TrainingType { get; set; }
 
         /// <summary>
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
         public string? FromCheckpoint { get; set; }
@@ -92,11 +92,11 @@ namespace Together
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
         /// <param name="trainingType">
-        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// The training type to use. Defaults to LoRA if not provided.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -127,5 +127,6 @@ namespace Together
         public CreateFineTunesEstimatePriceRequest()
         {
         }
+
     }
 }

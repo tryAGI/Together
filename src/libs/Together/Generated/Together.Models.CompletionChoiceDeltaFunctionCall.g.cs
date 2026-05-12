@@ -53,5 +53,6 @@ namespace Together
         public CompletionChoiceDeltaFunctionCall()
         {
         }
+
     }
 }
