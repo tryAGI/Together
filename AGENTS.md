@@ -28,7 +28,7 @@ cd src/libs/Together && ./generate.sh
 
 The SDK code is **entirely auto-generated** -- do not manually edit files in `src/libs/Together/Generated/`.
 
-1. `src/libs/Together/openapi.yaml` -- the Together OpenAPI spec (fetched from `https://raw.githubusercontent.com/togethercomputer/openapi/main/openapi.yaml`)
+1. `src/libs/Together/openapi.yaml` -- the Together OpenAPI spec (fetched from `https://docs.together.ai/openapi.yaml`)
 2. `src/helpers/FixOpenApiSpec/` -- converts OpenAPI 3.1 to 3.0 format for compatibility
 3. `src/libs/Together/generate.sh` -- orchestrates: download spec, fix spec, run AutoSDK CLI, output to `Generated/`
 4. CI auto-updates the spec and creates PRs if changes are detected

@@ -5,7 +5,7 @@
 namespace Together
 {
     /// <summary>
-    /// The result of the execution. If successful, `data` contains the result and `errors` will be null. If unsuccessful, `data` will be null and `errors` will contain the errors.
+    /// The result of the execution. If successful, `data` contains the result and `errors` is null. If unsuccessful, `data` is null and `errors` contains the errors.
     /// </summary>
     public readonly partial struct ExecuteResponse : global::System.IEquatable<ExecuteResponse>
     {
@@ -29,6 +29,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSuccessfulExecution(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.ExecuteResponseSuccessfulExecution? value)
+        {
+            value = SuccessfulExecution;
+            return IsSuccessfulExecution;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.ExecuteResponseSuccessfulExecution PickSuccessfulExecution() => IsSuccessfulExecution
+            ? SuccessfulExecution!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SuccessfulExecution' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ExecuteResponseFailedExecution? FailedExecution { get; init; }
 #else
@@ -42,6 +62,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(FailedExecution))]
 #endif
         public bool IsFailedExecution => FailedExecution != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickFailedExecution(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.ExecuteResponseFailedExecution? value)
+        {
+            value = FailedExecution;
+            return IsFailedExecution;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.ExecuteResponseFailedExecution PickFailedExecution() => IsFailedExecution
+            ? FailedExecution!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'FailedExecution' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -63,6 +103,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public static ExecuteResponse FromSuccessfulExecution(global::Together.ExecuteResponseSuccessfulExecution? value) => new ExecuteResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator ExecuteResponse(global::Together.ExecuteResponseFailedExecution value) => new ExecuteResponse((global::Together.ExecuteResponseFailedExecution?)value);
 
         /// <summary>
@@ -77,6 +122,11 @@ namespace Together
         {
             FailedExecution = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ExecuteResponse FromFailedExecution(global::Together.ExecuteResponseFailedExecution? value) => new ExecuteResponse(value);
 
         /// <summary>
         /// 
@@ -118,8 +168,8 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.ExecuteResponseSuccessfulExecution?, TResult>? successfulExecution = null,
-            global::System.Func<global::Together.ExecuteResponseFailedExecution?, TResult>? failedExecution = null,
+            global::System.Func<global::Together.ExecuteResponseSuccessfulExecution, TResult>? successfulExecution = null,
+            global::System.Func<global::Together.ExecuteResponseFailedExecution, TResult>? failedExecution = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +193,32 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.ExecuteResponseSuccessfulExecution?>? successfulExecution = null,
-            global::System.Action<global::Together.ExecuteResponseFailedExecution?>? failedExecution = null,
+            global::System.Action<global::Together.ExecuteResponseSuccessfulExecution>? successfulExecution = null,
+
+            global::System.Action<global::Together.ExecuteResponseFailedExecution>? failedExecution = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSuccessfulExecution)
+            {
+                successfulExecution?.Invoke(SuccessfulExecution!);
+            }
+            else if (IsFailedExecution)
+            {
+                failedExecution?.Invoke(FailedExecution!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Together.ExecuteResponseSuccessfulExecution>? successfulExecution = null,
+            global::System.Action<global::Together.ExecuteResponseFailedExecution>? failedExecution = null,
             bool validate = true)
         {
             if (validate)

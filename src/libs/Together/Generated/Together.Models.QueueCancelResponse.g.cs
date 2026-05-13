@@ -47,5 +47,6 @@ namespace Together
         public QueueCancelResponse()
         {
         }
+
     }
 }

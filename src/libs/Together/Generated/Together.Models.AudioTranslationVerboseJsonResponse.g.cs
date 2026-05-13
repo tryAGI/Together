@@ -9,16 +9,6 @@ namespace Together
     public sealed partial class AudioTranslationVerboseJsonResponse
     {
         /// <summary>
-        /// The task performed<br/>
-        /// Example: translate
-        /// </summary>
-        /// <example>translate</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("task")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AudioTranslationVerboseJsonResponseTaskJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AudioTranslationVerboseJsonResponseTask Task { get; set; }
-
-        /// <summary>
         /// The target language of the translation<br/>
         /// Example: english
         /// </summary>
@@ -67,10 +57,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioTranslationVerboseJsonResponse" /> class.
         /// </summary>
-        /// <param name="task">
-        /// The task performed<br/>
-        /// Example: translate
-        /// </param>
         /// <param name="language">
         /// The target language of the translation<br/>
         /// Example: english
@@ -93,14 +79,12 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranslationVerboseJsonResponse(
-            global::Together.AudioTranslationVerboseJsonResponseTask task,
             string language,
             float duration,
             string text,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> segments,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord>? words)
         {
-            this.Task = task;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Duration = duration;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
@@ -114,5 +98,6 @@ namespace Together
         public AudioTranslationVerboseJsonResponse()
         {
         }
+
     }
 }

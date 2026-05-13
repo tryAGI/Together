@@ -78,5 +78,6 @@ namespace Together
         public HardwareSpec()
         {
         }
+
     }
 }

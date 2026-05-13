@@ -30,7 +30,9 @@ public partial class TogetherClient : Meai.IChatClient
         var request = CreateChatRequest(messages, options);
         request.Stream = false;
 
-        var response = await Chat.ChatCompletionsAsync(request, cancellationToken).ConfigureAwait(false);
+        var response = await Chat.ChatCompletionsAsync(
+            request,
+            cancellationToken: cancellationToken).ConfigureAwait(false);
 
         return CreateChatResponse(response, options?.ModelId);
     }
@@ -47,7 +49,9 @@ public partial class TogetherClient : Meai.IChatClient
 
         var toolCallBuilders = new Dictionary<int, (string Id, string Name, StringBuilder Args)>();
 
-        await foreach (var streamItem in Chat.ChatCompletionsAsStreamAsync(request, cancellationToken).ConfigureAwait(false))
+        await foreach (var streamItem in Chat.ChatCompletionsAsStreamAsync(
+            request,
+            cancellationToken: cancellationToken).ConfigureAwait(false))
         {
             if (!streamItem.IsEvent || streamItem.Event?.Data is not { } chunk)
             {

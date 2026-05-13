@@ -9,16 +9,6 @@ namespace Together
     public sealed partial class AudioTranscriptionVerboseJsonResponse
     {
         /// <summary>
-        /// The task performed<br/>
-        /// Example: transcribe
-        /// </summary>
-        /// <example>transcribe</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("task")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AudioTranscriptionVerboseJsonResponseTaskJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.AudioTranscriptionVerboseJsonResponseTask Task { get; set; }
-
-        /// <summary>
         /// The language of the audio<br/>
         /// Example: english
         /// </summary>
@@ -73,10 +63,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioTranscriptionVerboseJsonResponse" /> class.
         /// </summary>
-        /// <param name="task">
-        /// The task performed<br/>
-        /// Example: transcribe
-        /// </param>
         /// <param name="language">
         /// The language of the audio<br/>
         /// Example: english
@@ -102,7 +88,6 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AudioTranscriptionVerboseJsonResponse(
-            global::Together.AudioTranscriptionVerboseJsonResponseTask task,
             string language,
             float duration,
             string text,
@@ -110,7 +95,6 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord>? words,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSpeakerSegment>? speakerSegments)
         {
-            this.Task = task;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Duration = duration;
             this.Text = text ?? throw new global::System.ArgumentNullException(nameof(text));
@@ -125,5 +109,6 @@ namespace Together
         public AudioTranscriptionVerboseJsonResponse()
         {
         }
+
     }
 }

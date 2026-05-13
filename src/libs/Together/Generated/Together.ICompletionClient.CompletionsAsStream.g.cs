@@ -9,6 +9,7 @@ namespace Together
         /// Generate text completions for a given prompt using a language, code, or image model.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -28,6 +29,7 @@ namespace Together
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.CompletionStream> CompletionsAsStreamAsync(
 
             global::Together.CompletionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create completion<br/>
@@ -45,7 +47,7 @@ namespace Together
         /// The maximum number of tokens to generate.
         /// </param>
         /// <param name="stop">
-        /// A list of string sequences that will truncate (stop) inference text output. For example, "&lt;/s&gt;" will stop generation as soon as the model generates the given token.
+        /// A list of string sequences that truncate (stop) inference text output. For example, "&lt;/s&gt;" stops generation as soon as the model generates the given token.
         /// </param>
         /// <param name="temperature">
         /// A decimal number from 0-1 that determines the degree of randomness in the response. A temperature less than 1 favors more correctness and is appropriate for question answering or summarization. A value closer to 1 introduces more randomness in the output.
@@ -60,10 +62,10 @@ namespace Together
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
         /// <param name="logprobs">
-        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
+        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of only the sampled token. Log probabilities help assess model confidence in token predictions.
         /// </param>
         /// <param name="echo">
-        /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
+        /// If true, the response contains the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </param>
         /// <param name="n">
         /// The number of completions to generate for each prompt.
@@ -83,12 +85,13 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"1024":-10.5,"105":21.4}
+        /// Example: {"105":21.4,"1024":-10.5}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>
         /// Example: 42
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.CompletionStream> CompletionsAsStreamAsync(
@@ -109,6 +112,7 @@ namespace Together
             float? frequencyPenalty = default,
             global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
             int? seed = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

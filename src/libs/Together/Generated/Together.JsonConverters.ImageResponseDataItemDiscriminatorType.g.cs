@@ -3,10 +3,10 @@
 namespace Together.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class AudioTranslationVerboseJsonResponseTaskNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.AudioTranslationVerboseJsonResponseTask?>
+    public sealed class ImageResponseDataItemDiscriminatorTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Together.ImageResponseDataItemDiscriminatorType>
     {
         /// <inheritdoc />
-        public override global::Together.AudioTranslationVerboseJsonResponseTask? Read(
+        public override global::Together.ImageResponseDataItemDiscriminatorType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Together.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Together.AudioTranslationVerboseJsonResponseTaskExtensions.ToEnum(stringValue);
+                        return global::Together.ImageResponseDataItemDiscriminatorTypeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Together.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Together.AudioTranslationVerboseJsonResponseTask)numValue;
+                    return (global::Together.ImageResponseDataItemDiscriminatorType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Together.AudioTranslationVerboseJsonResponseTask?);
+                    return default(global::Together.ImageResponseDataItemDiscriminatorType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace Together.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Together.AudioTranslationVerboseJsonResponseTask? value,
+            global::Together.ImageResponseDataItemDiscriminatorType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::Together.AudioTranslationVerboseJsonResponseTaskExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::Together.ImageResponseDataItemDiscriminatorTypeExtensions.ToValueString(value));
         }
     }
 }

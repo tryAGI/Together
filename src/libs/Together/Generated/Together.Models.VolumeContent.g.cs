@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class VolumeContent
     {
         /// <summary>
-        /// Files is the list of files that will be preloaded into the volume, if the volume content type is "files"
+        /// Files is the list of files to preload into the volume, if the volume content type is "files".
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         public global::System.Collections.Generic.IList<global::Together.FileInfo>? Files { get; set; }
@@ -41,7 +41,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="VolumeContent" /> class.
         /// </summary>
         /// <param name="files">
-        /// Files is the list of files that will be preloaded into the volume, if the volume content type is "files"
+        /// Files is the list of files to preload into the volume, if the volume content type is "files".
         /// </param>
         /// <param name="sourcePrefix">
         /// SourcePrefix is the file path prefix for the content to be preloaded into the volume<br/>
@@ -70,5 +70,6 @@ namespace Together
         public VolumeContent()
         {
         }
+
     }
 }

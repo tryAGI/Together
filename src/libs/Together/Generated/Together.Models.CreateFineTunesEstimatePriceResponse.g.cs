@@ -15,7 +15,7 @@ namespace Together
         public double? EstimatedTotalPrice { get; set; }
 
         /// <summary>
-        /// Whether the user is allowed to proceed with the fine-tuning job<br/>
+        /// Whether you are allowed to proceed with the fine-tuning job.<br/>
         /// Example: true
         /// </summary>
         /// <example>true</example>
@@ -23,7 +23,7 @@ namespace Together
         public bool? AllowedToProceed { get; set; }
 
         /// <summary>
-        /// The user's credit limit in dollars
+        /// Your credit limit in dollars.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_limit")]
         public double? UserLimit { get; set; }
@@ -53,11 +53,11 @@ namespace Together
         /// The price of the fine-tuning job
         /// </param>
         /// <param name="allowedToProceed">
-        /// Whether the user is allowed to proceed with the fine-tuning job<br/>
+        /// Whether you are allowed to proceed with the fine-tuning job.<br/>
         /// Example: true
         /// </param>
         /// <param name="userLimit">
-        /// The user's credit limit in dollars
+        /// Your credit limit in dollars.
         /// </param>
         /// <param name="estimatedTrainTokenCount">
         /// The estimated number of tokens to be trained
@@ -88,5 +88,6 @@ namespace Together
         public CreateFineTunesEstimatePriceResponse()
         {
         }
+
     }
 }

@@ -29,6 +29,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEvent(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.CompletionEvent? value)
+        {
+            value = Event;
+            return IsEvent;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.CompletionEvent PickEvent() => IsEvent
+            ? Event!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Event' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.StreamSentinel? Sentinel { get; init; }
 #else
@@ -42,6 +62,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Sentinel))]
 #endif
         public bool IsSentinel => Sentinel != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSentinel(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.StreamSentinel? value)
+        {
+            value = Sentinel;
+            return IsSentinel;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.StreamSentinel PickSentinel() => IsSentinel
+            ? Sentinel!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Sentinel' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -63,6 +103,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public static CompletionStream FromEvent(global::Together.CompletionEvent? value) => new CompletionStream(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator CompletionStream(global::Together.StreamSentinel value) => new CompletionStream((global::Together.StreamSentinel?)value);
 
         /// <summary>
@@ -77,6 +122,11 @@ namespace Together
         {
             Sentinel = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static CompletionStream FromSentinel(global::Together.StreamSentinel? value) => new CompletionStream(value);
 
         /// <summary>
         /// 
@@ -118,8 +168,8 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.CompletionEvent?, TResult>? @event = null,
-            global::System.Func<global::Together.StreamSentinel?, TResult>? sentinel = null,
+            global::System.Func<global::Together.CompletionEvent, TResult>? @event = null,
+            global::System.Func<global::Together.StreamSentinel, TResult>? sentinel = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +193,32 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.CompletionEvent?>? @event = null,
-            global::System.Action<global::Together.StreamSentinel?>? sentinel = null,
+            global::System.Action<global::Together.CompletionEvent>? @event = null,
+
+            global::System.Action<global::Together.StreamSentinel>? sentinel = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEvent)
+            {
+                @event?.Invoke(Event!);
+            }
+            else if (IsSentinel)
+            {
+                sentinel?.Invoke(Sentinel!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Together.CompletionEvent>? @event = null,
+            global::System.Action<global::Together.StreamSentinel>? sentinel = null,
             bool validate = true)
         {
             if (validate)

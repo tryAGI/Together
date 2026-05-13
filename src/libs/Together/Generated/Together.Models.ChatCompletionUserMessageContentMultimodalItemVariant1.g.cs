@@ -50,5 +50,6 @@ namespace Together
         public ChatCompletionUserMessageContentMultimodalItemVariant1()
         {
         }
+
     }
 }

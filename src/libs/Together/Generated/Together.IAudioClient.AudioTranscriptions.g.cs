@@ -9,6 +9,7 @@ namespace Together
         /// Transcribes audio into text
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -27,13 +28,40 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.AudioTranscriptionResponse> AudioTranscriptionsAsync(
 
             global::Together.AudioTranscriptionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create audio transcription request<br/>
+        /// Transcribes audio into text
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// file = open("audio.wav", "rb")<br/>
+        /// response = client.audio.transcriptions.create(<br/>
+        ///     model="openai/whisper-large-v3",<br/>
+        ///     file=file,<br/>
+        /// )<br/>
+        /// print(response.text)
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.AudioTranscriptionResponse>> AudioTranscriptionsAsResponseAsync(
+
+            global::Together.AudioTranscriptionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create audio transcription request<br/>
         /// Transcribes audio into text
         /// </summary>
         /// <param name="file">
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
         /// </param>
         /// <param name="model">
         /// Model to use for transcription<br/>
@@ -45,7 +73,7 @@ namespace Together
         /// Example: en
         /// </param>
         /// <param name="prompt">
-        /// Optional text to bias decoding.
+        /// Optional text to bias decoding. Supported only on Whisper-family models (e.g. `openai/whisper-large-v3`). Other STT models (e.g. `nvidia/parakeet-tdt-0.6b-v3`) accept the field for API compatibility but ignore it.
         /// </param>
         /// <param name="responseFormat">
         /// The format of the response<br/>
@@ -53,7 +81,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
@@ -82,6 +110,7 @@ namespace Together
         /// <param name="maxSpeakers">
         /// Maximum number of speakers expected in the audio. Used to improve diarization accuracy when the approximate number of speakers is known.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.AudioTranscriptionResponse> AudioTranscriptionsAsync(
@@ -95,6 +124,7 @@ namespace Together
             bool? diarize = default,
             int? minSpeakers = default,
             int? maxSpeakers = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

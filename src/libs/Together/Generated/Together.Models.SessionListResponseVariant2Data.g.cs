@@ -40,5 +40,6 @@ namespace Together
         public SessionListResponseVariant2Data()
         {
         }
+
     }
 }

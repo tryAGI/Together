@@ -52,5 +52,6 @@ namespace Together
         public ListEndpointsResponse()
         {
         }
+
     }
 }

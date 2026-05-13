@@ -90,5 +90,6 @@ namespace Together
         public ChatCompletionChunkChoice()
         {
         }
+
     }
 }

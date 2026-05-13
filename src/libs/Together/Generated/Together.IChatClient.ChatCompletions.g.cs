@@ -11,6 +11,7 @@ namespace Together
         /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -32,6 +33,36 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
 
             global::Together.ChatCompletionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create chat completion<br/>
+        /// Generate a model response for a given chat conversation. Supports single queries and multi-turn conversations with system, user, and assistant messages.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.chat.completions.create(<br/>
+        ///     model="Qwen/Qwen3.5-9B",<br/>
+        ///     messages=[<br/>
+        ///         {"role": "system", "content": "You are a helpful assistant."},<br/>
+        ///         {"role": "user", "content": "What are some fun things to do in New York?"},<br/>
+        ///     ],<br/>
+        ///     reasoning={"enabled": False}<br/>
+        /// )
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.ChatCompletionResponse>> ChatCompletionsAsResponseAsync(
+
+            global::Together.ChatCompletionRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create chat completion<br/>
@@ -47,7 +78,7 @@ namespace Together
         /// The maximum number of tokens to generate.
         /// </param>
         /// <param name="stop">
-        /// A list of string sequences that will truncate (stop) inference text output. For example, "&lt;/s&gt;" will stop generation as soon as the model generates the given token.
+        /// A list of string sequences that truncate (stop) inference text output. For example, "&lt;/s&gt;" stops generation as soon as the model generates the given token.
         /// </param>
         /// <param name="temperature">
         /// A decimal number from 0-1 that determines the degree of randomness in the response. A temperature less than 1 favors more correctness and is appropriate for question answering or summarization. A value closer to 1 introduces more randomness in the output.
@@ -59,17 +90,17 @@ namespace Together
         /// An integer that's used to limit the number of choices for the next predicted word or token. It specifies the maximum number of tokens to consider at each step, based on their probability of occurrence. This technique helps to speed up the generation process and can improve the quality of the generated text by focusing on the most likely options.
         /// </param>
         /// <param name="contextLengthExceededBehavior">
-        /// Defined the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', API will return 400 with appropriate error message. When set to 'truncate', override the max_tokens with maximum context length of the model.<br/>
+        /// Defines the behavior of the API when max_tokens exceed the maximum context length of the model. When set to 'error', the API returns 400 with an appropriate error message. When set to 'truncate', overrides max_tokens with the maximum context length of the model.<br/>
         /// Default Value: error
         /// </param>
         /// <param name="repetitionPenalty">
         /// A number that controls the diversity of generated text by reducing the likelihood of repeated sequences. Higher values decrease repetition.
         /// </param>
         /// <param name="logprobs">
-        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of just the sampled token. Log probabilities help assess model confidence in token predictions.
+        /// An integer between 0 and 20 of the top k tokens to return log probabilities for at each generation step, instead of only the sampled token. Log probabilities help assess model confidence in token predictions.
         /// </param>
         /// <param name="echo">
-        /// If true, the response will contain the prompt. Can be used with `logprobs` to return prompt logprobs.
+        /// If true, the response contains the prompt. Can be used with `logprobs` to return prompt logprobs.
         /// </param>
         /// <param name="n">
         /// The number of completions to generate for each prompt.
@@ -85,7 +116,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"1024":-10.5,"105":21.4}
+        /// Example: {"105":21.4,"1024":-10.5}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>
@@ -123,6 +154,7 @@ namespace Together
         /// <param name="reasoning">
         /// For models that support toggling reasoning functionality, this object can be used to control that functionality.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.ChatCompletionResponse> ChatCompletionsAsync(
@@ -152,6 +184,7 @@ namespace Together
             string? safetyModel = default,
             global::Together.ChatCompletionRequestReasoningEffort? reasoningEffort = default,
             global::Together.ChatCompletionRequestReasoning? reasoning = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

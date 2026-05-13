@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Programming language for the code to execute. Currently only supports Python, but more will be added.<br/>
+    /// Programming language for the code to execute. Currently only supports Python.<br/>
     /// Default Value: python
     /// </summary>
     public enum ExecuteRequestLanguage

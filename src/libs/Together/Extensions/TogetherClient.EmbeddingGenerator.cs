@@ -34,7 +34,9 @@ public partial class TogetherClient : Meai.IEmbeddingGenerator<string, Meai.Embe
                 : new OneOf<string, IList<string>>(texts),
         };
 
-        var response = await Embeddings.EmbeddingsAsync(request, cancellationToken).ConfigureAwait(false);
+        var response = await Embeddings.EmbeddingsAsync(
+            request,
+            cancellationToken: cancellationToken).ConfigureAwait(false);
 
         var embeddings = new Meai.GeneratedEmbeddings<Meai.Embedding<float>>();
 

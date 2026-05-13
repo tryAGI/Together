@@ -27,7 +27,7 @@ namespace Together
         public string? ProjectId { get; set; }
 
         /// <summary>
-        /// Value is the new sensitive data to store securely. Updating this will replace the existing secret value
+        /// Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         public string? Value { get; set; }
@@ -51,7 +51,7 @@ namespace Together
         /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
         /// <param name="value">
-        /// Value is the new sensitive data to store securely. Updating this will replace the existing secret value
+        /// Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -74,5 +74,6 @@ namespace Together
         public UpdateSecretRequest()
         {
         }
+
     }
 }

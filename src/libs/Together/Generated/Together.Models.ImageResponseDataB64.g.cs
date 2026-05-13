@@ -60,5 +60,6 @@ namespace Together
         public ImageResponseDataB64()
         {
         }
+
     }
 }

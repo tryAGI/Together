@@ -12,7 +12,8 @@ namespace Together
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string? Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ImageResponseDataItemDiscriminatorTypeJsonConverter))]
+        public global::Together.ImageResponseDataItemDiscriminatorType? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -28,7 +29,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ImageResponseDataItemDiscriminator(
-            string? type)
+            global::Together.ImageResponseDataItemDiscriminatorType? type)
         {
             this.Type = type;
         }
@@ -39,5 +40,6 @@ namespace Together
         public ImageResponseDataItemDiscriminator()
         {
         }
+
     }
 }

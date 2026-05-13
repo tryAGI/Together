@@ -9,13 +9,17 @@ namespace Together
     public sealed partial class CreateBatchRequest
     {
         /// <summary>
-        /// The endpoint to use for batch processing<br/>
+        /// The endpoint to use for batch processing. Each line of the uploaded input file is dispatched against this endpoint.<br/>
+        /// - `/v1/chat/completions` — chat completion batches<br/>
+        /// - `/v1/audio/transcriptions` — audio transcription batches (e.g. `openai/whisper-large-v3`)<br/>
+        /// - `/v1/audio/translations` — audio translation batches<br/>
         /// Example: /v1/chat/completions
         /// </summary>
         /// <example>/v1/chat/completions</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("endpoint")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.CreateBatchRequestEndpointJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Endpoint { get; set; }
+        public required global::Together.CreateBatchRequestEndpoint Endpoint { get; set; }
 
         /// <summary>
         /// ID of the uploaded input file containing batch requests<br/>
@@ -60,7 +64,10 @@ namespace Together
         /// Initializes a new instance of the <see cref="CreateBatchRequest" /> class.
         /// </summary>
         /// <param name="endpoint">
-        /// The endpoint to use for batch processing<br/>
+        /// The endpoint to use for batch processing. Each line of the uploaded input file is dispatched against this endpoint.<br/>
+        /// - `/v1/chat/completions` — chat completion batches<br/>
+        /// - `/v1/audio/transcriptions` — audio transcription batches (e.g. `openai/whisper-large-v3`)<br/>
+        /// - `/v1/audio/translations` — audio translation batches<br/>
         /// Example: /v1/chat/completions
         /// </param>
         /// <param name="inputFileId">
@@ -83,13 +90,13 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateBatchRequest(
-            string endpoint,
+            global::Together.CreateBatchRequestEndpoint endpoint,
             string inputFileId,
             string? completionWindow,
             int? priority,
             string? modelId)
         {
-            this.Endpoint = endpoint ?? throw new global::System.ArgumentNullException(nameof(endpoint));
+            this.Endpoint = endpoint;
             this.InputFileId = inputFileId ?? throw new global::System.ArgumentNullException(nameof(inputFileId));
             this.CompletionWindow = completionWindow;
             this.Priority = priority;
@@ -102,5 +109,6 @@ namespace Together
         public CreateBatchRequest()
         {
         }
+
     }
 }

@@ -12,6 +12,7 @@ namespace Together
         /// Deployment ID or name
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -24,6 +25,30 @@ namespace Together
             string id,
 
             global::Together.UpdateDeploymentRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update a deployment<br/>
+        /// Update an existing deployment configuration
+        /// </summary>
+        /// <param name="id">
+        /// Deployment ID or name
+        /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// deployment = client.beta.jig.update("my-deployment", gpu_count=2)<br/>
+        /// print(deployment)
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeploymentResponseItem>> EditDeploymentsByIdAsResponseAsync(
+            string id,
+
+            global::Together.UpdateDeploymentRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a deployment<br/>
@@ -48,7 +73,7 @@ namespace Together
         /// Description is an optional human-readable description of your deployment
         /// </param>
         /// <param name="environmentVariables">
-        /// EnvironmentVariables is a list of environment variables to set in the container. This will replace all existing environment variables
+        /// EnvironmentVariables is a list of environment variables to set in the container. Replaces all existing environment variables.
         /// </param>
         /// <param name="gpuCount">
         /// GPUCount is the number of GPUs to allocate per container instance
@@ -84,8 +109,9 @@ namespace Together
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
         /// </param>
         /// <param name="volumes">
-        /// Volumes is a list of volume mounts to attach to the container. This will replace all existing volumes
+        /// Volumes is a list of volume mounts to attach to the container. Replaces all existing volumes.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.DeploymentResponseItem> EditDeploymentsByIdAsync(
@@ -108,6 +134,7 @@ namespace Together
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

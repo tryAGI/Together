@@ -70,5 +70,6 @@ namespace Together
         public QueueAutoscalingConfig()
         {
         }
+
     }
 }

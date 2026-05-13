@@ -48,5 +48,6 @@ namespace Together
         public BatchJobWithWarning()
         {
         }
+
     }
 }

@@ -73,5 +73,6 @@ namespace Together
         public HTTPAutoscalingConfig()
         {
         }
+
     }
 }

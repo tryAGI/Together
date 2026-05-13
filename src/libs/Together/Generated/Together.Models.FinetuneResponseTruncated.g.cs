@@ -45,7 +45,7 @@ namespace Together
         public global::System.DateTime? StartedAt { get; set; }
 
         /// <summary>
-        /// Identifier for the user who created the job
+        /// Identifier for who created the job.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         public string? UserId { get; set; }
@@ -91,6 +91,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("packing")]
         public bool? Packing { get; set; }
+
+        /// <summary>
+        /// Maximum sequence length to use for training. If not specified, uses the maximum allowed for the model and training method.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_seq_length")]
+        public int? MaxSeqLength { get; set; }
 
         /// <summary>
         /// Base model used for fine-tuning
@@ -243,7 +249,7 @@ namespace Together
         /// Start timestamp of the current stage of the fine-tune job
         /// </param>
         /// <param name="userId">
-        /// Identifier for the user who created the job
+        /// Identifier for who created the job.
         /// </param>
         /// <param name="ownerAddress">
         /// Owner address information
@@ -265,6 +271,9 @@ namespace Together
         /// </param>
         /// <param name="packing">
         /// Whether sequence packing is being used for training.
+        /// </param>
+        /// <param name="maxSeqLength">
+        /// Maximum sequence length to use for training. If not specified, uses the maximum allowed for the model and training method.
         /// </param>
         /// <param name="model">
         /// Base model used for fine-tuning
@@ -344,6 +353,7 @@ namespace Together
             string? trainingFile,
             string? validationFile,
             bool? packing,
+            int? maxSeqLength,
             string? model,
             string? modelOutputName,
             string? suffix,
@@ -379,6 +389,7 @@ namespace Together
             this.TrainingFile = trainingFile;
             this.ValidationFile = validationFile;
             this.Packing = packing;
+            this.MaxSeqLength = maxSeqLength;
             this.Model = model;
             this.ModelOutputName = modelOutputName;
             this.Suffix = suffix;
@@ -408,5 +419,6 @@ namespace Together
         public FinetuneResponseTruncated()
         {
         }
+
     }
 }

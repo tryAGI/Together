@@ -9,6 +9,7 @@ namespace Together
         /// Create a new batch job with the given input file and endpoint
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -24,13 +25,40 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.BatchJobWithWarning> CreateBatchesAsync(
 
             global::Together.CreateBatchRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a batch job<br/>
+        /// Create a new batch job with the given input file and endpoint
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// batch = client.batches.create(input_file_id="file_id", endpoint="/v1/chat/completions")<br/>
+        /// print(batch.job)
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.BatchJobWithWarning>> CreateBatchesAsResponseAsync(
+
+            global::Together.CreateBatchRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a batch job<br/>
         /// Create a new batch job with the given input file and endpoint
         /// </summary>
         /// <param name="endpoint">
-        /// The endpoint to use for batch processing<br/>
+        /// The endpoint to use for batch processing. Each line of the uploaded input file is dispatched against this endpoint.<br/>
+        /// - `/v1/chat/completions` — chat completion batches<br/>
+        /// - `/v1/audio/transcriptions` — audio transcription batches (e.g. `openai/whisper-large-v3`)<br/>
+        /// - `/v1/audio/translations` — audio translation batches<br/>
         /// Example: /v1/chat/completions
         /// </param>
         /// <param name="inputFileId">
@@ -49,14 +77,16 @@ namespace Together
         /// Model to use for processing batch requests<br/>
         /// Example: Qwen/Qwen3.5-9B
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.BatchJobWithWarning> CreateBatchesAsync(
-            string endpoint,
+            global::Together.CreateBatchRequestEndpoint endpoint,
             string inputFileId,
             string? completionWindow = default,
             int? priority = default,
             string? modelId = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

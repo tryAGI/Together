@@ -11,6 +11,7 @@ namespace Together
         /// Create a fine-tuning job with the provided model and training data.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
@@ -29,6 +30,33 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
 
             global::Together.CreateFineTunesRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create job<br/>
+        /// Create a fine-tuning job with the provided model and training data.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// # Docs for v1 can be found by changing the above selector ^<br/>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.fine_tuning.create(<br/>
+        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
+        ///     training_file="file-id"<br/>
+        /// )<br/>
+        /// print(response)
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneResponseTruncated>> CreateFineTunesAsResponseAsync(
+
+            global::Together.CreateFineTunesRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create job<br/>
@@ -43,6 +71,9 @@ namespace Together
         /// <param name="packing">
         /// Whether to use sequence packing for training.<br/>
         /// Default Value: true
+        /// </param>
+        /// <param name="maxSeqLength">
+        /// Maximum sequence length to use for training. If not specified, the maximum allowed for the model and training method will be used.
         /// </param>
         /// <param name="model">
         /// Name of the base model to run fine-tune job on
@@ -63,6 +94,10 @@ namespace Together
         /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
         /// Default Value: max
         /// </param>
+        /// <param name="gradientAccumulationSteps">
+        /// Number of steps to accumulate gradients before performing a weight update. Effectively increases the batch size without requiring more memory. For example, with batch_size=4 and gradient_accumulation_steps=8, the effective batch size is 32.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 0.00001
@@ -73,21 +108,21 @@ namespace Together
         /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="maxGradNorm">
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="randomSeed">
         /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
         /// </param>
         /// <param name="suffix">
-        /// Suffix that will be added to your fine-tuned model name
+        /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
         /// </param>
         /// <param name="wandbApiKey">
         /// Integration key for tracking experiments and model metrics on W&amp;B platform
@@ -96,7 +131,7 @@ namespace Together
         /// The base URL of a dedicated Weights &amp; Biases instance.
         /// </param>
         /// <param name="wandbProjectName">
-        /// The Weights &amp; Biases project for your run. If not specified, will use `together` as the project name.
+        /// The Weights &amp; Biases project for your run. If not specified, uses `together` as the project name.
         /// </param>
         /// <param name="wandbName">
         /// The Weights &amp; Biases name for your run.
@@ -108,12 +143,12 @@ namespace Together
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
         /// <param name="trainingType">
-        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// The training type to use. Defaults to LoRA if not provided.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
         /// <param name="multimodalParams"></param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
         /// </param>
         /// <param name="fromHfModel">
         /// The Hugging Face Hub repo to start training from. Should be as close as possible to the base model (specified by the `model` argument) in terms of architecture and size.
@@ -127,6 +162,7 @@ namespace Together
         /// <param name="hfOutputRepoName">
         /// The name of the Hugging Face repository to upload the fine-tuned model to.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
@@ -134,10 +170,12 @@ namespace Together
             string model,
             string? validationFile = default,
             bool? packing = default,
+            int? maxSeqLength = default,
             int? nEpochs = default,
             int? nCheckpoints = default,
             int? nEvals = default,
             global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize = default,
+            int? gradientAccumulationSteps = default,
             float? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
             float? warmupRatio = default,
@@ -158,6 +196,7 @@ namespace Together
             string? hfModelRevision = default,
             string? hfApiToken = default,
             string? hfOutputRepoName = default,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

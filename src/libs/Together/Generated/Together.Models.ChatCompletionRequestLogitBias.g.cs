@@ -5,7 +5,7 @@ namespace Together
 {
     /// <summary>
     /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-    /// Example: {"1024":-10.5,"105":21.4}
+    /// Example: {"105":21.4,"1024":-10.5}
     /// </summary>
     public sealed partial class ChatCompletionRequestLogitBias
     {
@@ -15,5 +15,6 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
     }
 }

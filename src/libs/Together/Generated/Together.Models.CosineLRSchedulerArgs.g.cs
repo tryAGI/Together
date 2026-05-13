@@ -10,7 +10,7 @@ namespace Together
     {
         /// <summary>
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_lr_ratio")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -35,7 +35,7 @@ namespace Together
         /// </summary>
         /// <param name="minLrRatio">
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="numCycles">
         /// Number or fraction of cycles for the cosine learning rate scheduler<br/>
@@ -58,5 +58,6 @@ namespace Together
         public CosineLRSchedulerArgs()
         {
         }
+
     }
 }

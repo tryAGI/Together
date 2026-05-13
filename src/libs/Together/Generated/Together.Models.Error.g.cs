@@ -29,6 +29,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickErrorVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = ErrorVariant1;
+            return IsErrorVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PickErrorVariant1() => IsErrorVariant1
+            ? ErrorVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ErrorVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public object? ErrorVariant2 { get; init; }
 #else
@@ -42,6 +62,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ErrorVariant2))]
 #endif
         public bool IsErrorVariant2 => ErrorVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickErrorVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out object? value)
+        {
+            value = ErrorVariant2;
+            return IsErrorVariant2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public object PickErrorVariant2() => IsErrorVariant2
+            ? ErrorVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ErrorVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -59,6 +99,11 @@ namespace Together
         {
             ErrorVariant1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Error FromErrorVariant1(string? value) => new Error(value);
 
         /// <summary>
         /// 
@@ -100,8 +145,8 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? errorVariant1 = null,
-            global::System.Func<object?, TResult>? errorVariant2 = null,
+            global::System.Func<string, TResult>? errorVariant1 = null,
+            global::System.Func<object, TResult>? errorVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -125,8 +170,32 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? errorVariant1 = null,
-            global::System.Action<object?>? errorVariant2 = null,
+            global::System.Action<string>? errorVariant1 = null,
+
+            global::System.Action<object>? errorVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsErrorVariant1)
+            {
+                errorVariant1?.Invoke(ErrorVariant1!);
+            }
+            else if (IsErrorVariant2)
+            {
+                errorVariant2?.Invoke(ErrorVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? errorVariant1 = null,
+            global::System.Action<object>? errorVariant2 = null,
             bool validate = true)
         {
             if (validate)

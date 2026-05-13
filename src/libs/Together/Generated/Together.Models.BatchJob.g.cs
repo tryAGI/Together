@@ -69,9 +69,9 @@ namespace Together
 
         /// <summary>
         /// Completion progress (0.0 to 100)<br/>
-        /// Example: 75.0
+        /// Example: 75
         /// </summary>
-        /// <example>75.0</example>
+        /// <example>75</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
         public double? Progress { get; set; }
 
@@ -147,7 +147,7 @@ namespace Together
         /// </param>
         /// <param name="progress">
         /// Completion progress (0.0 to 100)<br/>
-        /// Example: 75.0
+        /// Example: 75
         /// </param>
         /// <param name="modelId">
         /// Model used for processing requests<br/>
@@ -204,5 +204,6 @@ namespace Together
         public BatchJob()
         {
         }
+
     }
 }

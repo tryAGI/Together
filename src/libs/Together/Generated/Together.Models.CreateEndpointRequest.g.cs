@@ -69,7 +69,7 @@ namespace Together
         public global::Together.CreateEndpointRequestState? State { get; set; }
 
         /// <summary>
-        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.<br/>
+        /// The number of minutes of inactivity after which the endpoint stops automatically. Set to null, omit, or set to 0 to disable automatic timeout.<br/>
         /// Example: 60
         /// </summary>
         /// <example>60</example>
@@ -116,7 +116,7 @@ namespace Together
         /// Example: STARTED
         /// </param>
         /// <param name="inactiveTimeout">
-        /// The number of minutes of inactivity after which the endpoint will be automatically stopped. Set to null, omit or set to 0 to disable automatic timeout.<br/>
+        /// The number of minutes of inactivity after which the endpoint stops automatically. Set to null, omit, or set to 0 to disable automatic timeout.<br/>
         /// Example: 60
         /// </param>
         /// <param name="availabilityZone">
@@ -151,5 +151,6 @@ namespace Together
         public CreateEndpointRequest()
         {
         }
+
     }
 }

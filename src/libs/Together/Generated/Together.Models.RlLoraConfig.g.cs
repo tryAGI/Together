@@ -36,6 +36,15 @@ namespace Together
         public float? Dropout { get; set; }
 
         /// <summary>
+        /// Whether to enable LoRA fine-tuning. If false, full fine-tuning is used.<br/>
+        /// Default Value: true<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable")]
+        public bool? Enable { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -59,17 +68,24 @@ namespace Together
         /// Default Value: 0.05<br/>
         /// Example: 0.05
         /// </param>
+        /// <param name="enable">
+        /// Whether to enable LoRA fine-tuning. If false, full fine-tuning is used.<br/>
+        /// Default Value: true<br/>
+        /// Example: true
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlLoraConfig(
             long? rank,
             long? alpha,
-            float? dropout)
+            float? dropout,
+            bool? enable)
         {
             this.Rank = rank;
             this.Alpha = alpha;
             this.Dropout = dropout;
+            this.Enable = enable;
         }
 
         /// <summary>
@@ -78,5 +94,6 @@ namespace Together
         public RlLoraConfig()
         {
         }
+
     }
 }

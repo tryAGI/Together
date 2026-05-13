@@ -31,6 +31,12 @@ namespace Together
         public bool? Packing { get; set; }
 
         /// <summary>
+        /// Maximum sequence length to use for training. If not specified, the maximum allowed for the model and training method will be used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_seq_length")]
+        public int? MaxSeqLength { get; set; }
+
+        /// <summary>
         /// Name of the base model to run fine-tune job on
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
@@ -67,6 +73,13 @@ namespace Together
         public global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? BatchSize { get; set; }
 
         /// <summary>
+        /// Number of steps to accumulate gradients before performing a weight update. Effectively increases the batch size without requiring more memory. For example, with batch_size=4 and gradient_accumulation_steps=8, the effective batch size is 32.<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("gradient_accumulation_steps")]
+        public int? GradientAccumulationSteps { get; set; }
+
+        /// <summary>
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 0.00001
         /// </summary>
@@ -82,21 +95,21 @@ namespace Together
 
         /// <summary>
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warmup_ratio")]
         public float? WarmupRatio { get; set; }
 
         /// <summary>
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_grad_norm")]
         public float? MaxGradNorm { get; set; }
 
         /// <summary>
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
         public float? WeightDecay { get; set; }
@@ -108,7 +121,7 @@ namespace Together
         public int? RandomSeed { get; set; }
 
         /// <summary>
-        /// Suffix that will be added to your fine-tuned model name
+        /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("suffix")]
         public string? Suffix { get; set; }
@@ -126,7 +139,7 @@ namespace Together
         public string? WandbBaseUrl { get; set; }
 
         /// <summary>
-        /// The Weights &amp; Biases project for your run. If not specified, will use `together` as the project name.
+        /// The Weights &amp; Biases project for your run. If not specified, uses `together` as the project name.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_project_name")]
         public string? WandbProjectName { get; set; }
@@ -144,7 +157,7 @@ namespace Together
         public string? WandbEntity { get; set; }
 
         /// <summary>
-        /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
+        /// Whether to mask user messages in conversational data or prompts in instruction data.<br/>
         /// Default Value: auto
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("train_on_inputs")]
@@ -159,7 +172,7 @@ namespace Together
         public global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? TrainingMethod { get; set; }
 
         /// <summary>
-        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// The training type to use. Defaults to LoRA if not provided.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
@@ -173,7 +186,7 @@ namespace Together
         public global::Together.MultimodalParams? MultimodalParams { get; set; }
 
         /// <summary>
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
         public string? FromCheckpoint { get; set; }
@@ -224,6 +237,9 @@ namespace Together
         /// Whether to use sequence packing for training.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="maxSeqLength">
+        /// Maximum sequence length to use for training. If not specified, the maximum allowed for the model and training method will be used.
+        /// </param>
         /// <param name="nEpochs">
         /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
         /// Default Value: 1
@@ -240,6 +256,10 @@ namespace Together
         /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
         /// Default Value: max
         /// </param>
+        /// <param name="gradientAccumulationSteps">
+        /// Number of steps to accumulate gradients before performing a weight update. Effectively increases the batch size without requiring more memory. For example, with batch_size=4 and gradient_accumulation_steps=8, the effective batch size is 32.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
         /// Default Value: 0.00001
@@ -250,21 +270,21 @@ namespace Together
         /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="maxGradNorm">
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1.0
+        /// Default Value: 1
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="randomSeed">
         /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
         /// </param>
         /// <param name="suffix">
-        /// Suffix that will be added to your fine-tuned model name
+        /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
         /// </param>
         /// <param name="wandbApiKey">
         /// Integration key for tracking experiments and model metrics on W&amp;B platform
@@ -273,7 +293,7 @@ namespace Together
         /// The base URL of a dedicated Weights &amp; Biases instance.
         /// </param>
         /// <param name="wandbProjectName">
-        /// The Weights &amp; Biases project for your run. If not specified, will use `together` as the project name.
+        /// The Weights &amp; Biases project for your run. If not specified, uses `together` as the project name.
         /// </param>
         /// <param name="wandbName">
         /// The Weights &amp; Biases name for your run.
@@ -285,12 +305,12 @@ namespace Together
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
         /// </param>
         /// <param name="trainingType">
-        /// The training type to use. If not provided, the job will default to LoRA training type.<br/>
+        /// The training type to use. Defaults to LoRA if not provided.<br/>
         /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
         /// </param>
         /// <param name="multimodalParams"></param>
         /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, the final checkpoint will be used.
+        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
         /// </param>
         /// <param name="fromHfModel">
         /// The Hugging Face Hub repo to start training from. Should be as close as possible to the base model (specified by the `model` argument) in terms of architecture and size.
@@ -312,10 +332,12 @@ namespace Together
             string model,
             string? validationFile,
             bool? packing,
+            int? maxSeqLength,
             int? nEpochs,
             int? nCheckpoints,
             int? nEvals,
             global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize,
+            int? gradientAccumulationSteps,
             float? learningRate,
             global::Together.LRScheduler? lrScheduler,
             float? warmupRatio,
@@ -340,11 +362,13 @@ namespace Together
             this.TrainingFile = trainingFile ?? throw new global::System.ArgumentNullException(nameof(trainingFile));
             this.ValidationFile = validationFile;
             this.Packing = packing;
+            this.MaxSeqLength = maxSeqLength;
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.NEpochs = nEpochs;
             this.NCheckpoints = nCheckpoints;
             this.NEvals = nEvals;
             this.BatchSize = batchSize;
+            this.GradientAccumulationSteps = gradientAccumulationSteps;
             this.LearningRate = learningRate;
             this.LrScheduler = lrScheduler;
             this.WarmupRatio = warmupRatio;
@@ -373,5 +397,6 @@ namespace Together
         public CreateFineTunesRequest()
         {
         }
+
     }
 }

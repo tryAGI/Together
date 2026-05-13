@@ -108,7 +108,10 @@ namespace Together.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (errorVariant1 == null && errorVariant2 == null)
+            {
                 try
                 {
 

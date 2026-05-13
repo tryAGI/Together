@@ -19,9 +19,9 @@ namespace Together
 
         /// <summary>
         /// Start time of the speaker segment in seconds<br/>
-        /// Example: 0.0
+        /// Example: 0
         /// </summary>
-        /// <example>0.0</example>
+        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float Start { get; set; }
@@ -75,7 +75,7 @@ namespace Together
         /// </param>
         /// <param name="start">
         /// Start time of the speaker segment in seconds<br/>
-        /// Example: 0.0
+        /// Example: 0
         /// </param>
         /// <param name="end">
         /// End time of the speaker segment in seconds<br/>
@@ -117,5 +117,6 @@ namespace Together
         public AudioTranscriptionSpeakerSegment()
         {
         }
+
     }
 }

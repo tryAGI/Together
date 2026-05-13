@@ -16,7 +16,7 @@ namespace Together
         public global::Together.TrainingMethodSFTMethod Method { get; set; }
 
         /// <summary>
-        /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
+        /// Whether to mask user messages in conversational data or prompts in instruction data.<br/>
         /// Default Value: auto
         /// </summary>
         /// <default>global::Together.TrainingMethodSFTTrainOnInputs.Auto</default>
@@ -35,7 +35,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="TrainingMethodSFT" /> class.
         /// </summary>
         /// <param name="trainOnInputs">
-        /// Whether to mask the user messages in conversational data or prompts in instruction data.<br/>
+        /// Whether to mask user messages in conversational data or prompts in instruction data.<br/>
         /// Default Value: auto
         /// </param>
         /// <param name="method"></param>
@@ -56,5 +56,6 @@ namespace Together
         public TrainingMethodSFT()
         {
         }
+
     }
 }

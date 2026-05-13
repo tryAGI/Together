@@ -103,5 +103,6 @@ namespace Together
         public EvaluationScoreResults()
         {
         }
+
     }
 }

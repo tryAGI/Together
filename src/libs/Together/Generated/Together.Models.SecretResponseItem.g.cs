@@ -15,7 +15,7 @@ namespace Together
         public string? CreatedAt { get; set; }
 
         /// <summary>
-        /// CreatedBy is the identifier of the user who created this secret
+        /// CreatedBy is the identifier of who created this secret.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         public string? CreatedBy { get; set; }
@@ -33,7 +33,7 @@ namespace Together
         public string? Id { get; set; }
 
         /// <summary>
-        /// LastUpdatedBy is the identifier of the user who last updated this secret
+        /// LastUpdatedBy is the identifier of who last updated this secret.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_updated_by")]
         public string? LastUpdatedBy { get; set; }
@@ -69,7 +69,7 @@ namespace Together
         /// CreatedAt is the ISO8601 timestamp when this secret was created
         /// </param>
         /// <param name="createdBy">
-        /// CreatedBy is the identifier of the user who created this secret
+        /// CreatedBy is the identifier of who created this secret.
         /// </param>
         /// <param name="description">
         /// Description is a human-readable description of the secret's purpose
@@ -78,7 +78,7 @@ namespace Together
         /// ID is the unique identifier for this secret
         /// </param>
         /// <param name="lastUpdatedBy">
-        /// LastUpdatedBy is the identifier of the user who last updated this secret
+        /// LastUpdatedBy is the identifier of who last updated this secret.
         /// </param>
         /// <param name="name">
         /// Name is the name/key of the secret
@@ -118,5 +118,6 @@ namespace Together
         public SecretResponseItem()
         {
         }
+
     }
 }

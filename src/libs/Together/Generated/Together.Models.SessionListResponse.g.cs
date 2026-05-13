@@ -29,6 +29,26 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickResponse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.SessionListResponseResponse? value)
+        {
+            value = Response;
+            return IsResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.SessionListResponseResponse PickResponse() => IsResponse
+            ? Response!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Response' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.SessionListResponseVariant2? SessionListResponseVariant2 { get; init; }
 #else
@@ -42,6 +62,26 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SessionListResponseVariant2))]
 #endif
         public bool IsSessionListResponseVariant2 => SessionListResponseVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSessionListResponseVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Together.SessionListResponseVariant2? value)
+        {
+            value = SessionListResponseVariant2;
+            return IsSessionListResponseVariant2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Together.SessionListResponseVariant2 PickSessionListResponseVariant2() => IsSessionListResponseVariant2
+            ? SessionListResponseVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SessionListResponseVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -63,6 +103,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public static SessionListResponse FromResponse(global::Together.SessionListResponseResponse? value) => new SessionListResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant2 value) => new SessionListResponse((global::Together.SessionListResponseVariant2?)value);
 
         /// <summary>
@@ -77,6 +122,11 @@ namespace Together
         {
             SessionListResponseVariant2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SessionListResponse FromSessionListResponseVariant2(global::Together.SessionListResponseVariant2? value) => new SessionListResponse(value);
 
         /// <summary>
         /// 
@@ -118,8 +168,8 @@ namespace Together
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Together.SessionListResponseResponse?, TResult>? response = null,
-            global::System.Func<global::Together.SessionListResponseVariant2?, TResult>? sessionListResponseVariant2 = null,
+            global::System.Func<global::Together.SessionListResponseResponse, TResult>? response = null,
+            global::System.Func<global::Together.SessionListResponseVariant2, TResult>? sessionListResponseVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +193,32 @@ namespace Together
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Together.SessionListResponseResponse?>? response = null,
-            global::System.Action<global::Together.SessionListResponseVariant2?>? sessionListResponseVariant2 = null,
+            global::System.Action<global::Together.SessionListResponseResponse>? response = null,
+
+            global::System.Action<global::Together.SessionListResponseVariant2>? sessionListResponseVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsResponse)
+            {
+                response?.Invoke(Response!);
+            }
+            else if (IsSessionListResponseVariant2)
+            {
+                sessionListResponseVariant2?.Invoke(SessionListResponseVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Together.SessionListResponseResponse>? response = null,
+            global::System.Action<global::Together.SessionListResponseVariant2>? sessionListResponseVariant2 = null,
             bool validate = true)
         {
             if (validate)

@@ -119,5 +119,6 @@ namespace Together
         public RerankRequest()
         {
         }
+
     }
 }

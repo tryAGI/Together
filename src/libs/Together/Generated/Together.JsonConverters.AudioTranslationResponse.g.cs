@@ -23,6 +23,7 @@ namespace Together.JsonConverters
                 foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
                 {
                     __jsonProps.Add(__jsonProp.Name);
+
                 }
             }
 
@@ -32,7 +33,6 @@ namespace Together.JsonConverters
             if (__jsonProps.Contains("duration")) __score1++;
             if (__jsonProps.Contains("language")) __score1++;
             if (__jsonProps.Contains("segments")) __score1++;
-            if (__jsonProps.Contains("task")) __score1++;
             if (__jsonProps.Contains("text")) __score1++;
             if (__jsonProps.Contains("words")) __score1++;
             var __bestScore = 0;
@@ -80,6 +80,7 @@ namespace Together.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationJsonResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationJsonResponse).Name}");
                     json = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -90,9 +91,13 @@ namespace Together.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (json == null && verboseJson == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.AudioTranslationVerboseJsonResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.AudioTranslationVerboseJsonResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.AudioTranslationVerboseJsonResponse).Name}");
                     verboseJson = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

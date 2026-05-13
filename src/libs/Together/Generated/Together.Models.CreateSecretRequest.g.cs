@@ -28,7 +28,7 @@ namespace Together
         public string? ProjectId { get; set; }
 
         /// <summary>
-        /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). This value will be encrypted at rest
+        /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). Encrypted at rest.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -47,7 +47,7 @@ namespace Together
         /// Name is the unique identifier for the secret. Can contain alphanumeric characters, underscores, hyphens, forward slashes, and periods (1-100 characters)
         /// </param>
         /// <param name="value">
-        /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). This value will be encrypted at rest
+        /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). Encrypted at rest.
         /// </param>
         /// <param name="description">
         /// Description is an optional human-readable description of the secret's purpose (max 500 characters)
@@ -76,5 +76,6 @@ namespace Together
         public CreateSecretRequest()
         {
         }
+
     }
 }
