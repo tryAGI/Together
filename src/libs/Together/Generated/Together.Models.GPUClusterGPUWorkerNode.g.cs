@@ -55,7 +55,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("memory_gib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MemoryGib { get; set; }
+        public required float MemoryGib { get; set; }
 
         /// <summary>
         /// 
@@ -69,6 +69,26 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("instance_id")]
         public string? InstanceId { get; set; }
+
+        /// <summary>
+        /// Remediation represents a node remediation request for an instance.<br/>
+        /// An instance can have multiple remediations over time (e.g., failed attempts followed by retries).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("latest_remediation")]
+        public global::Together.Remediation? LatestRemediation { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("slurm_worker_hostname")]
+        public string? SlurmWorkerHostname { get; set; }
+
+        /// <summary>
+        /// Phase transition history for this GPU worker node.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phase_transitions")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> PhaseTransitions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -87,7 +107,15 @@ namespace Together
         /// <param name="numGpus"></param>
         /// <param name="memoryGib"></param>
         /// <param name="networks"></param>
+        /// <param name="phaseTransitions">
+        /// Phase transition history for this GPU worker node.
+        /// </param>
         /// <param name="instanceId"></param>
+        /// <param name="latestRemediation">
+        /// Remediation represents a node remediation request for an instance.<br/>
+        /// An instance can have multiple remediations over time (e.g., failed attempts followed by retries).
+        /// </param>
+        /// <param name="slurmWorkerHostname"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -98,9 +126,12 @@ namespace Together
             string hostName,
             int numCpuCores,
             int numGpus,
-            double memoryGib,
+            float memoryGib,
             global::System.Collections.Generic.IList<string> networks,
-            string? instanceId)
+            global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> phaseTransitions,
+            string? instanceId,
+            global::Together.Remediation? latestRemediation,
+            string? slurmWorkerHostname)
         {
             this.NodeId = nodeId ?? throw new global::System.ArgumentNullException(nameof(nodeId));
             this.NodeName = nodeName ?? throw new global::System.ArgumentNullException(nameof(nodeName));
@@ -111,6 +142,9 @@ namespace Together
             this.MemoryGib = memoryGib;
             this.Networks = networks ?? throw new global::System.ArgumentNullException(nameof(networks));
             this.InstanceId = instanceId;
+            this.LatestRemediation = latestRemediation;
+            this.SlurmWorkerHostname = slurmWorkerHostname;
+            this.PhaseTransitions = phaseTransitions ?? throw new global::System.ArgumentNullException(nameof(phaseTransitions));
         }
 
         /// <summary>

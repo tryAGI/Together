@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class GPUClustersSharedVolumeCreateRequest
     {
         /// <summary>
-        /// Customizable name of the volume to create.
+        /// User provided name of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -23,11 +23,17 @@ namespace Together
         public required long SizeTib { get; set; }
 
         /// <summary>
-        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
+        /// Region name. Usable regions can be found from `clusters.list_regions()`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("region")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Region { get; set; }
+
+        /// <summary>
+        /// When true, the shared volume is not deleted when the cluster is decommissioned.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_lifecycle_independent")]
+        public bool? IsLifecycleIndependent { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -39,13 +45,16 @@ namespace Together
         /// Initializes a new instance of the <see cref="GPUClustersSharedVolumeCreateRequest" /> class.
         /// </summary>
         /// <param name="volumeName">
-        /// Customizable name of the volume to create.
+        /// User provided name of the volume.
         /// </param>
         /// <param name="sizeTib">
         /// Volume size in whole tebibytes (TiB).
         /// </param>
         /// <param name="region">
-        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
+        /// Region name. Usable regions can be found from `clusters.list_regions()`
+        /// </param>
+        /// <param name="isLifecycleIndependent">
+        /// When true, the shared volume is not deleted when the cluster is decommissioned.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -53,11 +62,13 @@ namespace Together
         public GPUClustersSharedVolumeCreateRequest(
             string volumeName,
             long sizeTib,
-            string region)
+            string region,
+            bool? isLifecycleIndependent)
         {
             this.VolumeName = volumeName ?? throw new global::System.ArgumentNullException(nameof(volumeName));
             this.SizeTib = sizeTib;
             this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
+            this.IsLifecycleIndependent = isLifecycleIndependent;
         }
 
         /// <summary>

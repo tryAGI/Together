@@ -9,16 +9,17 @@ namespace Together
     public sealed partial class GPUClustersSharedVolumeUpdateRequest
     {
         /// <summary>
-        /// ID of the volume to update.
+        /// ID of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_id")]
-        public string? VolumeId { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string VolumeId { get; set; }
 
         /// <summary>
-        /// Size of the volume in whole tebibytes (TiB).
+        /// Size of the volume in TiB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
-        public long? SizeTib { get; set; }
+        public int? SizeTib { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,19 +31,19 @@ namespace Together
         /// Initializes a new instance of the <see cref="GPUClustersSharedVolumeUpdateRequest" /> class.
         /// </summary>
         /// <param name="volumeId">
-        /// ID of the volume to update.
+        /// ID of the volume.
         /// </param>
         /// <param name="sizeTib">
-        /// Size of the volume in whole tebibytes (TiB).
+        /// Size of the volume in TiB.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GPUClustersSharedVolumeUpdateRequest(
-            string? volumeId,
-            long? sizeTib)
+            string volumeId,
+            int? sizeTib)
         {
-            this.VolumeId = volumeId;
+            this.VolumeId = volumeId ?? throw new global::System.ArgumentNullException(nameof(volumeId));
             this.SizeTib = sizeTib;
         }
 

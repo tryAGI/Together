@@ -69,9 +69,9 @@ namespace Together
 
         /// <summary>
         /// Completion progress (0.0 to 100)<br/>
-        /// Example: 75
+        /// Example: 75.0
         /// </summary>
-        /// <example>75</example>
+        /// <example>75.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
         public double? Progress { get; set; }
 
@@ -147,7 +147,7 @@ namespace Together
         /// </param>
         /// <param name="progress">
         /// Completion progress (0.0 to 100)<br/>
-        /// Example: 75
+        /// Example: 75.0
         /// </param>
         /// <param name="modelId">
         /// Model used for processing requests<br/>

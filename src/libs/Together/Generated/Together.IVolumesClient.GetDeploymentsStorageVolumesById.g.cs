@@ -11,11 +11,15 @@ namespace Together
         /// <param name="id">
         /// Volume ID or name
         /// </param>
+        /// <param name="version">
+        /// Volume version to describe (defaults to current version)
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> GetDeploymentsStorageVolumesByIdAsync(
             string id,
+            int? version = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -25,11 +29,15 @@ namespace Together
         /// <param name="id">
         /// Volume ID or name
         /// </param>
+        /// <param name="version">
+        /// Volume version to describe (defaults to current version)
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VolumeResponseItem>> GetDeploymentsStorageVolumesByIdAsResponseAsync(
             string id,
+            int? version = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

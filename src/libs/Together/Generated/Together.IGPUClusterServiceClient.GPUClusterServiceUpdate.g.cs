@@ -61,10 +61,20 @@ namespace Together
         /// Type of cluster to update.
         /// </param>
         /// <param name="numGpus">
-        /// Number of GPUs to allocate in the cluster. This must be multiple of 8. For example, 8, 16 or 24
+        /// Target GPU count for the cluster. When omitted, the server keeps the current GPU count from cluster metadata (use for config-only or decommission-time-only updates).
         /// </param>
         /// <param name="reservationEndTime">
         /// Timestamp at which the cluster should be decommissioned. Only accepted for prepaid clusters.
+        /// </param>
+        /// <param name="clusterConfig"></param>
+        /// <param name="numReservedGpus">
+        /// Number of reserved GPUs to update to. This field is only applicable for clusters with RESERVED billing type.
+        /// </param>
+        /// <param name="numPreemptibleGpus">
+        /// Updated desired number of preemptible GPUs for the cluster. When omitted, the current value is preserved. Must be a multiple of 8.
+        /// </param>
+        /// <param name="addOns">
+        /// Add-ons to update on the cluster. Each entry identifies an existing add-on by name and provides the new external config to merge.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -74,6 +84,10 @@ namespace Together
             global::Together.GPUClusterUpdateRequestClusterType? clusterType = default,
             int? numGpus = default,
             global::System.DateTime? reservationEndTime = default,
+            global::Together.InstanceClusterConfig? clusterConfig = default,
+            int? numReservedGpus = default,
+            int? numPreemptibleGpus = default,
+            global::System.Collections.Generic.IList<global::Together.AddOnUpdateRequest>? addOns = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

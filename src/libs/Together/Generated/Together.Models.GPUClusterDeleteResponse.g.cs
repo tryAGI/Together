@@ -6,7 +6,7 @@ namespace Together
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class GPUClusterServiceDeleteResponse
+    public sealed partial class GPUClusterDeleteResponse
     {
         /// <summary>
         /// 
@@ -22,22 +22,22 @@ namespace Together
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GPUClusterServiceDeleteResponse" /> class.
+        /// Initializes a new instance of the <see cref="GPUClusterDeleteResponse" /> class.
         /// </summary>
         /// <param name="clusterId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public GPUClusterServiceDeleteResponse(
+        public GPUClusterDeleteResponse(
             string clusterId)
         {
             this.ClusterId = clusterId ?? throw new global::System.ArgumentNullException(nameof(clusterId));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GPUClusterServiceDeleteResponse" /> class.
+        /// Initializes a new instance of the <see cref="GPUClusterDeleteResponse" /> class.
         /// </summary>
-        public GPUClusterServiceDeleteResponse()
+        public GPUClusterDeleteResponse()
         {
         }
 

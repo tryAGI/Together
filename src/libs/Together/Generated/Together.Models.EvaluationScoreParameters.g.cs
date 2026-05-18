@@ -17,27 +17,27 @@ namespace Together
 
         /// <summary>
         /// Minimum possible score<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float MinScore { get; set; }
 
         /// <summary>
         /// Maximum possible score<br/>
-        /// Example: 10
+        /// Example: 10.0
         /// </summary>
-        /// <example>10</example>
+        /// <example>10.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float MaxScore { get; set; }
 
         /// <summary>
         /// Score threshold for passing<br/>
-        /// Example: 7
+        /// Example: 7.0
         /// </summary>
-        /// <example>7</example>
+        /// <example>7.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_threshold")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float PassThreshold { get; set; }
@@ -70,15 +70,15 @@ namespace Together
         /// <param name="judge"></param>
         /// <param name="minScore">
         /// Minimum possible score<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </param>
         /// <param name="maxScore">
         /// Maximum possible score<br/>
-        /// Example: 10
+        /// Example: 10.0
         /// </param>
         /// <param name="passThreshold">
         /// Score threshold for passing<br/>
-        /// Example: 7
+        /// Example: 7.0
         /// </param>
         /// <param name="inputDataFilePath">
         /// Data file ID<br/>

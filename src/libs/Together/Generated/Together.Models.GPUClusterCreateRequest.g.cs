@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -84,6 +86,7 @@ namespace Together
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_scaled")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? AutoScaled { get; set; }
 
         /// <summary>
@@ -144,6 +147,60 @@ namespace Together
         public string? SlurmImage { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("oidc_config")]
+        public global::Together.OIDCConfig? OidcConfig { get; set; }
+
+        /// <summary>
+        /// Project ID for the cluster. If not set, the project from the request context is used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
+        public string? ProjectId { get; set; }
+
+        /// <summary>
+        /// AcceptanceTestsParams groups all GPU acceptance test options when enabled is true.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("acceptance_tests_params")]
+        public global::Together.AcceptanceTestsParams? AcceptanceTestsParams { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cluster_config")]
+        public global::Together.InstanceClusterConfig? ClusterConfig { get; set; }
+
+        /// <summary>
+        /// Number of GPUs to allocate from the capacity pool. Must be a multiple of 8 and not exceed num_gpus.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_capacity_pool_gpus")]
+        public int? NumCapacityPoolGpus { get; set; }
+
+        /// <summary>
+        /// Whether to enable auto-scaling for the cluster. If true, the cluster will automatically scale the number of GPU worker nodes between num_gpus and auto_scale_max_gpus based on the workload.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auto_scale")]
+        public bool? AutoScale { get; set; }
+
+        /// <summary>
+        /// Number of preemptible GPUs to request alongside on-demand capacity. Must be a multiple of 8. Preemptible nodes are cheaper but may be reclaimed when on-demand capacity is needed elsewhere; the system fulfills this asynchronously and surfaces the actual count in allocated_preemptible_gpus.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_preemptible_gpus")]
+        public int? NumPreemptibleGpus { get; set; }
+
+        /// <summary>
+        /// Number of prepaid (PLG) reserved GPUs for this cluster. When omitted for RESERVED billing on create, the server defaults this to num_gpus.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_reserved_gpus")]
+        public int? NumReservedGpus { get; set; }
+
+        /// <summary>
+        /// Add-ons to enable on the cluster at creation time.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("add_ons")]
+        public global::System.Collections.Generic.IList<global::Together.AddOnCreateRequest>? AddOns { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -191,10 +248,6 @@ namespace Together
         /// Whether automated GPU node failover should be enabled for this cluster. By default, it is disabled.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="autoScaled">
-        /// Whether GPU cluster should be auto-scaled based on the workload. By default, it is not auto-scaled.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="autoScaleMaxGpus">
         /// Maximum number of GPUs to which the cluster can be auto-scaled up. This field is required if auto_scaled is true.
         /// </param>
@@ -217,6 +270,29 @@ namespace Together
         /// <param name="slurmImage">
         /// Custom Slurm image for Slurm clusters.
         /// </param>
+        /// <param name="oidcConfig"></param>
+        /// <param name="projectId">
+        /// Project ID for the cluster. If not set, the project from the request context is used.
+        /// </param>
+        /// <param name="acceptanceTestsParams">
+        /// AcceptanceTestsParams groups all GPU acceptance test options when enabled is true.
+        /// </param>
+        /// <param name="clusterConfig"></param>
+        /// <param name="numCapacityPoolGpus">
+        /// Number of GPUs to allocate from the capacity pool. Must be a multiple of 8 and not exceed num_gpus.
+        /// </param>
+        /// <param name="autoScale">
+        /// Whether to enable auto-scaling for the cluster. If true, the cluster will automatically scale the number of GPU worker nodes between num_gpus and auto_scale_max_gpus based on the workload.
+        /// </param>
+        /// <param name="numPreemptibleGpus">
+        /// Number of preemptible GPUs to request alongside on-demand capacity. Must be a multiple of 8. Preemptible nodes are cheaper but may be reclaimed when on-demand capacity is needed elsewhere; the system fulfills this asynchronously and surfaces the actual count in allocated_preemptible_gpus.
+        /// </param>
+        /// <param name="numReservedGpus">
+        /// Number of prepaid (PLG) reserved GPUs for this cluster. When omitted for RESERVED billing on create, the server defaults this to num_gpus.
+        /// </param>
+        /// <param name="addOns">
+        /// Add-ons to enable on the cluster at creation time.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -233,14 +309,22 @@ namespace Together
             global::Together.GPUClustersSharedVolumeCreateRequest? sharedVolume,
             string? volumeId,
             bool? gpuNodeFailoverEnabled,
-            bool? autoScaled,
             int? autoScaleMaxGpus,
             int? slurmShmSizeGib,
             string? capacityPoolId,
             global::System.DateTime? reservationStartTime,
             global::System.DateTime? reservationEndTime,
             bool? installTraefik,
-            string? slurmImage)
+            string? slurmImage,
+            global::Together.OIDCConfig? oidcConfig,
+            string? projectId,
+            global::Together.AcceptanceTestsParams? acceptanceTestsParams,
+            global::Together.InstanceClusterConfig? clusterConfig,
+            int? numCapacityPoolGpus,
+            bool? autoScale,
+            int? numPreemptibleGpus,
+            int? numReservedGpus,
+            global::System.Collections.Generic.IList<global::Together.AddOnCreateRequest>? addOns)
         {
             this.ClusterType = clusterType;
             this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
@@ -252,7 +336,6 @@ namespace Together
             this.VolumeId = volumeId;
             this.BillingType = billingType;
             this.GpuNodeFailoverEnabled = gpuNodeFailoverEnabled;
-            this.AutoScaled = autoScaled;
             this.AutoScaleMaxGpus = autoScaleMaxGpus;
             this.SlurmShmSizeGib = slurmShmSizeGib;
             this.CapacityPoolId = capacityPoolId;
@@ -262,6 +345,15 @@ namespace Together
             this.CudaVersion = cudaVersion ?? throw new global::System.ArgumentNullException(nameof(cudaVersion));
             this.NvidiaDriverVersion = nvidiaDriverVersion ?? throw new global::System.ArgumentNullException(nameof(nvidiaDriverVersion));
             this.SlurmImage = slurmImage;
+            this.OidcConfig = oidcConfig;
+            this.ProjectId = projectId;
+            this.AcceptanceTestsParams = acceptanceTestsParams;
+            this.ClusterConfig = clusterConfig;
+            this.NumCapacityPoolGpus = numCapacityPoolGpus;
+            this.AutoScale = autoScale;
+            this.NumPreemptibleGpus = numPreemptibleGpus;
+            this.NumReservedGpus = numReservedGpus;
+            this.AddOns = addOns;
         }
 
         /// <summary>

@@ -216,6 +216,16 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public InstanceClusterAddOnServiceClient InstanceClusterAddOnService => new InstanceClusterAddOnServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public JobsClient Jobs => new JobsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -247,6 +257,16 @@ namespace Together
         /// 
         /// </summary>
         public RegionServiceClient RegionService => new RegionServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RemediationServiceClient RemediationService => new RemediationServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

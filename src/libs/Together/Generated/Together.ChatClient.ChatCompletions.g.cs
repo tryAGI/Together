@@ -781,7 +781,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"105":21.4,"1024":-10.5}
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>

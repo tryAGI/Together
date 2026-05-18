@@ -69,6 +69,10 @@ namespace Together
 
             typeof(global::Together.JsonConverters.GPUClusterInfoStatusNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.GPUClusterInfoBillingTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.GPUClusterInfoBillingTypeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.GPUClusterUpdateRequestClusterTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClusterUpdateRequestClusterTypeNullableJsonConverter),
@@ -76,6 +80,34 @@ namespace Together
             typeof(global::Together.JsonConverters.InstanceTypesResponseTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.InstanceTypesResponseTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.AcceptanceTestsParamsDcgmDiagLevelJsonConverter),
+
+            typeof(global::Together.JsonConverters.AcceptanceTestsParamsDcgmDiagLevelNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ClusterPhaseTransitionPhaseJsonConverter),
+
+            typeof(global::Together.JsonConverters.ClusterPhaseTransitionPhaseNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.InstanceClusterConfigLoadBalancerJsonConverter),
+
+            typeof(global::Together.JsonConverters.InstanceClusterConfigLoadBalancerNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.NodePhaseTransitionPhaseJsonConverter),
+
+            typeof(global::Together.JsonConverters.NodePhaseTransitionPhaseNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationModeJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationModeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationTriggerJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationTriggerNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationStateJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationStateNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClustersSharedVolumeStatusJsonConverter),
 
@@ -537,6 +569,14 @@ namespace Together
 
             typeof(global::Together.JsonConverters.RealtimeTranscriptionInputAudioFormatNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsStateItemJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsStateItemNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsModeJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsModeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusJsonConverter),
 
             typeof(global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusNullableJsonConverter),
@@ -762,12 +802,20 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlCheckpointFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterControlPlaneNode))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.NodePhaseTransition>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.NodePhaseTransition))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestClusterType), TypeInfoPropertyName = "GPUClusterCreateRequestClusterType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestGpuType), TypeInfoPropertyName = "GPUClusterCreateRequestGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClustersSharedVolumeCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestBillingType), TypeInfoPropertyName = "GPUClusterCreateRequestBillingType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OIDCConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AcceptanceTestsParams))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InstanceClusterConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.AddOnCreateRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterGPUWorkerNode))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Remediation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoClusterType), TypeInfoPropertyName = "GPUClusterInfoClusterType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoGpuType), TypeInfoPropertyName = "GPUClusterInfoGpuType2")]
@@ -776,8 +824,15 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoStatus), TypeInfoPropertyName = "GPUClusterInfoStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.GPUClusterControlPlaneNode>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.GPUClusterGPUWorkerNode>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ClusterPhaseTransition>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterPhaseTransition))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterInfoBillingType), TypeInfoPropertyName = "GPUClusterInfoBillingType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.AddOnInfo>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterUpdateRequestClusterType), TypeInfoPropertyName = "GPUClusterUpdateRequestClusterType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.AddOnUpdateRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusters))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.GPUClusterInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InstanceTypesResponse))]
@@ -788,6 +843,30 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RegionListResponseRegion))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ClusterDriverVersionInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterDriverVersionInfo))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AcceptanceTestsParamsDcgmDiagLevel), TypeInfoPropertyName = "AcceptanceTestsParamsDcgmDiagLevel2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DashboardConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.IngressConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnState))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DashboardState))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.IngressState))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CommentBody))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnCreateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnDeleteResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnUpdateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnsListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterIngressConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterPhaseTransitionPhase), TypeInfoPropertyName = "ClusterPhaseTransitionPhase2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterDeleteResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InstanceClusterConfigLoadBalancer), TypeInfoPropertyName = "InstanceClusterConfigLoadBalancer2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SlurmStartupScripts))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ObservabilityConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListRemediationsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.Remediation>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.NodePhaseTransitionPhase), TypeInfoPropertyName = "NodePhaseTransitionPhase2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationMode), TypeInfoPropertyName = "RemediationMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationTrigger), TypeInfoPropertyName = "RemediationTrigger2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationState), TypeInfoPropertyName = "RemediationState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClustersSharedVolumeDeleteResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClustersSharedVolume))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClustersSharedVolumeStatus), TypeInfoPropertyName = "GPUClustersSharedVolumeStatus2")]
@@ -1144,45 +1223,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobOutputs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ContainerStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>), TypeInfoPropertyName = "OneOfHTTPAutoscalingConfigQueueAutoscalingConfigCustomMetricAutoscalingConfig2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EnvironmentVariable))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestGpuType), TypeInfoPropertyName = "CreateDeploymentRequestGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeMount>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeMount))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateSecretRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVolumeRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType), TypeInfoPropertyName = "VolumeType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentListResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeploymentResponseItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentLogs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemGpuType), TypeInfoPropertyName = "DeploymentResponseItemGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ReplicaEvent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentStatus), TypeInfoPropertyName = "DeploymentStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfigMetric), TypeInfoPropertyName = "HTTPAutoscalingConfigMetric2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfigMetric), TypeInfoPropertyName = "QueueAutoscalingConfigMetric2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfigMetric), TypeInfoPropertyName = "CustomMetricAutoscalingConfigMetric2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.KubernetesEvent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListSecretsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.SecretResponseItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SecretResponseItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListVolumesResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeResponseItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeResponseItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestGpuType), TypeInfoPropertyName = "UpdateDeploymentRequestGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateSecretRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateVolumeRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VersionHistoryItem))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1250,6 +1290,10 @@ namespace Together
 
             typeof(global::Together.JsonConverters.GPUClusterInfoStatusNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.GPUClusterInfoBillingTypeJsonConverter),
+
+            typeof(global::Together.JsonConverters.GPUClusterInfoBillingTypeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.GPUClusterUpdateRequestClusterTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClusterUpdateRequestClusterTypeNullableJsonConverter),
@@ -1257,6 +1301,34 @@ namespace Together
             typeof(global::Together.JsonConverters.InstanceTypesResponseTypeJsonConverter),
 
             typeof(global::Together.JsonConverters.InstanceTypesResponseTypeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.AcceptanceTestsParamsDcgmDiagLevelJsonConverter),
+
+            typeof(global::Together.JsonConverters.AcceptanceTestsParamsDcgmDiagLevelNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.ClusterPhaseTransitionPhaseJsonConverter),
+
+            typeof(global::Together.JsonConverters.ClusterPhaseTransitionPhaseNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.InstanceClusterConfigLoadBalancerJsonConverter),
+
+            typeof(global::Together.JsonConverters.InstanceClusterConfigLoadBalancerNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.NodePhaseTransitionPhaseJsonConverter),
+
+            typeof(global::Together.JsonConverters.NodePhaseTransitionPhaseNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationModeJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationModeNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationTriggerJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationTriggerNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationStateJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationStateNullableJsonConverter),
 
             typeof(global::Together.JsonConverters.GPUClustersSharedVolumeStatusJsonConverter),
 
@@ -1718,6 +1790,14 @@ namespace Together
 
             typeof(global::Together.JsonConverters.RealtimeTranscriptionInputAudioFormatNullableJsonConverter),
 
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsStateItemJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsStateItemNullableJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsModeJsonConverter),
+
+            typeof(global::Together.JsonConverters.RemediationServiceListRemediationsModeNullableJsonConverter),
+
             typeof(global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusJsonConverter),
 
             typeof(global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusNullableJsonConverter),
@@ -1868,6 +1948,46 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SignedURLResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>), TypeInfoPropertyName = "OneOfHTTPAutoscalingConfigQueueAutoscalingConfigCustomMetricAutoscalingConfig2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EnvironmentVariable))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestGpuType), TypeInfoPropertyName = "CreateDeploymentRequestGpuType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeMount>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeMount))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateSecretRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVolumeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType), TypeInfoPropertyName = "VolumeType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeploymentResponseItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentLogs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemGpuType), TypeInfoPropertyName = "DeploymentResponseItemGpuType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ReplicaEvent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentStatus), TypeInfoPropertyName = "DeploymentStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfigMetric), TypeInfoPropertyName = "HTTPAutoscalingConfigMetric2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfigMetric), TypeInfoPropertyName = "QueueAutoscalingConfigMetric2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfigMetric), TypeInfoPropertyName = "CustomMetricAutoscalingConfigMetric2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.KubernetesEvent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListSecretsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.SecretResponseItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SecretResponseItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListVolumesResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeResponseItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeResponseItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestGpuType), TypeInfoPropertyName = "UpdateDeploymentRequestGpuType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateSecretRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateVolumeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VersionHistoryItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType), TypeInfoPropertyName = "VolumeContentRequestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FileInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileInfo))]
@@ -1903,13 +2023,15 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsType), TypeInfoPropertyName = "ListEndpointsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsUsageType), TypeInfoPropertyName = "ListEndpointsUsageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTranscriptionInputAudioFormat), TypeInfoPropertyName = "RealtimeTranscriptionInputAudioFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsStateItem), TypeInfoPropertyName = "RemediationServiceListRemediationsStateItem2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsMode), TypeInfoPropertyName = "RemediationServiceListRemediationsMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesMetricsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsSupportedResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsLimitsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterServiceDeleteResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListEndpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListHardwareResponse))]
@@ -1933,13 +2055,19 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlTrainingCheckpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlTrainingSession>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlCheckpointFile>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.NodePhaseTransition>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.AddOnCreateRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GPUClusterVolume>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GPUClusterControlPlaneNode>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GPUClusterGPUWorkerNode>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ClusterPhaseTransition>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.AddOnInfo>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.AddOnUpdateRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GPUClusterInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.InstanceTypesResponseType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RegionListResponseRegion>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ClusterDriverVersionInfo>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.Remediation>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GPUClustersSharedVolume>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ModelVoices>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ModelVoicesVoice>))]
@@ -1987,6 +2115,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VolumeResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FileInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CreateImagesGenerationsRequestImageLora>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RemediationServiceListRemediationsStateItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.Dictionary<string, double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListEndpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.HardwareWithStatus>))]
@@ -2062,10 +2191,26 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.GPUClusterInfoGpuTypeNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GPUClusterInfoStatusJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GPUClusterInfoStatusNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.GPUClusterInfoBillingTypeJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.GPUClusterInfoBillingTypeNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GPUClusterUpdateRequestClusterTypeJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GPUClusterUpdateRequestClusterTypeNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.InstanceTypesResponseTypeJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.InstanceTypesResponseTypeNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.AcceptanceTestsParamsDcgmDiagLevelJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.AcceptanceTestsParamsDcgmDiagLevelNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.ClusterPhaseTransitionPhaseJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.ClusterPhaseTransitionPhaseNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.InstanceClusterConfigLoadBalancerJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.InstanceClusterConfigLoadBalancerNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.NodePhaseTransitionPhaseJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.NodePhaseTransitionPhaseNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationModeJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationModeNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationTriggerJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationTriggerNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationStateJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationStateNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GPUClustersSharedVolumeStatusJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GPUClustersSharedVolumeStatusNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.RerankRequestModelJsonConverter());
@@ -2296,6 +2441,10 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.ListEndpointsUsageTypeNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.RealtimeTranscriptionInputAudioFormatJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.RealtimeTranscriptionInputAudioFormatNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationServiceListRemediationsStateItemJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationServiceListRemediationsStateItemNullableJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationServiceListRemediationsModeJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.RemediationServiceListRemediationsModeNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusNullableJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.CompletionStreamJsonConverter());
