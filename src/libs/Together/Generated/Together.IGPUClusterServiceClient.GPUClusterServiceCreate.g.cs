@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace Together
 {
     public partial interface IGPUClusterServiceClient
@@ -23,7 +25,8 @@ namespace Together
         ///   region="us-central-8",<br/>
         ///   gpu_type="H100_SXM",<br/>
         ///   num_gpus=8,<br/>
-        ///   driver_version="CUDA_12_6_560",<br/>
+        ///   nvidia_driver_version="560",<br/>
+        ///   cuda_version="12.6",<br/>
         ///   billint_type="ON_DEMAND",<br/>
         /// )<br/>
         /// print(response.cluster_id)
@@ -52,7 +55,8 @@ namespace Together
         ///   region="us-central-8",<br/>
         ///   gpu_type="H100_SXM",<br/>
         ///   num_gpus=8,<br/>
-        ///   driver_version="CUDA_12_6_560",<br/>
+        ///   nvidia_driver_version="560",<br/>
+        ///   cuda_version="12.6",<br/>
         ///   billint_type="ON_DEMAND",<br/>
         /// )<br/>
         /// print(response.cluster_id)
@@ -102,10 +106,6 @@ namespace Together
         /// Whether automated GPU node failover should be enabled for this cluster. By default, it is disabled.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="autoScaled">
-        /// Whether GPU cluster should be auto-scaled based on the workload. By default, it is not auto-scaled.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="autoScaleMaxGpus">
         /// Maximum number of GPUs to which the cluster can be auto-scaled up. This field is required if auto_scaled is true.
         /// </param>
@@ -134,6 +134,29 @@ namespace Together
         /// <param name="slurmImage">
         /// Custom Slurm image for Slurm clusters.
         /// </param>
+        /// <param name="oidcConfig"></param>
+        /// <param name="projectId">
+        /// Project ID for the cluster. If not set, the project from the request context is used.
+        /// </param>
+        /// <param name="acceptanceTestsParams">
+        /// AcceptanceTestsParams groups all GPU acceptance test options when enabled is true.
+        /// </param>
+        /// <param name="clusterConfig"></param>
+        /// <param name="numCapacityPoolGpus">
+        /// Number of GPUs to allocate from the capacity pool. Must be a multiple of 8 and not exceed num_gpus.
+        /// </param>
+        /// <param name="autoScale">
+        /// Whether to enable auto-scaling for the cluster. If true, the cluster will automatically scale the number of GPU worker nodes between num_gpus and auto_scale_max_gpus based on the workload.
+        /// </param>
+        /// <param name="numPreemptibleGpus">
+        /// Number of preemptible GPUs to request alongside on-demand capacity. Must be a multiple of 8. Preemptible nodes are cheaper but may be reclaimed when on-demand capacity is needed elsewhere; the system fulfills this asynchronously and surfaces the actual count in allocated_preemptible_gpus.
+        /// </param>
+        /// <param name="numReservedGpus">
+        /// Number of prepaid (PLG) reserved GPUs for this cluster. When omitted for RESERVED billing on create, the server defaults this to num_gpus.
+        /// </param>
+        /// <param name="addOns">
+        /// Add-ons to enable on the cluster at creation time.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -150,7 +173,6 @@ namespace Together
             global::Together.GPUClustersSharedVolumeCreateRequest? sharedVolume = default,
             string? volumeId = default,
             bool? gpuNodeFailoverEnabled = default,
-            bool? autoScaled = default,
             int? autoScaleMaxGpus = default,
             int? slurmShmSizeGib = default,
             string? capacityPoolId = default,
@@ -158,6 +180,15 @@ namespace Together
             global::System.DateTime? reservationEndTime = default,
             bool? installTraefik = default,
             string? slurmImage = default,
+            global::Together.OIDCConfig? oidcConfig = default,
+            string? projectId = default,
+            global::Together.AcceptanceTestsParams? acceptanceTestsParams = default,
+            global::Together.InstanceClusterConfig? clusterConfig = default,
+            int? numCapacityPoolGpus = default,
+            bool? autoScale = default,
+            int? numPreemptibleGpus = default,
+            int? numReservedGpus = default,
+            global::System.Collections.Generic.IList<global::Together.AddOnCreateRequest>? addOns = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

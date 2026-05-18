@@ -10,7 +10,7 @@ namespace Together
     {
         /// <summary>
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_lr_ratio")]
         public float? MinLrRatio { get; set; }
@@ -26,7 +26,7 @@ namespace Together
         /// </summary>
         /// <param name="minLrRatio">
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -26,10 +26,12 @@ namespace Together
             {                s_SharedVolumeServiceListSecurityRequirement0,
             };
         partial void PrepareSharedVolumeServiceListArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string? projectId);
         partial void PrepareSharedVolumeServiceListRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? projectId);
         partial void ProcessSharedVolumeServiceListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,6 +45,11 @@ namespace Together
         /// List all shared volumes<br/>
         /// List all shared volumes.
         /// </summary>
+        /// <param name="projectId">
+        /// Optional UMS project ID to filter volumes by. When set, only volumes<br/>
+        ///  belonging to this project are returned. The caller must be a member of<br/>
+        ///  the project; otherwise the result set will be empty.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -53,10 +60,12 @@ namespace Together
         /// print(volumes)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolumes> SharedVolumeServiceListAsync(
+            string? projectId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await SharedVolumeServiceListAsResponseAsync(
+                projectId: projectId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -67,6 +76,11 @@ namespace Together
         /// List all shared volumes<br/>
         /// List all shared volumes.
         /// </summary>
+        /// <param name="projectId">
+        /// Optional UMS project ID to filter volumes by. When set, only volumes<br/>
+        ///  belonging to this project are returned. The caller must be a member of<br/>
+        ///  the project; otherwise the result set will be empty.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -77,13 +91,15 @@ namespace Together
         /// print(volumes)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClustersSharedVolumes>> SharedVolumeServiceListAsResponseAsync(
+            string? projectId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareSharedVolumeServiceListArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                projectId: ref projectId);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +127,9 @@ namespace Together
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/compute/clusters/storage/volumes",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("project_id", projectId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -150,7 +169,8 @@ namespace Together
                     request: __httpRequest);
                 PrepareSharedVolumeServiceListRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    projectId: projectId);
 
                 return __httpRequest;
             }

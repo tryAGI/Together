@@ -108,15 +108,15 @@ namespace Together
         /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="maxGradNorm">
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="randomSeed">
         /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).

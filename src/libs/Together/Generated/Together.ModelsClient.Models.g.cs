@@ -43,7 +43,7 @@ namespace Together
 
         /// <summary>
         /// List all models<br/>
-        /// Lists all of Together's open-source models
+        /// Lists all of Together's open-source models and metadata including pricing, chat template, and context.
         /// </summary>
         /// <param name="dedicated">
         /// Filter models to only return dedicated models
@@ -77,7 +77,7 @@ namespace Together
         }
         /// <summary>
         /// List all models<br/>
-        /// Lists all of Together's open-source models
+        /// Lists all of Together's open-source models and metadata including pricing, chat template, and context.
         /// </summary>
         /// <param name="dedicated">
         /// Filter models to only return dedicated models

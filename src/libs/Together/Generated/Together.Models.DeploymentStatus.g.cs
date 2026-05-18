@@ -19,6 +19,10 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        DeploymentStatusScaledToZero,
+        /// <summary>
+        /// 
+        /// </summary>
         DeploymentStatusScaling,
         /// <summary>
         /// 
@@ -40,6 +44,7 @@ namespace Together
             {
                 DeploymentStatus.DeploymentStatusFailed => "Failed",
                 DeploymentStatus.DeploymentStatusReady => "Ready",
+                DeploymentStatus.DeploymentStatusScaledToZero => "ScaledToZero",
                 DeploymentStatus.DeploymentStatusScaling => "Scaling",
                 DeploymentStatus.DeploymentStatusUpdating => "Updating",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -54,6 +59,7 @@ namespace Together
             {
                 "Failed" => DeploymentStatus.DeploymentStatusFailed,
                 "Ready" => DeploymentStatus.DeploymentStatusReady,
+                "ScaledToZero" => DeploymentStatus.DeploymentStatusScaledToZero,
                 "Scaling" => DeploymentStatus.DeploymentStatusScaling,
                 "Updating" => DeploymentStatus.DeploymentStatusUpdating,
                 _ => null,

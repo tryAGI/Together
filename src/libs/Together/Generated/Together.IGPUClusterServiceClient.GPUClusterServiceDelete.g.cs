@@ -20,7 +20,7 @@ namespace Together
         /// cluster = client.beta.clusters.delete("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Together.GPUClusterServiceDeleteResponse> GPUClusterServiceDeleteAsync(
+        global::System.Threading.Tasks.Task<global::Together.GPUClusterDeleteResponse> GPUClusterServiceDeleteAsync(
             string clusterId,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -40,7 +40,7 @@ namespace Together
         /// cluster = client.beta.clusters.delete("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
-        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterServiceDeleteResponse>> GPUClusterServiceDeleteAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterDeleteResponse>> GPUClusterServiceDeleteAsResponseAsync(
             string clusterId,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

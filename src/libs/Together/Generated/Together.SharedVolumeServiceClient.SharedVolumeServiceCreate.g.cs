@@ -466,13 +466,16 @@ namespace Together
         /// All shared storage is backed by multi-NIC bare metal paths, ensuring high-throughput and low-latency performance for shared storage.
         /// </summary>
         /// <param name="volumeName">
-        /// Customizable name of the volume to create.
+        /// User provided name of the volume.
         /// </param>
         /// <param name="sizeTib">
         /// Volume size in whole tebibytes (TiB).
         /// </param>
         /// <param name="region">
-        /// Region name. Usable regions can be found from `client.clusters.list_regions()`
+        /// Region name. Usable regions can be found from `clusters.list_regions()`
+        /// </param>
+        /// <param name="isLifecycleIndependent">
+        /// When true, the shared volume is not deleted when the cluster is decommissioned.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -481,6 +484,7 @@ namespace Together
             string volumeName,
             long sizeTib,
             string region,
+            bool? isLifecycleIndependent = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -489,6 +493,7 @@ namespace Together
                 VolumeName = volumeName,
                 SizeTib = sizeTib,
                 Region = region,
+                IsLifecycleIndependent = isLifecycleIndependent,
             };
 
             return await SharedVolumeServiceCreateAsync(

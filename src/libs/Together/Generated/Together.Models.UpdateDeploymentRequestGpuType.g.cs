@@ -20,6 +20,10 @@ namespace Together
         /// 
         /// </summary>
         H10080gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        H200140gb,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace Together
                 UpdateDeploymentRequestGpuType.B200192gb => "b200-192gb",
                 UpdateDeploymentRequestGpuType.H10040gbMig => "h100-40gb-mig",
                 UpdateDeploymentRequestGpuType.H10080gb => "h100-80gb",
+                UpdateDeploymentRequestGpuType.H200140gb => "h200-140gb",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace Together
                 "b200-192gb" => UpdateDeploymentRequestGpuType.B200192gb,
                 "h100-40gb-mig" => UpdateDeploymentRequestGpuType.H10040gbMig,
                 "h100-80gb" => UpdateDeploymentRequestGpuType.H10080gb,
+                "h200-140gb" => UpdateDeploymentRequestGpuType.H200140gb,
                 _ => null,
             };
         }

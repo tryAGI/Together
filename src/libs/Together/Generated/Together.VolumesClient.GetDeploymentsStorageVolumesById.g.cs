@@ -27,11 +27,13 @@ namespace Together
             };
         partial void PrepareGetDeploymentsStorageVolumesByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id);
+            ref string id,
+            ref int? version);
         partial void PrepareGetDeploymentsStorageVolumesByIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id);
+            string id,
+            int? version);
         partial void ProcessGetDeploymentsStorageVolumesByIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,16 +50,21 @@ namespace Together
         /// <param name="id">
         /// Volume ID or name
         /// </param>
+        /// <param name="version">
+        /// Volume version to describe (defaults to current version)
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> GetDeploymentsStorageVolumesByIdAsync(
             string id,
+            int? version = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetDeploymentsStorageVolumesByIdAsResponseAsync(
                 id: id,
+                version: version,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,11 +78,15 @@ namespace Together
         /// <param name="id">
         /// Volume ID or name
         /// </param>
+        /// <param name="version">
+        /// Volume version to describe (defaults to current version)
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VolumeResponseItem>> GetDeploymentsStorageVolumesByIdAsResponseAsync(
             string id,
+            int? version = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +94,8 @@ namespace Together
                 client: HttpClient);
             PrepareGetDeploymentsStorageVolumesByIdArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                version: ref version);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +123,9 @@ namespace Together
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: $"/deployments/storage/volumes/{id}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("version", version?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -151,7 +166,8 @@ namespace Together
                 PrepareGetDeploymentsStorageVolumesByIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!);
+                    id: id!,
+                    version: version);
 
                 return __httpRequest;
             }
@@ -330,6 +346,44 @@ namespace Together
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // Bad request
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                string? __value_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+                                throw new global::Together.ApiException<string>(
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    statusCode: __response.StatusCode)
+                                {
+                                    ResponseBody = __content_400,
+                                    ResponseObject = __value_400,
+                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value),
+                                };
+                            }
                             // Volume not found
                             if ((int)__response.StatusCode == 404)
                             {
