@@ -37,6 +37,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// import together<br/>
+        /// client = together.Together(api_key="your_api_key")<br/>
+        /// remediations = client.beta.clusters.remediations.list(<br/>
+        ///   cluster_id="cluster_id",<br/>
+        ///   instance_id="-",<br/>
+        /// )<br/>
+        /// for remediation in remediations:<br/>
+        ///   print(remediation)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ListRemediationsResponse> RemediationServiceListRemediationsAsync(
             string clusterId,
             string instanceId,
@@ -80,6 +90,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// import together<br/>
+        /// client = together.Together(api_key="your_api_key")<br/>
+        /// remediations = client.beta.clusters.remediations.list(<br/>
+        ///   cluster_id="cluster_id",<br/>
+        ///   instance_id="-",<br/>
+        /// )<br/>
+        /// for remediation in remediations:<br/>
+        ///   print(remediation)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.ListRemediationsResponse>> RemediationServiceListRemediationsAsResponseAsync(
             string clusterId,
             string instanceId,

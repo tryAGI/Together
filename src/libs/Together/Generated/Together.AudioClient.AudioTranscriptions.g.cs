@@ -677,7 +677,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
