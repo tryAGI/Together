@@ -150,6 +150,12 @@ namespace Together
         public int? Storage { get; set; }
 
         /// <summary>
+        /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("termination_grace_period_seconds")]
+        public int? TerminationGracePeriodSeconds { get; set; }
+
+        /// <summary>
         /// UpdatedAt is the ISO8601 timestamp when this deployment was last updated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
@@ -239,6 +245,9 @@ namespace Together
         /// <param name="storage">
         /// Storage is the amount of storage (in MB or units as defined by the platform) allocated to each replica
         /// </param>
+        /// <param name="terminationGracePeriodSeconds">
+        /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </param>
         /// <param name="updatedAt">
         /// UpdatedAt is the ISO8601 timestamp when this deployment was last updated
         /// </param>
@@ -272,6 +281,7 @@ namespace Together
             global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>? replicaEvents,
             global::Together.DeploymentStatus? status,
             int? storage,
+            int? terminationGracePeriodSeconds,
             global::System.DateTime? updatedAt,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
         {
@@ -298,6 +308,7 @@ namespace Together
             this.ReplicaEvents = replicaEvents;
             this.Status = status;
             this.Storage = storage;
+            this.TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
             this.UpdatedAt = updatedAt;
             this.Volumes = volumes;
         }

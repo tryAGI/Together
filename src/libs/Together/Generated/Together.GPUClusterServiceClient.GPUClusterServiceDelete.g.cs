@@ -57,7 +57,7 @@ namespace Together
         /// cluster = client.beta.clusters.delete("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Together.GPUClusterServiceDeleteResponse> GPUClusterServiceDeleteAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.GPUClusterDeleteResponse> GPUClusterServiceDeleteAsync(
             string clusterId,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -86,7 +86,7 @@ namespace Together
         /// cluster = client.beta.clusters.delete("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterServiceDeleteResponse>> GPUClusterServiceDeleteAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterDeleteResponse>> GPUClusterServiceDeleteAsResponseAsync(
             string clusterId,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -364,9 +364,9 @@ namespace Together
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Together.GPUClusterServiceDeleteResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Together.GPUClusterDeleteResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.GPUClusterServiceDeleteResponse>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.GPUClusterDeleteResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -398,9 +398,9 @@ namespace Together
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Together.GPUClusterServiceDeleteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Together.GPUClusterDeleteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.GPUClusterServiceDeleteResponse>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.GPUClusterDeleteResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

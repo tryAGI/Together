@@ -16,21 +16,21 @@ namespace Together
         public required string VolumeId { get; set; }
 
         /// <summary>
-        /// Provided name of the volume.
+        /// User provided name of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VolumeName { get; set; }
 
         /// <summary>
-        /// Size of the volume in whole tebibytes (TiB).
+        /// Size of the volume in TiB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required long SizeTib { get; set; }
+        public required int SizeTib { get; set; }
 
         /// <summary>
-        /// Deployment status of the volume.
+        /// Current status of the shared volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClustersSharedVolumeStatusJsonConverter))]
@@ -50,13 +50,13 @@ namespace Together
         /// ID of the volume.
         /// </param>
         /// <param name="volumeName">
-        /// Provided name of the volume.
+        /// User provided name of the volume.
         /// </param>
         /// <param name="sizeTib">
-        /// Size of the volume in whole tebibytes (TiB).
+        /// Size of the volume in TiB.
         /// </param>
         /// <param name="status">
-        /// Deployment status of the volume.
+        /// Current status of the shared volume.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -64,7 +64,7 @@ namespace Together
         public GPUClustersSharedVolume(
             string volumeId,
             string volumeName,
-            long sizeTib,
+            int sizeTib,
             global::Together.GPUClustersSharedVolumeStatus status)
         {
             this.VolumeId = volumeId ?? throw new global::System.ArgumentNullException(nameof(volumeId));

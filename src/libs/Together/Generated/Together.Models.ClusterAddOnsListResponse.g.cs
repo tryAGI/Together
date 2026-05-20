@@ -1,0 +1,45 @@
+
+#nullable enable
+
+namespace Together
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class ClusterAddOnsListResponse
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("add_ons")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.AddOnInfo> AddOns { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClusterAddOnsListResponse" /> class.
+        /// </summary>
+        /// <param name="addOns"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public ClusterAddOnsListResponse(
+            global::System.Collections.Generic.IList<global::Together.AddOnInfo> addOns)
+        {
+            this.AddOns = addOns ?? throw new global::System.ArgumentNullException(nameof(addOns));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClusterAddOnsListResponse" /> class.
+        /// </summary>
+        public ClusterAddOnsListResponse()
+        {
+        }
+
+    }
+}

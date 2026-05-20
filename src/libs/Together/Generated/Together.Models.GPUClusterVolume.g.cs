@@ -9,28 +9,28 @@ namespace Together
     public sealed partial class GPUClusterVolume
     {
         /// <summary>
-        /// 
+        /// ID of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VolumeId { get; set; }
 
         /// <summary>
-        /// 
+        /// User provided name of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("volume_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string VolumeName { get; set; }
 
         /// <summary>
-        /// 
+        /// Size of the volume in TiB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size_tib")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int SizeTib { get; set; }
 
         /// <summary>
-        /// 
+        /// Current status of the volume.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -45,10 +45,18 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="GPUClusterVolume" /> class.
         /// </summary>
-        /// <param name="volumeId"></param>
-        /// <param name="volumeName"></param>
-        /// <param name="sizeTib"></param>
-        /// <param name="status"></param>
+        /// <param name="volumeId">
+        /// ID of the volume.
+        /// </param>
+        /// <param name="volumeName">
+        /// User provided name of the volume.
+        /// </param>
+        /// <param name="sizeTib">
+        /// Size of the volume in TiB.
+        /// </param>
+        /// <param name="status">
+        /// Current status of the volume.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -28,12 +28,16 @@ namespace Together
         partial void PrepareGetDeploymentsByIdLogsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
-            ref string? replicaId);
+            ref string? replicaId,
+            ref string? version,
+            ref string? revision);
         partial void PrepareGetDeploymentsByIdLogsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
-            string? replicaId);
+            string? replicaId,
+            string? version,
+            string? revision);
         partial void ProcessGetDeploymentsByIdLogsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -53,6 +57,12 @@ namespace Together
         /// <param name="replicaId">
         /// Replica ID to filter logs
         /// </param>
+        /// <param name="version">
+        /// Deployment image version (tag or last 4 characters of image digest) to filter logs
+        /// </param>
+        /// <param name="revision">
+        /// Deployment revision (UUID) to filter logs
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -65,12 +75,16 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentLogs> GetDeploymentsByIdLogsAsync(
             string id,
             string? replicaId = default,
+            string? version = default,
+            string? revision = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetDeploymentsByIdLogsAsResponseAsync(
                 id: id,
                 replicaId: replicaId,
+                version: version,
+                revision: revision,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -87,6 +101,12 @@ namespace Together
         /// <param name="replicaId">
         /// Replica ID to filter logs
         /// </param>
+        /// <param name="version">
+        /// Deployment image version (tag or last 4 characters of image digest) to filter logs
+        /// </param>
+        /// <param name="revision">
+        /// Deployment revision (UUID) to filter logs
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -99,6 +119,8 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeploymentLogs>> GetDeploymentsByIdLogsAsResponseAsync(
             string id,
             string? replicaId = default,
+            string? version = default,
+            string? revision = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,7 +129,9 @@ namespace Together
             PrepareGetDeploymentsByIdLogsArguments(
                 httpClient: HttpClient,
                 id: ref id,
-                replicaId: ref replicaId);
+                replicaId: ref replicaId,
+                version: ref version,
+                revision: ref revision);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -137,6 +161,8 @@ namespace Together
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("replica_id", replicaId)
+                                .AddOptionalParameter("version", version)
+                                .AddOptionalParameter("revision", revision)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -179,7 +205,9 @@ namespace Together
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
-                    replicaId: replicaId);
+                    replicaId: replicaId,
+                    version: version,
+                    revision: revision);
 
                 return __httpRequest;
             }

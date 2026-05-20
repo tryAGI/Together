@@ -145,6 +145,68 @@ namespace Together
         public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("oidc_config")]
+        public global::Together.OIDCConfig? OidcConfig { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ProjectId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cluster_config")]
+        public global::Together.InstanceClusterConfig? ClusterConfig { get; set; }
+
+        /// <summary>
+        /// Number of CPU-only worker nodes in the cluster.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_cpu_workers")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int NumCpuWorkers { get; set; }
+
+        /// <summary>
+        /// Cluster-level phase transition history.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phase_transitions")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.ClusterPhaseTransition> PhaseTransitions { get; set; }
+
+        /// <summary>
+        /// Customer's requested number of preemptible GPUs. Set on cluster create or update; persists until changed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("desired_preemptible_gpus")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int DesiredPreemptibleGpus { get; set; }
+
+        /// <summary>
+        /// Actual number of preemptible GPUs currently allocated to the cluster. Updated asynchronously by the fulfillment and reclamation workers; may be less than desired_preemptible_gpus when capacity is constrained.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allocated_preemptible_gpus")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int AllocatedPreemptibleGpus { get; set; }
+
+        /// <summary>
+        /// Billing type for the cluster (RESERVED, ON_DEMAND, or SCHEDULED_CAPACITY).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("billing_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoBillingTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.GPUClusterInfoBillingType BillingType { get; set; }
+
+        /// <summary>
+        /// Enabled add-ons on this cluster. Only add-ons with enabled=true in their config are returned.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("add_ons")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.AddOnInfo> AddOns { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -170,6 +232,25 @@ namespace Together
         /// <param name="numGpus"></param>
         /// <param name="cudaVersion"></param>
         /// <param name="nvidiaDriverVersion"></param>
+        /// <param name="projectId"></param>
+        /// <param name="numCpuWorkers">
+        /// Number of CPU-only worker nodes in the cluster.
+        /// </param>
+        /// <param name="phaseTransitions">
+        /// Cluster-level phase transition history.
+        /// </param>
+        /// <param name="desiredPreemptibleGpus">
+        /// Customer's requested number of preemptible GPUs. Set on cluster create or update; persists until changed.
+        /// </param>
+        /// <param name="allocatedPreemptibleGpus">
+        /// Actual number of preemptible GPUs currently allocated to the cluster. Updated asynchronously by the fulfillment and reclamation workers; may be less than desired_preemptible_gpus when capacity is constrained.
+        /// </param>
+        /// <param name="billingType">
+        /// Billing type for the cluster (RESERVED, ON_DEMAND, or SCHEDULED_CAPACITY).
+        /// </param>
+        /// <param name="addOns">
+        /// Enabled add-ons on this cluster. Only add-ons with enabled=true in their config are returned.
+        /// </param>
         /// <param name="durationHours"></param>
         /// <param name="slurmShmSizeGib"></param>
         /// <param name="capacityPoolId"></param>
@@ -177,6 +258,8 @@ namespace Together
         /// <param name="reservationEndTime"></param>
         /// <param name="installTraefik"></param>
         /// <param name="createdAt"></param>
+        /// <param name="oidcConfig"></param>
+        /// <param name="clusterConfig"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -194,13 +277,22 @@ namespace Together
             int numGpus,
             string cudaVersion,
             string nvidiaDriverVersion,
+            string projectId,
+            int numCpuWorkers,
+            global::System.Collections.Generic.IList<global::Together.ClusterPhaseTransition> phaseTransitions,
+            int desiredPreemptibleGpus,
+            int allocatedPreemptibleGpus,
+            global::Together.GPUClusterInfoBillingType billingType,
+            global::System.Collections.Generic.IList<global::Together.AddOnInfo> addOns,
             int? durationHours,
             int? slurmShmSizeGib,
             string? capacityPoolId,
             global::System.DateTime? reservationStartTime,
             global::System.DateTime? reservationEndTime,
             bool? installTraefik,
-            global::System.DateTime? createdAt)
+            global::System.DateTime? createdAt,
+            global::Together.OIDCConfig? oidcConfig,
+            global::Together.InstanceClusterConfig? clusterConfig)
         {
             this.ClusterId = clusterId ?? throw new global::System.ArgumentNullException(nameof(clusterId));
             this.ClusterType = clusterType;
@@ -222,6 +314,15 @@ namespace Together
             this.CudaVersion = cudaVersion ?? throw new global::System.ArgumentNullException(nameof(cudaVersion));
             this.NvidiaDriverVersion = nvidiaDriverVersion ?? throw new global::System.ArgumentNullException(nameof(nvidiaDriverVersion));
             this.CreatedAt = createdAt;
+            this.OidcConfig = oidcConfig;
+            this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
+            this.ClusterConfig = clusterConfig;
+            this.NumCpuWorkers = numCpuWorkers;
+            this.PhaseTransitions = phaseTransitions ?? throw new global::System.ArgumentNullException(nameof(phaseTransitions));
+            this.DesiredPreemptibleGpus = desiredPreemptibleGpus;
+            this.AllocatedPreemptibleGpus = allocatedPreemptibleGpus;
+            this.BillingType = billingType;
+            this.AddOns = addOns ?? throw new global::System.ArgumentNullException(nameof(addOns));
         }
 
         /// <summary>

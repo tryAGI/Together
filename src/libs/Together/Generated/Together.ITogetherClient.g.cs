@@ -154,6 +154,11 @@ namespace Together
         /// <summary>
         /// 
         /// </summary>
+        public InstanceClusterAddOnServiceClient InstanceClusterAddOnService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public JobsClient Jobs { get; }
 
         /// <summary>
@@ -170,6 +175,11 @@ namespace Together
         /// 
         /// </summary>
         public RegionServiceClient RegionService { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public RemediationServiceClient RemediationService { get; }
 
         /// <summary>
         /// 

@@ -48,7 +48,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("memory_gib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required double MemoryGib { get; set; }
+        public required float MemoryGib { get; set; }
 
         /// <summary>
         /// 
@@ -56,6 +56,13 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("network")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Network { get; set; }
+
+        /// <summary>
+        /// Phase transition history for this control plane node.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("phase_transitions")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> PhaseTransitions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -73,6 +80,9 @@ namespace Together
         /// <param name="numCpuCores"></param>
         /// <param name="memoryGib"></param>
         /// <param name="network"></param>
+        /// <param name="phaseTransitions">
+        /// Phase transition history for this control plane node.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,8 +92,9 @@ namespace Together
             string status,
             string hostName,
             int numCpuCores,
-            double memoryGib,
-            string network)
+            float memoryGib,
+            string network,
+            global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> phaseTransitions)
         {
             this.NodeId = nodeId ?? throw new global::System.ArgumentNullException(nameof(nodeId));
             this.NodeName = nodeName ?? throw new global::System.ArgumentNullException(nameof(nodeName));
@@ -92,6 +103,7 @@ namespace Together
             this.NumCpuCores = numCpuCores;
             this.MemoryGib = memoryGib;
             this.Network = network ?? throw new global::System.ArgumentNullException(nameof(network));
+            this.PhaseTransitions = phaseTransitions ?? throw new global::System.ArgumentNullException(nameof(phaseTransitions));
         }
 
         /// <summary>

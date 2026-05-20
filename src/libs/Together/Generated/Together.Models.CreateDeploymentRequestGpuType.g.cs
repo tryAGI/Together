@@ -20,6 +20,10 @@ namespace Together
         /// 
         /// </summary>
         H10080gb,
+        /// <summary>
+        /// 
+        /// </summary>
+        H200140gb,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace Together
                 CreateDeploymentRequestGpuType.B200192gb => "b200-192gb",
                 CreateDeploymentRequestGpuType.H10040gbMig => "h100-40gb-mig",
                 CreateDeploymentRequestGpuType.H10080gb => "h100-80gb",
+                CreateDeploymentRequestGpuType.H200140gb => "h200-140gb",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace Together
                 "b200-192gb" => CreateDeploymentRequestGpuType.B200192gb,
                 "h100-40gb-mig" => CreateDeploymentRequestGpuType.H10040gbMig,
                 "h100-80gb" => CreateDeploymentRequestGpuType.H10080gb,
+                "h200-140gb" => CreateDeploymentRequestGpuType.H200140gb,
                 _ => null,
             };
         }

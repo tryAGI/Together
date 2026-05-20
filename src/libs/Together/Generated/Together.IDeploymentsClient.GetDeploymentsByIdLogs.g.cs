@@ -14,6 +14,12 @@ namespace Together
         /// <param name="replicaId">
         /// Replica ID to filter logs
         /// </param>
+        /// <param name="version">
+        /// Deployment image version (tag or last 4 characters of image digest) to filter logs
+        /// </param>
+        /// <param name="revision">
+        /// Deployment revision (UUID) to filter logs
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -26,6 +32,8 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.DeploymentLogs> GetDeploymentsByIdLogsAsync(
             string id,
             string? replicaId = default,
+            string? version = default,
+            string? revision = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -37,6 +45,12 @@ namespace Together
         /// </param>
         /// <param name="replicaId">
         /// Replica ID to filter logs
+        /// </param>
+        /// <param name="version">
+        /// Deployment image version (tag or last 4 characters of image digest) to filter logs
+        /// </param>
+        /// <param name="revision">
+        /// Deployment revision (UUID) to filter logs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -50,6 +64,8 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeploymentLogs>> GetDeploymentsByIdLogsAsResponseAsync(
             string id,
             string? replicaId = default,
+            string? version = default,
+            string? revision = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
