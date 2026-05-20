@@ -64,9 +64,9 @@ namespace Together
 
         /// <summary>
         /// Sampling temperature for the judge model. Defaults to 0.05.<br/>
-        /// Example: 0.0
+        /// Example: 0
         /// </summary>
-        /// <example>0.0</example>
+        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         public float? Temperature { get; set; }
 
@@ -106,7 +106,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature for the judge model. Defaults to 0.05.<br/>
-        /// Example: 0.0
+        /// Example: 0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

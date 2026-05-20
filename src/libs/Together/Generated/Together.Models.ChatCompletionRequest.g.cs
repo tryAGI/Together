@@ -112,9 +112,9 @@ namespace Together
 
         /// <summary>
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"1024":-10.5,"105":21.4}
+        /// Example: {"105":21.4,"1024":-10.5}
         /// </summary>
-        /// <example>{"1024":-10.5,"105":21.4}</example>
+        /// <example>{"105":21.4,"1024":-10.5}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("logit_bias")]
         public global::System.Collections.Generic.Dictionary<string, float>? LogitBias { get; set; }
 
@@ -255,7 +255,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"1024":-10.5,"105":21.4}
+        /// Example: {"105":21.4,"1024":-10.5}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>

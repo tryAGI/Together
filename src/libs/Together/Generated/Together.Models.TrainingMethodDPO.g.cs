@@ -22,7 +22,7 @@ namespace Together
         public float? DpoBeta { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rpo_alpha")]
         public float? RpoAlpha { get; set; }
@@ -40,7 +40,7 @@ namespace Together
         public bool? DpoReferenceFree { get; set; }
 
         /// <summary>
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simpo_gamma")]
         public float? SimpoGamma { get; set; }
@@ -59,7 +59,7 @@ namespace Together
         /// Default Value: 0.1
         /// </param>
         /// <param name="rpoAlpha">
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
         /// <param name="dpoNormalizeLogratiosByLength">
         /// Default Value: false
@@ -68,7 +68,7 @@ namespace Together
         /// Default Value: false
         /// </param>
         /// <param name="simpoGamma">
-        /// Default Value: 0.0
+        /// Default Value: 0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
