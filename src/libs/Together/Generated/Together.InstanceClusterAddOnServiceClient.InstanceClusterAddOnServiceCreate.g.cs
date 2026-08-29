@@ -6,6 +6,19 @@ namespace Together
     public partial class InstanceClusterAddOnServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_InstanceClusterAddOnServiceCreateServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_InstanceClusterAddOnServiceCreateSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -44,7 +57,7 @@ namespace Together
             ref string content);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster to create the add-on on.
@@ -71,7 +84,7 @@ namespace Together
             return __response.Body;
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster to create the add-on on.
@@ -121,7 +134,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: $"/compute/clusters/{clusterId}/addons",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_InstanceClusterAddOnServiceCreateServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -149,7 +164,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -380,17 +395,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -427,17 +440,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
@@ -449,14 +460,20 @@ namespace Together
             }
         }
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster to create the add-on on.
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="addOnType"></param>
-        /// <param name="config"></param>
+        /// <param name="name">
+        /// Human-readable name for this add-on instance.
+        /// </param>
+        /// <param name="addOnType">
+        /// Type of add-on. Valid values: 'dashboard', 'ingress', 'torchpass', 'headlamp'.
+        /// </param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

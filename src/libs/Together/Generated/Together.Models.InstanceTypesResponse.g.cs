@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class InstanceTypesResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("types")]
         public global::System.Collections.Generic.IList<global::Together.InstanceTypesResponseType>? Types { get; set; }

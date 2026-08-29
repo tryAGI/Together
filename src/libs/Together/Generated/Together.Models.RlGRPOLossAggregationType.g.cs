@@ -9,19 +9,19 @@ namespace Together
     public enum RlGRPOLossAggregationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrpoLossAggregationTypeFixedHorizon,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrpoLossAggregationTypeSequenceMean,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrpoLossAggregationTypeTokenMean,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GrpoLossAggregationTypeUnspecified,
     }

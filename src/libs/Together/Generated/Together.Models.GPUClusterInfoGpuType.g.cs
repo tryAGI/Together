@@ -4,32 +4,36 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GPUClusterInfoGpuType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B200Sxm,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        B300Sxm,
+        /// <summary>
+        ///
         /// </summary>
         H100Sxm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H100SxmInf,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H200Sxm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         L40Pcie,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rtx6000Pci,
     }
@@ -47,6 +51,7 @@ namespace Together
             return value switch
             {
                 GPUClusterInfoGpuType.B200Sxm => "B200_SXM",
+                GPUClusterInfoGpuType.B300Sxm => "B300_SXM",
                 GPUClusterInfoGpuType.H100Sxm => "H100_SXM",
                 GPUClusterInfoGpuType.H100SxmInf => "H100_SXM_INF",
                 GPUClusterInfoGpuType.H200Sxm => "H200_SXM",
@@ -63,6 +68,7 @@ namespace Together
             return value switch
             {
                 "B200_SXM" => GPUClusterInfoGpuType.B200Sxm,
+                "B300_SXM" => GPUClusterInfoGpuType.B300Sxm,
                 "H100_SXM" => GPUClusterInfoGpuType.H100Sxm,
                 "H100_SXM_INF" => GPUClusterInfoGpuType.H100SxmInf,
                 "H200_SXM" => GPUClusterInfoGpuType.H200Sxm,

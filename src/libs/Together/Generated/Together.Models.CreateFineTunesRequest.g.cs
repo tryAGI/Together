@@ -6,7 +6,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateFineTunesRequest
     {
@@ -24,7 +24,7 @@ namespace Together
         public string? ValidationFile { get; set; }
 
         /// <summary>
-        /// Whether to use sequence packing for training.<br/>
+        /// Whether to use sequence packing for training. This flag has no effect if the training data is in Parquet format.<br/>
         /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("packing")]
@@ -73,8 +73,7 @@ namespace Together
         public global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? BatchSize { get; set; }
 
         /// <summary>
-        /// Number of steps to accumulate gradients before performing a weight update. Effectively increases the batch size without requiring more memory. For example, with batch_size=4 and gradient_accumulation_steps=8, the effective batch size is 32.<br/>
-        /// Default Value: 1
+        /// Number of steps to accumulate gradients before performing a weight update. If omitted or set to 0, the model default is used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gradient_accumulation_steps")]
         public int? GradientAccumulationSteps { get; set; }
@@ -84,7 +83,7 @@ namespace Together
         /// Default Value: 0.00001
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
-        public float? LearningRate { get; set; }
+        public double? LearningRate { get; set; }
 
         /// <summary>
         /// The learning rate scheduler to use. It specifies how the learning rate is adjusted during training.<br/>
@@ -95,30 +94,58 @@ namespace Together
 
         /// <summary>
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warmup_ratio")]
-        public float? WarmupRatio { get; set; }
+        public double? WarmupRatio { get; set; }
 
         /// <summary>
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_grad_norm")]
-        public float? MaxGradNorm { get; set; }
+        public double? MaxGradNorm { get; set; }
 
         /// <summary>
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
-        public float? WeightDecay { get; set; }
+        public double? WeightDecay { get; set; }
 
         /// <summary>
         /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("random_seed")]
         public int? RandomSeed { get; set; }
+
+        /// <summary>
+        /// Whether to stop training early when validation loss stops improving. Requires a validation_file, and n_evals must be at least early_stopping_patience + early_stopping_warmup_evals + 1 so a plateau can be detected.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_enabled")]
+        public bool? EarlyStoppingEnabled { get; set; }
+
+        /// <summary>
+        /// Number of consecutive evaluations with no improvement in validation loss to allow before stopping. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 2
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_patience")]
+        public int? EarlyStoppingPatience { get; set; }
+
+        /// <summary>
+        /// Minimum decrease in validation loss for an evaluation to count as an improvement. Larger values treat small gains as non-improvements, causing training to stop sooner. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 0.0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_min_delta")]
+        public double? EarlyStoppingMinDelta { get; set; }
+
+        /// <summary>
+        /// Number of initial evaluations excluded from the early-stopping decision. These still establish the baseline validation loss but do not count toward patience. Set to 0 to disable warmup; if omitted, defaults to 1. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 1
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_warmup_evals")]
+        public int? EarlyStoppingWarmupEvals { get; set; }
 
         /// <summary>
         /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
@@ -180,7 +207,7 @@ namespace Together
         public global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? TrainingType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("multimodal_params")]
         public global::Together.MultimodalParams? MultimodalParams { get; set; }
@@ -234,7 +261,7 @@ namespace Together
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
         /// <param name="packing">
-        /// Whether to use sequence packing for training.<br/>
+        /// Whether to use sequence packing for training. This flag has no effect if the training data is in Parquet format.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="maxSeqLength">
@@ -257,8 +284,7 @@ namespace Together
         /// Default Value: max
         /// </param>
         /// <param name="gradientAccumulationSteps">
-        /// Number of steps to accumulate gradients before performing a weight update. Effectively increases the batch size without requiring more memory. For example, with batch_size=4 and gradient_accumulation_steps=8, the effective batch size is 32.<br/>
-        /// Default Value: 1
+        /// Number of steps to accumulate gradients before performing a weight update. If omitted or set to 0, the model default is used.
         /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
@@ -270,18 +296,34 @@ namespace Together
         /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="maxGradNorm">
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="randomSeed">
         /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
+        /// </param>
+        /// <param name="earlyStoppingEnabled">
+        /// Whether to stop training early when validation loss stops improving. Requires a validation_file, and n_evals must be at least early_stopping_patience + early_stopping_warmup_evals + 1 so a plateau can be detected.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="earlyStoppingPatience">
+        /// Number of consecutive evaluations with no improvement in validation loss to allow before stopping. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 2
+        /// </param>
+        /// <param name="earlyStoppingMinDelta">
+        /// Minimum decrease in validation loss for an evaluation to count as an improvement. Larger values treat small gains as non-improvements, causing training to stop sooner. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 0.0
+        /// </param>
+        /// <param name="earlyStoppingWarmupEvals">
+        /// Number of initial evaluations excluded from the early-stopping decision. These still establish the baseline validation loss but do not count toward patience. Set to 0 to disable warmup; if omitted, defaults to 1. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 1
         /// </param>
         /// <param name="suffix">
         /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
@@ -338,12 +380,16 @@ namespace Together
             int? nEvals,
             global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize,
             int? gradientAccumulationSteps,
-            float? learningRate,
+            double? learningRate,
             global::Together.LRScheduler? lrScheduler,
-            float? warmupRatio,
-            float? maxGradNorm,
-            float? weightDecay,
+            double? warmupRatio,
+            double? maxGradNorm,
+            double? weightDecay,
             int? randomSeed,
+            bool? earlyStoppingEnabled,
+            int? earlyStoppingPatience,
+            double? earlyStoppingMinDelta,
+            int? earlyStoppingWarmupEvals,
             string? suffix,
             string? wandbApiKey,
             string? wandbBaseUrl,
@@ -375,6 +421,10 @@ namespace Together
             this.MaxGradNorm = maxGradNorm;
             this.WeightDecay = weightDecay;
             this.RandomSeed = randomSeed;
+            this.EarlyStoppingEnabled = earlyStoppingEnabled;
+            this.EarlyStoppingPatience = earlyStoppingPatience;
+            this.EarlyStoppingMinDelta = earlyStoppingMinDelta;
+            this.EarlyStoppingWarmupEvals = earlyStoppingWarmupEvals;
             this.Suffix = suffix;
             this.WandbApiKey = wandbApiKey;
             this.WandbBaseUrl = wandbBaseUrl;

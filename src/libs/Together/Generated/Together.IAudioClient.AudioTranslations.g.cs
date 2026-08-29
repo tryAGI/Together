@@ -13,7 +13,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -41,7 +40,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -65,7 +63,7 @@ namespace Together
         /// Translates audio into English
         /// </summary>
         /// <param name="file">
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats: .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac. Maximum duration 4 hours; longer audio is rejected with `audio_too_long`. Binary uploads are additionally capped at 80 MB (HTTP 413); URL-fetched audio is capped at 1 GB.
         /// </param>
         /// <param name="model">
         /// Model to use for translation<br/>
@@ -85,7 +83,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
@@ -101,7 +99,7 @@ namespace Together
             string? language = default,
             string? prompt = default,
             global::Together.AudioTranslationRequestResponseFormat? responseFormat = default,
-            float? temperature = default,
+            double? temperature = default,
             global::Together.OneOf<global::Together.AudioTranslationRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranslationRequestTimestampGranularitie>>? timestampGranularities = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

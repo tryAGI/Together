@@ -9,19 +9,19 @@ namespace Together
     public enum RlDType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DTypeBfloat16,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DTypeFloat32,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DTypeInt64,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DTypeUnspecified,
     }

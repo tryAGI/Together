@@ -4,91 +4,146 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class FinetuneResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Guid Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_file")]
         public string? TrainingFile { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("validation_file")]
         public string? ValidationFile { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         public string? Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_output_name")]
         public string? ModelOutputName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_output_path")]
         public string? ModelOutputPath { get; set; }
 
         /// <summary>
-        /// 
+        /// Storage path for the tokenized dataset archive generated for this fine-tune job.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tokenized_dataset_path")]
+        public string? TokenizedDatasetPath { get; set; }
+
+        /// <summary>
+        /// Timestamp when the tokenized dataset archive was uploaded.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tokenized_dataset_uploaded_at")]
+        public global::System.DateTime? TokenizedDatasetUploadedAt { get; set; }
+
+        /// <summary>
+        /// Together model registry object ID for the final model weights (e.g. `ml_...`).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_object_id")]
+        public string? ModelObjectId { get; set; }
+
+        /// <summary>
+        /// Together model registry name for the final model weights, formatted as `&lt;project_slug&gt;/&lt;model_name&gt;`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_object_name")]
+        public string? ModelObjectName { get; set; }
+
+        /// <summary>
+        /// Together model registry revision ID for the final model weights (e.g. `rv_...`).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_object_revision_id")]
+        public string? ModelObjectRevisionId { get; set; }
+
+        /// <summary>
+        /// Together model registry object ID for the final adapter weights on LoRA jobs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_object_id")]
+        public string? AdapterObjectId { get; set; }
+
+        /// <summary>
+        /// Together model registry name for the final adapter weights on LoRA jobs, formatted as `&lt;project_slug&gt;/&lt;model_name&gt;-adapter`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_object_name")]
+        public string? AdapterObjectName { get; set; }
+
+        /// <summary>
+        /// Together model registry revision ID for the final adapter weights on LoRA jobs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_object_revision_id")]
+        public string? AdapterObjectRevisionId { get; set; }
+
+        /// <summary>
+        /// ID of the user who created the fine-tune job.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string UserId { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trainingfile_numlines")]
         public int? TrainingfileNumlines { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trainingfile_size")]
         public int? TrainingfileSize { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
         public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("started_at")]
         public global::System.DateTime? StartedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_epochs")]
         public int? NEpochs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_checkpoints")]
         public int? NCheckpoints { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("n_evals")]
         public int? NEvals { get; set; }
@@ -101,37 +156,37 @@ namespace Together
         public global::Together.OneOf<int?, global::Together.FinetuneResponseBatchSize?>? BatchSize { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
         public double? LearningRate { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler")]
         public global::Together.LRScheduler? LrScheduler { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warmup_ratio")]
         public double? WarmupRatio { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_grad_norm")]
-        public float? MaxGradNorm { get; set; }
+        public double? MaxGradNorm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
-        public float? WeightDecay { get; set; }
+        public double? WeightDecay { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("eval_steps")]
         public int? EvalSteps { get; set; }
@@ -144,27 +199,27 @@ namespace Together
         public global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? TrainOnInputs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_method")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>))]
         public global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? TrainingMethod { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("training_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>))]
         public global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? TrainingType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("multimodal_params")]
         public global::Together.MultimodalParams? MultimodalParams { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter))]
@@ -172,73 +227,73 @@ namespace Together
         public required global::Together.FinetuneJobStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("job_id")]
         public string? JobId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("events")]
         public global::System.Collections.Generic.IList<global::Together.FineTuneEvent>? Events { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_count")]
         public int? TokenCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("param_count")]
         public int? ParamCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_price")]
         public int? TotalPrice { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("epochs_completed")]
         public int? EpochsCompleted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_depth")]
         public int? QueueDepth { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_project_name")]
         public string? WandbProjectName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_url")]
         public string? WandbUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_checkpoint")]
         public string? FromCheckpoint { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_hf_model")]
         public string? FromHfModel { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hf_model_revision")]
         public string? HfModelRevision { get; set; }
@@ -250,6 +305,24 @@ namespace Together
         public global::Together.FineTuneProgress? Progress { get; set; }
 
         /// <summary>
+        /// Whether the early-stopping criterion triggered.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopped")]
+        public bool? EarlyStopped { get; set; }
+
+        /// <summary>
+        /// Step associated with the selected early-stopping artifact. When early_stopping_best_metric is null, no finite best metric was recorded; this is the halt step, not a best-checkpoint step.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_best_step")]
+        public int? EarlyStoppingBestStep { get; set; }
+
+        /// <summary>
+        /// Best validation loss observed, corresponding to early_stopping_best_step. Null if no improving evaluation was recorded (for example, a non-finite first evaluation).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_best_metric")]
+        public double? EarlyStoppingBestMetric { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -259,12 +332,39 @@ namespace Together
         /// Initializes a new instance of the <see cref="FinetuneResponse" /> class.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="userId">
+        /// ID of the user who created the fine-tune job.
+        /// </param>
         /// <param name="status"></param>
         /// <param name="trainingFile"></param>
         /// <param name="validationFile"></param>
         /// <param name="model"></param>
         /// <param name="modelOutputName"></param>
         /// <param name="modelOutputPath"></param>
+        /// <param name="tokenizedDatasetPath">
+        /// Storage path for the tokenized dataset archive generated for this fine-tune job.
+        /// </param>
+        /// <param name="tokenizedDatasetUploadedAt">
+        /// Timestamp when the tokenized dataset archive was uploaded.
+        /// </param>
+        /// <param name="modelObjectId">
+        /// Together model registry object ID for the final model weights (e.g. `ml_...`).
+        /// </param>
+        /// <param name="modelObjectName">
+        /// Together model registry name for the final model weights, formatted as `&lt;project_slug&gt;/&lt;model_name&gt;`.
+        /// </param>
+        /// <param name="modelObjectRevisionId">
+        /// Together model registry revision ID for the final model weights (e.g. `rv_...`).
+        /// </param>
+        /// <param name="adapterObjectId">
+        /// Together model registry object ID for the final adapter weights on LoRA jobs.
+        /// </param>
+        /// <param name="adapterObjectName">
+        /// Together model registry name for the final adapter weights on LoRA jobs, formatted as `&lt;project_slug&gt;/&lt;model_name&gt;-adapter`.
+        /// </param>
+        /// <param name="adapterObjectRevisionId">
+        /// Together model registry revision ID for the final adapter weights on LoRA jobs.
+        /// </param>
         /// <param name="trainingfileNumlines"></param>
         /// <param name="trainingfileSize"></param>
         /// <param name="createdAt"></param>
@@ -303,17 +403,35 @@ namespace Together
         /// <param name="progress">
         /// Progress information for a fine-tuning job
         /// </param>
+        /// <param name="earlyStopped">
+        /// Whether the early-stopping criterion triggered.
+        /// </param>
+        /// <param name="earlyStoppingBestStep">
+        /// Step associated with the selected early-stopping artifact. When early_stopping_best_metric is null, no finite best metric was recorded; this is the halt step, not a best-checkpoint step.
+        /// </param>
+        /// <param name="earlyStoppingBestMetric">
+        /// Best validation loss observed, corresponding to early_stopping_best_step. Null if no improving evaluation was recorded (for example, a non-finite first evaluation).
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public FinetuneResponse(
             global::System.Guid id,
+            string userId,
             global::Together.FinetuneJobStatus status,
             string? trainingFile,
             string? validationFile,
             string? model,
             string? modelOutputName,
             string? modelOutputPath,
+            string? tokenizedDatasetPath,
+            global::System.DateTime? tokenizedDatasetUploadedAt,
+            string? modelObjectId,
+            string? modelObjectName,
+            string? modelObjectRevisionId,
+            string? adapterObjectId,
+            string? adapterObjectName,
+            string? adapterObjectRevisionId,
             int? trainingfileNumlines,
             int? trainingfileSize,
             global::System.DateTime? createdAt,
@@ -326,8 +444,8 @@ namespace Together
             double? learningRate,
             global::Together.LRScheduler? lrScheduler,
             double? warmupRatio,
-            float? maxGradNorm,
-            float? weightDecay,
+            double? maxGradNorm,
+            double? weightDecay,
             int? evalSteps,
             global::Together.OneOf<bool?, global::Together.FinetuneResponseTrainOnInputs?>? trainOnInputs,
             global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod,
@@ -345,7 +463,10 @@ namespace Together
             string? fromCheckpoint,
             string? fromHfModel,
             string? hfModelRevision,
-            global::Together.FineTuneProgress? progress)
+            global::Together.FineTuneProgress? progress,
+            bool? earlyStopped,
+            int? earlyStoppingBestStep,
+            double? earlyStoppingBestMetric)
         {
             this.Id = id;
             this.TrainingFile = trainingFile;
@@ -353,6 +474,15 @@ namespace Together
             this.Model = model;
             this.ModelOutputName = modelOutputName;
             this.ModelOutputPath = modelOutputPath;
+            this.TokenizedDatasetPath = tokenizedDatasetPath;
+            this.TokenizedDatasetUploadedAt = tokenizedDatasetUploadedAt;
+            this.ModelObjectId = modelObjectId;
+            this.ModelObjectName = modelObjectName;
+            this.ModelObjectRevisionId = modelObjectRevisionId;
+            this.AdapterObjectId = adapterObjectId;
+            this.AdapterObjectName = adapterObjectName;
+            this.AdapterObjectRevisionId = adapterObjectRevisionId;
+            this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.TrainingfileNumlines = trainingfileNumlines;
             this.TrainingfileSize = trainingfileSize;
             this.CreatedAt = createdAt;
@@ -386,6 +516,9 @@ namespace Together
             this.FromHfModel = fromHfModel;
             this.HfModelRevision = hfModelRevision;
             this.Progress = progress;
+            this.EarlyStopped = earlyStopped;
+            this.EarlyStoppingBestStep = earlyStoppingBestStep;
+            this.EarlyStoppingBestMetric = earlyStoppingBestMetric;
         }
 
         /// <summary>

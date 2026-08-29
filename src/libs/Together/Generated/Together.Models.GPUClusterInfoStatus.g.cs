@@ -9,47 +9,47 @@ namespace Together
     public enum GPUClusterInfoStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Degraded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deleting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InstallingDrivers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OnDemandComputePaused,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Paused,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ready,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RunningAcceptanceTests,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WaitingForControlPlaneNodes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WaitingForDataPlaneNodes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WaitingForSharedVolume,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WaitingForSubnet,
     }

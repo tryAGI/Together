@@ -61,158 +61,223 @@ namespace Together
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public ABExperimentServiceClient ABExperimentService { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public AccountClient Account { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public AudioClient Audio { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BatchesClient Batches { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public BillingClient Billing { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public ChatClient Chat { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CodeInterpreterClient CodeInterpreter { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CompletionClient Completion { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public ConfigServiceClient ConfigService { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public DeploymentServiceClient DeploymentService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public DeploymentsClient Deployments { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DeploymentsStorageClient DeploymentsStorage { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DeploymentsVolumesClient DeploymentsVolumes { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingsClient Embeddings { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public EndpointServiceClient EndpointService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public EndpointsClient Endpoints { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Endpoints2Client Endpoints2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationClient Evaluation { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FilesClient Files { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FineTuningClient FineTuning { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GPUClusterServiceClient GPUClusterService { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public HardwareClient Hardware { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public HealthCheckServiceClient HealthCheckService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public ImagesClient Images { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InstanceClusterAddOnServiceClient InstanceClusterAddOnService { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public InstanceTypeServiceClient InstanceTypeService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public JobsClient Jobs { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ModelsClient Models { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public PlacementProfileServiceClient PlacementProfileService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public QueueClient Queue { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RegionServiceClient RegionService { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RemediationServiceClient RemediationService { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RerankClient Rerank { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RlClient Rl { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public RolloutServiceClient RolloutService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public SecretsClient Secrets { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public ShadowExperimentServiceClient ShadowExperimentService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public SharedVolumeServiceClient SharedVolumeService { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public SupportedModelsServiceClient SupportedModelsService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public VideoClient Video { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VoicesClient Voices { get; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        public VolumeServiceClient VolumeService { get; }
+
+        /// <summary>
+        ///
         /// </summary>
         public VolumesClient Volumes { get; }
 

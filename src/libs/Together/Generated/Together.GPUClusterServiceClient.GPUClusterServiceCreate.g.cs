@@ -8,6 +8,19 @@ namespace Together
     public partial class GPUClusterServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_GPUClusterServiceCreateServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_GPUClusterServiceCreateSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -147,7 +160,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/compute/clusters",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_GPUClusterServiceCreateServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -175,7 +190,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -405,17 +420,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -452,17 +465,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
@@ -509,10 +520,6 @@ namespace Together
         /// ON_DEMAND billing types will give you ownership of the cluster until you delete it.<br/>
         /// SCHEDULED_CAPACITY billing types allow you to reserve capacity for a scheduled time window. You must specify the reservation_start_time and reservation_end_time with this request.
         /// </param>
-        /// <param name="gpuNodeFailoverEnabled">
-        /// Whether automated GPU node failover should be enabled for this cluster. By default, it is disabled.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="autoScaleMaxGpus">
         /// Maximum number of GPUs to which the cluster can be auto-scaled up. This field is required if auto_scaled is true.
         /// </param>
@@ -533,10 +540,13 @@ namespace Together
         /// Default Value: false
         /// </param>
         /// <param name="cudaVersion">
-        /// CUDA version for this cluster. For example, 12.5
+        /// Legacy CUDA selector for this cluster. Bare semantic values such as 12.5 select ubuntu-22.04; existing OS-suffixed values remain accepted for compatibility. Must be paired with nvidia_driver_version. Prefer nvidia_version_id for new integrations.
         /// </param>
         /// <param name="nvidiaDriverVersion">
-        /// Nvidia driver version for this cluster. For example, 550. Only some combination of cuda_version and nvidia_driver_version are supported.
+        /// Legacy NVIDIA driver selector for this cluster. For example, 550. Must be paired with cuda_version. Prefer nvidia_version_id for new integrations.
+        /// </param>
+        /// <param name="nvidiaVersionId">
+        /// Canonical region-specific NVIDIA version ID. If cuda_version and nvidia_driver_version are also set, they must resolve to the same catalog entry.
         /// </param>
         /// <param name="slurmImage">
         /// Custom Slurm image for Slurm clusters.
@@ -573,19 +583,19 @@ namespace Together
             int numGpus,
             string clusterName,
             global::Together.GPUClusterCreateRequestBillingType billingType,
-            string cudaVersion,
-            string nvidiaDriverVersion,
             global::Together.GPUClusterCreateRequestClusterType? clusterType = default,
             int? durationDays = default,
             global::Together.GPUClustersSharedVolumeCreateRequest? sharedVolume = default,
             string? volumeId = default,
-            bool? gpuNodeFailoverEnabled = default,
             int? autoScaleMaxGpus = default,
             int? slurmShmSizeGib = default,
             string? capacityPoolId = default,
             global::System.DateTime? reservationStartTime = default,
             global::System.DateTime? reservationEndTime = default,
             bool? installTraefik = default,
+            string? cudaVersion = default,
+            string? nvidiaDriverVersion = default,
+            string? nvidiaVersionId = default,
             string? slurmImage = default,
             global::Together.OIDCConfig? oidcConfig = default,
             string? projectId = default,
@@ -610,7 +620,6 @@ namespace Together
                 SharedVolume = sharedVolume,
                 VolumeId = volumeId,
                 BillingType = billingType,
-                GpuNodeFailoverEnabled = gpuNodeFailoverEnabled,
                 AutoScaleMaxGpus = autoScaleMaxGpus,
                 SlurmShmSizeGib = slurmShmSizeGib,
                 CapacityPoolId = capacityPoolId,
@@ -619,6 +628,7 @@ namespace Together
                 InstallTraefik = installTraefik,
                 CudaVersion = cudaVersion,
                 NvidiaDriverVersion = nvidiaDriverVersion,
+                NvidiaVersionId = nvidiaVersionId,
                 SlurmImage = slurmImage,
                 OidcConfig = oidcConfig,
                 ProjectId = projectId,

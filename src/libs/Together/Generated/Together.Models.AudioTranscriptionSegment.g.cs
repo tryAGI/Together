@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AudioTranscriptionSegment
     {
@@ -19,12 +19,12 @@ namespace Together
 
         /// <summary>
         /// Start time of the segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Start { get; set; }
+        public required double Start { get; set; }
 
         /// <summary>
         /// End time of the segment in seconds<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float End { get; set; }
+        public required double End { get; set; }
 
         /// <summary>
         /// The text content of the segment<br/>
@@ -59,7 +59,7 @@ namespace Together
         /// </param>
         /// <param name="start">
         /// Start time of the segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </param>
         /// <param name="end">
         /// End time of the segment in seconds<br/>
@@ -74,8 +74,8 @@ namespace Together
 #endif
         public AudioTranscriptionSegment(
             int id,
-            float start,
-            float end,
+            double start,
+            double end,
             string text)
         {
             this.Id = id;

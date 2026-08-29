@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CreateFineTunesRequestTrainOnInputs
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
     }

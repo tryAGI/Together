@@ -9,7 +9,7 @@ namespace Together
     public enum ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav,
     }

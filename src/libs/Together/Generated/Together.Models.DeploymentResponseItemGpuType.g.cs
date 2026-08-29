@@ -9,19 +9,19 @@ namespace Together
     public enum DeploymentResponseItemGpuType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B200192gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H10040gbMig,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H10080gb,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H200140gb,
     }

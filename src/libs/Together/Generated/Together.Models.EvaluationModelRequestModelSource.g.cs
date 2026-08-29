@@ -4,20 +4,25 @@
 namespace Together
 {
     /// <summary>
-    /// Source of the model.
+    /// Source of the model inference: - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers<br/>
+    ///   (minimum enforced even if num_workers is set lower). Authentication uses the requesting<br/>
+    ///   user's Together API token automatically.<br/>
+    /// - `external`: An external inference API (e.g. OpenAI, Anthropic, Google, OpenRouter).<br/>
+    ///   Requires `external_api_token` and `external_base_url`. Default concurrency: 2 workers<br/>
+    ///   for first-party APIs (OpenAI, Anthropic, Google), 20 for proxy/aggregator endpoints.
     /// </summary>
     public enum EvaluationModelRequestModelSource
     {
         /// <summary>
-        /// 
+        /// - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers
         /// </summary>
         Dedicated,
         /// <summary>
-        /// 
+        /// An external inference API (e.g. OpenAI, Anthropic, Google, OpenRouter).
         /// </summary>
         External,
         /// <summary>
-        /// 
+        /// - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers
         /// </summary>
         Serverless,
     }

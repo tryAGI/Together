@@ -33,7 +33,10 @@ namespace Together
         /// <summary>
         /// Remediation mode specifies how the remediation should be performed.<br/>
         /// - `REMEDIATION_MODE_VM_ONLY`: Deletes the VM and provisions a new one on any available host.<br/>
-        /// - `REMEDIATION_MODE_HOST_AWARE`: Cordons the host, deletes the VM, and provisions a new one on a different host.
+        /// - `REMEDIATION_MODE_HOST_AWARE`: Cordons the host, deletes the VM, and provisions a new one on a different host.<br/>
+        /// - `REMEDIATION_MODE_EVICT_WITHOUT_REPLACEMENT`: Evicts the VM without provisioning a replacement.<br/>
+        /// - `REMEDIATION_MODE_REBOOT_VM`: Reboots the VM in place.<br/>
+        /// - `REMEDIATION_MODE_HOST_POWER_CYCLE`: Cordons and power-cycles the bare-metal host while preserving host and node identity.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RemediationModeJsonConverter))]
@@ -60,6 +63,8 @@ namespace Together
         /// - `FAILED`: Failed with an error.<br/>
         /// - `CANCELLED`: Cancelled by user or system.<br/>
         /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+        /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+        /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -151,6 +156,20 @@ namespace Together
         public global::System.DateTime? UpdateTime { get; set; }
 
         /// <summary>
+        /// Display name of the targeted instance.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instance_name")]
+        public string? InstanceName { get; set; }
+
+        /// <summary>
+        /// Passive health check alerts linked to this remediation, including resolved alerts.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("linked_alerts")]
+        public global::System.Collections.Generic.IList<global::Together.PassiveHealthCheckAlert>? LinkedAlerts { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -162,7 +181,10 @@ namespace Together
         /// <param name="mode">
         /// Remediation mode specifies how the remediation should be performed.<br/>
         /// - `REMEDIATION_MODE_VM_ONLY`: Deletes the VM and provisions a new one on any available host.<br/>
-        /// - `REMEDIATION_MODE_HOST_AWARE`: Cordons the host, deletes the VM, and provisions a new one on a different host.
+        /// - `REMEDIATION_MODE_HOST_AWARE`: Cordons the host, deletes the VM, and provisions a new one on a different host.<br/>
+        /// - `REMEDIATION_MODE_EVICT_WITHOUT_REPLACEMENT`: Evicts the VM without provisioning a replacement.<br/>
+        /// - `REMEDIATION_MODE_REBOOT_VM`: Reboots the VM in place.<br/>
+        /// - `REMEDIATION_MODE_HOST_POWER_CYCLE`: Cordons and power-cycles the bare-metal host while preserving host and node identity.
         /// </param>
         /// <param name="reason">
         /// User-provided reason for the remediation.
@@ -211,6 +233,14 @@ namespace Together
         /// When the remediation was last updated.<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="instanceName">
+        /// Display name of the targeted instance.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="linkedAlerts">
+        /// Passive health check alerts linked to this remediation, including resolved alerts.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -235,6 +265,8 @@ namespace Together
         /// - `FAILED`: Failed with an error.<br/>
         /// - `CANCELLED`: Cancelled by user or system.<br/>
         /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+        /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+        /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -254,6 +286,8 @@ namespace Together
             global::System.DateTime? endTime,
             string? errorMessage,
             global::System.DateTime? updateTime,
+            string? instanceName,
+            global::System.Collections.Generic.IList<global::Together.PassiveHealthCheckAlert>? linkedAlerts,
             string id = default!,
             string clusterId = default!,
             string instanceId = default!,
@@ -278,6 +312,8 @@ namespace Together
             this.EndTime = endTime;
             this.ErrorMessage = errorMessage;
             this.UpdateTime = updateTime;
+            this.InstanceName = instanceName;
+            this.LinkedAlerts = linkedAlerts;
         }
 
         /// <summary>

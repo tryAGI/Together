@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Request to cancel a queued job.
     /// </summary>
     public sealed partial class QueueCancelRequest
     {

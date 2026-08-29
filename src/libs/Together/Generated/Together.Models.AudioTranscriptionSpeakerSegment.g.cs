@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AudioTranscriptionSpeakerSegment
     {
@@ -19,12 +19,12 @@ namespace Together
 
         /// <summary>
         /// Start time of the speaker segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Start { get; set; }
+        public required double Start { get; set; }
 
         /// <summary>
         /// End time of the speaker segment in seconds<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>30.02</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float End { get; set; }
+        public required double End { get; set; }
 
         /// <summary>
         /// Array of words spoken by this speaker in this segment
@@ -75,7 +75,7 @@ namespace Together
         /// </param>
         /// <param name="start">
         /// Start time of the speaker segment in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </param>
         /// <param name="end">
         /// End time of the speaker segment in seconds<br/>
@@ -97,8 +97,8 @@ namespace Together
 #endif
         public AudioTranscriptionSpeakerSegment(
             string speakerId,
-            float start,
-            float end,
+            double start,
+            double end,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord> words,
             string text,
             int id)

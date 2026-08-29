@@ -9,23 +9,23 @@ namespace Together
     public enum RlTrainingOperationStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingOperationStatusCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingOperationStatusFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingOperationStatusPending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingOperationStatusRunning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingOperationStatusUnspecified,
     }

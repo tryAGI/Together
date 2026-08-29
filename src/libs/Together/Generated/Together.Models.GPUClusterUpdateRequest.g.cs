@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GPUClusterUpdateRequest
     {
@@ -28,7 +28,7 @@ namespace Together
         public global::System.DateTime? ReservationEndTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_config")]
         public global::Together.InstanceClusterConfig? ClusterConfig { get; set; }
@@ -44,6 +44,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_preemptible_gpus")]
         public int? NumPreemptibleGpus { get; set; }
+
+        /// <summary>
+        /// Number of GPUs to draw from the cluster's capacity pool. Only valid for clusters created with a capacity_pool_id. Must be a multiple of 8 and not exceed num_gpus. When omitted, the current value is preserved.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("num_capacity_pool_gpus")]
+        public int? NumCapacityPoolGpus { get; set; }
 
         /// <summary>
         /// Add-ons to update on the cluster. Each entry identifies an existing add-on by name and provides the new external config to merge.
@@ -76,6 +82,9 @@ namespace Together
         /// <param name="numPreemptibleGpus">
         /// Updated desired number of preemptible GPUs for the cluster. When omitted, the current value is preserved. Must be a multiple of 8.
         /// </param>
+        /// <param name="numCapacityPoolGpus">
+        /// Number of GPUs to draw from the cluster's capacity pool. Only valid for clusters created with a capacity_pool_id. Must be a multiple of 8 and not exceed num_gpus. When omitted, the current value is preserved.
+        /// </param>
         /// <param name="addOns">
         /// Add-ons to update on the cluster. Each entry identifies an existing add-on by name and provides the new external config to merge.
         /// </param>
@@ -89,6 +98,7 @@ namespace Together
             global::Together.InstanceClusterConfig? clusterConfig,
             int? numReservedGpus,
             int? numPreemptibleGpus,
+            int? numCapacityPoolGpus,
             global::System.Collections.Generic.IList<global::Together.AddOnUpdateRequest>? addOns)
         {
             this.ClusterType = clusterType;
@@ -97,6 +107,7 @@ namespace Together
             this.ClusterConfig = clusterConfig;
             this.NumReservedGpus = numReservedGpus;
             this.NumPreemptibleGpus = numPreemptibleGpus;
+            this.NumCapacityPoolGpus = numCapacityPoolGpus;
             this.AddOns = addOns;
         }
 

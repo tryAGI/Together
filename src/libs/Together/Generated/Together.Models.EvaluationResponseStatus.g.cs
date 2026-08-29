@@ -9,7 +9,7 @@ namespace Together
     public enum EvaluationResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

@@ -4,24 +4,24 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InstanceClusterConfigLoadBalancer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Istio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Nginx,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Traefik,
     }

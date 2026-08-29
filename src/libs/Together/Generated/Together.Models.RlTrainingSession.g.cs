@@ -18,6 +18,21 @@ namespace Together
         public required string Id { get; set; }
 
         /// <summary>
+        /// Display name used to identify the training session<br/>
+        /// Example: gsm8k-experiment-2
+        /// </summary>
+        /// <example>gsm8k-experiment-2</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        /// Auxiliary metadata associated with the training session
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlTrainingSessionMetadata Metadata { get; set; }
+
+        /// <summary>
         /// Status of the training session<br/>
         /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
         /// </summary>
@@ -28,13 +43,10 @@ namespace Together
         public required global::Together.RlTrainingSessionStatus Status { get; set; } = global::Together.RlTrainingSessionStatus.TrainingSessionStatusUnspecified;
 
         /// <summary>
-        /// Base model used for the training session<br/>
-        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
+        /// Structured detail for the training session's current error. Set when the session is in an error state.
         /// </summary>
-        /// <example>meta-llama/Meta-Llama-3-8B-Instruct</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string BaseModel { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::Together.RlTrainingSessionError? Error { get; set; }
 
         /// <summary>
         /// List of saved inference checkpoints for this session
@@ -89,21 +101,37 @@ namespace Together
         public required global::System.DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// LoRA adapter configuration
+        /// LoRA adapter configuration. Present only for sessions running on a LoRA-enabled model resource.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLoraConfig LoraConfig { get; set; }
+        public global::Together.RlLoraConfig? LoraConfig { get; set; }
 
         /// <summary>
-        /// Type of the training session. TRAINER_AND_GENERATOR provisions both trainer and generator; TRAINER_ONLY provisions only the trainer and rejects generator-dependent operations such as sample.<br/>
-        /// Default Value: SESSION_TYPE_UNSPECIFIED
+        /// Model resource this session is attached to. The session runs on that resource's GPU pods.<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
-        /// <default>global::Together.RlSessionType.SessionTypeUnspecified</default>
-        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlSessionTypeJsonConverter))]
+        /// <example>123e4567-e89b-12d3-a456-426614174000</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_resources_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlSessionType Type { get; set; } = global::Together.RlSessionType.SessionTypeUnspecified;
+        public required string ModelResourcesId { get; set; }
+
+        /// <summary>
+        /// Base model the session trains, taken from the model resource it is attached to<br/>
+        /// Example: Qwen/Qwen3-0.6B
+        /// </summary>
+        /// <example>Qwen/Qwen3-0.6B</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string BaseModel { get; set; }
+
+        /// <summary>
+        /// ID of the user who created the training session<br/>
+        /// Example: user_123
+        /// </summary>
+        /// <example>user_123</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string CreatedBy { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -118,13 +146,12 @@ namespace Together
         /// ID of the training session<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
+        /// <param name="metadata">
+        /// Auxiliary metadata associated with the training session
+        /// </param>
         /// <param name="status">
         /// Status of the training session<br/>
         /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
-        /// </param>
-        /// <param name="baseModel">
-        /// Base model used for the training session<br/>
-        /// Example: meta-llama/Meta-Llama-3-8B-Instruct
         /// </param>
         /// <param name="inferenceCheckpoints">
         /// List of saved inference checkpoints for this session
@@ -145,44 +172,67 @@ namespace Together
         /// Timestamp when the training session was last updated<br/>
         /// Example: 2026-01-02T00:00:05Z
         /// </param>
-        /// <param name="loraConfig">
-        /// LoRA adapter configuration
+        /// <param name="modelResourcesId">
+        /// Model resource this session is attached to. The session runs on that resource's GPU pods.<br/>
+        /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
-        /// <param name="type">
-        /// Type of the training session. TRAINER_AND_GENERATOR provisions both trainer and generator; TRAINER_ONLY provisions only the trainer and rejects generator-dependent operations such as sample.<br/>
-        /// Default Value: SESSION_TYPE_UNSPECIFIED
+        /// <param name="baseModel">
+        /// Base model the session trains, taken from the model resource it is attached to<br/>
+        /// Example: Qwen/Qwen3-0.6B
+        /// </param>
+        /// <param name="createdBy">
+        /// ID of the user who created the training session<br/>
+        /// Example: user_123
+        /// </param>
+        /// <param name="displayName">
+        /// Display name used to identify the training session<br/>
+        /// Example: gsm8k-experiment-2
+        /// </param>
+        /// <param name="error">
+        /// Structured detail for the training session's current error. Set when the session is in an error state.
         /// </param>
         /// <param name="resumeFromCheckpointId">
         /// Checkpoint ID this session was resumed from<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
+        /// </param>
+        /// <param name="loraConfig">
+        /// LoRA adapter configuration. Present only for sessions running on a LoRA-enabled model resource.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingSession(
             string id,
+            global::Together.RlTrainingSessionMetadata metadata,
             global::Together.RlTrainingSessionStatus status,
-            string baseModel,
             global::System.Collections.Generic.IList<global::Together.RlInferenceCheckpoint> inferenceCheckpoints,
             global::System.Collections.Generic.IList<global::Together.RlTrainingCheckpoint> trainingCheckpoints,
             global::Together.OneOf<string, int?> step,
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
-            global::Together.RlLoraConfig loraConfig,
-            global::Together.RlSessionType type,
-            string? resumeFromCheckpointId)
+            string modelResourcesId,
+            string baseModel,
+            string createdBy,
+            string? displayName,
+            global::Together.RlTrainingSessionError? error,
+            string? resumeFromCheckpointId,
+            global::Together.RlLoraConfig? loraConfig)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.DisplayName = displayName;
+            this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.Status = status;
-            this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
+            this.Error = error;
             this.InferenceCheckpoints = inferenceCheckpoints ?? throw new global::System.ArgumentNullException(nameof(inferenceCheckpoints));
             this.TrainingCheckpoints = trainingCheckpoints ?? throw new global::System.ArgumentNullException(nameof(trainingCheckpoints));
             this.ResumeFromCheckpointId = resumeFromCheckpointId;
             this.Step = step;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            this.LoraConfig = loraConfig ?? throw new global::System.ArgumentNullException(nameof(loraConfig));
-            this.Type = type;
+            this.LoraConfig = loraConfig;
+            this.ModelResourcesId = modelResourcesId ?? throw new global::System.ArgumentNullException(nameof(modelResourcesId));
+            this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
+            this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace Together
     public enum RealtimeTranscriptionInputAudioFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmS16le16000,
     }

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AddOnUpdateRequest
     {
@@ -16,7 +16,7 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        /// Configuration for a cluster add-on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::Together.AddOnConfig? Config { get; set; }
@@ -33,7 +33,9 @@ namespace Together
         /// <param name="name">
         /// Name of the add-on to update. Must match an existing add-on on the cluster.
         /// </param>
-        /// <param name="config"></param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

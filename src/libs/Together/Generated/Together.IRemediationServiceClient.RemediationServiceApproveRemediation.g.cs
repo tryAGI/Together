@@ -23,7 +23,7 @@ namespace Together
             string instanceId,
             string remediationId,
 
-            global::Together.CommentBody request,
+            global::Together.ApproveRemediationRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -45,7 +45,7 @@ namespace Together
             string instanceId,
             string remediationId,
 
-            global::Together.CommentBody request,
+            global::Together.ApproveRemediationRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -59,7 +59,15 @@ namespace Together
         /// <param name="instanceId"></param>
         /// <param name="remediationId"></param>
         /// <param name="comment">
-        /// Comment explaining the action.
+        /// Approval comment explaining the decision.
+        /// </param>
+        /// <param name="mode">
+        /// Remediation mode to use after approval. When omitted, the remediation keeps its existing mode.<br/>
+        /// - `REMEDIATION_MODE_VM_ONLY`: Deletes the VM and provisions a new one on any available host.<br/>
+        /// - `REMEDIATION_MODE_HOST_AWARE`: Cordons the host, deletes the VM, and provisions a new one on a different host.<br/>
+        /// - `REMEDIATION_MODE_EVICT_WITHOUT_REPLACEMENT`: Evicts the VM without provisioning a replacement.<br/>
+        /// - `REMEDIATION_MODE_REBOOT_VM`: Reboots the VM in place.<br/>
+        /// - `REMEDIATION_MODE_HOST_POWER_CYCLE`: Power-cycles the bare-metal host after cordoning it. This mode cannot be set as an approval override; create a host power-cycle remediation directly.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -69,6 +77,7 @@ namespace Together
             string instanceId,
             string remediationId,
             string? comment = default,
+            global::Together.ApproveRemediationRequestMode? mode = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

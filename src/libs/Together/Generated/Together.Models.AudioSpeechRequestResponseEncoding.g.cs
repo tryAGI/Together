@@ -10,19 +10,19 @@ namespace Together
     public enum AudioSpeechRequestResponseEncoding
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmAlaw,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmF32le,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmMulaw,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PcmS16le,
     }

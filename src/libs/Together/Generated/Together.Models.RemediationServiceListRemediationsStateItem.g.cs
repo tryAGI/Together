@@ -4,36 +4,44 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum RemediationServiceListRemediationsStateItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AutoResolved,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cancelled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PendingApproval,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        Quarantined,
+        /// <summary>
+        ///
+        /// </summary>
+        Quarantining,
+        /// <summary>
+        ///
         /// </summary>
         Running,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Succeeded,
     }
@@ -55,6 +63,8 @@ namespace Together
                 RemediationServiceListRemediationsStateItem.Failed => "FAILED",
                 RemediationServiceListRemediationsStateItem.Pending => "PENDING",
                 RemediationServiceListRemediationsStateItem.PendingApproval => "PENDING_APPROVAL",
+                RemediationServiceListRemediationsStateItem.Quarantined => "QUARANTINED",
+                RemediationServiceListRemediationsStateItem.Quarantining => "QUARANTINING",
                 RemediationServiceListRemediationsStateItem.Running => "RUNNING",
                 RemediationServiceListRemediationsStateItem.Succeeded => "SUCCEEDED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -72,6 +82,8 @@ namespace Together
                 "FAILED" => RemediationServiceListRemediationsStateItem.Failed,
                 "PENDING" => RemediationServiceListRemediationsStateItem.Pending,
                 "PENDING_APPROVAL" => RemediationServiceListRemediationsStateItem.PendingApproval,
+                "QUARANTINED" => RemediationServiceListRemediationsStateItem.Quarantined,
+                "QUARANTINING" => RemediationServiceListRemediationsStateItem.Quarantining,
                 "RUNNING" => RemediationServiceListRemediationsStateItem.Running,
                 "SUCCEEDED" => RemediationServiceListRemediationsStateItem.Succeeded,
                 _ => null,

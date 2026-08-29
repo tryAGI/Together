@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RlModelInput
     {
@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunks")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.RlInputChunk> Chunks { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.RlModelInputChunk> Chunks { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,7 +31,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlModelInput(
-            global::System.Collections.Generic.IList<global::Together.RlInputChunk> chunks)
+            global::System.Collections.Generic.IList<global::Together.RlModelInputChunk> chunks)
         {
             this.Chunks = chunks ?? throw new global::System.ArgumentNullException(nameof(chunks));
         }

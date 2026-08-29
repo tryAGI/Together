@@ -5,7 +5,7 @@ namespace Together
     public partial interface IInstanceClusterAddOnServiceClient
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster that owns the add-on.
@@ -25,7 +25,7 @@ namespace Together
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster that owns the add-on.
@@ -45,7 +45,7 @@ namespace Together
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster that owns the add-on.
@@ -53,7 +53,9 @@ namespace Together
         /// <param name="addonId">
         /// The ID of the add-on to update.
         /// </param>
-        /// <param name="config"></param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

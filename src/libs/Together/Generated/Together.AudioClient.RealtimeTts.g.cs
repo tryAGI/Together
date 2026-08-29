@@ -6,6 +6,19 @@ namespace Together
     public partial class AudioClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_RealtimeTtsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_RealtimeTtsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -475,7 +488,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/audio/speech/websocket",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_RealtimeTtsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("model", model?.ToValueString())
                                 .AddOptionalParameter("voice", voice)
@@ -509,7 +524,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -704,7 +719,7 @@ namespace Together
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 101)
                             {
                                 string? __content_101 = null;
@@ -725,17 +740,16 @@ namespace Together
                                     __exception_101 = __ex;
                                 }
 
-                                throw new global::Together.ApiException(
+
+                                throw global::Together.ApiException.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_101 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_101,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_101,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_101,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -762,17 +776,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -800,17 +812,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 

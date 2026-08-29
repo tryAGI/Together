@@ -25,11 +25,11 @@ namespace Together
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GetFineTunesMetricsResponse> GetFineTunesByIdMetricsAsync(
             string id,
-            long? globalStepFrom = default,
-            long? globalStepTo = default,
+            int? globalStepFrom = default,
+            int? globalStepTo = default,
             global::System.DateTime? loggedAtFrom = default,
             global::System.DateTime? loggedAtTo = default,
-            long? resolution = default,
+            int? resolution = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -53,11 +53,11 @@ namespace Together
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GetFineTunesMetricsResponse>> GetFineTunesByIdMetricsAsResponseAsync(
             string id,
-            long? globalStepFrom = default,
-            long? globalStepTo = default,
+            int? globalStepFrom = default,
+            int? globalStepTo = default,
             global::System.DateTime? loggedAtFrom = default,
             global::System.DateTime? loggedAtTo = default,
-            long? resolution = default,
+            int? resolution = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

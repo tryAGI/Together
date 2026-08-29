@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ClusterAddOnUpdateRequest
     {
         /// <summary>
-        /// 
+        /// Configuration for a cluster add-on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::Together.AddOnConfig? Config { get; set; }
@@ -23,7 +23,9 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="ClusterAddOnUpdateRequest" /> class.
         /// </summary>
-        /// <param name="config"></param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

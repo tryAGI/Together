@@ -44,12 +44,13 @@ namespace Together
         /// or cancel the job.
         /// </summary>
         /// <param name="info">
-        /// Arbitrary JSON metadata stored with the job and returned in status<br/>
-        /// responses. The model and system may add or update keys during<br/>
-        /// processing.
+        /// Arbitrary JSON metadata stored with the job. Returned in status<br/>
+        /// responses, where the model and system may have added or modified<br/>
+        /// keys (e.g. progress).
         /// </param>
         /// <param name="model">
-        /// Required model identifier
+        /// Required model identifier<br/>
+        /// Example: my-queue-model
         /// </param>
         /// <param name="payload">
         /// Freeform model input. Passed unchanged to the model. Contents are model-specific.

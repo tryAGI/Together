@@ -9,28 +9,28 @@ namespace Together
     public sealed partial class AddOnInfo
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("add_on_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AddOnType { get; set; }
 
         /// <summary>
-        /// 
+        /// Configuration for a cluster add-on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.AddOnConfig Config { get; set; }
 
         /// <summary>
-        /// 
+        /// State for a cluster add-on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -47,8 +47,12 @@ namespace Together
         /// </summary>
         /// <param name="name"></param>
         /// <param name="addOnType"></param>
-        /// <param name="config"></param>
-        /// <param name="state"></param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
+        /// <param name="state">
+        /// State for a cluster add-on.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

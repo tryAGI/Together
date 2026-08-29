@@ -9,15 +9,15 @@ namespace Together
     public enum GetFinetuneDownloadCheckpoint
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adapter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Merged,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelOutputPath,
     }

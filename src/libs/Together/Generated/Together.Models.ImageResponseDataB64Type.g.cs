@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ImageResponseDataB64Type
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B64Json,
     }

@@ -5,12 +5,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct AudioTranscriptionResponse : global::System.IEquatable<AudioTranscriptionResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.AudioTranscriptionJsonResponse? Json { get; init; }
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Json))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsJson => Json != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickJson(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.AudioTranscriptionJsonResponse PickJson() => IsJson
             ? Json!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Json' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.AudioTranscriptionVerboseJsonResponse? VerboseJson { get; init; }
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VerboseJson))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsVerboseJson => VerboseJson != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVerboseJson(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.AudioTranscriptionVerboseJsonResponse PickVerboseJson() => IsVerboseJson
             ? VerboseJson!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VerboseJson' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AudioTranscriptionResponse(global::Together.AudioTranscriptionJsonResponse value) => new AudioTranscriptionResponse((global::Together.AudioTranscriptionJsonResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.AudioTranscriptionJsonResponse?(AudioTranscriptionResponse @this) => @this.Json;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioTranscriptionResponse(global::Together.AudioTranscriptionJsonResponse? value)
         {
@@ -101,22 +101,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AudioTranscriptionResponse FromJson(global::Together.AudioTranscriptionJsonResponse? value) => new AudioTranscriptionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AudioTranscriptionResponse(global::Together.AudioTranscriptionVerboseJsonResponse value) => new AudioTranscriptionResponse((global::Together.AudioTranscriptionVerboseJsonResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.AudioTranscriptionVerboseJsonResponse?(AudioTranscriptionResponse @this) => @this.VerboseJson;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioTranscriptionResponse(global::Together.AudioTranscriptionVerboseJsonResponse? value)
         {
@@ -124,12 +124,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AudioTranscriptionResponse FromVerboseJson(global::Together.AudioTranscriptionVerboseJsonResponse? value) => new AudioTranscriptionResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AudioTranscriptionResponse(
             global::Together.AudioTranscriptionJsonResponse? json,
@@ -141,23 +141,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             VerboseJson as object ??
-            Json as object 
+            Json as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Json?.ToString() ??
-            VerboseJson?.ToString() 
+            VerboseJson?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.AudioTranscriptionJsonResponse, TResult>? json = null,
@@ -190,7 +190,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.AudioTranscriptionJsonResponse>? json = null,
@@ -214,7 +214,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.AudioTranscriptionJsonResponse>? json = null,
@@ -237,7 +237,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AudioTranscriptionResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.AudioTranscriptionJsonResponse?>.Default.Equals(Json, other.Json) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.AudioTranscriptionVerboseJsonResponse?>.Default.Equals(VerboseJson, other.VerboseJson) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.AudioTranscriptionVerboseJsonResponse?>.Default.Equals(VerboseJson, other.VerboseJson)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AudioTranscriptionResponse obj1, AudioTranscriptionResponse obj2)
         {
@@ -277,7 +277,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AudioTranscriptionResponse obj1, AudioTranscriptionResponse obj2)
         {
@@ -285,7 +285,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

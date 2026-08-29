@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp4,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Webm,
     }

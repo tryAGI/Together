@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InterpreterOutputDisplayorExecuteOutputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DisplayData,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ExecuteResult,
     }

@@ -5,12 +5,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct Error : global::System.IEquatable<Error>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? ErrorVariant1 { get; init; }
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ErrorVariant1))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsErrorVariant1 => ErrorVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickErrorVariant1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickErrorVariant1() => IsErrorVariant1
             ? ErrorVariant1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ErrorVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public object? ErrorVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ErrorVariant2))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsErrorVariant2 => ErrorVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickErrorVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object PickErrorVariant2() => IsErrorVariant2
             ? ErrorVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ErrorVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Error(string value) => new Error((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(Error @this) => @this.ErrorVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Error(string? value)
         {
@@ -101,12 +101,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Error FromErrorVariant1(string? value) => new Error(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Error(
             string? errorVariant1,
@@ -118,23 +118,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ErrorVariant2 as object ??
-            ErrorVariant1 as object 
+            ErrorVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ErrorVariant1?.ToString() ??
-            ErrorVariant2?.ToString() 
+            ErrorVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -142,7 +142,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string, TResult>? errorVariant1 = null,
@@ -167,7 +167,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<string>? errorVariant1 = null,
@@ -191,7 +191,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<string>? errorVariant1 = null,
@@ -214,7 +214,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -235,18 +235,18 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Error other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(ErrorVariant1, other.ErrorVariant1) &&
-                global::System.Collections.Generic.EqualityComparer<object?>.Default.Equals(ErrorVariant2, other.ErrorVariant2) 
+                global::System.Collections.Generic.EqualityComparer<object?>.Default.Equals(ErrorVariant2, other.ErrorVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Error obj1, Error obj2)
         {
@@ -254,7 +254,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Error obj1, Error obj2)
         {
@@ -262,7 +262,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

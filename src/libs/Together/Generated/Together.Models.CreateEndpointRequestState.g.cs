@@ -11,11 +11,11 @@ namespace Together
     public enum CreateEndpointRequestState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Started,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stopped,
     }

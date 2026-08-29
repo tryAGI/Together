@@ -9,11 +9,11 @@ namespace Together
     public enum CreateImagesGenerationsRequestResponseFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Base64,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Url,
     }

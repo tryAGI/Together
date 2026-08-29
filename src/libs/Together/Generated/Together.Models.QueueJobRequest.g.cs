@@ -4,21 +4,23 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Request to submit a job to the queue.
     /// </summary>
     public sealed partial class QueueJobRequest
     {
         /// <summary>
-        /// Arbitrary JSON metadata stored with the job and returned in status<br/>
-        /// responses. The model and system may add or update keys during<br/>
-        /// processing.
+        /// Arbitrary JSON metadata stored with the job. Returned in status<br/>
+        /// responses, where the model and system may have added or modified<br/>
+        /// keys (e.g. progress).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("info")]
         public object? Info { get; set; }
 
         /// <summary>
-        /// Required model identifier
+        /// Required model identifier<br/>
+        /// Example: my-queue-model
         /// </summary>
+        /// <example>my-queue-model</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Model { get; set; }
@@ -49,15 +51,16 @@ namespace Together
         /// Initializes a new instance of the <see cref="QueueJobRequest" /> class.
         /// </summary>
         /// <param name="model">
-        /// Required model identifier
+        /// Required model identifier<br/>
+        /// Example: my-queue-model
         /// </param>
         /// <param name="payload">
         /// Freeform model input. Passed unchanged to the model. Contents are model-specific.
         /// </param>
         /// <param name="info">
-        /// Arbitrary JSON metadata stored with the job and returned in status<br/>
-        /// responses. The model and system may add or update keys during<br/>
-        /// processing.
+        /// Arbitrary JSON metadata stored with the job. Returned in status<br/>
+        /// responses, where the model and system may have added or modified<br/>
+        /// keys (e.g. progress).
         /// </param>
         /// <param name="priority">
         /// Job priority. Higher values are processed first (strict priority<br/>

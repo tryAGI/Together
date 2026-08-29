@@ -10,7 +10,7 @@ namespace Together
     public enum DedicatedEndpointType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dedicated,
     }

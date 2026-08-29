@@ -20,7 +20,7 @@ namespace Together.JsonConverters
                     {
                         return global::Together.GPUClusterCreateRequestGpuTypeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

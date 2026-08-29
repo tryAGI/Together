@@ -4,13 +4,13 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class ChatCompletionChoiceDeltaFunctionCall
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("arguments")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -18,7 +18,7 @@ namespace Together
         public required string Arguments { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]

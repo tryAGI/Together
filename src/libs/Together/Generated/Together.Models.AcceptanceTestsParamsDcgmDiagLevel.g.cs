@@ -9,19 +9,19 @@ namespace Together
     public enum AcceptanceTestsParamsDcgmDiagLevel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcgmDiagLevelExtended,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcgmDiagLevelLong,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcgmDiagLevelMedium,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcgmDiagLevelShort,
     }

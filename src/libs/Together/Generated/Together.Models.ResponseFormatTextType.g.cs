@@ -9,7 +9,7 @@ namespace Together
     public enum ResponseFormatTextType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

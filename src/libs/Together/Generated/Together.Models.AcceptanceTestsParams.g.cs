@@ -52,6 +52,12 @@ namespace Together
         public bool? NcclMultiNodeSkipped { get; set; }
 
         /// <summary>
+        /// Skip storage-performance acceptance test.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("storage_skipped")]
+        public bool? StorageSkipped { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -81,6 +87,9 @@ namespace Together
         /// <param name="ncclMultiNodeSkipped">
         /// Skip NCCL multi-node acceptance test.
         /// </param>
+        /// <param name="storageSkipped">
+        /// Skip storage-performance acceptance test.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -91,7 +100,8 @@ namespace Together
             bool? ncclSingleNodeSkipped,
             bool? gpuBurnSkipped,
             bool? dcgmDiagSkipped,
-            bool? ncclMultiNodeSkipped)
+            bool? ncclMultiNodeSkipped,
+            bool? storageSkipped)
         {
             this.Enabled = enabled;
             this.DcgmDiagLevel = dcgmDiagLevel;
@@ -100,6 +110,7 @@ namespace Together
             this.GpuBurnSkipped = gpuBurnSkipped;
             this.DcgmDiagSkipped = dcgmDiagSkipped;
             this.NcclMultiNodeSkipped = ncclMultiNodeSkipped;
+            this.StorageSkipped = storageSkipped;
         }
 
         /// <summary>

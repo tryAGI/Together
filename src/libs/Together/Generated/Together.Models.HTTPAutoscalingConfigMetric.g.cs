@@ -10,11 +10,11 @@ namespace Together
     public enum HTTPAutoscalingConfigMetric
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HTTPAvgRequestDuration,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HTTPTotalRequests,
     }

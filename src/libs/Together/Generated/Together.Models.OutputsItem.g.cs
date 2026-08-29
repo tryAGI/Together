@@ -5,7 +5,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct OutputsItem : global::System.IEquatable<OutputsItem>
     {
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamOutput))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsStreamOutput => StreamOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStreamOutput(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput PickStreamOutput() => IsStreamOutput
             ? StreamOutput!
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Error))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsError => Error != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickError(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput PickError() => IsError
             ? Error!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; init; }
@@ -93,7 +93,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DisplayorExecuteOutput))]
@@ -101,7 +101,7 @@ namespace Together
         public bool IsDisplayorExecuteOutput => DisplayorExecuteOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDisplayorExecuteOutput(
 #if NET6_0_OR_GREATER
@@ -114,23 +114,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput PickDisplayorExecuteOutput() => IsDisplayorExecuteOutput
             ? DisplayorExecuteOutput!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DisplayorExecuteOutput' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput value) => new OutputsItem((global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?(OutputsItem @this) => @this.StreamOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? value)
         {
@@ -138,22 +138,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OutputsItem FromStreamOutput(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? value) => new OutputsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput value) => new OutputsItem((global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?(OutputsItem @this) => @this.Error;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput? value)
         {
@@ -161,22 +161,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OutputsItem FromError(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput? value) => new OutputsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput value) => new OutputsItem((global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?(OutputsItem @this) => @this.DisplayorExecuteOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OutputsItem(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? value)
         {
@@ -184,12 +184,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static OutputsItem FromDisplayorExecuteOutput(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput? value) => new OutputsItem(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OutputsItem(
             global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput? streamOutput,
@@ -203,25 +203,25 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             DisplayorExecuteOutput as object ??
             Error as object ??
-            StreamOutput as object 
+            StreamOutput as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             StreamOutput?.ToString() ??
             Error?.ToString() ??
-            DisplayorExecuteOutput?.ToString() 
+            DisplayorExecuteOutput?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -229,7 +229,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput, TResult>? streamOutput = null,
@@ -259,7 +259,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput>? streamOutput = null,
@@ -289,7 +289,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput>? streamOutput = null,
@@ -317,7 +317,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -340,19 +340,19 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(OutputsItem other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput?>.Default.Equals(StreamOutput, other.StreamOutput) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput?>.Default.Equals(Error, other.Error) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?>.Default.Equals(DisplayorExecuteOutput, other.DisplayorExecuteOutput) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput?>.Default.Equals(DisplayorExecuteOutput, other.DisplayorExecuteOutput)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(OutputsItem obj1, OutputsItem obj2)
         {
@@ -360,7 +360,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(OutputsItem obj1, OutputsItem obj2)
         {
@@ -368,7 +368,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

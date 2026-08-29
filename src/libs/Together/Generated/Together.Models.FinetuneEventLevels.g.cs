@@ -4,36 +4,36 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum FinetuneEventLevels
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Info,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LegacyIerror,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LegacyInfo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LegacyIwarning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenapiJsonNullSentinelValue2bf936000fe44250987aE5ddb203e464,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Warning,
     }

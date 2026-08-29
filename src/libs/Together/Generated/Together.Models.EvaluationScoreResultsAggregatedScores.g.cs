@@ -4,27 +4,27 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationScoreResultsAggregatedScores
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mean_score")]
-        public float? MeanScore { get; set; }
+        public double? MeanScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("std_score")]
-        public float? StdScore { get; set; }
+        public double? StdScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_percentage")]
-        public float? PassPercentage { get; set; }
+        public double? PassPercentage { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,9 +42,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationScoreResultsAggregatedScores(
-            float? meanScore,
-            float? stdScore,
-            float? passPercentage)
+            double? meanScore,
+            double? stdScore,
+            double? passPercentage)
         {
             this.MeanScore = meanScore;
             this.StdScore = stdScore;

@@ -12,6 +12,8 @@ namespace Together
     /// - `FAILED`: Failed with an error.<br/>
     /// - `CANCELLED`: Cancelled by user or system.<br/>
     /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+    /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+    /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.<br/>
     /// Included only in responses
     /// </summary>
     public enum RemediationState
@@ -36,6 +38,14 @@ namespace Together
         /// Awaiting approval before processing can begin.
         /// </summary>
         PendingApproval,
+        /// <summary>
+        /// Host has been cordoned or isolated for remediation.
+        /// </summary>
+        Quarantined,
+        /// <summary>
+        /// Cordoning or preparing the host before remediation.
+        /// </summary>
+        Quarantining,
         /// <summary>
         /// Actively being processed.
         /// </summary>
@@ -63,6 +73,8 @@ namespace Together
                 RemediationState.Failed => "FAILED",
                 RemediationState.Pending => "PENDING",
                 RemediationState.PendingApproval => "PENDING_APPROVAL",
+                RemediationState.Quarantined => "QUARANTINED",
+                RemediationState.Quarantining => "QUARANTINING",
                 RemediationState.Running => "RUNNING",
                 RemediationState.Succeeded => "SUCCEEDED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -80,6 +92,8 @@ namespace Together
                 "FAILED" => RemediationState.Failed,
                 "PENDING" => RemediationState.Pending,
                 "PENDING_APPROVAL" => RemediationState.PendingApproval,
+                "QUARANTINED" => RemediationState.Quarantined,
+                "QUARANTINING" => RemediationState.Quarantining,
                 "RUNNING" => RemediationState.Running,
                 "SUCCEEDED" => RemediationState.Succeeded,
                 _ => null,

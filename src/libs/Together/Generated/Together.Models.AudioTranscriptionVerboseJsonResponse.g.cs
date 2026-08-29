@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AudioTranscriptionVerboseJsonResponse
     {
@@ -24,7 +24,7 @@ namespace Together
         /// <example>3.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Duration { get; set; }
+        public required double Duration { get; set; }
 
         /// <summary>
         /// The transcribed text<br/>
@@ -89,7 +89,7 @@ namespace Together
 #endif
         public AudioTranscriptionVerboseJsonResponse(
             string language,
-            float duration,
+            double duration,
             string text,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionSegment> segments,
             global::System.Collections.Generic.IList<global::Together.AudioTranscriptionWord>? words,

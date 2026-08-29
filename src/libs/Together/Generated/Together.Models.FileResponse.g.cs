@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -56,7 +58,7 @@ namespace Together
         public required global::Together.FilePurpose Purpose { get; set; }
 
         /// <summary>
-        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
+        /// Deprecated. Whether file has been fully uploaded.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Processed")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -73,6 +75,22 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Together.FileType FileType { get; set; } = global::Together.FileType.Jsonl;
+
+        /// <summary>
+        /// Lifecycle state of the file validation pipeline. Files for<br/>
+        /// non-`fine-tune` purposes skip validation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("processing_status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileProcessingStatusJsonConverter))]
+        public global::Together.FileProcessingStatus? ProcessingStatus { get; set; }
+
+        /// <summary>
+        /// Report produced by the file validation pipeline. Present once<br/>
+        /// validation has run; absent on files that bypassed validation<br/>
+        /// (non-`fine-tune` purposes) or have not yet been validated.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("validation_report")]
+        public global::Together.FileValidationReport? ValidationReport { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -101,12 +119,21 @@ namespace Together
         /// Example: fine-tune
         /// </param>
         /// <param name="processed">
-        /// Whether the file has been parsed and analyzed for correctness for fine-tuning.
+        /// Deprecated. Whether file has been fully uploaded.
         /// </param>
         /// <param name="fileType">
         /// The type of the file such as `jsonl`, `csv`, or `parquet`.<br/>
         /// Default Value: jsonl<br/>
         /// Example: jsonl
+        /// </param>
+        /// <param name="processingStatus">
+        /// Lifecycle state of the file validation pipeline. Files for<br/>
+        /// non-`fine-tune` purposes skip validation.
+        /// </param>
+        /// <param name="validationReport">
+        /// Report produced by the file validation pipeline. Present once<br/>
+        /// validation has run; absent on files that bypassed validation<br/>
+        /// (non-`fine-tune` purposes) or have not yet been validated.
         /// </param>
         /// <param name="object">
         /// The object type, which is always `file`.
@@ -122,6 +149,8 @@ namespace Together
             global::Together.FilePurpose purpose,
             bool processed,
             global::Together.FileType fileType,
+            global::Together.FileProcessingStatus? processingStatus,
+            global::Together.FileValidationReport? validationReport,
             string @object = "file")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -132,6 +161,8 @@ namespace Together
             this.Purpose = purpose;
             this.Processed = processed;
             this.FileType = fileType;
+            this.ProcessingStatus = processingStatus;
+            this.ValidationReport = validationReport;
         }
 
         /// <summary>

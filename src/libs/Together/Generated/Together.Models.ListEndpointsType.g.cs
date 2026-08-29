@@ -9,11 +9,11 @@ namespace Together
     public enum ListEndpointsType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Dedicated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Serverless,
     }

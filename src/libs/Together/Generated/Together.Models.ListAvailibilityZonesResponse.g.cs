@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class ListAvailibilityZonesResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avzones")]
         [global::System.Text.Json.Serialization.JsonRequired]

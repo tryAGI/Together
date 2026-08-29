@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoFrameImageInputFrame
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         First,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Last,
     }

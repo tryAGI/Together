@@ -5,12 +5,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct SessionListResponse : global::System.IEquatable<SessionListResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.SessionListResponseResponse? Response { get; init; }
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Response))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsResponse => Response != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponse(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.SessionListResponseResponse PickResponse() => IsResponse
             ? Response!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Response' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.SessionListResponseVariant2? SessionListResponseVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SessionListResponseVariant2))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsSessionListResponseVariant2 => SessionListResponseVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSessionListResponseVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.SessionListResponseVariant2 PickSessionListResponseVariant2() => IsSessionListResponseVariant2
             ? SessionListResponseVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SessionListResponseVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator SessionListResponse(global::Together.SessionListResponseResponse value) => new SessionListResponse((global::Together.SessionListResponseResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.SessionListResponseResponse?(SessionListResponse @this) => @this.Response;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SessionListResponse(global::Together.SessionListResponseResponse? value)
         {
@@ -101,22 +101,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static SessionListResponse FromResponse(global::Together.SessionListResponseResponse? value) => new SessionListResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator SessionListResponse(global::Together.SessionListResponseVariant2 value) => new SessionListResponse((global::Together.SessionListResponseVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.SessionListResponseVariant2?(SessionListResponse @this) => @this.SessionListResponseVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SessionListResponse(global::Together.SessionListResponseVariant2? value)
         {
@@ -124,12 +124,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static SessionListResponse FromSessionListResponseVariant2(global::Together.SessionListResponseVariant2? value) => new SessionListResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SessionListResponse(
             global::Together.SessionListResponseResponse? response,
@@ -141,23 +141,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             SessionListResponseVariant2 as object ??
-            Response as object 
+            Response as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Response?.ToString() ??
-            SessionListResponseVariant2?.ToString() 
+            SessionListResponseVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.SessionListResponseResponse, TResult>? response = null,
@@ -190,7 +190,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.SessionListResponseResponse>? response = null,
@@ -214,7 +214,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.SessionListResponseResponse>? response = null,
@@ -237,7 +237,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(SessionListResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.SessionListResponseResponse?>.Default.Equals(Response, other.Response) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.SessionListResponseVariant2?>.Default.Equals(SessionListResponseVariant2, other.SessionListResponseVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.SessionListResponseVariant2?>.Default.Equals(SessionListResponseVariant2, other.SessionListResponseVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(SessionListResponse obj1, SessionListResponse obj2)
         {
@@ -277,7 +277,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(SessionListResponse obj1, SessionListResponse obj2)
         {
@@ -285,7 +285,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

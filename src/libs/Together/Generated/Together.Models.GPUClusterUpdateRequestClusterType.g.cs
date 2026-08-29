@@ -9,11 +9,11 @@ namespace Together
     public enum GPUClusterUpdateRequestClusterType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Kubernetes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Slurm,
     }

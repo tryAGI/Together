@@ -10,15 +10,15 @@ namespace Together
     public enum AudioSpeechRequestResponseFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Mp3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Raw,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Wav,
     }

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Queue job counts for a model.
     /// </summary>
     public sealed partial class QueueMetricsResponse
     {

@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LinearLRSchedulerArgs
     {
         /// <summary>
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_lr_ratio")]
-        public float? MinLrRatio { get; set; }
+        public double? MinLrRatio { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -26,13 +26,13 @@ namespace Together
         /// </summary>
         /// <param name="minLrRatio">
         /// The ratio of the final learning rate to the peak learning rate<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LinearLRSchedulerArgs(
-            float? minLrRatio)
+            double? minLrRatio)
         {
             this.MinLrRatio = minLrRatio;
         }

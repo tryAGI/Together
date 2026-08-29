@@ -8,6 +8,19 @@ namespace Together
     public partial class ChatClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ChatCompletionsAsStreamServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ChatCompletionsAsStreamSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -47,7 +60,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -131,7 +143,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/chat/completions",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_ChatCompletionsAsStreamServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -144,6 +158,10 @@ namespace Together
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
                 __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
+
+                __httpRequest.Headers.TryAddWithoutValidation(
+                    "Accept",
+                    "text/event-stream");
 
             foreach (var __authorization in __authorizations)
             {
@@ -159,7 +177,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -377,17 +395,15 @@ namespace Together
                                 {
                                 }
 
-                                throw new global::Together.ApiException(
+                                throw global::Together.ApiException.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __ex,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             using var __stream = await __response.Content.ReadAsStreamAsync(
@@ -406,16 +422,15 @@ namespace Together
                                 }
 
                                 var __streamedResponse = global::Together.ChatCompletionStream.FromJson(__content, JsonSerializerContext) ??
-                                                       throw new global::Together.ApiException(
+                                                       throw global::Together.ApiException.Create(
+                                                           statusCode: __response.StatusCode,
                                                            message: $"Response deserialization failed for \"{__content}\" ",
-                                                           statusCode: __response.StatusCode)
-                                                       {
-                                                           ResponseBody = __content,
-                                                           ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                                           innerException: null,
+                                                           responseBody: __content,
+                                                           responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                                                __response.Headers,
                                                                h => h.Key,
-                                                               h => h.Value),
-                                                       };
+                                                               h => h.Value));
 
                                 yield return __streamedResponse;
                             }
@@ -479,7 +494,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"105":21.4,"1024":-10.5}
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>
@@ -525,18 +540,18 @@ namespace Together
             string model,
             int? maxTokens = default,
             global::System.Collections.Generic.IList<string>? stop = default,
-            float? temperature = default,
-            float? topP = default,
+            double? temperature = default,
+            double? topP = default,
             int? topK = default,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior = default,
             double? repetitionPenalty = default,
             int? logprobs = default,
             bool? echo = default,
             int? n = default,
-            float? minP = default,
-            float? presencePenalty = default,
-            float? frequencyPenalty = default,
-            global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
+            double? minP = default,
+            double? presencePenalty = default,
+            double? frequencyPenalty = default,
+            global::System.Collections.Generic.Dictionary<string, double>? logitBias = default,
             int? seed = default,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
             global::Together.ResponseFormat? responseFormat = default,

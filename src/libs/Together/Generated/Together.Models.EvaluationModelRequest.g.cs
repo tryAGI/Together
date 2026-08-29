@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationModelRequest
     {
@@ -18,7 +18,7 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// Maximum number of tokens to generate<br/>
+        /// Maximum number of tokens to generate.<br/>
         /// Example: 512
         /// </summary>
         /// <example>512</example>
@@ -27,34 +27,39 @@ namespace Together
         public required int MaxTokens { get; set; }
 
         /// <summary>
-        /// Sampling temperature<br/>
+        /// Sampling temperature for generation.<br/>
         /// Example: 0.7
         /// </summary>
         /// <example>0.7</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Temperature { get; set; }
+        public required double Temperature { get; set; }
 
         /// <summary>
-        /// System prompt template<br/>
-        /// Example: Imagine you are helpful assistant
+        /// System prompt template. Supports Jinja2 variables referencing dataset columns.<br/>
+        /// Example: You are a helpful assistant.
         /// </summary>
-        /// <example>Imagine you are helpful assistant</example>
+        /// <example>You are a helpful assistant.</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_template")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SystemTemplate { get; set; }
 
         /// <summary>
-        /// Input prompt template<br/>
-        /// Example: Please classify {{prompt}} based on the labels below
+        /// User message template. Supports Jinja2 variables referencing dataset columns.<br/>
+        /// Example: Please answer the following question: {{ question }}
         /// </summary>
-        /// <example>Please classify {{prompt}} based on the labels below</example>
+        /// <example>Please answer the following question: {{ question }}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_template")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string InputTemplate { get; set; }
 
         /// <summary>
-        /// Source of the model.
+        /// Source of the model inference: - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers<br/>
+        ///   (minimum enforced even if num_workers is set lower). Authentication uses the requesting<br/>
+        ///   user's Together API token automatically.<br/>
+        /// - `external`: An external inference API (e.g. OpenAI, Anthropic, Google, OpenRouter).<br/>
+        ///   Requires `external_api_token` and `external_base_url`. Default concurrency: 2 workers<br/>
+        ///   for first-party APIs (OpenAI, Anthropic, Google), 20 for proxy/aggregator endpoints.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationModelRequestModelSourceJsonConverter))]
@@ -62,19 +67,19 @@ namespace Together
         public required global::Together.EvaluationModelRequestModelSource ModelSource { get; set; }
 
         /// <summary>
-        /// Bearer/API token for external models.
+        /// Bearer/API token for the external model provider. Required when model_source is 'external'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_api_token")]
         public string? ExternalApiToken { get; set; }
 
         /// <summary>
-        /// Base URL for external models. Must be OpenAI-compatible base URL
+        /// Base URL of the external inference API. Must be OpenAI-compatible. Required when model_source is 'external'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_base_url")]
         public string? ExternalBaseUrl { get; set; }
 
         /// <summary>
-        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Number of concurrent inference workers. Overrides the source-specific default (serverless: 25, dedicated: 5, external: 2–20). For dedicated endpoints the value is clamped to a minimum of 5 regardless of what is set here.<br/>
         /// Example: 5
         /// </summary>
         /// <example>5</example>
@@ -95,32 +100,37 @@ namespace Together
         /// Example: Qwen/Qwen3.5-9B
         /// </param>
         /// <param name="maxTokens">
-        /// Maximum number of tokens to generate<br/>
+        /// Maximum number of tokens to generate.<br/>
         /// Example: 512
         /// </param>
         /// <param name="temperature">
-        /// Sampling temperature<br/>
+        /// Sampling temperature for generation.<br/>
         /// Example: 0.7
         /// </param>
         /// <param name="systemTemplate">
-        /// System prompt template<br/>
-        /// Example: Imagine you are helpful assistant
+        /// System prompt template. Supports Jinja2 variables referencing dataset columns.<br/>
+        /// Example: You are a helpful assistant.
         /// </param>
         /// <param name="inputTemplate">
-        /// Input prompt template<br/>
-        /// Example: Please classify {{prompt}} based on the labels below
+        /// User message template. Supports Jinja2 variables referencing dataset columns.<br/>
+        /// Example: Please answer the following question: {{ question }}
         /// </param>
         /// <param name="modelSource">
-        /// Source of the model.
+        /// Source of the model inference: - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers<br/>
+        ///   (minimum enforced even if num_workers is set lower). Authentication uses the requesting<br/>
+        ///   user's Together API token automatically.<br/>
+        /// - `external`: An external inference API (e.g. OpenAI, Anthropic, Google, OpenRouter).<br/>
+        ///   Requires `external_api_token` and `external_base_url`. Default concurrency: 2 workers<br/>
+        ///   for first-party APIs (OpenAI, Anthropic, Google), 20 for proxy/aggregator endpoints.
         /// </param>
         /// <param name="externalApiToken">
-        /// Bearer/API token for external models.
+        /// Bearer/API token for the external model provider. Required when model_source is 'external'.
         /// </param>
         /// <param name="externalBaseUrl">
-        /// Base URL for external models. Must be OpenAI-compatible base URL
+        /// Base URL of the external inference API. Must be OpenAI-compatible. Required when model_source is 'external'.
         /// </param>
         /// <param name="numWorkers">
-        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Number of concurrent inference workers. Overrides the source-specific default (serverless: 25, dedicated: 5, external: 2–20). For dedicated endpoints the value is clamped to a minimum of 5 regardless of what is set here.<br/>
         /// Example: 5
         /// </param>
 #if NET7_0_OR_GREATER
@@ -129,7 +139,7 @@ namespace Together
         public EvaluationModelRequest(
             string model,
             int maxTokens,
-            float temperature,
+            double temperature,
             string systemTemplate,
             string inputTemplate,
             global::Together.EvaluationModelRequestModelSource modelSource,

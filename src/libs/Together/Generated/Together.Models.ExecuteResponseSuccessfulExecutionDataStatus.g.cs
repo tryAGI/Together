@@ -9,7 +9,7 @@ namespace Together
     public enum ExecuteResponseSuccessfulExecutionDataStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

@@ -20,7 +20,7 @@ namespace Together.JsonConverters
                     {
                         return global::Together.FinetuneEventTypeExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stderr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stdout,
     }

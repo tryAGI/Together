@@ -5,7 +5,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct InterpreterOutput : global::System.IEquatable<InterpreterOutput>
     {
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamOutput))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsStreamOutput => StreamOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStreamOutput(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.InterpreterOutputStreamOutput PickStreamOutput() => IsStreamOutput
             ? StreamOutput!
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Error))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsError => Error != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickError(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.InterpreterOutputErrorOutput PickError() => IsError
             ? Error!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.InterpreterOutputDisplayorExecuteOutput? DisplayorExecuteOutput { get; init; }
@@ -93,7 +93,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(DisplayorExecuteOutput))]
@@ -101,7 +101,7 @@ namespace Together
         public bool IsDisplayorExecuteOutput => DisplayorExecuteOutput != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDisplayorExecuteOutput(
 #if NET6_0_OR_GREATER
@@ -114,23 +114,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.InterpreterOutputDisplayorExecuteOutput PickDisplayorExecuteOutput() => IsDisplayorExecuteOutput
             ? DisplayorExecuteOutput!
             : throw new global::System.InvalidOperationException($"Expected union variant 'DisplayorExecuteOutput' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InterpreterOutput(global::Together.InterpreterOutputStreamOutput value) => new InterpreterOutput((global::Together.InterpreterOutputStreamOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.InterpreterOutputStreamOutput?(InterpreterOutput @this) => @this.StreamOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InterpreterOutput(global::Together.InterpreterOutputStreamOutput? value)
         {
@@ -138,22 +138,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InterpreterOutput FromStreamOutput(global::Together.InterpreterOutputStreamOutput? value) => new InterpreterOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InterpreterOutput(global::Together.InterpreterOutputErrorOutput value) => new InterpreterOutput((global::Together.InterpreterOutputErrorOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.InterpreterOutputErrorOutput?(InterpreterOutput @this) => @this.Error;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InterpreterOutput(global::Together.InterpreterOutputErrorOutput? value)
         {
@@ -161,22 +161,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InterpreterOutput FromError(global::Together.InterpreterOutputErrorOutput? value) => new InterpreterOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator InterpreterOutput(global::Together.InterpreterOutputDisplayorExecuteOutput value) => new InterpreterOutput((global::Together.InterpreterOutputDisplayorExecuteOutput?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.InterpreterOutputDisplayorExecuteOutput?(InterpreterOutput @this) => @this.DisplayorExecuteOutput;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InterpreterOutput(global::Together.InterpreterOutputDisplayorExecuteOutput? value)
         {
@@ -184,12 +184,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static InterpreterOutput FromDisplayorExecuteOutput(global::Together.InterpreterOutputDisplayorExecuteOutput? value) => new InterpreterOutput(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InterpreterOutput(
             global::Together.InterpreterOutputStreamOutput? streamOutput,
@@ -203,25 +203,25 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             DisplayorExecuteOutput as object ??
             Error as object ??
-            StreamOutput as object 
+            StreamOutput as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             StreamOutput?.ToString() ??
             Error?.ToString() ??
-            DisplayorExecuteOutput?.ToString() 
+            DisplayorExecuteOutput?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -229,7 +229,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.InterpreterOutputStreamOutput, TResult>? streamOutput = null,
@@ -259,7 +259,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.InterpreterOutputStreamOutput>? streamOutput = null,
@@ -289,7 +289,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.InterpreterOutputStreamOutput>? streamOutput = null,
@@ -317,7 +317,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -340,19 +340,19 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(InterpreterOutput other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputStreamOutput?>.Default.Equals(StreamOutput, other.StreamOutput) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputErrorOutput?>.Default.Equals(Error, other.Error) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputDisplayorExecuteOutput?>.Default.Equals(DisplayorExecuteOutput, other.DisplayorExecuteOutput) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.InterpreterOutputDisplayorExecuteOutput?>.Default.Equals(DisplayorExecuteOutput, other.DisplayorExecuteOutput)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(InterpreterOutput obj1, InterpreterOutput obj2)
         {
@@ -360,7 +360,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(InterpreterOutput obj1, InterpreterOutput obj2)
         {
@@ -368,7 +368,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -17,7 +17,7 @@ namespace Together
     public readonly partial struct ResponseFormat : global::System.IEquatable<ResponseFormat>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionRequestResponseFormatDiscriminatorType? Type { get; }
 
@@ -31,7 +31,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -39,7 +39,7 @@ namespace Together
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -52,7 +52,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ResponseFormatText PickText() => IsText
             ? Text!
@@ -69,7 +69,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(JsonSchema))]
@@ -77,7 +77,7 @@ namespace Together
         public bool IsJsonSchema => JsonSchema != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickJsonSchema(
 #if NET6_0_OR_GREATER
@@ -90,7 +90,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ResponseFormatJsonSchema PickJsonSchema() => IsJsonSchema
             ? JsonSchema!
@@ -109,7 +109,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(JsonObject))]
@@ -117,7 +117,7 @@ namespace Together
         public bool IsJsonObject => JsonObject != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickJsonObject(
 #if NET6_0_OR_GREATER
@@ -130,23 +130,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ResponseFormatJsonObject PickJsonObject() => IsJsonObject
             ? JsonObject!
             : throw new global::System.InvalidOperationException($"Expected union variant 'JsonObject' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseFormat(global::Together.ResponseFormatText value) => new ResponseFormat((global::Together.ResponseFormatText?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ResponseFormatText?(ResponseFormat @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseFormat(global::Together.ResponseFormatText? value)
         {
@@ -154,22 +154,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseFormat FromText(global::Together.ResponseFormatText? value) => new ResponseFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseFormat(global::Together.ResponseFormatJsonSchema value) => new ResponseFormat((global::Together.ResponseFormatJsonSchema?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ResponseFormatJsonSchema?(ResponseFormat @this) => @this.JsonSchema;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseFormat(global::Together.ResponseFormatJsonSchema? value)
         {
@@ -177,22 +177,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseFormat FromJsonSchema(global::Together.ResponseFormatJsonSchema? value) => new ResponseFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseFormat(global::Together.ResponseFormatJsonObject value) => new ResponseFormat((global::Together.ResponseFormatJsonObject?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ResponseFormatJsonObject?(ResponseFormat @this) => @this.JsonObject;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseFormat(global::Together.ResponseFormatJsonObject? value)
         {
@@ -200,12 +200,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseFormat FromJsonObject(global::Together.ResponseFormatJsonObject? value) => new ResponseFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseFormat(
             global::Together.ChatCompletionRequestResponseFormatDiscriminatorType? type,
@@ -222,25 +222,25 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             JsonObject as object ??
             JsonSchema as object ??
-            Text as object 
+            Text as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Text?.ToString() ??
             JsonSchema?.ToString() ??
-            JsonObject?.ToString() 
+            JsonObject?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -248,7 +248,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.ResponseFormatText, TResult>? text = null,
@@ -278,7 +278,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.ResponseFormatText>? text = null,
@@ -308,7 +308,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.ResponseFormatText>? text = null,
@@ -336,7 +336,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -359,19 +359,19 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ResponseFormat other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.ResponseFormatText?>.Default.Equals(Text, other.Text) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.ResponseFormatJsonSchema?>.Default.Equals(JsonSchema, other.JsonSchema) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ResponseFormatJsonObject?>.Default.Equals(JsonObject, other.JsonObject) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ResponseFormatJsonObject?>.Default.Equals(JsonObject, other.JsonObject)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ResponseFormat obj1, ResponseFormat obj2)
         {
@@ -379,7 +379,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ResponseFormat obj1, ResponseFormat obj2)
         {
@@ -387,7 +387,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

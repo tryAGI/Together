@@ -6,6 +6,19 @@ namespace Together
     public partial class AudioClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_AudioTranslationsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_AudioTranslationsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -50,7 +63,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -88,7 +100,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -141,7 +152,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/audio/translations",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_AudioTranslationsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -169,13 +182,60 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(request.File.ToString() ?? string.Empty),
-                                name: "\"file\"");
+                            if (request.File.TryPickValue1(out var __valueFile1))
+                            {
+
+                                var __fileNameFile1 = "file.bin";
+                                var __contentFile1 = new global::System.Net.Http.ByteArrayContent(__valueFile1 ?? global::System.Array.Empty<byte>());
+                                __contentFile1.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    __fileNameFile1 is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(__fileNameFile1) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
+                                __httpRequestContent.Add(
+                                    content: __contentFile1,
+                                    name: "\"file\"",
+                                    fileName: $"\"{__fileNameFile1}\"");
+                                if (__contentFile1.Headers.ContentDisposition != null)
+                                {
+                                    __contentFile1.Headers.ContentDisposition.FileNameStar = null;
+                                }
+                            }
+                            else if (request.File.TryPickValue2(out var __valueFile2))
+                            {
+
+                                var __contentFile2 = new global::System.Net.Http.StringContent(__valueFile2 ?? string.Empty);
+                                __httpRequestContent.Add(
+                                    content: __contentFile2,
+                                    name: "\"file\"");
+                            }
 
                             if (request.Model != default)
                             {
@@ -219,11 +279,26 @@ namespace Together
                             }
                             if (request.TimestampGranularities != default)
                             {
+                                if ((request.TimestampGranularities).GetValueOrDefault().TryPickValue1(out var __valueTimestampGranularities1))
+                                {
 
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.TimestampGranularities.ToString() ?? string.Empty),
-                                    name: "\"timestamp_granularities\"");
+                                    var __contentTimestampGranularities1 = new global::System.Net.Http.StringContent((__valueTimestampGranularities1).HasValue ? (__valueTimestampGranularities1).GetValueOrDefault().ToValueString() : string.Empty);
+                                    __httpRequestContent.Add(
+                                        content: __contentTimestampGranularities1,
+                                        name: "\"timestamp_granularities\"");
+                                }
+                                else if ((request.TimestampGranularities).GetValueOrDefault().TryPickValue2(out var __valueTimestampGranularities2))
+                                {
 
+                                    for (var __iTimestampGranularities2 = 0; __iTimestampGranularities2 < (__valueTimestampGranularities2!).Count; __iTimestampGranularities2++)
+                                    {
+
+                                        var __contentTimestampGranularities2Item = new global::System.Net.Http.StringContent((__valueTimestampGranularities2!)[__iTimestampGranularities2].ToValueString());
+                                        __httpRequestContent.Add(
+                                            content: __contentTimestampGranularities2Item,
+                                            name: "\"timestamp_granularities\"");
+                                    }
+                                }
                             }
 
                             __httpRequest.Content = __httpRequestContent;
@@ -418,7 +493,7 @@ namespace Together
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // BadRequest
+                            // BadRequest. Possible error codes include `audio_too_long` (audio duration exceeds the 4 hour cap), `file_too_large` (URL-fetched audio exceeds the 1 GB server-side cap), `unsupported_format` (codec or container could not be decoded), and `invalid_params` (request parameters failed validation).
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -443,18 +518,17 @@ namespace Together
                                     __exception_400 = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_400,
-                                    ResponseObject = __value_400,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Unauthorized
                             if ((int)__response.StatusCode == 401)
@@ -481,18 +555,54 @@ namespace Together
                                     __exception_401 = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_401,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_401,
-                                    ResponseObject = __value_401,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_401,
+                                    responseObject: __value_401,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
+                            }
+                            // Payload Too Large. The request body exceeded the 80 MB direct-upload limit. For larger payloads, host the file and submit an HTTPS URL via the `file` field (URL-fetched audio is capped at 1 GB server-side).
+                            if ((int)__response.StatusCode == 413)
+                            {
+                                string? __content_413 = null;
+                                global::System.Exception? __exception_413 = null;
+                                string? __value_413 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_413 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_413 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_413, typeof(string), JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_413 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_413 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_413, typeof(string), JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_413 = __ex;
+                                }
+
+
+                                throw global::Together.ApiException<string>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_413 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_413,
+                                    responseBody: __content_413,
+                                    responseObject: __value_413,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
                             }
                             // RateLimit
                             if ((int)__response.StatusCode == 429)
@@ -519,18 +629,17 @@ namespace Together
                                     __exception_429 = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_429,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_429,
-                                    ResponseObject = __value_429,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_429,
+                                    responseObject: __value_429,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -564,17 +673,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -611,17 +718,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
@@ -637,7 +742,7 @@ namespace Together
         /// Translates audio into English
         /// </summary>
         /// <param name="file">
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats: .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac. Maximum duration 4 hours; longer audio is rejected with `audio_too_long`. Binary uploads are additionally capped at 80 MB (HTTP 413); URL-fetched audio is capped at 1 GB.
         /// </param>
         /// <param name="model">
         /// Model to use for translation<br/>
@@ -657,7 +762,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
@@ -673,7 +778,7 @@ namespace Together
             string? language = default,
             string? prompt = default,
             global::Together.AudioTranslationRequestResponseFormat? responseFormat = default,
-            float? temperature = default,
+            double? temperature = default,
             global::Together.OneOf<global::Together.AudioTranslationRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranslationRequestTimestampGranularitie>>? timestampGranularities = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

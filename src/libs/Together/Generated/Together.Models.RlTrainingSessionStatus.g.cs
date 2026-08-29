@@ -10,31 +10,31 @@ namespace Together
     public enum RlTrainingSessionStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusCreating,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusExpired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusRunning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusStopped,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusStopping,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingSessionStatusUnspecified,
     }

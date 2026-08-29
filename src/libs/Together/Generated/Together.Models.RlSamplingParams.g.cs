@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RlSamplingParams
     {
         /// <summary>
         /// Maximum number of tokens to generate per completion<br/>
-        /// Default Value: 100<br/>
-        /// Example: 100
+        /// Default Value: 512<br/>
+        /// Example: 512
         /// </summary>
-        /// <example>100</example>
+        /// <example>512</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
 
@@ -24,7 +24,7 @@ namespace Together
         /// </summary>
         /// <example>1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public float? Temperature { get; set; }
+        public double? Temperature { get; set; }
 
         /// <summary>
         /// Nucleus sampling probability threshold<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// </summary>
         /// <example>1</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
-        public float? TopP { get; set; }
+        public double? TopP { get; set; }
 
         /// <summary>
         /// Top-k sampling limit<br/>
@@ -53,7 +53,7 @@ namespace Together
         public global::System.Collections.Generic.IList<string>? Stop { get; set; }
 
         /// <summary>
-        /// Random seed for reproducibility<br/>
+        /// Random seed for reproducible sampling for the same prompt and model state. Per-completion seeds remain stable if the request is split across generator replicas.<br/>
         /// Example: 42
         /// </summary>
         /// <example>42</example>
@@ -72,8 +72,8 @@ namespace Together
         /// </summary>
         /// <param name="maxTokens">
         /// Maximum number of tokens to generate per completion<br/>
-        /// Default Value: 100<br/>
-        /// Example: 100
+        /// Default Value: 512<br/>
+        /// Example: 512
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature<br/>
@@ -95,7 +95,7 @@ namespace Together
         /// Example: [, END]
         /// </param>
         /// <param name="seed">
-        /// Random seed for reproducibility<br/>
+        /// Random seed for reproducible sampling for the same prompt and model state. Per-completion seeds remain stable if the request is split across generator replicas.<br/>
         /// Example: 42
         /// </param>
 #if NET7_0_OR_GREATER
@@ -103,8 +103,8 @@ namespace Together
 #endif
         public RlSamplingParams(
             int? maxTokens,
-            float? temperature,
-            float? topP,
+            double? temperature,
+            double? topP,
             int? topK,
             global::System.Collections.Generic.IList<string>? stop,
             global::Together.OneOf<string, int?>? seed)

@@ -9,35 +9,35 @@ namespace Together
     public enum NodePhaseTransitionPhase
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhaseBooting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhaseBootstrapping,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhaseFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhasePaused,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhasePending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhaseRunning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhaseScheduling,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NodePhaseSucceeded,
     }

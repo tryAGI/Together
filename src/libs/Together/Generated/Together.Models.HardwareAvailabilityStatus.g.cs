@@ -9,15 +9,15 @@ namespace Together
     public enum HardwareAvailabilityStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Available,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Insufficient,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unavailable,
     }

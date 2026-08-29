@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationJudgeModelConfig
     {
@@ -27,7 +27,11 @@ namespace Together
         public required string SystemTemplate { get; set; }
 
         /// <summary>
-        /// Source of the judge model.
+        /// Source of the judge model inference: - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers<br/>
+        ///   (minimum enforced even if num_workers is set lower).<br/>
+        /// - `external`: An external inference API (e.g. OpenAI, Anthropic, Google, OpenRouter).<br/>
+        ///   Requires `external_api_token` and `external_base_url`. Default concurrency: 2 workers<br/>
+        ///   for first-party APIs, 20 for proxy/aggregator endpoints.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationJudgeModelConfigModelSourceJsonConverter))]
@@ -35,19 +39,19 @@ namespace Together
         public required global::Together.EvaluationJudgeModelConfigModelSource ModelSource { get; set; }
 
         /// <summary>
-        /// Bearer/API token for external judge models.
+        /// Bearer/API token for the external judge model provider. Required when model_source is 'external'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_api_token")]
         public string? ExternalApiToken { get; set; }
 
         /// <summary>
-        /// Base URL for external judge models. Must be OpenAI-compatible base URL.
+        /// Base URL of the external inference API for the judge. Must be OpenAI-compatible. Required when model_source is 'external'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_base_url")]
         public string? ExternalBaseUrl { get; set; }
 
         /// <summary>
-        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Number of concurrent inference workers for the judge. Overrides the source-specific default (serverless: 25, dedicated: 5, external: 2–20). For dedicated endpoints the value is clamped to a minimum of 5 regardless of what is set here.<br/>
         /// Example: 5
         /// </summary>
         /// <example>5</example>
@@ -55,7 +59,7 @@ namespace Together
         public int? NumWorkers { get; set; }
 
         /// <summary>
-        /// Maximum number of tokens the judge model can generate. Defaults to 32768. Increase for reasoning models (e.g. Gemini, o-series) that consume output token budget for chain-of-thought.<br/>
+        /// Maximum number of tokens the judge model may generate. Defaults to 32768 if omitted. Set higher for reasoning judges (e.g. o-series, Gemini) that spend tokens on internal chain-of-thought before emitting the verdict JSON.<br/>
         /// Example: 8192
         /// </summary>
         /// <example>8192</example>
@@ -63,12 +67,12 @@ namespace Together
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// Sampling temperature for the judge model. Defaults to 0.05.<br/>
-        /// Example: 0
+        /// Sampling temperature for the judge model. Defaults to 0.05 if omitted.<br/>
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public float? Temperature { get; set; }
+        public double? Temperature { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -88,25 +92,29 @@ namespace Together
         /// Example: Imagine you are a helpful assistant
         /// </param>
         /// <param name="modelSource">
-        /// Source of the judge model.
+        /// Source of the judge model inference: - `serverless`: Together's shared serverless inference API. Default concurrency: 25 workers. - `dedicated`: A Together dedicated deployment endpoint. Default concurrency: 5 workers<br/>
+        ///   (minimum enforced even if num_workers is set lower).<br/>
+        /// - `external`: An external inference API (e.g. OpenAI, Anthropic, Google, OpenRouter).<br/>
+        ///   Requires `external_api_token` and `external_base_url`. Default concurrency: 2 workers<br/>
+        ///   for first-party APIs, 20 for proxy/aggregator endpoints.
         /// </param>
         /// <param name="externalApiToken">
-        /// Bearer/API token for external judge models.
+        /// Bearer/API token for the external judge model provider. Required when model_source is 'external'.
         /// </param>
         /// <param name="externalBaseUrl">
-        /// Base URL for external judge models. Must be OpenAI-compatible base URL.
+        /// Base URL of the external inference API for the judge. Must be OpenAI-compatible. Required when model_source is 'external'.
         /// </param>
         /// <param name="numWorkers">
-        /// Number of concurrent workers for inference requests. Overrides the default concurrency for this model. Useful for tuning throughput when using proxy endpoints (e.g. OpenRouter) or rate-limited external APIs.<br/>
+        /// Number of concurrent inference workers for the judge. Overrides the source-specific default (serverless: 25, dedicated: 5, external: 2–20). For dedicated endpoints the value is clamped to a minimum of 5 regardless of what is set here.<br/>
         /// Example: 5
         /// </param>
         /// <param name="maxTokens">
-        /// Maximum number of tokens the judge model can generate. Defaults to 32768. Increase for reasoning models (e.g. Gemini, o-series) that consume output token budget for chain-of-thought.<br/>
+        /// Maximum number of tokens the judge model may generate. Defaults to 32768 if omitted. Set higher for reasoning judges (e.g. o-series, Gemini) that spend tokens on internal chain-of-thought before emitting the verdict JSON.<br/>
         /// Example: 8192
         /// </param>
         /// <param name="temperature">
-        /// Sampling temperature for the judge model. Defaults to 0.05.<br/>
-        /// Example: 0
+        /// Sampling temperature for the judge model. Defaults to 0.05 if omitted.<br/>
+        /// Example: 0.0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -119,7 +127,7 @@ namespace Together
             string? externalBaseUrl,
             int? numWorkers,
             int? maxTokens,
-            float? temperature)
+            double? temperature)
         {
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.SystemTemplate = systemTemplate ?? throw new global::System.ArgumentNullException(nameof(systemTemplate));

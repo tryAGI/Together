@@ -4,20 +4,20 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ChatCompletionRequestResponseFormatDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonObject,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonSchema,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

@@ -10,15 +10,15 @@ namespace Together
     public enum EvaluationTypedRequestType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Classify,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Compare,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Score,
     }

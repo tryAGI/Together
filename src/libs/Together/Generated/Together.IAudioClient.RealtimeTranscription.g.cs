@@ -57,7 +57,7 @@ namespace Together
         /// 2. **Session message** after connection: Send `transcription_session.updated` with a `turn_detection` object (see above)<br/>
         /// To disable VAD at connection time, use `turn_detection=none` as a query parameter.<br/>
         /// **VAD Parameters:**<br/>
-        /// All parameters are optional. Omitted fields use their defaults.<br/>
+        /// All parameters are Omitted fields use their defaults.<br/>
         /// | Parameter | Type | Default | Description |<br/>
         /// |-----------|------|---------|-------------|<br/>
         /// | `type` | string | `server_vad` | VAD mode. Use `server_vad` to enable, or set `turn_detection` to `null` to disable. |<br/>
@@ -242,7 +242,7 @@ namespace Together
         /// 2. **Session message** after connection: Send `transcription_session.updated` with a `turn_detection` object (see above)<br/>
         /// To disable VAD at connection time, use `turn_detection=none` as a query parameter.<br/>
         /// **VAD Parameters:**<br/>
-        /// All parameters are optional. Omitted fields use their defaults.<br/>
+        /// All parameters are Omitted fields use their defaults.<br/>
         /// | Parameter | Type | Default | Description |<br/>
         /// |-----------|------|---------|-------------|<br/>
         /// | `type` | string | `server_vad` | VAD mode. Use `server_vad` to enable, or set `turn_detection` to `null` to disable. |<br/>

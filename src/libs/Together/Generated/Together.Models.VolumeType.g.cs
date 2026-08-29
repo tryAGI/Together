@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VolumeType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VolumeTypeReadOnly,
     }

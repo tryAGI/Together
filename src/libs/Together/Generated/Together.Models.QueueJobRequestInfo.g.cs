@@ -4,9 +4,9 @@
 namespace Together
 {
     /// <summary>
-    /// Arbitrary JSON metadata stored with the job and returned in status<br/>
-    /// responses. The model and system may add or update keys during<br/>
-    /// processing.
+    /// Arbitrary JSON metadata stored with the job. Returned in status<br/>
+    /// responses, where the model and system may have added or modified<br/>
+    /// keys (e.g. progress).
     /// </summary>
     public sealed partial class QueueJobRequestInfo
     {

@@ -15,7 +15,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -87,7 +86,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"105":21.4,"1024":-10.5}
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>
@@ -133,18 +132,18 @@ namespace Together
             string model,
             int? maxTokens = default,
             global::System.Collections.Generic.IList<string>? stop = default,
-            float? temperature = default,
-            float? topP = default,
+            double? temperature = default,
+            double? topP = default,
             int? topK = default,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior = default,
             double? repetitionPenalty = default,
             int? logprobs = default,
             bool? echo = default,
             int? n = default,
-            float? minP = default,
-            float? presencePenalty = default,
-            float? frequencyPenalty = default,
-            global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
+            double? minP = default,
+            double? presencePenalty = default,
+            double? frequencyPenalty = default,
+            global::System.Collections.Generic.Dictionary<string, double>? logitBias = default,
             int? seed = default,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
             global::Together.ResponseFormat? responseFormat = default,

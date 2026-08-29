@@ -31,7 +31,7 @@ namespace Together
         public global::Together.ResponseFormatJsonSchemaSchema? Schema { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("strict")]
         public bool? Strict { get; set; }

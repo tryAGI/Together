@@ -6,18 +6,18 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionChunkChoiceDelta
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_id")]
         public int? TokenId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionChunkChoiceDeltaRoleJsonConverter))]
@@ -25,25 +25,31 @@ namespace Together
         public required global::Together.ChatCompletionChunkChoiceDeltaRole Role { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
         public string? Reasoning { get; set; }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_content")]
+        public string? ReasoningContent { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
         public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
         [global::System.Obsolete("This property marked as deprecated.")]
@@ -62,6 +68,7 @@ namespace Together
         /// <param name="tokenId"></param>
         /// <param name="content"></param>
         /// <param name="reasoning"></param>
+        /// <param name="reasoningContent"></param>
         /// <param name="toolCalls"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -71,12 +78,14 @@ namespace Together
             int? tokenId,
             string? content,
             string? reasoning,
+            string? reasoningContent,
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls)
         {
             this.TokenId = tokenId;
             this.Role = role;
             this.Content = content;
             this.Reasoning = reasoning;
+            this.ReasoningContent = reasoningContent;
             this.ToolCalls = toolCalls;
         }
 

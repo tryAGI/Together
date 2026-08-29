@@ -5,6 +5,7 @@ namespace Together
     public partial interface IRemediationServiceClient
     {
         /// <summary>
+        /// List remediations<br/>
         /// Lists remediations for an instance or cluster.
         /// </summary>
         /// <param name="clusterId"></param>
@@ -26,27 +27,22 @@ namespace Together
         /// - `SUCCEEDED`: Successfully completed.<br/>
         /// - `FAILED`: Failed with an error.<br/>
         /// - `CANCELLED`: Cancelled by user or system.<br/>
-        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.
+        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+        /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+        /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.
         /// </param>
         /// <param name="orderBy">
         /// Order by expression.
         /// </param>
+        /// <param name="trigger">
+        /// Filter by trigger type(s). Returns remediations matching any of the specified triggers.
+        /// </param>
         /// <param name="mode">
-        /// Filter by remediation mode. Returns only remediations matching the specified mode.
+        /// Filter by remediation mode(s). Returns remediations matching any of the specified modes.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import together<br/>
-        /// client = together.Together(api_key="your_api_key")<br/>
-        /// remediations = client.beta.clusters.remediations.list(<br/>
-        ///   cluster_id="cluster_id",<br/>
-        ///   instance_id="-",<br/>
-        /// )<br/>
-        /// for remediation in remediations:<br/>
-        ///   print(remediation)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ListRemediationsResponse> RemediationServiceListRemediationsAsync(
             string clusterId,
             string instanceId,
@@ -54,10 +50,12 @@ namespace Together
             string? pageToken = default,
             global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? state = default,
             string? orderBy = default,
-            global::Together.RemediationServiceListRemediationsMode? mode = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? trigger = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? mode = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// List remediations<br/>
         /// Lists remediations for an instance or cluster.
         /// </summary>
         /// <param name="clusterId"></param>
@@ -79,27 +77,22 @@ namespace Together
         /// - `SUCCEEDED`: Successfully completed.<br/>
         /// - `FAILED`: Failed with an error.<br/>
         /// - `CANCELLED`: Cancelled by user or system.<br/>
-        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.
+        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+        /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+        /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.
         /// </param>
         /// <param name="orderBy">
         /// Order by expression.
         /// </param>
+        /// <param name="trigger">
+        /// Filter by trigger type(s). Returns remediations matching any of the specified triggers.
+        /// </param>
         /// <param name="mode">
-        /// Filter by remediation mode. Returns only remediations matching the specified mode.
+        /// Filter by remediation mode(s). Returns remediations matching any of the specified modes.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import together<br/>
-        /// client = together.Together(api_key="your_api_key")<br/>
-        /// remediations = client.beta.clusters.remediations.list(<br/>
-        ///   cluster_id="cluster_id",<br/>
-        ///   instance_id="-",<br/>
-        /// )<br/>
-        /// for remediation in remediations:<br/>
-        ///   print(remediation)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.ListRemediationsResponse>> RemediationServiceListRemediationsAsResponseAsync(
             string clusterId,
             string instanceId,
@@ -107,7 +100,8 @@ namespace Together
             string? pageToken = default,
             global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? state = default,
             string? orderBy = default,
-            global::Together.RemediationServiceListRemediationsMode? mode = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? trigger = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? mode = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

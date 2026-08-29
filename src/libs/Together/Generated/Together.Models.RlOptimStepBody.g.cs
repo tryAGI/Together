@@ -4,24 +4,21 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Request body for an optimizer step.
     /// </summary>
     public sealed partial class RlOptimStepBody
     {
         /// <summary>
-        /// Learning rate for this step.<br/>
-        /// Default Value: 0.0001<br/>
-        /// Example: 0.0001
+        /// Adam optimizer overrides for this step.
         /// </summary>
-        /// <example>0.0001</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
-        public float? LearningRate { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("adam_params")]
+        public global::Together.RlAdamParams? AdamParams { get; set; }
 
         /// <summary>
-        /// AdamW optimizer parameters
+        /// Muon optimizer overrides for this step.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adamw_params")]
-        public global::Together.RlAdamWOptimizerParams? AdamwParams { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("muon_params")]
+        public global::Together.RlMuonParams? MuonParams { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,23 +29,21 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlOptimStepBody" /> class.
         /// </summary>
-        /// <param name="learningRate">
-        /// Learning rate for this step.<br/>
-        /// Default Value: 0.0001<br/>
-        /// Example: 0.0001
+        /// <param name="adamParams">
+        /// Adam optimizer overrides for this step.
         /// </param>
-        /// <param name="adamwParams">
-        /// AdamW optimizer parameters
+        /// <param name="muonParams">
+        /// Muon optimizer overrides for this step.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlOptimStepBody(
-            float? learningRate,
-            global::Together.RlAdamWOptimizerParams? adamwParams)
+            global::Together.RlAdamParams? adamParams,
+            global::Together.RlMuonParams? muonParams)
         {
-            this.LearningRate = learningRate;
-            this.AdamwParams = adamwParams;
+            this.AdamParams = adamParams;
+            this.MuonParams = muonParams;
         }
 
         /// <summary>

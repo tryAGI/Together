@@ -10,27 +10,27 @@ namespace Together
     public enum ListEndpointState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Started,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Starting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stopped,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stopping,
     }

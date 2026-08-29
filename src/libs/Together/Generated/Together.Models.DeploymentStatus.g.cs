@@ -4,28 +4,28 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DeploymentStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeploymentStatusFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeploymentStatusReady,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeploymentStatusScaledToZero,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeploymentStatusScaling,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeploymentStatusUpdating,
     }

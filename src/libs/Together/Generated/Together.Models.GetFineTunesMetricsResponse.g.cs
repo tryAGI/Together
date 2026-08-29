@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class GetFineTunesMetricsResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metrics")]
         public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, double>>? Metrics { get; set; }

@@ -73,6 +73,9 @@ namespace Together
         /// <param name="numPreemptibleGpus">
         /// Updated desired number of preemptible GPUs for the cluster. When omitted, the current value is preserved. Must be a multiple of 8.
         /// </param>
+        /// <param name="numCapacityPoolGpus">
+        /// Number of GPUs to draw from the cluster's capacity pool. Only valid for clusters created with a capacity_pool_id. Must be a multiple of 8 and not exceed num_gpus. When omitted, the current value is preserved.
+        /// </param>
         /// <param name="addOns">
         /// Add-ons to update on the cluster. Each entry identifies an existing add-on by name and provides the new external config to merge.
         /// </param>
@@ -87,6 +90,7 @@ namespace Together
             global::Together.InstanceClusterConfig? clusterConfig = default,
             int? numReservedGpus = default,
             int? numPreemptibleGpus = default,
+            int? numCapacityPoolGpus = default,
             global::System.Collections.Generic.IList<global::Together.AddOnUpdateRequest>? addOns = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

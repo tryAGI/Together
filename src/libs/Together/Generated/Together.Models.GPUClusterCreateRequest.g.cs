@@ -75,13 +75,6 @@ namespace Together
         public required global::Together.GPUClusterCreateRequestBillingType BillingType { get; set; }
 
         /// <summary>
-        /// Whether automated GPU node failover should be enabled for this cluster. By default, it is disabled.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("gpu_node_failover_enabled")]
-        public bool? GpuNodeFailoverEnabled { get; set; }
-
-        /// <summary>
         /// Whether GPU cluster should be auto-scaled based on the workload. By default, it is not auto-scaled.<br/>
         /// Default Value: false
         /// </summary>
@@ -127,18 +120,22 @@ namespace Together
         public bool? InstallTraefik { get; set; }
 
         /// <summary>
-        /// CUDA version for this cluster. For example, 12.5
+        /// Legacy CUDA selector for this cluster. Bare semantic values such as 12.5 select ubuntu-22.04; existing OS-suffixed values remain accepted for compatibility. Must be paired with nvidia_driver_version. Prefer nvidia_version_id for new integrations.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cuda_version")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CudaVersion { get; set; }
+        public string? CudaVersion { get; set; }
 
         /// <summary>
-        /// Nvidia driver version for this cluster. For example, 550. Only some combination of cuda_version and nvidia_driver_version are supported.
+        /// Legacy NVIDIA driver selector for this cluster. For example, 550. Must be paired with cuda_version. Prefer nvidia_version_id for new integrations.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("nvidia_driver_version")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string NvidiaDriverVersion { get; set; }
+        public string? NvidiaDriverVersion { get; set; }
+
+        /// <summary>
+        /// Canonical region-specific NVIDIA version ID. If cuda_version and nvidia_driver_version are also set, they must resolve to the same catalog entry.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("nvidia_version_id")]
+        public string? NvidiaVersionId { get; set; }
 
         /// <summary>
         /// Custom Slurm image for Slurm clusters.
@@ -147,7 +144,7 @@ namespace Together
         public string? SlurmImage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("oidc_config")]
         public global::Together.OIDCConfig? OidcConfig { get; set; }
@@ -165,7 +162,7 @@ namespace Together
         public global::Together.AcceptanceTestsParams? AcceptanceTestsParams { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cluster_config")]
         public global::Together.InstanceClusterConfig? ClusterConfig { get; set; }
@@ -226,12 +223,6 @@ namespace Together
         /// ON_DEMAND billing types will give you ownership of the cluster until you delete it.<br/>
         /// SCHEDULED_CAPACITY billing types allow you to reserve capacity for a scheduled time window. You must specify the reservation_start_time and reservation_end_time with this request.
         /// </param>
-        /// <param name="cudaVersion">
-        /// CUDA version for this cluster. For example, 12.5
-        /// </param>
-        /// <param name="nvidiaDriverVersion">
-        /// Nvidia driver version for this cluster. For example, 550. Only some combination of cuda_version and nvidia_driver_version are supported.
-        /// </param>
         /// <param name="clusterType">
         /// Type of cluster to create.
         /// </param>
@@ -243,10 +234,6 @@ namespace Together
         /// </param>
         /// <param name="volumeId">
         /// ID of an existing volume to use with the cluster creation.
-        /// </param>
-        /// <param name="gpuNodeFailoverEnabled">
-        /// Whether automated GPU node failover should be enabled for this cluster. By default, it is disabled.<br/>
-        /// Default Value: false
         /// </param>
         /// <param name="autoScaleMaxGpus">
         /// Maximum number of GPUs to which the cluster can be auto-scaled up. This field is required if auto_scaled is true.
@@ -266,6 +253,15 @@ namespace Together
         /// <param name="installTraefik">
         /// Whether to install Traefik ingress controller in the cluster. This field is only applicable for Kubernetes clusters and is false by default.<br/>
         /// Default Value: false
+        /// </param>
+        /// <param name="cudaVersion">
+        /// Legacy CUDA selector for this cluster. Bare semantic values such as 12.5 select ubuntu-22.04; existing OS-suffixed values remain accepted for compatibility. Must be paired with nvidia_driver_version. Prefer nvidia_version_id for new integrations.
+        /// </param>
+        /// <param name="nvidiaDriverVersion">
+        /// Legacy NVIDIA driver selector for this cluster. For example, 550. Must be paired with cuda_version. Prefer nvidia_version_id for new integrations.
+        /// </param>
+        /// <param name="nvidiaVersionId">
+        /// Canonical region-specific NVIDIA version ID. If cuda_version and nvidia_driver_version are also set, they must resolve to the same catalog entry.
         /// </param>
         /// <param name="slurmImage">
         /// Custom Slurm image for Slurm clusters.
@@ -302,19 +298,19 @@ namespace Together
             int numGpus,
             string clusterName,
             global::Together.GPUClusterCreateRequestBillingType billingType,
-            string cudaVersion,
-            string nvidiaDriverVersion,
             global::Together.GPUClusterCreateRequestClusterType? clusterType,
             int? durationDays,
             global::Together.GPUClustersSharedVolumeCreateRequest? sharedVolume,
             string? volumeId,
-            bool? gpuNodeFailoverEnabled,
             int? autoScaleMaxGpus,
             int? slurmShmSizeGib,
             string? capacityPoolId,
             global::System.DateTime? reservationStartTime,
             global::System.DateTime? reservationEndTime,
             bool? installTraefik,
+            string? cudaVersion,
+            string? nvidiaDriverVersion,
+            string? nvidiaVersionId,
             string? slurmImage,
             global::Together.OIDCConfig? oidcConfig,
             string? projectId,
@@ -335,15 +331,15 @@ namespace Together
             this.SharedVolume = sharedVolume;
             this.VolumeId = volumeId;
             this.BillingType = billingType;
-            this.GpuNodeFailoverEnabled = gpuNodeFailoverEnabled;
             this.AutoScaleMaxGpus = autoScaleMaxGpus;
             this.SlurmShmSizeGib = slurmShmSizeGib;
             this.CapacityPoolId = capacityPoolId;
             this.ReservationStartTime = reservationStartTime;
             this.ReservationEndTime = reservationEndTime;
             this.InstallTraefik = installTraefik;
-            this.CudaVersion = cudaVersion ?? throw new global::System.ArgumentNullException(nameof(cudaVersion));
-            this.NvidiaDriverVersion = nvidiaDriverVersion ?? throw new global::System.ArgumentNullException(nameof(nvidiaDriverVersion));
+            this.CudaVersion = cudaVersion;
+            this.NvidiaDriverVersion = nvidiaDriverVersion;
+            this.NvidiaVersionId = nvidiaVersionId;
             this.SlurmImage = slurmImage;
             this.OidcConfig = oidcConfig;
             this.ProjectId = projectId;

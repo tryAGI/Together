@@ -10,15 +10,15 @@ namespace Together
     public enum RlCheckpointVariant
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CheckpointVariantAdapter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CheckpointVariantMerged,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CheckpointVariantUnspecified,
     }
