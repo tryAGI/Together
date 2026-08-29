@@ -4,26 +4,26 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ImageResponseDataUrl
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Index { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Url { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ImageResponseDataUrlTypeJsonConverter))]

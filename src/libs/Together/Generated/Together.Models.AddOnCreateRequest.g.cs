@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AddOnCreateRequest
     {
@@ -16,14 +16,14 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// Type of add-on. Valid values: 'dashboard', 'ingress'.
+        /// Type of add-on. Valid values: 'dashboard', 'ingress', 'torchpass'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("add_on_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AddOnType { get; set; }
 
         /// <summary>
-        /// 
+        /// Configuration for a cluster add-on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::Together.AddOnConfig? Config { get; set; }
@@ -41,9 +41,11 @@ namespace Together
         /// Human-readable name for this add-on instance.
         /// </param>
         /// <param name="addOnType">
-        /// Type of add-on. Valid values: 'dashboard', 'ingress'.
+        /// Type of add-on. Valid values: 'dashboard', 'ingress', 'torchpass'.
         /// </param>
-        /// <param name="config"></param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -4,19 +4,19 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionUserMessageContentMultimodalItemInputAudio
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentMultimodalItemInputAudioTypeJsonConverter))]
         public global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_audio")]
         [global::System.Text.Json.Serialization.JsonRequired]

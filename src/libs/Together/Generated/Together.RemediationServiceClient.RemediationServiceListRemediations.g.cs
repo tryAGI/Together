@@ -6,6 +6,19 @@ namespace Together
     public partial class RemediationServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_RemediationServiceListRemediationsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_RemediationServiceListRemediationsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -33,7 +46,8 @@ namespace Together
             ref string? pageToken,
             global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? state,
             ref string? orderBy,
-            ref global::Together.RemediationServiceListRemediationsMode? mode);
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? trigger,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? mode);
         partial void PrepareRemediationServiceListRemediationsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -43,7 +57,8 @@ namespace Together
             string? pageToken,
             global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? state,
             string? orderBy,
-            global::Together.RemediationServiceListRemediationsMode? mode);
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? trigger,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? mode);
         partial void ProcessRemediationServiceListRemediationsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,6 +69,7 @@ namespace Together
             ref string content);
 
         /// <summary>
+        /// List remediations<br/>
         /// Lists remediations for an instance or cluster.
         /// </summary>
         /// <param name="clusterId"></param>
@@ -75,27 +91,22 @@ namespace Together
         /// - `SUCCEEDED`: Successfully completed.<br/>
         /// - `FAILED`: Failed with an error.<br/>
         /// - `CANCELLED`: Cancelled by user or system.<br/>
-        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.
+        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+        /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+        /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.
         /// </param>
         /// <param name="orderBy">
         /// Order by expression.
         /// </param>
+        /// <param name="trigger">
+        /// Filter by trigger type(s). Returns remediations matching any of the specified triggers.
+        /// </param>
         /// <param name="mode">
-        /// Filter by remediation mode. Returns only remediations matching the specified mode.
+        /// Filter by remediation mode(s). Returns remediations matching any of the specified modes.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import together<br/>
-        /// client = together.Together(api_key="your_api_key")<br/>
-        /// remediations = client.beta.clusters.remediations.list(<br/>
-        ///   cluster_id="cluster_id",<br/>
-        ///   instance_id="-",<br/>
-        /// )<br/>
-        /// for remediation in remediations:<br/>
-        ///   print(remediation)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.ListRemediationsResponse> RemediationServiceListRemediationsAsync(
             string clusterId,
             string instanceId,
@@ -103,7 +114,8 @@ namespace Together
             string? pageToken = default,
             global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? state = default,
             string? orderBy = default,
-            global::Together.RemediationServiceListRemediationsMode? mode = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? trigger = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? mode = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -114,6 +126,7 @@ namespace Together
                 pageToken: pageToken,
                 state: state,
                 orderBy: orderBy,
+                trigger: trigger,
                 mode: mode,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -122,6 +135,7 @@ namespace Together
             return __response.Body;
         }
         /// <summary>
+        /// List remediations<br/>
         /// Lists remediations for an instance or cluster.
         /// </summary>
         /// <param name="clusterId"></param>
@@ -143,27 +157,22 @@ namespace Together
         /// - `SUCCEEDED`: Successfully completed.<br/>
         /// - `FAILED`: Failed with an error.<br/>
         /// - `CANCELLED`: Cancelled by user or system.<br/>
-        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.
+        /// - `AUTO_RESOLVED`: The underlying issue was automatically resolved before processing.<br/>
+        /// - `QUARANTINING`: Cordoning or preparing the host before remediation.<br/>
+        /// - `QUARANTINED`: Host has been cordoned or isolated for remediation.
         /// </param>
         /// <param name="orderBy">
         /// Order by expression.
         /// </param>
+        /// <param name="trigger">
+        /// Filter by trigger type(s). Returns remediations matching any of the specified triggers.
+        /// </param>
         /// <param name="mode">
-        /// Filter by remediation mode. Returns only remediations matching the specified mode.
+        /// Filter by remediation mode(s). Returns remediations matching any of the specified modes.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import together<br/>
-        /// client = together.Together(api_key="your_api_key")<br/>
-        /// remediations = client.beta.clusters.remediations.list(<br/>
-        ///   cluster_id="cluster_id",<br/>
-        ///   instance_id="-",<br/>
-        /// )<br/>
-        /// for remediation in remediations:<br/>
-        ///   print(remediation)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.ListRemediationsResponse>> RemediationServiceListRemediationsAsResponseAsync(
             string clusterId,
             string instanceId,
@@ -171,7 +180,8 @@ namespace Together
             string? pageToken = default,
             global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? state = default,
             string? orderBy = default,
-            global::Together.RemediationServiceListRemediationsMode? mode = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? trigger = default,
+            global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? mode = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -185,7 +195,8 @@ namespace Together
                 pageToken: ref pageToken,
                 state: state,
                 orderBy: ref orderBy,
-                mode: ref mode);
+                trigger: trigger,
+                mode: mode);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -212,13 +223,16 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: $"/compute/clusters/{clusterId}/instances/{instanceId}/remediations",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_RemediationServiceListRemediationsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("page_token", pageToken)
                                 .AddOptionalParameter("state", state, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("order_by", orderBy)
-                                .AddOptionalParameter("mode", mode?.ToValueString())
+                                .AddOptionalParameter("trigger", trigger, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("mode", mode, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -247,7 +261,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -266,6 +280,7 @@ namespace Together
                     pageToken: pageToken,
                     state: state,
                     orderBy: orderBy,
+                    trigger: trigger,
                     mode: mode);
 
                 return __httpRequest;
@@ -477,17 +492,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -524,17 +537,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 

@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LRSchedulerLrSchedulerType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cosine,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Linear,
     }

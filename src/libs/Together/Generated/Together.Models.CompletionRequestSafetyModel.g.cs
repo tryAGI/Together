@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CompletionRequestSafetyModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MetaLlamaLlamaGuard7b,
     }

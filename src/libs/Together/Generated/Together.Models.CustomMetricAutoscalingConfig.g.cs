@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class CustomMetricAutoscalingConfig
     {
         /// <summary>
-        /// CustomMetricName is the Prometheus metric name. Required. Must match [a-zA-Z_:][a-zA-Z0-9_:]*<br/>
+        /// CustomMetricName is the Prometheus metric name. Must match [a-zA-Z_:][a-zA-Z0-9_:]*<br/>
         /// Example: my_custom_metric
         /// </summary>
         /// <example>my_custom_metric</example>
@@ -43,7 +43,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="CustomMetricAutoscalingConfig" /> class.
         /// </summary>
         /// <param name="customMetricName">
-        /// CustomMetricName is the Prometheus metric name. Required. Must match [a-zA-Z_:][a-zA-Z0-9_:]*<br/>
+        /// CustomMetricName is the Prometheus metric name. Must match [a-zA-Z_:][a-zA-Z0-9_:]*<br/>
         /// Example: my_custom_metric
         /// </param>
         /// <param name="metric">

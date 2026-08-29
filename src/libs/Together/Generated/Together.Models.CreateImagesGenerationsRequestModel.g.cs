@@ -4,20 +4,20 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CreateImagesGenerationsRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BlackForestLabsFlux1Schnell,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BlackForestLabsFlux1SchnellFree,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BlackForestLabsFlux11Pro,
     }

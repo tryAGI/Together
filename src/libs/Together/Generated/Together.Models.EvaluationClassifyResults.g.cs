@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationClassifyResults
     {
@@ -30,7 +30,7 @@ namespace Together
         /// </summary>
         /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("invalid_label_count")]
-        public float? InvalidLabelCount { get; set; }
+        public double? InvalidLabelCount { get; set; }
 
         /// <summary>
         /// Data File ID<br/>
@@ -95,7 +95,7 @@ namespace Together
         public EvaluationClassifyResults(
             double? generationFailCount,
             double? judgeFailCount,
-            float? invalidLabelCount,
+            double? invalidLabelCount,
             string? resultFileId,
             double? passPercentage,
             string? labelCounts)

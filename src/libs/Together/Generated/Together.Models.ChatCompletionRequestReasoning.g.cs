@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class ChatCompletionRequestReasoning
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enabled")]
         public bool? Enabled { get; set; }

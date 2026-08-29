@@ -9,31 +9,31 @@ namespace Together
     public enum ModelInfoType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Chat,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Code,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Embedding,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Language,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Moderation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rerank,
     }

@@ -9,11 +9,11 @@ namespace Together
     public enum ExecuteRequestFileEncoding
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Base64,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         String,
     }

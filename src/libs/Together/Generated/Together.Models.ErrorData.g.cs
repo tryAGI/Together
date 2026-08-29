@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ErrorData
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonRequired]

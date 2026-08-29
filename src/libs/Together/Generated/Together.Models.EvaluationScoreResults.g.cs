@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationScoreResults
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aggregated_scores")]
         public global::Together.EvaluationScoreResultsAggregatedScores? AggregatedScores { get; set; }

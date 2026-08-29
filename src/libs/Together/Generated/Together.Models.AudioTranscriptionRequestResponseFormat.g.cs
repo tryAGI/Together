@@ -10,11 +10,11 @@ namespace Together
     public enum AudioTranscriptionRequestResponseFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Json,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VerboseJson,
     }

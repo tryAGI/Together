@@ -6,6 +6,19 @@ namespace Together
     public partial class FineTuningClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_CreateFineTunesEstimatePriceServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateFineTunesEstimatePriceSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -49,7 +62,7 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>> CreateFineTunesEstimatePriceAsync(
 
             global::Together.CreateFineTunesEstimatePriceRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -72,7 +85,7 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.CreateFineTunesEstimatePriceResponse>> CreateFineTunesEstimatePriceAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>>> CreateFineTunesEstimatePriceAsResponseAsync(
 
             global::Together.CreateFineTunesEstimatePriceRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -111,7 +124,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/fine-tunes/estimate-price",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_CreateFineTunesEstimatePriceServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -139,7 +154,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -362,18 +377,17 @@ namespace Together
                                     __exception_500 = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_500,
-                                    ResponseObject = __value_500,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -397,9 +411,9 @@ namespace Together
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Together.CreateFineTunesEstimatePriceResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.CreateFineTunesEstimatePriceResponse>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -407,17 +421,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -431,9 +443,9 @@ namespace Together
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Together.CreateFineTunesEstimatePriceResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.CreateFineTunesEstimatePriceResponse>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -454,17 +466,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
@@ -509,7 +519,7 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.CreateFineTunesEstimatePriceResponse> CreateFineTunesEstimatePriceAsync(
+        public async global::System.Threading.Tasks.Task<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>> CreateFineTunesEstimatePriceAsync(
             string trainingFile,
             string? validationFile = default,
             string? model = default,

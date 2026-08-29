@@ -4,20 +4,20 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AudioSpeechRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CanopylabsOrpheus3b01Ft,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CartesiaSonic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HexgradKokoro82m,
     }

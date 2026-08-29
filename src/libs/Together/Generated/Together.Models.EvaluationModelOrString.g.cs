@@ -5,12 +5,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct EvaluationModelOrString : global::System.IEquatable<EvaluationModelOrString>
     {
         /// <summary>
-        /// Field name in the input data
+        /// Column name in the input dataset containing pre-generated responses
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? EvaluationModelOrStringVariant1 { get; init; }
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EvaluationModelOrStringVariant1))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsEvaluationModelOrStringVariant1 => EvaluationModelOrStringVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEvaluationModelOrStringVariant1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickEvaluationModelOrStringVariant1() => IsEvaluationModelOrStringVariant1
             ? EvaluationModelOrStringVariant1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EvaluationModelOrStringVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.EvaluationModelRequest? Request { get; init; }
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Request))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsRequest => Request != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickRequest(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.EvaluationModelRequest PickRequest() => IsRequest
             ? Request!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Request' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EvaluationModelOrString(string value) => new EvaluationModelOrString((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(EvaluationModelOrString @this) => @this.EvaluationModelOrStringVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationModelOrString(string? value)
         {
@@ -101,22 +101,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EvaluationModelOrString FromEvaluationModelOrStringVariant1(string? value) => new EvaluationModelOrString(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EvaluationModelOrString(global::Together.EvaluationModelRequest value) => new EvaluationModelOrString((global::Together.EvaluationModelRequest?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.EvaluationModelRequest?(EvaluationModelOrString @this) => @this.Request;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationModelOrString(global::Together.EvaluationModelRequest? value)
         {
@@ -124,12 +124,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EvaluationModelOrString FromRequest(global::Together.EvaluationModelRequest? value) => new EvaluationModelOrString(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EvaluationModelOrString(
             string? evaluationModelOrStringVariant1,
@@ -141,23 +141,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Request as object ??
-            EvaluationModelOrStringVariant1 as object 
+            EvaluationModelOrStringVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             EvaluationModelOrStringVariant1?.ToString() ??
-            Request?.ToString() 
+            Request?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string, TResult>? evaluationModelOrStringVariant1 = null,
@@ -190,7 +190,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<string>? evaluationModelOrStringVariant1 = null,
@@ -214,7 +214,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<string>? evaluationModelOrStringVariant1 = null,
@@ -237,7 +237,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(EvaluationModelOrString other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(EvaluationModelOrStringVariant1, other.EvaluationModelOrStringVariant1) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.EvaluationModelRequest?>.Default.Equals(Request, other.Request) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.EvaluationModelRequest?>.Default.Equals(Request, other.Request)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(EvaluationModelOrString obj1, EvaluationModelOrString obj2)
         {
@@ -277,7 +277,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(EvaluationModelOrString obj1, EvaluationModelOrString obj2)
         {
@@ -285,7 +285,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

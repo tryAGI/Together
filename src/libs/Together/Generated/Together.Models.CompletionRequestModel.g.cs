@@ -4,24 +4,24 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum CompletionRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MetaLlamaLlamaGuard7b,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MetaLlamaLlama270bHf,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MistralaiMistral7bV01,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MistralaiMixtral8x7BV01,
     }

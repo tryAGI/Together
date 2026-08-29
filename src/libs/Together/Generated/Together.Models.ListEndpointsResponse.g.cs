@@ -16,7 +16,7 @@ namespace Together
         public string Object { get; set; } = "list";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]

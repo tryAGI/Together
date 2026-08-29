@@ -8,6 +8,19 @@ namespace Together
     public partial class FineTuningClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_CreateFineTunesServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateFineTunesSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -52,7 +65,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -88,7 +100,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -139,7 +150,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/fine-tunes",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_CreateFineTunesServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -167,7 +180,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -397,17 +410,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -444,17 +455,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
@@ -476,7 +485,7 @@ namespace Together
         /// File-ID of a validation file uploaded to the Together API
         /// </param>
         /// <param name="packing">
-        /// Whether to use sequence packing for training.<br/>
+        /// Whether to use sequence packing for training. This flag has no effect if the training data is in Parquet format.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="maxSeqLength">
@@ -502,8 +511,7 @@ namespace Together
         /// Default Value: max
         /// </param>
         /// <param name="gradientAccumulationSteps">
-        /// Number of steps to accumulate gradients before performing a weight update. Effectively increases the batch size without requiring more memory. For example, with batch_size=4 and gradient_accumulation_steps=8, the effective batch size is 32.<br/>
-        /// Default Value: 1
+        /// Number of steps to accumulate gradients before performing a weight update. If omitted or set to 0, the model default is used.
         /// </param>
         /// <param name="learningRate">
         /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
@@ -515,18 +523,34 @@ namespace Together
         /// </param>
         /// <param name="warmupRatio">
         /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="maxGradNorm">
         /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1
+        /// Default Value: 1.0
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="randomSeed">
         /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
+        /// </param>
+        /// <param name="earlyStoppingEnabled">
+        /// Whether to stop training early when validation loss stops improving. Requires a validation_file, and n_evals must be at least early_stopping_patience + early_stopping_warmup_evals + 1 so a plateau can be detected.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="earlyStoppingPatience">
+        /// Number of consecutive evaluations with no improvement in validation loss to allow before stopping. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 2
+        /// </param>
+        /// <param name="earlyStoppingMinDelta">
+        /// Minimum decrease in validation loss for an evaluation to count as an improvement. Larger values treat small gains as non-improvements, causing training to stop sooner. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 0.0
+        /// </param>
+        /// <param name="earlyStoppingWarmupEvals">
+        /// Number of initial evaluations excluded from the early-stopping decision. These still establish the baseline validation loss but do not count toward patience. Set to 0 to disable warmup; if omitted, defaults to 1. Only applies when early_stopping_enabled is true.<br/>
+        /// Default Value: 1
         /// </param>
         /// <param name="suffix">
         /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
@@ -583,12 +607,16 @@ namespace Together
             int? nEvals = default,
             global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize = default,
             int? gradientAccumulationSteps = default,
-            float? learningRate = default,
+            double? learningRate = default,
             global::Together.LRScheduler? lrScheduler = default,
-            float? warmupRatio = default,
-            float? maxGradNorm = default,
-            float? weightDecay = default,
+            double? warmupRatio = default,
+            double? maxGradNorm = default,
+            double? weightDecay = default,
             int? randomSeed = default,
+            bool? earlyStoppingEnabled = default,
+            int? earlyStoppingPatience = default,
+            double? earlyStoppingMinDelta = default,
+            int? earlyStoppingWarmupEvals = default,
             string? suffix = default,
             string? wandbApiKey = default,
             string? wandbBaseUrl = default,
@@ -624,6 +652,10 @@ namespace Together
                 MaxGradNorm = maxGradNorm,
                 WeightDecay = weightDecay,
                 RandomSeed = randomSeed,
+                EarlyStoppingEnabled = earlyStoppingEnabled,
+                EarlyStoppingPatience = earlyStoppingPatience,
+                EarlyStoppingMinDelta = earlyStoppingMinDelta,
+                EarlyStoppingWarmupEvals = earlyStoppingWarmupEvals,
                 Suffix = suffix,
                 WandbApiKey = wandbApiKey,
                 WandbBaseUrl = wandbBaseUrl,

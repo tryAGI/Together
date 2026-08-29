@@ -4,19 +4,19 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionChoice
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Index { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinishReasonJsonConverter))]
@@ -24,13 +24,13 @@ namespace Together
         public required global::Together.FinishReason FinishReason { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logprobs")]
         public global::Together.LogprobsPart? Logprobs { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("delta")]
         [global::System.Text.Json.Serialization.JsonRequired]

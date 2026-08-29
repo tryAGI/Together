@@ -4,26 +4,26 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RerankResponseResult
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("index")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Index { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("relevance_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double RelevanceScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("document")]
         [global::System.Text.Json.Serialization.JsonRequired]

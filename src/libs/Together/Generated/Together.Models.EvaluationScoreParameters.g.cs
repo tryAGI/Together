@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationScoreParameters
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -17,33 +17,33 @@ namespace Together
 
         /// <summary>
         /// Minimum possible score<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MinScore { get; set; }
+        public required double MinScore { get; set; }
 
         /// <summary>
         /// Maximum possible score<br/>
-        /// Example: 10
+        /// Example: 10.0
         /// </summary>
-        /// <example>10</example>
+        /// <example>10.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_score")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MaxScore { get; set; }
+        public required double MaxScore { get; set; }
 
         /// <summary>
         /// Score threshold for passing<br/>
-        /// Example: 7
+        /// Example: 7.0
         /// </summary>
-        /// <example>7</example>
+        /// <example>7.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_threshold")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float PassThreshold { get; set; }
+        public required double PassThreshold { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_to_evaluate")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationModelOrStringJsonConverter))]
@@ -70,15 +70,15 @@ namespace Together
         /// <param name="judge"></param>
         /// <param name="minScore">
         /// Minimum possible score<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </param>
         /// <param name="maxScore">
         /// Maximum possible score<br/>
-        /// Example: 10
+        /// Example: 10.0
         /// </param>
         /// <param name="passThreshold">
         /// Score threshold for passing<br/>
-        /// Example: 7
+        /// Example: 7.0
         /// </param>
         /// <param name="inputDataFilePath">
         /// Data file ID<br/>
@@ -90,9 +90,9 @@ namespace Together
 #endif
         public EvaluationScoreParameters(
             global::Together.EvaluationJudgeModelConfig judge,
-            float minScore,
-            float maxScore,
-            float passThreshold,
+            double minScore,
+            double maxScore,
+            double passThreshold,
             string inputDataFilePath,
             global::Together.EvaluationModelOrString? modelToEvaluate)
         {

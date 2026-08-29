@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class JobInfoSuccessResponse
     {
@@ -34,14 +34,14 @@ namespace Together
         public required global::Together.JobInfoSuccessResponseStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_updates")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponseStatusUpdate> StatusUpdates { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("args")]
         [global::System.Text.Json.Serialization.JsonRequired]

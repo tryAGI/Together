@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AudioTranscriptionRequestTimestampGranularities
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Segment,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

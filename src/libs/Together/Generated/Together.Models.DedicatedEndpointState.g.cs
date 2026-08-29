@@ -10,27 +10,27 @@ namespace Together
     public enum DedicatedEndpointState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Started,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Starting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stopped,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stopping,
     }

@@ -9,15 +9,15 @@ namespace Together
     public enum GPUClusterInfoBillingType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OnDemand,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reserved,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ScheduledCapacity,
     }

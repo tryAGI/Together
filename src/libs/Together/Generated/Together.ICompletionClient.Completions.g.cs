@@ -13,7 +13,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -40,7 +39,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -112,7 +110,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"105":21.4,"1024":-10.5}
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>
@@ -126,18 +124,18 @@ namespace Together
             global::Together.AnyOf<global::Together.CompletionRequestModel?, string> model,
             int? maxTokens = default,
             global::System.Collections.Generic.IList<string>? stop = default,
-            float? temperature = default,
-            float? topP = default,
+            double? temperature = default,
+            double? topP = default,
             int? topK = default,
-            float? repetitionPenalty = default,
+            double? repetitionPenalty = default,
             int? logprobs = default,
             bool? echo = default,
             int? n = default,
             global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>? safetyModel = default,
-            float? minP = default,
-            float? presencePenalty = default,
-            float? frequencyPenalty = default,
-            global::System.Collections.Generic.Dictionary<string, float>? logitBias = default,
+            double? minP = default,
+            double? presencePenalty = default,
+            double? frequencyPenalty = default,
+            global::System.Collections.Generic.Dictionary<string, double>? logitBias = default,
             int? seed = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

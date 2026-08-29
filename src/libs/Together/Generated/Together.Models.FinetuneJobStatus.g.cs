@@ -4,44 +4,44 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum FinetuneJobStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CancelRequested,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Cancelled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Completed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Compressing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Queued,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Running,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uploading,
     }

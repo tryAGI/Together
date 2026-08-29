@@ -70,6 +70,9 @@ namespace Together
         /// <param name="isLifecycleIndependent">
         /// When true, the shared volume is not deleted when the cluster is decommissioned.
         /// </param>
+        /// <param name="projectId">
+        /// Project ID that will own the volume. When omitted, the caller's default project is used.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -78,6 +81,7 @@ namespace Together
             long sizeTib,
             string region,
             bool? isLifecycleIndependent = default,
+            string? projectId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

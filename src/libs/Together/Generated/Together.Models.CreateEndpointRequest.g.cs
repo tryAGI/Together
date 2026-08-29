@@ -6,7 +6,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateEndpointRequest
     {

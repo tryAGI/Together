@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(String))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsString => String != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickString(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickString() => IsString
             ? String!
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Multimodal))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsMultimodal => Multimodal != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickMultimodal(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>> PickMultimodal() => IsMultimodal
             ? Multimodal!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Multimodal' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionUserMessageContent(string value) => new ChatCompletionUserMessageContent((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(ChatCompletionUserMessageContent @this) => @this.String;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionUserMessageContent(string? value)
         {
@@ -101,12 +101,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionUserMessageContent FromString(string? value) => new ChatCompletionUserMessageContent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionUserMessageContent(
             string? @string,
@@ -118,23 +118,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Multimodal as object ??
-            String as object 
+            String as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             String?.ToString() ??
-            Multimodal?.ToString() 
+            Multimodal?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -142,7 +142,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string, TResult>? @string = null,
@@ -167,7 +167,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<string>? @string = null,
@@ -191,7 +191,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<string>? @string = null,
@@ -214,7 +214,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -235,18 +235,18 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ChatCompletionUserMessageContent other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(String, other.String) &&
-                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?>.Default.Equals(Multimodal, other.Multimodal) 
+                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>?>.Default.Equals(Multimodal, other.Multimodal)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ChatCompletionUserMessageContent obj1, ChatCompletionUserMessageContent obj2)
         {
@@ -254,7 +254,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ChatCompletionUserMessageContent obj1, ChatCompletionUserMessageContent obj2)
         {
@@ -262,7 +262,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

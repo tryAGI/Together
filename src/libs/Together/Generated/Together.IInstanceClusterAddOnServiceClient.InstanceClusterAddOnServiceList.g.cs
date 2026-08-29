@@ -5,7 +5,7 @@ namespace Together
     public partial interface IInstanceClusterAddOnServiceClient
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster whose add-ons to list.
@@ -18,7 +18,7 @@ namespace Together
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster whose add-ons to list.

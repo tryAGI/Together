@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class ExecuteResponseSuccessfulExecutionDataOutputStreamOutput
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputTypeJsonConverter))]
@@ -17,7 +17,7 @@ namespace Together
         public required global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]

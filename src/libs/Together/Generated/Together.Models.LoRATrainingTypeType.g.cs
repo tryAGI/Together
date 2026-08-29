@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Identifies this request as a LoRA fine-tune.
     /// </summary>
     public enum LoRATrainingTypeType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lora,
     }

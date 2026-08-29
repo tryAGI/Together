@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Error response returned by queue endpoints.
     /// </summary>
     public sealed partial class QueueError
     {

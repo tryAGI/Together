@@ -5,7 +5,7 @@ namespace Together
     public partial interface IInstanceClusterAddOnServiceClient
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster to create the add-on on.
@@ -21,7 +21,7 @@ namespace Together
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster to create the add-on on.
@@ -37,14 +37,20 @@ namespace Together
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="clusterId">
         /// The ID of the cluster to create the add-on on.
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="addOnType"></param>
-        /// <param name="config"></param>
+        /// <param name="name">
+        /// Human-readable name for this add-on instance.
+        /// </param>
+        /// <param name="addOnType">
+        /// Type of add-on. Valid values: 'dashboard', 'ingress', 'torchpass', 'headlamp'.
+        /// </param>
+        /// <param name="config">
+        /// Configuration for a cluster add-on.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

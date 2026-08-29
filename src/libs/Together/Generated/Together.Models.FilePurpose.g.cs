@@ -10,15 +10,15 @@ namespace Together
     public enum FilePurpose
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BatchApi,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Eval,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FineTune,
     }

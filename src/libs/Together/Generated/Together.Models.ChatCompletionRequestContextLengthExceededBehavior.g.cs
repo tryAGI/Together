@@ -10,11 +10,11 @@ namespace Together
     public enum ChatCompletionRequestContextLengthExceededBehavior
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Truncate,
     }

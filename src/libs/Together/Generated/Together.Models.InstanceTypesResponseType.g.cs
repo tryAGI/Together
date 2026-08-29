@@ -4,32 +4,36 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InstanceTypesResponseType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         B200Sxm,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        B300Sxm,
+        /// <summary>
+        ///
         /// </summary>
         H100Sxm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H100SxmInf,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         H200Sxm,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         L40Pcie,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rtx6000Pci,
     }
@@ -47,6 +51,7 @@ namespace Together
             return value switch
             {
                 InstanceTypesResponseType.B200Sxm => "B200_SXM",
+                InstanceTypesResponseType.B300Sxm => "B300_SXM",
                 InstanceTypesResponseType.H100Sxm => "H100_SXM",
                 InstanceTypesResponseType.H100SxmInf => "H100_SXM_INF",
                 InstanceTypesResponseType.H200Sxm => "H200_SXM",
@@ -63,6 +68,7 @@ namespace Together
             return value switch
             {
                 "B200_SXM" => InstanceTypesResponseType.B200Sxm,
+                "B300_SXM" => InstanceTypesResponseType.B300Sxm,
                 "H100_SXM" => InstanceTypesResponseType.H100Sxm,
                 "H100_SXM_INF" => InstanceTypesResponseType.H100SxmInf,
                 "H200_SXM" => InstanceTypesResponseType.H200Sxm,

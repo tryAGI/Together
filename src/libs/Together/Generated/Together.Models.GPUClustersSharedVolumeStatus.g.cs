@@ -9,35 +9,35 @@ namespace Together
     public enum GPUClustersSharedVolumeStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AccessRevoked,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Available,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Deleting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Provisioning,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scheduled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

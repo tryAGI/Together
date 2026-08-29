@@ -4,36 +4,30 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class EvaluationCompareResults
     {
         /// <summary>
-        /// Total number of samples compared
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("num_samples")]
-        public int? NumSamples { get; set; }
-
-        /// <summary>
-        /// Number of times model A won
+        /// Number of samples where model A was judged the winner
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("A_wins")]
         public int? AWins { get; set; }
 
         /// <summary>
-        /// Number of times model B won
+        /// Number of samples where model B was judged the winner
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("B_wins")]
         public int? BWins { get; set; }
 
         /// <summary>
-        /// Number of ties
+        /// Number of samples that resulted in a tie score
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("Ties")]
         public int? Ties { get; set; }
 
         /// <summary>
-        /// Number of failed generations.<br/>
+        /// Number of generation failures across model A and model B.<br/>
         /// Example: 0
         /// </summary>
         /// <example>0</example>
@@ -41,7 +35,7 @@ namespace Together
         public double? GenerationFailCount { get; set; }
 
         /// <summary>
-        /// Number of failed judge generations<br/>
+        /// Number of judge inference failures. In the default two-pass mode (disable_position_bias_correction=false) this is the combined failure count from both the original-order and flipped-order judge passes.<br/>
         /// Example: 0
         /// </summary>
         /// <example>0</example>
@@ -49,7 +43,7 @@ namespace Together
         public double? JudgeFailCount { get; set; }
 
         /// <summary>
-        /// Data File ID
+        /// File ID of the detailed output file. Each row contains the original input fields plus judge outputs. In two-pass mode the file includes both original-order and flipped-order judge fields; in single-pass mode (disable_position_bias_correction=true) only original-order fields are present.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_file_id")]
         public string? ResultFileId { get; set; }
@@ -63,34 +57,30 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationCompareResults" /> class.
         /// </summary>
-        /// <param name="numSamples">
-        /// Total number of samples compared
-        /// </param>
         /// <param name="aWins">
-        /// Number of times model A won
+        /// Number of samples where model A was judged the winner
         /// </param>
         /// <param name="bWins">
-        /// Number of times model B won
+        /// Number of samples where model B was judged the winner
         /// </param>
         /// <param name="ties">
-        /// Number of ties
+        /// Number of samples that resulted in a tie score
         /// </param>
         /// <param name="generationFailCount">
-        /// Number of failed generations.<br/>
+        /// Number of generation failures across model A and model B.<br/>
         /// Example: 0
         /// </param>
         /// <param name="judgeFailCount">
-        /// Number of failed judge generations<br/>
+        /// Number of judge inference failures. In the default two-pass mode (disable_position_bias_correction=false) this is the combined failure count from both the original-order and flipped-order judge passes.<br/>
         /// Example: 0
         /// </param>
         /// <param name="resultFileId">
-        /// Data File ID
+        /// File ID of the detailed output file. Each row contains the original input fields plus judge outputs. In two-pass mode the file includes both original-order and flipped-order judge fields; in single-pass mode (disable_position_bias_correction=true) only original-order fields are present.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EvaluationCompareResults(
-            int? numSamples,
             int? aWins,
             int? bWins,
             int? ties,
@@ -98,7 +88,6 @@ namespace Together
             double? judgeFailCount,
             string? resultFileId)
         {
-            this.NumSamples = numSamples;
             this.AWins = aWins;
             this.BWins = bWins;
             this.Ties = ties;

@@ -10,11 +10,11 @@ namespace Together
     public enum CreateImagesGenerationsRequestOutputFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
     }

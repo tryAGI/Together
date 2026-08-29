@@ -31,7 +31,7 @@ namespace Together
         /// Result on success
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
-        public global::Together.RlSampleResult? Output { get; set; }
+        public global::Together.RlSampleBatchResult? Output { get; set; }
 
         /// <summary>
         /// Error details on failure
@@ -68,7 +68,7 @@ namespace Together
         public RlSampleOperation(
             string id,
             global::Together.RlTrainingOperationStatus status,
-            global::Together.RlSampleResult? output,
+            global::Together.RlSampleBatchResult? output,
             global::Together.RlTrainingOperationError? error)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));

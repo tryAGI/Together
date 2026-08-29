@@ -9,71 +9,71 @@ namespace Together
     public enum ClusterPhaseTransitionPhase
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseAcceptanceTestsFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseDegraded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseDeleting,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseInstallingDrivers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseNcclTestsFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseOnDemandComputePaused,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhasePaused,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseQueued,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseReady,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseRunningAcceptanceTests,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseRunningNcclTests,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseScheduled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseWaitingForAutoScaler,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseWaitingForControlPlaneNodes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseWaitingForDataPlaneNodes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseWaitingForSharedVolume,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ClusterPhaseWaitingForSubnet,
     }

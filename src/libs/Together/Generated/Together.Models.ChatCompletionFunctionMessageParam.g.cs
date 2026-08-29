@@ -4,13 +4,13 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class ChatCompletionFunctionMessageParam
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleJsonConverter))]
@@ -18,7 +18,7 @@ namespace Together
         public global::Together.ChatCompletionFunctionMessageParamRole Role { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -26,7 +26,7 @@ namespace Together
         public required string Content { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]

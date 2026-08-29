@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ChatCompletionRequestFunctionCallEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

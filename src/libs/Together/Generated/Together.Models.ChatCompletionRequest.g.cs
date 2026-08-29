@@ -6,7 +6,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionRequest
     {
@@ -40,13 +40,13 @@ namespace Together
         /// A decimal number from 0-1 that determines the degree of randomness in the response. A temperature less than 1 favors more correctness and is appropriate for question answering or summarization. A value closer to 1 introduces more randomness in the output.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public float? Temperature { get; set; }
+        public double? Temperature { get; set; }
 
         /// <summary>
         /// A percentage (also called the nucleus parameter) that's used to dynamically adjust the number of choices for each predicted token based on the cumulative probabilities. It specifies a probability threshold below which all less likely tokens are filtered out. This technique helps maintain diversity and generate more fluent and natural-sounding text.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("top_p")]
-        public float? TopP { get; set; }
+        public double? TopP { get; set; }
 
         /// <summary>
         /// An integer that's used to limit the number of choices for the next predicted word or token. It specifies the maximum number of tokens to consider at each step, based on their probability of occurrence. This technique helps to speed up the generation process and can improve the quality of the generated text by focusing on the most likely options.
@@ -96,27 +96,27 @@ namespace Together
         /// A number between 0 and 1 that can be used as an alternative to top_p and top-k.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_p")]
-        public float? MinP { get; set; }
+        public double? MinP { get; set; }
 
         /// <summary>
         /// A number between -2.0 and 2.0 where a positive value increases the likelihood of a model talking about new topics.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("presence_penalty")]
-        public float? PresencePenalty { get; set; }
+        public double? PresencePenalty { get; set; }
 
         /// <summary>
         /// A number between -2.0 and 2.0 where a positive value decreases the likelihood of repeating tokens that have already been mentioned.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("frequency_penalty")]
-        public float? FrequencyPenalty { get; set; }
+        public double? FrequencyPenalty { get; set; }
 
         /// <summary>
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"105":21.4,"1024":-10.5}
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </summary>
-        /// <example>{"105":21.4,"1024":-10.5}</example>
+        /// <example>{"1024":-10.5,"105":21.4}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("logit_bias")]
-        public global::System.Collections.Generic.Dictionary<string, float>? LogitBias { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, double>? LogitBias { get; set; }
 
         /// <summary>
         /// Seed value for reproducibility.<br/>
@@ -127,7 +127,7 @@ namespace Together
         public int? Seed { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>))]
@@ -161,7 +161,7 @@ namespace Together
         public global::Together.OneOf<string, global::Together.ToolChoice2>? ToolChoice { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("compliance")]
         public string? Compliance { get; set; }
@@ -255,7 +255,7 @@ namespace Together
         /// </param>
         /// <param name="logitBias">
         /// Adjusts the likelihood of specific tokens appearing in the generated output.<br/>
-        /// Example: {"105":21.4,"1024":-10.5}
+        /// Example: {"1024":-10.5,"105":21.4}
         /// </param>
         /// <param name="seed">
         /// Seed value for reproducibility.<br/>
@@ -301,8 +301,8 @@ namespace Together
             string model,
             int? maxTokens,
             global::System.Collections.Generic.IList<string>? stop,
-            float? temperature,
-            float? topP,
+            double? temperature,
+            double? topP,
             int? topK,
             global::Together.ChatCompletionRequestContextLengthExceededBehavior? contextLengthExceededBehavior,
             double? repetitionPenalty,
@@ -310,10 +310,10 @@ namespace Together
             int? logprobs,
             bool? echo,
             int? n,
-            float? minP,
-            float? presencePenalty,
-            float? frequencyPenalty,
-            global::System.Collections.Generic.Dictionary<string, float>? logitBias,
+            double? minP,
+            double? presencePenalty,
+            double? frequencyPenalty,
+            global::System.Collections.Generic.Dictionary<string, double>? logitBias,
             int? seed,
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall,
             global::Together.ResponseFormat? responseFormat,

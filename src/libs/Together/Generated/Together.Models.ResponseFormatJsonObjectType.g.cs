@@ -9,7 +9,7 @@ namespace Together
     public enum ResponseFormatJsonObjectType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonObject,
     }

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RlLossConfig
     {
@@ -25,10 +25,28 @@ namespace Together
         public global::Together.RlCrossEntropyLossParams? CrossEntropyParams { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("grpo_params")]
         public global::Together.RlGRPOLossParams? GrpoParams { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ppo_params")]
+        public global::Together.RlPPOLossParams? PpoParams { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cispo_params")]
+        public global::Together.RlCISPOLossParams? CispoParams { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dro_params")]
+        public global::Together.RlDROLossParams? DroParams { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,17 +65,26 @@ namespace Together
         /// Cross-entropy loss parameters (currently empty).
         /// </param>
         /// <param name="grpoParams"></param>
+        /// <param name="ppoParams"></param>
+        /// <param name="cispoParams"></param>
+        /// <param name="droParams"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlLossConfig(
             global::Together.RlLossType type,
             global::Together.RlCrossEntropyLossParams? crossEntropyParams,
-            global::Together.RlGRPOLossParams? grpoParams)
+            global::Together.RlGRPOLossParams? grpoParams,
+            global::Together.RlPPOLossParams? ppoParams,
+            global::Together.RlCISPOLossParams? cispoParams,
+            global::Together.RlDROLossParams? droParams)
         {
             this.Type = type;
             this.CrossEntropyParams = crossEntropyParams;
             this.GrpoParams = grpoParams;
+            this.PpoParams = ppoParams;
+            this.CispoParams = cispoParams;
+            this.DroParams = droParams;
         }
 
         /// <summary>

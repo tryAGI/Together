@@ -10,7 +10,7 @@ namespace Together
     public enum QueueAutoscalingConfigMetric
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         QueueBacklogPerWorker,
     }

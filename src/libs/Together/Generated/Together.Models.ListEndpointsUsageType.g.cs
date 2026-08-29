@@ -9,11 +9,11 @@ namespace Together
     public enum ListEndpointsUsageType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OnDemand,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reserved,
     }

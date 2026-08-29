@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ChatCompletionUserMessageParamRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

@@ -4,19 +4,19 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SessionListResponseVariant2DataSession
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("execute_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ExecuteCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,14 +32,14 @@ namespace Together
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_execute_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.DateTime LastExecuteAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("started_at")]
         [global::System.Text.Json.Serialization.JsonRequired]

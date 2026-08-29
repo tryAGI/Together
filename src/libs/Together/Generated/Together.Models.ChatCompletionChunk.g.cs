@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionChunk
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -23,14 +23,14 @@ namespace Together
         public string Object { get; set; } = "chat.completion.chunk";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Created { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_fingerprint")]
         public string? SystemFingerprint { get; set; }
@@ -44,21 +44,21 @@ namespace Together
         public required string Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choices")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::Together.ChatCompletionChunkChoice> Choices { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>))]
         public global::Together.AllOf<global::Together.UsageData, object>? Usage { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
         public global::System.Collections.Generic.IList<global::Together.InferenceWarning>? Warnings { get; set; }

@@ -11,11 +11,11 @@ namespace Together
     public enum ModelUploadRequestModelType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adapter,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Model,
     }

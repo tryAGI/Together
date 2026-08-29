@@ -13,7 +13,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cents_per_minute")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float CentsPerMinute { get; set; }
+        public required double CentsPerMinute { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,7 +31,7 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EndpointPricing(
-            float centsPerMinute)
+            double centsPerMinute)
         {
             this.CentsPerMinute = centsPerMinute;
         }

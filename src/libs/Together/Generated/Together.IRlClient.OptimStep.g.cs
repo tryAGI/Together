@@ -6,7 +6,7 @@ namespace Together
     {
         /// <summary>
         /// Optimizer step<br/>
-        /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.
+        /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters. Does not make the updated parameters available for sampling; call `weights-sync` afterwards when you want subsequent samples to use the updated policy.
         /// </summary>
         /// <param name="sessionId">
         /// Training session ID
@@ -23,7 +23,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Optimizer step<br/>
-        /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.
+        /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters. Does not make the updated parameters available for sampling; call `weights-sync` afterwards when you want subsequent samples to use the updated policy.
         /// </summary>
         /// <param name="sessionId">
         /// Training session ID
@@ -40,26 +40,24 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Optimizer step<br/>
-        /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters.
+        /// Submits an optimizer step operation that will asynchronously apply accumulated gradients to update model parameters. Does not make the updated parameters available for sampling; call `weights-sync` afterwards when you want subsequent samples to use the updated policy.
         /// </summary>
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
-        /// <param name="learningRate">
-        /// Learning rate for this step.<br/>
-        /// Default Value: 0.0001<br/>
-        /// Example: 0.0001
+        /// <param name="adamParams">
+        /// Adam optimizer overrides for this step.
         /// </param>
-        /// <param name="adamwParams">
-        /// AdamW optimizer parameters
+        /// <param name="muonParams">
+        /// Muon optimizer overrides for this step.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Together.RlOptimStepOperation> OptimStepAsync(
             string sessionId,
-            float? learningRate = default,
-            global::Together.RlAdamWOptimizerParams? adamwParams = default,
+            global::Together.RlAdamParams? adamParams = default,
+            global::Together.RlMuonParams? muonParams = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

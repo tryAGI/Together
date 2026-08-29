@@ -6,6 +6,19 @@ namespace Together
     public partial class FineTuningClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_DeleteFineTunesByIdServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_DeleteFineTunesByIdSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -58,7 +71,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -97,7 +109,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -144,7 +155,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: $"/fine-tunes/{id}",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_DeleteFineTunesByIdServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
                                 ;
@@ -175,7 +188,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -393,18 +406,17 @@ namespace Together
                                     __exception_404 = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_404,
-                                    ResponseObject = __value_404,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Internal server error
                             if ((int)__response.StatusCode == 500)
@@ -431,18 +443,17 @@ namespace Together
                                     __exception_500 = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_500,
-                                    ResponseObject = __value_500,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -476,17 +487,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -523,17 +532,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 

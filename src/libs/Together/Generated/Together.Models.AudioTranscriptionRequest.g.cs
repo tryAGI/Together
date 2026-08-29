@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AudioTranscriptionRequest
     {
         /// <summary>
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats: .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac. Maximum duration 4 hours; longer audio is rejected with `audio_too_long`. Binary uploads are additionally capped at 80 MB (HTTP 413); URL-fetched audio is capped at 1 GB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<byte[], string>))]
@@ -49,10 +49,10 @@ namespace Together
 
         /// <summary>
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("temperature")]
-        public float? Temperature { get; set; }
+        public double? Temperature { get; set; }
 
         /// <summary>
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
@@ -105,7 +105,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="AudioTranscriptionRequest" /> class.
         /// </summary>
         /// <param name="file">
-        /// Audio file upload or public HTTP/HTTPS URL. Supported formats .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac.
+        /// Audio file upload or public HTTP/HTTPS URL. Supported formats: .wav, .mp3, .m4a, .webm, .flac, .ogg, .opus, .aac. Maximum duration 4 hours; longer audio is rejected with `audio_too_long`. Binary uploads are additionally capped at 80 MB (HTTP 413); URL-fetched audio is capped at 1 GB.
         /// </param>
         /// <param name="model">
         /// Model to use for transcription<br/>
@@ -125,7 +125,7 @@ namespace Together
         /// </param>
         /// <param name="temperature">
         /// Sampling temperature between 0.0 and 1.0<br/>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="timestampGranularities">
         /// Controls level of timestamp detail in verbose_json. Only used when response_format is verbose_json. Can be a single granularity or an array to get multiple levels.<br/>
@@ -163,7 +163,7 @@ namespace Together
             string? language,
             string? prompt,
             global::Together.AudioTranscriptionRequestResponseFormat? responseFormat,
-            float? temperature,
+            double? temperature,
             global::Together.OneOf<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>? timestampGranularities,
             bool? diarize,
             int? minSpeakers,

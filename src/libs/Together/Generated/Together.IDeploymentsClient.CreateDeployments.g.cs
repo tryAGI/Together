@@ -94,7 +94,7 @@ namespace Together
         /// MinReplicas is the minimum number of container instances to run. Defaults to 1 if not specified
         /// </param>
         /// <param name="name">
-        /// Name is the unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
+        /// Name is the unique identifier for your deployment. Must contain lowercase letters, numbers, or hyphens, start with a lowercase letter or number, and be 4-63 characters. It cannot be changed.
         /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic

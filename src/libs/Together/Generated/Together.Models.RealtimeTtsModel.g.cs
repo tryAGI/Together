@@ -10,11 +10,11 @@ namespace Together
     public enum RealtimeTtsModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CartesiaSonicEnglish,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HexgradKokoro82m,
     }

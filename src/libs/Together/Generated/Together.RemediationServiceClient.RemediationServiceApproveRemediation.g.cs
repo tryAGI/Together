@@ -6,6 +6,19 @@ namespace Together
     public partial class RemediationServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_RemediationServiceApproveRemediationServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_RemediationServiceApproveRemediationSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -30,14 +43,14 @@ namespace Together
             ref string clusterId,
             ref string instanceId,
             ref string remediationId,
-            global::Together.CommentBody request);
+            global::Together.ApproveRemediationRequest request);
         partial void PrepareRemediationServiceApproveRemediationRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string clusterId,
             string instanceId,
             string remediationId,
-            global::Together.CommentBody request);
+            global::Together.ApproveRemediationRequest request);
         partial void ProcessRemediationServiceApproveRemediationResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -66,7 +79,7 @@ namespace Together
             string instanceId,
             string remediationId,
 
-            global::Together.CommentBody request,
+            global::Together.ApproveRemediationRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,7 +114,7 @@ namespace Together
             string instanceId,
             string remediationId,
 
-            global::Together.CommentBody request,
+            global::Together.ApproveRemediationRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -141,7 +154,9 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: $"/compute/clusters/{clusterId}/instances/{instanceId}/remediations/{remediationId}/approve",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_RemediationServiceApproveRemediationServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -169,7 +184,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -402,17 +417,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -449,17 +462,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
@@ -481,7 +492,15 @@ namespace Together
         /// <param name="instanceId"></param>
         /// <param name="remediationId"></param>
         /// <param name="comment">
-        /// Comment explaining the action.
+        /// Approval comment explaining the decision.
+        /// </param>
+        /// <param name="mode">
+        /// Remediation mode to use after approval. When omitted, the remediation keeps its existing mode.<br/>
+        /// - `REMEDIATION_MODE_VM_ONLY`: Deletes the VM and provisions a new one on any available host.<br/>
+        /// - `REMEDIATION_MODE_HOST_AWARE`: Cordons the host, deletes the VM, and provisions a new one on a different host.<br/>
+        /// - `REMEDIATION_MODE_EVICT_WITHOUT_REPLACEMENT`: Evicts the VM without provisioning a replacement.<br/>
+        /// - `REMEDIATION_MODE_REBOOT_VM`: Reboots the VM in place.<br/>
+        /// - `REMEDIATION_MODE_HOST_POWER_CYCLE`: Power-cycles the bare-metal host after cordoning it. This mode cannot be set as an approval override; create a host power-cycle remediation directly.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -491,12 +510,14 @@ namespace Together
             string instanceId,
             string remediationId,
             string? comment = default,
+            global::Together.ApproveRemediationRequestMode? mode = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Together.CommentBody
+            var __request = new global::Together.ApproveRemediationRequest
             {
                 Comment = comment,
+                Mode = mode,
             };
 
             return await RemediationServiceApproveRemediationAsync(

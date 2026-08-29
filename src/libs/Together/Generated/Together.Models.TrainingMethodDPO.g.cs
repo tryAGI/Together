@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TrainingMethodDPO
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("method")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.TrainingMethodDPOMethodJsonConverter))]
@@ -19,13 +19,13 @@ namespace Together
         /// Default Value: 0.1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dpo_beta")]
-        public float? DpoBeta { get; set; }
+        public double? DpoBeta { get; set; }
 
         /// <summary>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rpo_alpha")]
-        public float? RpoAlpha { get; set; }
+        public double? RpoAlpha { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -40,10 +40,10 @@ namespace Together
         public bool? DpoReferenceFree { get; set; }
 
         /// <summary>
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("simpo_gamma")]
-        public float? SimpoGamma { get; set; }
+        public double? SimpoGamma { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -59,7 +59,7 @@ namespace Together
         /// Default Value: 0.1
         /// </param>
         /// <param name="rpoAlpha">
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
         /// <param name="dpoNormalizeLogratiosByLength">
         /// Default Value: false
@@ -68,18 +68,18 @@ namespace Together
         /// Default Value: false
         /// </param>
         /// <param name="simpoGamma">
-        /// Default Value: 0
+        /// Default Value: 0.0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TrainingMethodDPO(
             global::Together.TrainingMethodDPOMethod method,
-            float? dpoBeta,
-            float? rpoAlpha,
+            double? dpoBeta,
+            double? rpoAlpha,
             bool? dpoNormalizeLogratiosByLength,
             bool? dpoReferenceFree,
-            float? simpoGamma)
+            double? simpoGamma)
         {
             this.Method = method;
             this.DpoBeta = dpoBeta;

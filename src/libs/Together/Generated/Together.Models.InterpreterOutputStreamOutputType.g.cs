@@ -4,16 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InterpreterOutputStreamOutputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stderr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stdout,
     }

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Current status and metadata for a queued job.
     /// </summary>
     public sealed partial class QueueJobStatusResponse
     {

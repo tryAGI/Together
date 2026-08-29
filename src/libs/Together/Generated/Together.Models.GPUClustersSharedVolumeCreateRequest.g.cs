@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GPUClustersSharedVolumeCreateRequest
     {
@@ -36,6 +36,12 @@ namespace Together
         public bool? IsLifecycleIndependent { get; set; }
 
         /// <summary>
+        /// Project ID that will own the volume. When omitted, the caller's default project is used.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
+        public string? ProjectId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +62,9 @@ namespace Together
         /// <param name="isLifecycleIndependent">
         /// When true, the shared volume is not deleted when the cluster is decommissioned.
         /// </param>
+        /// <param name="projectId">
+        /// Project ID that will own the volume. When omitted, the caller's default project is used.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -63,12 +72,14 @@ namespace Together
             string volumeName,
             long sizeTib,
             string region,
-            bool? isLifecycleIndependent)
+            bool? isLifecycleIndependent,
+            string? projectId)
         {
             this.VolumeName = volumeName ?? throw new global::System.ArgumentNullException(nameof(volumeName));
             this.SizeTib = sizeTib;
             this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
             this.IsLifecycleIndependent = isLifecycleIndependent;
+            this.ProjectId = projectId;
         }
 
         /// <summary>

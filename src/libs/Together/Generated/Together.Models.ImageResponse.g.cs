@@ -4,19 +4,19 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ImageResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -30,11 +30,11 @@ namespace Together
         public string Object { get; set; } = "list";
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Together.DataItem3> Data { get; set; }
+        public required global::System.Collections.Generic.IList<global::Together.DataItem> Data { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -57,7 +57,7 @@ namespace Together
         public ImageResponse(
             string id,
             string model,
-            global::System.Collections.Generic.IList<global::Together.DataItem3> data,
+            global::System.Collections.Generic.IList<global::Together.DataItem> data,
             string @object = "list")
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));

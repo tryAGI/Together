@@ -10,39 +10,48 @@ namespace Together
     {
         /// <summary>
         /// Rank of the LoRA adapter<br/>
-        /// Default Value: 8<br/>
-        /// Example: 8
+        /// Default Value: 32<br/>
+        /// Example: 32
         /// </summary>
-        /// <example>8</example>
+        /// <example>32</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("rank")]
-        public long? Rank { get; set; }
+        public int? Rank { get; set; }
 
         /// <summary>
         /// Alpha of the LoRA adapter<br/>
-        /// Default Value: 16<br/>
-        /// Example: 16
+        /// Default Value: 64<br/>
+        /// Example: 64
         /// </summary>
-        /// <example>16</example>
+        /// <example>64</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("alpha")]
-        public long? Alpha { get; set; }
+        public int? Alpha { get; set; }
 
         /// <summary>
         /// Dropout of the LoRA adapter<br/>
-        /// Default Value: 0.05<br/>
-        /// Example: 0.05
+        /// Default Value: 0.0<br/>
+        /// Example: 0
         /// </summary>
-        /// <example>0.05</example>
+        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("dropout")]
-        public float? Dropout { get; set; }
+        public double? Dropout { get; set; }
 
         /// <summary>
-        /// Whether to enable LoRA fine-tuning. If false, full fine-tuning is used.<br/>
+        /// Random seed for initializing LoRA adapter weights. Ignored when LoRA is disabled or the session resumes from a checkpoint.<br/>
+        /// Example: 59
+        /// </summary>
+        /// <example>59</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seed")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, int?>))]
+        public global::Together.OneOf<string, int?>? Seed { get; set; }
+
+        /// <summary>
+        /// Whether to also train a LoRA adapter on the output head. Defaults to true.<br/>
         /// Default Value: true<br/>
         /// Example: true
         /// </summary>
         /// <example>true</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enable")]
-        public bool? Enable { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("train_unembed")]
+        public bool? TrainUnembed { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -55,21 +64,25 @@ namespace Together
         /// </summary>
         /// <param name="rank">
         /// Rank of the LoRA adapter<br/>
-        /// Default Value: 8<br/>
-        /// Example: 8
+        /// Default Value: 32<br/>
+        /// Example: 32
         /// </param>
         /// <param name="alpha">
         /// Alpha of the LoRA adapter<br/>
-        /// Default Value: 16<br/>
-        /// Example: 16
+        /// Default Value: 64<br/>
+        /// Example: 64
         /// </param>
         /// <param name="dropout">
         /// Dropout of the LoRA adapter<br/>
-        /// Default Value: 0.05<br/>
-        /// Example: 0.05
+        /// Default Value: 0.0<br/>
+        /// Example: 0
         /// </param>
-        /// <param name="enable">
-        /// Whether to enable LoRA fine-tuning. If false, full fine-tuning is used.<br/>
+        /// <param name="seed">
+        /// Random seed for initializing LoRA adapter weights. Ignored when LoRA is disabled or the session resumes from a checkpoint.<br/>
+        /// Example: 59
+        /// </param>
+        /// <param name="trainUnembed">
+        /// Whether to also train a LoRA adapter on the output head. Defaults to true.<br/>
         /// Default Value: true<br/>
         /// Example: true
         /// </param>
@@ -77,15 +90,17 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlLoraConfig(
-            long? rank,
-            long? alpha,
-            float? dropout,
-            bool? enable)
+            int? rank,
+            int? alpha,
+            double? dropout,
+            global::Together.OneOf<string, int?>? seed,
+            bool? trainUnembed)
         {
             this.Rank = rank;
             this.Alpha = alpha;
             this.Dropout = dropout;
-            this.Enable = enable;
+            this.Seed = seed;
+            this.TrainUnembed = trainUnembed;
         }
 
         /// <summary>

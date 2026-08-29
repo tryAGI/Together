@@ -6,6 +6,19 @@ namespace Together
     public partial class RlClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ListTrainingSessionsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ListTrainingSessionsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -27,15 +40,19 @@ namespace Together
             };
         partial void PrepareListTrainingSessionsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::Together.RlTrainingSessionStatus? status,
+            global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status,
             ref int? limit,
-            ref string? after);
+            ref string? after,
+            ref string? modelResourcesId,
+            ref string? createdBy);
         partial void PrepareListTrainingSessionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.RlTrainingSessionStatus? status,
+            global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status,
             int? limit,
-            string? after);
+            string? after,
+            string? modelResourcesId,
+            string? createdBy);
         partial void ProcessListTrainingSessionsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -50,8 +67,7 @@ namespace Together
         /// Lists all training sessions.
         /// </summary>
         /// <param name="status">
-        /// Status of the training sessions to list<br/>
-        /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
+        /// Status filters. When omitted, sessions in any status are returned.
         /// </param>
         /// <param name="limit">
         /// Maximum number of sessions to return (1-100)<br/>
@@ -60,13 +76,21 @@ namespace Together
         /// <param name="after">
         /// Cursor for pagination (ID of the last session from the previous page)
         /// </param>
+        /// <param name="modelResourcesId">
+        /// Filter sessions by the model resource they are attached to
+        /// </param>
+        /// <param name="createdBy">
+        /// Filter sessions in the current project by the creator ID. Pass "me" to show sessions you created.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSessionsListResponse> ListTrainingSessionsAsync(
-            global::Together.RlTrainingSessionStatus? status = default,
+            global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status = default,
             int? limit = default,
             string? after = default,
+            string? modelResourcesId = default,
+            string? createdBy = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,6 +98,8 @@ namespace Together
                 status: status,
                 limit: limit,
                 after: after,
+                modelResourcesId: modelResourcesId,
+                createdBy: createdBy,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -85,8 +111,7 @@ namespace Together
         /// Lists all training sessions.
         /// </summary>
         /// <param name="status">
-        /// Status of the training sessions to list<br/>
-        /// Default Value: TRAINING_SESSION_STATUS_UNSPECIFIED
+        /// Status filters. When omitted, sessions in any status are returned.
         /// </param>
         /// <param name="limit">
         /// Maximum number of sessions to return (1-100)<br/>
@@ -95,13 +120,21 @@ namespace Together
         /// <param name="after">
         /// Cursor for pagination (ID of the last session from the previous page)
         /// </param>
+        /// <param name="modelResourcesId">
+        /// Filter sessions by the model resource they are attached to
+        /// </param>
+        /// <param name="createdBy">
+        /// Filter sessions in the current project by the creator ID. Pass "me" to show sessions you created.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlTrainingSessionsListResponse>> ListTrainingSessionsAsResponseAsync(
-            global::Together.RlTrainingSessionStatus? status = default,
+            global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status = default,
             int? limit = default,
             string? after = default,
+            string? modelResourcesId = default,
+            string? createdBy = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -109,9 +142,11 @@ namespace Together
                 client: HttpClient);
             PrepareListTrainingSessionsArguments(
                 httpClient: HttpClient,
-                status: ref status,
+                status: status,
                 limit: ref limit,
-                after: ref after);
+                after: ref after,
+                modelResourcesId: ref modelResourcesId,
+                createdBy: ref createdBy);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -138,11 +173,15 @@ namespace Together
 
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: "/rl/training-sessions",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: ResolveBaseUri(
+                                servers: s_ListTrainingSessionsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
-                                .AddOptionalParameter("status", status?.ToValueString())
+                                .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
+                                .AddOptionalParameter("model_resources_id", modelResourcesId)
+                                .AddOptionalParameter("created_by", createdBy)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -171,7 +210,7 @@ namespace Together
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -186,7 +225,9 @@ namespace Together
                     httpRequestMessage: __httpRequest,
                     status: status,
                     limit: limit,
-                    after: after);
+                    after: after,
+                    modelResourcesId: modelResourcesId,
+                    createdBy: createdBy);
 
                 return __httpRequest;
             }
@@ -390,18 +431,17 @@ namespace Together
                                     __exception_default = __ex;
                                 }
 
-                                throw new global::Together.ApiException<global::Together.ErrorData>(
+
+                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_default,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_default,
-                                    ResponseObject = __value_default,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_default,
+                                    responseObject: __value_default,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -435,17 +475,15 @@ namespace Together
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -482,17 +520,15 @@ namespace Together
                                     {
                                     }
 
-                                    throw new global::Together.ApiException(
+                                    throw global::Together.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 

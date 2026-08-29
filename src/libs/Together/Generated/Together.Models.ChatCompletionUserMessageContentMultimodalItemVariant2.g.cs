@@ -4,19 +4,19 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionUserMessageContentMultimodalItemVariant2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionUserMessageContentMultimodalItemVariant2TypeJsonConverter))]
         public global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2Type? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
         public global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2ImageUrl? ImageUrl { get; set; }

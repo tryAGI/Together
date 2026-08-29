@@ -27,7 +27,7 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_memory")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float GpuMemory { get; set; }
+        public required double GpuMemory { get; set; }
 
         /// <summary>
         /// Number of GPUs in this configuration
@@ -63,7 +63,7 @@ namespace Together
         public HardwareSpec(
             string gpuType,
             string gpuLink,
-            float gpuMemory,
+            double gpuMemory,
             int gpuCount)
         {
             this.GpuType = gpuType ?? throw new global::System.ArgumentNullException(nameof(gpuType));

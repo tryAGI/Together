@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum InterpreterOutputErrorOutputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
     }

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Status returned after a cancel attempt.
     /// </summary>
     public sealed partial class QueueCancelResponse
     {

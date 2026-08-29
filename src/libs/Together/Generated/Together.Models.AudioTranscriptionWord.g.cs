@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AudioTranscriptionWord
     {
@@ -19,12 +19,12 @@ namespace Together
 
         /// <summary>
         /// Start time of the word in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </summary>
-        /// <example>0</example>
+        /// <example>0.0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float Start { get; set; }
+        public required double Start { get; set; }
 
         /// <summary>
         /// End time of the word in seconds<br/>
@@ -33,7 +33,7 @@ namespace Together
         /// <example>0.5</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("end")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float End { get; set; }
+        public required double End { get; set; }
 
         /// <summary>
         /// The speaker id for the word (only when diarize is enabled)<br/>
@@ -58,7 +58,7 @@ namespace Together
         /// </param>
         /// <param name="start">
         /// Start time of the word in seconds<br/>
-        /// Example: 0
+        /// Example: 0.0
         /// </param>
         /// <param name="end">
         /// End time of the word in seconds<br/>
@@ -73,8 +73,8 @@ namespace Together
 #endif
         public AudioTranscriptionWord(
             string word,
-            float start,
-            float end,
+            double start,
+            double end,
             string? speakerId)
         {
             this.Word = word ?? throw new global::System.ArgumentNullException(nameof(word));

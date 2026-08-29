@@ -4,108 +4,116 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum FinetuneEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BillingLimit,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CancelRequested,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CheckpointSave,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        EarlyStopped,
+        /// <summary>
+        ///
         /// </summary>
         EpochComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobPending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobRestarted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobStart,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobStopped,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelCompressing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelCompressionComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelDownloadComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelDownloading,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelUploadComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ModelUploading,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Refund,
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        TokenizedDatasetUploadComplete,
+        /// <summary>
+        ///
         /// </summary>
         TrainingComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingDataDownloadComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingDataDownloading,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrainingStart,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ValidationDataDownloadComplete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ValidationDataDownloading,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WandbInit,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Warning,
     }
@@ -125,6 +133,7 @@ namespace Together
                 FinetuneEventType.BillingLimit => "billing_limit",
                 FinetuneEventType.CancelRequested => "cancel_requested",
                 FinetuneEventType.CheckpointSave => "checkpoint_save",
+                FinetuneEventType.EarlyStopped => "early_stopped",
                 FinetuneEventType.EpochComplete => "epoch_complete",
                 FinetuneEventType.JobComplete => "job_complete",
                 FinetuneEventType.JobError => "job_error",
@@ -139,6 +148,7 @@ namespace Together
                 FinetuneEventType.ModelUploadComplete => "model_upload_complete",
                 FinetuneEventType.ModelUploading => "model_uploading",
                 FinetuneEventType.Refund => "refund",
+                FinetuneEventType.TokenizedDatasetUploadComplete => "tokenized_dataset_upload_complete",
                 FinetuneEventType.TrainingComplete => "training_complete",
                 FinetuneEventType.TrainingDataDownloadComplete => "training_data_download_complete",
                 FinetuneEventType.TrainingDataDownloading => "training_data_downloading",
@@ -160,6 +170,7 @@ namespace Together
                 "billing_limit" => FinetuneEventType.BillingLimit,
                 "cancel_requested" => FinetuneEventType.CancelRequested,
                 "checkpoint_save" => FinetuneEventType.CheckpointSave,
+                "early_stopped" => FinetuneEventType.EarlyStopped,
                 "epoch_complete" => FinetuneEventType.EpochComplete,
                 "job_complete" => FinetuneEventType.JobComplete,
                 "job_error" => FinetuneEventType.JobError,
@@ -174,6 +185,7 @@ namespace Together
                 "model_upload_complete" => FinetuneEventType.ModelUploadComplete,
                 "model_uploading" => FinetuneEventType.ModelUploading,
                 "refund" => FinetuneEventType.Refund,
+                "tokenized_dataset_upload_complete" => FinetuneEventType.TokenizedDatasetUploadComplete,
                 "training_complete" => FinetuneEventType.TrainingComplete,
                 "training_data_download_complete" => FinetuneEventType.TrainingDataDownloadComplete,
                 "training_data_downloading" => FinetuneEventType.TrainingDataDownloading,

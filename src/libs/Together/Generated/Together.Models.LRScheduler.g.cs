@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LRScheduler
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.LRSchedulerLrSchedulerTypeJsonConverter))]
@@ -17,7 +17,7 @@ namespace Together
         public required global::Together.LRSchedulerLrSchedulerType LrSchedulerType { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lr_scheduler_args")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>))]

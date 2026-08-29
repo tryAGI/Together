@@ -10,7 +10,7 @@ namespace Together
     public enum CustomMetricAutoscalingConfigMetric
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CustomMetric,
     }

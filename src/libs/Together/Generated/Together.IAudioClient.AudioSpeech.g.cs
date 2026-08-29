@@ -13,7 +13,6 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # Docs for v1 can be found by changing the above selector ^<br/>
         /// from together import Together<br/>
         /// import os<br/>
         /// client = Together(<br/>
@@ -27,7 +26,61 @@ namespace Together
         /// with response as stream:<br/>
         ///   stream.stream_to_file("audio.wav")
         /// </remarks>
-        global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsync(
+        global::System.Threading.Tasks.Task<byte[]> AudioSpeechAsync(
+
+            global::Together.AudioSpeechRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create audio generation request<br/>
+        /// Generate audio from input text
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.audio.speech.with_streaming_response.create(<br/>
+        ///     model="cartesia/sonic-2",<br/>
+        ///     input="The quick brown fox jumps over the lazy dog.",<br/>
+        ///     voice="laidback woman",<br/>
+        /// )<br/>
+        /// with response as stream:<br/>
+        ///   stream.stream_to_file("audio.wav")
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::System.IO.Stream> AudioSpeechAsStreamAsync(
+
+            global::Together.AudioSpeechRequest request,
+            global::Together.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create audio generation request<br/>
+        /// Generate audio from input text
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.audio.speech.with_streaming_response.create(<br/>
+        ///     model="cartesia/sonic-2",<br/>
+        ///     input="The quick brown fox jumps over the lazy dog.",<br/>
+        ///     voice="laidback woman",<br/>
+        /// )<br/>
+        /// with response as stream:<br/>
+        ///   stream.stream_to_file("audio.wav")
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<byte[]>> AudioSpeechAsResponseAsync(
 
             global::Together.AudioSpeechRequest request,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -67,17 +120,13 @@ namespace Together
         /// Bitrate of the MP3 audio output in bits per second. Only applicable when response_format is mp3. Higher values produce better audio quality at larger file sizes. Default is 128000. Currently supported on Cartesia models.<br/>
         /// Default Value: 128000
         /// </param>
-        /// <param name="stream">
-        /// If true, output is streamed for several characters at a time instead of waiting for the full response. The stream terminates with `data: [DONE]`. If false, return the encoded audio as octet stream<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="extraParams">
         /// Additional model-specific parameters that fine-tune speech generation behavior.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Collections.Generic.IAsyncEnumerable<global::Together.AudioSpeechStreamResponse> AudioSpeechAsync(
+        global::System.Threading.Tasks.Task<byte[]> AudioSpeechAsync(
             global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string> model,
             string input,
             string voice,
@@ -86,7 +135,6 @@ namespace Together
             global::Together.AudioSpeechRequestResponseEncoding? responseEncoding = default,
             int? sampleRate = default,
             int? bitRate = default,
-            bool? stream = default,
             global::Together.AudioSpeechRequestExtraParams? extraParams = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

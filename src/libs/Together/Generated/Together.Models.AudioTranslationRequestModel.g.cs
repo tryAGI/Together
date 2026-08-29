@@ -10,7 +10,7 @@ namespace Together
     public enum AudioTranslationRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenaiWhisperLargeV3,
     }

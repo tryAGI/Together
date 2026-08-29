@@ -10,15 +10,15 @@ namespace Together
     public enum EvaluationJobType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Classify,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Compare,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Score,
     }

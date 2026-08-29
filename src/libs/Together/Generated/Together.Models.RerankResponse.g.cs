@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RerankResponse
     {
@@ -41,7 +41,7 @@ namespace Together
         public required global::System.Collections.Generic.IList<global::Together.RerankResponseResult> Results { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
         public global::Together.UsageData? Usage { get; set; }

@@ -6,41 +6,47 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ChatCompletionMessage
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public string? Content { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.ChatCompletionMessageRoleJsonConverter))]
         public global::Together.ChatCompletionMessageRole Role { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
         public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("function_call")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public global::Together.ChatCompletionMessageFunctionCall? FunctionCall { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reasoning")]
         public string? Reasoning { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_content")]
+        public string? ReasoningContent { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -55,6 +61,7 @@ namespace Together
         /// <param name="role"></param>
         /// <param name="toolCalls"></param>
         /// <param name="reasoning"></param>
+        /// <param name="reasoningContent"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,12 +69,14 @@ namespace Together
             string? content,
             global::Together.ChatCompletionMessageRole role,
             global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls,
-            string? reasoning)
+            string? reasoning,
+            string? reasoningContent)
         {
             this.Content = content;
             this.Role = role;
             this.ToolCalls = toolCalls;
             this.Reasoning = reasoning;
+            this.ReasoningContent = reasoningContent;
         }
 
         /// <summary>

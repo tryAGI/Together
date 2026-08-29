@@ -5,12 +5,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ChatCompletionStream : global::System.IEquatable<ChatCompletionStream>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionEvent? Event { get; init; }
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Event))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsEvent => Event != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEvent(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionEvent PickEvent() => IsEvent
             ? Event!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Event' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.StreamSentinel? Sentinel { get; init; }
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Sentinel))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsSentinel => Sentinel != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSentinel(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.StreamSentinel PickSentinel() => IsSentinel
             ? Sentinel!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Sentinel' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionStream(global::Together.ChatCompletionEvent value) => new ChatCompletionStream((global::Together.ChatCompletionEvent?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ChatCompletionEvent?(ChatCompletionStream @this) => @this.Event;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionStream(global::Together.ChatCompletionEvent? value)
         {
@@ -101,22 +101,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionStream FromEvent(global::Together.ChatCompletionEvent? value) => new ChatCompletionStream(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionStream(global::Together.StreamSentinel value) => new ChatCompletionStream((global::Together.StreamSentinel?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.StreamSentinel?(ChatCompletionStream @this) => @this.Sentinel;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionStream(global::Together.StreamSentinel? value)
         {
@@ -124,12 +124,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionStream FromSentinel(global::Together.StreamSentinel? value) => new ChatCompletionStream(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionStream(
             global::Together.ChatCompletionEvent? @event,
@@ -141,23 +141,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Sentinel as object ??
-            Event as object 
+            Event as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Event?.ToString() ??
-            Sentinel?.ToString() 
+            Sentinel?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.ChatCompletionEvent, TResult>? @event = null,
@@ -190,7 +190,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.ChatCompletionEvent>? @event = null,
@@ -214,7 +214,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.ChatCompletionEvent>? @event = null,
@@ -237,7 +237,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ChatCompletionStream other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionEvent?>.Default.Equals(Event, other.Event) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.StreamSentinel?>.Default.Equals(Sentinel, other.Sentinel) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.StreamSentinel?>.Default.Equals(Sentinel, other.Sentinel)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ChatCompletionStream obj1, ChatCompletionStream obj2)
         {
@@ -277,7 +277,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ChatCompletionStream obj1, ChatCompletionStream obj2)
         {
@@ -285,7 +285,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

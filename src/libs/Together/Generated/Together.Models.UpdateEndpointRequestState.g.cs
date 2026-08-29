@@ -10,11 +10,11 @@ namespace Together
     public enum UpdateEndpointRequestState
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Started,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Stopped,
     }

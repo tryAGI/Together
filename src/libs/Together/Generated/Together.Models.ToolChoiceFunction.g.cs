@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolChoiceFunction
     {
@@ -17,7 +17,7 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("arguments")]
         [global::System.Text.Json.Serialization.JsonRequired]

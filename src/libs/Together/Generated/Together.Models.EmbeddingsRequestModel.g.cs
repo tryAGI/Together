@@ -4,24 +4,24 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbeddingsRequestModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BaaiBgeBaseEnV15,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BaaiBgeLargeEnV15,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WhereIsAIUaeLargeV1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TogethercomputerM2Bert80m8kRetrieval,
     }

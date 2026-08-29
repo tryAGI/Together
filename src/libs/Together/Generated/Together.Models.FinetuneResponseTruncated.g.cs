@@ -5,7 +5,7 @@ namespace Together
 {
     /// <summary>
     /// A truncated version of the fine-tune response, used for POST /fine-tunes, GET /fine-tunes and POST /fine-tunes/{id}/cancel endpoints<br/>
-    /// Example: {"id":"ft-01234567890123456789","status":"completed","created_at":"2023-05-17T17:35:45.123Z","updated_at":"2023-05-17T18:46:23.456Z","user_id":"user_01234567890123456789","owner_address":"user@example.com","total_price":1500,"token_count":850000,"events":[],"model":"meta-llama/Llama-2-7b-hf","model_output_name":"mynamespace/meta-llama/Llama-2-7b-hf-32162631","n_epochs":3,"training_file":"file-01234567890123456789","wandb_project_name":"my-finetune-project"}
+    /// Example: {"id":"ft-01234567890123456789","status":"completed","created_at":"2023-05-17T17:35:45.123Z","updated_at":"2023-05-17T18:46:23.456Z","user_id":"user_789xyz012","owner_address":"user@example.com","total_price":1500,"token_count":850000,"events":[],"model":"meta-llama/Llama-2-7b-hf","model_output_name":"mynamespace/meta-llama/Llama-2-7b-hf-32162631","n_epochs":3,"training_file":"file-01234567890123456789","wandb_project_name":"my-finetune-project"}
     /// </summary>
     public sealed partial class FinetuneResponseTruncated
     {
@@ -17,7 +17,7 @@ namespace Together
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FinetuneJobStatusJsonConverter))]
@@ -45,10 +45,11 @@ namespace Together
         public global::System.DateTime? StartedAt { get; set; }
 
         /// <summary>
-        /// Identifier for who created the job.
+        /// ID of the user who created the fine-tune job.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
-        public string? UserId { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string UserId { get; set; }
 
         /// <summary>
         /// Owner address information
@@ -105,7 +106,7 @@ namespace Together
         public string? Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_output_name")]
         public string? ModelOutputName { get; set; }
@@ -158,7 +159,7 @@ namespace Together
         /// Learning rate used for training
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_rate")]
-        public float? LearningRate { get; set; }
+        public double? LearningRate { get; set; }
 
         /// <summary>
         /// Learning rate scheduler configuration
@@ -170,19 +171,19 @@ namespace Together
         /// Ratio of warmup steps
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warmup_ratio")]
-        public float? WarmupRatio { get; set; }
+        public double? WarmupRatio { get; set; }
 
         /// <summary>
         /// Maximum gradient norm for clipping
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_grad_norm")]
-        public float? MaxGradNorm { get; set; }
+        public double? MaxGradNorm { get; set; }
 
         /// <summary>
         /// Weight decay value used
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("weight_decay")]
-        public float? WeightDecay { get; set; }
+        public double? WeightDecay { get; set; }
 
         /// <summary>
         /// Random seed used for training. Integer when set; null if not stored (e.g. legacy jobs) or no explicit seed was recorded.
@@ -227,6 +228,24 @@ namespace Together
         public global::Together.FineTuneProgress? Progress { get; set; }
 
         /// <summary>
+        /// Whether the early-stopping criterion triggered.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopped")]
+        public bool? EarlyStopped { get; set; }
+
+        /// <summary>
+        /// Step associated with the selected early-stopping artifact. When early_stopping_best_metric is null, no finite best metric was recorded; this is the halt step, not a best-checkpoint step.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_best_step")]
+        public int? EarlyStoppingBestStep { get; set; }
+
+        /// <summary>
+        /// Best validation loss observed, corresponding to early_stopping_best_step. Null if no improving evaluation was recorded.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("early_stopping_best_metric")]
+        public double? EarlyStoppingBestMetric { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -245,11 +264,11 @@ namespace Together
         /// <param name="updatedAt">
         /// Last update timestamp of the fine-tune job
         /// </param>
+        /// <param name="userId">
+        /// ID of the user who created the fine-tune job.
+        /// </param>
         /// <param name="startedAt">
         /// Start timestamp of the current stage of the fine-tune job
-        /// </param>
-        /// <param name="userId">
-        /// Identifier for who created the job.
         /// </param>
         /// <param name="ownerAddress">
         /// Owner address information
@@ -336,6 +355,15 @@ namespace Together
         /// <param name="progress">
         /// Progress information for the fine-tuning job
         /// </param>
+        /// <param name="earlyStopped">
+        /// Whether the early-stopping criterion triggered.
+        /// </param>
+        /// <param name="earlyStoppingBestStep">
+        /// Step associated with the selected early-stopping artifact. When early_stopping_best_metric is null, no finite best metric was recorded; this is the halt step, not a best-checkpoint step.
+        /// </param>
+        /// <param name="earlyStoppingBestMetric">
+        /// Best validation loss observed, corresponding to early_stopping_best_step. Null if no improving evaluation was recorded.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -344,8 +372,8 @@ namespace Together
             global::Together.FinetuneJobStatus status,
             global::System.DateTime createdAt,
             global::System.DateTime updatedAt,
+            string userId,
             global::System.DateTime? startedAt,
-            string? userId,
             string? ownerAddress,
             int? totalPrice,
             int? tokenCount,
@@ -363,25 +391,28 @@ namespace Together
             int? batchSize,
             global::Together.OneOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType,
             global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod,
-            float? learningRate,
+            double? learningRate,
             global::Together.LRScheduler? lrScheduler,
-            float? warmupRatio,
-            float? maxGradNorm,
-            float? weightDecay,
+            double? warmupRatio,
+            double? maxGradNorm,
+            double? weightDecay,
             int? randomSeed,
             string? wandbProjectName,
             string? wandbName,
             string? fromCheckpoint,
             string? fromHfModel,
             string? hfModelRevision,
-            global::Together.FineTuneProgress? progress)
+            global::Together.FineTuneProgress? progress,
+            bool? earlyStopped,
+            int? earlyStoppingBestStep,
+            double? earlyStoppingBestMetric)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.StartedAt = startedAt;
-            this.UserId = userId;
+            this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.OwnerAddress = ownerAddress;
             this.TotalPrice = totalPrice;
             this.TokenCount = tokenCount;
@@ -411,6 +442,9 @@ namespace Together
             this.FromHfModel = fromHfModel;
             this.HfModelRevision = hfModelRevision;
             this.Progress = progress;
+            this.EarlyStopped = earlyStopped;
+            this.EarlyStoppingBestStep = earlyStoppingBestStep;
+            this.EarlyStoppingBestMetric = earlyStoppingBestMetric;
         }
 
         /// <summary>

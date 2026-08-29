@@ -13,15 +13,15 @@ namespace Together
     public enum CreateBatchRequestEndpoint
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1AudioTranscriptions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1AudioTranslations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1ChatCompletions,
     }

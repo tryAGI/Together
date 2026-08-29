@@ -20,7 +20,7 @@ namespace Together.JsonConverters
                     {
                         return global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1TypeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

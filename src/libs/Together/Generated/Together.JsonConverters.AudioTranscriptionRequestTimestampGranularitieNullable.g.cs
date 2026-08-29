@@ -20,7 +20,7 @@ namespace Together.JsonConverters
                     {
                         return global::Together.AudioTranscriptionRequestTimestampGranularitieExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

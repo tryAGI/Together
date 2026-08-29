@@ -10,7 +10,7 @@ namespace Together
     public enum VolumeContentType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Files,
     }

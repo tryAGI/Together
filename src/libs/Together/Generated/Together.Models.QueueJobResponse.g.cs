@@ -4,21 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    /// Response returned after queueing a job.
     /// </summary>
     public sealed partial class QueueJobResponse
     {
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
-        public global::Together.QueueError? Error { get; set; }
-
-        /// <summary>
         /// Unique identifier for the submitted job. Use this to poll status or cancel.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requestId")]
-        public string? RequestId { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string RequestId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,7 +24,6 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="QueueJobResponse" /> class.
         /// </summary>
-        /// <param name="error"></param>
         /// <param name="requestId">
         /// Unique identifier for the submitted job. Use this to poll status or cancel.
         /// </param>
@@ -37,11 +31,9 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public QueueJobResponse(
-            global::Together.QueueError? error,
-            string? requestId)
+            string requestId)
         {
-            this.Error = error;
-            this.RequestId = requestId;
+            this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
         }
 
         /// <summary>

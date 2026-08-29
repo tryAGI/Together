@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RlTrainingSample
     {
@@ -16,11 +16,17 @@ namespace Together
         public required global::Together.RlModelInput ModelInput { get; set; }
 
         /// <summary>
-        /// Loss function inputs
+        /// Per-token loss tensors keyed by name. Include `target_tokens` and the inputs required by the selected loss. Each tensor must declare `int64` or `float32`, be one-dimensional, and have the same length.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("loss_inputs")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("loss_fn_inputs")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlLossInputs LossInputs { get; set; }
+        public required global::System.Collections.Generic.Dictionary<string, global::Together.RlTensorData> LossFnInputs { get; set; }
+
+        /// <summary>
+        /// Optional MoE per-token routing captured at sample time. Replayed on every training operation, so expert selection matches the one used at sample time. Must cover the whole sample, or all but its last token.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("routed_experts")]
+        public global::Together.RlRoutedExperts? RoutedExperts { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -34,18 +40,23 @@ namespace Together
         /// <param name="modelInput">
         /// Model input
         /// </param>
-        /// <param name="lossInputs">
-        /// Loss function inputs
+        /// <param name="lossFnInputs">
+        /// Per-token loss tensors keyed by name. Include `target_tokens` and the inputs required by the selected loss. Each tensor must declare `int64` or `float32`, be one-dimensional, and have the same length.
+        /// </param>
+        /// <param name="routedExperts">
+        /// Optional MoE per-token routing captured at sample time. Replayed on every training operation, so expert selection matches the one used at sample time. Must cover the whole sample, or all but its last token.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingSample(
             global::Together.RlModelInput modelInput,
-            global::Together.RlLossInputs lossInputs)
+            global::System.Collections.Generic.Dictionary<string, global::Together.RlTensorData> lossFnInputs,
+            global::Together.RlRoutedExperts? routedExperts)
         {
             this.ModelInput = modelInput ?? throw new global::System.ArgumentNullException(nameof(modelInput));
-            this.LossInputs = lossInputs ?? throw new global::System.ArgumentNullException(nameof(lossInputs));
+            this.LossFnInputs = lossFnInputs ?? throw new global::System.ArgumentNullException(nameof(lossFnInputs));
+            this.RoutedExperts = routedExperts;
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ModelInfo
     {
@@ -55,7 +55,7 @@ namespace Together
         public string? Organization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("link")]
         public string? Link { get; set; }
@@ -75,7 +75,7 @@ namespace Together
         public int? ContextLength { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         public global::Together.Pricing? Pricing { get; set; }

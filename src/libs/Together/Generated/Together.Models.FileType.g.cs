@@ -11,15 +11,15 @@ namespace Together
     public enum FileType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Csv,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jsonl,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Parquet,
     }

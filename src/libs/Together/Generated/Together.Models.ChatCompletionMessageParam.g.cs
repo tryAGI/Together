@@ -5,12 +5,12 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct ChatCompletionMessageParam : global::System.IEquatable<ChatCompletionMessageParam>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionSystemMessageParam? System { get; init; }
@@ -19,7 +19,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(System))]
@@ -27,7 +27,7 @@ namespace Together
         public bool IsSystem => System != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSystem(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionSystemMessageParam PickSystem() => IsSystem
             ? System!
             : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionUserMessageParam? User { get; init; }
@@ -56,7 +56,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(User))]
@@ -64,7 +64,7 @@ namespace Together
         public bool IsUser => User != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUser(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionUserMessageParam PickUser() => IsUser
             ? User!
             : throw new global::System.InvalidOperationException($"Expected union variant 'User' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionAssistantMessageParam? Assistant { get; init; }
@@ -93,7 +93,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Assistant))]
@@ -101,7 +101,7 @@ namespace Together
         public bool IsAssistant => Assistant != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAssistant(
 #if NET6_0_OR_GREATER
@@ -114,14 +114,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionAssistantMessageParam PickAssistant() => IsAssistant
             ? Assistant!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Assistant' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionToolMessageParam? Tool { get; init; }
@@ -130,7 +130,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Tool))]
@@ -138,7 +138,7 @@ namespace Together
         public bool IsTool => Tool != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTool(
 #if NET6_0_OR_GREATER
@@ -151,14 +151,14 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionToolMessageParam PickTool() => IsTool
             ? Tool!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.ChatCompletionFunctionMessageParam? Function { get; init; }
@@ -167,7 +167,7 @@ namespace Together
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Function))]
@@ -175,7 +175,7 @@ namespace Together
         public bool IsFunction => Function != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFunction(
 #if NET6_0_OR_GREATER
@@ -188,23 +188,23 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Together.ChatCompletionFunctionMessageParam PickFunction() => IsFunction
             ? Function!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Function' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionSystemMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionSystemMessageParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ChatCompletionSystemMessageParam?(ChatCompletionMessageParam @this) => @this.System;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionMessageParam(global::Together.ChatCompletionSystemMessageParam? value)
         {
@@ -212,22 +212,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionMessageParam FromSystem(global::Together.ChatCompletionSystemMessageParam? value) => new ChatCompletionMessageParam(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionUserMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionUserMessageParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ChatCompletionUserMessageParam?(ChatCompletionMessageParam @this) => @this.User;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionMessageParam(global::Together.ChatCompletionUserMessageParam? value)
         {
@@ -235,22 +235,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionMessageParam FromUser(global::Together.ChatCompletionUserMessageParam? value) => new ChatCompletionMessageParam(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionAssistantMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionAssistantMessageParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ChatCompletionAssistantMessageParam?(ChatCompletionMessageParam @this) => @this.Assistant;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionMessageParam(global::Together.ChatCompletionAssistantMessageParam? value)
         {
@@ -258,22 +258,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionMessageParam FromAssistant(global::Together.ChatCompletionAssistantMessageParam? value) => new ChatCompletionMessageParam(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionToolMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionToolMessageParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ChatCompletionToolMessageParam?(ChatCompletionMessageParam @this) => @this.Tool;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionMessageParam(global::Together.ChatCompletionToolMessageParam? value)
         {
@@ -281,22 +281,22 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionMessageParam FromTool(global::Together.ChatCompletionToolMessageParam? value) => new ChatCompletionMessageParam(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionFunctionMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionFunctionMessageParam?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Together.ChatCompletionFunctionMessageParam?(ChatCompletionMessageParam @this) => @this.Function;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionMessageParam(global::Together.ChatCompletionFunctionMessageParam? value)
         {
@@ -304,12 +304,12 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ChatCompletionMessageParam FromFunction(global::Together.ChatCompletionFunctionMessageParam? value) => new ChatCompletionMessageParam(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ChatCompletionMessageParam(
             global::Together.ChatCompletionSystemMessageParam? system,
@@ -327,29 +327,29 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Function as object ??
             Tool as object ??
             Assistant as object ??
             User as object ??
-            System as object 
+            System as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             System?.ToString() ??
             User?.ToString() ??
             Assistant?.ToString() ??
             Tool?.ToString() ??
-            Function?.ToString() 
+            Function?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -357,7 +357,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Together.ChatCompletionSystemMessageParam, TResult>? system = null,
@@ -397,7 +397,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Together.ChatCompletionSystemMessageParam>? system = null,
@@ -439,7 +439,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Together.ChatCompletionSystemMessageParam>? system = null,
@@ -477,7 +477,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -504,7 +504,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ChatCompletionMessageParam other)
         {
@@ -513,12 +513,12 @@ namespace Together
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionUserMessageParam?>.Default.Equals(User, other.User) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionAssistantMessageParam?>.Default.Equals(Assistant, other.Assistant) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionToolMessageParam?>.Default.Equals(Tool, other.Tool) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionFunctionMessageParam?>.Default.Equals(Function, other.Function) 
+                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionFunctionMessageParam?>.Default.Equals(Function, other.Function)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ChatCompletionMessageParam obj1, ChatCompletionMessageParam obj2)
         {
@@ -526,7 +526,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ChatCompletionMessageParam obj1, ChatCompletionMessageParam obj2)
         {
@@ -534,7 +534,7 @@ namespace Together
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

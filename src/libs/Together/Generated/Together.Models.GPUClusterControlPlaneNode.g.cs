@@ -4,54 +4,47 @@
 namespace Together
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GPUClusterControlPlaneNode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("node_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string NodeId { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("node_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string NodeName { get; set; }
-
-        /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("host_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string HostName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_cpu_cores")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int NumCpuCores { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("memory_gib")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float MemoryGib { get; set; }
+        public required double MemoryGib { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("network")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -65,6 +58,12 @@ namespace Together
         public required global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> PhaseTransitions { get; set; }
 
         /// <summary>
+        /// Public IPv4 address of the control plane node.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("public_ipv4")]
+        public string? PublicIpv4 { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,7 +73,6 @@ namespace Together
         /// Initializes a new instance of the <see cref="GPUClusterControlPlaneNode" /> class.
         /// </summary>
         /// <param name="nodeId"></param>
-        /// <param name="nodeName"></param>
         /// <param name="status"></param>
         /// <param name="hostName"></param>
         /// <param name="numCpuCores"></param>
@@ -83,27 +81,30 @@ namespace Together
         /// <param name="phaseTransitions">
         /// Phase transition history for this control plane node.
         /// </param>
+        /// <param name="publicIpv4">
+        /// Public IPv4 address of the control plane node.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GPUClusterControlPlaneNode(
             string nodeId,
-            string nodeName,
             string status,
             string hostName,
             int numCpuCores,
-            float memoryGib,
+            double memoryGib,
             string network,
-            global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> phaseTransitions)
+            global::System.Collections.Generic.IList<global::Together.NodePhaseTransition> phaseTransitions,
+            string? publicIpv4)
         {
             this.NodeId = nodeId ?? throw new global::System.ArgumentNullException(nameof(nodeId));
-            this.NodeName = nodeName ?? throw new global::System.ArgumentNullException(nameof(nodeName));
             this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.HostName = hostName ?? throw new global::System.ArgumentNullException(nameof(hostName));
             this.NumCpuCores = numCpuCores;
             this.MemoryGib = memoryGib;
             this.Network = network ?? throw new global::System.ArgumentNullException(nameof(network));
             this.PhaseTransitions = phaseTransitions ?? throw new global::System.ArgumentNullException(nameof(phaseTransitions));
+            this.PublicIpv4 = publicIpv4;
         }
 
         /// <summary>
