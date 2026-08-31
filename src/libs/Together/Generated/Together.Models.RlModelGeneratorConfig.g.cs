@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Inference config. If present, the model can be provisioned with one or more generator replicas.
+    /// Inference capabilities and limits for a model on one GPU type. If present, the model can be provisioned with one or more generator replicas.
     /// </summary>
     public sealed partial class RlModelGeneratorConfig
     {

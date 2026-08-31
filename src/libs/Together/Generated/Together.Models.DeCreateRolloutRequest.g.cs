@@ -53,7 +53,7 @@ namespace Together
         public int? FinalSourceReplicas { get; set; }
 
         /// <summary>
-        /// Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. If the target's autoscaling min, or the source min inherited by a target that starts stopped, is higher, completion holds that higher floor and PreviewRolloutDefaults reports FINAL_BELOW_INHERITED_MIN.
+        /// Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finalTargetReplicas")]
         public int? FinalTargetReplicas { get; set; }
@@ -89,7 +89,7 @@ namespace Together
         /// Optional final replica count for the source deployment. Defaults to 0, which drains and stops the source.
         /// </param>
         /// <param name="finalTargetReplicas">
-        /// Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. If the target's autoscaling min, or the source min inherited by a target that starts stopped, is higher, completion holds that higher floor and PreviewRolloutDefaults reports FINAL_BELOW_INHERITED_MIN.
+        /// Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

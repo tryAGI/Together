@@ -16,7 +16,7 @@ namespace Together
         public required int TotalSteps { get; set; }
 
         /// <summary>
-        /// Failure detail set when the rollout pauses, system-pauses, or aborts.
+        /// Failure detail set when the rollout pauses, system-pauses, or aborts; carries the human-readable reason and structured detail.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         public global::Together.DeRolloutCondition? Condition { get; set; }
@@ -56,7 +56,7 @@ namespace Together
         /// Per-step rollout execution summaries.
         /// </param>
         /// <param name="condition">
-        /// Failure detail set when the rollout pauses, system-pauses, or aborts.
+        /// Failure detail set when the rollout pauses, system-pauses, or aborts; carries the human-readable reason and structured detail.
         /// </param>
         /// <param name="updatedAt">
         /// Timestamp of the most recent progress update.

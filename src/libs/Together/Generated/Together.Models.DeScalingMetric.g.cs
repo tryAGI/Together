@@ -9,11 +9,12 @@ namespace Together
     public sealed partial class DeScalingMetric
     {
         /// <summary>
-        /// Metric name, such as `gpu_utilization`, `ttft`, `inflight_requests`, `e2e_latency`, `throughput_per_replica`, or `decoding_speed`.
+        /// Autoscaling metric name from the server allowlist.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeScalingMetricNameJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public required global::Together.DeScalingMetricName Name { get; set; }
 
         /// <summary>
         /// Whether `target` is an absolute value, a utilization percentage, or a per-replica average.
@@ -46,7 +47,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="DeScalingMetric" /> class.
         /// </summary>
         /// <param name="name">
-        /// Metric name, such as `gpu_utilization`, `ttft`, `inflight_requests`, `e2e_latency`, `throughput_per_replica`, or `decoding_speed`.
+        /// Autoscaling metric name from the server allowlist.
         /// </param>
         /// <param name="type">
         /// Whether `target` is an absolute value, a utilization percentage, or a per-replica average.
@@ -61,12 +62,12 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DeScalingMetric(
-            string name,
+            global::Together.DeScalingMetricName name,
             global::Together.DeScalingMetricType type,
             double target,
             string? percentile)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Name = name;
             this.Type = type;
             this.Target = target;
             this.Percentile = percentile;

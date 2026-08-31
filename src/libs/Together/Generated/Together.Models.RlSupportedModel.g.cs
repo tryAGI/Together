@@ -18,16 +18,20 @@ namespace Together
         public required string BaseModel { get; set; }
 
         /// <summary>
-        /// Training config. Set when the model supports at least one training mode.
+        /// GPU type used when model-resource creation omits gpu_type.<br/>
+        /// Example: H100-80GB
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("trainer_config")]
-        public global::Together.RlModelTrainerConfig? TrainerConfig { get; set; }
+        /// <example>H100-80GB</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_gpu_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlSupportedModelDefaultGpuTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlSupportedModelDefaultGpuType DefaultGpuType { get; set; }
 
         /// <summary>
-        /// Inference config. Set when the model can be provisioned with generator replicas.
+        /// Validated GPU configurations available for this base model.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generator_config")]
-        public global::Together.RlModelGeneratorConfig? GeneratorConfig { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("compute_configs")]
+        public global::System.Collections.Generic.IList<global::Together.RlSupportedModelComputeConfig>? ComputeConfigs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,23 +46,24 @@ namespace Together
         /// Base model identifier to pass as base_model when creating a model resource<br/>
         /// Example: Qwen/Qwen3-0.6B
         /// </param>
-        /// <param name="trainerConfig">
-        /// Training config. Set when the model supports at least one training mode.
+        /// <param name="defaultGpuType">
+        /// GPU type used when model-resource creation omits gpu_type.<br/>
+        /// Example: H100-80GB
         /// </param>
-        /// <param name="generatorConfig">
-        /// Inference config. Set when the model can be provisioned with generator replicas.
+        /// <param name="computeConfigs">
+        /// Validated GPU configurations available for this base model.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlSupportedModel(
             string baseModel,
-            global::Together.RlModelTrainerConfig? trainerConfig,
-            global::Together.RlModelGeneratorConfig? generatorConfig)
+            global::Together.RlSupportedModelDefaultGpuType defaultGpuType,
+            global::System.Collections.Generic.IList<global::Together.RlSupportedModelComputeConfig>? computeConfigs)
         {
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
-            this.TrainerConfig = trainerConfig;
-            this.GeneratorConfig = generatorConfig;
+            this.DefaultGpuType = defaultGpuType;
+            this.ComputeConfigs = computeConfigs;
         }
 
         /// <summary>
