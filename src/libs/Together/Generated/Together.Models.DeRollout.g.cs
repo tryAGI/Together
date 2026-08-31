@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Public view of a rollout resource and its embedded runtime status.
+    /// Public view of a rollout resource, including runtime progress and any pause or abort reason.
     /// </summary>
     public sealed partial class DeRollout
     {
@@ -102,7 +102,7 @@ namespace Together
         public string? Etag { get; set; }
 
         /// <summary>
-        /// Output only. Derived runtime progress and failure details.<br/>
+        /// Output only. Derived runtime progress, step summary, and pause or abort failure details.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -110,7 +110,7 @@ namespace Together
         public global::Together.DeRolloutStatus Status { get; set; } = default!;
 
         /// <summary>
-        /// Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED); while PAUSING, pausedAt records when the pause was requested.<br/>
+        /// Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED) and cleared after resume or abort; while PAUSING, pausedAt records when the pause was requested.<br/>
         /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pauseInfo")]
@@ -146,7 +146,7 @@ namespace Together
         /// Included only in responses
         /// </param>
         /// <param name="pauseInfo">
-        /// Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED); while PAUSING, pausedAt records when the pause was requested.<br/>
+        /// Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED) and cleared after resume or abort; while PAUSING, pausedAt records when the pause was requested.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="id">
@@ -178,7 +178,7 @@ namespace Together
         /// Included only in responses
         /// </param>
         /// <param name="status">
-        /// Output only. Derived runtime progress and failure details.<br/>
+        /// Output only. Derived runtime progress, step summary, and pause or abort failure details.<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER

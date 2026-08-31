@@ -12622,7 +12622,7 @@ components:
           description: Optional final replica count for the source deployment. Defaults to 0, which drains and stops the source.
         finalTargetReplicas:
           type: integer
-          description: Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. If the target's autoscaling min, or the source min inherited by a target that starts stopped, is higher, completion holds that higher floor and PreviewRolloutDefaults reports FINAL_BELOW_INHERITED_MIN.
+          description: Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
     DE.BlueGreenConfig:
       type: object
       properties: {}
@@ -12832,7 +12832,7 @@ components:
       properties:
         code:
           type: string
-          description: Machine-readable warning code, such as START_WILL_REJECT, ROLLOUT_WILL_RAISE_TARGET_MAX, or FINAL_BELOW_INHERITED_MIN. Render message for unrecognized codes.
+          description: Machine-readable warning code, such as START_WILL_REJECT, ROLLOUT_WILL_RAISE_TARGET_MAX, FINAL_BELOW_INHERITED_MIN, or FINAL_BELOW_SOURCE_MIN. Render message for unrecognized codes.
         message:
           type: string
           description: Plain-language description of the finding, safe to show users as-is.
@@ -12851,7 +12851,7 @@ components:
           format: date-time
     DE.Rollout:
       type: object
-      description: Public view of a rollout resource and its embedded runtime status.
+      description: Public view of a rollout resource, including runtime progress and any pause or abort reason.
       required:
         - id
         - endpointId
@@ -12932,12 +12932,12 @@ components:
         status:
           allOf:
             - $ref: '#/components/schemas/DE.RolloutStatus'
-          description: Output only. Derived runtime progress and failure details.
+          description: Output only. Derived runtime progress, step summary, and pause or abort failure details.
           readOnly: true
         pauseInfo:
           allOf:
             - $ref: '#/components/schemas/DE.PauseInfo'
-          description: Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED); while PAUSING, pausedAt records when the pause was requested.
+          description: Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED) and cleared after resume or abort; while PAUSING, pausedAt records when the pause was requested.
           readOnly: true
     DE.RolloutStatus:
       type: object
@@ -12950,7 +12950,7 @@ components:
         condition:
           allOf:
             - $ref: '#/components/schemas/DE.RolloutCondition'
-          description: Failure detail set when the rollout pauses, system-pauses, or aborts.
+          description: Failure detail set when the rollout pauses, system-pauses, or aborts; carries the human-readable reason and structured detail.
         steps:
           type: array
           items:
@@ -14692,8 +14692,17 @@ components:
       type: object
       properties:
         name:
+          enum:
+            - cache_hit_rate
+            - decoding_speed
+            - e2e_latency
+            - gpu_utilization
+            - inflight_requests
+            - throughput_per_replica
+            - token_utilization
+            - ttft
           type: string
-          description: Metric name, such as `gpu_utilization`, `ttft`, `inflight_requests`, `e2e_latency`, `throughput_per_replica`, or `decoding_speed`.
+          description: Autoscaling metric name from the server allowlist.
         type:
           enum:
             - METRIC_TARGET_TYPE_VALUE
@@ -15095,6 +15104,13 @@ components:
           format: int32
           example: 1
           description: Number of generator replicas. 0 means the resource runs the trainer only, with no generator.
+        gpu_type:
+          type: string
+          example: H100-80GB
+          enum:
+            - H100-80GB
+            - B200-SXM
+          description: GPU type selected for this resource.
     RL.ComputeConfigCreateRequest:
       type: object
       description: Compute layout to provision for a model resource
@@ -15105,6 +15121,13 @@ components:
           example: 2
           default: "1"
           description: Number of generator replicas. 0 runs the trainer only, with no generator.
+        gpu_type:
+          type: string
+          example: B200-SXM
+          enum:
+            - H100-80GB
+            - B200-SXM
+          description: GPU type to provision. Omit to use the model's default GPU type.
     RL.ModelResourcesStatus:
       description: Lifecycle status of a model resource
       type: string
@@ -15248,7 +15271,7 @@ components:
           description: Pagination metadata
     RL.ModelTrainerConfig:
       type: object
-      description: Training config. Each sub-mode is present only when the model supports that training mode.
+      description: Training capabilities and limits for a model on one GPU type. Each sub-mode is present only when the model supports that training mode.
       properties:
         full:
           $ref: '#/components/schemas/RL.ModelFullModeConfig'
@@ -15283,7 +15306,7 @@ components:
           description: Number of logprobs to return per token
     RL.ModelGeneratorConfig:
       type: object
-      description: Inference config. If present, the model can be provisioned with one or more generator replicas.
+      description: Inference capabilities and limits for a model on one GPU type. If present, the model can be provisioned with one or more generator replicas.
       required:
         - context_length
         - sampling_defaults
@@ -15295,22 +15318,48 @@ components:
         sampling_defaults:
           $ref: '#/components/schemas/RL.ModelSamplingDefaults'
           description: Default sampling parameters used for sample requests.
+    RL.SupportedModelComputeConfig:
+      type: object
+      description: A validated hardware configuration available for an RL base model.
+      required:
+        - gpu_type
+      properties:
+        gpu_type:
+          type: string
+          example: H100-80GB
+          enum:
+            - H100-80GB
+            - B200-SXM
+          description: GPU type this configuration provisions.
+        trainer_config:
+          $ref: '#/components/schemas/RL.ModelTrainerConfig'
+          description: Training config for this GPU type. Set when the model supports at least one training mode on this GPU type.
+        generator_config:
+          $ref: '#/components/schemas/RL.ModelGeneratorConfig'
+          description: Inference config for this GPU type. Set when the model can be provisioned with generator replicas on this GPU type.
     RL.SupportedModel:
       type: object
       description: A base model supported by the RL service. Per-mode configs are present only when the model supports that mode.
       required:
         - base_model
+        - default_gpu_type
       properties:
         base_model:
           type: string
           example: Qwen/Qwen3-0.6B
           description: Base model identifier to pass as base_model when creating a model resource
-        trainer_config:
-          $ref: '#/components/schemas/RL.ModelTrainerConfig'
-          description: Training config. Set when the model supports at least one training mode.
-        generator_config:
-          $ref: '#/components/schemas/RL.ModelGeneratorConfig'
-          description: Inference config. Set when the model can be provisioned with generator replicas.
+        default_gpu_type:
+          type: string
+          example: H100-80GB
+          enum:
+            - H100-80GB
+            - B200-SXM
+          description: GPU type used when model-resource creation omits gpu_type.
+        compute_configs:
+          type: array
+          items:
+            $ref: '#/components/schemas/RL.SupportedModelComputeConfig'
+          description: Validated GPU configurations available for this base model.
     RL.EncodedTextChunk:
       type: object
       description: Pre-tokenized text content for a model input chunk.
@@ -16083,6 +16132,37 @@ components:
         wandb:
           $ref: '#/components/schemas/RL.WandbMetadata'
           description: Weights & Biases details associated with the training session
+    RL.SessionPolicyState:
+      type: object
+      description: Session-scoped policy and weight versions. Comparable to `policy_segments[].version` on sample results. Resets if the session is resumed or its training runtime restarts.
+      required:
+        - trainer_step
+        - target_weights_version
+        - applied_weights_version
+        - pending_publish
+      properties:
+        trainer_step:
+          description: Policy version produced by the last completed optimizer step. Distinct from `TrainingSession.step`, which is the durable optimizer-step counter.
+          oneOf:
+            - type: string
+            - type: integer
+          example: "7"
+        target_weights_version:
+          description: Policy version promised to the generator by the latest weights-sync.
+          oneOf:
+            - type: string
+            - type: integer
+          example: "7"
+        applied_weights_version:
+          description: Policy version successfully applied to the generator for this session.
+          oneOf:
+            - type: string
+            - type: integer
+          example: "6"
+        pending_publish:
+          type: boolean
+          example: true
+          description: True when a generator publish has been requested but has not finished.
     RL.TrainingSession:
       type: object
       description: A training session and its current state
@@ -16098,6 +16178,7 @@ components:
         - model_resources_id
         - created_by
         - base_model
+        - policy_state
       properties:
         id:
           type: string
@@ -16166,6 +16247,9 @@ components:
           type: string
           example: user_123
           description: ID of the user who created the training session
+        policy_state:
+          $ref: '#/components/schemas/RL.SessionPolicyState'
+          description: Session-scoped policy and weight versions for this session
     RL.TrainingSessionsListResponse:
       type: object
       description: Paginated list of training sessions

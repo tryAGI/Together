@@ -18,6 +18,15 @@ namespace Together
         public int? NumGeneratorReplicas { get; set; }
 
         /// <summary>
+        /// GPU type to provision. Omit to use the model's default GPU type.<br/>
+        /// Example: B200-SXM
+        /// </summary>
+        /// <example>B200-SXM</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlComputeConfigCreateRequestGpuTypeJsonConverter))]
+        public global::Together.RlComputeConfigCreateRequestGpuType? GpuType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -31,13 +40,19 @@ namespace Together
         /// Default Value: 1<br/>
         /// Example: 2
         /// </param>
+        /// <param name="gpuType">
+        /// GPU type to provision. Omit to use the model's default GPU type.<br/>
+        /// Example: B200-SXM
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlComputeConfigCreateRequest(
-            int? numGeneratorReplicas)
+            int? numGeneratorReplicas,
+            global::Together.RlComputeConfigCreateRequestGpuType? gpuType)
         {
             this.NumGeneratorReplicas = numGeneratorReplicas;
+            this.GpuType = gpuType;
         }
 
         /// <summary>

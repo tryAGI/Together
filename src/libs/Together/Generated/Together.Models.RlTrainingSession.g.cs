@@ -134,6 +134,13 @@ namespace Together
         public required string CreatedBy { get; set; }
 
         /// <summary>
+        /// Session-scoped policy and weight versions for this session
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("policy_state")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlSessionPolicyState PolicyState { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -184,6 +191,9 @@ namespace Together
         /// ID of the user who created the training session<br/>
         /// Example: user_123
         /// </param>
+        /// <param name="policyState">
+        /// Session-scoped policy and weight versions for this session
+        /// </param>
         /// <param name="displayName">
         /// Display name used to identify the training session<br/>
         /// Example: gsm8k-experiment-2
@@ -213,6 +223,7 @@ namespace Together
             string modelResourcesId,
             string baseModel,
             string createdBy,
+            global::Together.RlSessionPolicyState policyState,
             string? displayName,
             global::Together.RlTrainingSessionError? error,
             string? resumeFromCheckpointId,
@@ -233,6 +244,7 @@ namespace Together
             this.ModelResourcesId = modelResourcesId ?? throw new global::System.ArgumentNullException(nameof(modelResourcesId));
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
             this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
+            this.PolicyState = policyState ?? throw new global::System.ArgumentNullException(nameof(policyState));
         }
 
         /// <summary>

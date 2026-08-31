@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Training config. Each sub-mode is present only when the model supports that training mode.
+    /// Training capabilities and limits for a model on one GPU type. Each sub-mode is present only when the model supports that training mode.
     /// </summary>
     public sealed partial class RlModelTrainerConfig
     {
