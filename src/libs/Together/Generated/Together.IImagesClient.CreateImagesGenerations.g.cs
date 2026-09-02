@@ -19,8 +19,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// response = client.images.generate(<br/>
-        ///     model="black-forest-labs/FLUX.1-schnell",<br/>
-        ///     steps=4,<br/>
+        ///     model="black-forest-labs/FLUX.2-dev",<br/>
         ///     prompt="A cartoon of an astronaut riding a horse on the moon",<br/>
         /// )<br/>
         /// print(response.data[0].url)
@@ -45,8 +44,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// response = client.images.generate(<br/>
-        ///     model="black-forest-labs/FLUX.1-schnell",<br/>
-        ///     steps=4,<br/>
+        ///     model="black-forest-labs/FLUX.2-dev",<br/>
         ///     prompt="A cartoon of an astronaut riding a horse on the moon",<br/>
         /// )<br/>
         /// print(response.data[0].url)

@@ -4813,8 +4813,7 @@ paths:
             )
 
             response = client.images.generate(
-                model="black-forest-labs/FLUX.1-schnell",
-                steps=4,
+                model="black-forest-labs/FLUX.2-dev",
                 prompt="A cartoon of an astronaut riding a horse on the moon",
             )
 
@@ -4829,7 +4828,7 @@ paths:
             });
 
             const response = await client.images.generate({
-              model: "black-forest-labs/FLUX.1-schnell",
+              model: "black-forest-labs/FLUX.2-dev",
               prompt: "A cartoon of an astronaut riding a horse on the moon",
             });
 
@@ -4844,7 +4843,7 @@ paths:
             });
 
             const response = await client.images.generate({
-              model: "black-forest-labs/FLUX.1-schnell",
+              model: "black-forest-labs/FLUX.2-dev",
               prompt: "A cartoon of an astronaut riding a horse on the moon",
             });
 
@@ -4856,7 +4855,7 @@ paths:
                  -H "Authorization: Bearer $TOGETHER_API_KEY" \
                  -H "Content-Type: application/json" \
                  -d '{
-                   "model": "black-forest-labs/FLUX.1-schnell",
+                   "model": "black-forest-labs/FLUX.2-dev",
                    "prompt": "A cartoon of an astronaut riding a horse on the moon"
                  }'
   /files:
