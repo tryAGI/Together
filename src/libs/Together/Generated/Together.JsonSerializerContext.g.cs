@@ -1451,6 +1451,7 @@ namespace Together
     {
         private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
+
         private static readonly global::System.Text.Json.JsonSerializerOptions DefaultOptions = CreateDefaultOptions();
 
         /// <summary>
@@ -1472,13 +1473,8 @@ namespace Together
             return Resolver.GetTypeInfo(type, Options);
         }
 
-        private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
+         static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            var options = new global::System.Text.Json.JsonSerializerOptions
-            {
-                DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
-                TypeInfoResolver = Resolver,
-            };
             options.Converters.Add(new global::Together.JsonConverters.DePlacementJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.DeShadowExperimentSamplingResponseJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.DeShadowExperimentSamplingJsonConverter());
@@ -1563,8 +1559,17 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.FineTunePreviewMessageError, global::Together.FineTunePreviewDetailError>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>());
             options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-
             options.Converters.Add(new LazyEnumJsonConverterFactory());
+        }
+
+        private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
+        {
+            var options = new global::System.Text.Json.JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+                TypeInfoResolver = Resolver,
+            };
+            AddConverters(options);
 
             return options;
         }
