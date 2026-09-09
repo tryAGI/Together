@@ -12621,7 +12621,7 @@ components:
           description: Optional final replica count for the source deployment. Defaults to 0, which drains and stops the source.
         finalTargetReplicas:
           type: integer
-          description: Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. If this exceeds the target autoscaling max, the rollout raises that max once when first needed unless an operator changes max mid-run; the raised ceiling remains after completion. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
+          description: Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
     DE.BlueGreenConfig:
       type: object
       properties: {}
@@ -12664,7 +12664,6 @@ components:
       description: Metric gate evaluated during a rollout.
       required:
         - name
-        - stat
       oneOf:
         - x-stainless-variantName: Threshold
           required:
@@ -12687,7 +12686,7 @@ components:
             - METRIC_STAT_TYPE_MAX
             - METRIC_STAT_TYPE_PERCENTILE
           type: string
-          description: Required aggregation used for the metric.
+          description: Aggregation used for the metric. Optional for router_error_rate and inflight_requests; omitted values default to METRIC_STAT_TYPE_AVG. Required for router_latency, where AVG or PERCENTILE may be used.
         percentile:
           type: integer
           description: Percentile value, such as 99. Set only when stat is METRIC_STAT_TYPE_PERCENTILE.
@@ -12712,7 +12711,12 @@ components:
       properties:
         value:
           type: number
-          description: Required numeric threshold value.
+          description: |-
+            Required finite threshold value. Interpreted in the metric's unit:
+            router_error_rate is a ratio in [0, 1], router_latency is
+            milliseconds, and inflight_requests is a raw count. Thresholds that
+            no achievable value could pass, or that every achievable value
+            passes, are rejected at create.
         operator:
           enum:
             - THRESHOLD_OPERATOR_GT
@@ -12730,7 +12734,7 @@ components:
       properties:
         maxRegressionPercent:
           type: number
-          description: Required maximum allowed regression percentage.
+          description: Required finite maximum allowed regression percentage, greater than or equal to 0. A value of 0 is the strictest budget; any regression fails, and exactly-at-budget passes.
         direction:
           enum:
             - REGRESSION_DIRECTION_HIGHER_IS_WORSE
@@ -12999,7 +13003,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DE.MetricResult'
-          description: Metrics observed at the failing gate, enriched with their criteria.
+          description: Metrics observed at the failing gate, enriched with their criteria. Unmeasured rules appear as synthesized rows with verdict METRIC_VERDICT_UNAVAILABLE and no measured values.
         type:
           type: string
           enum:
@@ -13021,27 +13025,30 @@ components:
             - ROLLOUT_STEP_STATE_RUNNING
             - ROLLOUT_STEP_STATE_PASSED
             - ROLLOUT_STEP_STATE_FAILED
+            - ROLLOUT_STEP_STATE_PAUSED
+            - ROLLOUT_STEP_STATE_CANCELED
+            - ROLLOUT_STEP_STATE_SKIPPED
           type: string
-          description: Execution state of this rollout step.
+          description: Outcome of this step. Finished steps are PASSED, the live step mirrors the rollout state, skipped-over steps are SKIPPED, and unreached steps are PENDING.
         metrics:
           type: array
           items:
             $ref: '#/components/schemas/DE.MetricResult'
-          description: Metric gate results for this step.
+          description: Metric gate results for this step, enriched with criteria and verdict. Unmeasured rules appear as synthesized rows with verdict METRIC_VERDICT_UNAVAILABLE and no measured values.
         startedAt:
           type: string
-          description: Timestamp when this step started.
+          description: Timestamp when this step's first sub-step ran. Unset for steps no sub-step reached.
           format: date-time
         completedAt:
           type: string
-          description: Timestamp when this step completed.
+          description: Timestamp when this step finished, was skipped over, or the rollout ended on it. Unset while in progress.
           format: date-time
         failureReason:
           type: string
-          description: Failure reason when this step failed.
+          description: Failure reason set only when this step failed.
     DE.MetricResult:
       type: object
-      description: Observed metric value enriched with its rollout rule and verdict.
+      description: Observed metric result enriched with rollout rule criteria and verdict. Unmeasured rules are synthesized with verdict METRIC_VERDICT_UNAVAILABLE and no source or target value.
       properties:
         name:
           type: string
@@ -13065,10 +13072,10 @@ components:
           description: Evaluation form used by the metric rule.
         sourceValue:
           type: number
-          description: Observed source baseline. Set only for regression checks; a 0 reading serializes explicitly.
+          description: Observed source baseline. Set only for regression checks with a recorded observation; a 0 reading serializes explicitly.
         targetValue:
           type: number
-          description: Observed target value. A 0 reading serializes explicitly.
+          description: Observed target value. Set when the gate recorded an observation; absent on synthesized unavailable results. A 0 reading serializes explicitly.
         threshold:
           type: number
           description: Threshold criteria used when check is METRIC_CHECK_TYPE_THRESHOLD.
@@ -14692,6 +14699,7 @@ components:
       properties:
         name:
           enum:
+            - active_sessions
             - cache_hit_rate
             - decoding_speed
             - e2e_latency
@@ -14984,6 +14992,10 @@ components:
         loss:
           description: Loss function configuration
           $ref: '#/components/schemas/RL.LossConfig'
+        return_loss_fn_outputs:
+          type: boolean
+          example: true
+          description: Return the loss function's per-sample output tensors alongside the loss and metrics. Defaults to false. Enabling it increases the response size substantially for large batches and reduces step throughput, so leave it unset for ordinary training steps.
     RL.ModelInput:
       type: object
       required:
@@ -15513,6 +15525,17 @@ components:
           $ref: '#/components/schemas/RL.CISPOLossParams'
         dro_params:
           $ref: '#/components/schemas/RL.DROLossParams'
+    RL.LossFnOutput:
+      type: object
+      description: Output tensors produced by the loss function for one sample.
+      required:
+        - tensors
+      properties:
+        tensors:
+          type: object
+          description: 'Output tensors keyed by name. Built-in losses return `logprobs`: the model''s float32 per-token log-probabilities under the current policy, one value per token of the sample''s input. Values at positions excluded from the loss are unspecified.'
+          additionalProperties:
+            $ref: '#/components/schemas/RL.TensorData'
     RL.TensorData:
       type: object
       description: A tensor encoded as flattened row-major values, with an optional shape.
@@ -15858,6 +15881,11 @@ components:
             loss/kl_ref/mean: 0.05
           additionalProperties:
             type: number
+        loss_fn_outputs:
+          type: array
+          description: Per-sample loss function outputs, in request order. Empty unless the request set `return_loss_fn_outputs`.
+          items:
+            $ref: '#/components/schemas/RL.LossFnOutput'
     RL.CustomForwardBackwardBody:
       type: object
       description: Request body for a custom forward-backward pass.

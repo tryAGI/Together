@@ -11,6 +11,10 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        ActiveSessions,
+        /// <summary>
+        ///
+        /// </summary>
         CacheHitRate,
         /// <summary>
         ///
@@ -54,6 +58,7 @@ namespace Together
         {
             return value switch
             {
+                DeScalingMetricName.ActiveSessions => "active_sessions",
                 DeScalingMetricName.CacheHitRate => "cache_hit_rate",
                 DeScalingMetricName.DecodingSpeed => "decoding_speed",
                 DeScalingMetricName.E2eLatency => "e2e_latency",
@@ -72,6 +77,7 @@ namespace Together
         {
             return value switch
             {
+                "active_sessions" => DeScalingMetricName.ActiveSessions,
                 "cache_hit_rate" => DeScalingMetricName.CacheHitRate,
                 "decoding_speed" => DeScalingMetricName.DecodingSpeed,
                 "e2e_latency" => DeScalingMetricName.E2eLatency,

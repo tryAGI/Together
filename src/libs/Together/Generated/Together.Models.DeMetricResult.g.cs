@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Observed metric value enriched with its rollout rule and verdict.
+    /// Observed metric result enriched with rollout rule criteria and verdict. Unmeasured rules are synthesized with verdict METRIC_VERDICT_UNAVAILABLE and no source or target value.
     /// </summary>
     public sealed partial class DeMetricResult
     {
@@ -35,13 +35,13 @@ namespace Together
         public global::Together.DeMetricResultCheck? Check { get; set; }
 
         /// <summary>
-        /// Observed source baseline. Set only for regression checks; a 0 reading serializes explicitly.
+        /// Observed source baseline. Set only for regression checks with a recorded observation; a 0 reading serializes explicitly.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sourceValue")]
         public double? SourceValue { get; set; }
 
         /// <summary>
-        /// Observed target value. A 0 reading serializes explicitly.
+        /// Observed target value. Set when the gate recorded an observation; absent on synthesized unavailable results. A 0 reading serializes explicitly.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("targetValue")]
         public double? TargetValue { get; set; }
@@ -101,10 +101,10 @@ namespace Together
         /// Evaluation form used by the metric rule.
         /// </param>
         /// <param name="sourceValue">
-        /// Observed source baseline. Set only for regression checks; a 0 reading serializes explicitly.
+        /// Observed source baseline. Set only for regression checks with a recorded observation; a 0 reading serializes explicitly.
         /// </param>
         /// <param name="targetValue">
-        /// Observed target value. A 0 reading serializes explicitly.
+        /// Observed target value. Set when the gate recorded an observation; absent on synthesized unavailable results. A 0 reading serializes explicitly.
         /// </param>
         /// <param name="threshold">
         /// Threshold criteria used when check is METRIC_CHECK_TYPE_THRESHOLD.

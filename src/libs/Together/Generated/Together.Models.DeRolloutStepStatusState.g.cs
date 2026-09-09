@@ -4,10 +4,14 @@
 namespace Together
 {
     /// <summary>
-    /// Execution state of this rollout step.
+    /// Outcome of this step. Finished steps are PASSED, the live step mirrors the rollout state, skipped-over steps are SKIPPED, and unreached steps are PENDING.
     /// </summary>
     public enum DeRolloutStepStatusState
     {
+        /// <summary>
+        ///
+        /// </summary>
+        RolloutStepStateCanceled,
         /// <summary>
         ///
         /// </summary>
@@ -19,11 +23,19 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        RolloutStepStatePaused,
+        /// <summary>
+        ///
+        /// </summary>
         RolloutStepStatePending,
         /// <summary>
         ///
         /// </summary>
         RolloutStepStateRunning,
+        /// <summary>
+        ///
+        /// </summary>
+        RolloutStepStateSkipped,
     }
 
     /// <summary>
@@ -38,10 +50,13 @@ namespace Together
         {
             return value switch
             {
+                DeRolloutStepStatusState.RolloutStepStateCanceled => "ROLLOUT_STEP_STATE_CANCELED",
                 DeRolloutStepStatusState.RolloutStepStateFailed => "ROLLOUT_STEP_STATE_FAILED",
                 DeRolloutStepStatusState.RolloutStepStatePassed => "ROLLOUT_STEP_STATE_PASSED",
+                DeRolloutStepStatusState.RolloutStepStatePaused => "ROLLOUT_STEP_STATE_PAUSED",
                 DeRolloutStepStatusState.RolloutStepStatePending => "ROLLOUT_STEP_STATE_PENDING",
                 DeRolloutStepStatusState.RolloutStepStateRunning => "ROLLOUT_STEP_STATE_RUNNING",
+                DeRolloutStepStatusState.RolloutStepStateSkipped => "ROLLOUT_STEP_STATE_SKIPPED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +67,13 @@ namespace Together
         {
             return value switch
             {
+                "ROLLOUT_STEP_STATE_CANCELED" => DeRolloutStepStatusState.RolloutStepStateCanceled,
                 "ROLLOUT_STEP_STATE_FAILED" => DeRolloutStepStatusState.RolloutStepStateFailed,
                 "ROLLOUT_STEP_STATE_PASSED" => DeRolloutStepStatusState.RolloutStepStatePassed,
+                "ROLLOUT_STEP_STATE_PAUSED" => DeRolloutStepStatusState.RolloutStepStatePaused,
                 "ROLLOUT_STEP_STATE_PENDING" => DeRolloutStepStatusState.RolloutStepStatePending,
                 "ROLLOUT_STEP_STATE_RUNNING" => DeRolloutStepStatusState.RolloutStepStateRunning,
+                "ROLLOUT_STEP_STATE_SKIPPED" => DeRolloutStepStatusState.RolloutStepStateSkipped,
                 _ => null,
             };
         }

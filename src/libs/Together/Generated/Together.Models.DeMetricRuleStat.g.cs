@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Required aggregation used for the metric.
+    /// Aggregation used for the metric. Optional for router_error_rate and inflight_requests; omitted values default to METRIC_STAT_TYPE_AVG. Required for router_latency, where AVG or PERCENTILE may be used.
     /// </summary>
     public enum DeMetricRuleStat
     {
