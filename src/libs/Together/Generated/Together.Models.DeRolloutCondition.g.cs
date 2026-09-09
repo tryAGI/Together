@@ -34,7 +34,7 @@ namespace Together
         public global::System.DateTime? ObservedAt { get; set; }
 
         /// <summary>
-        /// Metrics observed at the failing gate, enriched with their criteria.
+        /// Metrics observed at the failing gate, enriched with their criteria. Unmeasured rules appear as synthesized rows with verdict METRIC_VERDICT_UNAVAILABLE and no measured values.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metrics")]
         public global::System.Collections.Generic.IList<global::Together.DeMetricResult>? Metrics { get; set; }
@@ -68,7 +68,7 @@ namespace Together
         /// Timestamp when the condition was observed.
         /// </param>
         /// <param name="metrics">
-        /// Metrics observed at the failing gate, enriched with their criteria.
+        /// Metrics observed at the failing gate, enriched with their criteria. Unmeasured rules appear as synthesized rows with verdict METRIC_VERDICT_UNAVAILABLE and no measured values.
         /// </param>
         /// <param name="type">
         /// Informational condition type. `CapacityLimited` means the current step advanced partially because full capacity was not placeable.

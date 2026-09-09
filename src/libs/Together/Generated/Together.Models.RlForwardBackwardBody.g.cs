@@ -23,6 +23,14 @@ namespace Together
         public required global::Together.RlLossConfig Loss { get; set; }
 
         /// <summary>
+        /// Return the loss function's per-sample output tensors alongside the loss and metrics. Defaults to false. Enabling it increases the response size substantially for large batches and reduces step throughput, so leave it unset for ordinary training steps.<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("return_loss_fn_outputs")]
+        public bool? ReturnLossFnOutputs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +45,21 @@ namespace Together
         /// <param name="loss">
         /// Loss function configuration
         /// </param>
+        /// <param name="returnLossFnOutputs">
+        /// Return the loss function's per-sample output tensors alongside the loss and metrics. Defaults to false. Enabling it increases the response size substantially for large batches and reduces step throughput, so leave it unset for ordinary training steps.<br/>
+        /// Example: true
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlForwardBackwardBody(
             global::System.Collections.Generic.IList<global::Together.RlTrainingSample> samples,
-            global::Together.RlLossConfig loss)
+            global::Together.RlLossConfig loss,
+            bool? returnLossFnOutputs)
         {
             this.Samples = samples ?? throw new global::System.ArgumentNullException(nameof(samples));
             this.Loss = loss ?? throw new global::System.ArgumentNullException(nameof(loss));
+            this.ReturnLossFnOutputs = returnLossFnOutputs;
         }
 
         /// <summary>

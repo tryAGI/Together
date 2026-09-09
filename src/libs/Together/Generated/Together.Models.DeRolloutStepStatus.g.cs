@@ -21,32 +21,32 @@ namespace Together
         public int? TargetTrafficPercent { get; set; }
 
         /// <summary>
-        /// Execution state of this rollout step.
+        /// Outcome of this step. Finished steps are PASSED, the live step mirrors the rollout state, skipped-over steps are SKIPPED, and unreached steps are PENDING.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeRolloutStepStatusStateJsonConverter))]
         public global::Together.DeRolloutStepStatusState? State { get; set; }
 
         /// <summary>
-        /// Metric gate results for this step.
+        /// Metric gate results for this step, enriched with criteria and verdict. Unmeasured rules appear as synthesized rows with verdict METRIC_VERDICT_UNAVAILABLE and no measured values.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metrics")]
         public global::System.Collections.Generic.IList<global::Together.DeMetricResult>? Metrics { get; set; }
 
         /// <summary>
-        /// Timestamp when this step started.
+        /// Timestamp when this step's first sub-step ran. Unset for steps no sub-step reached.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("startedAt")]
         public global::System.DateTime? StartedAt { get; set; }
 
         /// <summary>
-        /// Timestamp when this step completed.
+        /// Timestamp when this step finished, was skipped over, or the rollout ended on it. Unset while in progress.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completedAt")]
         public global::System.DateTime? CompletedAt { get; set; }
 
         /// <summary>
-        /// Failure reason when this step failed.
+        /// Failure reason set only when this step failed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("failureReason")]
         public string? FailureReason { get; set; }
@@ -67,19 +67,19 @@ namespace Together
         /// Target traffic percentage configured for this step. Always serializes for recorded steps.
         /// </param>
         /// <param name="state">
-        /// Execution state of this rollout step.
+        /// Outcome of this step. Finished steps are PASSED, the live step mirrors the rollout state, skipped-over steps are SKIPPED, and unreached steps are PENDING.
         /// </param>
         /// <param name="metrics">
-        /// Metric gate results for this step.
+        /// Metric gate results for this step, enriched with criteria and verdict. Unmeasured rules appear as synthesized rows with verdict METRIC_VERDICT_UNAVAILABLE and no measured values.
         /// </param>
         /// <param name="startedAt">
-        /// Timestamp when this step started.
+        /// Timestamp when this step's first sub-step ran. Unset for steps no sub-step reached.
         /// </param>
         /// <param name="completedAt">
-        /// Timestamp when this step completed.
+        /// Timestamp when this step finished, was skipped over, or the rollout ended on it. Unset while in progress.
         /// </param>
         /// <param name="failureReason">
-        /// Failure reason when this step failed.
+        /// Failure reason set only when this step failed.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

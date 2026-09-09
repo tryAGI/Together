@@ -26,6 +26,12 @@ namespace Together
         public global::System.Collections.Generic.Dictionary<string, double>? Metrics { get; set; }
 
         /// <summary>
+        /// Per-sample loss function outputs, in request order. Empty unless the request set `return_loss_fn_outputs`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("loss_fn_outputs")]
+        public global::System.Collections.Generic.IList<global::Together.RlLossFnOutput>? LossFnOutputs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -42,15 +48,20 @@ namespace Together
         /// Loss-specific metrics (e.g., KL divergence, clip fraction for GRPO)<br/>
         /// Example: {"loss/clip/high_fraction":0.1,"loss/kl_ref/mean":0.05}
         /// </param>
+        /// <param name="lossFnOutputs">
+        /// Per-sample loss function outputs, in request order. Empty unless the request set `return_loss_fn_outputs`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlForwardBackwardResult(
             double loss,
-            global::System.Collections.Generic.Dictionary<string, double>? metrics)
+            global::System.Collections.Generic.Dictionary<string, double>? metrics,
+            global::System.Collections.Generic.IList<global::Together.RlLossFnOutput>? lossFnOutputs)
         {
             this.Loss = loss;
             this.Metrics = metrics;
+            this.LossFnOutputs = lossFnOutputs;
         }
 
         /// <summary>

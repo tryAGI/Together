@@ -9,7 +9,11 @@ namespace Together
     public sealed partial class DeThresholdCheck
     {
         /// <summary>
-        /// Required numeric threshold value.
+        /// Required finite threshold value. Interpreted in the metric's unit:<br/>
+        /// router_error_rate is a ratio in [0, 1], router_latency is<br/>
+        /// milliseconds, and inflight_requests is a raw count. Thresholds that<br/>
+        /// no achievable value could pass, or that every achievable value<br/>
+        /// passes, are rejected at create.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -33,7 +37,11 @@ namespace Together
         /// Initializes a new instance of the <see cref="DeThresholdCheck" /> class.
         /// </summary>
         /// <param name="value">
-        /// Required numeric threshold value.
+        /// Required finite threshold value. Interpreted in the metric's unit:<br/>
+        /// router_error_rate is a ratio in [0, 1], router_latency is<br/>
+        /// milliseconds, and inflight_requests is a raw count. Thresholds that<br/>
+        /// no achievable value could pass, or that every achievable value<br/>
+        /// passes, are rejected at create.
         /// </param>
         /// <param name="operator">
         /// Required comparison operator applied to the target metric value.

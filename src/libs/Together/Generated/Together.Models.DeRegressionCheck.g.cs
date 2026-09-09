@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class DeRegressionCheck
     {
         /// <summary>
-        /// Required maximum allowed regression percentage.
+        /// Required finite maximum allowed regression percentage, greater than or equal to 0. A value of 0 is the strictest budget; any regression fails, and exactly-at-budget passes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("maxRegressionPercent")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -33,7 +33,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="DeRegressionCheck" /> class.
         /// </summary>
         /// <param name="maxRegressionPercent">
-        /// Required maximum allowed regression percentage.
+        /// Required finite maximum allowed regression percentage, greater than or equal to 0. A value of 0 is the strictest budget; any regression fails, and exactly-at-budget passes.
         /// </param>
         /// <param name="direction">
         /// Required direction that indicates whether higher or lower metric values are worse.

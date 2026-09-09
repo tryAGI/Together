@@ -17,12 +17,11 @@ namespace Together
         public required global::Together.DeMetricRuleName Name { get; set; }
 
         /// <summary>
-        /// Required aggregation used for the metric.
+        /// Aggregation used for the metric. Optional for router_error_rate and inflight_requests; omitted values default to METRIC_STAT_TYPE_AVG. Required for router_latency, where AVG or PERCENTILE may be used.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stat")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeMetricRuleStatJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.DeMetricRuleStat Stat { get; set; }
+        public global::Together.DeMetricRuleStat? Stat { get; set; }
 
         /// <summary>
         /// Percentile value, such as 99. Set only when stat is METRIC_STAT_TYPE_PERCENTILE.
@@ -61,7 +60,7 @@ namespace Together
         /// Required catalogue key for the metric to gate on. `serving_latency` is retired.
         /// </param>
         /// <param name="stat">
-        /// Required aggregation used for the metric.
+        /// Aggregation used for the metric. Optional for router_error_rate and inflight_requests; omitted values default to METRIC_STAT_TYPE_AVG. Required for router_latency, where AVG or PERCENTILE may be used.
         /// </param>
         /// <param name="percentile">
         /// Percentile value, such as 99. Set only when stat is METRIC_STAT_TYPE_PERCENTILE.
@@ -80,7 +79,7 @@ namespace Together
 #endif
         public DeMetricRule(
             global::Together.DeMetricRuleName name,
-            global::Together.DeMetricRuleStat stat,
+            global::Together.DeMetricRuleStat? stat,
             int? percentile,
             global::Together.DeThresholdCheck? thresholdCheck,
             global::Together.DeRegressionCheck? regressionCheck,
