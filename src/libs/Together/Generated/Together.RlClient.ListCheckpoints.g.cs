@@ -6,7 +6,7 @@ namespace Together
     public partial class RlClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetForwardOperationServers = new global::Together.AutoSDKServer[]
+        private static readonly global::Together.AutoSDKServer[] s_ListCheckpointsServers = new global::Together.AutoSDKServer[]
         {            new global::Together.AutoSDKServer(
                 id: "https-api-together-ai-v1",
                 name: "Default environment for APIs",
@@ -20,7 +20,7 @@ namespace Together
         };
 
 
-        private static readonly global::Together.EndPointSecurityRequirement s_GetForwardOperationSecurityRequirement0 =
+        private static readonly global::Together.EndPointSecurityRequirement s_ListCheckpointsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
             {
                 Authorizations = new global::Together.EndPointAuthorizationRequirement[]
@@ -34,50 +34,65 @@ namespace Together
                     },
                 },
             };
-        private static readonly global::Together.EndPointSecurityRequirement[] s_GetForwardOperationSecurityRequirements =
+        private static readonly global::Together.EndPointSecurityRequirement[] s_ListCheckpointsSecurityRequirements =
             new global::Together.EndPointSecurityRequirement[]
-            {                s_GetForwardOperationSecurityRequirement0,
+            {                s_ListCheckpointsSecurityRequirement0,
             };
-        partial void PrepareGetForwardOperationArguments(
+        partial void PrepareListCheckpointsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string sessionId,
-            ref string operationId);
-        partial void PrepareGetForwardOperationRequest(
+            ref string? sessionId,
+            ref string? baseModel,
+            ref int? limit,
+            ref string? after);
+        partial void PrepareListCheckpointsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string sessionId,
-            string operationId);
-        partial void ProcessGetForwardOperationResponse(
+            string? sessionId,
+            string? baseModel,
+            int? limit,
+            string? after);
+        partial void ProcessListCheckpointsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetForwardOperationResponseContent(
+        partial void ProcessListCheckpointsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get forward operation<br/>
-        /// Retrieves the current status and result of a forward operation.
+        /// List training checkpoints<br/>
+        /// Lists training checkpoints owned by the caller. Filter by session or base model to recover a checkpoint ID for resume. Inference checkpoints are not included; they remain on the training session and in the model catalog.
         /// </summary>
         /// <param name="sessionId">
-        /// Training session ID
+        /// Only return checkpoints produced by this training session
         /// </param>
-        /// <param name="operationId">
-        /// Operation ID
+        /// <param name="baseModel">
+        /// Only return checkpoints trained from this base model. Match is exact.
+        /// </param>
+        /// <param name="limit">
+        /// Maximum number of checkpoints to return (1-100)<br/>
+        /// Default Value: 20
+        /// </param>
+        /// <param name="after">
+        /// Cursor for pagination (ID of the last checkpoint from the previous page)
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.RlForwardOperation> GetForwardOperationAsync(
-            string sessionId,
-            string operationId,
+        public async global::System.Threading.Tasks.Task<global::Together.RlCheckpointsListResponse> ListCheckpointsAsync(
+            string? sessionId = default,
+            string? baseModel = default,
+            int? limit = default,
+            string? after = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetForwardOperationAsResponseAsync(
+            var __response = await ListCheckpointsAsResponseAsync(
                 sessionId: sessionId,
-                operationId: operationId,
+                baseModel: baseModel,
+                limit: limit,
+                after: after,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -85,36 +100,47 @@ namespace Together
             return __response.Body;
         }
         /// <summary>
-        /// Get forward operation<br/>
-        /// Retrieves the current status and result of a forward operation.
+        /// List training checkpoints<br/>
+        /// Lists training checkpoints owned by the caller. Filter by session or base model to recover a checkpoint ID for resume. Inference checkpoints are not included; they remain on the training session and in the model catalog.
         /// </summary>
         /// <param name="sessionId">
-        /// Training session ID
+        /// Only return checkpoints produced by this training session
         /// </param>
-        /// <param name="operationId">
-        /// Operation ID
+        /// <param name="baseModel">
+        /// Only return checkpoints trained from this base model. Match is exact.
+        /// </param>
+        /// <param name="limit">
+        /// Maximum number of checkpoints to return (1-100)<br/>
+        /// Default Value: 20
+        /// </param>
+        /// <param name="after">
+        /// Cursor for pagination (ID of the last checkpoint from the previous page)
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlForwardOperation>> GetForwardOperationAsResponseAsync(
-            string sessionId,
-            string operationId,
+        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlCheckpointsListResponse>> ListCheckpointsAsResponseAsync(
+            string? sessionId = default,
+            string? baseModel = default,
+            int? limit = default,
+            string? after = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetForwardOperationArguments(
+            PrepareListCheckpointsArguments(
                 httpClient: HttpClient,
                 sessionId: ref sessionId,
-                operationId: ref operationId);
+                baseModel: ref baseModel,
+                limit: ref limit,
+                after: ref after);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetForwardOperationSecurityRequirements,
-                operationName: "GetForwardOperationAsync");
+                securityRequirements: s_ListCheckpointsSecurityRequirements,
+                operationName: "ListCheckpointsAsync");
 
             using var __timeoutCancellationTokenSource = global::Together.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -134,10 +160,16 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/rl/training-sessions/{sessionId}/operations/forward/{operationId}",
+                                path: "/rl/checkpoints",
                                 baseUri: ResolveBaseUri(
-                                servers: s_GetForwardOperationServers,
+                                servers: s_ListCheckpointsServers,
                                 defaultBaseUrl: "https://api.together.ai/v1"));
+                            __pathBuilder
+                                .AddOptionalParameter("session_id", sessionId)
+                                .AddOptionalParameter("base_model", baseModel)
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("after", after)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -175,11 +207,13 @@ namespace Together
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetForwardOperationRequest(
+                PrepareListCheckpointsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId!,
-                    operationId: operationId!);
+                    sessionId: sessionId,
+                    baseModel: baseModel,
+                    limit: limit,
+                    after: after);
 
                 return __httpRequest;
             }
@@ -196,9 +230,9 @@ namespace Together
                     await global::Together.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetForwardOperation",
-                                methodName: "GetForwardOperationAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/forward/{operationId}\"",
+                                operationId: "ListCheckpoints",
+                                methodName: "ListCheckpointsAsync",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,9 +264,9 @@ namespace Together
                         await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetForwardOperation",
-                                methodName: "GetForwardOperationAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/forward/{operationId}\"",
+                                operationId: "ListCheckpoints",
+                                methodName: "ListCheckpointsAsync",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -271,9 +305,9 @@ namespace Together
                         await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetForwardOperation",
-                                methodName: "GetForwardOperationAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/forward/{operationId}\"",
+                                operationId: "ListCheckpoints",
+                                methodName: "ListCheckpointsAsync",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -311,7 +345,7 @@ namespace Together
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetForwardOperationResponse(
+                ProcessListCheckpointsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -319,9 +353,9 @@ namespace Together
                     await global::Together.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetForwardOperation",
-                                methodName: "GetForwardOperationAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/forward/{operationId}\"",
+                                operationId: "ListCheckpoints",
+                                methodName: "ListCheckpointsAsync",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,9 +375,9 @@ namespace Together
                     await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetForwardOperation",
-                                methodName: "GetForwardOperationAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/forward/{operationId}\"",
+                                operationId: "ListCheckpoints",
+                                methodName: "ListCheckpointsAsync",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -408,7 +442,7 @@ namespace Together
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetForwardOperationResponseContent(
+                                ProcessListCheckpointsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -417,9 +451,9 @@ namespace Together
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Together.RlForwardOperation.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Together.RlCheckpointsListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.RlForwardOperation>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.RlCheckpointsListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +483,9 @@ namespace Together
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Together.RlForwardOperation.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Together.RlCheckpointsListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.RlForwardOperation>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.RlCheckpointsListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
