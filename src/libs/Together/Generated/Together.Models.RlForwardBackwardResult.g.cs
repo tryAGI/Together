@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Result of a forward-backward pass operation
+    /// Result of a scored forward or forward-backward operation
     /// </summary>
     public sealed partial class RlForwardBackwardResult
     {
