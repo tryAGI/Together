@@ -6,11 +6,11 @@ namespace Together
     /// <summary>
     /// Advanced configuration for the Muon optimizer.
     /// </summary>
-    public sealed partial class RlMuonOptimizerConfig
+    public sealed partial class RlMuonConfig
     {
         /// <summary>
         /// Scaling strategy for the Muon optimizer.<br/>
-        /// Default Value: MUON_SCALING_STRATEGY_MATCH_ADAMW
+        /// Default Value: MUON_SCALING_STRATEGY_MATCH_ADAM
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scaling_strategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlMuonScalingStrategyJsonConverter))]
@@ -23,25 +23,25 @@ namespace Together
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RlMuonOptimizerConfig" /> class.
+        /// Initializes a new instance of the <see cref="RlMuonConfig" /> class.
         /// </summary>
         /// <param name="scalingStrategy">
         /// Scaling strategy for the Muon optimizer.<br/>
-        /// Default Value: MUON_SCALING_STRATEGY_MATCH_ADAMW
+        /// Default Value: MUON_SCALING_STRATEGY_MATCH_ADAM
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public RlMuonOptimizerConfig(
+        public RlMuonConfig(
             global::Together.RlMuonScalingStrategy? scalingStrategy)
         {
             this.ScalingStrategy = scalingStrategy;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RlMuonOptimizerConfig" /> class.
+        /// Initializes a new instance of the <see cref="RlMuonConfig" /> class.
         /// </summary>
-        public RlMuonOptimizerConfig()
+        public RlMuonConfig()
         {
         }
 

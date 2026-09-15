@@ -11,7 +11,7 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        MuonScalingStrategyMatchAdamw,
+        MuonScalingStrategyMatchAdam,
         /// <summary>
         ///
         /// </summary>
@@ -34,7 +34,7 @@ namespace Together
         {
             return value switch
             {
-                RlMuonScalingStrategy.MuonScalingStrategyMatchAdamw => "MUON_SCALING_STRATEGY_MATCH_ADAMW",
+                RlMuonScalingStrategy.MuonScalingStrategyMatchAdam => "MUON_SCALING_STRATEGY_MATCH_ADAM",
                 RlMuonScalingStrategy.MuonScalingStrategyOriginal => "MUON_SCALING_STRATEGY_ORIGINAL",
                 RlMuonScalingStrategy.MuonScalingStrategyUnspecified => "MUON_SCALING_STRATEGY_UNSPECIFIED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -47,7 +47,7 @@ namespace Together
         {
             return value switch
             {
-                "MUON_SCALING_STRATEGY_MATCH_ADAMW" => RlMuonScalingStrategy.MuonScalingStrategyMatchAdamw,
+                "MUON_SCALING_STRATEGY_MATCH_ADAM" => RlMuonScalingStrategy.MuonScalingStrategyMatchAdam,
                 "MUON_SCALING_STRATEGY_ORIGINAL" => RlMuonScalingStrategy.MuonScalingStrategyOriginal,
                 "MUON_SCALING_STRATEGY_UNSPECIFIED" => RlMuonScalingStrategy.MuonScalingStrategyUnspecified,
                 _ => null,

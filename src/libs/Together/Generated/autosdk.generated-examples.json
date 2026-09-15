@@ -54,6 +54,17 @@
       "Format": "http",
       "OperationId": "RolloutService_CreateRollout",
       "Setup": null
+    },
+    {
+      "Order": 6,
+      "Title": "Preview rollout defaults",
+      "Slug": "rolloutservice-previewrolloutdefaults",
+      "Description": "Returns the values a create request would pick for any field left unset, plus the capacity context needed to display them, without creating a rollout. Responses are display state only and re-validated authoritatively at create and start; do not copy response values back into a create request.",
+      "Language": "http",
+      "Code": "### Preview rollout defaults\n# @name RolloutService_PreviewRolloutDefaults\nPOST {{host}}/projects/{{projectId}}/endpoints/{{endpointId}}/rollouts/preview-defaults\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022sourceDeploymentId\u0022: \u0022dep_source123\u0022,\n  \u0022targetDeploymentId\u0022: \u0022dep_target456\u0022,\n  \u0022blueGreen\u0022: {}\n}\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json\n# default\n# Description: Default error response\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "RolloutService_PreviewRolloutDefaults",
+      "Setup": null
     }
   ]
 }

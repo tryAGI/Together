@@ -22,6 +22,12 @@ namespace Together
         public global::Together.DeInlinePlacementConstraint? Constraint { get; set; }
 
         /// <summary>
+        /// Compliance regimes required for clusters that run the deployment.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("compliancePolicy")]
+        public global::Together.DeCompliancePolicy? CompliancePolicy { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -36,15 +42,20 @@ namespace Together
         /// <param name="constraint">
         /// How strictly the regions list is enforced.
         /// </param>
+        /// <param name="compliancePolicy">
+        /// Compliance regimes required for clusters that run the deployment.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DeInlinePlacement(
             global::System.Collections.Generic.IList<string>? regions,
-            global::Together.DeInlinePlacementConstraint? constraint)
+            global::Together.DeInlinePlacementConstraint? constraint,
+            global::Together.DeCompliancePolicy? compliancePolicy)
         {
             this.Regions = regions;
             this.Constraint = constraint;
+            this.CompliancePolicy = compliancePolicy;
         }
 
         /// <summary>

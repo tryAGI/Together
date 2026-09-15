@@ -9,16 +9,16 @@ namespace Together
     public sealed partial class RlOptimizerConfig
     {
         /// <summary>
-        /// Use the AdamW optimizer.
+        /// Use the Adam optimizer.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adamw")]
-        public global::Together.RlAdamWOptimizerConfig? Adamw { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("adam")]
+        public global::Together.RlAdamConfig? Adam { get; set; }
 
         /// <summary>
         /// Use the Muon optimizer.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("muon")]
-        public global::Together.RlMuonOptimizerConfig? Muon { get; set; }
+        public global::Together.RlMuonConfig? Muon { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,8 +29,8 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlOptimizerConfig" /> class.
         /// </summary>
-        /// <param name="adamw">
-        /// Use the AdamW optimizer.
+        /// <param name="adam">
+        /// Use the Adam optimizer.
         /// </param>
         /// <param name="muon">
         /// Use the Muon optimizer.
@@ -39,10 +39,10 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlOptimizerConfig(
-            global::Together.RlAdamWOptimizerConfig? adamw,
-            global::Together.RlMuonOptimizerConfig? muon)
+            global::Together.RlAdamConfig? adam,
+            global::Together.RlMuonConfig? muon)
         {
-            this.Adamw = adamw;
+            this.Adam = adam;
             this.Muon = muon;
         }
 

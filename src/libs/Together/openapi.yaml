@@ -1016,6 +1016,40 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/DE.CreateRolloutRequest'
+            # Same oneOf as CreateRollout: a valid body sets exactly one strategy.
+            # Examples keep generated SDK tests and docs from merging canary/blueGreen/rolling.
+            examples:
+              canary:
+                summary: Canary rollout with a metric gate
+                value:
+                  sourceDeploymentId: dep_source123
+                  targetDeploymentId: dep_target456
+                  canary:
+                    steps:
+                      - traffic: 25
+                      - traffic: 50
+                      - traffic: 100
+                    stepInterval: 300s
+                  metrics:
+                    - name: serving_latency
+                      stat: METRIC_STAT_TYPE_PERCENTILE
+                      percentile: 95
+                      thresholdCheck:
+                        value: 30000
+                        operator: THRESHOLD_OPERATOR_LT
+                      window: 300s
+              blueGreen:
+                summary: Blue-green cutover
+                value:
+                  sourceDeploymentId: dep_source123
+                  targetDeploymentId: dep_target456
+                  blueGreen: {}
+              rolling:
+                summary: Rolling replica swap
+                value:
+                  sourceDeploymentId: dep_source123
+                  targetDeploymentId: dep_target456
+                  rolling: {}
         required: true
       responses:
         "200":
@@ -1024,6 +1058,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DE.RolloutDefaultsPreview'
+              # Nested spec is itself a CreateRolloutRequest oneOf. Without a canned
+              # example Steady synthesizes spec: null and generated SDK tests fail.
+              examples:
+                canary:
+                  summary: Preview of a canary create form with defaults filled in
+                  value:
+                    spec:
+                      sourceDeploymentId: dep_source123
+                      targetDeploymentId: dep_target456
+                      canary:
+                        steps:
+                          - traffic: 25
+                          - traffic: 50
+                          - traffic: 100
+                        stepInterval: 300s
+                      metrics:
+                        - name: serving_latency
+                          stat: METRIC_STAT_TYPE_PERCENTILE
+                          percentile: 95
+                          thresholdCheck:
+                            value: 30000
+                            operator: THRESHOLD_OPERATOR_LT
+                          window: 300s
+                    sourceReplicas: 4
+                    targetReplicas: 1
+                    targetMinReplicas: 1
+                    targetMaxReplicas: 8
+                    warnings: []
+                    frozenPair: false
         default:
           description: Default error response
           content:
@@ -12663,8 +12726,6 @@ components:
         stat:
           enum:
             - METRIC_STAT_TYPE_AVG
-            - METRIC_STAT_TYPE_MIN
-            - METRIC_STAT_TYPE_MAX
             - METRIC_STAT_TYPE_PERCENTILE
           type: string
           description: Aggregation used for the metric. Optional for router_error_rate and inflight_requests; omitted values default to METRIC_STAT_TYPE_AVG. Required for router_latency, where AVG or PERCENTILE may be used.
@@ -12687,17 +12748,20 @@ components:
       type: object
       description: Threshold criteria that fail when the target metric violates the configured bound.
       required:
-        - value
         - operator
       properties:
         value:
           type: number
           description: |-
-            Required finite threshold value. Interpreted in the metric's unit:
+            Finite threshold value. Interpreted in the metric's unit:
             router_error_rate is a ratio in [0, 1], router_latency is
-            milliseconds, and inflight_requests is a raw count. Thresholds that
-            no achievable value could pass, or that every achievable value
-            passes, are rejected at create.
+            milliseconds, and inflight_requests is in-flight requests per ready
+            replica averaged over the rule window. Thresholds that no
+            achievable value could pass, or that every achievable value passes,
+            are rejected at create.
+
+            Omitting this value is read as 0. Set 0 explicitly for the strictest
+            threshold: nothing at all is tolerated.
         operator:
           enum:
             - THRESHOLD_OPERATOR_GT
@@ -12710,12 +12774,11 @@ components:
       type: object
       description: Regression criteria that fail when the target regresses against the source beyond a limit.
       required:
-        - maxRegressionPercent
         - direction
       properties:
         maxRegressionPercent:
           type: number
-          description: Required finite maximum allowed regression percentage, greater than or equal to 0. A value of 0 is the strictest budget; any regression fails, and exactly-at-budget passes.
+          description: Finite maximum allowed regression percentage, greater than or equal to 0. Omitting this value is read as 0. A value of 0 is the strictest budget; any regression fails, and exactly-at-budget passes.
         direction:
           enum:
             - REGRESSION_DIRECTION_HIGHER_IS_WORSE
@@ -12774,6 +12837,30 @@ components:
         - targetMinReplicas
         - targetMaxReplicas
         - warnings
+      example:
+        spec:
+          sourceDeploymentId: dep_source123
+          targetDeploymentId: dep_target456
+          canary:
+            steps:
+              - traffic: 25
+              - traffic: 50
+              - traffic: 100
+            stepInterval: 300s
+          metrics:
+            - name: serving_latency
+              stat: METRIC_STAT_TYPE_PERCENTILE
+              percentile: 95
+              thresholdCheck:
+                value: 30000
+                operator: THRESHOLD_OPERATOR_LT
+              window: 300s
+        sourceReplicas: 4
+        targetReplicas: 1
+        targetMinReplicas: 1
+        targetMaxReplicas: 8
+        warnings: []
+        frozenPair: false
       properties:
         spec:
           allOf:
@@ -12875,9 +12962,7 @@ components:
             - ROLLOUT_STATE_RUNNING
             - ROLLOUT_STATE_PAUSED
             - ROLLOUT_STATE_STABILIZING
-            - ROLLOUT_STATE_ABORTING
             - ROLLOUT_STATE_COMPLETED
-            - ROLLOUT_STATE_ABORTED
             - ROLLOUT_STATE_PENDING
             - ROLLOUT_STATE_SYSTEM_PAUSED
             - ROLLOUT_STATE_CANCELLING
@@ -13029,7 +13114,7 @@ components:
           description: Failure reason set only when this step failed.
     DE.MetricResult:
       type: object
-      description: Observed metric result enriched with rollout rule criteria and verdict. Unmeasured rules are synthesized with verdict METRIC_VERDICT_UNAVAILABLE and no source or target value.
+      description: Observed metric result enriched with rollout rule criteria and the rule's recorded verdict. Unmeasured rules are synthesized with verdict METRIC_VERDICT_UNAVAILABLE and no source or target value.
       properties:
         name:
           type: string
@@ -13037,8 +13122,6 @@ components:
         stat:
           enum:
             - METRIC_STAT_TYPE_AVG
-            - METRIC_STAT_TYPE_MIN
-            - METRIC_STAT_TYPE_MAX
             - METRIC_STAT_TYPE_PERCENTILE
           type: string
           description: Aggregation used for the metric.
@@ -13083,7 +13166,10 @@ components:
             - METRIC_VERDICT_BREACHED
             - METRIC_VERDICT_UNAVAILABLE
           type: string
-          description: Result of evaluating this metric at the gate.
+          description: Rule decision recorded by the metric gate. Absent when no decision was recorded.
+        failureReason:
+          type: string
+          description: Rule-specific failure text. Set only when verdict is METRIC_VERDICT_BREACHED and the gate recorded one.
     DE.ABExperiment:
       type: object
       required:
@@ -13186,7 +13272,18 @@ components:
             - ENFORCEMENT_PREFERRED
           type: string
           description: How strictly the regions list is enforced.
+        compliancePolicy:
+          description: Compliance regimes required for clusters that run the deployment.
+          allOf:
+            - $ref: '#/components/schemas/DE.CompliancePolicy'
       description: Inline placement parameters expanded into scheduling rules by the server.
+    DE.CompliancePolicy:
+      type: object
+      properties:
+        hipaa:
+          type: boolean
+          description: Restrict placement to HIPAA-attested clusters.
+      description: Compliance regimes required by a deployment placement policy.
     DE.ListModelsResponse:
       type: object
       description: Custom model resources and pagination metadata.
@@ -16267,32 +16364,32 @@ components:
       type: object
       description: Optimizer configuration
       properties:
-        adamw:
-          $ref: '#/components/schemas/RL.AdamWOptimizerConfig'
-          description: Use the AdamW optimizer.
+        adam:
+          $ref: '#/components/schemas/RL.AdamConfig'
+          description: Use the Adam optimizer.
         muon:
-          $ref: '#/components/schemas/RL.MuonOptimizerConfig'
+          $ref: '#/components/schemas/RL.MuonConfig'
           description: Use the Muon optimizer.
-    RL.AdamWOptimizerConfig:
+    RL.AdamConfig:
       type: object
-      description: AdamW optimizer configuration
+      description: Adam optimizer configuration
       properties: {}
       additionalProperties: false
       x-stainless-empty-object: true
-    RL.MuonOptimizerConfig:
+    RL.MuonConfig:
       type: object
       description: Advanced configuration for the Muon optimizer.
       properties:
         scaling_strategy:
           $ref: '#/components/schemas/RL.MuonScalingStrategy'
           example: MUON_SCALING_STRATEGY_ORIGINAL
-          default: MUON_SCALING_STRATEGY_MATCH_ADAMW
+          default: MUON_SCALING_STRATEGY_MATCH_ADAM
           description: Scaling strategy for the Muon optimizer.
     RL.MuonScalingStrategy:
       type: string
       enum:
         - MUON_SCALING_STRATEGY_UNSPECIFIED
-        - MUON_SCALING_STRATEGY_MATCH_ADAMW
+        - MUON_SCALING_STRATEGY_MATCH_ADAM
         - MUON_SCALING_STRATEGY_ORIGINAL
       default: MUON_SCALING_STRATEGY_UNSPECIFIED
     RL.AdamParams:

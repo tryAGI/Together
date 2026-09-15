@@ -47,6 +47,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacement))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacementVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint), TypeInfoPropertyName = "DeInlinePlacementConstraint2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCompliancePolicy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListDeploymentsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeDeployment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingMetric>))]

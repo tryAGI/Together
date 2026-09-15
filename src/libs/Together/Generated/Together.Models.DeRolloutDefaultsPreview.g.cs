@@ -4,7 +4,8 @@
 namespace Together
 {
     /// <summary>
-    /// Completed create-form state — the caller's spec with defaulted values filled in, the steps the rollout is expected to walk, and the capacity context the defaults were computed from. Display only.
+    /// Completed create-form state — the caller's spec with defaulted values filled in, the steps the rollout is expected to walk, and the capacity context the defaults were computed from. Display only.<br/>
+    /// Example: {"spec":{"sourceDeploymentId":"dep_source123","targetDeploymentId":"dep_target456","canary":{"steps":[{"traffic":25},{"traffic":50},{"traffic":100}],"stepInterval":"300s"},"metrics":[{"name":"serving_latency","stat":"METRIC_STAT_TYPE_PERCENTILE","percentile":95,"thresholdCheck":{"value":30000,"operator":"THRESHOLD_OPERATOR_LT"},"window":"300s"}]},"sourceReplicas":4,"targetReplicas":1,"targetMinReplicas":1,"targetMaxReplicas":8,"warnings":[],"frozenPair":false}
     /// </summary>
     public sealed partial class DeRolloutDefaultsPreview
     {

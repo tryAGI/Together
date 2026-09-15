@@ -12,14 +12,6 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        RolloutStateAborted,
-        /// <summary>
-        ///
-        /// </summary>
-        RolloutStateAborting,
-        /// <summary>
-        ///
-        /// </summary>
         RolloutStateCanceled,
         /// <summary>
         ///
@@ -67,8 +59,6 @@ namespace Together
         {
             return value switch
             {
-                DeRolloutState.RolloutStateAborted => "ROLLOUT_STATE_ABORTED",
-                DeRolloutState.RolloutStateAborting => "ROLLOUT_STATE_ABORTING",
                 DeRolloutState.RolloutStateCanceled => "ROLLOUT_STATE_CANCELED",
                 DeRolloutState.RolloutStateCancelling => "ROLLOUT_STATE_CANCELLING",
                 DeRolloutState.RolloutStateCompleted => "ROLLOUT_STATE_COMPLETED",
@@ -88,8 +78,6 @@ namespace Together
         {
             return value switch
             {
-                "ROLLOUT_STATE_ABORTED" => DeRolloutState.RolloutStateAborted,
-                "ROLLOUT_STATE_ABORTING" => DeRolloutState.RolloutStateAborting,
                 "ROLLOUT_STATE_CANCELED" => DeRolloutState.RolloutStateCanceled,
                 "ROLLOUT_STATE_CANCELLING" => DeRolloutState.RolloutStateCancelling,
                 "ROLLOUT_STATE_COMPLETED" => DeRolloutState.RolloutStateCompleted,
