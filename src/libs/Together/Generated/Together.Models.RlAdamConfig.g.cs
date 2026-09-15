@@ -4,9 +4,9 @@
 namespace Together
 {
     /// <summary>
-    /// AdamW optimizer configuration
+    /// Adam optimizer configuration
     /// </summary>
-    public sealed partial class RlAdamWOptimizerConfig
+    public sealed partial class RlAdamConfig
     {
 
         /// <summary>

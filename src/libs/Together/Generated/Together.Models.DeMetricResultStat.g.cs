@@ -15,14 +15,6 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        MetricStatTypeMax,
-        /// <summary>
-        ///
-        /// </summary>
-        MetricStatTypeMin,
-        /// <summary>
-        ///
-        /// </summary>
         MetricStatTypePercentile,
     }
 
@@ -39,8 +31,6 @@ namespace Together
             return value switch
             {
                 DeMetricResultStat.MetricStatTypeAvg => "METRIC_STAT_TYPE_AVG",
-                DeMetricResultStat.MetricStatTypeMax => "METRIC_STAT_TYPE_MAX",
-                DeMetricResultStat.MetricStatTypeMin => "METRIC_STAT_TYPE_MIN",
                 DeMetricResultStat.MetricStatTypePercentile => "METRIC_STAT_TYPE_PERCENTILE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -53,8 +43,6 @@ namespace Together
             return value switch
             {
                 "METRIC_STAT_TYPE_AVG" => DeMetricResultStat.MetricStatTypeAvg,
-                "METRIC_STAT_TYPE_MAX" => DeMetricResultStat.MetricStatTypeMax,
-                "METRIC_STAT_TYPE_MIN" => DeMetricResultStat.MetricStatTypeMin,
                 "METRIC_STAT_TYPE_PERCENTILE" => DeMetricResultStat.MetricStatTypePercentile,
                 _ => null,
             };

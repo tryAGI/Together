@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Observed metric result enriched with rollout rule criteria and verdict. Unmeasured rules are synthesized with verdict METRIC_VERDICT_UNAVAILABLE and no source or target value.
+    /// Observed metric result enriched with rollout rule criteria and the rule's recorded verdict. Unmeasured rules are synthesized with verdict METRIC_VERDICT_UNAVAILABLE and no source or target value.
     /// </summary>
     public sealed partial class DeMetricResult
     {
@@ -73,11 +73,17 @@ namespace Together
         public global::Together.DeMetricResultDirection? Direction { get; set; }
 
         /// <summary>
-        /// Result of evaluating this metric at the gate.
+        /// Rule decision recorded by the metric gate. Absent when no decision was recorded.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("verdict")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeMetricResultVerdictJsonConverter))]
         public global::Together.DeMetricResultVerdict? Verdict { get; set; }
+
+        /// <summary>
+        /// Rule-specific failure text. Set only when verdict is METRIC_VERDICT_BREACHED and the gate recorded one.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("failureReason")]
+        public string? FailureReason { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -119,7 +125,10 @@ namespace Together
         /// Direction that indicates whether higher or lower values are worse.
         /// </param>
         /// <param name="verdict">
-        /// Result of evaluating this metric at the gate.
+        /// Rule decision recorded by the metric gate. Absent when no decision was recorded.
+        /// </param>
+        /// <param name="failureReason">
+        /// Rule-specific failure text. Set only when verdict is METRIC_VERDICT_BREACHED and the gate recorded one.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -135,7 +144,8 @@ namespace Together
             global::Together.DeMetricResultOperator? @operator,
             double? maxRegressionPercent,
             global::Together.DeMetricResultDirection? direction,
-            global::Together.DeMetricResultVerdict? verdict)
+            global::Together.DeMetricResultVerdict? verdict,
+            string? failureReason)
         {
             this.Name = name;
             this.Stat = stat;
@@ -148,6 +158,7 @@ namespace Together
             this.MaxRegressionPercent = maxRegressionPercent;
             this.Direction = direction;
             this.Verdict = verdict;
+            this.FailureReason = failureReason;
         }
 
         /// <summary>

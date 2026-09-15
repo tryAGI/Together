@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Result of evaluating this metric at the gate.
+    /// Rule decision recorded by the metric gate. Absent when no decision was recorded.
     /// </summary>
     public enum DeMetricResultVerdict
     {
