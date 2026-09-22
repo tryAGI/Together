@@ -47,7 +47,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointUpdateVisibility), TypeInfoPropertyName = "DeEndpointUpdateVisibility2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateDeploymentRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAutoscaling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement), TypeInfoPropertyName = "DePlacement2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateDeploymentRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateABExperimentRequest))]
@@ -89,6 +88,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListAdaptersResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeAdapterEntry>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAddAdapterRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateAdapterRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListRolloutsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeRollout>))]
@@ -149,6 +149,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPerformanceBenchmarks))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPricing))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelInputModalitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie), TypeInfoPropertyName = "DeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelOutputModalitie>))]
@@ -232,6 +233,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRemoteUploadEventLevel), TypeInfoPropertyName = "DeRemoteUploadEventLevel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingMetric>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetric))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRules))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatusState), TypeInfoPropertyName = "DeDeploymentStatusState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointEventLevel), TypeInfoPropertyName = "DeEndpointEventLevel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointEventSourceKind), TypeInfoPropertyName = "DeEndpointEventSourceKind2")]
@@ -260,6 +262,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsSpeculatorMechanism), TypeInfoPropertyName = "DeModelWeightsSpeculatorMechanism2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsDraftSpeculatorType), TypeInfoPropertyName = "DeModelWeightsDraftSpeculatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelParameters))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicy))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType), TypeInfoPropertyName = "DeScalingPolicyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingPolicy>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy), TypeInfoPropertyName = "DeScalingRulesSelectPolicy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName), TypeInfoPropertyName = "DeScalingMetricName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType), TypeInfoPropertyName = "DeScalingMetricType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeModelDTypeCount>))]
@@ -508,12 +514,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.CompletionRequestModel?, string>), TypeInfoPropertyName = "AnyOfCompletionRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionRequestModel), TypeInfoPropertyName = "CompletionRequestModel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.CompletionRequestSafetyModel?, string>), TypeInfoPropertyName = "AnyOfCompletionRequestSafetyModelString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionRequestSafetyModel), TypeInfoPropertyName = "CompletionRequestSafetyModel2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionStream), TypeInfoPropertyName = "CompletionStream2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionEvent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChunk))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -530,6 +530,12 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionRequestSafetyModel), TypeInfoPropertyName = "CompletionRequestSafetyModel2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionStream), TypeInfoPropertyName = "CompletionStream2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionEvent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinel))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChunk))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionToken))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.CompletionChoice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoice))]
@@ -1000,10 +1006,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateEndpointRequestVisibility?), TypeInfoPropertyName = "NullableDeCreateEndpointRequestVisibility2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointUpdateVisibility?), TypeInfoPropertyName = "NullableDeEndpointUpdateVisibility2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement?), TypeInfoPropertyName = "NullableDePlacement2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentTrafficMode?), TypeInfoPropertyName = "NullableDeDeploymentTrafficMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState?), TypeInfoPropertyName = "NullableDeDeploymentAdapterStatusState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricRuleName?), TypeInfoPropertyName = "NullableDeMetricRuleName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricRuleStat?), TypeInfoPropertyName = "NullableDeMetricRuleStat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeThresholdCheckOperator?), TypeInfoPropertyName = "NullableDeThresholdCheckOperator2")]
@@ -1020,12 +1026,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultDirection?), TypeInfoPropertyName = "NullableDeMetricResultDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultVerdict?), TypeInfoPropertyName = "NullableDeMetricResultVerdict2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeABExperimentMemberRole?), TypeInfoPropertyName = "NullableDeABExperimentMemberRole2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelInputModalitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelOutputModalitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelProduct?), TypeInfoPropertyName = "NullableDeSupportedModelProduct2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelFeature?), TypeInfoPropertyName = "NullableDeSupportedModelFeature2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelCapabilitie?), TypeInfoPropertyName = "NullableDeSupportedModelCapabilitie2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1042,6 +1042,12 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelInputModalitie2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelOutputModalitie2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelProduct?), TypeInfoPropertyName = "NullableDeSupportedModelProduct2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelFeature?), TypeInfoPropertyName = "NullableDeSupportedModelFeature2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelCapabilitie?), TypeInfoPropertyName = "NullableDeSupportedModelCapabilitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelStatus?), TypeInfoPropertyName = "NullableDeSupportedModelStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentState?), TypeInfoPropertyName = "NullableDeShadowExperimentState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSampling?), TypeInfoPropertyName = "NullableDeShadowExperimentSampling2")]
@@ -1062,6 +1068,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsType?), TypeInfoPropertyName = "NullableDeModelWeightsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsSpeculatorMechanism?), TypeInfoPropertyName = "NullableDeModelWeightsSpeculatorMechanism2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsDraftSpeculatorType?), TypeInfoPropertyName = "NullableDeModelWeightsDraftSpeculatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType?), TypeInfoPropertyName = "NullableDeScalingPolicyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy?), TypeInfoPropertyName = "NullableDeScalingRulesSelectPolicy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName?), TypeInfoPropertyName = "NullableDeScalingMetricName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType?), TypeInfoPropertyName = "NullableDeScalingMetricType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlWeightSyncType?), TypeInfoPropertyName = "NullableRlWeightSyncType2")]
@@ -1341,6 +1349,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeRevisionValidationError>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeDeploymentMetrics>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeConfigSelector>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingPolicy>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeModelDTypeCount>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlModelInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RlTrainingSample>))]
@@ -1772,6 +1781,14 @@ namespace Together
                     || typeToConvert == typeof(global::Together.DeModelWeightsDraftSpeculatorType)
 
                     || typeToConvert == typeof(global::Together.DeModelWeightsDraftSpeculatorType?)
+
+                    || typeToConvert == typeof(global::Together.DeScalingPolicyType)
+
+                    || typeToConvert == typeof(global::Together.DeScalingPolicyType?)
+
+                    || typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy)
+
+                    || typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy?)
 
                     || typeToConvert == typeof(global::Together.DeScalingMetricName)
 
@@ -2964,6 +2981,26 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.DeModelWeightsDraftSpeculatorType?))
                 {
                     return new global::Together.JsonConverters.DeModelWeightsDraftSpeculatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingPolicyType))
+                {
+                    return new global::Together.JsonConverters.DeScalingPolicyTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingPolicyType?))
+                {
+                    return new global::Together.JsonConverters.DeScalingPolicyTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy))
+                {
+                    return new global::Together.JsonConverters.DeScalingRulesSelectPolicyJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy?))
+                {
+                    return new global::Together.JsonConverters.DeScalingRulesSelectPolicyNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeScalingMetricName))

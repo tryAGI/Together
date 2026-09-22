@@ -557,6 +557,9 @@ namespace Together
         /// <param name="autoscaling">
         /// Updated autoscaling configuration.
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// Updated inactive timeout in minutes. Use 0 to disable automatic stopping; otherwise accepted values are 30 through 1440.
+        /// </param>
         /// <param name="etag">
         /// Current deployment version. The update is rejected if this value no longer matches.
         /// </param>
@@ -570,6 +573,7 @@ namespace Together
             string? updateMask = default,
             string? name = default,
             global::Together.DeAutoscaling? autoscaling = default,
+            int? inactiveTimeout = default,
             string? etag = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -578,6 +582,7 @@ namespace Together
             {
                 Name = name,
                 Autoscaling = autoscaling,
+                InactiveTimeout = inactiveTimeout,
                 Etag = etag,
             };
 

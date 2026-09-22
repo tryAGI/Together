@@ -121,6 +121,12 @@ namespace Together
         public string? ServerlessEndpoint { get; set; }
 
         /// <summary>
+        /// Serverless pricing in USD per one million tokens, if available.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
+        public global::Together.DeSupportedModelPricing? Pricing { get; set; }
+
+        /// <summary>
         /// Model family identifier for related catalog entries.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("familyId")]
@@ -246,6 +252,9 @@ namespace Together
         /// <param name="serverlessEndpoint">
         /// Serverless endpoint name for inference, if available.
         /// </param>
+        /// <param name="pricing">
+        /// Serverless pricing in USD per one million tokens, if available.
+        /// </param>
         /// <param name="familyId">
         /// Model family identifier for related catalog entries.
         /// </param>
@@ -276,6 +285,7 @@ namespace Together
             string? inputFormat,
             string? outputFormat,
             string? serverlessEndpoint,
+            global::Together.DeSupportedModelPricing? pricing,
             string? familyId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -295,6 +305,7 @@ namespace Together
             this.InputFormat = inputFormat;
             this.OutputFormat = outputFormat;
             this.ServerlessEndpoint = serverlessEndpoint;
+            this.Pricing = pricing;
             this.FamilyId = familyId;
             this.DisplayType = displayType ?? throw new global::System.ArgumentNullException(nameof(displayType));
             this.BaseModelId = baseModelId ?? throw new global::System.ArgumentNullException(nameof(baseModelId));

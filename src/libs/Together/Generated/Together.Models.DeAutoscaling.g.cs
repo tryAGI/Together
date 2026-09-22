@@ -45,6 +45,24 @@ namespace Together
         public global::System.Collections.Generic.IList<global::Together.DeScalingMetric>? ScalingMetrics { get; set; }
 
         /// <summary>
+        /// Rate limits applied when scaling up. Stabilization remains controlled by `scaleUpWindow`.<br/>
+        /// Omitted fields are preserved on update; a non-empty policy list replaces the previous list.<br/>
+        /// To clear policies or reset the selector, explicitly mask that leaf field. Empty lists in<br/>
+        /// parent-only updates are treated as omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scaleUp")]
+        public global::Together.DeScalingRules? ScaleUp { get; set; }
+
+        /// <summary>
+        /// Rate limits applied when scaling down. Stabilization remains controlled by `scaleDownWindow`.<br/>
+        /// Omitted fields are preserved on update; a non-empty policy list replaces the previous list.<br/>
+        /// To clear policies or reset the selector, explicitly mask that leaf field. Empty lists in<br/>
+        /// parent-only updates are treated as omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scaleDown")]
+        public global::Together.DeScalingRules? ScaleDown { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,6 +89,18 @@ namespace Together
         /// <param name="scalingMetrics">
         /// Metrics and targets that drive replica recommendations. When omitted, the platform uses concurrent in-flight requests per replica.
         /// </param>
+        /// <param name="scaleUp">
+        /// Rate limits applied when scaling up. Stabilization remains controlled by `scaleUpWindow`.<br/>
+        /// Omitted fields are preserved on update; a non-empty policy list replaces the previous list.<br/>
+        /// To clear policies or reset the selector, explicitly mask that leaf field. Empty lists in<br/>
+        /// parent-only updates are treated as omitted.
+        /// </param>
+        /// <param name="scaleDown">
+        /// Rate limits applied when scaling down. Stabilization remains controlled by `scaleDownWindow`.<br/>
+        /// Omitted fields are preserved on update; a non-empty policy list replaces the previous list.<br/>
+        /// To clear policies or reset the selector, explicitly mask that leaf field. Empty lists in<br/>
+        /// parent-only updates are treated as omitted.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +110,9 @@ namespace Together
             string? scaleDownWindow,
             string? scaleUpWindow,
             string? scaleToZeroWindow,
-            global::System.Collections.Generic.IList<global::Together.DeScalingMetric>? scalingMetrics)
+            global::System.Collections.Generic.IList<global::Together.DeScalingMetric>? scalingMetrics,
+            global::Together.DeScalingRules? scaleUp,
+            global::Together.DeScalingRules? scaleDown)
         {
             this.MinReplicas = minReplicas;
             this.MaxReplicas = maxReplicas;
@@ -88,6 +120,8 @@ namespace Together
             this.ScaleUpWindow = scaleUpWindow;
             this.ScaleToZeroWindow = scaleToZeroWindow;
             this.ScalingMetrics = scalingMetrics;
+            this.ScaleUp = scaleUp;
+            this.ScaleDown = scaleDown;
         }
 
         /// <summary>

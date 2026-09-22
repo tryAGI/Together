@@ -28,6 +28,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPerformanceBenchmarks))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPricing))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelInputModalitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie), TypeInfoPropertyName = "DeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelOutputModalitie>))]

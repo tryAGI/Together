@@ -25,7 +25,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateDeploymentRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAutoscaling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement), TypeInfoPropertyName = "DePlacement2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateDeploymentRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeleteResponse))]
@@ -41,6 +40,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListAdaptersResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeAdapterEntry>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAddAdapterRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateAdapterRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacementVariant1))]
@@ -52,7 +52,12 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeDeployment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingMetric>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetric))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRules))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatusState), TypeInfoPropertyName = "DeDeploymentStatusState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicy))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType), TypeInfoPropertyName = "DeScalingPolicyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingPolicy>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy), TypeInfoPropertyName = "DeScalingRulesSelectPolicy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName), TypeInfoPropertyName = "DeScalingMetricName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType), TypeInfoPropertyName = "DeScalingMetricType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
@@ -61,12 +66,14 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAutoscalingResponse?), TypeInfoPropertyName = "NullableDeAutoscalingResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement?), TypeInfoPropertyName = "NullableDePlacement2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentTrafficMode?), TypeInfoPropertyName = "NullableDeDeploymentTrafficMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState?), TypeInfoPropertyName = "NullableDeDeploymentAdapterStatusState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatusState?), TypeInfoPropertyName = "NullableDeDeploymentStatusState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType?), TypeInfoPropertyName = "NullableDeScalingPolicyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy?), TypeInfoPropertyName = "NullableDeScalingRulesSelectPolicy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName?), TypeInfoPropertyName = "NullableDeScalingMetricName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType?), TypeInfoPropertyName = "NullableDeScalingMetricType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
@@ -74,6 +81,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeAdapterEntry>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeDeployment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingMetric>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingPolicy>))]
     internal sealed partial class DeploymentServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -180,6 +188,14 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.DeDeploymentStatusState?)
 
+                    || typeToConvert == typeof(global::Together.DeScalingPolicyType)
+
+                    || typeToConvert == typeof(global::Together.DeScalingPolicyType?)
+
+                    || typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy)
+
+                    || typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy?)
+
                     || typeToConvert == typeof(global::Together.DeScalingMetricName)
 
                     || typeToConvert == typeof(global::Together.DeScalingMetricName?)
@@ -231,6 +247,26 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.DeDeploymentStatusState?))
                 {
                     return new global::Together.JsonConverters.DeDeploymentStatusStateNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingPolicyType))
+                {
+                    return new global::Together.JsonConverters.DeScalingPolicyTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingPolicyType?))
+                {
+                    return new global::Together.JsonConverters.DeScalingPolicyTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy))
+                {
+                    return new global::Together.JsonConverters.DeScalingRulesSelectPolicyJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy?))
+                {
+                    return new global::Together.JsonConverters.DeScalingRulesSelectPolicyNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeScalingMetricName))

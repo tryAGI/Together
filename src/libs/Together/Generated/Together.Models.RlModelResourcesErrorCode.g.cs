@@ -16,6 +16,10 @@ namespace Together
         ///
         /// </summary>
         ModelResourcesErrorCodeProvisioningFailed,
+        /// <summary>
+        ///
+        /// </summary>
+        ModelResourcesErrorCodeResourceUnavailable,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace Together
             {
                 RlModelResourcesErrorCode.ModelResourcesErrorCodeCapacityWaitTimeout => "MODEL_RESOURCES_ERROR_CODE_CAPACITY_WAIT_TIMEOUT",
                 RlModelResourcesErrorCode.ModelResourcesErrorCodeProvisioningFailed => "MODEL_RESOURCES_ERROR_CODE_PROVISIONING_FAILED",
+                RlModelResourcesErrorCode.ModelResourcesErrorCodeResourceUnavailable => "MODEL_RESOURCES_ERROR_CODE_RESOURCE_UNAVAILABLE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace Together
             {
                 "MODEL_RESOURCES_ERROR_CODE_CAPACITY_WAIT_TIMEOUT" => RlModelResourcesErrorCode.ModelResourcesErrorCodeCapacityWaitTimeout,
                 "MODEL_RESOURCES_ERROR_CODE_PROVISIONING_FAILED" => RlModelResourcesErrorCode.ModelResourcesErrorCodeProvisioningFailed,
+                "MODEL_RESOURCES_ERROR_CODE_RESOURCE_UNAVAILABLE" => RlModelResourcesErrorCode.ModelResourcesErrorCodeResourceUnavailable,
                 _ => null,
             };
         }
