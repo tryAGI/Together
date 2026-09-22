@@ -22,6 +22,13 @@ namespace Together
         public global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? Autoscaling { get; set; }
 
         /// <summary>
+        /// Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("capacity_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.UpdateDeploymentRequestCapacityTypeJsonConverter))]
+        public global::Together.UpdateDeploymentRequestCapacityType? CapacityType { get; set; }
+
+        /// <summary>
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("command")]
@@ -133,6 +140,9 @@ namespace Together
         /// <param name="autoscaling">
         /// Autoscaling configuration for the deployment. Set to {} to disable autoscaling
         /// </param>
+        /// <param name="capacityType">
+        /// Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+        /// </param>
         /// <param name="command">
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
         /// </param>
@@ -187,6 +197,7 @@ namespace Together
         public UpdateDeploymentRequest(
             global::System.Collections.Generic.IList<string>? args,
             global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
+            global::Together.UpdateDeploymentRequestCapacityType? capacityType,
             global::System.Collections.Generic.IList<string>? command,
             double? cpu,
             string? description,
@@ -206,6 +217,7 @@ namespace Together
         {
             this.Args = args;
             this.Autoscaling = autoscaling;
+            this.CapacityType = capacityType;
             this.Command = command;
             this.Cpu = cpu;
             this.Description = description;

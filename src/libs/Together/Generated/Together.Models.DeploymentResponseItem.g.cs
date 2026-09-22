@@ -22,6 +22,13 @@ namespace Together
         public global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? Autoscaling { get; set; }
 
         /// <summary>
+        /// Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("capacity_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeploymentResponseItemCapacityTypeJsonConverter))]
+        public global::Together.DeploymentResponseItemCapacityType? CapacityType { get; set; }
+
+        /// <summary>
         /// Command is the entrypoint command run in the container
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("command")]
@@ -182,6 +189,9 @@ namespace Together
         /// <param name="autoscaling">
         /// Autoscaling contains autoscaling configuration parameters for this deployment. Omitted when autoscaling is disabled (nil)
         /// </param>
+        /// <param name="capacityType">
+        /// Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+        /// </param>
         /// <param name="command">
         /// Command is the entrypoint command run in the container
         /// </param>
@@ -260,6 +270,7 @@ namespace Together
         public DeploymentResponseItem(
             global::System.Collections.Generic.IList<string>? args,
             global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
+            global::Together.DeploymentResponseItemCapacityType? capacityType,
             global::System.Collections.Generic.IList<string>? command,
             double? cpu,
             global::System.DateTime? createdAt,
@@ -287,6 +298,7 @@ namespace Together
         {
             this.Args = args;
             this.Autoscaling = autoscaling;
+            this.CapacityType = capacityType;
             this.Command = command;
             this.Cpu = cpu;
             this.CreatedAt = createdAt;

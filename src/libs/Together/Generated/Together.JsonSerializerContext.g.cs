@@ -869,6 +869,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestCapacityType), TypeInfoPropertyName = "CreateDeploymentRequestCapacityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EnvironmentVariable))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestGpuType), TypeInfoPropertyName = "CreateDeploymentRequestGpuType2")]
@@ -882,6 +883,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeploymentResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentLogs))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemCapacityType), TypeInfoPropertyName = "DeploymentResponseItemCapacityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemGpuType), TypeInfoPropertyName = "DeploymentResponseItemGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ReplicaEvent))]
@@ -897,6 +899,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestCapacityType), TypeInfoPropertyName = "UpdateDeploymentRequestCapacityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestGpuType), TypeInfoPropertyName = "UpdateDeploymentRequestGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateSecretRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateVolumeRequest))]
@@ -1023,9 +1026,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultStat?), TypeInfoPropertyName = "NullableDeMetricResultStat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultCheck?), TypeInfoPropertyName = "NullableDeMetricResultCheck2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultOperator?), TypeInfoPropertyName = "NullableDeMetricResultOperator2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultDirection?), TypeInfoPropertyName = "NullableDeMetricResultDirection2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultVerdict?), TypeInfoPropertyName = "NullableDeMetricResultVerdict2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeABExperimentMemberRole?), TypeInfoPropertyName = "NullableDeABExperimentMemberRole2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1042,6 +1042,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultDirection?), TypeInfoPropertyName = "NullableDeMetricResultDirection2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultVerdict?), TypeInfoPropertyName = "NullableDeMetricResultVerdict2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeABExperimentMemberRole?), TypeInfoPropertyName = "NullableDeABExperimentMemberRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelOutputModalitie2")]
@@ -1256,13 +1259,16 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.VideoRef>?), TypeInfoPropertyName = "NullableOneOfStringVideoRef2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.AudioRef>?), TypeInfoPropertyName = "NullableOneOfStringAudioRef2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>?), TypeInfoPropertyName = "NullableOneOfHTTPAutoscalingConfigQueueAutoscalingConfigCustomMetricAutoscalingConfig2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestCapacityType?), TypeInfoPropertyName = "NullableCreateDeploymentRequestCapacityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestGpuType?), TypeInfoPropertyName = "NullableCreateDeploymentRequestGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType?), TypeInfoPropertyName = "NullableVolumeType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemCapacityType?), TypeInfoPropertyName = "NullableDeploymentResponseItemCapacityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentResponseItemGpuType?), TypeInfoPropertyName = "NullableDeploymentResponseItemGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeploymentStatus?), TypeInfoPropertyName = "NullableDeploymentStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HTTPAutoscalingConfigMetric?), TypeInfoPropertyName = "NullableHTTPAutoscalingConfigMetric2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueAutoscalingConfigMetric?), TypeInfoPropertyName = "NullableQueueAutoscalingConfigMetric2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CustomMetricAutoscalingConfigMetric?), TypeInfoPropertyName = "NullableCustomMetricAutoscalingConfigMetric2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestCapacityType?), TypeInfoPropertyName = "NullableUpdateDeploymentRequestCapacityType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateDeploymentRequestGpuType?), TypeInfoPropertyName = "NullableUpdateDeploymentRequestGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType?), TypeInfoPropertyName = "NullableVolumeContentRequestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType?), TypeInfoPropertyName = "NullableVolumeContentType2")]
@@ -2338,9 +2344,17 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.VideoOutputFormat?)
 
+                    || typeToConvert == typeof(global::Together.CreateDeploymentRequestCapacityType)
+
+                    || typeToConvert == typeof(global::Together.CreateDeploymentRequestCapacityType?)
+
                     || typeToConvert == typeof(global::Together.CreateDeploymentRequestGpuType)
 
                     || typeToConvert == typeof(global::Together.CreateDeploymentRequestGpuType?)
+
+                    || typeToConvert == typeof(global::Together.DeploymentResponseItemCapacityType)
+
+                    || typeToConvert == typeof(global::Together.DeploymentResponseItemCapacityType?)
 
                     || typeToConvert == typeof(global::Together.DeploymentResponseItemGpuType)
 
@@ -2361,6 +2375,10 @@ namespace Together
                     || typeToConvert == typeof(global::Together.CustomMetricAutoscalingConfigMetric)
 
                     || typeToConvert == typeof(global::Together.CustomMetricAutoscalingConfigMetric?)
+
+                    || typeToConvert == typeof(global::Together.UpdateDeploymentRequestCapacityType)
+
+                    || typeToConvert == typeof(global::Together.UpdateDeploymentRequestCapacityType?)
 
                     || typeToConvert == typeof(global::Together.UpdateDeploymentRequestGpuType)
 
@@ -4373,6 +4391,16 @@ namespace Together
                     return new global::Together.JsonConverters.VideoOutputFormatNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Together.CreateDeploymentRequestCapacityType))
+                {
+                    return new global::Together.JsonConverters.CreateDeploymentRequestCapacityTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.CreateDeploymentRequestCapacityType?))
+                {
+                    return new global::Together.JsonConverters.CreateDeploymentRequestCapacityTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Together.CreateDeploymentRequestGpuType))
                 {
                     return new global::Together.JsonConverters.CreateDeploymentRequestGpuTypeJsonConverter();
@@ -4381,6 +4409,16 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.CreateDeploymentRequestGpuType?))
                 {
                     return new global::Together.JsonConverters.CreateDeploymentRequestGpuTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeploymentResponseItemCapacityType))
+                {
+                    return new global::Together.JsonConverters.DeploymentResponseItemCapacityTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeploymentResponseItemCapacityType?))
+                {
+                    return new global::Together.JsonConverters.DeploymentResponseItemCapacityTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeploymentResponseItemGpuType))
@@ -4431,6 +4469,16 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.CustomMetricAutoscalingConfigMetric?))
                 {
                     return new global::Together.JsonConverters.CustomMetricAutoscalingConfigMetricNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.UpdateDeploymentRequestCapacityType))
+                {
+                    return new global::Together.JsonConverters.UpdateDeploymentRequestCapacityTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.UpdateDeploymentRequestCapacityType?))
+                {
+                    return new global::Together.JsonConverters.UpdateDeploymentRequestCapacityTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.UpdateDeploymentRequestGpuType))

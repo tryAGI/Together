@@ -20679,6 +20679,7 @@ components:
             - max_batch_size_dpo
             - min_batch_size
             - max_rank
+            - default_rank
             - target_modules
           properties:
             max_batch_size:
@@ -20693,6 +20694,9 @@ components:
             max_rank:
               type: integer
               description: Maximum LoRA rank.
+            default_rank:
+              type: integer
+              description: Default LoRA rank applied when a fine-tune request omits training_type.
             target_modules:
               type: array
               items:
@@ -22489,6 +22493,12 @@ components:
             - $ref: "#/components/schemas/HTTPAutoscalingConfig"
             - $ref: "#/components/schemas/QueueAutoscalingConfig"
             - $ref: "#/components/schemas/CustomMetricAutoscalingConfig"
+        capacity_type:
+          description: Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+          enum:
+            - stable
+            - preemptible
+          type: string
         command:
           description: Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
           items:
@@ -22633,6 +22643,12 @@ components:
             - $ref: '#/components/schemas/HTTPAutoscalingConfig'
             - $ref: '#/components/schemas/QueueAutoscalingConfig'
             - $ref: '#/components/schemas/CustomMetricAutoscalingConfig'
+        capacity_type:
+          description: Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+          enum:
+            - stable
+            - preemptible
+          type: string
         command:
           description: Command is the entrypoint command run in the container
           items:
@@ -22923,6 +22939,12 @@ components:
             - $ref: "#/components/schemas/HTTPAutoscalingConfig"
             - $ref: "#/components/schemas/QueueAutoscalingConfig"
             - $ref: "#/components/schemas/CustomMetricAutoscalingConfig"
+        capacity_type:
+          description: Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+          enum:
+            - stable
+            - preemptible
+          type: string
         command:
           description: Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
           items:

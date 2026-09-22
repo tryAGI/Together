@@ -37,6 +37,13 @@ namespace Together
         public required int MaxRank { get; set; }
 
         /// <summary>
+        /// Default LoRA rank applied when a fine-tune request omits training_type.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_rank")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int DefaultRank { get; set; }
+
+        /// <summary>
         /// Available target modules for LoRA.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_modules")]
@@ -64,6 +71,9 @@ namespace Together
         /// <param name="maxRank">
         /// Maximum LoRA rank.
         /// </param>
+        /// <param name="defaultRank">
+        /// Default LoRA rank applied when a fine-tune request omits training_type.
+        /// </param>
         /// <param name="targetModules">
         /// Available target modules for LoRA.
         /// </param>
@@ -75,12 +85,14 @@ namespace Together
             int maxBatchSizeDpo,
             int minBatchSize,
             int maxRank,
+            int defaultRank,
             global::System.Collections.Generic.IList<string> targetModules)
         {
             this.MaxBatchSize = maxBatchSize;
             this.MaxBatchSizeDpo = maxBatchSizeDpo;
             this.MinBatchSize = minBatchSize;
             this.MaxRank = maxRank;
+            this.DefaultRank = defaultRank;
             this.TargetModules = targetModules ?? throw new global::System.ArgumentNullException(nameof(targetModules));
         }
 
