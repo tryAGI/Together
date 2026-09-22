@@ -552,6 +552,9 @@ namespace Together
         /// <param name="autoscaling">
         /// Autoscaling configuration. Example: {"metric": "QueueBacklogPerWorker", "target": 1.01} to scale based on queue backlog. Omit or set to null to disable autoscaling
         /// </param>
+        /// <param name="capacityType">
+        /// Controls how replicas above reserved capacity behave. `stable` replicas stay running after scale-up; `preemptible` replicas may be evicted during capacity contention.
+        /// </param>
         /// <param name="command">
         /// Command overrides the container's ENTRYPOINT. Provide as an array (e.g., ["/bin/sh", "-c"])
         /// </param>
@@ -609,6 +612,7 @@ namespace Together
             string name,
             global::System.Collections.Generic.IList<string>? args = default,
             global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling = default,
+            global::Together.CreateDeploymentRequestCapacityType? capacityType = default,
             global::System.Collections.Generic.IList<string>? command = default,
             double? cpu = default,
             string? description = default,
@@ -629,6 +633,7 @@ namespace Together
             {
                 Args = args,
                 Autoscaling = autoscaling,
+                CapacityType = capacityType,
                 Command = command,
                 Cpu = cpu,
                 Description = description,
