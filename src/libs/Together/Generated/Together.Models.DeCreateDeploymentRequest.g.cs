@@ -53,10 +53,10 @@ namespace Together
         public string? Config { get; set; }
 
         /// <summary>
-        /// Enables dynamic loading of LoRA adapters on the deployment.
+        /// Inactive timeout in minutes. Use 0 or omit to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enableLora")]
-        public bool? EnableLora { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactiveTimeout")]
+        public int? InactiveTimeout { get; set; }
 
         /// <summary>
         /// Placement policy to use when scheduling the deployment.
@@ -95,8 +95,8 @@ namespace Together
         /// <param name="config">
         /// Immutable config revision in the form `projects/{projectId}/configs/{configRevisionId}`. The config must be compatible with the model.
         /// </param>
-        /// <param name="enableLora">
-        /// Enables dynamic loading of LoRA adapters on the deployment.
+        /// <param name="inactiveTimeout">
+        /// Inactive timeout in minutes. Use 0 or omit to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </param>
         /// <param name="placement">
         /// Placement policy to use when scheduling the deployment.
@@ -112,7 +112,7 @@ namespace Together
             string? configId,
             string? model,
             string? config,
-            bool? enableLora,
+            int? inactiveTimeout,
             global::Together.DePlacement? placement)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -122,7 +122,7 @@ namespace Together
             this.Model = model;
             this.Autoscaling = autoscaling ?? throw new global::System.ArgumentNullException(nameof(autoscaling));
             this.Config = config;
-            this.EnableLora = enableLora;
+            this.InactiveTimeout = inactiveTimeout;
             this.Placement = placement;
         }
 

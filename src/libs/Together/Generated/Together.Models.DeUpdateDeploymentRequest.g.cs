@@ -21,6 +21,12 @@ namespace Together
         public global::Together.DeAutoscaling? Autoscaling { get; set; }
 
         /// <summary>
+        /// Updated inactive timeout in minutes. Use 0 to disable automatic stopping; otherwise accepted values are 30 through 1440.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactiveTimeout")]
+        public int? InactiveTimeout { get; set; }
+
+        /// <summary>
         /// Current deployment version. The update is rejected if this value no longer matches.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("etag")]
@@ -41,6 +47,9 @@ namespace Together
         /// <param name="autoscaling">
         /// Updated autoscaling configuration.
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// Updated inactive timeout in minutes. Use 0 to disable automatic stopping; otherwise accepted values are 30 through 1440.
+        /// </param>
         /// <param name="etag">
         /// Current deployment version. The update is rejected if this value no longer matches.
         /// </param>
@@ -50,10 +59,12 @@ namespace Together
         public DeUpdateDeploymentRequest(
             string? name,
             global::Together.DeAutoscaling? autoscaling,
+            int? inactiveTimeout,
             string? etag)
         {
             this.Name = name;
             this.Autoscaling = autoscaling;
+            this.InactiveTimeout = inactiveTimeout;
             this.Etag = etag;
         }
 

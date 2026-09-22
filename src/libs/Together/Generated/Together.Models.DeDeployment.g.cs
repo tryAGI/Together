@@ -126,10 +126,10 @@ namespace Together
         public double? EstimatedEffectiveTrafficShare { get; set; }
 
         /// <summary>
-        /// Whether the deployment can dynamically load LoRA adapters.
+        /// Minutes without an inference request before the deployment stops automatically. Omitted or 0 means automatic stopping is disabled.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enableLora")]
-        public bool? EnableLora { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactiveTimeout")]
+        public int? InactiveTimeout { get; set; }
 
         /// <summary>
         /// Opaque version tag for optimistic concurrency control. Supply on update/delete to ensure consistent read-modify-write. If not set, the write overwrites based on current state.
@@ -236,8 +236,8 @@ namespace Together
         /// Estimated fraction in [0, 1] of endpoint traffic that reaches this deployment under the current routing configuration. Absent or unrouted deployments are 0.<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="enableLora">
-        /// Whether the deployment can dynamically load LoRA adapters.
+        /// <param name="inactiveTimeout">
+        /// Minutes without an inference request before the deployment stops automatically. Omitted or 0 means automatic stopping is disabled.
         /// </param>
         /// <param name="runtimeInfo">
         /// Serving engine and feature support derived from the immutable config.<br/>
@@ -295,7 +295,7 @@ namespace Together
             string? speculatorRevisionId,
             string? speculator,
             double? estimatedEffectiveTrafficShare,
-            bool? enableLora,
+            int? inactiveTimeout,
             global::Together.DeRuntimeInfo? runtimeInfo,
             int? desiredReplicas,
             global::Together.DePlacement? placement,
@@ -323,7 +323,7 @@ namespace Together
             this.SpeculatorRevisionId = speculatorRevisionId;
             this.Speculator = speculator;
             this.EstimatedEffectiveTrafficShare = estimatedEffectiveTrafficShare;
-            this.EnableLora = enableLora;
+            this.InactiveTimeout = inactiveTimeout;
             this.Etag = etag ?? throw new global::System.ArgumentNullException(nameof(etag));
             this.Hardware = hardware;
             this.TrafficMode = trafficMode;

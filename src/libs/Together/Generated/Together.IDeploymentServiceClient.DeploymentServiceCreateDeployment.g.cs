@@ -88,8 +88,8 @@ namespace Together
         /// <param name="config">
         /// Immutable config revision in the form `projects/{projectId}/configs/{configRevisionId}`. The config must be compatible with the model.
         /// </param>
-        /// <param name="enableLora">
-        /// Enables dynamic loading of LoRA adapters on the deployment.
+        /// <param name="inactiveTimeout">
+        /// Inactive timeout in minutes. Use 0 or omit to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </param>
         /// <param name="placement">
         /// Placement policy to use when scheduling the deployment.
@@ -108,7 +108,7 @@ namespace Together
             string? configId = default,
             string? model = default,
             string? config = default,
-            bool? enableLora = default,
+            int? inactiveTimeout = default,
             global::Together.DePlacement? placement = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
