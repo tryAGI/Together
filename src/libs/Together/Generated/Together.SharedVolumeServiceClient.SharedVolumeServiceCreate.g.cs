@@ -491,6 +491,9 @@ namespace Together
         /// <param name="projectId">
         /// Project ID that will own the volume. When omitted, the caller's default project is used.
         /// </param>
+        /// <param name="instanceClusterId">
+        /// Cluster ID to pin the volume to the same substrate as that GPU cluster.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -500,6 +503,7 @@ namespace Together
             string region,
             bool? isLifecycleIndependent = default,
             string? projectId = default,
+            string? instanceClusterId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -510,6 +514,7 @@ namespace Together
                 Region = region,
                 IsLifecycleIndependent = isLifecycleIndependent,
                 ProjectId = projectId,
+                InstanceClusterId = instanceClusterId,
             };
 
             return await SharedVolumeServiceCreateAsync(

@@ -11,6 +11,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -19,6 +22,7 @@ namespace Together
             string sessionId,
 
             global::Together.RlForwardBackwardBody request,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -28,6 +32,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -36,6 +43,7 @@ namespace Together
             string sessionId,
 
             global::Together.RlForwardBackwardBody request,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -44,6 +52,9 @@ namespace Together
         /// </summary>
         /// <param name="sessionId">
         /// Training session ID
+        /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
         /// </param>
         /// <param name="samples">
         /// Batch of training samples to process
@@ -66,6 +77,7 @@ namespace Together
             string sessionId,
             global::System.Collections.Generic.IList<global::Together.RlTrainingSample> samples,
             global::Together.RlLossConfig loss,
+            string? idempotencyKey = default,
             bool? returnLossFnOutputs = default,
             bool? forwardOnly = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,

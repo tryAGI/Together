@@ -49,6 +49,12 @@ namespace Together
         public global::Together.RlDROLossParams? DroParams { get; set; }
 
         /// <summary>
+        /// Parameters for DPPO loss. Only valid when `type` is `LOSS_TYPE_DPPO`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dppo_params")]
+        public global::Together.RlDPPOLossParams? DppoParams { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -68,6 +74,9 @@ namespace Together
         /// <param name="ppoParams"></param>
         /// <param name="cispoParams"></param>
         /// <param name="droParams"></param>
+        /// <param name="dppoParams">
+        /// Parameters for DPPO loss. Only valid when `type` is `LOSS_TYPE_DPPO`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -77,7 +86,8 @@ namespace Together
             global::Together.RlGRPOLossParams? grpoParams,
             global::Together.RlPPOLossParams? ppoParams,
             global::Together.RlCISPOLossParams? cispoParams,
-            global::Together.RlDROLossParams? droParams)
+            global::Together.RlDROLossParams? droParams,
+            global::Together.RlDPPOLossParams? dppoParams)
         {
             this.Type = type;
             this.CrossEntropyParams = crossEntropyParams;
@@ -85,6 +95,7 @@ namespace Together
             this.PpoParams = ppoParams;
             this.CispoParams = cispoParams;
             this.DroParams = droParams;
+            this.DppoParams = dppoParams;
         }
 
         /// <summary>

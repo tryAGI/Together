@@ -23,10 +23,10 @@ namespace Together
         public required global::System.Collections.Generic.Dictionary<string, global::Together.RlTensorData> LossFnInputs { get; set; }
 
         /// <summary>
-        /// Optional MoE per-token routing captured at sample time. Replayed on every training operation, so expert selection matches the one used at sample time. Must cover the whole sample, or all but its last token.
+        /// Opaque key returned with a sampled sequence. Pass it unchanged with the corresponding training sample to reuse the same expert selections. The selections must cover the entire training sample or all but its final token. Training fails if the key is no longer available.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("routed_experts")]
-        public global::Together.RlRoutedExperts? RoutedExperts { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("routed_experts_key")]
+        public string? RoutedExpertsKey { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,8 +43,8 @@ namespace Together
         /// <param name="lossFnInputs">
         /// Per-token loss tensors keyed by name. Include `target_tokens` and the inputs required by the selected loss. Each tensor must declare `int64` or `float32`, be one-dimensional, and have the same length.
         /// </param>
-        /// <param name="routedExperts">
-        /// Optional MoE per-token routing captured at sample time. Replayed on every training operation, so expert selection matches the one used at sample time. Must cover the whole sample, or all but its last token.
+        /// <param name="routedExpertsKey">
+        /// Opaque key returned with a sampled sequence. Pass it unchanged with the corresponding training sample to reuse the same expert selections. The selections must cover the entire training sample or all but its final token. Training fails if the key is no longer available.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -52,11 +52,11 @@ namespace Together
         public RlTrainingSample(
             global::Together.RlModelInput modelInput,
             global::System.Collections.Generic.Dictionary<string, global::Together.RlTensorData> lossFnInputs,
-            global::Together.RlRoutedExperts? routedExperts)
+            string? routedExpertsKey)
         {
             this.ModelInput = modelInput ?? throw new global::System.ArgumentNullException(nameof(modelInput));
             this.LossFnInputs = lossFnInputs ?? throw new global::System.ArgumentNullException(nameof(lossFnInputs));
-            this.RoutedExperts = routedExperts;
+            this.RoutedExpertsKey = routedExpertsKey;
         }
 
         /// <summary>

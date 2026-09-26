@@ -36,7 +36,7 @@ namespace Together
 
         /// <summary>
         /// Epsilon for numerical stability<br/>
-        /// Default Value: 1e-8<br/>
+        /// Default Value: 0.00000001<br/>
         /// Example: 0.00000001
         /// </summary>
         /// <example>0.00000001</example>
@@ -45,7 +45,7 @@ namespace Together
 
         /// <summary>
         /// Weight decay coefficient<br/>
-        /// Default Value: 0<br/>
+        /// Default Value: 0.0<br/>
         /// Example: 0.1
         /// </summary>
         /// <example>0.1</example>
@@ -86,12 +86,12 @@ namespace Together
         /// </param>
         /// <param name="eps">
         /// Epsilon for numerical stability<br/>
-        /// Default Value: 1e-8<br/>
+        /// Default Value: 0.00000001<br/>
         /// Example: 0.00000001
         /// </param>
         /// <param name="weightDecay">
         /// Weight decay coefficient<br/>
-        /// Default Value: 0<br/>
+        /// Default Value: 0.0<br/>
         /// Example: 0.1
         /// </param>
         /// <param name="gradClipNorm">

@@ -41,11 +41,13 @@ namespace Together
         partial void PrepareWeightsSyncArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string sessionId,
+            ref string? idempotencyKey,
             global::Together.RlWeightsSyncBody request);
         partial void PrepareWeightsSyncRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string sessionId,
+            string? idempotencyKey,
             global::Together.RlWeightsSyncBody request);
         partial void ProcessWeightsSyncResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -63,6 +65,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -71,6 +76,7 @@ namespace Together
             string sessionId,
 
             global::Together.RlWeightsSyncBody request,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -78,6 +84,7 @@ namespace Together
                 sessionId: sessionId,
 
                 request: request,
+                idempotencyKey: idempotencyKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -91,6 +98,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -99,6 +109,7 @@ namespace Together
             string sessionId,
 
             global::Together.RlWeightsSyncBody request,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -109,6 +120,7 @@ namespace Together
             PrepareWeightsSyncArguments(
                 httpClient: HttpClient,
                 sessionId: ref sessionId,
+                idempotencyKey: ref idempotencyKey,
                 request: request);
 
 
@@ -168,6 +180,12 @@ namespace Together
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            var __idempotencyKey = global::System.String.IsNullOrWhiteSpace(idempotencyKey)
+                ? CreateIdempotencyKey()
+                : idempotencyKey;
+            __httpRequest.Headers.TryAddWithoutValidation("Idempotency-Key", __idempotencyKey);
+
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -186,6 +204,7 @@ namespace Together
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     sessionId: sessionId!,
+                    idempotencyKey: idempotencyKey,
                     request: request);
 
                 return __httpRequest;
@@ -505,6 +524,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="weightSyncType">
         /// How updated parameters are made available for sampling. See `WeightSyncType` for accepted values.
         /// </param>
@@ -514,6 +536,7 @@ namespace Together
         public async global::System.Threading.Tasks.Task<global::Together.RlWeightsSyncOperation> WeightsSyncAsync(
             string sessionId,
             global::Together.RlWeightSyncType weightSyncType,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -524,6 +547,7 @@ namespace Together
 
             return await WeightsSyncAsync(
                 sessionId: sessionId,
+                idempotencyKey: idempotencyKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

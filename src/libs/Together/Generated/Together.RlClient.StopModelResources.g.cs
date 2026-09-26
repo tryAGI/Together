@@ -58,13 +58,13 @@ namespace Together
 
         /// <summary>
         /// Stop model resources<br/>
-        /// Stops every session attached to the resource and tears down its GPU pods.
+        /// Stops the model resource and releases its allocated compute. If active training sessions are attached, the request fails unless `force=true`. A forced stop also stops all attached training sessions.
         /// </summary>
         /// <param name="modelResourcesId">
         /// ID of the model resource
         /// </param>
         /// <param name="force">
-        /// Stop the resource even if active training sessions are attached<br/>
+        /// When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -87,13 +87,13 @@ namespace Together
         }
         /// <summary>
         /// Stop model resources<br/>
-        /// Stops every session attached to the resource and tears down its GPU pods.
+        /// Stops the model resource and releases its allocated compute. If active training sessions are attached, the request fails unless `force=true`. A forced stop also stops all attached training sessions.
         /// </summary>
         /// <param name="modelResourcesId">
         /// ID of the model resource
         /// </param>
         /// <param name="force">
-        /// Stop the resource even if active training sessions are attached<br/>
+        /// When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

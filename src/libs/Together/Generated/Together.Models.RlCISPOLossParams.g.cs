@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class RlCISPOLossParams
     {
         /// <summary>
-        /// Lower absolute bound for the importance ratio; the clipped ratio is applied as a detached coefficient<br/>
+        /// Lower bound for clipping the importance-sampling ratio.<br/>
         /// Default Value: 0.0<br/>
         /// Example: 0
         /// </summary>
@@ -18,7 +18,7 @@ namespace Together
         public float? ClipLowThreshold { get; set; }
 
         /// <summary>
-        /// Upper absolute bound for the importance ratio; the clipped ratio is applied as a detached coefficient<br/>
+        /// Upper bound for clipping the importance-sampling ratio.<br/>
         /// Default Value: 4.0<br/>
         /// Example: 4
         /// </summary>
@@ -36,12 +36,12 @@ namespace Together
         /// Initializes a new instance of the <see cref="RlCISPOLossParams" /> class.
         /// </summary>
         /// <param name="clipLowThreshold">
-        /// Lower absolute bound for the importance ratio; the clipped ratio is applied as a detached coefficient<br/>
+        /// Lower bound for clipping the importance-sampling ratio.<br/>
         /// Default Value: 0.0<br/>
         /// Example: 0
         /// </param>
         /// <param name="clipHighThreshold">
-        /// Upper absolute bound for the importance ratio; the clipped ratio is applied as a detached coefficient<br/>
+        /// Upper bound for clipping the importance-sampling ratio.<br/>
         /// Default Value: 4.0<br/>
         /// Example: 4
         /// </param>

@@ -33,9 +33,9 @@ namespace Together
 
         /// <summary>
         /// Base model the resource is provisioned for<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Example: Qwen/Qwen3.5-4B
         /// </summary>
-        /// <example>Qwen/Qwen3-0.6B</example>
+        /// <example>Qwen/Qwen3.5-4B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BaseModel { get; set; }
@@ -108,7 +108,7 @@ namespace Together
         /// </param>
         /// <param name="baseModel">
         /// Base model the resource is provisioned for<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Example: Qwen/Qwen3.5-4B
         /// </param>
         /// <param name="computeConfig">
         /// Compute layout provisioned for the resource.
