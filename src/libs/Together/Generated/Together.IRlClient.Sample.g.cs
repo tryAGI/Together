@@ -11,6 +11,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -19,6 +22,7 @@ namespace Together
             string sessionId,
 
             global::Together.RlSampleBody request,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -28,6 +32,9 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -36,6 +43,7 @@ namespace Together
             string sessionId,
 
             global::Together.RlSampleBody request,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -44,6 +52,9 @@ namespace Together
         /// </summary>
         /// <param name="sessionId">
         /// Training session ID
+        /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
         /// </param>
         /// <param name="modelInputs">
         /// Model inputs to sample from
@@ -67,12 +78,7 @@ namespace Together
         /// Example: 0
         /// </param>
         /// <param name="returnRoutedExperts">
-        /// When true, capture the mixture-of-experts routing decisions made while generating and return them in `SampledSequence.routed_experts`, so training can reuse the same expert selection. Only available on mixture-of-experts models; ignored otherwise. The captured buffer scales with sequence length, so leave it off unless you replay routing during training.<br/>
-        /// Default Value: false<br/>
-        /// Example: false
-        /// </param>
-        /// <param name="returnRoutedExpertsObjectUri">
-        /// When true together with `return_routed_experts`, return each routing capture as a backend-owned `object_uri` plus shape instead of inline base64 data. Clients that do not opt in keep the legacy inline response.<br/>
+        /// When true, enable reuse of the expert selections from sampled sequences during training. Only supported for mixture-of-experts models; ignored for other models.<br/>
         /// Default Value: false<br/>
         /// Example: false
         /// </param>
@@ -82,12 +88,12 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.RlSampleOperation> SampleAsync(
             string sessionId,
             global::System.Collections.Generic.IList<global::Together.RlModelInput> modelInputs,
+            string? idempotencyKey = default,
             global::Together.RlSamplingParams? samplingParams = default,
             int? numSamples = default,
             bool? promptLogprobs = default,
             int? topkPromptLogprobs = default,
             bool? returnRoutedExperts = default,
-            bool? returnRoutedExpertsObjectUri = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

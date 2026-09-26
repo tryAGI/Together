@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// A non-blocking finding attached to a rollout defaults preview.
+    /// A non-blocking finding attached to a rollout defaults preview; expected end-state facts are structured fields on RolloutDefaultsPreview.
     /// </summary>
     public sealed partial class DePreviewWarning
     {
         /// <summary>
-        /// Machine-readable warning code, such as START_WILL_REJECT, ROLLOUT_WILL_RAISE_TARGET_MAX, FINAL_BELOW_INHERITED_MIN, or FINAL_BELOW_SOURCE_MIN. Render message for unrecognized codes.
+        /// Machine-readable warning code. Current vocabulary is START_WILL_REJECT, FINAL_BELOW_SOURCE_MIN, and FIRST_STEP_AT_SEED; render message for unrecognized codes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,7 +32,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="DePreviewWarning" /> class.
         /// </summary>
         /// <param name="code">
-        /// Machine-readable warning code, such as START_WILL_REJECT, ROLLOUT_WILL_RAISE_TARGET_MAX, FINAL_BELOW_INHERITED_MIN, or FINAL_BELOW_SOURCE_MIN. Render message for unrecognized codes.
+        /// Machine-readable warning code. Current vocabulary is START_WILL_REJECT, FINAL_BELOW_SOURCE_MIN, and FIRST_STEP_AT_SEED; render message for unrecognized codes.
         /// </param>
         /// <param name="message">
         /// Plain-language description of the finding, safe to show users as-is.

@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    ///
+    /// Request body for creating a shared volume.
     /// </summary>
     public sealed partial class GPUClustersSharedVolumeCreateRequest
     {
@@ -42,6 +42,12 @@ namespace Together
         public string? ProjectId { get; set; }
 
         /// <summary>
+        /// Cluster ID to pin the volume to the same substrate as that GPU cluster.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instance_cluster_id")]
+        public string? InstanceClusterId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +71,9 @@ namespace Together
         /// <param name="projectId">
         /// Project ID that will own the volume. When omitted, the caller's default project is used.
         /// </param>
+        /// <param name="instanceClusterId">
+        /// Cluster ID to pin the volume to the same substrate as that GPU cluster.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,13 +82,15 @@ namespace Together
             long sizeTib,
             string region,
             bool? isLifecycleIndependent,
-            string? projectId)
+            string? projectId,
+            string? instanceClusterId)
         {
             this.VolumeName = volumeName ?? throw new global::System.ArgumentNullException(nameof(volumeName));
             this.SizeTib = sizeTib;
             this.Region = region ?? throw new global::System.ArgumentNullException(nameof(region));
             this.IsLifecycleIndependent = isLifecycleIndependent;
             this.ProjectId = projectId;
+            this.InstanceClusterId = instanceClusterId;
         }
 
         /// <summary>

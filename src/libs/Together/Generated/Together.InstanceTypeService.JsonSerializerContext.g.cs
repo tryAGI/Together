@@ -23,16 +23,22 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListInferenceInstanceTypesResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeInferenceInstanceType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInferenceInstanceType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCompliancePolicy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeRegion>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRegion))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeHeadroom))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeComplianceAvailability>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeComplianceAvailability))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeHeadroomRelation), TypeInfoPropertyName = "DeHeadroomRelation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeHeadroomRelation?), TypeInfoPropertyName = "NullableDeHeadroomRelation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeInferenceInstanceType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeRegion>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeComplianceAvailability>))]
     internal sealed partial class InstanceTypeServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -77,7 +83,6 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());

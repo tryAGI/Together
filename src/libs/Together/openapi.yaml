@@ -10319,7 +10319,7 @@ paths:
           schema:
             description: Maximum number of resources to return (1-100)
             type: integer
-            default: "20"
+            default: 20
         - name: after
           in: query
           required: false
@@ -10410,7 +10410,7 @@ paths:
   /rl/model-resources/{model_resources_id}/stop:
     post:
       summary: Stop model resources
-      description: Stops every session attached to the resource and tears down its GPU pods.
+      description: Stops the model resource and releases its allocated compute. If active training sessions are attached, the request fails unless `force=true`. A forced stop also stops all attached training sessions.
       operationId: stopModelResources
       tags: [RL]
       responses:
@@ -10437,7 +10437,7 @@ paths:
           in: query
           required: false
           schema:
-            description: Stop the resource even if active training sessions are attached
+            description: When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.
             type: boolean
             default: false
   /rl/training-sessions:
@@ -10481,7 +10481,7 @@ paths:
           schema:
             description: Maximum number of sessions to return (1-100)
             type: integer
-            default: "20"
+            default: 20
         - name: after
           in: query
           required: false
@@ -10792,6 +10792,12 @@ paths:
           schema:
             description: Training session ID
             type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
+            type: string
   /rl/training-sessions/{session_id}/operations/custom-forward-backward:
     post:
       summary: Custom forward-backward pass
@@ -10823,6 +10829,12 @@ paths:
           required: true
           schema:
             description: Training session ID
+            type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
             type: string
   /rl/training-sessions/{session_id}/operations/custom-forward-backward/{operation_id}:
     get:
@@ -10888,6 +10900,12 @@ paths:
           schema:
             description: Training session ID
             type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
+            type: string
   /rl/training-sessions/{session_id}/operations/weights-sync:
     post:
       summary: Weights sync
@@ -10919,6 +10937,12 @@ paths:
           required: true
           schema:
             description: Training session ID
+            type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
             type: string
   /rl/training-sessions/{session_id}/operations/sample:
     post:
@@ -10952,6 +10976,12 @@ paths:
           schema:
             description: Training session ID
             type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
+            type: string
   /rl/training-sessions/{session_id}/operations/inference-checkpoint:
     post:
       summary: Create inference checkpoint
@@ -10977,6 +11007,12 @@ paths:
           required: true
           schema:
             description: Training session ID
+            type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
             type: string
   /rl/training-sessions/{session_id}/operations/inference-checkpoint/{operation_id}:
     get:
@@ -11035,6 +11071,12 @@ paths:
           required: true
           schema:
             description: Training session ID
+            type: string
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema:
+            description: Required key that makes retries return the original operation; use a new key for changed request bodies.
             type: string
   /rl/training-sessions/{session_id}/operations/training-checkpoint/{operation_id}:
     get:
@@ -11106,7 +11148,7 @@ paths:
           schema:
             description: Maximum number of checkpoints to return (1-100)
             type: integer
-            default: "20"
+            default: 20
         - name: after
           in: query
           required: false
@@ -12896,17 +12938,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DE.PreviewWarning'
-          description: Non-blocking findings to surface next to the form. An empty list means the shown values are safe to submit as-is.
+          description: Findings to surface next to the form when a later gate will refuse the spec or a standing guarantee is lost. An empty list means the shown values are safe to submit as-is; render message for unrecognized codes.
+        landingMinReplicas:
+          type: integer
+          description: Expected autoscaling minimum replicas for the completed target; unset while the final target replicas cannot be resolved.
+        landingMaxReplicas:
+          type: integer
+          description: Expected autoscaling maximum replicas for the completed target; unset while the final target replicas cannot be resolved.
     DE.PreviewWarning:
       type: object
-      description: A non-blocking finding attached to a rollout defaults preview.
+      description: A non-blocking finding attached to a rollout defaults preview; expected end-state facts are structured fields on RolloutDefaultsPreview.
       required:
         - code
         - message
       properties:
         code:
           type: string
-          description: Machine-readable warning code, such as START_WILL_REJECT, ROLLOUT_WILL_RAISE_TARGET_MAX, FINAL_BELOW_INHERITED_MIN, or FINAL_BELOW_SOURCE_MIN. Render message for unrecognized codes.
+          description: Machine-readable warning code. Current vocabulary is START_WILL_REJECT, FINAL_BELOW_SOURCE_MIN, and FIRST_STEP_AT_SEED; render message for unrecognized codes.
         message:
           type: string
           description: Plain-language description of the finding, safe to show users as-is.
@@ -14173,8 +14221,28 @@ components:
         headroom:
           allOf:
             - $ref: '#/components/schemas/DE.Headroom'
-          description: Best-effort replica headroom for this region. Omitted when unavailable.
+          description: Best-effort replica headroom across every cluster in this region, attested or not. Read `compliance` for compliance-scoped headroom. Omitted when unavailable.
+        compliance:
+          type: array
+          items:
+            $ref: '#/components/schemas/DE.ComplianceAvailability'
+          description: Compliance regimes certified in this region with best-effort headroom for each policy. Entries can overlap; read the entry matching the deployment policy instead of summing entries.
       description: Region where an instance type is offered.
+    DE.ComplianceAvailability:
+      type: object
+      required:
+        - policy
+        - headroom
+      properties:
+        policy:
+          description: Compliance regimes certified by the clusters counted in this entry.
+          allOf:
+            - $ref: '#/components/schemas/DE.CompliancePolicy'
+        headroom:
+          description: Best-effort replica headroom on clusters certified for at least this policy.
+          allOf:
+            - $ref: '#/components/schemas/DE.Headroom'
+      description: Compliance-specific regional availability for one instance type policy.
     DE.Headroom:
       type: object
       required:
@@ -15132,30 +15200,25 @@ components:
           type: integer
 
           example: 1
-          default: "1"
+          default: 1
           description: Number of completions to generate per prompt
         prompt_logprobs:
           type: boolean
           example: false
-          default: "false"
+          default: false
           description: When true, also compute teacher-forced log-probabilities for the model input tokens and return them in `SampleResult.prompt_logprobs`.
         topk_prompt_logprobs:
           type: integer
           minimum: 0
           maximum: 20
           example: 0
-          default: "0"
+          default: 0
           description: Number of most likely alternative tokens to return per model input token in `SampleResult.topk_prompt_logprobs`. 0 disables top-k prompt log-probabilities. Maximum 20.
         return_routed_experts:
           type: boolean
           example: false
-          default: "false"
-          description: When true, capture the mixture-of-experts routing decisions made while generating and return them in `SampledSequence.routed_experts`, so training can reuse the same expert selection. Only available on mixture-of-experts models; ignored otherwise. The captured buffer scales with sequence length, so leave it off unless you replay routing during training.
-        return_routed_experts_object_uri:
-          type: boolean
-          example: false
-          default: "false"
-          description: When true together with `return_routed_experts`, return each routing capture as a backend-owned `object_uri` plus shape instead of inline base64 data. Clients that do not opt in keep the legacy inline response.
+          default: false
+          description: When true, enable reuse of the expert selections from sampled sequences during training. Only supported for mixture-of-experts models; ignored for other models.
     RL.ForwardBackwardBody:
       type: object
       required:
@@ -15196,22 +15259,22 @@ components:
         max_tokens:
           type: integer
           example: 512
-          default: "512"
+          default: 512
           description: Maximum number of tokens to generate per completion
         temperature:
           type: number
           example: 1
-          default: "1.0"
+          default: 1.0
           description: Sampling temperature
         top_p:
           type: number
           example: 1
-          default: "1.0"
+          default: 1.0
           description: Nucleus sampling probability threshold
         top_k:
           type: integer
           example: -1
-          default: "-1"
+          default: -1
           description: Top-k sampling limit
         stop:
           type: array
@@ -15226,7 +15289,7 @@ components:
             - type: string
             - type: integer
           example: "42"
-          description: Random seed for reproducible sampling for the same prompt and model state. Per-completion seeds remain stable if the request is split across generator replicas.
+          description: Random seed for reproducible sampling for the same prompt and model state.
     RL.ModelInputChunk:
       type: object
       description: A single chunk of model input content.
@@ -15313,7 +15376,7 @@ components:
           type: integer
           format: int32
           example: 2
-          default: "1"
+          default: 1
           description: Number of generator replicas. 0 runs the trainer only, with no generator.
         gpu_type:
           type: string
@@ -15359,7 +15422,7 @@ components:
           description: Structured detail for the model resource's current error. Set when the resource is in an error state.
         base_model:
           type: string
-          example: Qwen/Qwen3-0.6B
+          example: Qwen/Qwen3.5-4B
           description: Base model the resource is provisioned for
         compute_config:
           $ref: '#/components/schemas/RL.ComputeConfig'
@@ -15421,8 +15484,8 @@ components:
       properties:
         base_model:
           type: string
-          example: Qwen/Qwen3-0.6B
-          description: Base model to provision the resource for
+          example: Qwen/Qwen3.5-4B
+          description: Base model to provision the resource for, selected from /rl/supported-models
         compute_config:
           $ref: '#/components/schemas/RL.ComputeConfigCreateRequest'
           description: Compute layout to provision.
@@ -15541,7 +15604,7 @@ components:
       properties:
         base_model:
           type: string
-          example: Qwen/Qwen3-0.6B
+          example: Qwen/Qwen3.5-4B
           description: Base model identifier to pass as base_model when creating a model resource
         default_gpu_type:
           type: string
@@ -15591,6 +15654,7 @@ components:
         - LOSS_TYPE_PPO
         - LOSS_TYPE_CISPO
         - LOSS_TYPE_DRO
+        - LOSS_TYPE_DPPO
       default: LOSS_TYPE_UNSPECIFIED
     RL.WeightSyncType:
       type: string
@@ -15612,18 +15676,18 @@ components:
           type: number
           format: float
           example: 0.8
-          default: "0.8"
+          default: 0.8
           description: Lower clip threshold for the importance-sampling ratio. The ratio is clamped to this bound; tighter clipping makes policy updates more conservative. Must be <= 1.
         clip_high_threshold:
           type: number
           format: float
           example: 1.2
-          default: "1.2"
+          default: 1.2
           description: Upper clip threshold for the importance-sampling ratio. The ratio is clamped to this bound; tighter clipping makes policy updates more conservative. Must be >= 1.
         beta:
           type: number
           example: 0.1
-          default: "0.0"
+          default: 0.0
           description: KL penalty coefficient
         agg_type:
           $ref: '#/components/schemas/RL.GRPOLossAggregationType'
@@ -15657,13 +15721,13 @@ components:
           type: number
           format: float
           example: 0.8
-          default: "0.8"
+          default: 0.8
           description: Lower absolute bound for the importance ratio in the clipped surrogate. Must be <= 1.
         clip_high_threshold:
           type: number
           format: float
           example: 1.2
-          default: "1.2"
+          default: 1.2
           description: Upper absolute bound for the importance ratio in the clipped surrogate. Must be >= 1.
     RL.CISPOLossParams:
       type: object
@@ -15672,14 +15736,14 @@ components:
           type: number
           format: float
           example: 0
-          default: "0.0"
-          description: Lower absolute bound for the importance ratio; the clipped ratio is applied as a detached coefficient
+          default: 0.0
+          description: Lower bound for clipping the importance-sampling ratio.
         clip_high_threshold:
           type: number
           format: float
           example: 4
-          default: "4.0"
-          description: Upper absolute bound for the importance ratio; the clipped ratio is applied as a detached coefficient
+          default: 4.0
+          description: Upper bound for clipping the importance-sampling ratio.
     RL.DROLossParams:
       type: object
       properties:
@@ -15690,6 +15754,26 @@ components:
           description: Coefficient on the quadratic log-ratio penalty. Required; there is no default.
       required:
         - beta
+    RL.DPPOLossParams:
+      type: object
+      properties:
+        delta_low:
+          type: number
+          format: float
+          example: 0.15
+          default: 0.15
+          description: Probability-change limit for tokens with negative advantage. Measured in probability space, not log-probability space. Must be in [0, 1]. Defaults to 0.15.
+          minimum: 0
+          maximum: 1
+        delta_high:
+          type: number
+          format: float
+          example: 0.15
+          default: 0.15
+          description: Probability-change limit for tokens with positive advantage. Measured in probability space, not log-probability space. Must be in [0, 1]. Defaults to 0.15.
+          minimum: 0
+          maximum: 1
+      description: Parameters for DPPO loss. Both probability-change limits must be in [0, 1] and default to 0.15.
     RL.LossConfig:
       type: object
       required:
@@ -15709,6 +15793,9 @@ components:
           $ref: '#/components/schemas/RL.CISPOLossParams'
         dro_params:
           $ref: '#/components/schemas/RL.DROLossParams'
+        dppo_params:
+          description: Parameters for DPPO loss. Only valid when `type` is `LOSS_TYPE_DPPO`.
+          $ref: '#/components/schemas/RL.DPPOLossParams'
     RL.LossFnOutput:
       type: object
       description: Output tensors produced by the loss function for one sample.
@@ -15753,7 +15840,7 @@ components:
             type: integer
         sparse_crow_indices:
           type: array
-          description: Reserved for Tinker schema compatibility; current training operations reject sparse tensors.
+          description: Unsupported for training operations. Omit this field.
           example:
             - 0
             - 2
@@ -15761,7 +15848,7 @@ components:
             type: integer
         sparse_col_indices:
           type: array
-          description: Reserved for Tinker schema compatibility; current training operations reject sparse tensors.
+          description: Unsupported for training operations. Omit this field.
           example:
             - 0
             - 2
@@ -15781,9 +15868,12 @@ components:
           description: Per-token loss tensors keyed by name. Include `target_tokens` and the inputs required by the selected loss. Each tensor must declare `int64` or `float32`, be one-dimensional, and have the same length.
           additionalProperties:
             $ref: '#/components/schemas/RL.TensorData'
-        routed_experts:
-          $ref: '#/components/schemas/RL.RoutedExperts'
-          description: Optional MoE per-token routing captured at sample time. Replayed on every training operation, so expert selection matches the one used at sample time. Must cover the whole sample, or all but its last token.
+        routed_experts_key:
+          type: string
+          description: Opaque key returned with a sampled sequence. Pass it unchanged with the corresponding training sample to reuse the same expert selections. The selections must cover the entire training sample or all but its final token. Training fails if the key is no longer available.
+          minLength: 1
+          maxLength: 256
+          pattern: ^routing/[A-Za-z0-9._-]+/[0-9a-f]{32}\.[1-9][0-9]*$
     RL.PolicyVersionSegment:
       type: object
       description: A (policy version, starting token) span within a sampled sequence. Version 0 is the initial model; each optim_step call increments the version by 1.
@@ -15823,31 +15913,6 @@ components:
             type: number
             format: double
           description: Log-probability of each alternative in `token_ids`, at the same index.
-    RL.RoutedExperts:
-      type: object
-      description: Mixture-of-experts routing decisions captured while generating, so training can reuse the same expert selection. Exactly one source is set—legacy inline `data`, or a backend-owned `object_uri` that the manager hydrates before training. The contiguous int32 buffer is reshaped by `shape`, which is always `[num_tokens, num_layers, width]`; packed buffers carry fp32-bitcast routing weights in the trailing top-k columns.
-      required:
-        - shape
-      properties:
-        data:
-          type: string
-          format: byte
-          description: Legacy base64-encoded contiguous int32 routing buffer, row-major over (token, layer, width).
-        object_uri:
-          type: string
-          format: uri
-          description: Backend-owned S3/R2 object URI containing the contiguous int32 routing buffer. Clients relay this URI unchanged; the manager validates and downloads it before training.
-        shape:
-          type: array
-          example:
-            - "512"
-            - "64"
-            - "8"
-          items:
-            oneOf:
-              - type: string
-              - type: integer
-          description: Buffer shape as `[num_tokens, num_layers, width]`.
     RL.OptimStepOperation:
       type: object
       description: Async optimizer step operation
@@ -16017,9 +16082,9 @@ components:
           format: int32
           example: 1024
           description: Number of model input tokens served from the prefix cache while generating this sequence.
-        routed_experts:
-          $ref: '#/components/schemas/RL.RoutedExperts'
-          description: MoE per-token routing decisions captured during generation; absent for dense models or when capture is disabled.
+        routed_experts_key:
+          type: string
+          description: Opaque key for reusing this sequence's expert selections during training. Pass it unchanged with the corresponding training sample. Absent for non-mixture-of-experts models or when `return_routed_experts` is disabled.
     RL.StopReason:
       type: string
       description: Reason generation stopped.
@@ -16169,7 +16234,7 @@ components:
         - model_resources_id
       properties:
         resume_from_checkpoint_id:
-          description: Checkpoint ID to resume from
+          description: Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.
           type: string
           example: 123e4567-e89b-12d3-a456-426614174000
         resume_from_hf_checkpoint:
@@ -16182,7 +16247,7 @@ components:
         model_resources_id:
           type: string
           example: 123e4567-e89b-12d3-a456-426614174000
-          description: Model resource to attach the session to. The session runs on that resource's GPU pods.
+          description: ID of the model resource to use for this training session.
         display_name:
           type: string
           maxLength: 128
@@ -16290,7 +16355,7 @@ components:
           description: Weights & Biases details associated with the training session
     RL.SessionPolicyState:
       type: object
-      description: Session-scoped policy and weight versions. Comparable to `policy_segments[].version` on sample results. Resets if the session is resumed or its training runtime restarts.
+      description: Policy and weight versions for this training session. Compare these with `policy_segments[].version` on sample results from the same session. Versions may reset after session recovery or resume.
       required:
         - trainer_step
         - target_weights_version
@@ -16394,10 +16459,10 @@ components:
         model_resources_id:
           type: string
           example: 123e4567-e89b-12d3-a456-426614174000
-          description: Model resource this session is attached to. The session runs on that resource's GPU pods.
+          description: ID of the model resource used by this training session.
         base_model:
           type: string
-          example: Qwen/Qwen3-0.6B
+          example: Qwen/Qwen3.5-4B
           description: Base model the session trains, taken from the model resource it is attached to
         created_by:
           type: string
@@ -16438,18 +16503,18 @@ components:
           type: integer
 
           example: 32
-          default: "32"
+          default: 32
           description: Rank of the LoRA adapter
         alpha:
           type: integer
 
           example: 64
-          default: "64"
+          default: 64
           description: Alpha of the LoRA adapter
         dropout:
           type: number
           example: 0
-          default: "0.0"
+          default: 0.0
           description: Dropout of the LoRA adapter
         seed:
           oneOf:
@@ -16506,27 +16571,27 @@ components:
           description: Exponential decay rate for the first-moment estimate
           type: number
           example: 0.9
-          default: "0.9"
+          default: 0.9
         beta2:
           description: Exponential decay rate for the second-moment estimate
           type: number
           example: 0.95
-          default: "0.95"
+          default: 0.95
         eps:
           description: Epsilon for numerical stability
           type: number
           example: 1e-8
-          default: "1e-8"
+          default: 1e-8
         weight_decay:
           description: Weight decay coefficient
           type: number
           example: 0.1
-          default: "0"
+          default: 0.0
         grad_clip_norm:
           description: Maximum gradient norm for this step, gradients across all model parameters are clipped to this value. Set to 0 to disable gradient clipping. When unset, gradients are clipped to the session default (1.0).
           type: number
           example: 10
-          default: "1.0"
+          default: 1.0
     RL.MuonParams:
       type: object
       description: Per-step Muon optimizer overrides
@@ -16538,23 +16603,23 @@ components:
         momentum:
           type: number
           example: 0.95
-          default: "0.95"
+          default: 0.95
           description: Momentum coefficient
         newton_schulz_steps:
           type: integer
 
           example: 5
-          default: "5"
+          default: 5
           description: Number of Newton-Schulz iterations
         weight_decay:
           type: number
           example: 0
-          default: "0.0"
+          default: 0.0
           description: Weight decay coefficient
         grad_clip_norm:
           type: number
           example: 10
-          default: "1.0"
+          default: 1.0
           description: Maximum gradient norm for this step, gradients across all model parameters are clipped to this value. Set to 0 to disable gradient clipping. When unset, gradients are clipped to the session default (1.0).
         adam:
           $ref: '#/components/schemas/RL.AdamParams'
@@ -16755,7 +16820,7 @@ components:
           description: Training session that produced the checkpoint
         base_model:
           type: string
-          example: Qwen/Qwen3-0.6B
+          example: Qwen/Qwen3.5-4B
           description: Base model the checkpoint was trained from
         type:
           $ref: '#/components/schemas/RL.CheckpointType'
@@ -17995,6 +18060,7 @@ components:
         An instance can have multiple remediations over time (e.g., failed attempts followed by retries).
     GPUClustersSharedVolumeCreateRequest:
       type: object
+      description: Request body for creating a shared volume.
       required:
         - volume_name
         - size_tib
@@ -18015,6 +18081,9 @@ components:
         project_id:
           type: string
           description: Project ID that will own the volume. When omitted, the caller's default project is used.
+        instance_cluster_id:
+          type: string
+          description: Cluster ID to pin the volume to the same substrate as that GPU cluster.
     GPUClustersSharedVolumeDeleteResponse:
       type: object
       required:
@@ -20975,7 +21044,7 @@ components:
         lora_trainable_modules:
           type: string
           default: 'all-linear'
-          description: Comma-separated LoRA target modules. Use `all-linear` for model defaults; MoE expert modules (`w_up`, `w_gate`, `w_down`) can be combined with attention modules on compatible models. Fine-tunes that target any expert module produce adapter-only output.
+          description: Comma-separated LoRA target modules. Use `all-linear` for model defaults; MoE expert modules (`w_up`, `w_gate`, `w_down`) can be combined with attention modules on compatible models. Fine-tuning jobs that target expert modules produce adapter-only output unless the selected model supports merged expert LoRA output.
       required:
         - type
         - lora_r
