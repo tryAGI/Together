@@ -77,16 +77,15 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlPPOLossParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCISPOLossParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlDROLossParams))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlDPPOLossParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlLossFnOutput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.RlTensorData>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTensorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTensorDataDtype), TypeInfoPropertyName = "RlTensorDataDtype2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlRoutedExperts))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlPolicyVersionSegment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlPromptTopLogprobs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlOptimStepOperation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlTrainingOperationStatus), TypeInfoPropertyName = "RlTrainingOperationStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlOptimStepResult))]
@@ -251,7 +250,6 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());

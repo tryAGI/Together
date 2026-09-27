@@ -9,10 +9,10 @@ namespace Together
     public sealed partial class RlCreateModelResourcesRequest
     {
         /// <summary>
-        /// Base model to provision the resource for<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Base model to provision the resource for, selected from /rl/supported-models<br/>
+        /// Example: Qwen/Qwen3.5-4B
         /// </summary>
-        /// <example>Qwen/Qwen3-0.6B</example>
+        /// <example>Qwen/Qwen3.5-4B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BaseModel { get; set; }
@@ -48,8 +48,8 @@ namespace Together
         /// Initializes a new instance of the <see cref="RlCreateModelResourcesRequest" /> class.
         /// </summary>
         /// <param name="baseModel">
-        /// Base model to provision the resource for<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Base model to provision the resource for, selected from /rl/supported-models<br/>
+        /// Example: Qwen/Qwen3.5-4B
         /// </param>
         /// <param name="computeConfig">
         /// Compute layout to provision.

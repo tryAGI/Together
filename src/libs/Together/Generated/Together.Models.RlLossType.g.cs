@@ -20,6 +20,10 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        LossTypeDppo,
+        /// <summary>
+        ///
+        /// </summary>
         LossTypeDro,
         /// <summary>
         ///
@@ -53,6 +57,7 @@ namespace Together
             {
                 RlLossType.LossTypeCispo => "LOSS_TYPE_CISPO",
                 RlLossType.LossTypeCrossEntropy => "LOSS_TYPE_CROSS_ENTROPY",
+                RlLossType.LossTypeDppo => "LOSS_TYPE_DPPO",
                 RlLossType.LossTypeDro => "LOSS_TYPE_DRO",
                 RlLossType.LossTypeGrpo => "LOSS_TYPE_GRPO",
                 RlLossType.LossTypeImportanceSampling => "LOSS_TYPE_IMPORTANCE_SAMPLING",
@@ -70,6 +75,7 @@ namespace Together
             {
                 "LOSS_TYPE_CISPO" => RlLossType.LossTypeCispo,
                 "LOSS_TYPE_CROSS_ENTROPY" => RlLossType.LossTypeCrossEntropy,
+                "LOSS_TYPE_DPPO" => RlLossType.LossTypeDppo,
                 "LOSS_TYPE_DRO" => RlLossType.LossTypeDro,
                 "LOSS_TYPE_GRPO" => RlLossType.LossTypeGrpo,
                 "LOSS_TYPE_IMPORTANCE_SAMPLING" => RlLossType.LossTypeImportanceSampling,

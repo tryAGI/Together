@@ -35,8 +35,8 @@ namespace Together
         /// Provisions a standalone model resource that training sessions can attach to.
         /// </summary>
         /// <param name="baseModel">
-        /// Base model to provision the resource for<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Base model to provision the resource for, selected from /rl/supported-models<br/>
+        /// Example: Qwen/Qwen3.5-4B
         /// </param>
         /// <param name="computeConfig">
         /// Compute layout to provision.

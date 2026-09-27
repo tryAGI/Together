@@ -35,8 +35,8 @@ namespace Together
         /// Estimates a model resource's on-demand hourly price without creating it.
         /// </summary>
         /// <param name="baseModel">
-        /// Base model to provision the resource for<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Base model to provision the resource for, selected from /rl/supported-models<br/>
+        /// Example: Qwen/Qwen3.5-4B
         /// </param>
         /// <param name="computeConfig">
         /// Compute layout to provision.

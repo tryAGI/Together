@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class RlStartTrainingSessionRequest
     {
         /// <summary>
-        /// Checkpoint ID to resume from<br/>
+        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
@@ -31,7 +31,7 @@ namespace Together
         public global::Together.RlLoraConfig? LoraConfig { get; set; }
 
         /// <summary>
-        /// Model resource to attach the session to. The session runs on that resource's GPU pods.<br/>
+        /// ID of the model resource to use for this training session.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
@@ -71,11 +71,11 @@ namespace Together
         /// Initializes a new instance of the <see cref="RlStartTrainingSessionRequest" /> class.
         /// </summary>
         /// <param name="modelResourcesId">
-        /// Model resource to attach the session to. The session runs on that resource's GPU pods.<br/>
+        /// ID of the model resource to use for this training session.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="resumeFromCheckpointId">
-        /// Checkpoint ID to resume from<br/>
+        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="resumeFromHfCheckpoint">

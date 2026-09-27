@@ -490,7 +490,7 @@ namespace Together
         /// Creates a training session and returns its details.
         /// </summary>
         /// <param name="resumeFromCheckpointId">
-        /// Checkpoint ID to resume from<br/>
+        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="resumeFromHfCheckpoint">
@@ -501,7 +501,7 @@ namespace Together
         /// LoRA adapter configuration for the session
         /// </param>
         /// <param name="modelResourcesId">
-        /// Model resource to attach the session to. The session runs on that resource's GPU pods.<br/>
+        /// ID of the model resource to use for this training session.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="displayName">

@@ -40,11 +40,13 @@ namespace Together
             };
         partial void PrepareCreateInferenceCheckpointArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string sessionId);
+            ref string sessionId,
+            ref string? idempotencyKey);
         partial void PrepareCreateInferenceCheckpointRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string sessionId);
+            string sessionId,
+            string? idempotencyKey);
         partial void ProcessCreateInferenceCheckpointResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -61,16 +63,21 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RlInferenceCheckpointOperation> CreateInferenceCheckpointAsync(
             string sessionId,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CreateInferenceCheckpointAsResponseAsync(
                 sessionId: sessionId,
+                idempotencyKey: idempotencyKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -84,11 +91,15 @@ namespace Together
         /// <param name="sessionId">
         /// Training session ID
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Required key that makes retries return the original operation; use a new key for changed request bodies.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlInferenceCheckpointOperation>> CreateInferenceCheckpointAsResponseAsync(
             string sessionId,
+            string? idempotencyKey = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -96,7 +107,8 @@ namespace Together
                 client: HttpClient);
             PrepareCreateInferenceCheckpointArguments(
                 httpClient: HttpClient,
-                sessionId: ref sessionId);
+                sessionId: ref sessionId,
+                idempotencyKey: ref idempotencyKey);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -155,6 +167,12 @@ namespace Together
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            var __idempotencyKey = global::System.String.IsNullOrWhiteSpace(idempotencyKey)
+                ? CreateIdempotencyKey()
+                : idempotencyKey;
+            __httpRequest.Headers.TryAddWithoutValidation("Idempotency-Key", __idempotencyKey);
+
                 global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -166,7 +184,8 @@ namespace Together
                 PrepareCreateInferenceCheckpointRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId!);
+                    sessionId: sessionId!,
+                    idempotencyKey: idempotencyKey);
 
                 return __httpRequest;
             }

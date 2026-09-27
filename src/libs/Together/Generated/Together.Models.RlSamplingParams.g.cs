@@ -53,7 +53,7 @@ namespace Together
         public global::System.Collections.Generic.IList<string>? Stop { get; set; }
 
         /// <summary>
-        /// Random seed for reproducible sampling for the same prompt and model state. Per-completion seeds remain stable if the request is split across generator replicas.<br/>
+        /// Random seed for reproducible sampling for the same prompt and model state.<br/>
         /// Example: 42
         /// </summary>
         /// <example>42</example>
@@ -95,7 +95,7 @@ namespace Together
         /// Example: [, END]
         /// </param>
         /// <param name="seed">
-        /// Random seed for reproducible sampling for the same prompt and model state. Per-completion seeds remain stable if the request is split across generator replicas.<br/>
+        /// Random seed for reproducible sampling for the same prompt and model state.<br/>
         /// Example: 42
         /// </param>
 #if NET7_0_OR_GREATER

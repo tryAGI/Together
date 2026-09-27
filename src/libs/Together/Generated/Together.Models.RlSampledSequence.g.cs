@@ -43,10 +43,10 @@ namespace Together
         public required int PromptCacheHitTokens { get; set; }
 
         /// <summary>
-        /// MoE per-token routing decisions captured during generation; absent for dense models or when capture is disabled.
+        /// Opaque key for reusing this sequence's expert selections during training. Pass it unchanged with the corresponding training sample. Absent for non-mixture-of-experts models or when `return_routed_experts` is disabled.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("routed_experts")]
-        public global::Together.RlRoutedExperts? RoutedExperts { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("routed_experts_key")]
+        public string? RoutedExpertsKey { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -72,8 +72,8 @@ namespace Together
         /// Log probabilities for each generated token<br/>
         /// Example: [-0.5, -1.2, -0.3]
         /// </param>
-        /// <param name="routedExperts">
-        /// MoE per-token routing decisions captured during generation; absent for dense models or when capture is disabled.
+        /// <param name="routedExpertsKey">
+        /// Opaque key for reusing this sequence's expert selections during training. Pass it unchanged with the corresponding training sample. Absent for non-mixture-of-experts models or when `return_routed_experts` is disabled.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -83,13 +83,13 @@ namespace Together
             global::Together.RlStopReason stopReason,
             int promptCacheHitTokens,
             global::System.Collections.Generic.IList<double>? logprobs,
-            global::Together.RlRoutedExperts? routedExperts)
+            string? routedExpertsKey)
         {
             this.Tokens = tokens ?? throw new global::System.ArgumentNullException(nameof(tokens));
             this.Logprobs = logprobs;
             this.StopReason = stopReason;
             this.PromptCacheHitTokens = promptCacheHitTokens;
-            this.RoutedExperts = routedExperts;
+            this.RoutedExpertsKey = routedExpertsKey;
         }
 
         /// <summary>

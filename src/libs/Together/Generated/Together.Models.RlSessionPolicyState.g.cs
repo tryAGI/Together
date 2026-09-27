@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Session-scoped policy and weight versions. Comparable to `policy_segments[].version` on sample results. Resets if the session is resumed or its training runtime restarts.
+    /// Policy and weight versions for this training session. Compare these with `policy_segments[].version` on sample results from the same session. Versions may reset after session recovery or resume.
     /// </summary>
     public sealed partial class RlSessionPolicyState
     {
