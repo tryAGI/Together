@@ -36,7 +36,7 @@ namespace Together
         public global::System.Collections.Generic.IList<int>? Shape { get; set; }
 
         /// <summary>
-        /// Reserved for Tinker schema compatibility; current training operations reject sparse tensors.<br/>
+        /// Unsupported for training operations. Omit this field.<br/>
         /// Example: [0, 2]
         /// </summary>
         /// <example>[0, 2]</example>
@@ -44,7 +44,7 @@ namespace Together
         public global::System.Collections.Generic.IList<int>? SparseCrowIndices { get; set; }
 
         /// <summary>
-        /// Reserved for Tinker schema compatibility; current training operations reject sparse tensors.<br/>
+        /// Unsupported for training operations. Omit this field.<br/>
         /// Example: [0, 2]
         /// </summary>
         /// <example>[0, 2]</example>
@@ -73,11 +73,11 @@ namespace Together
         /// Example: [3]
         /// </param>
         /// <param name="sparseCrowIndices">
-        /// Reserved for Tinker schema compatibility; current training operations reject sparse tensors.<br/>
+        /// Unsupported for training operations. Omit this field.<br/>
         /// Example: [0, 2]
         /// </param>
         /// <param name="sparseColIndices">
-        /// Reserved for Tinker schema compatibility; current training operations reject sparse tensors.<br/>
+        /// Unsupported for training operations. Omit this field.<br/>
         /// Example: [0, 2]
         /// </param>
 #if NET7_0_OR_GREATER

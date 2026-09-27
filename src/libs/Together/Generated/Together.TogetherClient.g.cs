@@ -36,6 +36,10 @@ namespace Together
         public global::Together.AutoSDKClientOptions Options { get; }
 
 
+        /// <inheritdoc/>
+        public global::System.Func<string> CreateIdempotencyKey { get; set; } = () => global::System.Guid.NewGuid().ToString("D");
+
+
         internal global::Together.AutoSDKServerConfiguration AutoSDKServerConfiguration { get; set; } = new global::Together.AutoSDKServerConfiguration();
 
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Together.SourceGenerationContext.Default);
@@ -56,6 +60,7 @@ namespace Together
         public ABExperimentServiceClient ABExperimentService => new ABExperimentServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -66,6 +71,7 @@ namespace Together
         public AccountClient Account => new AccountClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -76,6 +82,7 @@ namespace Together
         public AudioClient Audio => new AudioClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -86,6 +93,7 @@ namespace Together
         public BatchesClient Batches => new BatchesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -96,6 +104,7 @@ namespace Together
         public BillingClient Billing => new BillingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -106,6 +115,7 @@ namespace Together
         public ChatClient Chat => new ChatClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -116,6 +126,7 @@ namespace Together
         public CodeInterpreterClient CodeInterpreter => new CodeInterpreterClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -126,6 +137,7 @@ namespace Together
         public CompletionClient Completion => new CompletionClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -136,6 +148,7 @@ namespace Together
         public ConfigServiceClient ConfigService => new ConfigServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -146,6 +159,7 @@ namespace Together
         public DeploymentServiceClient DeploymentService => new DeploymentServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -156,6 +170,7 @@ namespace Together
         public DeploymentsClient Deployments => new DeploymentsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -166,6 +181,7 @@ namespace Together
         public DeploymentsStorageClient DeploymentsStorage => new DeploymentsStorageClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -176,6 +192,7 @@ namespace Together
         public DeploymentsVolumesClient DeploymentsVolumes => new DeploymentsVolumesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -186,6 +203,7 @@ namespace Together
         public EmbeddingsClient Embeddings => new EmbeddingsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -196,6 +214,7 @@ namespace Together
         public EndpointServiceClient EndpointService => new EndpointServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -206,6 +225,7 @@ namespace Together
         public EndpointsClient Endpoints => new EndpointsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -216,6 +236,7 @@ namespace Together
         public Endpoints2Client Endpoints2 => new Endpoints2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -226,6 +247,7 @@ namespace Together
         public EvaluationClient Evaluation => new EvaluationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -236,6 +258,7 @@ namespace Together
         public FilesClient Files => new FilesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -246,6 +269,7 @@ namespace Together
         public FineTuningClient FineTuning => new FineTuningClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -256,6 +280,7 @@ namespace Together
         public GPUClusterServiceClient GPUClusterService => new GPUClusterServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -266,6 +291,7 @@ namespace Together
         public HardwareClient Hardware => new HardwareClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -276,6 +302,7 @@ namespace Together
         public HealthCheckServiceClient HealthCheckService => new HealthCheckServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -286,6 +313,7 @@ namespace Together
         public ImagesClient Images => new ImagesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -296,6 +324,7 @@ namespace Together
         public InstanceClusterAddOnServiceClient InstanceClusterAddOnService => new InstanceClusterAddOnServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -306,6 +335,7 @@ namespace Together
         public InstanceTypeServiceClient InstanceTypeService => new InstanceTypeServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -316,6 +346,7 @@ namespace Together
         public JobsClient Jobs => new JobsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -326,6 +357,7 @@ namespace Together
         public ModelsClient Models => new ModelsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -336,6 +368,7 @@ namespace Together
         public PlacementProfileServiceClient PlacementProfileService => new PlacementProfileServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -346,6 +379,7 @@ namespace Together
         public QueueClient Queue => new QueueClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -356,6 +390,7 @@ namespace Together
         public RegionServiceClient RegionService => new RegionServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -366,6 +401,7 @@ namespace Together
         public RemediationServiceClient RemediationService => new RemediationServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -376,6 +412,7 @@ namespace Together
         public RerankClient Rerank => new RerankClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -386,6 +423,7 @@ namespace Together
         public RlClient Rl => new RlClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -396,6 +434,7 @@ namespace Together
         public RolloutServiceClient RolloutService => new RolloutServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -406,6 +445,7 @@ namespace Together
         public SecretsClient Secrets => new SecretsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -416,6 +456,7 @@ namespace Together
         public ShadowExperimentServiceClient ShadowExperimentService => new ShadowExperimentServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -426,6 +467,7 @@ namespace Together
         public SharedVolumeServiceClient SharedVolumeService => new SharedVolumeServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -436,6 +478,7 @@ namespace Together
         public SupportedModelsServiceClient SupportedModelsService => new SupportedModelsServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -446,6 +489,7 @@ namespace Together
         public VideoClient Video => new VideoClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -456,6 +500,7 @@ namespace Together
         public VoicesClient Voices => new VoicesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -466,6 +511,7 @@ namespace Together
         public VolumeServiceClient VolumeService => new VolumeServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };
@@ -476,6 +522,7 @@ namespace Together
         public VolumesClient Volumes => new VolumesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
             JsonSerializerContextProvider = JsonSerializerContextProvider,
             AutoSDKServerConfiguration = AutoSDKServerConfiguration,
         };

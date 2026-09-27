@@ -216,7 +216,6 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>());

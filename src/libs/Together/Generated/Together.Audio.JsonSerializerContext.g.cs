@@ -23,7 +23,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinel))]
@@ -35,6 +34,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestExtraParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioTranscriptionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<byte[], string>), TypeInfoPropertyName = "OneOfByteArrayString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioTranscriptionRequestModel), TypeInfoPropertyName = "AudioTranscriptionRequestModel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioTranscriptionRequestResponseFormat), TypeInfoPropertyName = "AudioTranscriptionRequestResponseFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.AudioTranscriptionRequestTimestampGranularities?, global::System.Collections.Generic.IList<global::Together.AudioTranscriptionRequestTimestampGranularitie>>), TypeInfoPropertyName = "OneOfAudioTranscriptionRequestTimestampGranularitiesIListAudioTranscriptionRequestTimestampGranularitie2")]
@@ -145,7 +145,6 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.AudioTranscriptionResponseJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.AudioTranslationResponseJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.AudioSpeechStreamResponseJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());

@@ -107,7 +107,7 @@ namespace Together
         public global::Together.RlLoraConfig? LoraConfig { get; set; }
 
         /// <summary>
-        /// Model resource this session is attached to. The session runs on that resource's GPU pods.<br/>
+        /// ID of the model resource used by this training session.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
@@ -117,9 +117,9 @@ namespace Together
 
         /// <summary>
         /// Base model the session trains, taken from the model resource it is attached to<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Example: Qwen/Qwen3.5-4B
         /// </summary>
-        /// <example>Qwen/Qwen3-0.6B</example>
+        /// <example>Qwen/Qwen3.5-4B</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("base_model")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string BaseModel { get; set; }
@@ -180,12 +180,12 @@ namespace Together
         /// Example: 2026-01-02T00:00:05Z
         /// </param>
         /// <param name="modelResourcesId">
-        /// Model resource this session is attached to. The session runs on that resource's GPU pods.<br/>
+        /// ID of the model resource used by this training session.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="baseModel">
         /// Base model the session trains, taken from the model resource it is attached to<br/>
-        /// Example: Qwen/Qwen3-0.6B
+        /// Example: Qwen/Qwen3.5-4B
         /// </param>
         /// <param name="createdBy">
         /// ID of the user who created the training session<br/>

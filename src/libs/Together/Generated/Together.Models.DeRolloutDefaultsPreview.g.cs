@@ -63,11 +63,23 @@ namespace Together
         public required int TargetMaxReplicas { get; set; }
 
         /// <summary>
-        /// Non-blocking findings to surface next to the form. An empty list means the shown values are safe to submit as-is.
+        /// Findings to surface next to the form when a later gate will refuse the spec or a standing guarantee is lost. An empty list means the shown values are safe to submit as-is; render message for unrecognized codes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::Together.DePreviewWarning> Warnings { get; set; }
+
+        /// <summary>
+        /// Expected autoscaling minimum replicas for the completed target; unset while the final target replicas cannot be resolved.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("landingMinReplicas")]
+        public int? LandingMinReplicas { get; set; }
+
+        /// <summary>
+        /// Expected autoscaling maximum replicas for the completed target; unset while the final target replicas cannot be resolved.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("landingMaxReplicas")]
+        public int? LandingMaxReplicas { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -94,7 +106,7 @@ namespace Together
         /// Target deployment autoscaling maximum replica count. Zero is a real value.
         /// </param>
         /// <param name="warnings">
-        /// Non-blocking findings to surface next to the form. An empty list means the shown values are safe to submit as-is.
+        /// Findings to surface next to the form when a later gate will refuse the spec or a standing guarantee is lost. An empty list means the shown values are safe to submit as-is; render message for unrecognized codes.
         /// </param>
         /// <param name="estimatedEffectiveSteps">
         /// Steps the rollout is expected to walk when the caller leaves steps unset. Display only. Empty when the caller supplied steps or no ladder applies.
@@ -104,6 +116,12 @@ namespace Together
         /// </param>
         /// <param name="estimatedSeedPercent">
         /// Percentage of the pair's traffic currently reaching the target, the floor the suggested steps start above. Unset when not a frozen pair or unknown; 0 is a real measurement.
+        /// </param>
+        /// <param name="landingMinReplicas">
+        /// Expected autoscaling minimum replicas for the completed target; unset while the final target replicas cannot be resolved.
+        /// </param>
+        /// <param name="landingMaxReplicas">
+        /// Expected autoscaling maximum replicas for the completed target; unset while the final target replicas cannot be resolved.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -117,7 +135,9 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.DePreviewWarning> warnings,
             global::System.Collections.Generic.IList<global::Together.DeRolloutStep>? estimatedEffectiveSteps,
             bool? frozenPair,
-            int? estimatedSeedPercent)
+            int? estimatedSeedPercent,
+            int? landingMinReplicas,
+            int? landingMaxReplicas)
         {
             this.Spec = spec ?? throw new global::System.ArgumentNullException(nameof(spec));
             this.EstimatedEffectiveSteps = estimatedEffectiveSteps;
@@ -128,6 +148,8 @@ namespace Together
             this.TargetMinReplicas = targetMinReplicas;
             this.TargetMaxReplicas = targetMaxReplicas;
             this.Warnings = warnings ?? throw new global::System.ArgumentNullException(nameof(warnings));
+            this.LandingMinReplicas = landingMinReplicas;
+            this.LandingMaxReplicas = landingMaxReplicas;
         }
 
         /// <summary>

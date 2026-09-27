@@ -49,22 +49,13 @@ namespace Together
         public int? TopkPromptLogprobs { get; set; }
 
         /// <summary>
-        /// When true, capture the mixture-of-experts routing decisions made while generating and return them in `SampledSequence.routed_experts`, so training can reuse the same expert selection. Only available on mixture-of-experts models; ignored otherwise. The captured buffer scales with sequence length, so leave it off unless you replay routing during training.<br/>
+        /// When true, enable reuse of the expert selections from sampled sequences during training. Only supported for mixture-of-experts models; ignored for other models.<br/>
         /// Default Value: false<br/>
         /// Example: false
         /// </summary>
         /// <example>false</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("return_routed_experts")]
         public bool? ReturnRoutedExperts { get; set; }
-
-        /// <summary>
-        /// When true together with `return_routed_experts`, return each routing capture as a backend-owned `object_uri` plus shape instead of inline base64 data. Clients that do not opt in keep the legacy inline response.<br/>
-        /// Default Value: false<br/>
-        /// Example: false
-        /// </summary>
-        /// <example>false</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("return_routed_experts_object_uri")]
-        public bool? ReturnRoutedExpertsObjectUri { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -97,12 +88,7 @@ namespace Together
         /// Example: 0
         /// </param>
         /// <param name="returnRoutedExperts">
-        /// When true, capture the mixture-of-experts routing decisions made while generating and return them in `SampledSequence.routed_experts`, so training can reuse the same expert selection. Only available on mixture-of-experts models; ignored otherwise. The captured buffer scales with sequence length, so leave it off unless you replay routing during training.<br/>
-        /// Default Value: false<br/>
-        /// Example: false
-        /// </param>
-        /// <param name="returnRoutedExpertsObjectUri">
-        /// When true together with `return_routed_experts`, return each routing capture as a backend-owned `object_uri` plus shape instead of inline base64 data. Clients that do not opt in keep the legacy inline response.<br/>
+        /// When true, enable reuse of the expert selections from sampled sequences during training. Only supported for mixture-of-experts models; ignored for other models.<br/>
         /// Default Value: false<br/>
         /// Example: false
         /// </param>
@@ -115,8 +101,7 @@ namespace Together
             int? numSamples,
             bool? promptLogprobs,
             int? topkPromptLogprobs,
-            bool? returnRoutedExperts,
-            bool? returnRoutedExpertsObjectUri)
+            bool? returnRoutedExperts)
         {
             this.ModelInputs = modelInputs ?? throw new global::System.ArgumentNullException(nameof(modelInputs));
             this.SamplingParams = samplingParams;
@@ -124,7 +109,6 @@ namespace Together
             this.PromptLogprobs = promptLogprobs;
             this.TopkPromptLogprobs = topkPromptLogprobs;
             this.ReturnRoutedExperts = returnRoutedExperts;
-            this.ReturnRoutedExpertsObjectUri = returnRoutedExpertsObjectUri;
         }
 
         /// <summary>
