@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DePlacementVariant1 PickDePlacementVariant1() => IsDePlacementVariant1
-            ? DePlacementVariant1!
+        public global::Together.DePlacementVariant1 PickDePlacementVariant1() => DePlacementVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DePlacementVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DePlacementVariant2 PickDePlacementVariant2() => IsDePlacementVariant2
-            ? DePlacementVariant2!
+        public global::Together.DePlacementVariant2 PickDePlacementVariant2() => DePlacementVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DePlacementVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsDePlacementVariant1 && dePlacementVariant1 != null)
+            if (DePlacementVariant1 is { } __value0 && dePlacementVariant1 != null)
             {
-                return dePlacementVariant1(DePlacementVariant1!);
+                return dePlacementVariant1(__value0);
             }
-            else if (IsDePlacementVariant2 && dePlacementVariant2 != null)
+            else if (DePlacementVariant2 is { } __value1 && dePlacementVariant2 != null)
             {
-                return dePlacementVariant2(DePlacementVariant2!);
+                return dePlacementVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsDePlacementVariant1)
+            if (DePlacementVariant1 is { } __value0)
             {
-                dePlacementVariant1?.Invoke(DePlacementVariant1!);
+                dePlacementVariant1?.Invoke(__value0);
             }
-            else if (IsDePlacementVariant2)
+            else if (DePlacementVariant2 is { } __value1)
             {
-                dePlacementVariant2?.Invoke(DePlacementVariant2!);
+                dePlacementVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsDePlacementVariant1)
+            if (DePlacementVariant1 is { } __value0)
             {
-                dePlacementVariant1?.Invoke(DePlacementVariant1!);
+                dePlacementVariant1?.Invoke(__value0);
             }
-            else if (IsDePlacementVariant2)
+            else if (DePlacementVariant2 is { } __value1)
             {
-                dePlacementVariant2?.Invoke(DePlacementVariant2!);
+                dePlacementVariant2?.Invoke(__value1);
             }
         }
 

@@ -135,13 +135,13 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EvaluationModelOrStringVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEvaluationModelOrStringVariant1(), typeInfo);
             }
             else if (value.IsRequest)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.EvaluationModelRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.EvaluationModelRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.EvaluationModelRequest).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Request!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickRequest(), typeInfo);
             }
         }
     }

@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.SessionListResponseResponse PickResponse() => IsResponse
-            ? Response!
+        public global::Together.SessionListResponseResponse PickResponse() => Response is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Response' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.SessionListResponseVariant2 PickSessionListResponseVariant2() => IsSessionListResponseVariant2
-            ? SessionListResponseVariant2!
+        public global::Together.SessionListResponseVariant2 PickSessionListResponseVariant2() => SessionListResponseVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SessionListResponseVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsResponse && response != null)
+            if (Response is { } __value0 && response != null)
             {
-                return response(Response!);
+                return response(__value0);
             }
-            else if (IsSessionListResponseVariant2 && sessionListResponseVariant2 != null)
+            else if (SessionListResponseVariant2 is { } __value1 && sessionListResponseVariant2 != null)
             {
-                return sessionListResponseVariant2(SessionListResponseVariant2!);
+                return sessionListResponseVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsResponse)
+            if (Response is { } __value0)
             {
-                response?.Invoke(Response!);
+                response?.Invoke(__value0);
             }
-            else if (IsSessionListResponseVariant2)
+            else if (SessionListResponseVariant2 is { } __value1)
             {
-                sessionListResponseVariant2?.Invoke(SessionListResponseVariant2!);
+                sessionListResponseVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsResponse)
+            if (Response is { } __value0)
             {
-                response?.Invoke(Response!);
+                response?.Invoke(__value0);
             }
-            else if (IsSessionListResponseVariant2)
+            else if (SessionListResponseVariant2 is { } __value1)
             {
-                sessionListResponseVariant2?.Invoke(SessionListResponseVariant2!);
+                sessionListResponseVariant2?.Invoke(__value1);
             }
         }
 

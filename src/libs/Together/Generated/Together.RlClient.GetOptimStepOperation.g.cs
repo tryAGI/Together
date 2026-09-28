@@ -178,8 +178,8 @@ namespace Together
                 PrepareGetOptimStepOperationRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId!,
-                    operationId: operationId!);
+                    sessionId: sessionId,
+                    operationId: operationId);
 
                 return __httpRequest;
             }
@@ -201,7 +201,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/optim-step/{operationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -235,7 +235,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/optim-step/{operationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -276,7 +276,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/optim-step/{operationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -324,7 +324,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/optim-step/{operationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -346,7 +346,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/optim-step/{operationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

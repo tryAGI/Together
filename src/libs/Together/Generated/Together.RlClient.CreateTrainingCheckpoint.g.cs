@@ -184,7 +184,7 @@ namespace Together
                 PrepareCreateTrainingCheckpointRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId!,
+                    sessionId: sessionId,
                     idempotencyKey: idempotencyKey);
 
                 return __httpRequest;
@@ -207,7 +207,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/training-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -241,7 +241,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/training-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -282,7 +282,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/training-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -330,7 +330,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/training-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -352,7 +352,7 @@ namespace Together
                                 pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/training-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

@@ -128,13 +128,13 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DePlacementVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DePlacementVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DePlacementVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DePlacementVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDePlacementVariant1(), typeInfo);
             }
             else if (value.IsDePlacementVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DePlacementVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DePlacementVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DePlacementVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DePlacementVariant2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDePlacementVariant2(), typeInfo);
             }
         }
     }

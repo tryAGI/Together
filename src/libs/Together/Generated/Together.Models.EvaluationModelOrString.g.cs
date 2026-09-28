@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public string PickEvaluationModelOrStringVariant1() => IsEvaluationModelOrStringVariant1
-            ? EvaluationModelOrStringVariant1!
+        public string PickEvaluationModelOrStringVariant1() => EvaluationModelOrStringVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EvaluationModelOrStringVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.EvaluationModelRequest PickRequest() => IsRequest
-            ? Request!
+        public global::Together.EvaluationModelRequest PickRequest() => Request is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Request' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsEvaluationModelOrStringVariant1 && evaluationModelOrStringVariant1 != null)
+            if (EvaluationModelOrStringVariant1 is { } __value0 && evaluationModelOrStringVariant1 != null)
             {
-                return evaluationModelOrStringVariant1(EvaluationModelOrStringVariant1!);
+                return evaluationModelOrStringVariant1(__value0);
             }
-            else if (IsRequest && request != null)
+            else if (Request is { } __value1 && request != null)
             {
-                return request(Request!);
+                return request(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsEvaluationModelOrStringVariant1)
+            if (EvaluationModelOrStringVariant1 is { } __value0)
             {
-                evaluationModelOrStringVariant1?.Invoke(EvaluationModelOrStringVariant1!);
+                evaluationModelOrStringVariant1?.Invoke(__value0);
             }
-            else if (IsRequest)
+            else if (Request is { } __value1)
             {
-                request?.Invoke(Request!);
+                request?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsEvaluationModelOrStringVariant1)
+            if (EvaluationModelOrStringVariant1 is { } __value0)
             {
-                evaluationModelOrStringVariant1?.Invoke(EvaluationModelOrStringVariant1!);
+                evaluationModelOrStringVariant1?.Invoke(__value0);
             }
-            else if (IsRequest)
+            else if (Request is { } __value1)
             {
-                request?.Invoke(Request!);
+                request?.Invoke(__value1);
             }
         }
 

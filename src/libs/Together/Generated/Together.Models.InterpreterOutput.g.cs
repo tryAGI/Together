@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.InterpreterOutputStreamOutput PickStreamOutput() => IsStreamOutput
-            ? StreamOutput!
+        public global::Together.InterpreterOutputStreamOutput PickStreamOutput() => StreamOutput is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StreamOutput' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.InterpreterOutputErrorOutput PickError() => IsError
-            ? Error!
+        public global::Together.InterpreterOutputErrorOutput PickError() => Error is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Error' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.InterpreterOutputDisplayorExecuteOutput PickDisplayorExecuteOutput() => IsDisplayorExecuteOutput
-            ? DisplayorExecuteOutput!
+        public global::Together.InterpreterOutputDisplayorExecuteOutput PickDisplayorExecuteOutput() => DisplayorExecuteOutput is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DisplayorExecuteOutput' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -242,17 +242,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsStreamOutput && streamOutput != null)
+            if (StreamOutput is { } __value0 && streamOutput != null)
             {
-                return streamOutput(StreamOutput!);
+                return streamOutput(__value0);
             }
-            else if (IsError && error != null)
+            else if (Error is { } __value1 && error != null)
             {
-                return error(Error!);
+                return error(__value1);
             }
-            else if (IsDisplayorExecuteOutput && displayorExecuteOutput != null)
+            else if (DisplayorExecuteOutput is { } __value2 && displayorExecuteOutput != null)
             {
-                return displayorExecuteOutput(DisplayorExecuteOutput!);
+                return displayorExecuteOutput(__value2);
             }
 
             return default(TResult);
@@ -274,17 +274,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsStreamOutput)
+            if (StreamOutput is { } __value0)
             {
-                streamOutput?.Invoke(StreamOutput!);
+                streamOutput?.Invoke(__value0);
             }
-            else if (IsError)
+            else if (Error is { } __value1)
             {
-                error?.Invoke(Error!);
+                error?.Invoke(__value1);
             }
-            else if (IsDisplayorExecuteOutput)
+            else if (DisplayorExecuteOutput is { } __value2)
             {
-                displayorExecuteOutput?.Invoke(DisplayorExecuteOutput!);
+                displayorExecuteOutput?.Invoke(__value2);
             }
         }
 
@@ -302,17 +302,17 @@ namespace Together
                 Validate();
             }
 
-            if (IsStreamOutput)
+            if (StreamOutput is { } __value0)
             {
-                streamOutput?.Invoke(StreamOutput!);
+                streamOutput?.Invoke(__value0);
             }
-            else if (IsError)
+            else if (Error is { } __value1)
             {
-                error?.Invoke(Error!);
+                error?.Invoke(__value1);
             }
-            else if (IsDisplayorExecuteOutput)
+            else if (DisplayorExecuteOutput is { } __value2)
             {
-                displayorExecuteOutput?.Invoke(DisplayorExecuteOutput!);
+                displayorExecuteOutput?.Invoke(__value2);
             }
         }
 

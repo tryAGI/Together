@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.AudioTranslationJsonResponse PickJson() => IsJson
-            ? Json!
+        public global::Together.AudioTranslationJsonResponse PickJson() => Json is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Json' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.AudioTranslationVerboseJsonResponse PickVerboseJson() => IsVerboseJson
-            ? VerboseJson!
+        public global::Together.AudioTranslationVerboseJsonResponse PickVerboseJson() => VerboseJson is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VerboseJson' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsJson && json != null)
+            if (Json is { } __value0 && json != null)
             {
-                return json(Json!);
+                return json(__value0);
             }
-            else if (IsVerboseJson && verboseJson != null)
+            else if (VerboseJson is { } __value1 && verboseJson != null)
             {
-                return verboseJson(VerboseJson!);
+                return verboseJson(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsJson)
+            if (Json is { } __value0)
             {
-                json?.Invoke(Json!);
+                json?.Invoke(__value0);
             }
-            else if (IsVerboseJson)
+            else if (VerboseJson is { } __value1)
             {
-                verboseJson?.Invoke(VerboseJson!);
+                verboseJson?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsJson)
+            if (Json is { } __value0)
             {
-                json?.Invoke(Json!);
+                json?.Invoke(__value0);
             }
-            else if (IsVerboseJson)
+            else if (VerboseJson is { } __value1)
             {
-                verboseJson?.Invoke(VerboseJson!);
+                verboseJson?.Invoke(__value1);
             }
         }
 

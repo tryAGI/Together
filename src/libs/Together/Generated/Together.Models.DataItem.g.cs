@@ -47,8 +47,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ImageResponseDataB64 PickB64Json() => IsB64Json
-            ? B64Json!
+        public global::Together.ImageResponseDataB64 PickB64Json() => B64Json is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'B64Json' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ImageResponseDataUrl PickUrl() => IsUrl
-            ? Url!
+        public global::Together.ImageResponseDataUrl PickUrl() => Url is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Url' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsB64Json && b64Json != null)
+            if (B64Json is { } __value0 && b64Json != null)
             {
-                return b64Json(B64Json!);
+                return b64Json(__value0);
             }
-            else if (IsUrl && url != null)
+            else if (Url is { } __value1 && url != null)
             {
-                return url(Url!);
+                return url(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsB64Json)
+            if (B64Json is { } __value0)
             {
-                b64Json?.Invoke(B64Json!);
+                b64Json?.Invoke(__value0);
             }
-            else if (IsUrl)
+            else if (Url is { } __value1)
             {
-                url?.Invoke(Url!);
+                url?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsB64Json)
+            if (B64Json is { } __value0)
             {
-                b64Json?.Invoke(B64Json!);
+                b64Json?.Invoke(__value0);
             }
-            else if (IsUrl)
+            else if (Url is { } __value1)
             {
-                url?.Invoke(Url!);
+                url?.Invoke(__value1);
             }
         }
 

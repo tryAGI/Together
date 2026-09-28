@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DeAutoscaling PickDeAutoscaling() => IsDeAutoscaling
-            ? DeAutoscaling!
+        public global::Together.DeAutoscaling PickDeAutoscaling() => DeAutoscaling is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeAutoscaling' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public object PickDeAutoscalingResponseVariant2() => IsDeAutoscalingResponseVariant2
-            ? DeAutoscalingResponseVariant2!
+        public object PickDeAutoscalingResponseVariant2() => DeAutoscalingResponseVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeAutoscalingResponseVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -154,13 +154,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsDeAutoscaling && deAutoscaling != null)
+            if (DeAutoscaling is { } __value0 && deAutoscaling != null)
             {
-                return deAutoscaling(DeAutoscaling!);
+                return deAutoscaling(__value0);
             }
-            else if (IsDeAutoscalingResponseVariant2 && deAutoscalingResponseVariant2 != null)
+            else if (DeAutoscalingResponseVariant2 is { } __value1 && deAutoscalingResponseVariant2 != null)
             {
-                return deAutoscalingResponseVariant2(DeAutoscalingResponseVariant2!);
+                return deAutoscalingResponseVariant2(__value1);
             }
 
             return default(TResult);
@@ -180,13 +180,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsDeAutoscaling)
+            if (DeAutoscaling is { } __value0)
             {
-                deAutoscaling?.Invoke(DeAutoscaling!);
+                deAutoscaling?.Invoke(__value0);
             }
-            else if (IsDeAutoscalingResponseVariant2)
+            else if (DeAutoscalingResponseVariant2 is { } __value1)
             {
-                deAutoscalingResponseVariant2?.Invoke(DeAutoscalingResponseVariant2!);
+                deAutoscalingResponseVariant2?.Invoke(__value1);
             }
         }
 
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsDeAutoscaling)
+            if (DeAutoscaling is { } __value0)
             {
-                deAutoscaling?.Invoke(DeAutoscaling!);
+                deAutoscaling?.Invoke(__value0);
             }
-            else if (IsDeAutoscalingResponseVariant2)
+            else if (DeAutoscalingResponseVariant2 is { } __value1)
             {
-                deAutoscalingResponseVariant2?.Invoke(DeAutoscalingResponseVariant2!);
+                deAutoscalingResponseVariant2?.Invoke(__value1);
             }
         }
 

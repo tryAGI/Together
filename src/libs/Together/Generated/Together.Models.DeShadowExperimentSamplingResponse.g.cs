@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DeShadowExperimentSamplingResponseVariant1 PickDeShadowExperimentSamplingResponseVariant1() => IsDeShadowExperimentSamplingResponseVariant1
-            ? DeShadowExperimentSamplingResponseVariant1!
+        public global::Together.DeShadowExperimentSamplingResponseVariant1 PickDeShadowExperimentSamplingResponseVariant1() => DeShadowExperimentSamplingResponseVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeShadowExperimentSamplingResponseVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DeShadowExperimentSamplingResponseVariant2 PickDeShadowExperimentSamplingResponseVariant2() => IsDeShadowExperimentSamplingResponseVariant2
-            ? DeShadowExperimentSamplingResponseVariant2!
+        public global::Together.DeShadowExperimentSamplingResponseVariant2 PickDeShadowExperimentSamplingResponseVariant2() => DeShadowExperimentSamplingResponseVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeShadowExperimentSamplingResponseVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DeShadowExperimentSamplingResponseVariant3 PickDeShadowExperimentSamplingResponseVariant3() => IsDeShadowExperimentSamplingResponseVariant3
-            ? DeShadowExperimentSamplingResponseVariant3!
+        public global::Together.DeShadowExperimentSamplingResponseVariant3 PickDeShadowExperimentSamplingResponseVariant3() => DeShadowExperimentSamplingResponseVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeShadowExperimentSamplingResponseVariant3' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.DeShadowExperimentSamplingResponseVariant4 PickDeShadowExperimentSamplingResponseVariant4() => IsDeShadowExperimentSamplingResponseVariant4
-            ? DeShadowExperimentSamplingResponseVariant4!
+        public global::Together.DeShadowExperimentSamplingResponseVariant4 PickDeShadowExperimentSamplingResponseVariant4() => DeShadowExperimentSamplingResponseVariant4 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'DeShadowExperimentSamplingResponseVariant4' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -307,21 +307,21 @@ namespace Together
                 Validate();
             }
 
-            if (IsDeShadowExperimentSamplingResponseVariant1 && deShadowExperimentSamplingResponseVariant1 != null)
+            if (DeShadowExperimentSamplingResponseVariant1 is { } __value0 && deShadowExperimentSamplingResponseVariant1 != null)
             {
-                return deShadowExperimentSamplingResponseVariant1(DeShadowExperimentSamplingResponseVariant1!);
+                return deShadowExperimentSamplingResponseVariant1(__value0);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant2 && deShadowExperimentSamplingResponseVariant2 != null)
+            else if (DeShadowExperimentSamplingResponseVariant2 is { } __value1 && deShadowExperimentSamplingResponseVariant2 != null)
             {
-                return deShadowExperimentSamplingResponseVariant2(DeShadowExperimentSamplingResponseVariant2!);
+                return deShadowExperimentSamplingResponseVariant2(__value1);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant3 && deShadowExperimentSamplingResponseVariant3 != null)
+            else if (DeShadowExperimentSamplingResponseVariant3 is { } __value2 && deShadowExperimentSamplingResponseVariant3 != null)
             {
-                return deShadowExperimentSamplingResponseVariant3(DeShadowExperimentSamplingResponseVariant3!);
+                return deShadowExperimentSamplingResponseVariant3(__value2);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant4 && deShadowExperimentSamplingResponseVariant4 != null)
+            else if (DeShadowExperimentSamplingResponseVariant4 is { } __value3 && deShadowExperimentSamplingResponseVariant4 != null)
             {
-                return deShadowExperimentSamplingResponseVariant4(DeShadowExperimentSamplingResponseVariant4!);
+                return deShadowExperimentSamplingResponseVariant4(__value3);
             }
 
             return default(TResult);
@@ -345,21 +345,21 @@ namespace Together
                 Validate();
             }
 
-            if (IsDeShadowExperimentSamplingResponseVariant1)
+            if (DeShadowExperimentSamplingResponseVariant1 is { } __value0)
             {
-                deShadowExperimentSamplingResponseVariant1?.Invoke(DeShadowExperimentSamplingResponseVariant1!);
+                deShadowExperimentSamplingResponseVariant1?.Invoke(__value0);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant2)
+            else if (DeShadowExperimentSamplingResponseVariant2 is { } __value1)
             {
-                deShadowExperimentSamplingResponseVariant2?.Invoke(DeShadowExperimentSamplingResponseVariant2!);
+                deShadowExperimentSamplingResponseVariant2?.Invoke(__value1);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant3)
+            else if (DeShadowExperimentSamplingResponseVariant3 is { } __value2)
             {
-                deShadowExperimentSamplingResponseVariant3?.Invoke(DeShadowExperimentSamplingResponseVariant3!);
+                deShadowExperimentSamplingResponseVariant3?.Invoke(__value2);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant4)
+            else if (DeShadowExperimentSamplingResponseVariant4 is { } __value3)
             {
-                deShadowExperimentSamplingResponseVariant4?.Invoke(DeShadowExperimentSamplingResponseVariant4!);
+                deShadowExperimentSamplingResponseVariant4?.Invoke(__value3);
             }
         }
 
@@ -378,21 +378,21 @@ namespace Together
                 Validate();
             }
 
-            if (IsDeShadowExperimentSamplingResponseVariant1)
+            if (DeShadowExperimentSamplingResponseVariant1 is { } __value0)
             {
-                deShadowExperimentSamplingResponseVariant1?.Invoke(DeShadowExperimentSamplingResponseVariant1!);
+                deShadowExperimentSamplingResponseVariant1?.Invoke(__value0);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant2)
+            else if (DeShadowExperimentSamplingResponseVariant2 is { } __value1)
             {
-                deShadowExperimentSamplingResponseVariant2?.Invoke(DeShadowExperimentSamplingResponseVariant2!);
+                deShadowExperimentSamplingResponseVariant2?.Invoke(__value1);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant3)
+            else if (DeShadowExperimentSamplingResponseVariant3 is { } __value2)
             {
-                deShadowExperimentSamplingResponseVariant3?.Invoke(DeShadowExperimentSamplingResponseVariant3!);
+                deShadowExperimentSamplingResponseVariant3?.Invoke(__value2);
             }
-            else if (IsDeShadowExperimentSamplingResponseVariant4)
+            else if (DeShadowExperimentSamplingResponseVariant4 is { } __value3)
             {
-                deShadowExperimentSamplingResponseVariant4?.Invoke(DeShadowExperimentSamplingResponseVariant4!);
+                deShadowExperimentSamplingResponseVariant4?.Invoke(__value3);
             }
         }
 

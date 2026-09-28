@@ -204,25 +204,25 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DeShadowExperimentSamplingResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DeShadowExperimentSamplingResponseVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DeShadowExperimentSamplingResponseVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeShadowExperimentSamplingResponseVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDeShadowExperimentSamplingResponseVariant1(), typeInfo);
             }
             else if (value.IsDeShadowExperimentSamplingResponseVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DeShadowExperimentSamplingResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DeShadowExperimentSamplingResponseVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DeShadowExperimentSamplingResponseVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeShadowExperimentSamplingResponseVariant2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDeShadowExperimentSamplingResponseVariant2(), typeInfo);
             }
             else if (value.IsDeShadowExperimentSamplingResponseVariant3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DeShadowExperimentSamplingResponseVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DeShadowExperimentSamplingResponseVariant3?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DeShadowExperimentSamplingResponseVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeShadowExperimentSamplingResponseVariant3!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDeShadowExperimentSamplingResponseVariant3(), typeInfo);
             }
             else if (value.IsDeShadowExperimentSamplingResponseVariant4)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DeShadowExperimentSamplingResponseVariant4), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DeShadowExperimentSamplingResponseVariant4?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DeShadowExperimentSamplingResponseVariant4).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DeShadowExperimentSamplingResponseVariant4!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDeShadowExperimentSamplingResponseVariant4(), typeInfo);
             }
         }
     }

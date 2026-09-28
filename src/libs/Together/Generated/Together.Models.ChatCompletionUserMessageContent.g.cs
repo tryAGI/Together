@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public string PickString() => IsString
-            ? String!
+        public string PickString() => String is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'String' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>> PickMultimodal() => IsMultimodal
-            ? Multimodal!
+        public global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>> PickMultimodal() => Multimodal is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Multimodal' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -154,13 +154,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsString && @string != null)
+            if (String is { } __value0 && @string != null)
             {
-                return @string(String!);
+                return @string(__value0);
             }
-            else if (IsMultimodal && multimodal != null)
+            else if (Multimodal is { } __value1 && multimodal != null)
             {
-                return multimodal(Multimodal!);
+                return multimodal(__value1);
             }
 
             return default(TResult);
@@ -180,13 +180,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsString)
+            if (String is { } __value0)
             {
-                @string?.Invoke(String!);
+                @string?.Invoke(__value0);
             }
-            else if (IsMultimodal)
+            else if (Multimodal is { } __value1)
             {
-                multimodal?.Invoke(Multimodal!);
+                multimodal?.Invoke(__value1);
             }
         }
 
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsString)
+            if (String is { } __value0)
             {
-                @string?.Invoke(String!);
+                @string?.Invoke(__value0);
             }
-            else if (IsMultimodal)
+            else if (Multimodal is { } __value1)
             {
-                multimodal?.Invoke(Multimodal!);
+                multimodal?.Invoke(__value1);
             }
         }
 

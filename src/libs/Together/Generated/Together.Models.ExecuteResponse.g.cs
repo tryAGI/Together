@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ExecuteResponseSuccessfulExecution PickSuccessfulExecution() => IsSuccessfulExecution
-            ? SuccessfulExecution!
+        public global::Together.ExecuteResponseSuccessfulExecution PickSuccessfulExecution() => SuccessfulExecution is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SuccessfulExecution' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ExecuteResponseFailedExecution PickFailedExecution() => IsFailedExecution
-            ? FailedExecution!
+        public global::Together.ExecuteResponseFailedExecution PickFailedExecution() => FailedExecution is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'FailedExecution' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsSuccessfulExecution && successfulExecution != null)
+            if (SuccessfulExecution is { } __value0 && successfulExecution != null)
             {
-                return successfulExecution(SuccessfulExecution!);
+                return successfulExecution(__value0);
             }
-            else if (IsFailedExecution && failedExecution != null)
+            else if (FailedExecution is { } __value1 && failedExecution != null)
             {
-                return failedExecution(FailedExecution!);
+                return failedExecution(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsSuccessfulExecution)
+            if (SuccessfulExecution is { } __value0)
             {
-                successfulExecution?.Invoke(SuccessfulExecution!);
+                successfulExecution?.Invoke(__value0);
             }
-            else if (IsFailedExecution)
+            else if (FailedExecution is { } __value1)
             {
-                failedExecution?.Invoke(FailedExecution!);
+                failedExecution?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsSuccessfulExecution)
+            if (SuccessfulExecution is { } __value0)
             {
-                successfulExecution?.Invoke(SuccessfulExecution!);
+                successfulExecution?.Invoke(__value0);
             }
-            else if (IsFailedExecution)
+            else if (FailedExecution is { } __value1)
             {
-                failedExecution?.Invoke(FailedExecution!);
+                failedExecution?.Invoke(__value1);
             }
         }
 
