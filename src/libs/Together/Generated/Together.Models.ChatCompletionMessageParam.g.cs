@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ChatCompletionSystemMessageParam PickSystem() => IsSystem
-            ? System!
+        public global::Together.ChatCompletionSystemMessageParam PickSystem() => System is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'System' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ChatCompletionUserMessageParam PickUser() => IsUser
-            ? User!
+        public global::Together.ChatCompletionUserMessageParam PickUser() => User is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'User' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ChatCompletionAssistantMessageParam PickAssistant() => IsAssistant
-            ? Assistant!
+        public global::Together.ChatCompletionAssistantMessageParam PickAssistant() => Assistant is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Assistant' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ChatCompletionToolMessageParam PickTool() => IsTool
-            ? Tool!
+        public global::Together.ChatCompletionToolMessageParam PickTool() => Tool is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ChatCompletionFunctionMessageParam PickFunction() => IsFunction
-            ? Function!
+        public global::Together.ChatCompletionFunctionMessageParam PickFunction() => Function is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Function' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -372,25 +372,25 @@ namespace Together
                 Validate();
             }
 
-            if (IsSystem && system != null)
+            if (System is { } __value0 && system != null)
             {
-                return system(System!);
+                return system(__value0);
             }
-            else if (IsUser && user != null)
+            else if (User is { } __value1 && user != null)
             {
-                return user(User!);
+                return user(__value1);
             }
-            else if (IsAssistant && assistant != null)
+            else if (Assistant is { } __value2 && assistant != null)
             {
-                return assistant(Assistant!);
+                return assistant(__value2);
             }
-            else if (IsTool && tool != null)
+            else if (Tool is { } __value3 && tool != null)
             {
-                return tool(Tool!);
+                return tool(__value3);
             }
-            else if (IsFunction && function != null)
+            else if (Function is { } __value4 && function != null)
             {
-                return function(Function!);
+                return function(__value4);
             }
 
             return default(TResult);
@@ -416,25 +416,25 @@ namespace Together
                 Validate();
             }
 
-            if (IsSystem)
+            if (System is { } __value0)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value0);
             }
-            else if (IsUser)
+            else if (User is { } __value1)
             {
-                user?.Invoke(User!);
+                user?.Invoke(__value1);
             }
-            else if (IsAssistant)
+            else if (Assistant is { } __value2)
             {
-                assistant?.Invoke(Assistant!);
+                assistant?.Invoke(__value2);
             }
-            else if (IsTool)
+            else if (Tool is { } __value3)
             {
-                tool?.Invoke(Tool!);
+                tool?.Invoke(__value3);
             }
-            else if (IsFunction)
+            else if (Function is { } __value4)
             {
-                function?.Invoke(Function!);
+                function?.Invoke(__value4);
             }
         }
 
@@ -454,25 +454,25 @@ namespace Together
                 Validate();
             }
 
-            if (IsSystem)
+            if (System is { } __value0)
             {
-                system?.Invoke(System!);
+                system?.Invoke(__value0);
             }
-            else if (IsUser)
+            else if (User is { } __value1)
             {
-                user?.Invoke(User!);
+                user?.Invoke(__value1);
             }
-            else if (IsAssistant)
+            else if (Assistant is { } __value2)
             {
-                assistant?.Invoke(Assistant!);
+                assistant?.Invoke(__value2);
             }
-            else if (IsTool)
+            else if (Tool is { } __value3)
             {
-                tool?.Invoke(Tool!);
+                tool?.Invoke(__value3);
             }
-            else if (IsFunction)
+            else if (Function is { } __value4)
             {
-                function?.Invoke(Function!);
+                function?.Invoke(__value4);
             }
         }
 

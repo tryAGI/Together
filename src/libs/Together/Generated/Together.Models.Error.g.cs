@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public string PickErrorVariant1() => IsErrorVariant1
-            ? ErrorVariant1!
+        public string PickErrorVariant1() => ErrorVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ErrorVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public object PickErrorVariant2() => IsErrorVariant2
-            ? ErrorVariant2!
+        public object PickErrorVariant2() => ErrorVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ErrorVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -154,13 +154,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsErrorVariant1 && errorVariant1 != null)
+            if (ErrorVariant1 is { } __value0 && errorVariant1 != null)
             {
-                return errorVariant1(ErrorVariant1!);
+                return errorVariant1(__value0);
             }
-            else if (IsErrorVariant2 && errorVariant2 != null)
+            else if (ErrorVariant2 is { } __value1 && errorVariant2 != null)
             {
-                return errorVariant2(ErrorVariant2!);
+                return errorVariant2(__value1);
             }
 
             return default(TResult);
@@ -180,13 +180,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsErrorVariant1)
+            if (ErrorVariant1 is { } __value0)
             {
-                errorVariant1?.Invoke(ErrorVariant1!);
+                errorVariant1?.Invoke(__value0);
             }
-            else if (IsErrorVariant2)
+            else if (ErrorVariant2 is { } __value1)
             {
-                errorVariant2?.Invoke(ErrorVariant2!);
+                errorVariant2?.Invoke(__value1);
             }
         }
 
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsErrorVariant1)
+            if (ErrorVariant1 is { } __value0)
             {
-                errorVariant1?.Invoke(ErrorVariant1!);
+                errorVariant1?.Invoke(__value0);
             }
-            else if (IsErrorVariant2)
+            else if (ErrorVariant2 is { } __value1)
             {
-                errorVariant2?.Invoke(ErrorVariant2!);
+                errorVariant2?.Invoke(__value1);
             }
         }
 

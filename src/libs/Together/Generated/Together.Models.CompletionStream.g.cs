@@ -42,8 +42,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CompletionEvent PickEvent() => IsEvent
-            ? Event!
+        public global::Together.CompletionEvent PickEvent() => Event is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Event' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.StreamSentinel PickSentinel() => IsSentinel
-            ? Sentinel!
+        public global::Together.StreamSentinel PickSentinel() => Sentinel is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Sentinel' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsEvent && @event != null)
+            if (Event is { } __value0 && @event != null)
             {
-                return @event(Event!);
+                return @event(__value0);
             }
-            else if (IsSentinel && sentinel != null)
+            else if (Sentinel is { } __value1 && sentinel != null)
             {
-                return sentinel(Sentinel!);
+                return sentinel(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsEvent)
+            if (Event is { } __value0)
             {
-                @event?.Invoke(Event!);
+                @event?.Invoke(__value0);
             }
-            else if (IsSentinel)
+            else if (Sentinel is { } __value1)
             {
-                sentinel?.Invoke(Sentinel!);
+                sentinel?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Together
                 Validate();
             }
 
-            if (IsEvent)
+            if (Event is { } __value0)
             {
-                @event?.Invoke(Event!);
+                @event?.Invoke(__value0);
             }
-            else if (IsSentinel)
+            else if (Sentinel is { } __value1)
             {
-                sentinel?.Invoke(Sentinel!);
+                sentinel?.Invoke(__value1);
             }
         }
 

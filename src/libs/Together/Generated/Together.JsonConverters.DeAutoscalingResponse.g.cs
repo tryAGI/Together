@@ -70,7 +70,7 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.DeAutoscaling), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.DeAutoscaling?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.DeAutoscaling).Name}");
-                var __element0 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.DeAutoscaling!, typeInfo);
+                var __element0 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.PickDeAutoscaling(), typeInfo);
                 if (__element0.ValueKind != global::System.Text.Json.JsonValueKind.Object)
                 {
                     throw new global::System.Text.Json.JsonException("AllOf values must serialize as JSON objects.");
@@ -88,7 +88,7 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(object), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<object?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(object).Name}");
-                var __element1 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.DeAutoscalingResponseVariant2!, typeInfo);
+                var __element1 = global::System.Text.Json.JsonSerializer.SerializeToElement(value.PickDeAutoscalingResponseVariant2(), typeInfo);
                 if (__element1.ValueKind != global::System.Text.Json.JsonValueKind.Object)
                 {
                     throw new global::System.Text.Json.JsonException("AllOf values must serialize as JSON objects.");

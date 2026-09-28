@@ -212,11 +212,11 @@ namespace Together
                 PrepareDeploymentServiceRemoveAdapterRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectId: projectId!,
-                    endpointId: endpointId!,
-                    deploymentId: deploymentId!,
-                    id: id!,
-                    etag: etag!);
+                    projectId: projectId,
+                    endpointId: endpointId,
+                    deploymentId: deploymentId,
+                    id: id,
+                    etag: etag);
 
                 return __httpRequest;
             }
@@ -238,7 +238,7 @@ namespace Together
                                 pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -272,7 +272,7 @@ namespace Together
                                 pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -313,7 +313,7 @@ namespace Together
                                 pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -361,7 +361,7 @@ namespace Together
                                 pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -383,7 +383,7 @@ namespace Together
                                 pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

@@ -190,19 +190,19 @@ namespace Together.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputStreamOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputStreamOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputStreamOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamOutput!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickStreamOutput(), typeInfo);
             }
             else if (value.IsError)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputErrorOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputErrorOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputErrorOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Error!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickError(), typeInfo);
             }
             else if (value.IsDisplayorExecuteOutput)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Together.InterpreterOutputDisplayorExecuteOutput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Together.InterpreterOutputDisplayorExecuteOutput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Together.InterpreterOutputDisplayorExecuteOutput).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.DisplayorExecuteOutput!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDisplayorExecuteOutput(), typeInfo);
             }
         }
     }
