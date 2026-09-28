@@ -1,19 +1,14 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
-
 namespace Together
 {
     /// <summary>
     ///
     /// </summary>
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
-        Converters = new global::System.Type[]
-        {
-        })]
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_9a6c1a339fc4e5a1")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
@@ -47,7 +42,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<object, global::Together.LogprobsPart>), TypeInfoPropertyName = "AllOfObjectLogprobsPart2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageRole), TypeInfoPropertyName = "ChatCompletionMessageRole2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageFunctionCall))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ChatCompletionMessageParam>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageParam), TypeInfoPropertyName = "ChatCompletionMessageParam2")]
@@ -75,7 +72,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParam))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParam))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionSystemMessageParamRole), TypeInfoPropertyName = "ChatCompletionSystemMessageParamRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContent), TypeInfoPropertyName = "ChatCompletionUserMessageContent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParamRole), TypeInfoPropertyName = "ChatCompletionUserMessageParamRole2")]
@@ -95,8 +94,12 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudio))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamRole), TypeInfoPropertyName = "ChatCompletionAssistantMessageParamRole2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamFunctionCall))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParamRole), TypeInfoPropertyName = "ChatCompletionFunctionMessageParamRole2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParamRole), TypeInfoPropertyName = "ChatCompletionToolMessageParamRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.InferenceWarning>))]
@@ -107,7 +110,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDelta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDeltaRole), TypeInfoPropertyName = "ChatCompletionChunkChoiceDeltaRole2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDeltaFunctionCall))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinelData), TypeInfoPropertyName = "StreamSentinelData2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPartFunction))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceType), TypeInfoPropertyName = "ToolChoiceType2")]
@@ -140,7 +145,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioType?), TypeInfoPropertyName = "NullableChatCompletionUserMessageContentMultimodalItemInputAudioType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat?), TypeInfoPropertyName = "NullableChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamRole?), TypeInfoPropertyName = "NullableChatCompletionAssistantMessageParamRole2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParamRole?), TypeInfoPropertyName = "NullableChatCompletionFunctionMessageParamRole2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParamRole?), TypeInfoPropertyName = "NullableChatCompletionToolMessageParamRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionStream?), TypeInfoPropertyName = "NullableChatCompletionStream2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDeltaRole?), TypeInfoPropertyName = "NullableChatCompletionChunkChoiceDeltaRole2")]

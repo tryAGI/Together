@@ -1,19 +1,14 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
-
 namespace Together
 {
     /// <summary>
     ///
     /// </summary>
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
-        Converters = new global::System.Type[]
-        {
-        })]
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
@@ -85,7 +80,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>), TypeInfoPropertyName = "OneOfInt32CreateFineTunesRequestBatchSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestBatchSize), TypeInfoPropertyName = "CreateFineTunesRequestBatchSize2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>), TypeInfoPropertyName = "OneOfBooleanCreateFineTunesRequestTrainOnInputs2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestTrainOnInputs), TypeInfoPropertyName = "CreateFineTunesRequestTrainOnInputs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>), TypeInfoPropertyName = "AnyOfFullTrainingTypeLoRATrainingType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceRequest))]
@@ -129,7 +126,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>?), TypeInfoPropertyName = "NullableOneOfLinearLRSchedulerArgsCosineLRSchedulerArgs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>?), TypeInfoPropertyName = "NullableOneOfInt32CreateFineTunesRequestBatchSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestBatchSize?), TypeInfoPropertyName = "NullableCreateFineTunesRequestBatchSize2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>?), TypeInfoPropertyName = "NullableOneOfBooleanCreateFineTunesRequestTrainOnInputs2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestTrainOnInputs?), TypeInfoPropertyName = "NullableCreateFineTunesRequestTrainOnInputs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>?), TypeInfoPropertyName = "NullableAnyOfFullTrainingTypeLoRATrainingType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFinetuneDownloadCheckpoint?), TypeInfoPropertyName = "NullableGetFinetuneDownloadCheckpoint2")]
