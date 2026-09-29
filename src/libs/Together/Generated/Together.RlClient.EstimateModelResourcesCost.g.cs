@@ -493,6 +493,10 @@ namespace Together
         /// Base model to provision the resource for, selected from /rl/supported-models<br/>
         /// Example: Qwen/Qwen3.5-4B
         /// </param>
+        /// <param name="baseWeightsRef">
+        /// Model in this project's model registry whose weights the resource trains in place of the base model's own. It must be a full-weight model.<br/>
+        /// Example: together://ml_A1b2C3d4E5f6G7h8I9j0K
+        /// </param>
         /// <param name="computeConfig">
         /// Compute layout to provision.
         /// </param>
@@ -509,6 +513,7 @@ namespace Together
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Together.RlModelResourcesEstimateCostResponse> EstimateModelResourcesCostAsync(
             string baseModel,
+            string? baseWeightsRef = default,
             global::Together.RlComputeConfigCreateRequest? computeConfig = default,
             bool? loraEnabled = default,
             global::Together.RlOptimizerConfig? optimizerConfig = default,
@@ -518,6 +523,7 @@ namespace Together
             var __request = new global::Together.RlCreateModelResourcesRequest
             {
                 BaseModel = baseModel,
+                BaseWeightsRef = baseWeightsRef,
                 ComputeConfig = computeConfig,
                 LoraEnabled = loraEnabled,
                 OptimizerConfig = optimizerConfig,

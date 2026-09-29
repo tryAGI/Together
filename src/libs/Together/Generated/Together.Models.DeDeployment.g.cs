@@ -126,6 +126,12 @@ namespace Together
         public double? EstimatedEffectiveTrafficShare { get; set; }
 
         /// <summary>
+        /// Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create and update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxConcurrentRequestsPerReplica")]
+        public string? MaxConcurrentRequestsPerReplica { get; set; }
+
+        /// <summary>
         /// Minutes without an inference request before the deployment stops automatically. Omitted or 0 means automatic stopping is disabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inactiveTimeout")]
@@ -236,6 +242,9 @@ namespace Together
         /// Estimated fraction in [0, 1] of endpoint traffic that reaches this deployment under the current routing configuration. Absent or unrouted deployments are 0.<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="maxConcurrentRequestsPerReplica">
+        /// Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create and update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
+        /// </param>
         /// <param name="inactiveTimeout">
         /// Minutes without an inference request before the deployment stops automatically. Omitted or 0 means automatic stopping is disabled.
         /// </param>
@@ -295,6 +304,7 @@ namespace Together
             string? speculatorRevisionId,
             string? speculator,
             double? estimatedEffectiveTrafficShare,
+            string? maxConcurrentRequestsPerReplica,
             int? inactiveTimeout,
             global::Together.DeRuntimeInfo? runtimeInfo,
             int? desiredReplicas,
@@ -323,6 +333,7 @@ namespace Together
             this.SpeculatorRevisionId = speculatorRevisionId;
             this.Speculator = speculator;
             this.EstimatedEffectiveTrafficShare = estimatedEffectiveTrafficShare;
+            this.MaxConcurrentRequestsPerReplica = maxConcurrentRequestsPerReplica;
             this.InactiveTimeout = inactiveTimeout;
             this.Etag = etag ?? throw new global::System.ArgumentNullException(nameof(etag));
             this.Hardware = hardware;

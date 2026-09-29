@@ -96,6 +96,12 @@ namespace Together
         public int? MinReplicas { get; set; }
 
         /// <summary>
+        /// Replacement model weights to mount into the deployment. At most one mount is supported, and it cannot be used with volumes.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_mounts")]
+        public global::System.Collections.Generic.IList<global::Together.ModelMount>? ModelMounts { get; set; }
+
+        /// <summary>
         /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -176,6 +182,9 @@ namespace Together
         /// <param name="minReplicas">
         /// MinReplicas is the minimum number of replicas to run
         /// </param>
+        /// <param name="modelMounts">
+        /// Replacement model weights to mount into the deployment. At most one mount is supported, and it cannot be used with volumes.
+        /// </param>
         /// <param name="name">
         /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
         /// </param>
@@ -209,6 +218,7 @@ namespace Together
             int? maxReplicas,
             double? memory,
             int? minReplicas,
+            global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts,
             string? name,
             int? port,
             int? storage,
@@ -229,6 +239,7 @@ namespace Together
             this.MaxReplicas = maxReplicas;
             this.Memory = memory;
             this.MinReplicas = minReplicas;
+            this.ModelMounts = modelMounts;
             this.Name = name;
             this.Port = port;
             this.Storage = storage;

@@ -27,6 +27,12 @@ namespace Together
         public int? InactiveTimeout { get; set; }
 
         /// <summary>
+        /// Updated maximum number of inference requests that may be in flight to a single replica. Values above the deployment config's per-replica concurrency limit minus one are reduced on update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxConcurrentRequestsPerReplica")]
+        public string? MaxConcurrentRequestsPerReplica { get; set; }
+
+        /// <summary>
         /// Current deployment version. The update is rejected if this value no longer matches.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("etag")]
@@ -50,6 +56,9 @@ namespace Together
         /// <param name="inactiveTimeout">
         /// Updated inactive timeout in minutes. Use 0 to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </param>
+        /// <param name="maxConcurrentRequestsPerReplica">
+        /// Updated maximum number of inference requests that may be in flight to a single replica. Values above the deployment config's per-replica concurrency limit minus one are reduced on update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
+        /// </param>
         /// <param name="etag">
         /// Current deployment version. The update is rejected if this value no longer matches.
         /// </param>
@@ -60,11 +69,13 @@ namespace Together
             string? name,
             global::Together.DeAutoscaling? autoscaling,
             int? inactiveTimeout,
+            string? maxConcurrentRequestsPerReplica,
             string? etag)
         {
             this.Name = name;
             this.Autoscaling = autoscaling;
             this.InactiveTimeout = inactiveTimeout;
+            this.MaxConcurrentRequestsPerReplica = maxConcurrentRequestsPerReplica;
             this.Etag = etag;
         }
 

@@ -96,6 +96,9 @@ namespace Together
         /// <param name="minReplicas">
         /// MinReplicas is the minimum number of container instances to run. Defaults to 1 if not specified
         /// </param>
+        /// <param name="modelMounts">
+        /// Model weights to preload from Together's model registry into the container. At most one mount is supported, and it cannot be used with volumes.
+        /// </param>
         /// <param name="name">
         /// Name is the unique identifier for your deployment. Must contain lowercase letters, numbers, or hyphens, start with a lowercase letter or number, and be 4-63 characters. It cannot be changed.
         /// </param>
@@ -130,6 +133,7 @@ namespace Together
             int? maxReplicas = default,
             double? memory = default,
             int? minReplicas = default,
+            global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts = default,
             int? port = default,
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
