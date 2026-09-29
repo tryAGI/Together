@@ -99,6 +99,9 @@ namespace Together
         /// <param name="minReplicas">
         /// MinReplicas is the minimum number of replicas to run
         /// </param>
+        /// <param name="modelMounts">
+        /// Replacement model weights to mount into the deployment. At most one mount is supported, and it cannot be used with volumes.
+        /// </param>
         /// <param name="name">
         /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
         /// </param>
@@ -133,6 +136,7 @@ namespace Together
             int? maxReplicas = default,
             double? memory = default,
             int? minReplicas = default,
+            global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts = default,
             string? name = default,
             int? port = default,
             int? storage = default,

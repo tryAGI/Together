@@ -59,6 +59,12 @@ namespace Together
         public int? InactiveTimeout { get; set; }
 
         /// <summary>
+        /// Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create; 0 means unlimited when the config limit is 1 or less.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxConcurrentRequestsPerReplica")]
+        public string? MaxConcurrentRequestsPerReplica { get; set; }
+
+        /// <summary>
         /// Placement policy to use when scheduling the deployment.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("placement")]
@@ -98,6 +104,9 @@ namespace Together
         /// <param name="inactiveTimeout">
         /// Inactive timeout in minutes. Use 0 or omit to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </param>
+        /// <param name="maxConcurrentRequestsPerReplica">
+        /// Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create; 0 means unlimited when the config limit is 1 or less.
+        /// </param>
         /// <param name="placement">
         /// Placement policy to use when scheduling the deployment.
         /// </param>
@@ -113,6 +122,7 @@ namespace Together
             string? model,
             string? config,
             int? inactiveTimeout,
+            string? maxConcurrentRequestsPerReplica,
             global::Together.DePlacement? placement)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -123,6 +133,7 @@ namespace Together
             this.Autoscaling = autoscaling ?? throw new global::System.ArgumentNullException(nameof(autoscaling));
             this.Config = config;
             this.InactiveTimeout = inactiveTimeout;
+            this.MaxConcurrentRequestsPerReplica = maxConcurrentRequestsPerReplica;
             this.Placement = placement;
         }
 

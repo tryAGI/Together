@@ -18,6 +18,14 @@ namespace Together
         public required string BaseModel { get; set; }
 
         /// <summary>
+        /// Model in this project's model registry whose weights the resource trains in place of the base model's own. It must be a full-weight model.<br/>
+        /// Example: together://ml_A1b2C3d4E5f6G7h8I9j0K
+        /// </summary>
+        /// <example>together://ml_A1b2C3d4E5f6G7h8I9j0K</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("base_weights_ref")]
+        public string? BaseWeightsRef { get; set; }
+
+        /// <summary>
         /// Compute layout to provision.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("compute_config")]
@@ -51,6 +59,10 @@ namespace Together
         /// Base model to provision the resource for, selected from /rl/supported-models<br/>
         /// Example: Qwen/Qwen3.5-4B
         /// </param>
+        /// <param name="baseWeightsRef">
+        /// Model in this project's model registry whose weights the resource trains in place of the base model's own. It must be a full-weight model.<br/>
+        /// Example: together://ml_A1b2C3d4E5f6G7h8I9j0K
+        /// </param>
         /// <param name="computeConfig">
         /// Compute layout to provision.
         /// </param>
@@ -67,11 +79,13 @@ namespace Together
 #endif
         public RlCreateModelResourcesRequest(
             string baseModel,
+            string? baseWeightsRef,
             global::Together.RlComputeConfigCreateRequest? computeConfig,
             bool? loraEnabled,
             global::Together.RlOptimizerConfig? optimizerConfig)
         {
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
+            this.BaseWeightsRef = baseWeightsRef;
             this.ComputeConfig = computeConfig;
             this.LoraEnabled = loraEnabled;
             this.OptimizerConfig = optimizerConfig;

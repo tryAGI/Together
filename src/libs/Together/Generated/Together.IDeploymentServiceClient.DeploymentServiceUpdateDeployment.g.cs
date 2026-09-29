@@ -87,6 +87,9 @@ namespace Together
         /// <param name="inactiveTimeout">
         /// Updated inactive timeout in minutes. Use 0 to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </param>
+        /// <param name="maxConcurrentRequestsPerReplica">
+        /// Updated maximum number of inference requests that may be in flight to a single replica. Values above the deployment config's per-replica concurrency limit minus one are reduced on update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
+        /// </param>
         /// <param name="etag">
         /// Current deployment version. The update is rejected if this value no longer matches.
         /// </param>
@@ -101,6 +104,7 @@ namespace Together
             string? name = default,
             global::Together.DeAutoscaling? autoscaling = default,
             int? inactiveTimeout = default,
+            string? maxConcurrentRequestsPerReplica = default,
             string? etag = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

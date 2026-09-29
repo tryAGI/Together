@@ -91,6 +91,9 @@ namespace Together
         /// <param name="inactiveTimeout">
         /// Inactive timeout in minutes. Use 0 or omit to disable automatic stopping; otherwise accepted values are 30 through 1440.
         /// </param>
+        /// <param name="maxConcurrentRequestsPerReplica">
+        /// Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create; 0 means unlimited when the config limit is 1 or less.
+        /// </param>
         /// <param name="placement">
         /// Placement policy to use when scheduling the deployment.
         /// </param>
@@ -109,6 +112,7 @@ namespace Together
             string? model = default,
             string? config = default,
             int? inactiveTimeout = default,
+            string? maxConcurrentRequestsPerReplica = default,
             global::Together.DePlacement? placement = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -884,6 +884,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EnvironmentVariable>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EnvironmentVariable))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateDeploymentRequestGpuType), TypeInfoPropertyName = "CreateDeploymentRequestGpuType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ModelMount>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelMount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeMount>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeMount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateSecretRequest))]
@@ -1035,8 +1037,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRolloutState?), TypeInfoPropertyName = "NullableDeRolloutState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRolloutConditionCategory?), TypeInfoPropertyName = "NullableDeRolloutConditionCategory2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRolloutConditionType?), TypeInfoPropertyName = "NullableDeRolloutConditionType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRolloutStepStatusState?), TypeInfoPropertyName = "NullableDeRolloutStepStatusState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultStat?), TypeInfoPropertyName = "NullableDeMetricResultStat2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1051,6 +1051,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRolloutStepStatusState?), TypeInfoPropertyName = "NullableDeRolloutStepStatusState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultStat?), TypeInfoPropertyName = "NullableDeMetricResultStat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultCheck?), TypeInfoPropertyName = "NullableDeMetricResultCheck2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultOperator?), TypeInfoPropertyName = "NullableDeMetricResultOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricResultDirection?), TypeInfoPropertyName = "NullableDeMetricResultDirection2")]
@@ -1451,6 +1453,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoRef>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<string, global::Together.AudioRef>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EnvironmentVariable>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ModelMount>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VolumeMount>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeploymentResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.SecretResponseItem>))]

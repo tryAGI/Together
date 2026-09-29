@@ -12150,6 +12150,10 @@ components:
         inactiveTimeout:
           type: integer
           description: Inactive timeout in minutes. Use 0 or omit to disable automatic stopping; otherwise accepted values are 30 through 1440.
+        maxConcurrentRequestsPerReplica:
+          type: string
+          description: |-
+            Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create; 0 means unlimited when the config limit is 1 or less.
         placement:
           allOf:
             - $ref: '#/components/schemas/DE.Placement'
@@ -12168,6 +12172,10 @@ components:
         inactiveTimeout:
           type: integer
           description: Updated inactive timeout in minutes. Use 0 to disable automatic stopping; otherwise accepted values are 30 through 1440.
+        maxConcurrentRequestsPerReplica:
+          type: string
+          description: |-
+            Updated maximum number of inference requests that may be in flight to a single replica. Values above the deployment config's per-replica concurrency limit minus one are reduced on update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
         etag:
           type: string
           description: Current deployment version. The update is rejected if this value no longer matches.
@@ -12476,6 +12484,10 @@ components:
           type: number
           format: double
           description: Estimated fraction in [0, 1] of endpoint traffic that reaches this deployment under the current routing configuration. Absent or unrouted deployments are 0.
+        maxConcurrentRequestsPerReplica:
+          type: string
+          description: |-
+            Maximum number of inference requests that may be in flight to a single replica. If omitted, the platform uses one less than the config's per-replica concurrency limit to reserve a health-check slot. Values above that maximum are reduced on create and update; 0 means unlimited when the config limit is 1 or less. Changes take effect without restarting replicas.
         inactiveTimeout:
           type: integer
           description: Minutes without an inference request before the deployment stops automatically. Omitted or 0 means automatic stopping is disabled.
@@ -15424,6 +15436,10 @@ components:
           type: string
           example: Qwen/Qwen3.5-4B
           description: Base model the resource is provisioned for
+        base_weights_ref:
+          type: string
+          example: together://ml_A1b2C3d4E5f6G7h8I9j0K@rv_A1b2C3d4E5f6G7h8I9j0K
+          description: Model-registry model whose weights the resource trains in place of the base model's own, pinned to the revision resolved when the resource was created. Absent when the resource trains the base model's own weights.
         compute_config:
           $ref: '#/components/schemas/RL.ComputeConfig'
           description: Compute layout provisioned for the resource.
@@ -15486,6 +15502,12 @@ components:
           type: string
           example: Qwen/Qwen3.5-4B
           description: Base model to provision the resource for, selected from /rl/supported-models
+        base_weights_ref:
+          type: string
+          maxLength: 256
+          pattern: ^together://ml_[A-Za-z0-9]+(@rv_[A-Za-z0-9]+)?$
+          example: together://ml_A1b2C3d4E5f6G7h8I9j0K
+          description: Model in this project's model registry whose weights the resource trains in place of the base model's own. It must be a full-weight model.
         compute_config:
           $ref: '#/components/schemas/RL.ComputeConfigCreateRequest'
           description: Compute layout to provision.
@@ -22612,6 +22634,11 @@ components:
         min_replicas:
           description: MinReplicas is the minimum number of container instances to run. Defaults to 1 if not specified
           type: integer
+        model_mounts:
+          description: Model weights to preload from Together's model registry into the container. At most one mount is supported, and it cannot be used with volumes.
+          items:
+            $ref: "#/components/schemas/ModelMount"
+          type: array
         name:
           description: Name is the unique identifier for your deployment. Must contain lowercase letters, numbers, or hyphens, start with a lowercase letter or number, and be 4-63 characters. It cannot be changed.
           maxLength: 63
@@ -22770,6 +22797,11 @@ components:
         min_replicas:
           description: MinReplicas is the minimum number of replicas to run for this deployment
           type: integer
+        model_mounts:
+          description: Model weights mounted into this deployment, including the pinned revisions.
+          items:
+            $ref: "#/components/schemas/ModelMount"
+          type: array
         name:
           description: Name is the name of the deployment
           type: string
@@ -22938,6 +22970,24 @@ components:
           description: The object type, which is always `list`.
           const: list
       type: object
+    ModelMount:
+      properties:
+        model_id:
+          description: Model registry identifier (`ml_...`) whose weights are mounted.
+          example: ml_CbJNwQC2ZqCU2iFT3mrCh
+          type: string
+        mount_path:
+          description: Container path where model weights are mounted, such as `/models`.
+          example: /models
+          type: string
+        revision_id:
+          description: Optional validated revision identifier (`rv_...`) to pin; defaults to the latest validated revision.
+          example: rv_8kQ2mN4pL7xR9tV1wY3zA
+          type: string
+      required:
+        - model_id
+        - mount_path
+      type: object
     ReplicaEvent:
       properties:
         image:
@@ -23058,6 +23108,11 @@ components:
         min_replicas:
           description: MinReplicas is the minimum number of replicas to run
           type: integer
+        model_mounts:
+          description: Replacement model weights to mount into the deployment. At most one mount is supported, and it cannot be used with volumes.
+          items:
+            $ref: "#/components/schemas/ModelMount"
+          type: array
         name:
           description: Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
           maxLength: 100
