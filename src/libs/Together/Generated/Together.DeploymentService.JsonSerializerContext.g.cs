@@ -49,6 +49,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetric))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRules))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatusState), TypeInfoPropertyName = "DeDeploymentStatusState2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeStatusDetails))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeRegionStatus>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRegionStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType), TypeInfoPropertyName = "DeScalingPolicyType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingPolicy>))]
@@ -76,6 +79,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeAdapterEntry>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeDeployment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingMetric>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeRegionStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingPolicy>))]
     internal sealed partial class DeploymentServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {

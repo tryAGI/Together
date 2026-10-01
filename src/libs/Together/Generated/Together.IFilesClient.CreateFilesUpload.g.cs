@@ -61,7 +61,7 @@ namespace Together
         /// Example: fine-tune
         /// </param>
         /// <param name="fileName">
-        /// The name of the file being uploaded<br/>
+        /// The name of the file being uploaded. Must be valid UTF-8, must not contain null characters, and must not exceed 128 bytes.<br/>
         /// Example: dataset.csv
         /// </param>
         /// <param name="fileType">
@@ -92,7 +92,7 @@ namespace Together
         /// Example: fine-tune
         /// </param>
         /// <param name="fileName">
-        /// The name of the file being uploaded<br/>
+        /// The name of the file being uploaded. Must be valid UTF-8, must not contain null characters, and must not exceed 128 bytes.<br/>
         /// Example: dataset.csv
         /// </param>
         /// <param name="fileType">
@@ -133,7 +133,7 @@ namespace Together
         /// Example: fine-tune
         /// </param>
         /// <param name="fileName">
-        /// The name of the file being uploaded<br/>
+        /// The name of the file being uploaded. Must be valid UTF-8, must not contain null characters, and must not exceed 128 bytes.<br/>
         /// Example: dataset.csv
         /// </param>
         /// <param name="fileType">

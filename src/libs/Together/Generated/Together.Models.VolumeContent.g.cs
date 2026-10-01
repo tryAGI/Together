@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    ///
+    /// Content currently available on a volume version.
     /// </summary>
     public sealed partial class VolumeContent
     {
@@ -13,6 +13,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files")]
         public global::System.Collections.Generic.IList<global::Together.FileInfo>? Files { get; set; }
+
+        /// <summary>
+        /// External source Together copied into this volume version.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("origin")]
+        public global::Together.VolumeOrigin? Origin { get; set; }
 
         /// <summary>
         /// SourcePrefix is the file path prefix for the content to be preloaded into the volume<br/>
@@ -43,6 +49,9 @@ namespace Together
         /// <param name="files">
         /// Files is the list of files to preload into the volume, if the volume content type is "files".
         /// </param>
+        /// <param name="origin">
+        /// External source Together copied into this volume version.
+        /// </param>
         /// <param name="sourcePrefix">
         /// SourcePrefix is the file path prefix for the content to be preloaded into the volume<br/>
         /// Example: models/
@@ -56,10 +65,12 @@ namespace Together
 #endif
         public VolumeContent(
             global::System.Collections.Generic.IList<global::Together.FileInfo>? files,
+            global::Together.VolumeOrigin? origin,
             string? sourcePrefix,
             global::Together.VolumeContentType? type)
         {
             this.Files = files;
+            this.Origin = origin;
             this.SourcePrefix = sourcePrefix;
             this.Type = type;
         }

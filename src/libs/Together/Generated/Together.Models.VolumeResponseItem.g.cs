@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class VolumeResponseItem
     {
         /// <summary>
-        ///
+        /// Content currently available on a volume version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public global::Together.VolumeContent? Content { get; set; }
@@ -51,6 +51,19 @@ namespace Together
         public string? Object { get; set; }
 
         /// <summary>
+        /// Status of the current volume version.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.VolumeStatusJsonConverter))]
+        public global::Together.VolumeStatus? Status { get; set; }
+
+        /// <summary>
+        /// Message explaining why the current volume version failed, when applicable.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_message")]
+        public string? StatusMessage { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
@@ -78,7 +91,9 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeResponseItem" /> class.
         /// </summary>
-        /// <param name="content"></param>
+        /// <param name="content">
+        /// Content currently available on a volume version.
+        /// </param>
         /// <param name="createdAt">
         /// CreatedAt is the ISO8601 timestamp when this volume was created
         /// </param>
@@ -96,6 +111,12 @@ namespace Together
         /// </param>
         /// <param name="object">
         /// Object is the type identifier for this response (always "volume")
+        /// </param>
+        /// <param name="status">
+        /// Status of the current volume version.
+        /// </param>
+        /// <param name="statusMessage">
+        /// Message explaining why the current volume version failed, when applicable.
         /// </param>
         /// <param name="type"></param>
         /// <param name="updatedAt">
@@ -115,6 +136,8 @@ namespace Together
             global::System.Collections.Generic.IList<string>? mountedBy,
             string? name,
             string? @object,
+            global::Together.VolumeStatus? status,
+            string? statusMessage,
             global::Together.VolumeType? type,
             string? updatedAt,
             global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>? versionHistory)
@@ -126,6 +149,8 @@ namespace Together
             this.MountedBy = mountedBy;
             this.Name = name;
             this.Object = @object;
+            this.Status = status;
+            this.StatusMessage = statusMessage;
             this.Type = type;
             this.UpdatedAt = updatedAt;
             this.VersionHistory = versionHistory;

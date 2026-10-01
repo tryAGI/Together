@@ -36,6 +36,12 @@ namespace Together
         public int? ScheduledReplicas { get; set; }
 
         /// <summary>
+        /// Status totals broken down by dimension. Omitted when the breakdown cannot be determined.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("details")]
+        public global::Together.DeStatusDetails? Details { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +62,9 @@ namespace Together
         /// <param name="scheduledReplicas">
         /// Replicas the scheduler has placed on clusters.
         /// </param>
+        /// <param name="details">
+        /// Status totals broken down by dimension. Omitted when the breakdown cannot be determined.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -63,12 +72,14 @@ namespace Together
             global::Together.DeDeploymentStatusState state,
             string message,
             int? readyReplicas,
-            int? scheduledReplicas)
+            int? scheduledReplicas,
+            global::Together.DeStatusDetails? details)
         {
             this.State = state;
             this.ReadyReplicas = readyReplicas;
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
             this.ScheduledReplicas = scheduledReplicas;
+            this.Details = details;
         }
 
         /// <summary>

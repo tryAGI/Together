@@ -25,15 +25,19 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VolumeResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeStatus), TypeInfoPropertyName = "VolumeStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VersionHistoryItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeOrigin))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType), TypeInfoPropertyName = "VolumeContentRequestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FileInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType), TypeInfoPropertyName = "VolumeContentType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.S3Origin))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType?), TypeInfoPropertyName = "NullableVolumeType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeStatus?), TypeInfoPropertyName = "NullableVolumeStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType?), TypeInfoPropertyName = "NullableVolumeContentRequestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType?), TypeInfoPropertyName = "NullableVolumeContentType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
@@ -137,6 +141,10 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.VolumeContentType?)
 
+                    || typeToConvert == typeof(global::Together.VolumeStatus)
+
+                    || typeToConvert == typeof(global::Together.VolumeStatus?)
+
                     || typeToConvert == typeof(global::Together.VolumeType)
 
                     || typeToConvert == typeof(global::Together.VolumeType?);
@@ -164,6 +172,16 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.VolumeContentType?))
                 {
                     return new global::Together.JsonConverters.VolumeContentTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.VolumeStatus))
+                {
+                    return new global::Together.JsonConverters.VolumeStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.VolumeStatus?))
+                {
+                    return new global::Together.JsonConverters.VolumeStatusNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.VolumeType))

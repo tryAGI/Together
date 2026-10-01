@@ -3399,6 +3399,147 @@ paths:
             curl -X GET \
                   -H "Authorization: Bearer $TOGETHER_API_KEY" \
                   https://api.together.ai/v1/deployments/my-deployment/logs
+  /deployments/{id}/revisions:
+    get:
+      description: |-
+        Returns the revision history of the deployment, in descending order. Defaults to the most recent events.
+        Only the 200 most recent events are retained per deployment; paginating past that returns an empty list.
+      summary: List revision history events of a deployment
+      tags: ['Deployments']
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            description: Deployment ID or name.
+            type: string
+        - name: limit
+          in: query
+          schema:
+            description: Maximum number of events to return (default 10, max 100).
+            type: integer
+        - name: before
+          in: query
+          schema:
+            description: Return only events with event_number strictly less than this value for pagination.
+            type: integer
+      responses:
+        "200":
+          description: Revision history
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RevisionEventListResponse"
+        "400":
+          description: Invalid pagination parameters
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Deployment not found
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+  /deployments/{id}/revisions/{revisionIdentifier}:
+    get:
+      description: |-
+        Returns the deployment configuration defined by the specified revision.
+        Only the 50 most recent revisions per deployment retain their configuration; older revisions return 404 even while they still appear in the revision history.
+        The deployment's currently active revision is always available, regardless of age.
+      summary: Get the full configuration of a specific revision
+      tags: ['Deployments']
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            description: Deployment ID or name.
+            type: string
+        - name: revisionIdentifier
+          in: path
+          required: true
+          schema:
+            description: Revision number or revision ID.
+            type: string
+      responses:
+        "200":
+          description: Configuration of the specified revision
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RevisionDetailResponse"
+        "400":
+          description: Invalid revision identifier
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Deployment not found, or revision not found / no longer retained
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+  /deployments/{id}/rollback:
+    post:
+      description: |-
+        Re-applies the spec of a previous revision. Pods running the target revision will be retained. Other pods will be drained and restarted with the target revision.
+        Only the 50 most recent revisions per deployment can be rolled back to; older targets return 404.
+      summary: Roll back a deployment to a previous revision
+      tags: ['Deployments']
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            description: Deployment ID or name.
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RollbackDeploymentRequest"
+        description: Revision identifier (revision number or UUID)
+        required: true
+      responses:
+        "200":
+          description: Deployment after rollback
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeploymentResponseItem"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Deployment not found, or revision not found / no longer retained
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
   /deployments/secrets:
     get:
       description: Retrieve all secrets in your project
@@ -5198,7 +5339,7 @@ paths:
                   $ref: '#/components/schemas/FilePurpose'
                 file_name:
                   type: string
-                  description: The name of the file being uploaded
+                  description: The name of the file being uploaded. Must be valid UTF-8, must not contain null characters, and must not exceed 128 bytes.
                   example: 'dataset.csv'
                 file_type:
                   $ref: '#/components/schemas/FileType'
@@ -5454,6 +5595,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FinetuneResponseTruncated'
+        '503':
+          description: The fine-tuning service is shutting down and cannot accept new jobs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
       x-codeSamples:
         - lang: Python
           label: Together AI SDK (Python)
@@ -12513,7 +12660,9 @@ components:
         desiredReplicas:
           readOnly: true
           type: integer
-          description: Number of replicas the autoscaler currently wants across all regions.
+          description: |-
+            Number of replicas the autoscaler currently wants across all regions. Not settable on
+            any request; steer it through `autoscaling.minReplicas` and `autoscaling.maxReplicas`.
         status:
           readOnly: true
           allOf:
@@ -14518,7 +14667,39 @@ components:
         scheduledReplicas:
           type: integer
           description: Replicas the scheduler has placed on clusters.
+        details:
+          allOf:
+            - $ref: '#/components/schemas/DE.StatusDetails'
+          description: Status totals broken down by dimension. Omitted when the breakdown cannot be determined.
       description: Current status of a deployment, derived at read time from internal state.
+    DE.StatusDetails:
+      type: object
+      required:
+        - region
+      properties:
+        region:
+          type: array
+          items:
+            $ref: '#/components/schemas/DE.RegionStatus'
+          description: Regions where the deployment is actually scheduled or serving replicas, sorted by region.
+      description: Deployment status broken down by each supported dimension.
+    DE.RegionStatus:
+      type: object
+      required:
+        - region
+        - scheduledReplicas
+        - readyReplicas
+      properties:
+        region:
+          type: string
+          description: Region name using the same vocabulary accepted by inline placement regions.
+        scheduledReplicas:
+          type: integer
+          description: Replicas the scheduler has placed in this region.
+        readyReplicas:
+          type: integer
+          description: Replicas serving traffic in this region.
+      description: Realized scheduled and ready replica counts for one deployment region.
     DE.RuntimeInfo:
       type: object
       properties:
@@ -22845,6 +23026,171 @@ components:
             $ref: "#/components/schemas/VolumeMount"
           type: array
       type: object
+    RevisionDetailResponse:
+      description: Deployment configuration captured for one retained revision.
+      required:
+        - object
+        - revision_id
+        - image
+        - min_replicas
+        - max_replicas
+        - port
+        - protocol
+        - capacity_type
+        - command
+        - args
+        - environment_variables
+        - volumes
+        - gpu_type
+        - gpu_count
+        - cpu
+        - memory
+        - storage
+        - health_check_path
+        - created_at
+      properties:
+        object:
+          description: The object type, which is always `revision`.
+          const: revision
+        revision_id:
+          description: Unique revision identifier.
+          type: string
+        image:
+          description: Container image used by this revision.
+          type: string
+        min_replicas:
+          description: Minimum number of replicas configured for this revision.
+          type: integer
+        max_replicas:
+          description: Maximum number of replicas configured for this revision.
+          type: integer
+        port:
+          description: Container port exposed by this revision.
+          type: integer
+        protocol:
+          description: Network protocol served by the deployment revision.
+          type: string
+        capacity_type:
+          description: Capacity behavior for replicas above reserved capacity.
+          enum:
+            - stable
+            - preemptible
+          type: string
+        command:
+          description: Entrypoint command run by the container.
+          items:
+            type: string
+          type: array
+        args:
+          description: Arguments passed to the container command.
+          items:
+            type: string
+          type: array
+        environment_variables:
+          description: Environment variables configured on this revision.
+          items:
+            $ref: "#/components/schemas/EnvironmentVariable"
+          type: array
+        volumes:
+          description: Volume mounts attached to this revision.
+          items:
+            $ref: "#/components/schemas/VolumeMount"
+          type: array
+        gpu_type:
+          description: GPU hardware type configured for this revision.
+          type: string
+        gpu_count:
+          description: Number of GPUs allocated to each replica.
+          type: integer
+        cpu:
+          description: CPU cores allocated to each replica.
+          type: number
+        memory:
+          description: Memory allocated to each replica in GiB.
+          type: number
+        storage:
+          description: Ephemeral storage allocated to each replica.
+          type: integer
+        health_check_path:
+          description: HTTP path used for health checks.
+          type: string
+        autoscaling:
+          description: Autoscaling configuration captured for this revision.
+          oneOf:
+            - $ref: "#/components/schemas/HTTPAutoscalingConfig"
+            - $ref: "#/components/schemas/QueueAutoscalingConfig"
+            - $ref: "#/components/schemas/CustomMetricAutoscalingConfig"
+        termination_grace_period_seconds:
+          description: Seconds to wait for graceful shutdown before forcefully terminating a replica.
+          type: integer
+        created_at:
+          description: Time when this revision was created.
+          type: string
+          format: date-time
+      type: object
+    RevisionEventItem:
+      description: One entry in a deployment's revision history.
+      required:
+        - object
+        - event_number
+        - revision_id
+        - revision_number
+        - image
+        - action
+        - activated_at
+      properties:
+        object:
+          description: The object type, which is always `revision_event`.
+          const: revision_event
+        event_number:
+          description: Monotonic event number in the deployment's revision history.
+          type: integer
+        revision_id:
+          description: Revision ID activated by this event.
+          type: string
+        revision_number:
+          description: Human-readable per-deployment revision counter.
+          type: integer
+        image:
+          description: Container image of the revision activated by this event.
+          type: string
+        action:
+          description: How this revision became active.
+          enum:
+            - create
+            - update
+            - system
+            - rollback
+          type: string
+        activated_at:
+          description: Time when this revision became active.
+          type: string
+          format: date-time
+      type: object
+    RevisionEventListResponse:
+      description: Revision history events for a deployment, newest first.
+      required:
+        - data
+        - object
+      properties:
+        data:
+          description: Revision events, newest first.
+          items:
+            $ref: "#/components/schemas/RevisionEventItem"
+          type: array
+        object:
+          description: The object type, which is always `list`.
+          const: list
+      type: object
+    RollbackDeploymentRequest:
+      description: Request body identifying the deployment revision to roll back to.
+      required:
+        - revision_identifier
+      properties:
+        revision_identifier:
+          description: Revision number or revision ID to roll back to.
+          type: string
+      type: object
     DeploymentStatus:
       enum:
         - Updating
@@ -23209,6 +23555,12 @@ components:
         object:
           description: Object is the type identifier for this response (always "volume")
           type: string
+        status:
+          $ref: '#/components/schemas/VolumeStatus'
+          description: Status of the current volume version.
+        status_message:
+          description: Message explaining why the current volume version failed, when applicable.
+          type: string
         type:
           $ref: '#/components/schemas/VolumeType'
         updated_at:
@@ -23221,22 +23573,35 @@ components:
           type: object
       type: object
     VersionHistoryItem:
+      description: Metadata for a previous volume version.
       properties:
         content:
           $ref: '#/components/schemas/VolumeContentRequest'
+          description: Content configuration used to create this version.
         mounted_by:
+          description: Deployment IDs currently mounting this version.
           items:
             type: string
           type: array
           uniqueItems: false
+        status:
+          $ref: '#/components/schemas/VolumeStatus'
+          description: Status of this volume version.
+        status_message:
+          description: Message explaining why this volume version failed, when applicable.
+          type: string
         version:
+          description: Numeric version identifier for this volume content.
           type: integer
       type: object
     VolumeContentRequest:
       description: Content specifies the new content to preload to this volume.
       properties:
+        origin:
+          $ref: '#/components/schemas/VolumeOrigin'
+          description: External source Together copies into a new volume version; mutually exclusive with source_prefix.
         source_prefix:
-          description: SourcePrefix is the file path prefix for the content to be preloaded into the volume
+          description: SourcePrefix is the file path prefix for the content to be preloaded into the volume. Mutually exclusive with Origin
           example: models/
           type: string
         type:
@@ -23247,6 +23612,7 @@ components:
           type: string
       type: object
     VolumeContent:
+      description: Content currently available on a volume version.
       properties:
         files:
           description: Files is the list of files to preload into the volume, if the volume content type is "files".
@@ -23254,6 +23620,9 @@ components:
             $ref: '#/components/schemas/FileInfo'
           type: array
           uniqueItems: false
+        origin:
+          $ref: '#/components/schemas/VolumeOrigin'
+          description: External source Together copied into this volume version.
         source_prefix:
           description: SourcePrefix is the file path prefix for the content to be preloaded into the volume
           example: models/
@@ -23265,6 +23634,43 @@ components:
           example: files
           type: string
       type: object
+    S3Origin:
+      description: S3 source configuration for volume sync.
+      properties:
+        role_arn:
+          description: IAM role ARN Together assumes to read the S3 bucket or prefix.
+          example: arn:aws:iam::123456789012:role/together-volumes
+          type: string
+        uri:
+          description: S3 bucket or prefix to copy into the volume.
+          example: s3://my-bucket/models/custom-weights
+          type: string
+      required:
+        - role_arn
+        - uri
+      type: object
+    VolumeOrigin:
+      description: External source Together copies into a new volume version.
+      properties:
+        s3:
+          $ref: '#/components/schemas/S3Origin'
+          description: S3 bucket or prefix source for the volume sync.
+      required:
+        - s3
+      type: object
+    VolumeStatus:
+      description: Status of a volume version. Only ready versions can be mounted.
+      enum:
+        - ready
+        - pending
+        - syncing
+        - failed
+      type: string
+      x-enum-varnames:
+        - VolumeStatusReady
+        - VolumeStatusPending
+        - VolumeStatusSyncing
+        - VolumeStatusFailed
     FileInfo:
       properties:
         last_modified:
