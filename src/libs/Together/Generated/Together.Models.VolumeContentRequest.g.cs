@@ -9,7 +9,13 @@ namespace Together
     public sealed partial class VolumeContentRequest
     {
         /// <summary>
-        /// SourcePrefix is the file path prefix for the content to be preloaded into the volume<br/>
+        /// External source Together copies into a new volume version; mutually exclusive with source_prefix.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("origin")]
+        public global::Together.VolumeOrigin? Origin { get; set; }
+
+        /// <summary>
+        /// SourcePrefix is the file path prefix for the content to be preloaded into the volume. Mutually exclusive with Origin<br/>
         /// Example: models/
         /// </summary>
         /// <example>models/</example>
@@ -34,8 +40,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="VolumeContentRequest" /> class.
         /// </summary>
+        /// <param name="origin">
+        /// External source Together copies into a new volume version; mutually exclusive with source_prefix.
+        /// </param>
         /// <param name="sourcePrefix">
-        /// SourcePrefix is the file path prefix for the content to be preloaded into the volume<br/>
+        /// SourcePrefix is the file path prefix for the content to be preloaded into the volume. Mutually exclusive with Origin<br/>
         /// Example: models/
         /// </param>
         /// <param name="type">
@@ -46,9 +55,11 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VolumeContentRequest(
+            global::Together.VolumeOrigin? origin,
             string? sourcePrefix,
             global::Together.VolumeContentRequestType? type)
         {
+            this.Origin = origin;
             this.SourcePrefix = sourcePrefix;
             this.Type = type;
         }

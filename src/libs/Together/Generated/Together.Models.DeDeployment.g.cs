@@ -169,7 +169,8 @@ namespace Together
         public global::Together.DeRuntimeInfo? RuntimeInfo { get; set; }
 
         /// <summary>
-        /// Number of replicas the autoscaler currently wants across all regions.<br/>
+        /// Number of replicas the autoscaler currently wants across all regions. Not settable on<br/>
+        /// any request; steer it through `autoscaling.minReplicas` and `autoscaling.maxReplicas`.<br/>
         /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("desiredReplicas")]
@@ -253,7 +254,8 @@ namespace Together
         /// Included only in responses
         /// </param>
         /// <param name="desiredReplicas">
-        /// Number of replicas the autoscaler currently wants across all regions.<br/>
+        /// Number of replicas the autoscaler currently wants across all regions. Not settable on<br/>
+        /// any request; steer it through `autoscaling.minReplicas` and `autoscaling.maxReplicas`.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="placement">

@@ -1,14 +1,12 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace Together
 {
-    public partial class FineTuningClient
+    public partial class DeploymentsClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_CreateFineTunesServers = new global::Together.AutoSDKServer[]
+        private static readonly global::Together.AutoSDKServer[] s_GetDeploymentsByIdRevisionsServers = new global::Together.AutoSDKServer[]
         {            new global::Together.AutoSDKServer(
                 id: "https-api-together-ai-v1",
                 name: "Default environment for APIs",
@@ -22,7 +20,7 @@ namespace Together
         };
 
 
-        private static readonly global::Together.EndPointSecurityRequirement s_CreateFineTunesSecurityRequirement0 =
+        private static readonly global::Together.EndPointSecurityRequirement s_GetDeploymentsByIdRevisionsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
             {
                 Authorizations = new global::Together.EndPointAuthorizationRequirement[]
@@ -36,55 +34,58 @@ namespace Together
                     },
                 },
             };
-        private static readonly global::Together.EndPointSecurityRequirement[] s_CreateFineTunesSecurityRequirements =
+        private static readonly global::Together.EndPointSecurityRequirement[] s_GetDeploymentsByIdRevisionsSecurityRequirements =
             new global::Together.EndPointSecurityRequirement[]
-            {                s_CreateFineTunesSecurityRequirement0,
+            {                s_GetDeploymentsByIdRevisionsSecurityRequirement0,
             };
-        partial void PrepareCreateFineTunesArguments(
+        partial void PrepareGetDeploymentsByIdRevisionsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Together.CreateFineTunesRequest request);
-        partial void PrepareCreateFineTunesRequest(
+            ref string id,
+            ref int? limit,
+            ref int? before);
+        partial void PrepareGetDeploymentsByIdRevisionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Together.CreateFineTunesRequest request);
-        partial void ProcessCreateFineTunesResponse(
+            string id,
+            int? limit,
+            int? before);
+        partial void ProcessGetDeploymentsByIdRevisionsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateFineTunesResponseContent(
+        partial void ProcessGetDeploymentsByIdRevisionsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create job<br/>
-        /// Create a fine-tuning job with the provided model and training data.
+        /// List revision history events of a deployment<br/>
+        /// Returns the revision history of the deployment, in descending order. Defaults to the most recent events.<br/>
+        /// Only the 200 most recent events are retained per deployment; paginating past that returns an empty list.
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="id">
+        /// Deployment ID or name.
+        /// </param>
+        /// <param name="limit">
+        /// Maximum number of events to return (default 10, max 100).
+        /// </param>
+        /// <param name="before">
+        /// Return only events with event_number strictly less than this value for pagination.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.fine_tuning.create(<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="file-id"<br/>
-        /// )<br/>
-        /// print(response)
-        /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
-
-            global::Together.CreateFineTunesRequest request,
+        public async global::System.Threading.Tasks.Task<global::Together.RevisionEventListResponse> GetDeploymentsByIdRevisionsAsync(
+            string id,
+            int? limit = default,
+            int? before = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateFineTunesAsResponseAsync(
-
-                request: request,
+            var __response = await GetDeploymentsByIdRevisionsAsResponseAsync(
+                id: id,
+                limit: limit,
+                before: before,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -92,44 +93,42 @@ namespace Together
             return __response.Body;
         }
         /// <summary>
-        /// Create job<br/>
-        /// Create a fine-tuning job with the provided model and training data.
+        /// List revision history events of a deployment<br/>
+        /// Returns the revision history of the deployment, in descending order. Defaults to the most recent events.<br/>
+        /// Only the 200 most recent events are retained per deployment; paginating past that returns an empty list.
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="id">
+        /// Deployment ID or name.
+        /// </param>
+        /// <param name="limit">
+        /// Maximum number of events to return (default 10, max 100).
+        /// </param>
+        /// <param name="before">
+        /// Return only events with event_number strictly less than this value for pagination.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.fine_tuning.create(<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="file-id"<br/>
-        /// )<br/>
-        /// print(response)
-        /// </remarks>
-        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneResponseTruncated>> CreateFineTunesAsResponseAsync(
-
-            global::Together.CreateFineTunesRequest request,
+        public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RevisionEventListResponse>> GetDeploymentsByIdRevisionsAsResponseAsync(
+            string id,
+            int? limit = default,
+            int? before = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateFineTunesArguments(
+            PrepareGetDeploymentsByIdRevisionsArguments(
                 httpClient: HttpClient,
-                request: request);
+                id: ref id,
+                limit: ref limit,
+                before: ref before);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateFineTunesSecurityRequirements,
-                operationName: "CreateFineTunesAsync");
+                securityRequirements: s_GetDeploymentsByIdRevisionsSecurityRequirements,
+                operationName: "GetDeploymentsByIdRevisionsAsync");
 
             using var __timeoutCancellationTokenSource = global::Together.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -149,17 +148,21 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/fine-tunes",
+                                path: $"/deployments/{id}/revisions",
                                 baseUri: ResolveBaseUri(
-                                servers: s_CreateFineTunesServers,
+                                servers: s_GetDeploymentsByIdRevisionsServers,
                                 defaultBaseUrl: "https://api.together.ai/v1"));
+                            __pathBuilder
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("before", before?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -182,12 +185,6 @@ namespace Together
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::Together.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -196,10 +193,12 @@ namespace Together
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateFineTunesRequest(
+                PrepareGetDeploymentsByIdRevisionsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    request: request);
+                    id: id,
+                    limit: limit,
+                    before: before);
 
                 return __httpRequest;
             }
@@ -216,10 +215,10 @@ namespace Together
                     await global::Together.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createFineTunes",
-                                methodName: "CreateFineTunesAsync",
-                                pathTemplate: "\"/fine-tunes\"",
-                                httpMethod: "POST",
+                                operationId: "getDeploymentsByIdRevisions",
+                                methodName: "GetDeploymentsByIdRevisionsAsync",
+                                pathTemplate: "$\"/deployments/{id}/revisions\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -250,10 +249,10 @@ namespace Together
                         await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createFineTunes",
-                                methodName: "CreateFineTunesAsync",
-                                pathTemplate: "\"/fine-tunes\"",
-                                httpMethod: "POST",
+                                operationId: "getDeploymentsByIdRevisions",
+                                methodName: "GetDeploymentsByIdRevisionsAsync",
+                                pathTemplate: "$\"/deployments/{id}/revisions\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -291,10 +290,10 @@ namespace Together
                         await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createFineTunes",
-                                methodName: "CreateFineTunesAsync",
-                                pathTemplate: "\"/fine-tunes\"",
-                                httpMethod: "POST",
+                                operationId: "getDeploymentsByIdRevisions",
+                                methodName: "GetDeploymentsByIdRevisionsAsync",
+                                pathTemplate: "$\"/deployments/{id}/revisions\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -331,7 +330,7 @@ namespace Together
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateFineTunesResponse(
+                ProcessGetDeploymentsByIdRevisionsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -339,10 +338,10 @@ namespace Together
                     await global::Together.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createFineTunes",
-                                methodName: "CreateFineTunesAsync",
-                                pathTemplate: "\"/fine-tunes\"",
-                                httpMethod: "POST",
+                                operationId: "getDeploymentsByIdRevisions",
+                                methodName: "GetDeploymentsByIdRevisionsAsync",
+                                pathTemplate: "$\"/deployments/{id}/revisions\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -361,10 +360,10 @@ namespace Together
                     await global::Together.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "createFineTunes",
-                                methodName: "CreateFineTunesAsync",
-                                pathTemplate: "\"/fine-tunes\"",
-                                httpMethod: "POST",
+                                operationId: "getDeploymentsByIdRevisions",
+                                methodName: "GetDeploymentsByIdRevisionsAsync",
+                                pathTemplate: "$\"/deployments/{id}/revisions\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -378,38 +377,112 @@ namespace Together
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The fine-tuning service is shutting down and cannot accept new jobs.
-                            if ((int)__response.StatusCode == 503)
+                            // Invalid pagination parameters
+                            if ((int)__response.StatusCode == 400)
                             {
-                                string? __content_503 = null;
-                                global::System.Exception? __exception_503 = null;
-                                global::Together.ErrorData? __value_503 = null;
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                string? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
-                                        __content_503 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_503 = global::Together.ErrorData.FromJson(__content_503, JsonSerializerContext);
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
-                                        __content_503 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_503 = global::Together.ErrorData.FromJson(__content_503, JsonSerializerContext);
+                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    __exception_503 = __ex;
+                                    __exception_400 = __ex;
                                 }
 
 
-                                throw global::Together.ApiException<global::Together.ErrorData>.Create(
+                                throw global::Together.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_503 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_503,
-                                    responseBody: __content_503,
-                                    responseObject: __value_503,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // Deployment not found
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                string? __value_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::Together.ApiException<string>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // Internal server error
+                            if ((int)__response.StatusCode == 500)
+                            {
+                                string? __content_500 = null;
+                                global::System.Exception? __exception_500 = null;
+                                string? __value_500 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_500 = __ex;
+                                }
+
+
+                                throw global::Together.ApiException<string>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_500,
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -428,7 +501,7 @@ namespace Together
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateFineTunesResponseContent(
+                                ProcessGetDeploymentsByIdRevisionsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -437,9 +510,9 @@ namespace Together
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Together.FinetuneResponseTruncated.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Together.RevisionEventListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.FinetuneResponseTruncated>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.RevisionEventListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -469,9 +542,9 @@ namespace Together
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Together.FinetuneResponseTruncated.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Together.RevisionEventListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Together.AutoSDKHttpResponse<global::Together.FinetuneResponseTruncated>(
+                                    return new global::Together.AutoSDKHttpResponse<global::Together.RevisionEventListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Together.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -510,209 +583,6 @@ namespace Together
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Create job<br/>
-        /// Create a fine-tuning job with the provided model and training data.
-        /// </summary>
-        /// <param name="trainingFile">
-        /// File-ID of a training file uploaded to the Together API
-        /// </param>
-        /// <param name="validationFile">
-        /// File-ID of a validation file uploaded to the Together API
-        /// </param>
-        /// <param name="packing">
-        /// Whether to use sequence packing for training. This flag has no effect if the training data is in Parquet format.<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="maxSeqLength">
-        /// Maximum sequence length to use for training. If not specified, the maximum allowed for the model and training method will be used.
-        /// </param>
-        /// <param name="model">
-        /// Name of the base model to run fine-tune job on
-        /// </param>
-        /// <param name="nEpochs">
-        /// Number of complete passes through the training dataset (higher values may improve results but increase cost and risk of overfitting)<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="nCheckpoints">
-        /// Number of intermediate model versions saved during training for evaluation<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="nEvals">
-        /// Number of evaluations to be run on a given validation set during training<br/>
-        /// Default Value: 0
-        /// </param>
-        /// <param name="batchSize">
-        /// Number of training examples processed together (larger batches use more memory but may train faster). Defaults to "max". We use training optimizations like packing, so the effective batch size may be different than the value you set.<br/>
-        /// Default Value: max
-        /// </param>
-        /// <param name="gradientAccumulationSteps">
-        /// Number of steps to accumulate gradients before performing a weight update. If omitted or set to 0, the model default is used.
-        /// </param>
-        /// <param name="learningRate">
-        /// Controls how quickly the model adapts to new information (too high may cause instability, too low may slow convergence)<br/>
-        /// Default Value: 0.00001
-        /// </param>
-        /// <param name="lrScheduler">
-        /// The learning rate scheduler to use. It specifies how the learning rate is adjusted during training.<br/>
-        /// Default Value: none
-        /// </param>
-        /// <param name="warmupRatio">
-        /// The percent of steps at the start of training to linearly increase the learning rate.<br/>
-        /// Default Value: 0.0
-        /// </param>
-        /// <param name="maxGradNorm">
-        /// Max gradient norm to be used for gradient clipping. Set to 0 to disable.<br/>
-        /// Default Value: 1.0
-        /// </param>
-        /// <param name="weightDecay">
-        /// Weight decay. Regularization parameter for the optimizer.<br/>
-        /// Default Value: 0.0
-        /// </param>
-        /// <param name="randomSeed">
-        /// Random seed for reproducible training. When set, the same seed produces the same run (e.g. data shuffle, init). If omitted or null, the server applies its default seed (e.g. 42).
-        /// </param>
-        /// <param name="earlyStoppingEnabled">
-        /// Whether to stop training early when validation loss stops improving. Requires a validation_file, and n_evals must be at least early_stopping_patience + early_stopping_warmup_evals + 1 so a plateau can be detected.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="earlyStoppingPatience">
-        /// Number of consecutive evaluations with no improvement in validation loss to allow before stopping. Only applies when early_stopping_enabled is true.<br/>
-        /// Default Value: 2
-        /// </param>
-        /// <param name="earlyStoppingMinDelta">
-        /// Minimum decrease in validation loss for an evaluation to count as an improvement. Larger values treat small gains as non-improvements, causing training to stop sooner. Only applies when early_stopping_enabled is true.<br/>
-        /// Default Value: 0.0
-        /// </param>
-        /// <param name="earlyStoppingWarmupEvals">
-        /// Number of initial evaluations excluded from the early-stopping decision. These still establish the baseline validation loss but do not count toward patience. Set to 0 to disable warmup; if omitted, defaults to 1. Only applies when early_stopping_enabled is true.<br/>
-        /// Default Value: 1
-        /// </param>
-        /// <param name="suffix">
-        /// Suffix to add to your fine-tuned model name. Must be at most 64 characters long.
-        /// </param>
-        /// <param name="wandbApiKey">
-        /// Integration key for tracking experiments and model metrics on W&amp;B platform
-        /// </param>
-        /// <param name="wandbBaseUrl">
-        /// The base URL of a dedicated Weights &amp; Biases instance.
-        /// </param>
-        /// <param name="wandbProjectName">
-        /// The Weights &amp; Biases project for your run. If not specified, uses `together` as the project name.
-        /// </param>
-        /// <param name="wandbName">
-        /// The Weights &amp; Biases name for your run.
-        /// </param>
-        /// <param name="wandbEntity">
-        /// The Weights &amp; Biases entity for your run.
-        /// </param>
-        /// <param name="trainingMethod">
-        /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.
-        /// </param>
-        /// <param name="trainingType">
-        /// The training type to use. Defaults to LoRA if not provided.<br/>
-        /// Default Value: openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464
-        /// </param>
-        /// <param name="multimodalParams"></param>
-        /// <param name="fromCheckpoint">
-        /// The checkpoint identifier to continue training from a previous fine-tuning job. Format is `{$JOB_ID}` or `{$OUTPUT_MODEL_NAME}` or `{$JOB_ID}:{$STEP}` or `{$OUTPUT_MODEL_NAME}:{$STEP}`. The step value is optional; without it, uses the final checkpoint.
-        /// </param>
-        /// <param name="fromHfModel">
-        /// The Hugging Face Hub repo to start training from. Should be as close as possible to the base model (specified by the `model` argument) in terms of architecture and size.
-        /// </param>
-        /// <param name="hfModelRevision">
-        /// The revision of the Hugging Face Hub model to continue training from. E.g., hf_model_revision=main (default, used if the argument is not provided) or hf_model_revision='607a30d783dfa663caf39e06633721c8d4cfcd7e' (specific commit).
-        /// </param>
-        /// <param name="hfApiToken">
-        /// The API token for the Hugging Face Hub.
-        /// </param>
-        /// <param name="hfOutputRepoName">
-        /// The name of the Hugging Face repository to upload the fine-tuned model to.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesAsync(
-            string trainingFile,
-            string model,
-            string? validationFile = default,
-            bool? packing = default,
-            int? maxSeqLength = default,
-            int? nEpochs = default,
-            int? nCheckpoints = default,
-            int? nEvals = default,
-            global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? batchSize = default,
-            int? gradientAccumulationSteps = default,
-            double? learningRate = default,
-            global::Together.LRScheduler? lrScheduler = default,
-            double? warmupRatio = default,
-            double? maxGradNorm = default,
-            double? weightDecay = default,
-            int? randomSeed = default,
-            bool? earlyStoppingEnabled = default,
-            int? earlyStoppingPatience = default,
-            double? earlyStoppingMinDelta = default,
-            int? earlyStoppingWarmupEvals = default,
-            string? suffix = default,
-            string? wandbApiKey = default,
-            string? wandbBaseUrl = default,
-            string? wandbProjectName = default,
-            string? wandbName = default,
-            string? wandbEntity = default,
-            global::Together.OneOf<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>? trainingMethod = default,
-            global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? trainingType = default,
-            global::Together.MultimodalParams? multimodalParams = default,
-            string? fromCheckpoint = default,
-            string? fromHfModel = default,
-            string? hfModelRevision = default,
-            string? hfApiToken = default,
-            string? hfOutputRepoName = default,
-            global::Together.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::Together.CreateFineTunesRequest
-            {
-                TrainingFile = trainingFile,
-                ValidationFile = validationFile,
-                Packing = packing,
-                MaxSeqLength = maxSeqLength,
-                Model = model,
-                NEpochs = nEpochs,
-                NCheckpoints = nCheckpoints,
-                NEvals = nEvals,
-                BatchSize = batchSize,
-                GradientAccumulationSteps = gradientAccumulationSteps,
-                LearningRate = learningRate,
-                LrScheduler = lrScheduler,
-                WarmupRatio = warmupRatio,
-                MaxGradNorm = maxGradNorm,
-                WeightDecay = weightDecay,
-                RandomSeed = randomSeed,
-                EarlyStoppingEnabled = earlyStoppingEnabled,
-                EarlyStoppingPatience = earlyStoppingPatience,
-                EarlyStoppingMinDelta = earlyStoppingMinDelta,
-                EarlyStoppingWarmupEvals = earlyStoppingWarmupEvals,
-                Suffix = suffix,
-                WandbApiKey = wandbApiKey,
-                WandbBaseUrl = wandbBaseUrl,
-                WandbProjectName = wandbProjectName,
-                WandbName = wandbName,
-                WandbEntity = wandbEntity,
-                TrainingMethod = trainingMethod,
-                TrainingType = trainingType,
-                MultimodalParams = multimodalParams,
-                FromCheckpoint = fromCheckpoint,
-                FromHfModel = fromHfModel,
-                HfModelRevision = hfModelRevision,
-                HfApiToken = hfApiToken,
-                HfOutputRepoName = hfOutputRepoName,
-            };
-
-            return await CreateFineTunesAsync(
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
