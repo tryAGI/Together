@@ -4,18 +4,16 @@
 namespace Together
 {
     /// <summary>
-    /// Result of a save training checkpoint operation
+    /// Result of a training checkpoint operation
     /// </summary>
     public sealed partial class RlTrainingCheckpointResult
     {
         /// <summary>
-        /// ID of the saved training checkpoint (use for resume via Start)<br/>
-        /// Example: 550e8400-e29b-41d4-a716-446655440000
+        /// The checkpoint this operation created. The training session lists the same checkpoint in `training_checkpoints`.
         /// </summary>
-        /// <example>550e8400-e29b-41d4-a716-446655440000</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string CheckpointId { get; set; }
+        public required global::Together.RlTrainingCheckpoint Checkpoint { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -26,17 +24,16 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlTrainingCheckpointResult" /> class.
         /// </summary>
-        /// <param name="checkpointId">
-        /// ID of the saved training checkpoint (use for resume via Start)<br/>
-        /// Example: 550e8400-e29b-41d4-a716-446655440000
+        /// <param name="checkpoint">
+        /// The checkpoint this operation created. The training session lists the same checkpoint in `training_checkpoints`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlTrainingCheckpointResult(
-            string checkpointId)
+            global::Together.RlTrainingCheckpoint checkpoint)
         {
-            this.CheckpointId = checkpointId ?? throw new global::System.ArgumentNullException(nameof(checkpointId));
+            this.Checkpoint = checkpoint ?? throw new global::System.ArgumentNullException(nameof(checkpoint));
         }
 
         /// <summary>

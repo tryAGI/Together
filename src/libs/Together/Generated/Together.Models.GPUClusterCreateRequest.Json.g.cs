@@ -2,7 +2,7 @@
 
 namespace Together
 {
-    public sealed partial class GPUClusterCreateRequest
+    public readonly partial struct GPUClusterCreateRequest
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace Together
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::Together.GPUClusterCreateRequest),
-                jsonSerializerContext) as global::Together.GPUClusterCreateRequest;
+                jsonSerializerContext) as global::Together.GPUClusterCreateRequest?;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Together
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::Together.GPUClusterCreateRequest),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Together.GPUClusterCreateRequest;
+                jsonSerializerContext).ConfigureAwait(false)) as global::Together.GPUClusterCreateRequest?;
         }
 
         /// <summary>

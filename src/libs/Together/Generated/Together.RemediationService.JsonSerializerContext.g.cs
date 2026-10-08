@@ -2,65 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Remediation))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CommentBody))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ApproveRemediationRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ApproveRemediationRequestMode), TypeInfoPropertyName = "ApproveRemediationRequestMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListRemediationsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.Remediation>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.PassiveHealthCheckAlert>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PassiveHealthCheckAlert))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PHCAnnotation))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.XidDetail))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SlurmNodeUnavailableDetail))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PassiveHealthCheckAlertSeverity), TypeInfoPropertyName = "PassiveHealthCheckAlertSeverity2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationMode), TypeInfoPropertyName = "RemediationMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationTrigger), TypeInfoPropertyName = "RemediationTrigger2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationState), TypeInfoPropertyName = "RemediationState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.XidEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.XidEvent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsStateItem), TypeInfoPropertyName = "RemediationServiceListRemediationsStateItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsTriggerItem), TypeInfoPropertyName = "RemediationServiceListRemediationsTriggerItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsModeItem), TypeInfoPropertyName = "RemediationServiceListRemediationsModeItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ApproveRemediationRequestMode?), TypeInfoPropertyName = "NullableApproveRemediationRequestMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PassiveHealthCheckAlertSeverity?), TypeInfoPropertyName = "NullablePassiveHealthCheckAlertSeverity2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationMode?), TypeInfoPropertyName = "NullableRemediationMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationTrigger?), TypeInfoPropertyName = "NullableRemediationTrigger2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationState?), TypeInfoPropertyName = "NullableRemediationState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsStateItem?), TypeInfoPropertyName = "NullableRemediationServiceListRemediationsStateItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsTriggerItem?), TypeInfoPropertyName = "NullableRemediationServiceListRemediationsTriggerItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemediationServiceListRemediationsModeItem?), TypeInfoPropertyName = "NullableRemediationServiceListRemediationsModeItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.Remediation>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.PassiveHealthCheckAlert>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.XidEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RemediationServiceListRemediationsStateItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RemediationServiceListRemediationsTriggerItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.RemediationServiceListRemediationsModeItem>))]
-    internal sealed partial class RemediationServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class RemediationServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -104,29 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -139,132 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.ApproveRemediationRequestMode)
-
-                    || typeToConvert == typeof(global::Together.ApproveRemediationRequestMode?)
-
-                    || typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity)
-
-                    || typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity?)
-
-                    || typeToConvert == typeof(global::Together.RemediationMode)
-
-                    || typeToConvert == typeof(global::Together.RemediationMode?)
-
-                    || typeToConvert == typeof(global::Together.RemediationTrigger)
-
-                    || typeToConvert == typeof(global::Together.RemediationTrigger?)
-
-                    || typeToConvert == typeof(global::Together.RemediationState)
-
-                    || typeToConvert == typeof(global::Together.RemediationState?)
-
-                    || typeToConvert == typeof(global::Together.RemediationServiceListRemediationsStateItem)
-
-                    || typeToConvert == typeof(global::Together.RemediationServiceListRemediationsStateItem?)
-
-                    || typeToConvert == typeof(global::Together.RemediationServiceListRemediationsTriggerItem)
-
-                    || typeToConvert == typeof(global::Together.RemediationServiceListRemediationsTriggerItem?)
-
-                    || typeToConvert == typeof(global::Together.RemediationServiceListRemediationsModeItem)
-
-                    || typeToConvert == typeof(global::Together.RemediationServiceListRemediationsModeItem?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.ApproveRemediationRequestMode))
-                {
-                    return new global::Together.JsonConverters.ApproveRemediationRequestModeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ApproveRemediationRequestMode?))
-                {
-                    return new global::Together.JsonConverters.ApproveRemediationRequestModeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity))
-                {
-                    return new global::Together.JsonConverters.PassiveHealthCheckAlertSeverityJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity?))
-                {
-                    return new global::Together.JsonConverters.PassiveHealthCheckAlertSeverityNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationMode))
-                {
-                    return new global::Together.JsonConverters.RemediationModeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationMode?))
-                {
-                    return new global::Together.JsonConverters.RemediationModeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationTrigger))
-                {
-                    return new global::Together.JsonConverters.RemediationTriggerJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationTrigger?))
-                {
-                    return new global::Together.JsonConverters.RemediationTriggerNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationState))
-                {
-                    return new global::Together.JsonConverters.RemediationStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationState?))
-                {
-                    return new global::Together.JsonConverters.RemediationStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationServiceListRemediationsStateItem))
-                {
-                    return new global::Together.JsonConverters.RemediationServiceListRemediationsStateItemJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationServiceListRemediationsStateItem?))
-                {
-                    return new global::Together.JsonConverters.RemediationServiceListRemediationsStateItemNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationServiceListRemediationsTriggerItem))
-                {
-                    return new global::Together.JsonConverters.RemediationServiceListRemediationsTriggerItemJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationServiceListRemediationsTriggerItem?))
-                {
-                    return new global::Together.JsonConverters.RemediationServiceListRemediationsTriggerItemNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationServiceListRemediationsModeItem))
-                {
-                    return new global::Together.JsonConverters.RemediationServiceListRemediationsModeItemJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.RemediationServiceListRemediationsModeItem?))
-                {
-                    return new global::Together.JsonConverters.RemediationServiceListRemediationsModeItemNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -306,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new RemediationServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

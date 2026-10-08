@@ -17,14 +17,6 @@ namespace Together
         public string? ResumeFromCheckpointId { get; set; }
 
         /// <summary>
-        /// HuggingFace repo (or hf://) to resume model weights from. Accepts either a full model or a PEFT adapter directory. Mutually exclusive with resume_from_checkpoint_id.<br/>
-        /// Example: your-org/llama-3-8b-finetuned
-        /// </summary>
-        /// <example>your-org/llama-3-8b-finetuned</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("resume_from_hf_checkpoint")]
-        public string? ResumeFromHfCheckpoint { get; set; }
-
-        /// <summary>
         /// LoRA adapter configuration for the session
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
@@ -54,7 +46,7 @@ namespace Together
         public global::Together.RlTrainingSessionMetadata? Metadata { get; set; }
 
         /// <summary>
-        /// Whether to restore optimizer state and step from a training checkpoint. Omitted or true restores them; false loads weights only with a fresh optimizer and step 0. Not valid for inference or HuggingFace checkpoints, which have no optimizer state.<br/>
+        /// Whether to restore optimizer state and step from a training checkpoint. Omitted or true restores them; false loads weights only with a fresh optimizer and step 0. Not valid for inference checkpoints, which have no optimizer state.<br/>
         /// Example: true
         /// </summary>
         /// <example>true</example>
@@ -78,10 +70,6 @@ namespace Together
         /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
-        /// <param name="resumeFromHfCheckpoint">
-        /// HuggingFace repo (or hf://) to resume model weights from. Accepts either a full model or a PEFT adapter directory. Mutually exclusive with resume_from_checkpoint_id.<br/>
-        /// Example: your-org/llama-3-8b-finetuned
-        /// </param>
         /// <param name="loraConfig">
         /// LoRA adapter configuration for the session
         /// </param>
@@ -93,7 +81,7 @@ namespace Together
         /// Optional auxiliary metadata to associate with the training session
         /// </param>
         /// <param name="loadOptimizer">
-        /// Whether to restore optimizer state and step from a training checkpoint. Omitted or true restores them; false loads weights only with a fresh optimizer and step 0. Not valid for inference or HuggingFace checkpoints, which have no optimizer state.<br/>
+        /// Whether to restore optimizer state and step from a training checkpoint. Omitted or true restores them; false loads weights only with a fresh optimizer and step 0. Not valid for inference checkpoints, which have no optimizer state.<br/>
         /// Example: true
         /// </param>
 #if NET7_0_OR_GREATER
@@ -102,14 +90,12 @@ namespace Together
         public RlStartTrainingSessionRequest(
             string modelResourcesId,
             string? resumeFromCheckpointId,
-            string? resumeFromHfCheckpoint,
             global::Together.RlLoraConfig? loraConfig,
             string? displayName,
             global::Together.RlTrainingSessionMetadata? metadata,
             bool? loadOptimizer)
         {
             this.ResumeFromCheckpointId = resumeFromCheckpointId;
-            this.ResumeFromHfCheckpoint = resumeFromHfCheckpoint;
             this.LoraConfig = loraConfig;
             this.ModelResourcesId = modelResourcesId ?? throw new global::System.ArgumentNullException(nameof(modelResourcesId));
             this.DisplayName = displayName;

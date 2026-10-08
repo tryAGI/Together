@@ -37,10 +37,10 @@ namespace Together
         public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// Together model registry details, set when the checkpoint was uploaded to the registry
+        /// Model registry artifact holding this checkpoint's training state, used to resume training rather than to deploy. Absent when the checkpoint was not uploaded to the registry.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("registration")]
-        public global::Together.RlTrainingCheckpointRegistration? Registration { get; set; }
+        public global::Together.RlModelRegistryArtifact? Registration { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -64,7 +64,7 @@ namespace Together
         /// Example: 2026-01-02T00:00:00Z
         /// </param>
         /// <param name="registration">
-        /// Together model registry details, set when the checkpoint was uploaded to the registry
+        /// Model registry artifact holding this checkpoint's training state, used to resume training rather than to deploy. Absent when the checkpoint was not uploaded to the registry.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -73,7 +73,7 @@ namespace Together
             string id,
             global::Together.OneOf<string, int?> step,
             global::System.DateTime createdAt,
-            global::Together.RlTrainingCheckpointRegistration? registration)
+            global::Together.RlModelRegistryArtifact? registration)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Step = step;

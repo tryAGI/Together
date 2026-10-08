@@ -2,42 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListInferenceInstanceTypesResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeInferenceInstanceType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInferenceInstanceType))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCompliancePolicy))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeRegion>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRegion))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeHeadroom))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeComplianceAvailability>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeComplianceAvailability))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeHeadroomRelation), TypeInfoPropertyName = "DeHeadroomRelation2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeHeadroomRelation?), TypeInfoPropertyName = "NullableDeHeadroomRelation2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeInferenceInstanceType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeRegion>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeComplianceAvailability>))]
-    internal sealed partial class InstanceTypeServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class InstanceTypeServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -81,29 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -116,34 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.DeHeadroomRelation)
-
-                    || typeToConvert == typeof(global::Together.DeHeadroomRelation?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.DeHeadroomRelation))
-                {
-                    return new global::Together.JsonConverters.DeHeadroomRelationJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeHeadroomRelation?))
-                {
-                    return new global::Together.JsonConverters.DeHeadroomRelationNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -185,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new InstanceTypeServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

@@ -2,46 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListPassiveHealthCheckAlertsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.PassiveHealthCheckAlert>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PassiveHealthCheckAlert))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PHCAnnotation))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.XidDetail))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SlurmNodeUnavailableDetail))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PassiveHealthCheckAlertSeverity), TypeInfoPropertyName = "PassiveHealthCheckAlertSeverity2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.XidEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.XidEvent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus), TypeInfoPropertyName = "HealthCheckServiceListPassiveHealthCheckAlertsStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem), TypeInfoPropertyName = "HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy), TypeInfoPropertyName = "HealthCheckServiceListPassiveHealthCheckAlertsOrderBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PassiveHealthCheckAlertSeverity?), TypeInfoPropertyName = "NullablePassiveHealthCheckAlertSeverity2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus?), TypeInfoPropertyName = "NullableHealthCheckServiceListPassiveHealthCheckAlertsStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem?), TypeInfoPropertyName = "NullableHealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy?), TypeInfoPropertyName = "NullableHealthCheckServiceListPassiveHealthCheckAlertsOrderBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.PassiveHealthCheckAlert>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.XidEvent>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem>))]
-    internal sealed partial class HealthCheckServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class HealthCheckServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -85,29 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -120,76 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity)
-
-                    || typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity?)
-
-                    || typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus)
-
-                    || typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus?)
-
-                    || typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem)
-
-                    || typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem?)
-
-                    || typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy)
-
-                    || typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity))
-                {
-                    return new global::Together.JsonConverters.PassiveHealthCheckAlertSeverityJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.PassiveHealthCheckAlertSeverity?))
-                {
-                    return new global::Together.JsonConverters.PassiveHealthCheckAlertSeverityNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus))
-                {
-                    return new global::Together.JsonConverters.HealthCheckServiceListPassiveHealthCheckAlertsStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus?))
-                {
-                    return new global::Together.JsonConverters.HealthCheckServiceListPassiveHealthCheckAlertsStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem))
-                {
-                    return new global::Together.JsonConverters.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItemJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem?))
-                {
-                    return new global::Together.JsonConverters.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItemNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy))
-                {
-                    return new global::Together.JsonConverters.HealthCheckServiceListPassiveHealthCheckAlertsOrderByJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy?))
-                {
-                    return new global::Together.JsonConverters.HealthCheckServiceListPassiveHealthCheckAlertsOrderByNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -231,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new HealthCheckServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

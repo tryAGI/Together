@@ -36,7 +36,7 @@ namespace Together
         public required string BaseModel { get; set; }
 
         /// <summary>
-        /// Whether this is a training checkpoint or an inference checkpoint
+        /// Kind of checkpoint. CHECKPOINT_TYPE_TRAINING is the full training state (weights and optimizer state), for resuming a training session with its optimizer state; CHECKPOINT_TYPE_INFERENCE is a model ready for serving or download, also added to your models.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlCheckpointTypeJsonConverter))]
@@ -71,6 +71,18 @@ namespace Together
         public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
+        /// Model registry artifacts to deploy or download this inference checkpoint from. Absent for training checkpoints and when the checkpoint was not uploaded to the registry.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inference_registration")]
+        public global::Together.RlInferenceCheckpointRegistration? InferenceRegistration { get; set; }
+
+        /// <summary>
+        /// Model registry artifact holding this training checkpoint's training state, used to resume training rather than to deploy. Absent for inference checkpoints and when the checkpoint was not uploaded to the registry.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("training_registration")]
+        public global::Together.RlModelRegistryArtifact? TrainingRegistration { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -92,7 +104,7 @@ namespace Together
         /// Example: Qwen/Qwen3.5-4B
         /// </param>
         /// <param name="type">
-        /// Whether this is a training checkpoint or an inference checkpoint
+        /// Kind of checkpoint. CHECKPOINT_TYPE_TRAINING is the full training state (weights and optimizer state), for resuming a training session with its optimizer state; CHECKPOINT_TYPE_INFERENCE is a model ready for serving or download, also added to your models.
         /// </param>
         /// <param name="step">
         /// Training step at time of save<br/>
@@ -106,6 +118,12 @@ namespace Together
         /// LoRA rank of the session that produced this checkpoint. Absent for full-weight sessions and for checkpoints saved before this field was recorded.<br/>
         /// Example: 32
         /// </param>
+        /// <param name="inferenceRegistration">
+        /// Model registry artifacts to deploy or download this inference checkpoint from. Absent for training checkpoints and when the checkpoint was not uploaded to the registry.
+        /// </param>
+        /// <param name="trainingRegistration">
+        /// Model registry artifact holding this training checkpoint's training state, used to resume training rather than to deploy. Absent for inference checkpoints and when the checkpoint was not uploaded to the registry.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -116,7 +134,9 @@ namespace Together
             global::Together.RlCheckpointType type,
             global::Together.OneOf<string, int?> step,
             global::System.DateTime createdAt,
-            int? loraRank)
+            int? loraRank,
+            global::Together.RlInferenceCheckpointRegistration? inferenceRegistration,
+            global::Together.RlModelRegistryArtifact? trainingRegistration)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.SessionId = sessionId ?? throw new global::System.ArgumentNullException(nameof(sessionId));
@@ -125,6 +145,8 @@ namespace Together
             this.Step = step;
             this.LoraRank = loraRank;
             this.CreatedAt = createdAt;
+            this.InferenceRegistration = inferenceRegistration;
+            this.TrainingRegistration = trainingRegistration;
         }
 
         /// <summary>

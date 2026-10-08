@@ -2,48 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType), TypeInfoPropertyName = "VolumeType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeResponseItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateVolumeRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContent))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeStatus), TypeInfoPropertyName = "VolumeStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Together.VersionHistoryItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VersionHistoryItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeOrigin))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType), TypeInfoPropertyName = "VolumeContentRequestType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.FileInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType), TypeInfoPropertyName = "VolumeContentType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.S3Origin))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeType?), TypeInfoPropertyName = "NullableVolumeType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeStatus?), TypeInfoPropertyName = "NullableVolumeStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentRequestType?), TypeInfoPropertyName = "NullableVolumeContentRequestType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType?), TypeInfoPropertyName = "NullableVolumeContentType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FileInfo>))]
-    internal sealed partial class VolumesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class VolumesSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -87,29 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -122,76 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.VolumeContentRequestType)
-
-                    || typeToConvert == typeof(global::Together.VolumeContentRequestType?)
-
-                    || typeToConvert == typeof(global::Together.VolumeContentType)
-
-                    || typeToConvert == typeof(global::Together.VolumeContentType?)
-
-                    || typeToConvert == typeof(global::Together.VolumeStatus)
-
-                    || typeToConvert == typeof(global::Together.VolumeStatus?)
-
-                    || typeToConvert == typeof(global::Together.VolumeType)
-
-                    || typeToConvert == typeof(global::Together.VolumeType?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.VolumeContentRequestType))
-                {
-                    return new global::Together.JsonConverters.VolumeContentRequestTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeContentRequestType?))
-                {
-                    return new global::Together.JsonConverters.VolumeContentRequestTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeContentType))
-                {
-                    return new global::Together.JsonConverters.VolumeContentTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeContentType?))
-                {
-                    return new global::Together.JsonConverters.VolumeContentTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeStatus))
-                {
-                    return new global::Together.JsonConverters.VolumeStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeStatus?))
-                {
-                    return new global::Together.JsonConverters.VolumeStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeType))
-                {
-                    return new global::Together.JsonConverters.VolumeTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VolumeType?))
-                {
-                    return new global::Together.JsonConverters.VolumeTypeNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -233,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new VolumesSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

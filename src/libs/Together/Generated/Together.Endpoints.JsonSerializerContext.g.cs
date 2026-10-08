@@ -2,62 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Autoscaling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateEndpointRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateEndpointRequestState), TypeInfoPropertyName = "CreateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpoint))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointType), TypeInfoPropertyName = "DedicatedEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointState), TypeInfoPropertyName = "DedicatedEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpoint))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointType), TypeInfoPropertyName = "ListEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointState), TypeInfoPropertyName = "ListEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequestState), TypeInfoPropertyName = "UpdateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddAdapterRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemoveAdapterRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsType), TypeInfoPropertyName = "ListEndpointsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsUsageType), TypeInfoPropertyName = "ListEndpointsUsageType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListEndpoint>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddAdapterResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListAdaptersResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListAdaptersResponseDataItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListAdaptersResponseDataItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemoveAdapterResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateEndpointRequestState?), TypeInfoPropertyName = "NullableCreateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointType?), TypeInfoPropertyName = "NullableDedicatedEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointState?), TypeInfoPropertyName = "NullableDedicatedEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointType?), TypeInfoPropertyName = "NullableListEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointState?), TypeInfoPropertyName = "NullableListEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequestState?), TypeInfoPropertyName = "NullableUpdateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsType?), TypeInfoPropertyName = "NullableListEndpointsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsUsageType?), TypeInfoPropertyName = "NullableListEndpointsUsageType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListEndpoint>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListAdaptersResponseDataItem>))]
-    internal sealed partial class EndpointsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class EndpointsSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -101,29 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -136,132 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.CreateEndpointRequestState)
-
-                    || typeToConvert == typeof(global::Together.CreateEndpointRequestState?)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointType)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointType?)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointState)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointState?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointType)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointType?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointState)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointState?)
-
-                    || typeToConvert == typeof(global::Together.UpdateEndpointRequestState)
-
-                    || typeToConvert == typeof(global::Together.UpdateEndpointRequestState?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsType)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsType?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsUsageType)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsUsageType?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.CreateEndpointRequestState))
-                {
-                    return new global::Together.JsonConverters.CreateEndpointRequestStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.CreateEndpointRequestState?))
-                {
-                    return new global::Together.JsonConverters.CreateEndpointRequestStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointType))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointType?))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointState))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointState?))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointType))
-                {
-                    return new global::Together.JsonConverters.ListEndpointTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointType?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointState))
-                {
-                    return new global::Together.JsonConverters.ListEndpointStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointState?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.UpdateEndpointRequestState))
-                {
-                    return new global::Together.JsonConverters.UpdateEndpointRequestStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.UpdateEndpointRequestState?))
-                {
-                    return new global::Together.JsonConverters.UpdateEndpointRequestStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsType))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsType?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsUsageType))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsUsageTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsUsageType?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsUsageTypeNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -303,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new EndpointsSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

@@ -2,89 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAutoscalingResponse), TypeInfoPropertyName = "DeAutoscalingResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateDeploymentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAutoscaling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement), TypeInfoPropertyName = "DePlacement2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateDeploymentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeleteResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeployment))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentTrafficMode), TypeInfoPropertyName = "DeDeploymentTrafficMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRuntimeInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntry))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeDeploymentAdapterStatus>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState), TypeInfoPropertyName = "DeDeploymentAdapterStatusState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListAdaptersResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeAdapterEntry>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAddAdapterRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateAdapterRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacementVariant1))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacement))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacementVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint), TypeInfoPropertyName = "DeInlinePlacementConstraint2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCompliancePolicy))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListDeploymentsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeDeployment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingMetric>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetric))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRules))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatusState), TypeInfoPropertyName = "DeDeploymentStatusState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeStatusDetails))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeRegionStatus>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeRegionStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicy))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType), TypeInfoPropertyName = "DeScalingPolicyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeScalingPolicy>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy), TypeInfoPropertyName = "DeScalingRulesSelectPolicy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName), TypeInfoPropertyName = "DeScalingMetricName2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType), TypeInfoPropertyName = "DeScalingMetricType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAutoscalingResponse?), TypeInfoPropertyName = "NullableDeAutoscalingResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement?), TypeInfoPropertyName = "NullableDePlacement2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentTrafficMode?), TypeInfoPropertyName = "NullableDeDeploymentTrafficMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState?), TypeInfoPropertyName = "NullableDeDeploymentAdapterStatusState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentStatusState?), TypeInfoPropertyName = "NullableDeDeploymentStatusState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType?), TypeInfoPropertyName = "NullableDeScalingPolicyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy?), TypeInfoPropertyName = "NullableDeScalingRulesSelectPolicy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName?), TypeInfoPropertyName = "NullableDeScalingMetricName2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType?), TypeInfoPropertyName = "NullableDeScalingMetricType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeDeploymentAdapterStatus>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeAdapterEntry>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeDeployment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingMetric>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeRegionStatus>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeScalingPolicy>))]
-    internal sealed partial class DeploymentServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class DeploymentServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -128,31 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.DePlacementJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.DeAutoscalingResponseJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -165,132 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.DeDeploymentTrafficMode)
-
-                    || typeToConvert == typeof(global::Together.DeDeploymentTrafficMode?)
-
-                    || typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState)
-
-                    || typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState?)
-
-                    || typeToConvert == typeof(global::Together.DeInlinePlacementConstraint)
-
-                    || typeToConvert == typeof(global::Together.DeInlinePlacementConstraint?)
-
-                    || typeToConvert == typeof(global::Together.DeDeploymentStatusState)
-
-                    || typeToConvert == typeof(global::Together.DeDeploymentStatusState?)
-
-                    || typeToConvert == typeof(global::Together.DeScalingPolicyType)
-
-                    || typeToConvert == typeof(global::Together.DeScalingPolicyType?)
-
-                    || typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy)
-
-                    || typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy?)
-
-                    || typeToConvert == typeof(global::Together.DeScalingMetricName)
-
-                    || typeToConvert == typeof(global::Together.DeScalingMetricName?)
-
-                    || typeToConvert == typeof(global::Together.DeScalingMetricType)
-
-                    || typeToConvert == typeof(global::Together.DeScalingMetricType?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.DeDeploymentTrafficMode))
-                {
-                    return new global::Together.JsonConverters.DeDeploymentTrafficModeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeDeploymentTrafficMode?))
-                {
-                    return new global::Together.JsonConverters.DeDeploymentTrafficModeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState))
-                {
-                    return new global::Together.JsonConverters.DeDeploymentAdapterStatusStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState?))
-                {
-                    return new global::Together.JsonConverters.DeDeploymentAdapterStatusStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeInlinePlacementConstraint))
-                {
-                    return new global::Together.JsonConverters.DeInlinePlacementConstraintJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeInlinePlacementConstraint?))
-                {
-                    return new global::Together.JsonConverters.DeInlinePlacementConstraintNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeDeploymentStatusState))
-                {
-                    return new global::Together.JsonConverters.DeDeploymentStatusStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeDeploymentStatusState?))
-                {
-                    return new global::Together.JsonConverters.DeDeploymentStatusStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingPolicyType))
-                {
-                    return new global::Together.JsonConverters.DeScalingPolicyTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingPolicyType?))
-                {
-                    return new global::Together.JsonConverters.DeScalingPolicyTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy))
-                {
-                    return new global::Together.JsonConverters.DeScalingRulesSelectPolicyJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingRulesSelectPolicy?))
-                {
-                    return new global::Together.JsonConverters.DeScalingRulesSelectPolicyNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingMetricName))
-                {
-                    return new global::Together.JsonConverters.DeScalingMetricNameJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingMetricName?))
-                {
-                    return new global::Together.JsonConverters.DeScalingMetricNameNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingMetricType))
-                {
-                    return new global::Together.JsonConverters.DeScalingMetricTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeScalingMetricType?))
-                {
-                    return new global::Together.JsonConverters.DeScalingMetricTypeNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -332,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new DeploymentServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

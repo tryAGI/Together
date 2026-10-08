@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Rolling strategy configuration for capacity-preserving batches that ramp target replicas up while draining source replicas.
+    /// Rolling strategy configuration for small batches that ramp target replicas up while shrinking source replicas to what their remaining traffic share needs.
     /// </summary>
     public sealed partial class DeRollingConfig
     {

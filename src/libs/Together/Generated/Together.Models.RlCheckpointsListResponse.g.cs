@@ -4,12 +4,12 @@
 namespace Together
 {
     /// <summary>
-    /// A page of training checkpoints
+    /// A page of checkpoints
     /// </summary>
     public sealed partial class RlCheckpointsListResponse
     {
         /// <summary>
-        /// Training checkpoints in this page
+        /// Checkpoints in this page
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,7 +32,7 @@ namespace Together
         /// Initializes a new instance of the <see cref="RlCheckpointsListResponse" /> class.
         /// </summary>
         /// <param name="data">
-        /// Training checkpoints in this page
+        /// Checkpoints in this page
         /// </param>
         /// <param name="meta">
         /// Pagination metadata

@@ -78,7 +78,7 @@ namespace Together
 
         /// <summary>
         /// Lifecycle state of the file validation pipeline. Files for<br/>
-        /// non-`fine-tune` purposes skip validation.
+        /// purposes that do not require validation skip validation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("processing_status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.FileProcessingStatusJsonConverter))]
@@ -87,7 +87,7 @@ namespace Together
         /// <summary>
         /// Report produced by the file validation pipeline. Present once<br/>
         /// validation has run; absent on files that bypassed validation<br/>
-        /// (non-`fine-tune` purposes) or have not yet been validated.
+        /// or have not yet been validated.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("validation_report")]
         public global::Together.FileValidationReport? ValidationReport { get; set; }
@@ -128,12 +128,12 @@ namespace Together
         /// </param>
         /// <param name="processingStatus">
         /// Lifecycle state of the file validation pipeline. Files for<br/>
-        /// non-`fine-tune` purposes skip validation.
+        /// purposes that do not require validation skip validation.
         /// </param>
         /// <param name="validationReport">
         /// Report produced by the file validation pipeline. Present once<br/>
         /// validation has run; absent on files that bypassed validation<br/>
-        /// (non-`fine-tune` purposes) or have not yet been validated.
+        /// or have not yet been validated.
         /// </param>
         /// <param name="object">
         /// The object type, which is always `file`.

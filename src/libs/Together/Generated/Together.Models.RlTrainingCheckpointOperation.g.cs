@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Async save training checkpoint operation
+    /// Async training checkpoint operation
     /// </summary>
     public sealed partial class RlTrainingCheckpointOperation
     {

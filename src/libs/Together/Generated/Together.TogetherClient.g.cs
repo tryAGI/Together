@@ -376,6 +376,17 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public ProjectsClient Projects => new ProjectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
         public QueueClient Queue => new QueueClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -454,6 +465,17 @@ namespace Together
         ///
         /// </summary>
         public ShadowExperimentServiceClient ShadowExperimentService => new ShadowExperimentServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ShapingClient Shaping => new ShapingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             CreateIdempotencyKey = CreateIdempotencyKey,

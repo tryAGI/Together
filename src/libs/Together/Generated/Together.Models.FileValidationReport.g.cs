@@ -4,8 +4,8 @@
 namespace Together
 {
     /// <summary>
-    /// Validation outcome for a fine-tune training file, produced by the<br/>
-    /// file validation pipeline.
+    /// Validation outcome for a fine-tune or calibration file, produced by<br/>
+    /// the file validation pipeline.
     /// </summary>
     public sealed partial class FileValidationReport
     {

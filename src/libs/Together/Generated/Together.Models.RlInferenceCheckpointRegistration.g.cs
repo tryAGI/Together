@@ -4,51 +4,21 @@
 namespace Together
 {
     /// <summary>
-    /// Model registration details for an inference checkpoint
+    /// Where an inference checkpoint's weights are stored in the Together model registry. At least one of `model` and `adapter` is set.
     /// </summary>
     public sealed partial class RlInferenceCheckpointRegistration
     {
         /// <summary>
-        /// Registered model name for downloading the checkpoint<br/>
-        /// Example: username/Meta-Llama-3-8B-rl-step-42-20260216
+        /// Full model weights. Set for full-weight training, and for LoRA training on custom base weights, where the merged model is deployed instead of the adapter.
         /// </summary>
-        /// <example>username/Meta-Llama-3-8B-rl-step-42-20260216</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        public global::Together.RlModelRegistryArtifact? Model { get; set; }
 
         /// <summary>
-        /// Timestamp when the model was registered<br/>
-        /// Example: 2026-01-02T00:00:00Z
+        /// LoRA adapter weights, deployed on top of the base model. Set for LoRA training on the base model's own weights.
         /// </summary>
-        /// <example>2026-01-02T00:00:00Z</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("registered_at")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.DateTime RegisteredAt { get; set; }
-
-        /// <summary>
-        /// Together model registry object ID for the model checkpoint (e.g. `ml_...`), set on full-weight training sessions
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_object_id")]
-        public string? ModelObjectId { get; set; }
-
-        /// <summary>
-        /// Together model registry revision ID for the model checkpoint (e.g. `rv_...`)
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_object_revision_id")]
-        public string? ModelObjectRevisionId { get; set; }
-
-        /// <summary>
-        /// Together model registry object ID for the adapter checkpoint (e.g. `ml_...`), set on LoRA training sessions
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_object_id")]
-        public string? AdapterObjectId { get; set; }
-
-        /// <summary>
-        /// Together model registry revision ID for the adapter checkpoint (e.g. `rv_...`)
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_object_revision_id")]
-        public string? AdapterObjectRevisionId { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter")]
+        public global::Together.RlModelRegistryArtifact? Adapter { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -59,43 +29,21 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlInferenceCheckpointRegistration" /> class.
         /// </summary>
-        /// <param name="modelName">
-        /// Registered model name for downloading the checkpoint<br/>
-        /// Example: username/Meta-Llama-3-8B-rl-step-42-20260216
+        /// <param name="model">
+        /// Full model weights. Set for full-weight training, and for LoRA training on custom base weights, where the merged model is deployed instead of the adapter.
         /// </param>
-        /// <param name="registeredAt">
-        /// Timestamp when the model was registered<br/>
-        /// Example: 2026-01-02T00:00:00Z
-        /// </param>
-        /// <param name="modelObjectId">
-        /// Together model registry object ID for the model checkpoint (e.g. `ml_...`), set on full-weight training sessions
-        /// </param>
-        /// <param name="modelObjectRevisionId">
-        /// Together model registry revision ID for the model checkpoint (e.g. `rv_...`)
-        /// </param>
-        /// <param name="adapterObjectId">
-        /// Together model registry object ID for the adapter checkpoint (e.g. `ml_...`), set on LoRA training sessions
-        /// </param>
-        /// <param name="adapterObjectRevisionId">
-        /// Together model registry revision ID for the adapter checkpoint (e.g. `rv_...`)
+        /// <param name="adapter">
+        /// LoRA adapter weights, deployed on top of the base model. Set for LoRA training on the base model's own weights.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlInferenceCheckpointRegistration(
-            string modelName,
-            global::System.DateTime registeredAt,
-            string? modelObjectId,
-            string? modelObjectRevisionId,
-            string? adapterObjectId,
-            string? adapterObjectRevisionId)
+            global::Together.RlModelRegistryArtifact? model,
+            global::Together.RlModelRegistryArtifact? adapter)
         {
-            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
-            this.RegisteredAt = registeredAt;
-            this.ModelObjectId = modelObjectId;
-            this.ModelObjectRevisionId = modelObjectRevisionId;
-            this.AdapterObjectId = adapterObjectId;
-            this.AdapterObjectRevisionId = adapterObjectRevisionId;
+            this.Model = model;
+            this.Adapter = adapter;
         }
 
         /// <summary>

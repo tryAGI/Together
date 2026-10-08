@@ -2,67 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListSupportedModelsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModel))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfile))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPerformanceBenchmarks))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPricing))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelInputModalitie>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie), TypeInfoPropertyName = "DeSupportedModelInputModalitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelOutputModalitie>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie), TypeInfoPropertyName = "DeSupportedModelOutputModalitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelProduct>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelProduct), TypeInfoPropertyName = "DeSupportedModelProduct2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelFeature>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelFeature), TypeInfoPropertyName = "DeSupportedModelFeature2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelCapabilitie>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelCapabilitie), TypeInfoPropertyName = "DeSupportedModelCapabilitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelStatus), TypeInfoPropertyName = "DeSupportedModelStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelDeploymentProfile>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SupportedModelsServiceListSupportedModelsModality), TypeInfoPropertyName = "SupportedModelsServiceListSupportedModelsModality2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SupportedModelsServiceListSupportedModelsProduct), TypeInfoPropertyName = "SupportedModelsServiceListSupportedModelsProduct2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelInputModalitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelOutputModalitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelProduct?), TypeInfoPropertyName = "NullableDeSupportedModelProduct2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelFeature?), TypeInfoPropertyName = "NullableDeSupportedModelFeature2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelCapabilitie?), TypeInfoPropertyName = "NullableDeSupportedModelCapabilitie2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelStatus?), TypeInfoPropertyName = "NullableDeSupportedModelStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SupportedModelsServiceListSupportedModelsModality?), TypeInfoPropertyName = "NullableSupportedModelsServiceListSupportedModelsModality2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SupportedModelsServiceListSupportedModelsProduct?), TypeInfoPropertyName = "NullableSupportedModelsServiceListSupportedModelsProduct2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelInputModalitie>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelOutputModalitie>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelProduct>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelFeature>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelCapabilitie>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelDeploymentProfile>))]
-    internal sealed partial class SupportedModelsServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class SupportedModelsServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -106,29 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -141,132 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie?)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelOutputModalitie)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelOutputModalitie?)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelProduct)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelProduct?)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelFeature)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelFeature?)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelCapabilitie)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelCapabilitie?)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelStatus)
-
-                    || typeToConvert == typeof(global::Together.DeSupportedModelStatus?)
-
-                    || typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsModality)
-
-                    || typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsModality?)
-
-                    || typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsProduct)
-
-                    || typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsProduct?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelInputModalitieJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie?))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelInputModalitieNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelOutputModalitie))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelOutputModalitieJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelOutputModalitie?))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelOutputModalitieNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelProduct))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelProductJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelProduct?))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelProductNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelFeature))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelFeatureJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelFeature?))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelFeatureNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelCapabilitie))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelCapabilitieJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelCapabilitie?))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelCapabilitieNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelStatus))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeSupportedModelStatus?))
-                {
-                    return new global::Together.JsonConverters.DeSupportedModelStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsModality))
-                {
-                    return new global::Together.JsonConverters.SupportedModelsServiceListSupportedModelsModalityJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsModality?))
-                {
-                    return new global::Together.JsonConverters.SupportedModelsServiceListSupportedModelsModalityNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsProduct))
-                {
-                    return new global::Together.JsonConverters.SupportedModelsServiceListSupportedModelsProductJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.SupportedModelsServiceListSupportedModelsProduct?))
-                {
-                    return new global::Together.JsonConverters.SupportedModelsServiceListSupportedModelsProductNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -308,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new SupportedModelsServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

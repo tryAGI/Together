@@ -2,58 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVideoBody))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoOutputFormat), TypeInfoPropertyName = "VideoOutputFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoMedia))]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>))]
-    #pragma warning restore CS0618
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoStatus), TypeInfoPropertyName = "VideoStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<double?, global::Together.VideoFrameImageInputFrame?>), TypeInfoPropertyName = "AnyOfDoubleVideoFrameImageInputFrame2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInputFrame), TypeInfoPropertyName = "VideoFrameImageInputFrame2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoRef>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoRef))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.VideoRef>), TypeInfoPropertyName = "OneOfStringVideoRef2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<string, global::Together.AudioRef>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.AudioRef>), TypeInfoPropertyName = "OneOfStringAudioRef2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioRef))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJob))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoJobOutputs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoOutputFormat?), TypeInfoPropertyName = "NullableVideoOutputFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoStatus?), TypeInfoPropertyName = "NullableVideoStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<double?, global::Together.VideoFrameImageInputFrame?>?), TypeInfoPropertyName = "NullableAnyOfDoubleVideoFrameImageInputFrame2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInputFrame?), TypeInfoPropertyName = "NullableVideoFrameImageInputFrame2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.VideoRef>?), TypeInfoPropertyName = "NullableOneOfStringVideoRef2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.AudioRef>?), TypeInfoPropertyName = "NullableOneOfStringAudioRef2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoFrameImageInput>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoRef>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<string, global::Together.AudioRef>>))]
-    internal sealed partial class VideoSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class VideoSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -97,32 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.AnyOfJsonConverter<double?, global::Together.VideoFrameImageInputFrame?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.VideoRef>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.AudioRef>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -135,62 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.VideoStatus)
-
-                    || typeToConvert == typeof(global::Together.VideoStatus?)
-
-                    || typeToConvert == typeof(global::Together.VideoFrameImageInputFrame)
-
-                    || typeToConvert == typeof(global::Together.VideoFrameImageInputFrame?)
-
-                    || typeToConvert == typeof(global::Together.VideoOutputFormat)
-
-                    || typeToConvert == typeof(global::Together.VideoOutputFormat?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.VideoStatus))
-                {
-                    return new global::Together.JsonConverters.VideoStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VideoStatus?))
-                {
-                    return new global::Together.JsonConverters.VideoStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VideoFrameImageInputFrame))
-                {
-                    return new global::Together.JsonConverters.VideoFrameImageInputFrameJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VideoFrameImageInputFrame?))
-                {
-                    return new global::Together.JsonConverters.VideoFrameImageInputFrameNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VideoOutputFormat))
-                {
-                    return new global::Together.JsonConverters.VideoOutputFormatJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.VideoOutputFormat?))
-                {
-                    return new global::Together.JsonConverters.VideoOutputFormatNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -232,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new VideoSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

@@ -12,7 +12,7 @@ namespace Together
         /// ID of the checkpoint
         /// </param>
         /// <param name="variant">
-        /// Checkpoint variant to download: merged (full model) or adapter (LoRA weights only)<br/>
+        /// Files to download. CHECKPOINT_VARIANT_MERGED is the full model with the trained weights applied; CHECKPOINT_VARIANT_ADAPTER is the LoRA adapter weights only, available for checkpoints from LoRA training sessions.<br/>
         /// Default Value: CHECKPOINT_VARIANT_UNSPECIFIED
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -31,7 +31,7 @@ namespace Together
         /// ID of the checkpoint
         /// </param>
         /// <param name="variant">
-        /// Checkpoint variant to download: merged (full model) or adapter (LoRA weights only)<br/>
+        /// Files to download. CHECKPOINT_VARIANT_MERGED is the full model with the trained weights applied; CHECKPOINT_VARIANT_ADAPTER is the LoRA adapter weights only, available for checkpoints from LoRA training sessions.<br/>
         /// Default Value: CHECKPOINT_VARIANT_UNSPECIFIED
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

@@ -2,79 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequestType), TypeInfoPropertyName = "EvaluationTypedRequestType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>), TypeInfoPropertyName = "OneOfEvaluationClassifyParametersEvaluationScoreParametersEvaluationCompareParameters2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationClassifyParameters))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreParameters))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationCompareParameters))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelOrString), TypeInfoPropertyName = "EvaluationModelOrString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationModelRequest, string>), TypeInfoPropertyName = "OneOfEvaluationModelRequestString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfigModelSource), TypeInfoPropertyName = "EvaluationJudgeModelConfigModelSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequestModelSource), TypeInfoPropertyName = "EvaluationModelRequestModelSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponseStatus), TypeInfoPropertyName = "EvaluationResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJob))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobType), TypeInfoPropertyName = "EvaluationJobType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobStatus), TypeInfoPropertyName = "EvaluationJobStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EvaluationJobStatusUpdate>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobStatusUpdate))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>), TypeInfoPropertyName = "OneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResultsEvaluationJobResults2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationClassifyResults))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResults))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationCompareResults))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobResults))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResultsAggregatedScores))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EvaluationJob>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetModelListResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus), TypeInfoPropertyName = "GetEvaluationJobStatusAndResultsResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>), TypeInfoPropertyName = "OneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResults2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequestType?), TypeInfoPropertyName = "NullableEvaluationTypedRequestType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>?), TypeInfoPropertyName = "NullableOneOfEvaluationClassifyParametersEvaluationScoreParametersEvaluationCompareParameters2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelOrString?), TypeInfoPropertyName = "NullableEvaluationModelOrString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationModelRequest, string>?), TypeInfoPropertyName = "NullableOneOfEvaluationModelRequestString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfigModelSource?), TypeInfoPropertyName = "NullableEvaluationJudgeModelConfigModelSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequestModelSource?), TypeInfoPropertyName = "NullableEvaluationModelRequestModelSource2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponseStatus?), TypeInfoPropertyName = "NullableEvaluationResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobType?), TypeInfoPropertyName = "NullableEvaluationJobType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobStatus?), TypeInfoPropertyName = "NullableEvaluationJobStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>?), TypeInfoPropertyName = "NullableOneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResultsEvaluationJobResults2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus?), TypeInfoPropertyName = "NullableGetEvaluationJobStatusAndResultsResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>?), TypeInfoPropertyName = "NullableOneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResults2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJobStatusUpdate>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJob>))]
-    internal sealed partial class EvaluationSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class EvaluationSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -118,35 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.EvaluationModelOrStringJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -159,118 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.EvaluationTypedRequestType)
-
-                    || typeToConvert == typeof(global::Together.EvaluationTypedRequestType?)
-
-                    || typeToConvert == typeof(global::Together.EvaluationJudgeModelConfigModelSource)
-
-                    || typeToConvert == typeof(global::Together.EvaluationJudgeModelConfigModelSource?)
-
-                    || typeToConvert == typeof(global::Together.EvaluationModelRequestModelSource)
-
-                    || typeToConvert == typeof(global::Together.EvaluationModelRequestModelSource?)
-
-                    || typeToConvert == typeof(global::Together.EvaluationResponseStatus)
-
-                    || typeToConvert == typeof(global::Together.EvaluationResponseStatus?)
-
-                    || typeToConvert == typeof(global::Together.EvaluationJobType)
-
-                    || typeToConvert == typeof(global::Together.EvaluationJobType?)
-
-                    || typeToConvert == typeof(global::Together.EvaluationJobStatus)
-
-                    || typeToConvert == typeof(global::Together.EvaluationJobStatus?)
-
-                    || typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus)
-
-                    || typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.EvaluationTypedRequestType))
-                {
-                    return new global::Together.JsonConverters.EvaluationTypedRequestTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationTypedRequestType?))
-                {
-                    return new global::Together.JsonConverters.EvaluationTypedRequestTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationJudgeModelConfigModelSource))
-                {
-                    return new global::Together.JsonConverters.EvaluationJudgeModelConfigModelSourceJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationJudgeModelConfigModelSource?))
-                {
-                    return new global::Together.JsonConverters.EvaluationJudgeModelConfigModelSourceNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationModelRequestModelSource))
-                {
-                    return new global::Together.JsonConverters.EvaluationModelRequestModelSourceJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationModelRequestModelSource?))
-                {
-                    return new global::Together.JsonConverters.EvaluationModelRequestModelSourceNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationResponseStatus))
-                {
-                    return new global::Together.JsonConverters.EvaluationResponseStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationResponseStatus?))
-                {
-                    return new global::Together.JsonConverters.EvaluationResponseStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationJobType))
-                {
-                    return new global::Together.JsonConverters.EvaluationJobTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationJobType?))
-                {
-                    return new global::Together.JsonConverters.EvaluationJobTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationJobStatus))
-                {
-                    return new global::Together.JsonConverters.EvaluationJobStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.EvaluationJobStatus?))
-                {
-                    return new global::Together.JsonConverters.EvaluationJobStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus))
-                {
-                    return new global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus?))
-                {
-                    return new global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -312,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new EvaluationSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

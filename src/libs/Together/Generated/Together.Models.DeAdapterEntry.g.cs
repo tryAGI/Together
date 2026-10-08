@@ -49,6 +49,13 @@ namespace Together
         public string? DesiredRevision { get; set; }
 
         /// <summary>
+        /// Row identifier for this adapter attachment; changes if the adapter is removed and re-added.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Id { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -69,6 +76,9 @@ namespace Together
         /// <param name="etag">
         /// Row-level etag required for UpdateAdapter and RemoveAdapter.
         /// </param>
+        /// <param name="id">
+        /// Row identifier for this adapter attachment; changes if the adapter is removed and re-added.
+        /// </param>
         /// <param name="adapterModel">
         /// Resource name of the adapter model, using projects/{projectId}/models/{adapterModelId}.
         /// </param>
@@ -83,6 +93,7 @@ namespace Together
             string desiredRevisionId,
             global::System.Collections.Generic.IList<global::Together.DeDeploymentAdapterStatus> perCluster,
             string etag,
+            string id,
             string? adapterModel,
             string? desiredRevision)
         {
@@ -92,6 +103,7 @@ namespace Together
             this.Etag = etag ?? throw new global::System.ArgumentNullException(nameof(etag));
             this.AdapterModel = adapterModel;
             this.DesiredRevision = desiredRevision;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
         }
 
         /// <summary>
