@@ -95,6 +95,13 @@ namespace Together
         public required string ModelName { get; set; }
 
         /// <summary>
+        /// Adapter serving mode for deployments created from this profile; omitted when no certified config is pinned.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapterMode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeSupportedModelDeploymentProfileAdapterModeJsonConverter))]
+        public global::Together.DeSupportedModelDeploymentProfileAdapterMode? AdapterMode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -136,6 +143,9 @@ namespace Together
         /// <param name="modelName">
         /// Fully-qualified deploy model name in the form `{projectSlug}/{modelName}`, such as `Qwen/Qwen3.5-9B-FP8`; empty when no public model is linked.
         /// </param>
+        /// <param name="adapterMode">
+        /// Adapter serving mode for deployments created from this profile; omitted when no certified config is pinned.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,7 +160,8 @@ namespace Together
             string config,
             string model,
             string parallelism,
-            string modelName)
+            string modelName,
+            global::Together.DeSupportedModelDeploymentProfileAdapterMode? adapterMode)
         {
             this.ProfileId = profileId ?? throw new global::System.ArgumentNullException(nameof(profileId));
             this.CertifiedConfigRevisionId = certifiedConfigRevisionId ?? throw new global::System.ArgumentNullException(nameof(certifiedConfigRevisionId));
@@ -163,6 +174,7 @@ namespace Together
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
             this.Parallelism = parallelism ?? throw new global::System.ArgumentNullException(nameof(parallelism));
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.AdapterMode = adapterMode;
         }
 
         /// <summary>

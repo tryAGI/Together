@@ -2,43 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.AddOnInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DashboardConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.IngressConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TorchpassConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SlurmWebConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HeadlampConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddOnState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DashboardState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.IngressState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TorchpassState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SlurmWebState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HeadlampState))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnCreateRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnDeleteResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnUpdateRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ClusterAddOnsListResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.AddOnInfo>))]
-    internal sealed partial class InstanceClusterAddOnServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class InstanceClusterAddOnServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -82,28 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -157,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new InstanceClusterAddOnServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

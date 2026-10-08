@@ -17,6 +17,9 @@ namespace Together
         /// <param name="search">
         /// Case-insensitive search across model IDs, names, and descriptions.
         /// </param>
+        /// <param name="adapterMode">
+        /// Filter models to those with a deployment profile in the selected adapter serving mode.
+        /// </param>
         /// <param name="limit">
         /// Maximum number of models to return.
         /// </param>
@@ -30,6 +33,7 @@ namespace Together
             global::Together.SupportedModelsServiceListSupportedModelsModality? modality = default,
             global::Together.SupportedModelsServiceListSupportedModelsProduct? product = default,
             string? search = default,
+            global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? adapterMode = default,
             int? limit = default,
             string? after = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -47,6 +51,9 @@ namespace Together
         /// <param name="search">
         /// Case-insensitive search across model IDs, names, and descriptions.
         /// </param>
+        /// <param name="adapterMode">
+        /// Filter models to those with a deployment profile in the selected adapter serving mode.
+        /// </param>
         /// <param name="limit">
         /// Maximum number of models to return.
         /// </param>
@@ -60,6 +67,7 @@ namespace Together
             global::Together.SupportedModelsServiceListSupportedModelsModality? modality = default,
             global::Together.SupportedModelsServiceListSupportedModelsProduct? product = default,
             string? search = default,
+            global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? adapterMode = default,
             int? limit = default,
             string? after = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,

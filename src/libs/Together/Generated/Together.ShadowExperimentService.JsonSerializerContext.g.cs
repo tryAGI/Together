@@ -2,73 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeleteResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateShadowExperimentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSource))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeCreateShadowExperimentTargetRequest>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCreateShadowExperimentTargetRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateShadowExperimentRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeUpdateShadowExperimentTargetRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListShadowExperimentsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeShadowExperiment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperiment))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListShadowExperimentTargetsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeShadowExperimentTarget>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentTarget))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSourceResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentState), TypeInfoPropertyName = "DeShadowExperimentState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentEndpointSource))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSampling), TypeInfoPropertyName = "DeShadowExperimentSampling2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentEndpointSourceResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingResponse), TypeInfoPropertyName = "DeShadowExperimentSamplingResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingResponseVariant1))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentUniformSamplingResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingResponseVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentKeyBasedSamplingResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingResponseVariant3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentAdaptiveUniformSamplingResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingResponseVariant4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentAdaptiveKeyBasedSamplingResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingVariant1))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentUniformSampling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentKeyBasedSampling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingVariant3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentAdaptiveUniformSampling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingVariant4))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentAdaptiveKeyBasedSampling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentState?), TypeInfoPropertyName = "NullableDeShadowExperimentState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSampling?), TypeInfoPropertyName = "NullableDeShadowExperimentSampling2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeShadowExperimentSamplingResponse?), TypeInfoPropertyName = "NullableDeShadowExperimentSamplingResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeCreateShadowExperimentTargetRequest>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeShadowExperiment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeShadowExperimentTarget>))]
-    internal sealed partial class ShadowExperimentServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class ShadowExperimentServiceSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -112,31 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.DeShadowExperimentSamplingResponseJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.DeShadowExperimentSamplingJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -149,34 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.DeShadowExperimentState)
-
-                    || typeToConvert == typeof(global::Together.DeShadowExperimentState?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.DeShadowExperimentState))
-                {
-                    return new global::Together.JsonConverters.DeShadowExperimentStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DeShadowExperimentState?))
-                {
-                    return new global::Together.JsonConverters.DeShadowExperimentStateNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -218,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new ShadowExperimentServiceSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

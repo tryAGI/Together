@@ -37,7 +37,7 @@ namespace Together
         public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// Model registration details
+        /// Model registry artifacts to deploy or download this checkpoint from. Absent when the checkpoint was not uploaded to the registry.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("registration")]
         public global::Together.RlInferenceCheckpointRegistration? Registration { get; set; }
@@ -64,7 +64,7 @@ namespace Together
         /// Example: 2026-01-02T00:00:00Z
         /// </param>
         /// <param name="registration">
-        /// Model registration details
+        /// Model registry artifacts to deploy or download this checkpoint from. Absent when the checkpoint was not uploaded to the registry.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

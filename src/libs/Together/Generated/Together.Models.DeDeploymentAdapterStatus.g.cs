@@ -100,6 +100,18 @@ namespace Together
         public string? RealizedRevision { get; set; }
 
         /// <summary>
+        /// Optional inference-probe verdict for this adapter on this cluster; absent until validation concludes.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapterValid")]
+        public bool? AdapterValid { get; set; }
+
+        /// <summary>
+        /// Human-readable probe rejection detail when adapterValid is false.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapterValidReason")]
+        public string? AdapterValidReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -150,6 +162,12 @@ namespace Together
         /// <param name="realizedRevision">
         /// Resource name of the adapter model revision currently loaded in this cluster, using projects/{projectId}/models/{adapterModelId}/revisions/{revisionId}.
         /// </param>
+        /// <param name="adapterValid">
+        /// Optional inference-probe verdict for this adapter on this cluster; absent until validation concludes.
+        /// </param>
+        /// <param name="adapterValidReason">
+        /// Human-readable probe rejection detail when adapterValid is false.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -167,7 +185,9 @@ namespace Together
             global::System.DateTime? loadedAt,
             global::System.DateTime? updatedAt,
             string? adapterModel,
-            string? realizedRevision)
+            string? realizedRevision,
+            bool? adapterValid,
+            string? adapterValidReason)
         {
             this.AdapterModelId = adapterModelId ?? throw new global::System.ArgumentNullException(nameof(adapterModelId));
             this.ClusterId = clusterId ?? throw new global::System.ArgumentNullException(nameof(clusterId));
@@ -183,6 +203,8 @@ namespace Together
             this.UpdatedAt = updatedAt;
             this.AdapterModel = adapterModel;
             this.RealizedRevision = realizedRevision;
+            this.AdapterValid = adapterValid;
+            this.AdapterValidReason = adapterValidReason;
         }
 
         /// <summary>

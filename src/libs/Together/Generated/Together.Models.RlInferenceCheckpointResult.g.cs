@@ -9,13 +9,11 @@ namespace Together
     public sealed partial class RlInferenceCheckpointResult
     {
         /// <summary>
-        /// Registered model name for downloading the checkpoint<br/>
-        /// Example: username/Meta-Llama-3-8B-rl-step-42-20260216
+        /// The checkpoint this operation created. The training session lists the same checkpoint in `inference_checkpoints`.
         /// </summary>
-        /// <example>username/Meta-Llama-3-8B-rl-step-42-20260216</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("checkpoint")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public required global::Together.RlInferenceCheckpoint Checkpoint { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -26,17 +24,16 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="RlInferenceCheckpointResult" /> class.
         /// </summary>
-        /// <param name="modelName">
-        /// Registered model name for downloading the checkpoint<br/>
-        /// Example: username/Meta-Llama-3-8B-rl-step-42-20260216
+        /// <param name="checkpoint">
+        /// The checkpoint this operation created. The training session lists the same checkpoint in `inference_checkpoints`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RlInferenceCheckpointResult(
-            string modelName)
+            global::Together.RlInferenceCheckpoint checkpoint)
         {
-            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.Checkpoint = checkpoint ?? throw new global::System.ArgumentNullException(nameof(checkpoint));
         }
 
         /// <summary>

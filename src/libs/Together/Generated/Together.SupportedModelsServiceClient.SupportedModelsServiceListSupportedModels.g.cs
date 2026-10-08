@@ -38,6 +38,7 @@ namespace Together
             ref global::Together.SupportedModelsServiceListSupportedModelsModality? modality,
             ref global::Together.SupportedModelsServiceListSupportedModelsProduct? product,
             ref string? search,
+            ref global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? adapterMode,
             ref int? limit,
             ref string? after);
         partial void PrepareSupportedModelsServiceListSupportedModelsRequest(
@@ -46,6 +47,7 @@ namespace Together
             global::Together.SupportedModelsServiceListSupportedModelsModality? modality,
             global::Together.SupportedModelsServiceListSupportedModelsProduct? product,
             string? search,
+            global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? adapterMode,
             int? limit,
             string? after);
         partial void ProcessSupportedModelsServiceListSupportedModelsResponse(
@@ -70,6 +72,9 @@ namespace Together
         /// <param name="search">
         /// Case-insensitive search across model IDs, names, and descriptions.
         /// </param>
+        /// <param name="adapterMode">
+        /// Filter models to those with a deployment profile in the selected adapter serving mode.
+        /// </param>
         /// <param name="limit">
         /// Maximum number of models to return.
         /// </param>
@@ -83,6 +88,7 @@ namespace Together
             global::Together.SupportedModelsServiceListSupportedModelsModality? modality = default,
             global::Together.SupportedModelsServiceListSupportedModelsProduct? product = default,
             string? search = default,
+            global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? adapterMode = default,
             int? limit = default,
             string? after = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -92,6 +98,7 @@ namespace Together
                 modality: modality,
                 product: product,
                 search: search,
+                adapterMode: adapterMode,
                 limit: limit,
                 after: after,
                 requestOptions: requestOptions,
@@ -113,6 +120,9 @@ namespace Together
         /// <param name="search">
         /// Case-insensitive search across model IDs, names, and descriptions.
         /// </param>
+        /// <param name="adapterMode">
+        /// Filter models to those with a deployment profile in the selected adapter serving mode.
+        /// </param>
         /// <param name="limit">
         /// Maximum number of models to return.
         /// </param>
@@ -126,6 +136,7 @@ namespace Together
             global::Together.SupportedModelsServiceListSupportedModelsModality? modality = default,
             global::Together.SupportedModelsServiceListSupportedModelsProduct? product = default,
             string? search = default,
+            global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? adapterMode = default,
             int? limit = default,
             string? after = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -138,6 +149,7 @@ namespace Together
                 modality: ref modality,
                 product: ref product,
                 search: ref search,
+                adapterMode: ref adapterMode,
                 limit: ref limit,
                 after: ref after);
 
@@ -173,6 +185,7 @@ namespace Together
                                 .AddOptionalParameter("modality", modality?.ToValueString())
                                 .AddOptionalParameter("product", product?.ToValueString())
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("adapterMode", adapterMode?.ToValueString())
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
                                 ;
@@ -219,6 +232,7 @@ namespace Together
                     modality: modality,
                     product: product,
                     search: search,
+                    adapterMode: adapterMode,
                     limit: limit,
                     after: after);
 

@@ -38,10 +38,6 @@ namespace Together
         /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
-        /// <param name="resumeFromHfCheckpoint">
-        /// HuggingFace repo (or hf://) to resume model weights from. Accepts either a full model or a PEFT adapter directory. Mutually exclusive with resume_from_checkpoint_id.<br/>
-        /// Example: your-org/llama-3-8b-finetuned
-        /// </param>
         /// <param name="loraConfig">
         /// LoRA adapter configuration for the session
         /// </param>
@@ -57,7 +53,7 @@ namespace Together
         /// Optional auxiliary metadata to associate with the training session
         /// </param>
         /// <param name="loadOptimizer">
-        /// Whether to restore optimizer state and step from a training checkpoint. Omitted or true restores them; false loads weights only with a fresh optimizer and step 0. Not valid for inference or HuggingFace checkpoints, which have no optimizer state.<br/>
+        /// Whether to restore optimizer state and step from a training checkpoint. Omitted or true restores them; false loads weights only with a fresh optimizer and step 0. Not valid for inference checkpoints, which have no optimizer state.<br/>
         /// Example: true
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +62,6 @@ namespace Together
         global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
             string modelResourcesId,
             string? resumeFromCheckpointId = default,
-            string? resumeFromHfCheckpoint = default,
             global::Together.RlLoraConfig? loraConfig = default,
             string? displayName = default,
             global::Together.RlTrainingSessionMetadata? metadata = default,

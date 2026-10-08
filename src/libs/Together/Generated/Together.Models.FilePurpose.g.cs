@@ -16,6 +16,10 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        Calibration,
+        /// <summary>
+        ///
+        /// </summary>
         Eval,
         /// <summary>
         ///
@@ -36,6 +40,7 @@ namespace Together
             return value switch
             {
                 FilePurpose.BatchApi => "batch-api",
+                FilePurpose.Calibration => "calibration",
                 FilePurpose.Eval => "eval",
                 FilePurpose.FineTune => "fine-tune",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -49,6 +54,7 @@ namespace Together
             return value switch
             {
                 "batch-api" => FilePurpose.BatchApi,
+                "calibration" => FilePurpose.Calibration,
                 "eval" => FilePurpose.Eval,
                 "fine-tune" => FilePurpose.FineTune,
                 _ => null,

@@ -11,6 +11,10 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        Audio,
+        /// <summary>
+        ///
+        /// </summary>
         Chat,
         /// <summary>
         ///
@@ -36,6 +40,14 @@ namespace Together
         ///
         /// </summary>
         Rerank,
+        /// <summary>
+        ///
+        /// </summary>
+        Transcribe,
+        /// <summary>
+        ///
+        /// </summary>
+        Video,
     }
 
     /// <summary>
@@ -50,6 +62,7 @@ namespace Together
         {
             return value switch
             {
+                ModelInfoType.Audio => "audio",
                 ModelInfoType.Chat => "chat",
                 ModelInfoType.Code => "code",
                 ModelInfoType.Embedding => "embedding",
@@ -57,6 +70,8 @@ namespace Together
                 ModelInfoType.Language => "language",
                 ModelInfoType.Moderation => "moderation",
                 ModelInfoType.Rerank => "rerank",
+                ModelInfoType.Transcribe => "transcribe",
+                ModelInfoType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -67,6 +82,7 @@ namespace Together
         {
             return value switch
             {
+                "audio" => ModelInfoType.Audio,
                 "chat" => ModelInfoType.Chat,
                 "code" => ModelInfoType.Code,
                 "embedding" => ModelInfoType.Embedding,
@@ -74,6 +90,8 @@ namespace Together
                 "language" => ModelInfoType.Language,
                 "moderation" => ModelInfoType.Moderation,
                 "rerank" => ModelInfoType.Rerank,
+                "transcribe" => ModelInfoType.Transcribe,
+                "video" => ModelInfoType.Video,
                 _ => null,
             };
         }

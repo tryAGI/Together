@@ -218,6 +218,11 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public ProjectsClient Projects { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public QueueClient Queue { get; }
 
         /// <summary>
@@ -254,6 +259,11 @@ namespace Together
         ///
         /// </summary>
         public ShadowExperimentServiceClient ShadowExperimentService { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ShapingClient Shaping { get; }
 
         /// <summary>
         ///
