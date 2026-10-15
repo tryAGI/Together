@@ -19,7 +19,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.evals.status('eval_id')<br/>
+        /// response = client.evals.status('&lt;EVALUATION_ID&gt;')<br/>
         /// print(response.status)<br/>
         /// print(response.results)
         /// </remarks>
@@ -42,7 +42,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.evals.status('eval_id')<br/>
+        /// response = client.evals.status('&lt;EVALUATION_ID&gt;')<br/>
         /// print(response.status)<br/>
         /// print(response.results)
         /// </remarks>

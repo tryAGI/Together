@@ -67,6 +67,34 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// rollout = client.beta.endpoints.rollouts.create(<br/>
+        ///     "ep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     source_deployment_id="dep_abc123",<br/>
+        ///     target_deployment_id="dep_def456",<br/>
+        ///     canary={<br/>
+        ///         "steps": [{"traffic": 25}, {"traffic": 50}, {"traffic": 100}],<br/>
+        ///         "step_interval": "300s",<br/>
+        ///     },<br/>
+        ///     metrics=[<br/>
+        ///         {<br/>
+        ///             "name": "router_latency",<br/>
+        ///             "stat": "METRIC_STAT_TYPE_PERCENTILE",<br/>
+        ///             "percentile": 95,<br/>
+        ///             "threshold_check": {<br/>
+        ///                 "value": 30000,<br/>
+        ///                 "operator": "THRESHOLD_OPERATOR_LT",<br/>
+        ///             },<br/>
+        ///             "window": "300s",<br/>
+        ///         }<br/>
+        ///     ],<br/>
+        /// )<br/>
+        /// print(rollout.id, rollout.state)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeRollout> RolloutServiceCreateRolloutAsync(
             string projectId,
             string endpointId,
@@ -100,6 +128,34 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// rollout = client.beta.endpoints.rollouts.create(<br/>
+        ///     "ep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     source_deployment_id="dep_abc123",<br/>
+        ///     target_deployment_id="dep_def456",<br/>
+        ///     canary={<br/>
+        ///         "steps": [{"traffic": 25}, {"traffic": 50}, {"traffic": 100}],<br/>
+        ///         "step_interval": "300s",<br/>
+        ///     },<br/>
+        ///     metrics=[<br/>
+        ///         {<br/>
+        ///             "name": "router_latency",<br/>
+        ///             "stat": "METRIC_STAT_TYPE_PERCENTILE",<br/>
+        ///             "percentile": 95,<br/>
+        ///             "threshold_check": {<br/>
+        ///                 "value": 30000,<br/>
+        ///                 "operator": "THRESHOLD_OPERATOR_LT",<br/>
+        ///             },<br/>
+        ///             "window": "300s",<br/>
+        ///         }<br/>
+        ///     ],<br/>
+        /// )<br/>
+        /// print(rollout.id, rollout.state)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeRollout>> RolloutServiceCreateRolloutAsResponseAsync(
             string projectId,
             string endpointId,

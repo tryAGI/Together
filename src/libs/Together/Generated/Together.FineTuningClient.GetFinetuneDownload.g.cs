@@ -81,7 +81,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
-        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="ft-id")<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
         /// with stream as response:<br/>
         ///     for line in response.iter_lines():<br/>
         ///         print(line)
@@ -126,7 +126,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
-        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="ft-id")<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
         /// with stream as response:<br/>
         ///     for line in response.iter_lines():<br/>
         ///         print(line)
@@ -538,7 +538,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
-        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="ft-id")<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
         /// with stream as response:<br/>
         ///     for line in response.iter_lines():<br/>
         ///         print(line)

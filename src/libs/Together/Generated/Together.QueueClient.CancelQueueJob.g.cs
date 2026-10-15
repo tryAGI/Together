@@ -65,6 +65,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// job = client.beta.jig.queue.cancel(<br/>
+        ///     model="my-deployment",<br/>
+        ///     request_id="req_abc123",<br/>
+        /// )<br/>
+        /// print(job.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.QueueCancelResponse> CancelQueueJobAsync(
 
             global::Together.QueueCancelRequest request,
@@ -91,6 +100,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// job = client.beta.jig.queue.cancel(<br/>
+        ///     model="my-deployment",<br/>
+        ///     request_id="req_abc123",<br/>
+        /// )<br/>
+        /// print(job.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.QueueCancelResponse>> CancelQueueJobAsResponseAsync(
 
             global::Together.QueueCancelRequest request,

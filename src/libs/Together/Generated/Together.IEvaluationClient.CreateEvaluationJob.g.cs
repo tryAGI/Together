@@ -19,17 +19,17 @@ namespace Together
         /// )<br/>
         /// response = client.evals.create(<br/>
         ///     type="classify",<br/>
-        ///     parameters=ParametersEvaluationClassifyParameters(<br/>
-        ///         judge=ParametersEvaluationClassifyParametersJudge(<br/>
-        ///             model="openai/gpt-oss-120b",<br/>
-        ///             model_source="serverless",<br/>
-        ///             system_template="You are an expert evaluator...",<br/>
-        ///         ),<br/>
-        ///         input_data_file_path="file-abc123",<br/>
-        ///         labels=["good", "bad"],<br/>
-        ///         pass_labels=["good"],<br/>
-        ///         model_to_evaluate="Qwen/Qwen3.5-9B"<br/>
-        ///     )<br/>
+        ///     parameters={<br/>
+        ///         "judge": {<br/>
+        ///             "model": "openai/gpt-oss-120b",<br/>
+        ///             "model_source": "serverless",<br/>
+        ///             "system_template": "You are an expert evaluator...",<br/>
+        ///         },<br/>
+        ///         "input_data_file_path": "&lt;FILE_ID&gt;",<br/>
+        ///         "labels": ["good", "bad"],<br/>
+        ///         "pass_labels": ["good"],<br/>
+        ///         "model_to_evaluate": "Qwen/Qwen3.5-9B",<br/>
+        ///     },<br/>
         /// )<br/>
         /// print(response.workflow_id)
         /// </remarks>
@@ -53,17 +53,17 @@ namespace Together
         /// )<br/>
         /// response = client.evals.create(<br/>
         ///     type="classify",<br/>
-        ///     parameters=ParametersEvaluationClassifyParameters(<br/>
-        ///         judge=ParametersEvaluationClassifyParametersJudge(<br/>
-        ///             model="openai/gpt-oss-120b",<br/>
-        ///             model_source="serverless",<br/>
-        ///             system_template="You are an expert evaluator...",<br/>
-        ///         ),<br/>
-        ///         input_data_file_path="file-abc123",<br/>
-        ///         labels=["good", "bad"],<br/>
-        ///         pass_labels=["good"],<br/>
-        ///         model_to_evaluate="Qwen/Qwen3.5-9B"<br/>
-        ///     )<br/>
+        ///     parameters={<br/>
+        ///         "judge": {<br/>
+        ///             "model": "openai/gpt-oss-120b",<br/>
+        ///             "model_source": "serverless",<br/>
+        ///             "system_template": "You are an expert evaluator...",<br/>
+        ///         },<br/>
+        ///         "input_data_file_path": "&lt;FILE_ID&gt;",<br/>
+        ///         "labels": ["good", "bad"],<br/>
+        ///         "pass_labels": ["good"],<br/>
+        ///         "model_to_evaluate": "Qwen/Qwen3.5-9B",<br/>
+        ///     },<br/>
         /// )<br/>
         /// print(response.workflow_id)
         /// </remarks>

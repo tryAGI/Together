@@ -77,6 +77,28 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// deployment = client.beta.endpoints.deployments.update(<br/>
+        ///     "dep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     autoscaling={<br/>
+        ///         "min_replicas": 1,<br/>
+        ///         "max_replicas": 4,<br/>
+        ///         "scaling_metrics": [<br/>
+        ///             {<br/>
+        ///                 "name": "gpu_utilization",<br/>
+        ///                 "target": 70,<br/>
+        ///                 "type": "METRIC_TARGET_TYPE_UTILIZATION",<br/>
+        ///             }<br/>
+        ///         ],<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(deployment.autoscaling)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeDeployment> DeploymentServiceUpdateDeploymentAsync(
             string projectId,
             string endpointId,
@@ -120,6 +142,28 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// deployment = client.beta.endpoints.deployments.update(<br/>
+        ///     "dep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     autoscaling={<br/>
+        ///         "min_replicas": 1,<br/>
+        ///         "max_replicas": 4,<br/>
+        ///         "scaling_metrics": [<br/>
+        ///             {<br/>
+        ///                 "name": "gpu_utilization",<br/>
+        ///                 "target": 70,<br/>
+        ///                 "type": "METRIC_TARGET_TYPE_UTILIZATION",<br/>
+        ///             }<br/>
+        ///         ],<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(deployment.autoscaling)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeDeployment>> DeploymentServiceUpdateDeploymentAsResponseAsync(
             string projectId,
             string endpointId,

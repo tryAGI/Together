@@ -179,6 +179,7 @@ namespace Together
         ///                     print(f"Received audio chunk for item {data['item_id']}")<br/>
         ///                 elif data["type"] == "conversation.item.audio_output.done":<br/>
         ///                     print(f"Audio generation complete for item {data['item_id']}")<br/>
+        ///                     break<br/>
         ///                 elif data["type"] == "conversation.item.tts.failed":<br/>
         ///                     error = data.get("error", {})<br/>
         ///                     print(f"Error: {error.get('message')}")<br/>
@@ -373,6 +374,7 @@ namespace Together
         ///                     print(f"Received audio chunk for item {data['item_id']}")<br/>
         ///                 elif data["type"] == "conversation.item.audio_output.done":<br/>
         ///                     print(f"Audio generation complete for item {data['item_id']}")<br/>
+        ///                     break<br/>
         ///                 elif data["type"] == "conversation.item.tts.failed":<br/>
         ///                     error = data.get("error", {})<br/>
         ///                     print(f"Error: {error.get('message')}")<br/>

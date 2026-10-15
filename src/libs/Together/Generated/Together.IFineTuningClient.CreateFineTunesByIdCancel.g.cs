@@ -20,7 +20,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.fine_tuning.cancel(id="ft-id")<br/>
+        /// response = client.fine_tuning.cancel(id="&lt;JOB_ID&gt;")<br/>
         /// print(response)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponseTruncated> CreateFineTunesByIdCancelAsync(
@@ -43,7 +43,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.fine_tuning.cancel(id="ft-id")<br/>
+        /// response = client.fine_tuning.cancel(id="&lt;JOB_ID&gt;")<br/>
         /// print(response)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneResponseTruncated>> CreateFineTunesByIdCancelAsResponseAsync(

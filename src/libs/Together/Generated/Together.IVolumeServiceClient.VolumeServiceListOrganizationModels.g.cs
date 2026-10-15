@@ -20,6 +20,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// organization_id = client.whoami().organization_id<br/>
+        /// for model in client.beta.models.list_org_scoped(organization_id):<br/>
+        ///     print(model.id, model.name)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListModelsResponse> VolumeServiceListOrganizationModelsAsync(
             string organizationId,
             int? limit = default,
@@ -42,6 +49,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// organization_id = client.whoami().organization_id<br/>
+        /// for model in client.beta.models.list_org_scoped(organization_id):<br/>
+        ///     print(model.id, model.name)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListModelsResponse>> VolumeServiceListOrganizationModelsAsResponseAsync(
             string organizationId,
             int? limit = default,

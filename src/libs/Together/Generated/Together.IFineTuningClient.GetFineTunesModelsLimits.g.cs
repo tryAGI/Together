@@ -15,8 +15,12 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// curl "https://api.together.ai/v1/fine-tunes/models/limits?model_name=meta-llama/Meta-Llama-3.1-8B-Instruct-Reference" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// limits = client.fine_tuning.model_limits(<br/>
+        ///     model_name="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
+        /// )<br/>
+        /// print(limits)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FineTuneModelLimits> GetFineTunesModelsLimitsAsync(
             string modelName,
@@ -33,8 +37,12 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// curl "https://api.together.ai/v1/fine-tunes/models/limits?model_name=meta-llama/Meta-Llama-3.1-8B-Instruct-Reference" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// limits = client.fine_tuning.model_limits(<br/>
+        ///     model_name="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
+        /// )<br/>
+        /// print(limits)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FineTuneModelLimits>> GetFineTunesModelsLimitsAsResponseAsync(
             string modelName,

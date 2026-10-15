@@ -21,7 +21,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// tokenized_dataset = client.fine_tuning.retrieve_tokenized_dataset(<br/>
-        ///     id="ft-id",<br/>
+        ///     id="&lt;JOB_ID&gt;",<br/>
         /// )<br/>
         /// print(tokenized_dataset.url)<br/>
         /// print(tokenized_dataset.filename)<br/>
@@ -48,7 +48,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// tokenized_dataset = client.fine_tuning.retrieve_tokenized_dataset(<br/>
-        ///     id="ft-id",<br/>
+        ///     id="&lt;JOB_ID&gt;",<br/>
         /// )<br/>
         /// print(tokenized_dataset.url)<br/>
         /// print(tokenized_dataset.filename)<br/>

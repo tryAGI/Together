@@ -65,8 +65,8 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.videos.retrieve(video_id)<br/>
-        /// print(response.id)
+        /// response = client.videos.retrieve("&lt;VIDEO_ID&gt;")<br/>
+        /// print(response.status)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.VideoJob> RetrieveVideoAsync(
             string id,
@@ -97,8 +97,8 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.videos.retrieve(video_id)<br/>
-        /// print(response.id)
+        /// response = client.videos.retrieve("&lt;VIDEO_ID&gt;")<br/>
+        /// print(response.status)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VideoJob>> RetrieveVideoAsResponseAsync(
             string id,

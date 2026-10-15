@@ -21,7 +21,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// endpoint = client.endpoints.retrieve("endpoint-id")<br/>
+        /// endpoint = client.endpoints.retrieve("&lt;ENDPOINT_ID&gt;")<br/>
         /// print(endpoint.id)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DedicatedEndpoint> GetEndpointAsync(
@@ -45,7 +45,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// endpoint = client.endpoints.retrieve("endpoint-id")<br/>
+        /// endpoint = client.endpoints.retrieve("&lt;ENDPOINT_ID&gt;")<br/>
         /// print(endpoint.id)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DedicatedEndpoint>> GetEndpointAsResponseAsync(

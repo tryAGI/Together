@@ -70,7 +70,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.files.delete(id="file-id")<br/>
+        /// response = client.files.delete(id="&lt;FILE_ID&gt;")<br/>
         /// print(response)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.FileDeleteResponse> DeleteFilesByIdAsync(
@@ -102,7 +102,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.files.delete(id="file-id")<br/>
+        /// response = client.files.delete(id="&lt;FILE_ID&gt;")<br/>
         /// print(response)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FileDeleteResponse>> DeleteFilesByIdAsResponseAsync(

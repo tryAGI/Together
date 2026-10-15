@@ -26,6 +26,20 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// # Configurations are listed per model. A supported model's base_model is<br/>
+        /// # the resource name to pass as reference_model.<br/>
+        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
+        /// configs = client.beta.models.configs.list(<br/>
+        ///     project_id=project_id,<br/>
+        ///     reference_model=model.base_model,<br/>
+        /// )<br/>
+        /// for config in configs:<br/>
+        ///     print(config.id, config.reference_model)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListProjectConfigsResponse> ConfigServiceListProjectConfigsAsync(
             string projectId,
             string? referenceModelId = default,
@@ -56,6 +70,20 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// # Configurations are listed per model. A supported model's base_model is<br/>
+        /// # the resource name to pass as reference_model.<br/>
+        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
+        /// configs = client.beta.models.configs.list(<br/>
+        ///     project_id=project_id,<br/>
+        ///     reference_model=model.base_model,<br/>
+        /// )<br/>
+        /// for config in configs:<br/>
+        ///     print(config.id, config.reference_model)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListProjectConfigsResponse>> ConfigServiceListProjectConfigsAsResponseAsync(
             string projectId,
             string? referenceModelId = default,

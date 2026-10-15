@@ -20,6 +20,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// remediation = client.clusters.remediations.create(<br/>
+        ///     "&lt;INSTANCE_ID&gt;",<br/>
+        ///     cluster_id="&lt;CLUSTER_ID&gt;",<br/>
+        ///     mode="REMEDIATION_MODE_VM_ONLY",<br/>
+        ///     reason="Repeated GPU Xid errors",<br/>
+        /// )<br/>
+        /// print(remediation.id, remediation.state)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.Remediation> RemediationServiceCreateRemediationAsync(
             string clusterId,
             string instanceId,
@@ -44,6 +55,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// remediation = client.clusters.remediations.create(<br/>
+        ///     "&lt;INSTANCE_ID&gt;",<br/>
+        ///     cluster_id="&lt;CLUSTER_ID&gt;",<br/>
+        ///     mode="REMEDIATION_MODE_VM_ONLY",<br/>
+        ///     reason="Repeated GPU Xid errors",<br/>
+        /// )<br/>
+        /// print(remediation.id, remediation.state)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.Remediation>> RemediationServiceCreateRemediationAsResponseAsync(
             string clusterId,
             string instanceId,

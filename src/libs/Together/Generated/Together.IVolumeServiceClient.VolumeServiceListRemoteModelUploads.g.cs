@@ -20,6 +20,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// for job in client.beta.models.remote_uploads.list(project_id=project_id):<br/>
+        ///     print(job.id, job.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListRemoteUploadsResponse> VolumeServiceListRemoteModelUploadsAsync(
             string projectId,
             int? limit = default,
@@ -42,6 +49,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// for job in client.beta.models.remote_uploads.list(project_id=project_id):<br/>
+        ///     print(job.id, job.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListRemoteUploadsResponse>> VolumeServiceListRemoteModelUploadsAsResponseAsync(
             string projectId,
             int? limit = default,

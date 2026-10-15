@@ -15,6 +15,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// model = client.beta.models.create(<br/>
+        ///     project_id=project_id,<br/>
+        ///     type="adapter",<br/>
+        ///     name="my-lora-adapter",<br/>
+        ///     base_model_id="ml_abc123",<br/>
+        /// )<br/>
+        /// print(model.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeModel> VolumeServiceCreateModelAsync(
             string projectId,
 
@@ -32,6 +44,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// model = client.beta.models.create(<br/>
+        ///     project_id=project_id,<br/>
+        ///     type="adapter",<br/>
+        ///     name="my-lora-adapter",<br/>
+        ///     base_model_id="ml_abc123",<br/>
+        /// )<br/>
+        /// print(model.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeModel>> VolumeServiceCreateModelAsResponseAsync(
             string projectId,
 

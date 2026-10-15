@@ -64,6 +64,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// client.beta.models.delete("ml_abc123", project_id=project_id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeDeleteResponse> VolumeServiceDeleteModelAsync(
             string projectId,
             string id,
@@ -92,6 +98,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// client.beta.models.delete("ml_abc123", project_id=project_id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeDeleteResponse>> VolumeServiceDeleteModelAsResponseAsync(
             string projectId,
             string id,

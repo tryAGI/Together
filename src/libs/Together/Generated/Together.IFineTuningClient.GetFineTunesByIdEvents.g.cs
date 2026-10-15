@@ -20,7 +20,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.fine_tuning.list_events(id="ft-id")<br/>
+        /// response = client.fine_tuning.list_events(id="&lt;JOB_ID&gt;")<br/>
         /// for event in response.data:<br/>
         ///     print(event)
         /// </remarks>
@@ -44,7 +44,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.fine_tuning.list_events(id="ft-id")<br/>
+        /// response = client.fine_tuning.list_events(id="&lt;JOB_ID&gt;")<br/>
         /// for event in response.data:<br/>
         ///     print(event)
         /// </remarks>

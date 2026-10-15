@@ -84,6 +84,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// deployments = client.beta.endpoints.deployments.list(<br/>
+        ///     "ep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        /// )<br/>
+        /// for deployment in deployments:<br/>
+        ///     print(deployment.id, deployment.name, deployment.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListDeploymentsResponse> DeploymentServiceListDeploymentsAsync(
             string projectId,
             string endpointId,
@@ -132,6 +143,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// deployments = client.beta.endpoints.deployments.list(<br/>
+        ///     "ep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        /// )<br/>
+        /// for deployment in deployments:<br/>
+        ///     print(deployment.id, deployment.name, deployment.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListDeploymentsResponse>> DeploymentServiceListDeploymentsAsResponseAsync(
             string projectId,
             string endpointId,

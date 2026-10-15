@@ -70,7 +70,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// file = client.files.retrieve(id="file-id")<br/>
+        /// file = client.files.retrieve(id="&lt;FILE_ID&gt;")<br/>
         /// print(file)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.FileResponse> GetFilesByIdAsync(
@@ -102,7 +102,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// file = client.files.retrieve(id="file-id")<br/>
+        /// file = client.files.retrieve(id="&lt;FILE_ID&gt;")<br/>
         /// print(file)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FileResponse>> GetFilesByIdAsResponseAsync(

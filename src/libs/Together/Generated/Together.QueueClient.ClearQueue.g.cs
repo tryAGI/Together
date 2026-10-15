@@ -62,6 +62,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// result = client.beta.jig.queue.clear(model="my-deployment")<br/>
+        /// print(result)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.QueueClearResponse> ClearQueueAsync(
 
             global::Together.QueueClearRequest request,
@@ -85,6 +91,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// result = client.beta.jig.queue.clear(model="my-deployment")<br/>
+        /// print(result)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.QueueClearResponse>> ClearQueueAsResponseAsync(
 
             global::Together.QueueClearRequest request,

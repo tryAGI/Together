@@ -26,6 +26,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// experiments = client.beta.endpoints.shadow_experiments.list(<br/>
+        ///     "ep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     include_targets=True,<br/>
+        /// )<br/>
+        /// for experiment in experiments:<br/>
+        ///     print(experiment.id, experiment.name)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListShadowExperimentsResponse> ShadowExperimentServiceListShadowExperimentsAsync(
             string projectId,
             string endpointId,
@@ -56,6 +68,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// experiments = client.beta.endpoints.shadow_experiments.list(<br/>
+        ///     "ep_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     include_targets=True,<br/>
+        /// )<br/>
+        /// for experiment in experiments:<br/>
+        ///     print(experiment.id, experiment.name)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListShadowExperimentsResponse>> ShadowExperimentServiceListShadowExperimentsAsResponseAsync(
             string projectId,
             string endpointId,

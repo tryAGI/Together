@@ -54,6 +54,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// instance_types = client.beta.endpoints.hardware.list()<br/>
+        /// for instance_type in instance_types.data:<br/>
+        ///     print(instance_type.name, instance_type.price_cents_per_hour)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListInferenceInstanceTypesResponse> InstanceTypeServiceListInferenceInstanceTypesAsync(
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -72,6 +79,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// instance_types = client.beta.endpoints.hardware.list()<br/>
+        /// for instance_type in instance_types.data:<br/>
+        ///     print(instance_type.name, instance_type.price_cents_per_hour)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListInferenceInstanceTypesResponse>> InstanceTypeServiceListInferenceInstanceTypesAsResponseAsync(
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

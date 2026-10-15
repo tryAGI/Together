@@ -20,7 +20,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// fine_tune = client.fine_tuning.retrieve(id="ft-id")<br/>
+        /// fine_tune = client.fine_tuning.retrieve(id="&lt;JOB_ID&gt;")<br/>
         /// print(fine_tune)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FinetuneResponse> GetFineTunesByIdAsync(
@@ -43,7 +43,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// fine_tune = client.fine_tuning.retrieve(id="ft-id")<br/>
+        /// fine_tune = client.fine_tuning.retrieve(id="&lt;JOB_ID&gt;")<br/>
         /// print(fine_tune)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneResponse>> GetFineTunesByIdAsResponseAsync(

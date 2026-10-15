@@ -72,7 +72,7 @@ namespace Together
         /// )<br/>
         /// endpoint = client.endpoints.create(<br/>
         ///     model="Qwen/Qwen3.5-9B-FP8",<br/>
-        ///     hardware="1x_nvidia_a100_80gb_sxm",<br/>
+        ///     hardware="1x_nvidia_h100_80gb_sxm",<br/>
         ///     autoscaling={<br/>
         ///       "min_replicas": 2,<br/>
         ///       "max_replicas": 5,<br/>
@@ -111,7 +111,7 @@ namespace Together
         /// )<br/>
         /// endpoint = client.endpoints.create(<br/>
         ///     model="Qwen/Qwen3.5-9B-FP8",<br/>
-        ///     hardware="1x_nvidia_a100_80gb_sxm",<br/>
+        ///     hardware="1x_nvidia_h100_80gb_sxm",<br/>
         ///     autoscaling={<br/>
         ///       "min_replicas": 2,<br/>
         ///       "max_replicas": 5,<br/>

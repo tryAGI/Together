@@ -22,7 +22,7 @@ namespace Together
         /// )<br/>
         /// response = client.fine_tuning.create(<br/>
         ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="file-id"<br/>
+        ///     training_file="&lt;FILE_ID&gt;"<br/>
         /// )<br/>
         /// print(response)
         /// </remarks>
@@ -47,7 +47,7 @@ namespace Together
         /// )<br/>
         /// response = client.fine_tuning.create(<br/>
         ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="file-id"<br/>
+        ///     training_file="&lt;FILE_ID&gt;"<br/>
         /// )<br/>
         /// print(response)
         /// </remarks>

@@ -87,7 +87,7 @@ namespace Together
         ///     }<br/>
         /// ]<br/>
         /// response = client.rerank.create(<br/>
-        ///     model="Salesforce/Llama-Rank-v1",<br/>
+        ///     model="mixedbread-ai/mxbai-rerank-large-v2",<br/>
         ///     query="What animals can I find near Peru?",<br/>
         ///     documents=documents,<br/>
         /// )<br/>
@@ -144,7 +144,7 @@ namespace Together
         ///     }<br/>
         /// ]<br/>
         /// response = client.rerank.create(<br/>
-        ///     model="Salesforce/Llama-Rank-v1",<br/>
+        ///     model="mixedbread-ai/mxbai-rerank-large-v2",<br/>
         ///     query="What animals can I find near Peru?",<br/>
         ///     documents=documents,<br/>
         /// )<br/>

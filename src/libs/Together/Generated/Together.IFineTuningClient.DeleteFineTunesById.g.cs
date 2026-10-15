@@ -24,7 +24,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.fine_tuning.delete(id="ft-id")<br/>
+        /// response = client.fine_tuning.delete(id="&lt;JOB_ID&gt;")<br/>
         /// print(response)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FinetuneDeleteResponse> DeleteFineTunesByIdAsync(
@@ -52,7 +52,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.fine_tuning.delete(id="ft-id")<br/>
+        /// response = client.fine_tuning.delete(id="&lt;JOB_ID&gt;")<br/>
         /// print(response)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneDeleteResponse>> DeleteFineTunesByIdAsResponseAsync(

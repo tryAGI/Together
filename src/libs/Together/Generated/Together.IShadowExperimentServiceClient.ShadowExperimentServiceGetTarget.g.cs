@@ -23,6 +23,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// target = client.beta.endpoints.shadow_experiments.targets.retrieve(<br/>
+        ///     "tgt_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     experiment_id="exp_abc123",<br/>
+        /// )<br/>
+        /// print(target.name, target.target_deployment_id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeShadowExperimentTarget> ShadowExperimentServiceGetTargetAsync(
             string projectId,
             string endpointId,
@@ -49,6 +61,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// target = client.beta.endpoints.shadow_experiments.targets.retrieve(<br/>
+        ///     "tgt_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     experiment_id="exp_abc123",<br/>
+        /// )<br/>
+        /// print(target.name, target.target_deployment_id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeShadowExperimentTarget>> ShadowExperimentServiceGetTargetAsResponseAsync(
             string projectId,
             string endpointId,

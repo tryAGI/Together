@@ -68,7 +68,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// batch = client.batches.create(input_file_id="file_id", endpoint="/v1/chat/completions")<br/>
+        /// batch = client.batches.create(input_file_id="&lt;FILE_ID&gt;", endpoint="/v1/chat/completions")<br/>
         /// print(batch.job)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.BatchJobWithWarning> CreateBatchesAsync(
@@ -100,7 +100,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// batch = client.batches.create(input_file_id="file_id", endpoint="/v1/chat/completions")<br/>
+        /// batch = client.batches.create(input_file_id="&lt;FILE_ID&gt;", endpoint="/v1/chat/completions")<br/>
         /// print(batch.job)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.BatchJobWithWarning>> CreateBatchesAsResponseAsync(

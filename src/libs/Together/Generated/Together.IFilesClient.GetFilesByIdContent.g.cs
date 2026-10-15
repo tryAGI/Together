@@ -20,7 +20,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// with client.files.with_streaming_response.content(id="file-id") as response:<br/>
+        /// with client.files.with_streaming_response.content(id="&lt;FILE_ID&gt;") as response:<br/>
         ///   for line in response.iter_lines():<br/>
         ///     print(line)
         /// </remarks>
@@ -44,7 +44,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// with client.files.with_streaming_response.content(id="file-id") as response:<br/>
+        /// with client.files.with_streaming_response.content(id="&lt;FILE_ID&gt;") as response:<br/>
         ///   for line in response.iter_lines():<br/>
         ///     print(line)
         /// </remarks>
@@ -68,7 +68,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// with client.files.with_streaming_response.content(id="file-id") as response:<br/>
+        /// with client.files.with_streaming_response.content(id="&lt;FILE_ID&gt;") as response:<br/>
         ///   for line in response.iter_lines():<br/>
         ///     print(line)
         /// </remarks>

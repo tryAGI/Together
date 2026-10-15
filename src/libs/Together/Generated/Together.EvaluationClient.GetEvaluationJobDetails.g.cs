@@ -69,7 +69,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.evals.retrieve('eval_id')<br/>
+        /// response = client.evals.retrieve('&lt;EVALUATION_ID&gt;')<br/>
         /// print(response)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.EvaluationJob> GetEvaluationJobDetailsAsync(
@@ -100,7 +100,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.evals.retrieve('eval_id')<br/>
+        /// response = client.evals.retrieve('&lt;EVALUATION_ID&gt;')<br/>
         /// print(response)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.EvaluationJob>> GetEvaluationJobDetailsAsResponseAsync(

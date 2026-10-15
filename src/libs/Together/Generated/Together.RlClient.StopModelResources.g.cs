@@ -70,6 +70,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// resource = client.post_training.model_resources.stop("&lt;MODEL_RESOURCES_ID&gt;")<br/>
+        /// print(resource.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlModelResources> StopModelResourcesAsync(
             string modelResourcesId,
             bool? force = default,
@@ -99,6 +105,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// resource = client.post_training.model_resources.stop("&lt;MODEL_RESOURCES_ID&gt;")<br/>
+        /// print(resource.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlModelResources>> StopModelResourcesAsResponseAsync(
             string modelResourcesId,
             bool? force = default,
