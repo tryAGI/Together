@@ -21,7 +21,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// response = client.videos.create(<br/>
-        ///     model="together/video-model",<br/>
+        ///     model="minimax/video-01-director",<br/>
         ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
         /// )<br/>
         /// print(response.id)
@@ -46,7 +46,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// response = client.videos.create(<br/>
-        ///     model="together/video-model",<br/>
+        ///     model="minimax/video-01-director",<br/>
         ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
         /// )<br/>
         /// print(response.id)

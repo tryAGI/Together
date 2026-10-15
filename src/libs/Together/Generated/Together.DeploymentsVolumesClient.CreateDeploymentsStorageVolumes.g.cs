@@ -65,8 +65,14 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volumes = client.beta.jig.volumes.create(name="my-volume")<br/>
-        /// print(volumes)
+        /// # Files uploaded under source_prefix are loaded into the volume.<br/>
+        /// # `tg beta jig volumes create` uploads them and creates the volume for you.<br/>
+        /// volume = client.beta.jig.volumes.create(<br/>
+        ///     name="my-volume",<br/>
+        ///     type="readOnly",<br/>
+        ///     content={"type": "files", "source_prefix": "my-volume/0"},<br/>
+        /// )<br/>
+        /// print(volume.id)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> CreateDeploymentsStorageVolumesAsync(
 
@@ -94,8 +100,14 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volumes = client.beta.jig.volumes.create(name="my-volume")<br/>
-        /// print(volumes)
+        /// # Files uploaded under source_prefix are loaded into the volume.<br/>
+        /// # `tg beta jig volumes create` uploads them and creates the volume for you.<br/>
+        /// volume = client.beta.jig.volumes.create(<br/>
+        ///     name="my-volume",<br/>
+        ///     type="readOnly",<br/>
+        ///     content={"type": "files", "source_prefix": "my-volume/0"},<br/>
+        /// )<br/>
+        /// print(volume.id)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VolumeResponseItem>> CreateDeploymentsStorageVolumesAsResponseAsync(
 

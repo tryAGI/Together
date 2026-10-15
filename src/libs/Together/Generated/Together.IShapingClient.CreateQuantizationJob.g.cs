@@ -12,6 +12,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// job = client.post_training.prepare_for_fp4_inference.create(<br/>
+        ///     inputs={<br/>
+        ///         "adapter_object_id": "ml_abc123",<br/>
+        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(job.id, job.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.QuantizationJob> CreateQuantizationJobAsync(
 
             global::Together.QuantizationRequest request,
@@ -25,6 +36,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// job = client.post_training.prepare_for_fp4_inference.create(<br/>
+        ///     inputs={<br/>
+        ///         "adapter_object_id": "ml_abc123",<br/>
+        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(job.id, job.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.QuantizationJob>> CreateQuantizationJobAsResponseAsync(
 
             global::Together.QuantizationRequest request,

@@ -20,8 +20,14 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// curl -X GET "https://api.together.ai/v1/fine-tunes/ft-id/metrics?global_step_from=0&amp;global_step_to=500" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// metrics = client.fine_tuning.list_metrics(<br/>
+        ///     "&lt;JOB_ID&gt;",<br/>
+        ///     global_step_from=0,<br/>
+        ///     global_step_to=500,<br/>
+        /// )<br/>
+        /// print(metrics)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GetFineTunesMetricsResponse> GetFineTunesByIdMetricsAsync(
             string id,
@@ -48,8 +54,14 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// curl -X GET "https://api.together.ai/v1/fine-tunes/ft-id/metrics?global_step_from=0&amp;global_step_to=500" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// metrics = client.fine_tuning.list_metrics(<br/>
+        ///     "&lt;JOB_ID&gt;",<br/>
+        ///     global_step_from=0,<br/>
+        ///     global_step_to=500,<br/>
+        /// )<br/>
+        /// print(metrics)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GetFineTunesMetricsResponse>> GetFineTunesByIdMetricsAsResponseAsync(
             string id,

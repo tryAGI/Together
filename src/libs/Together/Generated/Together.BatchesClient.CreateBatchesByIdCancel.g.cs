@@ -71,7 +71,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// batch = client.batches.cancel("batch_id")<br/>
+        /// batch = client.batches.cancel("&lt;BATCH_ID&gt;")<br/>
         /// print(batch)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.BatchJob> CreateBatchesByIdCancelAsync(
@@ -104,7 +104,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// batch = client.batches.cancel("batch_id")<br/>
+        /// batch = client.batches.cancel("&lt;BATCH_ID&gt;")<br/>
         /// print(batch)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.BatchJob>> CreateBatchesByIdCancelAsResponseAsync(

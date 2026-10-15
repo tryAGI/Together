@@ -196,7 +196,7 @@ namespace Together
         ///         "Authorization": f"Bearer {api_key}"<br/>
         ///     }<br/>
         ///     async with websockets.connect(url, additional_headers=headers) as ws:<br/>
-        ///         # Read audio file<br/>
+        ///         # audio.wav must be 16 kHz, 16-bit mono PCM to match input_audio_format<br/>
         ///         with open("audio.wav", "rb") as f:<br/>
         ///             audio_data = f.read()<br/>
         ///         # Send audio in chunks with delay to simulate real-time<br/>
@@ -389,7 +389,7 @@ namespace Together
         ///         "Authorization": f"Bearer {api_key}"<br/>
         ///     }<br/>
         ///     async with websockets.connect(url, additional_headers=headers) as ws:<br/>
-        ///         # Read audio file<br/>
+        ///         # audio.wav must be 16 kHz, 16-bit mono PCM to match input_audio_format<br/>
         ///         with open("audio.wav", "rb") as f:<br/>
         ///             audio_data = f.read()<br/>
         ///         # Send audio in chunks with delay to simulate real-time<br/>

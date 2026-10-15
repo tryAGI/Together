@@ -15,6 +15,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Point the volume at a new version of its files. The CLI's<br/>
+        /// # `tg beta jig volumes update` uploads the files and makes this call for you.<br/>
+        /// volume = client.beta.jig.volumes.update(<br/>
+        ///     "my-volume",<br/>
+        ///     content={"type": "files", "source_prefix": "my-volume/1"},<br/>
+        /// )<br/>
+        /// print(volume.current_version)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> EditDeploymentsStorageVolumesByIdAsync(
             string id,
 
@@ -32,6 +43,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Point the volume at a new version of its files. The CLI's<br/>
+        /// # `tg beta jig volumes update` uploads the files and makes this call for you.<br/>
+        /// volume = client.beta.jig.volumes.update(<br/>
+        ///     "my-volume",<br/>
+        ///     content={"type": "files", "source_prefix": "my-volume/1"},<br/>
+        /// )<br/>
+        /// print(volume.current_version)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VolumeResponseItem>> EditDeploymentsStorageVolumesByIdAsResponseAsync(
             string id,
 

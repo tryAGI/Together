@@ -13,6 +13,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
+        /// import os<br/>
         /// from together import Together<br/>
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
@@ -38,6 +39,7 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
+        /// import os<br/>
         /// from together import Together<br/>
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>

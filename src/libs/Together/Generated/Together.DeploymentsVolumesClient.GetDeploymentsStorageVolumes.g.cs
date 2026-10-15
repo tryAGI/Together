@@ -62,7 +62,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volumes = client.beta.jig.storage.volumes.list()<br/>
+        /// volumes = client.beta.jig.volumes.list()<br/>
         /// print(volumes)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.ListVolumesResponse> GetDeploymentsStorageVolumesAsync(
@@ -86,7 +86,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volumes = client.beta.jig.storage.volumes.list()<br/>
+        /// volumes = client.beta.jig.volumes.list()<br/>
         /// print(volumes)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.ListVolumesResponse>> GetDeploymentsStorageVolumesAsResponseAsync(

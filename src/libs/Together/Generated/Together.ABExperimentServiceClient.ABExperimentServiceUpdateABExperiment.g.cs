@@ -77,6 +77,30 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// experiment = client.beta.endpoints.ab_experiments.update(<br/>
+        ///     "abx_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     update_mask="members",<br/>
+        ///     members=[<br/>
+        ///         {<br/>
+        ///             "deployment_id": "dep_abc123",<br/>
+        ///             "role": "AB_EXPERIMENT_MEMBER_ROLE_CONTROL",<br/>
+        ///             "percent": 50,<br/>
+        ///         },<br/>
+        ///         {<br/>
+        ///             "deployment_id": "dep_def456",<br/>
+        ///             "role": "AB_EXPERIMENT_MEMBER_ROLE_VARIANT",<br/>
+        ///             "percent": 50,<br/>
+        ///         },<br/>
+        ///     ],<br/>
+        /// )<br/>
+        /// print(experiment.members)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeABExperiment> ABExperimentServiceUpdateABExperimentAsync(
             string projectId,
             string endpointId,
@@ -120,6 +144,30 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// experiment = client.beta.endpoints.ab_experiments.update(<br/>
+        ///     "abx_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     update_mask="members",<br/>
+        ///     members=[<br/>
+        ///         {<br/>
+        ///             "deployment_id": "dep_abc123",<br/>
+        ///             "role": "AB_EXPERIMENT_MEMBER_ROLE_CONTROL",<br/>
+        ///             "percent": 50,<br/>
+        ///         },<br/>
+        ///         {<br/>
+        ///             "deployment_id": "dep_def456",<br/>
+        ///             "role": "AB_EXPERIMENT_MEMBER_ROLE_VARIANT",<br/>
+        ///             "percent": 50,<br/>
+        ///         },<br/>
+        ///     ],<br/>
+        /// )<br/>
+        /// print(experiment.members)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeABExperiment>> ABExperimentServiceUpdateABExperimentAsResponseAsync(
             string projectId,
             string endpointId,

@@ -71,8 +71,9 @@ namespace Together
         ///         {"role": "system", "content": "You are a helpful assistant."},<br/>
         ///         {"role": "user", "content": "What are some fun things to do in New York?"},<br/>
         ///     ],<br/>
-        ///     reasoning={"enabled": False}<br/>
-        /// )
+        ///     reasoning={"enabled": False},<br/>
+        /// )<br/>
+        /// print(response.choices[0].message.content)
         /// </remarks>
         public async global::System.Collections.Generic.IAsyncEnumerable<global::Together.ChatCompletionStream> ChatCompletionsAsStreamAsync(
 

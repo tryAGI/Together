@@ -18,6 +18,22 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// import uuid<br/>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Token IDs come from the base model's tokenizer.<br/>
+        /// operation = client.post_training.operations.sample(<br/>
+        ///     "&lt;SESSION_ID&gt;",<br/>
+        ///     idempotency_key=str(uuid.uuid4()),<br/>
+        ///     model_inputs=[<br/>
+        ///         {"chunks": [{"encoded_text": {"tokens": [791, 6864, 315, 9822]}}]}<br/>
+        ///     ],<br/>
+        ///     num_samples=4,<br/>
+        ///     sampling_params={"max_tokens": 256, "temperature": 1.0},<br/>
+        /// )<br/>
+        /// print(operation.id, operation.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlSampleOperation> SampleAsync(
             string sessionId,
 
@@ -39,6 +55,22 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// import uuid<br/>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Token IDs come from the base model's tokenizer.<br/>
+        /// operation = client.post_training.operations.sample(<br/>
+        ///     "&lt;SESSION_ID&gt;",<br/>
+        ///     idempotency_key=str(uuid.uuid4()),<br/>
+        ///     model_inputs=[<br/>
+        ///         {"chunks": [{"encoded_text": {"tokens": [791, 6864, 315, 9822]}}]}<br/>
+        ///     ],<br/>
+        ///     num_samples=4,<br/>
+        ///     sampling_params={"max_tokens": 256, "temperature": 1.0},<br/>
+        /// )<br/>
+        /// print(operation.id, operation.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlSampleOperation>> SampleAsResponseAsync(
             string sessionId,
 

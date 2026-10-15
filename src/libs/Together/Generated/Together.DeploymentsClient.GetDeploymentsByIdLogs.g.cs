@@ -82,8 +82,8 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// deployment = client.beta.jig.logs("my-deployment")<br/>
-        /// print(deployment)
+        /// logs = client.beta.jig.retrieve_logs("my-deployment")<br/>
+        /// print(logs)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentLogs> GetDeploymentsByIdLogsAsync(
             string id,
@@ -126,8 +126,8 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// deployment = client.beta.jig.logs("my-deployment")<br/>
-        /// print(deployment)
+        /// logs = client.beta.jig.retrieve_logs("my-deployment")<br/>
+        /// print(logs)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeploymentLogs>> GetDeploymentsByIdLogsAsResponseAsync(
             string id,

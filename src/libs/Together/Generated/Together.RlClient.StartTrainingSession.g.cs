@@ -62,6 +62,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// session = client.post_training.sessions.create(<br/>
+        ///     model_resources_id="&lt;MODEL_RESOURCES_ID&gt;",<br/>
+        ///     display_name="grpo-math",<br/>
+        ///     lora_config={"rank": 32},<br/>
+        /// )<br/>
+        /// print(session.id, session.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> StartTrainingSessionAsync(
 
             global::Together.RlStartTrainingSessionRequest request,
@@ -85,6 +95,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// session = client.post_training.sessions.create(<br/>
+        ///     model_resources_id="&lt;MODEL_RESOURCES_ID&gt;",<br/>
+        ///     display_name="grpo-math",<br/>
+        ///     lora_config={"rank": 32},<br/>
+        /// )<br/>
+        /// print(session.id, session.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlTrainingSession>> StartTrainingSessionAsResponseAsync(
 
             global::Together.RlStartTrainingSessionRequest request,

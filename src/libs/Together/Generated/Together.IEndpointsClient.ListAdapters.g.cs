@@ -18,7 +18,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// adapters = client.endpoints.adapters.list("endpoint-abc123")<br/>
+        /// adapters = client.endpoints.adapters.list("&lt;ENDPOINT_ID&gt;")<br/>
         /// for adapter in adapters.data or []:<br/>
         ///     print(adapter.api_model_id, adapter.adapter_name, adapter.endpoint_name)
         /// </remarks>
@@ -40,7 +40,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// adapters = client.endpoints.adapters.list("endpoint-abc123")<br/>
+        /// adapters = client.endpoints.adapters.list("&lt;ENDPOINT_ID&gt;")<br/>
         /// for adapter in adapters.data or []:<br/>
         ///     print(adapter.api_model_id, adapter.adapter_name, adapter.endpoint_name)
         /// </remarks>

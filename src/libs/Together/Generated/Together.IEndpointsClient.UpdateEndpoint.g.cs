@@ -23,7 +23,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// endpoint = client.endpoints.update(<br/>
-        ///     "endpoint-id",<br/>
+        ///     "&lt;ENDPOINT_ID&gt;",<br/>
         ///     state="STOPPED"<br/>
         /// )<br/>
         /// print(endpoint)
@@ -53,7 +53,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// endpoint = client.endpoints.update(<br/>
-        ///     "endpoint-id",<br/>
+        ///     "&lt;ENDPOINT_ID&gt;",<br/>
         ///     state="STOPPED"<br/>
         /// )<br/>
         /// print(endpoint)

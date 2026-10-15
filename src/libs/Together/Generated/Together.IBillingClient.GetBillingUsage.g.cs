@@ -29,12 +29,16 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # First page<br/>
-        /// curl "https://api.together.ai/v1/billing/usage?month=2026-06&amp;granularity=day" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"<br/>
-        /// # Next page: pass the previous response's next_cursor<br/>
-        /// curl "https://api.together.ai/v1/billing/usage?month=2026-06&amp;granularity=day&amp;after=NEXT_CURSOR" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
+        /// # the client's generic GET helper.<br/>
+        /// usage = client.get(<br/>
+        ///     "/billing/usage",<br/>
+        ///     cast_to=object,<br/>
+        ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
+        /// )<br/>
+        /// print(usage)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.BillingUsageReport> GetBillingUsageAsync(
             string? month = default,
@@ -69,12 +73,16 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// # First page<br/>
-        /// curl "https://api.together.ai/v1/billing/usage?month=2026-06&amp;granularity=day" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"<br/>
-        /// # Next page: pass the previous response's next_cursor<br/>
-        /// curl "https://api.together.ai/v1/billing/usage?month=2026-06&amp;granularity=day&amp;after=NEXT_CURSOR" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
+        /// # the client's generic GET helper.<br/>
+        /// usage = client.get(<br/>
+        ///     "/billing/usage",<br/>
+        ///     cast_to=object,<br/>
+        ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
+        /// )<br/>
+        /// print(usage)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.BillingUsageReport>> GetBillingUsageAsResponseAsync(
             string? month = default,

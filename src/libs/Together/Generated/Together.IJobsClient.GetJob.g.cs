@@ -15,6 +15,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// status = client.models.uploads.status("&lt;JOB_ID&gt;")<br/>
+        /// print(status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.JobInfoSuccessResponse> GetJobAsync(
             string jobId,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -30,6 +36,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// status = client.models.uploads.status("&lt;JOB_ID&gt;")<br/>
+        /// print(status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.JobInfoSuccessResponse>> GetJobAsResponseAsync(
             string jobId,
             global::Together.AutoSDKRequestOptions? requestOptions = default,

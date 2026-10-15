@@ -20,7 +20,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// checkpoints = client.fine_tuning.list_checkpoints(id="ft-id")<br/>
+        /// checkpoints = client.fine_tuning.list_checkpoints(id="&lt;JOB_ID&gt;")<br/>
         /// print(checkpoints)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FinetuneListCheckpoints> GetFineTunesByIdCheckpointsAsync(
@@ -43,7 +43,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// checkpoints = client.fine_tuning.list_checkpoints(id="ft-id")<br/>
+        /// checkpoints = client.fine_tuning.list_checkpoints(id="&lt;JOB_ID&gt;")<br/>
         /// print(checkpoints)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneListCheckpoints>> GetFineTunesByIdCheckpointsAsResponseAsync(

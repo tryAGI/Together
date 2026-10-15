@@ -21,6 +21,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// model = client.beta.models.update(<br/>
+        ///     "ml_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     update_mask="description",<br/>
+        ///     description="LoRA adapter for support-ticket triage",<br/>
+        /// )<br/>
+        /// print(model.description)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeModel> VolumeServiceUpdateModelAsync(
             string projectId,
             string id,
@@ -46,6 +58,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// model = client.beta.models.update(<br/>
+        ///     "ml_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     update_mask="description",<br/>
+        ///     description="LoRA adapter for support-ticket triage",<br/>
+        /// )<br/>
+        /// print(model.description)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeModel>> VolumeServiceUpdateModelAsResponseAsync(
             string projectId,
             string id,

@@ -12,8 +12,12 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// curl "https://api.together.ai/v1/fine-tunes/models/supported" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
+        /// # the client's generic GET helper.<br/>
+        /// models = client.get("/fine-tunes/models/supported", cast_to=object)<br/>
+        /// print(models)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GetFineTunesModelsSupportedResponse> GetFineTunesModelsSupportedAsync(
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -26,8 +30,12 @@ namespace Together
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
         /// <remarks>
-        /// curl "https://api.together.ai/v1/fine-tunes/models/supported" \<br/>
-        ///      -H "Authorization: Bearer $TOGETHER_API_KEY"
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
+        /// # the client's generic GET helper.<br/>
+        /// models = client.get("/fine-tunes/models/supported", cast_to=object)<br/>
+        /// print(models)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GetFineTunesModelsSupportedResponse>> GetFineTunesModelsSupportedAsResponseAsync(
             global::Together.AutoSDKRequestOptions? requestOptions = default,

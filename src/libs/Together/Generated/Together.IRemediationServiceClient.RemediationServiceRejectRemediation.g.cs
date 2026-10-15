@@ -18,6 +18,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// remediation = client.clusters.remediations.reject(<br/>
+        ///     "&lt;REMEDIATION_ID&gt;",<br/>
+        ///     cluster_id="&lt;CLUSTER_ID&gt;",<br/>
+        ///     instance_id="&lt;INSTANCE_ID&gt;",<br/>
+        ///     comment="Node recovered on its own",<br/>
+        /// )<br/>
+        /// print(remediation.state)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.Remediation> RemediationServiceRejectRemediationAsync(
             string clusterId,
             string instanceId,
@@ -40,6 +51,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// remediation = client.clusters.remediations.reject(<br/>
+        ///     "&lt;REMEDIATION_ID&gt;",<br/>
+        ///     cluster_id="&lt;CLUSTER_ID&gt;",<br/>
+        ///     instance_id="&lt;INSTANCE_ID&gt;",<br/>
+        ///     comment="Node recovered on its own",<br/>
+        /// )<br/>
+        /// print(remediation.state)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.Remediation>> RemediationServiceRejectRemediationAsResponseAsync(
             string clusterId,
             string instanceId,

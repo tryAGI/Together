@@ -69,6 +69,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// experiment = client.beta.endpoints.shadow_experiments.retrieve(<br/>
+        ///     "exp_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        /// )<br/>
+        /// print(experiment.name, experiment.targets)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeShadowExperiment> ShadowExperimentServiceGetShadowExperimentAsync(
             string projectId,
             string endpointId,
@@ -102,6 +113,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// experiment = client.beta.endpoints.shadow_experiments.retrieve(<br/>
+        ///     "exp_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        /// )<br/>
+        /// print(experiment.name, experiment.targets)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeShadowExperiment>> ShadowExperimentServiceGetShadowExperimentAsResponseAsync(
             string projectId,
             string endpointId,

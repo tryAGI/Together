@@ -21,7 +21,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// client.endpoints.adapters.remove(<br/>
-        ///     "endpoint-abc123",<br/>
+        ///     "&lt;ENDPOINT_ID&gt;",<br/>
         ///     model_id="username/my-endpoint-name:username/my-adapter-model",<br/>
         /// )
         /// </remarks>
@@ -48,7 +48,7 @@ namespace Together
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
         /// client.endpoints.adapters.remove(<br/>
-        ///     "endpoint-abc123",<br/>
+        ///     "&lt;ENDPOINT_ID&gt;",<br/>
         ///     model_id="username/my-endpoint-name:username/my-adapter-model",<br/>
         /// )
         /// </remarks>

@@ -66,7 +66,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// endpoint = client.endpoints.delete("endpoint-id")<br/>
+        /// endpoint = client.endpoints.delete("&lt;ENDPOINT_ID&gt;")<br/>
         /// print(endpoint)
         /// </remarks>
         public async global::System.Threading.Tasks.Task DeleteEndpointAsync(
@@ -97,7 +97,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// endpoint = client.endpoints.delete("endpoint-id")<br/>
+        /// endpoint = client.endpoints.delete("&lt;ENDPOINT_ID&gt;")<br/>
         /// print(endpoint)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse> DeleteEndpointAsResponseAsync(
