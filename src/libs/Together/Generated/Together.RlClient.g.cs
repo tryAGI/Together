@@ -41,14 +41,14 @@ namespace Together
 
         internal global::Together.AutoSDKServerConfiguration AutoSDKServerConfiguration { get; set; } = new global::Together.AutoSDKServerConfiguration();
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Together.RlSourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext>? JsonSerializerContextProvider { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
-            get => JsonSerializerContextProvider.Value;
+            get => JsonSerializerContextProvider?.Value ?? global::Together.RlSourceGenerationContext.Default;
             set => JsonSerializerContextProvider = new(() => value);
         }
 
