@@ -28,18 +28,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
-        /// # the client's generic GET helper.<br/>
-        /// usage = client.get(<br/>
-        ///     "/billing/usage",<br/>
-        ///     cast_to=object,<br/>
-        ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
-        /// )<br/>
-        /// print(usage)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.BillingUsageReport> GetBillingUsageAsync(
             string? month = default,
             string? organizationId = default,
@@ -72,18 +60,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
-        /// # the client's generic GET helper.<br/>
-        /// usage = client.get(<br/>
-        ///     "/billing/usage",<br/>
-        ///     cast_to=object,<br/>
-        ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
-        /// )<br/>
-        /// print(usage)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.BillingUsageReport>> GetBillingUsageAsResponseAsync(
             string? month = default,
             string? organizationId = default,

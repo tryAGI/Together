@@ -14,12 +14,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
-        /// print(model.name, model.deployment_profiles)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeSupportedModel> SupportedModelsServiceGetSupportedModelAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -34,12 +28,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
-        /// print(model.name, model.deployment_profiles)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeSupportedModel>> SupportedModelsServiceGetSupportedModelAsResponseAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,

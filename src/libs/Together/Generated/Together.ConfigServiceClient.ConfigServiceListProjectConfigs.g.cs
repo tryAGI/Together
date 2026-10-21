@@ -6,14 +6,6 @@ namespace Together
     public partial class ConfigServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_ConfigServiceListProjectConfigsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_ConfigServiceListProjectConfigsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -79,20 +71,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Configurations are listed per model. A supported model's base_model is<br/>
-        /// # the resource name to pass as reference_model.<br/>
-        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
-        /// configs = client.beta.models.configs.list(<br/>
-        ///     project_id=project_id,<br/>
-        ///     reference_model=model.base_model,<br/>
-        /// )<br/>
-        /// for config in configs:<br/>
-        ///     print(config.id, config.reference_model)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListProjectConfigsResponse> ConfigServiceListProjectConfigsAsync(
             string projectId,
             string? referenceModelId = default,
@@ -136,20 +114,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Configurations are listed per model. A supported model's base_model is<br/>
-        /// # the resource name to pass as reference_model.<br/>
-        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
-        /// configs = client.beta.models.configs.list(<br/>
-        ///     project_id=project_id,<br/>
-        ///     reference_model=model.base_model,<br/>
-        /// )<br/>
-        /// for config in configs:<br/>
-        ///     print(config.id, config.reference_model)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListProjectConfigsResponse>> ConfigServiceListProjectConfigsAsResponseAsync(
             string projectId,
             string? referenceModelId = default,
@@ -193,10 +157,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/configs",
-                                baseUri: ResolveBaseUri(
-                                servers: s_ConfigServiceListProjectConfigsServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/configs",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("referenceModelId", referenceModelId)
                                 .AddOptionalParameter("referenceModel", referenceModel)
@@ -266,7 +228,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ConfigServiceListProjectConfigs",
                                 methodName: "ConfigServiceListProjectConfigsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/configs\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/configs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,7 +262,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ConfigServiceListProjectConfigs",
                                 methodName: "ConfigServiceListProjectConfigsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/configs\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/configs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -341,7 +303,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ConfigServiceListProjectConfigs",
                                 methodName: "ConfigServiceListProjectConfigsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/configs\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/configs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -389,7 +351,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ConfigServiceListProjectConfigs",
                                 methodName: "ConfigServiceListProjectConfigsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/configs\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/configs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -411,7 +373,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ConfigServiceListProjectConfigs",
                                 methodName: "ConfigServiceListProjectConfigsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/configs\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/configs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

@@ -298,7 +298,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesStatus), TypeInfoPropertyName = "RlModelResourcesStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResources))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesStatusDetails))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlOptimizerConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesErrorCode), TypeInfoPropertyName = "RlModelResourcesErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCreateModelResourcesRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesEstimateCostResponse))]
@@ -390,7 +392,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointVariant), TypeInfoPropertyName = "RlCheckpointVariant2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointFile))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, long?>), TypeInfoPropertyName = "OneOfStringInt642")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointDownloadResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlCheckpointFile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorResponse))]
@@ -493,7 +494,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelVoices))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ModelVoicesVoice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelVoicesVoice))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListAvailibilityZonesResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RerankRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.RerankRequestModel?, string>), TypeInfoPropertyName = "AnyOfRerankRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RerankRequestModel), TypeInfoPropertyName = "RerankRequestModel2")]
@@ -546,17 +546,11 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDeltaRole), TypeInfoPropertyName = "CompletionChoiceDeltaRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolChoice2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoice2))]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDeltaFunctionCall))]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ChatCompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoicesDataItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<object, global::Together.LogprobsPart>), TypeInfoPropertyName = "AllOfObjectLogprobsPart2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageRole), TypeInfoPropertyName = "ChatCompletionMessageRole2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessageFunctionCall))]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionTool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolType), TypeInfoPropertyName = "ChatCompletionToolType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolFunction))]
@@ -587,9 +581,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParam))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParam))]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParam))]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionSystemMessageParamRole), TypeInfoPropertyName = "ChatCompletionSystemMessageParamRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContent), TypeInfoPropertyName = "ChatCompletionUserMessageContent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageParamRole), TypeInfoPropertyName = "ChatCompletionUserMessageParamRole2")]
@@ -609,12 +600,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudio))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamRole), TypeInfoPropertyName = "ChatCompletionAssistantMessageParamRole2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamFunctionCall))]
-    #pragma warning restore CS0618
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParamRole), TypeInfoPropertyName = "ChatCompletionFunctionMessageParamRole2")]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParamRole), TypeInfoPropertyName = "ChatCompletionToolMessageParamRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.InferenceWarning>))]
@@ -625,9 +610,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDelta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDeltaRole), TypeInfoPropertyName = "ChatCompletionChunkChoiceDeltaRole2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDeltaFunctionCall))]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.AudioSpeechRequestModel?, string>), TypeInfoPropertyName = "AnyOfAudioSpeechRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AudioSpeechRequestModel), TypeInfoPropertyName = "AudioSpeechRequestModel2")]
@@ -670,9 +652,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoiceDelta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoiceDeltaRole), TypeInfoPropertyName = "ChatCompletionChoiceDeltaRole2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoiceDeltaFunctionCall))]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EmbeddingsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string>), TypeInfoPropertyName = "AnyOfEmbeddingsRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EmbeddingsRequestModel), TypeInfoPropertyName = "EmbeddingsRequestModel2")]
@@ -680,14 +659,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EmbeddingsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EmbeddingsResponseDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EmbeddingsResponseDataItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ModelInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelInfoType), TypeInfoPropertyName = "ModelInfoType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Pricing))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelUploadRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelUploadRequestModelType), TypeInfoPropertyName = "ModelUploadRequestModelType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelUploadSuccessResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelUploadSuccessResponseData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DataItem), TypeInfoPropertyName = "DataItem2")]
@@ -697,13 +668,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataItemDiscriminatorType), TypeInfoPropertyName = "ImageResponseDataItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataB64Type), TypeInfoPropertyName = "ImageResponseDataB64Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataUrlType), TypeInfoPropertyName = "ImageResponseDataUrlType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponseStatus), TypeInfoPropertyName = "JobInfoSuccessResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponseStatusUpdate>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponseStatusUpdate))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponseArgs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobsInfoSuccessResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.JobInfoSuccessResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPartFunction))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceType), TypeInfoPropertyName = "ToolChoiceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceFunction))]
@@ -788,68 +752,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>), TypeInfoPropertyName = "OneOfLinearLRSchedulerArgsCosineLRSchedulerArgs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LinearLRSchedulerArgs))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CosineLRSchedulerArgs))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Autoscaling))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HardwareSpec))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EndpointPricing))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HardwareAvailability))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HardwareAvailabilityStatus), TypeInfoPropertyName = "HardwareAvailabilityStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HardwareWithStatus))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateEndpointRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateEndpointRequestState), TypeInfoPropertyName = "CreateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpoint))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointType), TypeInfoPropertyName = "DedicatedEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointState), TypeInfoPropertyName = "DedicatedEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpoint))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointType), TypeInfoPropertyName = "ListEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointState), TypeInfoPropertyName = "ListEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DisplayorExecuteOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DisplayorExecuteOutputData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DisplayorExecuteOutputType), TypeInfoPropertyName = "DisplayorExecuteOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Error), TypeInfoPropertyName = "Error2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorOutputType), TypeInfoPropertyName = "ErrorOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ExecuteRequestFile>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteRequestFile))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteRequestFileEncoding), TypeInfoPropertyName = "ExecuteRequestFileEncoding2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteRequestLanguage), TypeInfoPropertyName = "ExecuteRequestLanguage2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponse), TypeInfoPropertyName = "ExecuteResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecution))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OutputsItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OutputsItem), TypeInfoPropertyName = "OutputsItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType), TypeInfoPropertyName = "ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType), TypeInfoPropertyName = "ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType), TypeInfoPropertyName = "ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType), TypeInfoPropertyName = "ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataStatus), TypeInfoPropertyName = "ExecuteResponseSuccessfulExecutionDataStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseFailedExecution))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<string, object>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, object>), TypeInfoPropertyName = "OneOfStringObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutput), TypeInfoPropertyName = "InterpreterOutput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputStreamOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputStreamOutputType), TypeInfoPropertyName = "InterpreterOutputStreamOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputErrorOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputErrorOutputType), TypeInfoPropertyName = "InterpreterOutputErrorOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDisplayorExecuteOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDisplayorExecuteOutputData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDisplayorExecuteOutputType), TypeInfoPropertyName = "InterpreterOutputDisplayorExecuteOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDiscriminatorType), TypeInfoPropertyName = "InterpreterOutputDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Response))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SessionListResponse), TypeInfoPropertyName = "SessionListResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SessionListResponseResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SessionListResponseVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SessionListResponseVariant2Data))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.SessionListResponseVariant2DataSession>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SessionListResponseVariant2DataSession))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamOutput))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamOutputType), TypeInfoPropertyName = "StreamOutputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateBatchRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateBatchRequestEndpoint), TypeInfoPropertyName = "CreateBatchRequestEndpoint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BatchErrorResponse))]
@@ -884,13 +786,11 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVideoBody))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoOutputFormat), TypeInfoPropertyName = "VideoOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoMedia))]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>))]
-    #pragma warning restore CS0618
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoStatus), TypeInfoPropertyName = "VideoStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<double?, global::Together.VideoFrameImageInputFrame?>), TypeInfoPropertyName = "AnyOfDoubleVideoFrameImageInputFrame2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoFrameImageInputFrame), TypeInfoPropertyName = "VideoFrameImageInputFrame2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoFrameImageInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.VideoRef>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoRef))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.VideoRef>), TypeInfoPropertyName = "OneOfStringVideoRef2")]
@@ -971,7 +871,23 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobStatusResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobStatusResponseStatus), TypeInfoPropertyName = "QueueJobStatusResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiApiKey))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrganization))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProject))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUser))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProjectApiKey))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProjectApiKeyType), TypeInfoPropertyName = "WhoamiProjectApiKeyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrgApiKey))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrgApiKeyType), TypeInfoPropertyName = "WhoamiOrgApiKeyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserJwt))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserJwtType), TypeInfoPropertyName = "WhoamiUserJwtType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgJwt))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgJwtType), TypeInfoPropertyName = "WhoamiUserOrgJwtType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwt))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwtType), TypeInfoPropertyName = "WhoamiUserOrgProjectJwtType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponse), TypeInfoPropertyName = "WhoamiResponse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminatorType), TypeInfoPropertyName = "WhoamiResponseDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Project))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListProjectsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.Project>))]
@@ -991,16 +907,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>), TypeInfoPropertyName = "OneOfInt32CreateFineTunesRequestBatchSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestBatchSize), TypeInfoPropertyName = "CreateFineTunesRequestBatchSize2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>), TypeInfoPropertyName = "OneOfBooleanCreateFineTunesRequestTrainOnInputs2")]
-    #pragma warning restore CS0618
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestTrainOnInputs), TypeInfoPropertyName = "CreateFineTunesRequestTrainOnInputs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>), TypeInfoPropertyName = "AnyOfFullTrainingTypeLoRATrainingType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequestState), TypeInfoPropertyName = "UpdateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddAdapterRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemoveAdapterRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RolloutServiceListRolloutsFilter), TypeInfoPropertyName = "RolloutServiceListRolloutsFilter2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EndpointServiceListEndpointEventsMinLevel), TypeInfoPropertyName = "EndpointServiceListEndpointEventsMinLevel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EndpointServiceListEndpointEventsSourceKind>))]
@@ -1011,8 +919,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SupportedModelsServiceListSupportedModelsAdapterMode), TypeInfoPropertyName = "SupportedModelsServiceListSupportedModelsAdapterMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFinetuneDownloadCheckpoint), TypeInfoPropertyName = "GetFinetuneDownloadCheckpoint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTtsModel), TypeInfoPropertyName = "RealtimeTtsModel2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsType), TypeInfoPropertyName = "ListEndpointsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsUsageType), TypeInfoPropertyName = "ListEndpointsUsageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTranscriptionInputAudioFormat), TypeInfoPropertyName = "RealtimeTranscriptionInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListModelResourcesStatu), TypeInfoPropertyName = "ListModelResourcesStatu2")]
@@ -1037,33 +943,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.FineTunePreviewMessageError, global::Together.FineTunePreviewDetailError>), TypeInfoPropertyName = "OneOfFineTunePreviewMessageErrorFineTunePreviewDetailError2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesMetricsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, double>>))]
-    internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_9a6c1a339fc4e5a1")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsSupportedResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.GetFineTunesModelsSupportedResponseDetailedModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsSupportedResponseDetailedModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsLimitsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListEndpoint>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AddAdapterResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListAdaptersResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ListAdaptersResponseDataItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListAdaptersResponseDataItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RemoveAdapterResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListHardwareResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.HardwareWithStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.BatchJob>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EvaluationJob>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetModelListResponse))]
@@ -1136,6 +1019,21 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigCreateRequestGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigCreateRequestGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesStatus?), TypeInfoPropertyName = "NullableRlModelResourcesStatus2")]
+    internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_9a6c1a339fc4e5a1")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesErrorCode?), TypeInfoPropertyName = "NullableRlModelResourcesErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSupportedModelComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlSupportedModelComputeConfigGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSupportedModelDefaultGpuType?), TypeInfoPropertyName = "NullableRlSupportedModelDefaultGpuType2")]
@@ -1154,7 +1052,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointType?), TypeInfoPropertyName = "NullableRlCheckpointType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCheckpointVariant?), TypeInfoPropertyName = "NullableRlCheckpointVariant2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, long?>?), TypeInfoPropertyName = "NullableOneOfStringInt642")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequest?), TypeInfoPropertyName = "NullableGPUClusterCreateRequest2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestNvidiaVersion?), TypeInfoPropertyName = "NullableGPUClusterCreateRequestNvidiaVersion2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GPUClusterCreateRequestLegacyNvidia?), TypeInfoPropertyName = "NullableGPUClusterCreateRequestLegacyNvidia2")]
@@ -1213,9 +1110,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioType?), TypeInfoPropertyName = "NullableChatCompletionUserMessageContentMultimodalItemInputAudioType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat?), TypeInfoPropertyName = "NullableChatCompletionUserMessageContentMultimodalItemInputAudioInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionAssistantMessageParamRole?), TypeInfoPropertyName = "NullableChatCompletionAssistantMessageParamRole2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionFunctionMessageParamRole?), TypeInfoPropertyName = "NullableChatCompletionFunctionMessageParamRole2")]
-    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionToolMessageParamRole?), TypeInfoPropertyName = "NullableChatCompletionToolMessageParamRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionStream?), TypeInfoPropertyName = "NullableChatCompletionStream2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChunkChoiceDeltaRole?), TypeInfoPropertyName = "NullableChatCompletionChunkChoiceDeltaRole2")]
@@ -1242,13 +1136,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.EmbeddingsRequestModel?, string>?), TypeInfoPropertyName = "NullableAnyOfEmbeddingsRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EmbeddingsRequestModel?), TypeInfoPropertyName = "NullableEmbeddingsRequestModel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::System.Collections.Generic.IList<string>>?), TypeInfoPropertyName = "NullableOneOfStringIListString2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelInfoType?), TypeInfoPropertyName = "NullableModelInfoType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelUploadRequestModelType?), TypeInfoPropertyName = "NullableModelUploadRequestModelType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DataItem?), TypeInfoPropertyName = "NullableDataItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataItemDiscriminatorType?), TypeInfoPropertyName = "NullableImageResponseDataItemDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataB64Type?), TypeInfoPropertyName = "NullableImageResponseDataB64Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ImageResponseDataUrlType?), TypeInfoPropertyName = "NullableImageResponseDataUrlType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.JobInfoSuccessResponseStatus?), TypeInfoPropertyName = "NullableJobInfoSuccessResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceType?), TypeInfoPropertyName = "NullableToolChoiceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FilePurpose?), TypeInfoPropertyName = "NullableFilePurpose2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FileType?), TypeInfoPropertyName = "NullableFileType2")]
@@ -1281,32 +1172,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.TrainingMethodDPOMethod?), TypeInfoPropertyName = "NullableTrainingMethodDPOMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LRSchedulerLrSchedulerType?), TypeInfoPropertyName = "NullableLRSchedulerLrSchedulerType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>?), TypeInfoPropertyName = "NullableOneOfLinearLRSchedulerArgsCosineLRSchedulerArgs2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.HardwareAvailabilityStatus?), TypeInfoPropertyName = "NullableHardwareAvailabilityStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateEndpointRequestState?), TypeInfoPropertyName = "NullableCreateEndpointRequestState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointType?), TypeInfoPropertyName = "NullableDedicatedEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DedicatedEndpointState?), TypeInfoPropertyName = "NullableDedicatedEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointType?), TypeInfoPropertyName = "NullableListEndpointType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointState?), TypeInfoPropertyName = "NullableListEndpointState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DisplayorExecuteOutputType?), TypeInfoPropertyName = "NullableDisplayorExecuteOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.Error?), TypeInfoPropertyName = "NullableError2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorOutputType?), TypeInfoPropertyName = "NullableErrorOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteRequestFileEncoding?), TypeInfoPropertyName = "NullableExecuteRequestFileEncoding2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteRequestLanguage?), TypeInfoPropertyName = "NullableExecuteRequestLanguage2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponse?), TypeInfoPropertyName = "NullableExecuteResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OutputsItem?), TypeInfoPropertyName = "NullableOutputsItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType?), TypeInfoPropertyName = "NullableExecuteResponseSuccessfulExecutionDataOutputStreamOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType?), TypeInfoPropertyName = "NullableExecuteResponseSuccessfulExecutionDataOutputErrorOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType?), TypeInfoPropertyName = "NullableExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType?), TypeInfoPropertyName = "NullableExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ExecuteResponseSuccessfulExecutionDataStatus?), TypeInfoPropertyName = "NullableExecuteResponseSuccessfulExecutionDataStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, object>?), TypeInfoPropertyName = "NullableOneOfStringObject2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutput?), TypeInfoPropertyName = "NullableInterpreterOutput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputStreamOutputType?), TypeInfoPropertyName = "NullableInterpreterOutputStreamOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputErrorOutputType?), TypeInfoPropertyName = "NullableInterpreterOutputErrorOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDisplayorExecuteOutputType?), TypeInfoPropertyName = "NullableInterpreterOutputDisplayorExecuteOutputType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InterpreterOutputDiscriminatorType?), TypeInfoPropertyName = "NullableInterpreterOutputDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SessionListResponse?), TypeInfoPropertyName = "NullableSessionListResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamOutputType?), TypeInfoPropertyName = "NullableStreamOutputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateBatchRequestEndpoint?), TypeInfoPropertyName = "NullableCreateBatchRequestEndpoint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BatchJobStatus?), TypeInfoPropertyName = "NullableBatchJobStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequestType?), TypeInfoPropertyName = "NullableEvaluationTypedRequestType2")]
@@ -1344,18 +1209,20 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VolumeContentType?), TypeInfoPropertyName = "NullableVolumeContentType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueCancelResponseStatus?), TypeInfoPropertyName = "NullableQueueCancelResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.QueueJobStatusResponseStatus?), TypeInfoPropertyName = "NullableQueueJobStatusResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProjectApiKeyType?), TypeInfoPropertyName = "NullableWhoamiProjectApiKeyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrgApiKeyType?), TypeInfoPropertyName = "NullableWhoamiOrgApiKeyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserJwtType?), TypeInfoPropertyName = "NullableWhoamiUserJwtType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgJwtType?), TypeInfoPropertyName = "NullableWhoamiUserOrgJwtType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwtType?), TypeInfoPropertyName = "NullableWhoamiUserOrgProjectJwtType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponse?), TypeInfoPropertyName = "NullableWhoamiResponse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminatorType?), TypeInfoPropertyName = "NullableWhoamiResponseDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>?), TypeInfoPropertyName = "NullableAnyOfCreateImagesGenerationsRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestModel?), TypeInfoPropertyName = "NullableCreateImagesGenerationsRequestModel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestResponseFormat?), TypeInfoPropertyName = "NullableCreateImagesGenerationsRequestResponseFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestOutputFormat?), TypeInfoPropertyName = "NullableCreateImagesGenerationsRequestOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>?), TypeInfoPropertyName = "NullableOneOfInt32CreateFineTunesRequestBatchSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestBatchSize?), TypeInfoPropertyName = "NullableCreateFineTunesRequestBatchSize2")]
-    #pragma warning disable CS0618 // This registration names a deprecated API model.
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>?), TypeInfoPropertyName = "NullableOneOfBooleanCreateFineTunesRequestTrainOnInputs2")]
-    #pragma warning restore CS0618
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesRequestTrainOnInputs?), TypeInfoPropertyName = "NullableCreateFineTunesRequestTrainOnInputs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>?), TypeInfoPropertyName = "NullableAnyOfFullTrainingTypeLoRATrainingType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateEndpointRequestState?), TypeInfoPropertyName = "NullableUpdateEndpointRequestState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RolloutServiceListRolloutsFilter?), TypeInfoPropertyName = "NullableRolloutServiceListRolloutsFilter2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EndpointServiceListEndpointEventsMinLevel?), TypeInfoPropertyName = "NullableEndpointServiceListEndpointEventsMinLevel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EndpointServiceListEndpointEventsSourceKind?), TypeInfoPropertyName = "NullableEndpointServiceListEndpointEventsSourceKind2")]
@@ -1365,8 +1232,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SupportedModelsServiceListSupportedModelsAdapterMode?), TypeInfoPropertyName = "NullableSupportedModelsServiceListSupportedModelsAdapterMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFinetuneDownloadCheckpoint?), TypeInfoPropertyName = "NullableGetFinetuneDownloadCheckpoint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTtsModel?), TypeInfoPropertyName = "NullableRealtimeTtsModel2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsType?), TypeInfoPropertyName = "NullableListEndpointsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListEndpointsUsageType?), TypeInfoPropertyName = "NullableListEndpointsUsageType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RealtimeTranscriptionInputAudioFormat?), TypeInfoPropertyName = "NullableRealtimeTranscriptionInputAudioFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListModelResourcesStatu?), TypeInfoPropertyName = "NullableListModelResourcesStatu2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListTrainingSessionsStatu?), TypeInfoPropertyName = "NullableListTrainingSessionsStatu2")]
@@ -1492,10 +1357,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.AudioTranslationRequestTimestampGranularitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::System.Collections.Generic.List<string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EmbeddingsResponseDataItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ModelInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DataItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.JobInfoSuccessResponseStatusUpdate>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.JobInfoSuccessResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FileResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FineTuneEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FineTunePreviewRow>))]
@@ -1504,10 +1366,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FineTuneCheckpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.QuantizationEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.QuantizationJob>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ExecuteRequestFile>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OutputsItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<string, object>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.SessionListResponseVariant2DataSession>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJobStatusUpdate>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoFrameImageInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoRef>))]
@@ -1533,9 +1391,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.Dictionary<string, double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GetFineTunesModelsSupportedResponseDetailedModel>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListEndpoint>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ListAdaptersResponseDataItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.HardwareWithStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.BatchJob>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJob>))]
     internal sealed partial class SourceGenerationContextChunk2 : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -1593,12 +1448,8 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.DataItemJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.QuantizationJobJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.QuantizationEventJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.ErrorJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.ExecuteResponseJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.OutputsItemJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.InterpreterOutputJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.SessionListResponseJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.EvaluationModelOrStringJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.WhoamiResponseJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
@@ -1639,9 +1490,6 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.TrainingMethodSFTTrainOnInputs?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, object>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>());
@@ -1655,7 +1503,6 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>());
             options.Converters.Add(new global::Together.JsonConverters.AnyOfJsonConverter<global::Together.CreateImagesGenerationsRequestModel?, string>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<int?, global::Together.CreateFineTunesRequestBatchSize?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>());
             options.Converters.Add(new global::Together.JsonConverters.AnyOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>());
@@ -2145,10 +1992,6 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.ChatCompletionAssistantMessageParamRole?)
 
-                    || typeToConvert == typeof(global::Together.ChatCompletionFunctionMessageParamRole)
-
-                    || typeToConvert == typeof(global::Together.ChatCompletionFunctionMessageParamRole?)
-
                     || typeToConvert == typeof(global::Together.ChatCompletionToolMessageParamRole)
 
                     || typeToConvert == typeof(global::Together.ChatCompletionToolMessageParamRole?)
@@ -2213,14 +2056,6 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.EmbeddingsRequestModel?)
 
-                    || typeToConvert == typeof(global::Together.ModelInfoType)
-
-                    || typeToConvert == typeof(global::Together.ModelInfoType?)
-
-                    || typeToConvert == typeof(global::Together.ModelUploadRequestModelType)
-
-                    || typeToConvert == typeof(global::Together.ModelUploadRequestModelType?)
-
                     || typeToConvert == typeof(global::Together.ImageResponseDataItemDiscriminatorType)
 
                     || typeToConvert == typeof(global::Together.ImageResponseDataItemDiscriminatorType?)
@@ -2232,10 +2067,6 @@ namespace Together
                     || typeToConvert == typeof(global::Together.ImageResponseDataUrlType)
 
                     || typeToConvert == typeof(global::Together.ImageResponseDataUrlType?)
-
-                    || typeToConvert == typeof(global::Together.JobInfoSuccessResponseStatus)
-
-                    || typeToConvert == typeof(global::Together.JobInfoSuccessResponseStatus?)
 
                     || typeToConvert == typeof(global::Together.ToolChoiceType)
 
@@ -2328,86 +2159,6 @@ namespace Together
                     || typeToConvert == typeof(global::Together.LRSchedulerLrSchedulerType)
 
                     || typeToConvert == typeof(global::Together.LRSchedulerLrSchedulerType?)
-
-                    || typeToConvert == typeof(global::Together.HardwareAvailabilityStatus)
-
-                    || typeToConvert == typeof(global::Together.HardwareAvailabilityStatus?)
-
-                    || typeToConvert == typeof(global::Together.CreateEndpointRequestState)
-
-                    || typeToConvert == typeof(global::Together.CreateEndpointRequestState?)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointType)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointType?)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointState)
-
-                    || typeToConvert == typeof(global::Together.DedicatedEndpointState?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointType)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointType?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointState)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointState?)
-
-                    || typeToConvert == typeof(global::Together.DisplayorExecuteOutputType)
-
-                    || typeToConvert == typeof(global::Together.DisplayorExecuteOutputType?)
-
-                    || typeToConvert == typeof(global::Together.ErrorOutputType)
-
-                    || typeToConvert == typeof(global::Together.ErrorOutputType?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteRequestFileEncoding)
-
-                    || typeToConvert == typeof(global::Together.ExecuteRequestFileEncoding?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteRequestLanguage)
-
-                    || typeToConvert == typeof(global::Together.ExecuteRequestLanguage?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType?)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataStatus)
-
-                    || typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataStatus?)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputStreamOutputType)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputStreamOutputType?)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputErrorOutputType)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputErrorOutputType?)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputDisplayorExecuteOutputType)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputDisplayorExecuteOutputType?)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputDiscriminatorType)
-
-                    || typeToConvert == typeof(global::Together.InterpreterOutputDiscriminatorType?)
-
-                    || typeToConvert == typeof(global::Together.StreamOutputType)
-
-                    || typeToConvert == typeof(global::Together.StreamOutputType?)
 
                     || typeToConvert == typeof(global::Together.CreateBatchRequestEndpoint)
 
@@ -2525,6 +2276,30 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.QueueJobStatusResponseStatus?)
 
+                    || typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType)
+
+                    || typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType?)
+
+                    || typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType)
+
+                    || typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType?)
+
+                    || typeToConvert == typeof(global::Together.WhoamiUserJwtType)
+
+                    || typeToConvert == typeof(global::Together.WhoamiUserJwtType?)
+
+                    || typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType)
+
+                    || typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType?)
+
+                    || typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType)
+
+                    || typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType?)
+
+                    || typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType)
+
+                    || typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType?)
+
                     || typeToConvert == typeof(global::Together.CreateImagesGenerationsRequestModel)
 
                     || typeToConvert == typeof(global::Together.CreateImagesGenerationsRequestModel?)
@@ -2540,14 +2315,6 @@ namespace Together
                     || typeToConvert == typeof(global::Together.CreateFineTunesRequestBatchSize)
 
                     || typeToConvert == typeof(global::Together.CreateFineTunesRequestBatchSize?)
-
-                    || typeToConvert == typeof(global::Together.CreateFineTunesRequestTrainOnInputs)
-
-                    || typeToConvert == typeof(global::Together.CreateFineTunesRequestTrainOnInputs?)
-
-                    || typeToConvert == typeof(global::Together.UpdateEndpointRequestState)
-
-                    || typeToConvert == typeof(global::Together.UpdateEndpointRequestState?)
 
                     || typeToConvert == typeof(global::Together.RolloutServiceListRolloutsFilter)
 
@@ -2584,14 +2351,6 @@ namespace Together
                     || typeToConvert == typeof(global::Together.RealtimeTtsModel)
 
                     || typeToConvert == typeof(global::Together.RealtimeTtsModel?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsType)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsType?)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsUsageType)
-
-                    || typeToConvert == typeof(global::Together.ListEndpointsUsageType?)
 
                     || typeToConvert == typeof(global::Together.RealtimeTranscriptionInputAudioFormat)
 
@@ -3800,16 +3559,6 @@ namespace Together
                     return new global::Together.JsonConverters.ChatCompletionAssistantMessageParamRoleNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Together.ChatCompletionFunctionMessageParamRole))
-                {
-                    return new global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ChatCompletionFunctionMessageParamRole?))
-                {
-                    return new global::Together.JsonConverters.ChatCompletionFunctionMessageParamRoleNullableJsonConverter();
-                }
-
                 if (typeToConvert == typeof(global::Together.ChatCompletionToolMessageParamRole))
                 {
                     return new global::Together.JsonConverters.ChatCompletionToolMessageParamRoleJsonConverter();
@@ -3970,26 +3719,6 @@ namespace Together
                     return new global::Together.JsonConverters.EmbeddingsRequestModelNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Together.ModelInfoType))
-                {
-                    return new global::Together.JsonConverters.ModelInfoTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ModelInfoType?))
-                {
-                    return new global::Together.JsonConverters.ModelInfoTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ModelUploadRequestModelType))
-                {
-                    return new global::Together.JsonConverters.ModelUploadRequestModelTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ModelUploadRequestModelType?))
-                {
-                    return new global::Together.JsonConverters.ModelUploadRequestModelTypeNullableJsonConverter();
-                }
-
                 if (typeToConvert == typeof(global::Together.ImageResponseDataItemDiscriminatorType))
                 {
                     return new global::Together.JsonConverters.ImageResponseDataItemDiscriminatorTypeJsonConverter();
@@ -4018,16 +3747,6 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.ImageResponseDataUrlType?))
                 {
                     return new global::Together.JsonConverters.ImageResponseDataUrlTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.JobInfoSuccessResponseStatus))
-                {
-                    return new global::Together.JsonConverters.JobInfoSuccessResponseStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.JobInfoSuccessResponseStatus?))
-                {
-                    return new global::Together.JsonConverters.JobInfoSuccessResponseStatusNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.ToolChoiceType))
@@ -4258,206 +3977,6 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.LRSchedulerLrSchedulerType?))
                 {
                     return new global::Together.JsonConverters.LRSchedulerLrSchedulerTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HardwareAvailabilityStatus))
-                {
-                    return new global::Together.JsonConverters.HardwareAvailabilityStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.HardwareAvailabilityStatus?))
-                {
-                    return new global::Together.JsonConverters.HardwareAvailabilityStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.CreateEndpointRequestState))
-                {
-                    return new global::Together.JsonConverters.CreateEndpointRequestStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.CreateEndpointRequestState?))
-                {
-                    return new global::Together.JsonConverters.CreateEndpointRequestStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointType))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointType?))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointState))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DedicatedEndpointState?))
-                {
-                    return new global::Together.JsonConverters.DedicatedEndpointStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointType))
-                {
-                    return new global::Together.JsonConverters.ListEndpointTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointType?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointState))
-                {
-                    return new global::Together.JsonConverters.ListEndpointStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointState?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointStateNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DisplayorExecuteOutputType))
-                {
-                    return new global::Together.JsonConverters.DisplayorExecuteOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.DisplayorExecuteOutputType?))
-                {
-                    return new global::Together.JsonConverters.DisplayorExecuteOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ErrorOutputType))
-                {
-                    return new global::Together.JsonConverters.ErrorOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ErrorOutputType?))
-                {
-                    return new global::Together.JsonConverters.ErrorOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteRequestFileEncoding))
-                {
-                    return new global::Together.JsonConverters.ExecuteRequestFileEncodingJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteRequestFileEncoding?))
-                {
-                    return new global::Together.JsonConverters.ExecuteRequestFileEncodingNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteRequestLanguage))
-                {
-                    return new global::Together.JsonConverters.ExecuteRequestLanguageJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteRequestLanguage?))
-                {
-                    return new global::Together.JsonConverters.ExecuteRequestLanguageNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputType?))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputStreamOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputType?))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputErrorOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputType?))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputDisplayorExecuteOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorType?))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataOutputDiscriminatorTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataStatus))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataStatusJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ExecuteResponseSuccessfulExecutionDataStatus?))
-                {
-                    return new global::Together.JsonConverters.ExecuteResponseSuccessfulExecutionDataStatusNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputStreamOutputType))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputStreamOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputStreamOutputType?))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputStreamOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputErrorOutputType))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputErrorOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputErrorOutputType?))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputErrorOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputDisplayorExecuteOutputType))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputDisplayorExecuteOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputDisplayorExecuteOutputType?))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputDisplayorExecuteOutputTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputDiscriminatorType))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputDiscriminatorTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.InterpreterOutputDiscriminatorType?))
-                {
-                    return new global::Together.JsonConverters.InterpreterOutputDiscriminatorTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.StreamOutputType))
-                {
-                    return new global::Together.JsonConverters.StreamOutputTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.StreamOutputType?))
-                {
-                    return new global::Together.JsonConverters.StreamOutputTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.CreateBatchRequestEndpoint))
@@ -4750,6 +4269,66 @@ namespace Together
                     return new global::Together.JsonConverters.QueueJobStatusResponseStatusNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType))
+                {
+                    return new global::Together.JsonConverters.WhoamiProjectApiKeyTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType?))
+                {
+                    return new global::Together.JsonConverters.WhoamiProjectApiKeyTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType))
+                {
+                    return new global::Together.JsonConverters.WhoamiOrgApiKeyTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType?))
+                {
+                    return new global::Together.JsonConverters.WhoamiOrgApiKeyTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiUserJwtType))
+                {
+                    return new global::Together.JsonConverters.WhoamiUserJwtTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiUserJwtType?))
+                {
+                    return new global::Together.JsonConverters.WhoamiUserJwtTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType))
+                {
+                    return new global::Together.JsonConverters.WhoamiUserOrgJwtTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType?))
+                {
+                    return new global::Together.JsonConverters.WhoamiUserOrgJwtTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType))
+                {
+                    return new global::Together.JsonConverters.WhoamiUserOrgProjectJwtTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType?))
+                {
+                    return new global::Together.JsonConverters.WhoamiUserOrgProjectJwtTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType))
+                {
+                    return new global::Together.JsonConverters.WhoamiResponseDiscriminatorTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType?))
+                {
+                    return new global::Together.JsonConverters.WhoamiResponseDiscriminatorTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Together.CreateImagesGenerationsRequestModel))
                 {
                     return new global::Together.JsonConverters.CreateImagesGenerationsRequestModelJsonConverter();
@@ -4788,26 +4367,6 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.CreateFineTunesRequestBatchSize?))
                 {
                     return new global::Together.JsonConverters.CreateFineTunesRequestBatchSizeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.CreateFineTunesRequestTrainOnInputs))
-                {
-                    return new global::Together.JsonConverters.CreateFineTunesRequestTrainOnInputsJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.CreateFineTunesRequestTrainOnInputs?))
-                {
-                    return new global::Together.JsonConverters.CreateFineTunesRequestTrainOnInputsNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.UpdateEndpointRequestState))
-                {
-                    return new global::Together.JsonConverters.UpdateEndpointRequestStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.UpdateEndpointRequestState?))
-                {
-                    return new global::Together.JsonConverters.UpdateEndpointRequestStateNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.RolloutServiceListRolloutsFilter))
@@ -4898,26 +4457,6 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.RealtimeTtsModel?))
                 {
                     return new global::Together.JsonConverters.RealtimeTtsModelNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsType))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsType?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsUsageType))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsUsageTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.ListEndpointsUsageType?))
-                {
-                    return new global::Together.JsonConverters.ListEndpointsUsageTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.RealtimeTranscriptionInputAudioFormat))

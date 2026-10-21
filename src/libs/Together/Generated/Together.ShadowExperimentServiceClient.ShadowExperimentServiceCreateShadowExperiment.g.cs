@@ -6,14 +6,6 @@ namespace Together
     public partial class ShadowExperimentServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_ShadowExperimentServiceCreateShadowExperimentServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_ShadowExperimentServiceCreateShadowExperimentSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -67,22 +59,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Mirror 10% of the endpoint's requests to the candidate deployment.<br/>
-        /// experiment = client.beta.endpoints.shadow_experiments.create(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     name="candidate-shadow",<br/>
-        ///     source={"endpoint": {"sampling": {"uniform": {"rate": 0.1}}}},<br/>
-        ///     targets=[<br/>
-        ///         {"name": "candidate", "target_deployment_id": "dep_def456"},<br/>
-        ///     ],<br/>
-        /// )<br/>
-        /// print(experiment.id)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeShadowExperiment> ShadowExperimentServiceCreateShadowExperimentAsync(
             string projectId,
             string endpointId,
@@ -116,22 +92,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Mirror 10% of the endpoint's requests to the candidate deployment.<br/>
-        /// experiment = client.beta.endpoints.shadow_experiments.create(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     name="candidate-shadow",<br/>
-        ///     source={"endpoint": {"sampling": {"uniform": {"rate": 0.1}}}},<br/>
-        ///     targets=[<br/>
-        ///         {"name": "candidate", "target_deployment_id": "dep_def456"},<br/>
-        ///     ],<br/>
-        /// )<br/>
-        /// print(experiment.id)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeShadowExperiment>> ShadowExperimentServiceCreateShadowExperimentAsResponseAsync(
             string projectId,
             string endpointId,
@@ -174,10 +134,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments",
-                                baseUri: ResolveBaseUri(
-                                servers: s_ShadowExperimentServiceCreateShadowExperimentServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -245,7 +203,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateShadowExperiment",
                                 methodName: "ShadowExperimentServiceCreateShadowExperimentAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -279,7 +237,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateShadowExperiment",
                                 methodName: "ShadowExperimentServiceCreateShadowExperimentAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -320,7 +278,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateShadowExperiment",
                                 methodName: "ShadowExperimentServiceCreateShadowExperimentAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -368,7 +326,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateShadowExperiment",
                                 methodName: "ShadowExperimentServiceCreateShadowExperimentAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -390,7 +348,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateShadowExperiment",
                                 methodName: "ShadowExperimentServiceCreateShadowExperimentAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

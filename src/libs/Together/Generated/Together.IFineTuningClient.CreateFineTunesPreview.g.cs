@@ -12,15 +12,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// preview = client.fine_tuning.preview(<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="&lt;FILE_ID&gt;",<br/>
-        /// )<br/>
-        /// print(preview)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FineTunePreviewResponse> CreateFineTunesPreviewAsync(
 
             global::Together.FineTunePreviewRequest request,
@@ -34,15 +25,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// preview = client.fine_tuning.preview(<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     training_file="&lt;FILE_ID&gt;",<br/>
-        /// )<br/>
-        /// print(preview)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FineTunePreviewResponse>> CreateFineTunesPreviewAsResponseAsync(
 
             global::Together.FineTunePreviewRequest request,

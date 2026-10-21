@@ -1,7 +1,5 @@
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace Together
 {
     public partial interface IChatClient
@@ -14,22 +12,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.chat.completions.create(<br/>
-        ///     model="Qwen/Qwen3.5-9B",<br/>
-        ///     messages=[<br/>
-        ///         {"role": "system", "content": "You are a helpful assistant."},<br/>
-        ///         {"role": "user", "content": "What are some fun things to do in New York?"},<br/>
-        ///     ],<br/>
-        ///     reasoning={"enabled": False},<br/>
-        /// )<br/>
-        /// print(response.choices[0].message.content)
-        /// </remarks>
         global::System.Collections.Generic.IAsyncEnumerable<global::Together.ChatCompletionStream> ChatCompletionsAsStreamAsync(
 
             global::Together.ChatCompletionRequest request,

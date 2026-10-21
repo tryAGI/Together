@@ -6,19 +6,6 @@ namespace Together
     public partial class DeploymentsVolumesClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_CreateDeploymentsStorageVolumesServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateDeploymentsStorageVolumesSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -62,18 +49,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// # Files uploaded under source_prefix are loaded into the volume.<br/>
-        /// # `tg beta jig volumes create` uploads them and creates the volume for you.<br/>
-        /// volume = client.beta.jig.volumes.create(<br/>
-        ///     name="my-volume",<br/>
-        ///     type="readOnly",<br/>
-        ///     content={"type": "files", "source_prefix": "my-volume/0"},<br/>
-        /// )<br/>
-        /// print(volume.id)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> CreateDeploymentsStorageVolumesAsync(
 
             global::Together.CreateVolumeRequest request,
@@ -97,18 +72,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// # Files uploaded under source_prefix are loaded into the volume.<br/>
-        /// # `tg beta jig volumes create` uploads them and creates the volume for you.<br/>
-        /// volume = client.beta.jig.volumes.create(<br/>
-        ///     name="my-volume",<br/>
-        ///     type="readOnly",<br/>
-        ///     content={"type": "files", "source_prefix": "my-volume/0"},<br/>
-        /// )<br/>
-        /// print(volume.id)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VolumeResponseItem>> CreateDeploymentsStorageVolumesAsResponseAsync(
 
             global::Together.CreateVolumeRequest request,
@@ -147,10 +110,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/deployments/storage/volumes",
-                                baseUri: ResolveBaseUri(
-                                servers: s_CreateDeploymentsStorageVolumesServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/deployments/storage/volumes",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -216,7 +177,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createDeploymentsStorageVolumes",
                                 methodName: "CreateDeploymentsStorageVolumesAsync",
-                                pathTemplate: "\"/deployments/storage/volumes\"",
+                                pathTemplate: "\"/v1/deployments/storage/volumes\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -250,7 +211,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createDeploymentsStorageVolumes",
                                 methodName: "CreateDeploymentsStorageVolumesAsync",
-                                pathTemplate: "\"/deployments/storage/volumes\"",
+                                pathTemplate: "\"/v1/deployments/storage/volumes\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +252,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createDeploymentsStorageVolumes",
                                 methodName: "CreateDeploymentsStorageVolumesAsync",
-                                pathTemplate: "\"/deployments/storage/volumes\"",
+                                pathTemplate: "\"/v1/deployments/storage/volumes\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -339,7 +300,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createDeploymentsStorageVolumes",
                                 methodName: "CreateDeploymentsStorageVolumesAsync",
-                                pathTemplate: "\"/deployments/storage/volumes\"",
+                                pathTemplate: "\"/v1/deployments/storage/volumes\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -361,7 +322,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createDeploymentsStorageVolumes",
                                 methodName: "CreateDeploymentsStorageVolumesAsync",
-                                pathTemplate: "\"/deployments/storage/volumes\"",
+                                pathTemplate: "\"/v1/deployments/storage/volumes\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

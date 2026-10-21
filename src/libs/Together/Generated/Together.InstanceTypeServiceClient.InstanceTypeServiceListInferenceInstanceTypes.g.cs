@@ -6,14 +6,6 @@ namespace Together
     public partial class InstanceTypeServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_InstanceTypeServiceListInferenceInstanceTypesServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_InstanceTypeServiceListInferenceInstanceTypesSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -54,13 +46,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// instance_types = client.beta.endpoints.hardware.list()<br/>
-        /// for instance_type in instance_types.data:<br/>
-        ///     print(instance_type.name, instance_type.price_cents_per_hour)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListInferenceInstanceTypesResponse> InstanceTypeServiceListInferenceInstanceTypesAsync(
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -79,13 +64,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// instance_types = client.beta.endpoints.hardware.list()<br/>
-        /// for instance_type in instance_types.data:<br/>
-        ///     print(instance_type.name, instance_type.price_cents_per_hour)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListInferenceInstanceTypesResponse>> InstanceTypeServiceListInferenceInstanceTypesAsResponseAsync(
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -119,10 +97,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/public/inference-instance-types",
-                                baseUri: ResolveBaseUri(
-                                servers: s_InstanceTypeServiceListInferenceInstanceTypesServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: "/v2/public/inference-instance-types",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -181,7 +157,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "InstanceTypeServiceListInferenceInstanceTypes",
                                 methodName: "InstanceTypeServiceListInferenceInstanceTypesAsync",
-                                pathTemplate: "\"/public/inference-instance-types\"",
+                                pathTemplate: "\"/v2/public/inference-instance-types\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -215,7 +191,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "InstanceTypeServiceListInferenceInstanceTypes",
                                 methodName: "InstanceTypeServiceListInferenceInstanceTypesAsync",
-                                pathTemplate: "\"/public/inference-instance-types\"",
+                                pathTemplate: "\"/v2/public/inference-instance-types\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -256,7 +232,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "InstanceTypeServiceListInferenceInstanceTypes",
                                 methodName: "InstanceTypeServiceListInferenceInstanceTypesAsync",
-                                pathTemplate: "\"/public/inference-instance-types\"",
+                                pathTemplate: "\"/v2/public/inference-instance-types\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -304,7 +280,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "InstanceTypeServiceListInferenceInstanceTypes",
                                 methodName: "InstanceTypeServiceListInferenceInstanceTypesAsync",
-                                pathTemplate: "\"/public/inference-instance-types\"",
+                                pathTemplate: "\"/v2/public/inference-instance-types\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -326,7 +302,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "InstanceTypeServiceListInferenceInstanceTypes",
                                 methodName: "InstanceTypeServiceListInferenceInstanceTypesAsync",
-                                pathTemplate: "\"/public/inference-instance-types\"",
+                                pathTemplate: "\"/v2/public/inference-instance-types\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

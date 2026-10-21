@@ -6,19 +6,6 @@ namespace Together
     public partial class BillingClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetBillingUsageServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetBillingUsageSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -86,18 +73,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
-        /// # the client's generic GET helper.<br/>
-        /// usage = client.get(<br/>
-        ///     "/billing/usage",<br/>
-        ///     cast_to=object,<br/>
-        ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
-        /// )<br/>
-        /// print(usage)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.BillingUsageReport> GetBillingUsageAsync(
             string? month = default,
             string? organizationId = default,
@@ -143,18 +118,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
-        /// # the client's generic GET helper.<br/>
-        /// usage = client.get(<br/>
-        ///     "/billing/usage",<br/>
-        ///     cast_to=object,<br/>
-        ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
-        /// )<br/>
-        /// print(usage)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.BillingUsageReport>> GetBillingUsageAsResponseAsync(
             string? month = default,
             string? organizationId = default,
@@ -198,10 +161,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/billing/usage",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetBillingUsageServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/billing/usage",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("month", month)
                                 .AddOptionalParameter("organization_id", organizationId)
@@ -272,7 +233,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +267,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -347,7 +308,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -395,7 +356,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -417,7 +378,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

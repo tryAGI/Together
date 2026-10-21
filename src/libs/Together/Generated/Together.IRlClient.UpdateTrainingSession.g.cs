@@ -15,15 +15,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// session = client.post_training.sessions.update(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     display_name="grpo-math-run-2",<br/>
-        /// )<br/>
-        /// print(session.display_name)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> UpdateTrainingSessionAsync(
             string sessionId,
 
@@ -41,15 +32,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// session = client.post_training.sessions.update(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     display_name="grpo-math-run-2",<br/>
-        /// )<br/>
-        /// print(session.display_name)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlTrainingSession>> UpdateTrainingSessionAsResponseAsync(
             string sessionId,
 

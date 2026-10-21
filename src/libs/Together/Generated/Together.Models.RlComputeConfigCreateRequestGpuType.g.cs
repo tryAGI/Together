@@ -13,10 +13,6 @@ namespace Together
         ///
         /// </summary>
         B200Sxm,
-        /// <summary>
-        ///
-        /// </summary>
-        H10080gb,
     }
 
     /// <summary>
@@ -32,7 +28,6 @@ namespace Together
             return value switch
             {
                 RlComputeConfigCreateRequestGpuType.B200Sxm => "B200-SXM",
-                RlComputeConfigCreateRequestGpuType.H10080gb => "H100-80GB",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,7 +39,6 @@ namespace Together
             return value switch
             {
                 "B200-SXM" => RlComputeConfigCreateRequestGpuType.B200Sxm,
-                "H100-80GB" => RlComputeConfigCreateRequestGpuType.H10080gb,
                 _ => null,
             };
         }

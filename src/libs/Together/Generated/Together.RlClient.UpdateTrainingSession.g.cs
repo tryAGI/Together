@@ -6,19 +6,6 @@ namespace Together
     public partial class RlClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_UpdateTrainingSessionServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_UpdateTrainingSessionSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -67,15 +54,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// session = client.post_training.sessions.update(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     display_name="grpo-math-run-2",<br/>
-        /// )<br/>
-        /// print(session.display_name)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSession> UpdateTrainingSessionAsync(
             string sessionId,
 
@@ -104,15 +82,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// session = client.post_training.sessions.update(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     display_name="grpo-math-run-2",<br/>
-        /// )<br/>
-        /// print(session.display_name)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlTrainingSession>> UpdateTrainingSessionAsResponseAsync(
             string sessionId,
 
@@ -153,10 +122,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/rl/training-sessions/{sessionId}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_UpdateTrainingSessionServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/rl/training-sessions/{sessionId}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -223,7 +190,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "UpdateTrainingSession",
                                 methodName: "UpdateTrainingSessionAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -257,7 +224,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "UpdateTrainingSession",
                                 methodName: "UpdateTrainingSessionAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -298,7 +265,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "UpdateTrainingSession",
                                 methodName: "UpdateTrainingSessionAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -346,7 +313,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "UpdateTrainingSession",
                                 methodName: "UpdateTrainingSessionAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -368,7 +335,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "UpdateTrainingSession",
                                 methodName: "UpdateTrainingSessionAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

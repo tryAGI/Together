@@ -20,16 +20,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// profiles = client.beta.endpoints.placement_profiles.list(<br/>
-        ///     project_id=project_id,<br/>
-        /// )<br/>
-        /// for profile in profiles:<br/>
-        ///     print(profile.id, profile.name)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListPlacementProfilesResponse> PlacementProfileServiceListPlacementProfilesAsync(
             string projectId,
             int? limit = default,
@@ -52,16 +42,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// profiles = client.beta.endpoints.placement_profiles.list(<br/>
-        ///     project_id=project_id,<br/>
-        /// )<br/>
-        /// for profile in profiles:<br/>
-        ///     print(profile.id, profile.name)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListPlacementProfilesResponse>> PlacementProfileServiceListPlacementProfilesAsResponseAsync(
             string projectId,
             int? limit = default,

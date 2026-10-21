@@ -6,19 +6,6 @@ namespace Together
     public partial class AudioClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RealtimeTtsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RealtimeTtsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -180,69 +167,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import asyncio<br/>
-        /// import websockets<br/>
-        /// import json<br/>
-        /// import base64<br/>
-        /// import os<br/>
-        /// async def generate_speech():<br/>
-        ///     api_key = os.environ.get("TOGETHER_API_KEY")<br/>
-        ///     url = "wss://api.together.ai/v1/audio/speech/websocket?model=hexgrad/Kokoro-82M&amp;voice=af_heart"<br/>
-        ///     headers = {<br/>
-        ///         "Authorization": f"Bearer {api_key}"<br/>
-        ///     }<br/>
-        ///     async with websockets.connect(url, additional_headers=headers) as ws:<br/>
-        ///         # Wait for session created<br/>
-        ///         session_msg = await ws.recv()<br/>
-        ///         session_data = json.loads(session_msg)<br/>
-        ///         if session_data.get("type") != "session.created":<br/>
-        ///             print(f"Failed to start session: {session_data}")<br/>
-        ///             return<br/>
-        ///         print(f"Session created: {session_data['session']['id']}")<br/>
-        ///         # Send text for TTS<br/>
-        ///         text_chunks = [<br/>
-        ///             "Hello, this is a test.",<br/>
-        ///             "This is the second sentence.",<br/>
-        ///             "And this is the final one."<br/>
-        ///         ]<br/>
-        ///         async def send_text():<br/>
-        ///             for chunk in text_chunks:<br/>
-        ///                 await ws.send(json.dumps({<br/>
-        ///                     "type": "input_text_buffer.append",<br/>
-        ///                     "text": chunk<br/>
-        ///                 }))<br/>
-        ///                 await asyncio.sleep(0.5)  # Simulate typing<br/>
-        ///             # Commit to process any remaining text<br/>
-        ///             await ws.send(json.dumps({<br/>
-        ///                 "type": "input_text_buffer.commit"<br/>
-        ///             }))<br/>
-        ///         async def receive_audio():<br/>
-        ///             audio_data = bytearray()<br/>
-        ///             async for message in ws:<br/>
-        ///                 data = json.loads(message)<br/>
-        ///                 if data["type"] == "conversation.item.input_text.received":<br/>
-        ///                     print(f"Text received: {data['text']}")<br/>
-        ///                 elif data["type"] == "conversation.item.audio_output.delta":<br/>
-        ///                     # Decode base64 audio chunk<br/>
-        ///                     audio_chunk = base64.b64decode(data['delta'])<br/>
-        ///                     audio_data.extend(audio_chunk)<br/>
-        ///                     print(f"Received audio chunk for item {data['item_id']}")<br/>
-        ///                 elif data["type"] == "conversation.item.audio_output.done":<br/>
-        ///                     print(f"Audio generation complete for item {data['item_id']}")<br/>
-        ///                     break<br/>
-        ///                 elif data["type"] == "conversation.item.tts.failed":<br/>
-        ///                     error = data.get("error", {})<br/>
-        ///                     print(f"Error: {error.get('message')}")<br/>
-        ///                     break<br/>
-        ///             # Save the raw PCM samples to a file<br/>
-        ///             with open("output.pcm", "wb") as f:<br/>
-        ///                 f.write(audio_data)<br/>
-        ///             print("Audio saved to output.pcm")<br/>
-        ///         # Run send and receive concurrently<br/>
-        ///         await asyncio.gather(send_text(), receive_audio())<br/>
-        /// asyncio.run(generate_speech())
-        /// </remarks>
         public async global::System.Threading.Tasks.Task RealtimeTtsAsync(
             global::Together.RealtimeTtsModel? model = default,
             string? voice = default,
@@ -385,69 +309,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import asyncio<br/>
-        /// import websockets<br/>
-        /// import json<br/>
-        /// import base64<br/>
-        /// import os<br/>
-        /// async def generate_speech():<br/>
-        ///     api_key = os.environ.get("TOGETHER_API_KEY")<br/>
-        ///     url = "wss://api.together.ai/v1/audio/speech/websocket?model=hexgrad/Kokoro-82M&amp;voice=af_heart"<br/>
-        ///     headers = {<br/>
-        ///         "Authorization": f"Bearer {api_key}"<br/>
-        ///     }<br/>
-        ///     async with websockets.connect(url, additional_headers=headers) as ws:<br/>
-        ///         # Wait for session created<br/>
-        ///         session_msg = await ws.recv()<br/>
-        ///         session_data = json.loads(session_msg)<br/>
-        ///         if session_data.get("type") != "session.created":<br/>
-        ///             print(f"Failed to start session: {session_data}")<br/>
-        ///             return<br/>
-        ///         print(f"Session created: {session_data['session']['id']}")<br/>
-        ///         # Send text for TTS<br/>
-        ///         text_chunks = [<br/>
-        ///             "Hello, this is a test.",<br/>
-        ///             "This is the second sentence.",<br/>
-        ///             "And this is the final one."<br/>
-        ///         ]<br/>
-        ///         async def send_text():<br/>
-        ///             for chunk in text_chunks:<br/>
-        ///                 await ws.send(json.dumps({<br/>
-        ///                     "type": "input_text_buffer.append",<br/>
-        ///                     "text": chunk<br/>
-        ///                 }))<br/>
-        ///                 await asyncio.sleep(0.5)  # Simulate typing<br/>
-        ///             # Commit to process any remaining text<br/>
-        ///             await ws.send(json.dumps({<br/>
-        ///                 "type": "input_text_buffer.commit"<br/>
-        ///             }))<br/>
-        ///         async def receive_audio():<br/>
-        ///             audio_data = bytearray()<br/>
-        ///             async for message in ws:<br/>
-        ///                 data = json.loads(message)<br/>
-        ///                 if data["type"] == "conversation.item.input_text.received":<br/>
-        ///                     print(f"Text received: {data['text']}")<br/>
-        ///                 elif data["type"] == "conversation.item.audio_output.delta":<br/>
-        ///                     # Decode base64 audio chunk<br/>
-        ///                     audio_chunk = base64.b64decode(data['delta'])<br/>
-        ///                     audio_data.extend(audio_chunk)<br/>
-        ///                     print(f"Received audio chunk for item {data['item_id']}")<br/>
-        ///                 elif data["type"] == "conversation.item.audio_output.done":<br/>
-        ///                     print(f"Audio generation complete for item {data['item_id']}")<br/>
-        ///                     break<br/>
-        ///                 elif data["type"] == "conversation.item.tts.failed":<br/>
-        ///                     error = data.get("error", {})<br/>
-        ///                     print(f"Error: {error.get('message')}")<br/>
-        ///                     break<br/>
-        ///             # Save the raw PCM samples to a file<br/>
-        ///             with open("output.pcm", "wb") as f:<br/>
-        ///                 f.write(audio_data)<br/>
-        ///             print("Audio saved to output.pcm")<br/>
-        ///         # Run send and receive concurrently<br/>
-        ///         await asyncio.gather(send_text(), receive_audio())<br/>
-        /// asyncio.run(generate_speech())
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse> RealtimeTtsAsResponseAsync(
             global::Together.RealtimeTtsModel? model = default,
             string? voice = default,
@@ -489,10 +350,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/audio/speech/websocket",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RealtimeTtsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/audio/speech/websocket",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("model", model?.ToValueString())
                                 .AddOptionalParameter("voice", voice)
@@ -561,7 +420,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -595,7 +454,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -636,7 +495,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -684,7 +543,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -706,7 +565,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

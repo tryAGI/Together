@@ -6,19 +6,6 @@ namespace Together
     public partial class ShapingClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_CreateQuantizationJobServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateQuantizationJobSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -56,23 +43,12 @@ namespace Together
 
         /// <summary>
         /// Prepare a fine-tuned model for FP4 inference<br/>
-        /// Merges a fine-tuned adapter into its base model and prepares the result for FP4 inference. The adapter is resolved when the request is made, so a request naming a model that does not exist in the project, is not an adapter, was not produced by fine-tuning, has no base model to merge into, or uses an unsupported base model is rejected with 400 rather than accepted and failed later. The run is priced before it is created, and a project that cannot cover it is answered 402.
+        /// Prepares a fine-tuned model for FP4 inference: an adapter is merged into its base model and the result quantized to FP4; a full model is quantized as it is. The model is resolved when the request is made, so a request naming a model that does not exist in the project, was not produced by fine-tuning, has no base model, or uses an unsupported base model is rejected with 400 rather than accepted and failed later. The request names the model by `model_object_id` (the deprecated `adapter_object_id` is still accepted). The run is priced before it is created, and a project that cannot cover it is answered 402.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// job = client.post_training.prepare_for_fp4_inference.create(<br/>
-        ///     inputs={<br/>
-        ///         "adapter_object_id": "ml_abc123",<br/>
-        ///         "adapter_revision_id": "rv_abc123",<br/>
-        ///     },<br/>
-        /// )<br/>
-        /// print(job.id, job.status)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.QuantizationJob> CreateQuantizationJobAsync(
 
             global::Together.QuantizationRequest request,
@@ -90,23 +66,12 @@ namespace Together
         }
         /// <summary>
         /// Prepare a fine-tuned model for FP4 inference<br/>
-        /// Merges a fine-tuned adapter into its base model and prepares the result for FP4 inference. The adapter is resolved when the request is made, so a request naming a model that does not exist in the project, is not an adapter, was not produced by fine-tuning, has no base model to merge into, or uses an unsupported base model is rejected with 400 rather than accepted and failed later. The run is priced before it is created, and a project that cannot cover it is answered 402.
+        /// Prepares a fine-tuned model for FP4 inference: an adapter is merged into its base model and the result quantized to FP4; a full model is quantized as it is. The model is resolved when the request is made, so a request naming a model that does not exist in the project, was not produced by fine-tuning, has no base model, or uses an unsupported base model is rejected with 400 rather than accepted and failed later. The request names the model by `model_object_id` (the deprecated `adapter_object_id` is still accepted). The run is priced before it is created, and a project that cannot cover it is answered 402.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// job = client.post_training.prepare_for_fp4_inference.create(<br/>
-        ///     inputs={<br/>
-        ///         "adapter_object_id": "ml_abc123",<br/>
-        ///         "adapter_revision_id": "rv_abc123",<br/>
-        ///     },<br/>
-        /// )<br/>
-        /// print(job.id, job.status)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.QuantizationJob>> CreateQuantizationJobAsResponseAsync(
 
             global::Together.QuantizationRequest request,
@@ -145,10 +110,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/shaping/prepare-for-fp4-inference",
-                                baseUri: ResolveBaseUri(
-                                servers: s_CreateQuantizationJobServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/shaping/prepare-for-fp4-inference",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -214,7 +177,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateQuantizationJob",
                                 methodName: "CreateQuantizationJobAsync",
-                                pathTemplate: "\"/shaping/prepare-for-fp4-inference\"",
+                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -248,7 +211,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateQuantizationJob",
                                 methodName: "CreateQuantizationJobAsync",
-                                pathTemplate: "\"/shaping/prepare-for-fp4-inference\"",
+                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -289,7 +252,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateQuantizationJob",
                                 methodName: "CreateQuantizationJobAsync",
-                                pathTemplate: "\"/shaping/prepare-for-fp4-inference\"",
+                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -337,7 +300,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateQuantizationJob",
                                 methodName: "CreateQuantizationJobAsync",
-                                pathTemplate: "\"/shaping/prepare-for-fp4-inference\"",
+                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -359,7 +322,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateQuantizationJob",
                                 methodName: "CreateQuantizationJobAsync",
-                                pathTemplate: "\"/shaping/prepare-for-fp4-inference\"",
+                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -694,11 +657,11 @@ namespace Together
         }
         /// <summary>
         /// Prepare a fine-tuned model for FP4 inference<br/>
-        /// Merges a fine-tuned adapter into its base model and prepares the result for FP4 inference. The adapter is resolved when the request is made, so a request naming a model that does not exist in the project, is not an adapter, was not produced by fine-tuning, has no base model to merge into, or uses an unsupported base model is rejected with 400 rather than accepted and failed later. The run is priced before it is created, and a project that cannot cover it is answered 402.
+        /// Prepares a fine-tuned model for FP4 inference: an adapter is merged into its base model and the result quantized to FP4; a full model is quantized as it is. The model is resolved when the request is made, so a request naming a model that does not exist in the project, was not produced by fine-tuning, has no base model, or uses an unsupported base model is rejected with 400 rather than accepted and failed later. The request names the model by `model_object_id` (the deprecated `adapter_object_id` is still accepted). The run is priced before it is created, and a project that cannot cover it is answered 402.
         /// </summary>
         /// <param name="inputs">
-        /// Adapter inputs to prepare.<br/>
-        /// Example: {"adapter_object_id":"ml_CeG3fF6pyEViU8dE8pk7R","adapter_revision_id":"rv_CeG3faPBj2ABwbAaHPTmx","calibration_file_id":"file-5f1b0c7a-2d19-4a3e-9c60-8ab41c2f7d35"}
+        /// Inputs naming the fine-tuned model to prepare.<br/>
+        /// Example: {"model_object_id":"ml_CeG3fF6pyEViU8dE8pk7R","model_revision_id":"rv_CeG3faPBj2ABwbAaHPTmx","calibration_file_id":"file-5f1b0c7a-2d19-4a3e-9c60-8ab41c2f7d35"}
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

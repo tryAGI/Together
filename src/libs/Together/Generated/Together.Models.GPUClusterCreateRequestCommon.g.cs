@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace Together
@@ -75,15 +73,7 @@ namespace Together
         public required global::Together.GPUClusterCreateRequestCommonBillingType BillingType { get; set; }
 
         /// <summary>
-        /// Whether GPU cluster should be auto-scaled based on the workload. By default, it is not auto-scaled.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("auto_scaled")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public bool? AutoScaled { get; set; }
-
-        /// <summary>
-        /// Maximum number of GPUs to which the cluster can be auto-scaled up. This field is required if auto_scaled is true.
+        /// Maximum number of GPUs to which the cluster can be auto-scaled up.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_scale_max_gpus")]
         public int? AutoScaleMaxGpus { get; set; }
@@ -236,7 +226,7 @@ namespace Together
         /// ID of an existing volume to use with the cluster creation.
         /// </param>
         /// <param name="autoScaleMaxGpus">
-        /// Maximum number of GPUs to which the cluster can be auto-scaled up. This field is required if auto_scaled is true.
+        /// Maximum number of GPUs to which the cluster can be auto-scaled up.
         /// </param>
         /// <param name="slurmShmSizeGib">
         /// Shared memory size in GiB for Slurm cluster. This field is required if cluster_type is SLURM.

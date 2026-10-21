@@ -18,22 +18,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Mirror 10% of the endpoint's requests to the candidate deployment.<br/>
-        /// experiment = client.beta.endpoints.shadow_experiments.create(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     name="candidate-shadow",<br/>
-        ///     source={"endpoint": {"sampling": {"uniform": {"rate": 0.1}}}},<br/>
-        ///     targets=[<br/>
-        ///         {"name": "candidate", "target_deployment_id": "dep_def456"},<br/>
-        ///     ],<br/>
-        /// )<br/>
-        /// print(experiment.id)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeShadowExperiment> ShadowExperimentServiceCreateShadowExperimentAsync(
             string projectId,
             string endpointId,
@@ -55,22 +39,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Mirror 10% of the endpoint's requests to the candidate deployment.<br/>
-        /// experiment = client.beta.endpoints.shadow_experiments.create(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     name="candidate-shadow",<br/>
-        ///     source={"endpoint": {"sampling": {"uniform": {"rate": 0.1}}}},<br/>
-        ///     targets=[<br/>
-        ///         {"name": "candidate", "target_deployment_id": "dep_def456"},<br/>
-        ///     ],<br/>
-        /// )<br/>
-        /// print(experiment.id)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeShadowExperiment>> ShadowExperimentServiceCreateShadowExperimentAsResponseAsync(
             string projectId,
             string endpointId,

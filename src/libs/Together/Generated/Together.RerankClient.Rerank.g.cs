@@ -6,19 +6,6 @@ namespace Together
     public partial class RerankClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RerankServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RerankSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -62,40 +49,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// documents = [<br/>
-        ///     {<br/>
-        ///         "title": "Llama",<br/>
-        ///         "text": "The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era."<br/>
-        ///     },<br/>
-        ///     {<br/>
-        ///         "title": "Panda",<br/>
-        ///         "text": "The giant panda (Ailuropoda melanoleuca), also known as the panda bear or simply panda, is a bear species endemic to China."<br/>
-        ///     },<br/>
-        ///     {<br/>
-        ///         "title": "Guanaco",<br/>
-        ///         "text": "The guanaco is a camelid native to South America, closely related to the llama. Guanacos are one of two wild South American camelids; the other species is the vicuña, which lives at higher elevations."<br/>
-        ///     },<br/>
-        ///     {<br/>
-        ///         "title": "Wild Bactrian camel",<br/>
-        ///         "text": "The wild Bactrian camel (Camelus ferus) is an endangered species of camel endemic to Northwest China and southwestern Mongolia."<br/>
-        ///     }<br/>
-        /// ]<br/>
-        /// response = client.rerank.create(<br/>
-        ///     model="mixedbread-ai/mxbai-rerank-large-v2",<br/>
-        ///     query="What animals can I find near Peru?",<br/>
-        ///     documents=documents,<br/>
-        /// )<br/>
-        /// for result in response.results:<br/>
-        ///     print(f"Rank: {result.index + 1}")<br/>
-        ///     print(f"Title: {documents[result.index]['title']}")<br/>
-        ///     print(f"Text: {documents[result.index]['text']}")
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RerankResponse> RerankAsync(
 
             global::Together.RerankRequest request,
@@ -119,40 +72,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// documents = [<br/>
-        ///     {<br/>
-        ///         "title": "Llama",<br/>
-        ///         "text": "The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era."<br/>
-        ///     },<br/>
-        ///     {<br/>
-        ///         "title": "Panda",<br/>
-        ///         "text": "The giant panda (Ailuropoda melanoleuca), also known as the panda bear or simply panda, is a bear species endemic to China."<br/>
-        ///     },<br/>
-        ///     {<br/>
-        ///         "title": "Guanaco",<br/>
-        ///         "text": "The guanaco is a camelid native to South America, closely related to the llama. Guanacos are one of two wild South American camelids; the other species is the vicuña, which lives at higher elevations."<br/>
-        ///     },<br/>
-        ///     {<br/>
-        ///         "title": "Wild Bactrian camel",<br/>
-        ///         "text": "The wild Bactrian camel (Camelus ferus) is an endangered species of camel endemic to Northwest China and southwestern Mongolia."<br/>
-        ///     }<br/>
-        /// ]<br/>
-        /// response = client.rerank.create(<br/>
-        ///     model="mixedbread-ai/mxbai-rerank-large-v2",<br/>
-        ///     query="What animals can I find near Peru?",<br/>
-        ///     documents=documents,<br/>
-        /// )<br/>
-        /// for result in response.results:<br/>
-        ///     print(f"Rank: {result.index + 1}")<br/>
-        ///     print(f"Title: {documents[result.index]['title']}")<br/>
-        ///     print(f"Text: {documents[result.index]['text']}")
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RerankResponse>> RerankAsResponseAsync(
 
             global::Together.RerankRequest request,
@@ -191,10 +110,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/rerank",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RerankServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/rerank",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -260,7 +177,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Rerank",
                                 methodName: "RerankAsync",
-                                pathTemplate: "\"/rerank\"",
+                                pathTemplate: "\"/v1/rerank\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -294,7 +211,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Rerank",
                                 methodName: "RerankAsync",
-                                pathTemplate: "\"/rerank\"",
+                                pathTemplate: "\"/v1/rerank\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -335,7 +252,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Rerank",
                                 methodName: "RerankAsync",
-                                pathTemplate: "\"/rerank\"",
+                                pathTemplate: "\"/v1/rerank\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -383,7 +300,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Rerank",
                                 methodName: "RerankAsync",
-                                pathTemplate: "\"/rerank\"",
+                                pathTemplate: "\"/v1/rerank\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -405,7 +322,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Rerank",
                                 methodName: "RerankAsync",
-                                pathTemplate: "\"/rerank\"",
+                                pathTemplate: "\"/v1/rerank\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

@@ -6,19 +6,6 @@ namespace Together
     public partial class FineTuningClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_CreateFineTunesEstimatePriceServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateFineTunesEstimatePriceSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -62,18 +49,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// estimate = client.fine_tuning.estimate_price(<br/>
-        ///     training_file="&lt;FILE_ID&gt;",<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     n_epochs=3,<br/>
-        ///     training_method={"method": "sft", "train_on_inputs": "auto"},<br/>
-        ///     training_type={"type": "Lora", "lora_r": 8, "lora_alpha": 16},<br/>
-        /// )<br/>
-        /// print(estimate)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>> CreateFineTunesEstimatePriceAsync(
 
             global::Together.CreateFineTunesEstimatePriceRequest request,
@@ -97,18 +72,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// estimate = client.fine_tuning.estimate_price(<br/>
-        ///     training_file="&lt;FILE_ID&gt;",<br/>
-        ///     model="meta-llama/Meta-Llama-3.1-8B-Instruct-Reference",<br/>
-        ///     n_epochs=3,<br/>
-        ///     training_method={"method": "sft", "train_on_inputs": "auto"},<br/>
-        ///     training_type={"type": "Lora", "lora_r": 8, "lora_alpha": 16},<br/>
-        /// )<br/>
-        /// print(estimate)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>>> CreateFineTunesEstimatePriceAsResponseAsync(
 
             global::Together.CreateFineTunesEstimatePriceRequest request,
@@ -147,10 +110,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/fine-tunes/estimate-price",
-                                baseUri: ResolveBaseUri(
-                                servers: s_CreateFineTunesEstimatePriceServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/fine-tunes/estimate-price",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -216,7 +177,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createFineTunesEstimatePrice",
                                 methodName: "CreateFineTunesEstimatePriceAsync",
-                                pathTemplate: "\"/fine-tunes/estimate-price\"",
+                                pathTemplate: "\"/v1/fine-tunes/estimate-price\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -250,7 +211,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createFineTunesEstimatePrice",
                                 methodName: "CreateFineTunesEstimatePriceAsync",
-                                pathTemplate: "\"/fine-tunes/estimate-price\"",
+                                pathTemplate: "\"/v1/fine-tunes/estimate-price\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +252,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createFineTunesEstimatePrice",
                                 methodName: "CreateFineTunesEstimatePriceAsync",
-                                pathTemplate: "\"/fine-tunes/estimate-price\"",
+                                pathTemplate: "\"/v1/fine-tunes/estimate-price\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -339,7 +300,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createFineTunesEstimatePrice",
                                 methodName: "CreateFineTunesEstimatePriceAsync",
-                                pathTemplate: "\"/fine-tunes/estimate-price\"",
+                                pathTemplate: "\"/v1/fine-tunes/estimate-price\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -361,7 +322,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "createFineTunesEstimatePrice",
                                 methodName: "CreateFineTunesEstimatePriceAsync",
-                                pathTemplate: "\"/fine-tunes/estimate-price\"",
+                                pathTemplate: "\"/v1/fine-tunes/estimate-price\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
