@@ -17,6 +17,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// revisions = client.beta.models.list_revisions(<br/>
+        ///     "ml_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        /// )<br/>
+        /// print(revisions)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListRevisionsResponse> VolumeServiceListModelRevisionsAsync(
             string projectId,
             string id,
@@ -35,6 +45,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// revisions = client.beta.models.list_revisions(<br/>
+        ///     "ml_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        /// )<br/>
+        /// print(revisions)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListRevisionsResponse>> VolumeServiceListModelRevisionsAsResponseAsync(
             string projectId,
             string id,

@@ -6,6 +6,14 @@ namespace Together
     public partial class VolumeServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_VolumeServiceDeleteModelServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_VolumeServiceDeleteModelSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -56,6 +64,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// client.beta.models.delete("ml_abc123", project_id=project_id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeDeleteResponse> VolumeServiceDeleteModelAsync(
             string projectId,
             string id,
@@ -84,6 +98,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// client.beta.models.delete("ml_abc123", project_id=project_id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeDeleteResponse>> VolumeServiceDeleteModelAsResponseAsync(
             string projectId,
             string id,
@@ -121,8 +141,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/projects/{projectId}/models/{id}",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/projects/{projectId}/models/{id}",
+                                baseUri: ResolveBaseUri(
+                                servers: s_VolumeServiceDeleteModelServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -183,7 +205,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceDeleteModel",
                                 methodName: "VolumeServiceDeleteModelAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -217,7 +239,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceDeleteModel",
                                 methodName: "VolumeServiceDeleteModelAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -258,7 +280,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceDeleteModel",
                                 methodName: "VolumeServiceDeleteModelAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +328,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceDeleteModel",
                                 methodName: "VolumeServiceDeleteModelAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -328,7 +350,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceDeleteModel",
                                 methodName: "VolumeServiceDeleteModelAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

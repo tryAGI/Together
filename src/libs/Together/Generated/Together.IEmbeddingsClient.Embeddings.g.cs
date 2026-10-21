@@ -12,6 +12,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.embeddings.create(<br/>
+        ///     model="BAAI/bge-large-en-v1.5",<br/>
+        ///     input="New York City",<br/>
+        /// )<br/>
+        /// print(response.data[0].embedding)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.EmbeddingsResponse> EmbeddingsAsync(
 
             global::Together.EmbeddingsRequest request,
@@ -25,6 +37,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.embeddings.create(<br/>
+        ///     model="BAAI/bge-large-en-v1.5",<br/>
+        ///     input="New York City",<br/>
+        /// )<br/>
+        /// print(response.data[0].embedding)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.EmbeddingsResponse>> EmbeddingsAsResponseAsync(
 
             global::Together.EmbeddingsRequest request,

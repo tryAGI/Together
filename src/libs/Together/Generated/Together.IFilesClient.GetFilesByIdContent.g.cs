@@ -14,6 +14,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// with client.files.with_streaming_response.content(id="&lt;FILE_ID&gt;") as response:<br/>
+        ///   for line in response.iter_lines():<br/>
+        ///     print(line)
+        /// </remarks>
         global::System.Threading.Tasks.Task<byte[]> GetFilesByIdContentAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -28,6 +38,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// with client.files.with_streaming_response.content(id="&lt;FILE_ID&gt;") as response:<br/>
+        ///   for line in response.iter_lines():<br/>
+        ///     print(line)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::System.IO.Stream> GetFilesByIdContentAsStreamAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -42,6 +62,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// with client.files.with_streaming_response.content(id="&lt;FILE_ID&gt;") as response:<br/>
+        ///   for line in response.iter_lines():<br/>
+        ///     print(line)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<byte[]>> GetFilesByIdContentAsResponseAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,

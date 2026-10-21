@@ -6,6 +6,19 @@ namespace Together
     public partial class FineTuningClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_GetFineTunesByIdMetricsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetFineTunesByIdMetricsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -66,6 +79,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// metrics = client.fine_tuning.list_metrics(<br/>
+        ///     "&lt;JOB_ID&gt;",<br/>
+        ///     global_step_from=0,<br/>
+        ///     global_step_to=500,<br/>
+        /// )<br/>
+        /// print(metrics)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GetFineTunesMetricsResponse> GetFineTunesByIdMetricsAsync(
             string id,
             int? globalStepFrom = default,
@@ -104,6 +127,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// metrics = client.fine_tuning.list_metrics(<br/>
+        ///     "&lt;JOB_ID&gt;",<br/>
+        ///     global_step_from=0,<br/>
+        ///     global_step_to=500,<br/>
+        /// )<br/>
+        /// print(metrics)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GetFineTunesMetricsResponse>> GetFineTunesByIdMetricsAsResponseAsync(
             string id,
             int? globalStepFrom = default,
@@ -149,8 +182,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v1/fine-tunes/{id}/metrics",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/fine-tunes/{id}/metrics",
+                                baseUri: ResolveBaseUri(
+                                servers: s_GetFineTunesByIdMetricsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("global_step_from", globalStepFrom?.ToString())
                                 .AddOptionalParameter("global_step_to", globalStepTo?.ToString())
@@ -222,7 +257,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdMetrics",
                                 methodName: "GetFineTunesByIdMetricsAsync",
-                                pathTemplate: "$\"/v1/fine-tunes/{id}/metrics\"",
+                                pathTemplate: "$\"/fine-tunes/{id}/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -256,7 +291,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdMetrics",
                                 methodName: "GetFineTunesByIdMetricsAsync",
-                                pathTemplate: "$\"/v1/fine-tunes/{id}/metrics\"",
+                                pathTemplate: "$\"/fine-tunes/{id}/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -297,7 +332,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdMetrics",
                                 methodName: "GetFineTunesByIdMetricsAsync",
-                                pathTemplate: "$\"/v1/fine-tunes/{id}/metrics\"",
+                                pathTemplate: "$\"/fine-tunes/{id}/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -345,7 +380,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdMetrics",
                                 methodName: "GetFineTunesByIdMetricsAsync",
-                                pathTemplate: "$\"/v1/fine-tunes/{id}/metrics\"",
+                                pathTemplate: "$\"/fine-tunes/{id}/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -367,7 +402,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdMetrics",
                                 methodName: "GetFineTunesByIdMetricsAsync",
-                                pathTemplate: "$\"/v1/fine-tunes/{id}/metrics\"",
+                                pathTemplate: "$\"/fine-tunes/{id}/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

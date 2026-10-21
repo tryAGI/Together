@@ -13,7 +13,7 @@ namespace Together
         /// <summary>
         /// Default environment for APIs
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.together.ai/";
+        public const string DefaultBaseUrl = "https://api.together.ai/v1";
 
         private bool _disposeHttpClient = true;
 
@@ -123,6 +123,17 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public CodeInterpreterClient CodeInterpreter => new CodeInterpreterClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
         public CompletionClient Completion => new CompletionClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -211,6 +222,28 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public EndpointsClient Endpoints => new EndpointsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Endpoints2Client Endpoints2 => new Endpoints2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
         public EvaluationClient Evaluation => new EvaluationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -255,6 +288,17 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public HardwareClient Hardware => new HardwareClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
         public HealthCheckServiceClient HealthCheckService => new HealthCheckServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -289,6 +333,28 @@ namespace Together
         ///
         /// </summary>
         public InstanceTypeServiceClient InstanceTypeService => new InstanceTypeServiceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
+        public JobsClient Jobs => new JobsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            CreateIdempotencyKey = CreateIdempotencyKey,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+            AutoSDKServerConfiguration = AutoSDKServerConfiguration,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ModelsClient Models => new ModelsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             CreateIdempotencyKey = CreateIdempotencyKey,
@@ -486,14 +552,19 @@ namespace Together
 
         private static readonly global::Together.AutoSDKServer[] s_availableServers = new global::Together.AutoSDKServer[]
         {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai",
+                id: "https-api-together-ai-v1",
                 name: "Default environment for APIs",
-                url: "https://api.together.ai/",
+                url: "https://api.together.ai/v1",
                 description: "Default environment for APIs"),
             new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai",
-                name: "api-inference.together.ai",
-                url: "https://api-inference.together.ai/",
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
                 description: ""),
         };
 

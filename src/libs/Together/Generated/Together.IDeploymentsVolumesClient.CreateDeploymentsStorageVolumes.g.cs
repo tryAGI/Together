@@ -12,6 +12,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Files uploaded under source_prefix are loaded into the volume.<br/>
+        /// # `tg beta jig volumes create` uploads them and creates the volume for you.<br/>
+        /// volume = client.beta.jig.volumes.create(<br/>
+        ///     name="my-volume",<br/>
+        ///     type="readOnly",<br/>
+        ///     content={"type": "files", "source_prefix": "my-volume/0"},<br/>
+        /// )<br/>
+        /// print(volume.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.VolumeResponseItem> CreateDeploymentsStorageVolumesAsync(
 
             global::Together.CreateVolumeRequest request,
@@ -25,6 +37,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Files uploaded under source_prefix are loaded into the volume.<br/>
+        /// # `tg beta jig volumes create` uploads them and creates the volume for you.<br/>
+        /// volume = client.beta.jig.volumes.create(<br/>
+        ///     name="my-volume",<br/>
+        ///     type="readOnly",<br/>
+        ///     content={"type": "files", "source_prefix": "my-volume/0"},<br/>
+        /// )<br/>
+        /// print(volume.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VolumeResponseItem>> CreateDeploymentsStorageVolumesAsResponseAsync(
 
             global::Together.CreateVolumeRequest request,

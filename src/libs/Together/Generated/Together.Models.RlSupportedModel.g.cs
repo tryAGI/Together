@@ -19,12 +19,13 @@ namespace Together
 
         /// <summary>
         /// GPU type used when model-resource creation omits gpu_type.<br/>
-        /// Example: B200-SXM
+        /// Example: H100-80GB
         /// </summary>
-        /// <example>B200-SXM</example>
+        /// <example>H100-80GB</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlSupportedModelDefaultGpuTypeJsonConverter))]
-        public global::Together.RlSupportedModelDefaultGpuType DefaultGpuType { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlSupportedModelDefaultGpuType DefaultGpuType { get; set; }
 
         /// <summary>
         /// Validated GPU configurations available for this base model.
@@ -47,7 +48,7 @@ namespace Together
         /// </param>
         /// <param name="defaultGpuType">
         /// GPU type used when model-resource creation omits gpu_type.<br/>
-        /// Example: B200-SXM
+        /// Example: H100-80GB
         /// </param>
         /// <param name="computeConfigs">
         /// Validated GPU configurations available for this base model.

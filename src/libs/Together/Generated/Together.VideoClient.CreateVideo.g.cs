@@ -1,10 +1,20 @@
 
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace Together
 {
     public partial class VideoClient
     {
+
+        private static readonly global::Together.AutoSDKServer[] s_CreateVideoServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
 
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateVideoSecurityRequirement0 =
@@ -49,6 +59,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.videos.create(<br/>
+        ///     model="minimax/video-01-director",<br/>
+        ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
+        /// )<br/>
+        /// print(response.id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.VideoJob> CreateVideoAsync(
 
             global::Together.CreateVideoBody request,
@@ -72,6 +94,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.videos.create(<br/>
+        ///     model="minimax/video-01-director",<br/>
+        ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
+        /// )<br/>
+        /// print(response.id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VideoJob>> CreateVideoAsResponseAsync(
 
             global::Together.CreateVideoBody request,
@@ -110,8 +144,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v2/videos",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/videos",
+                                baseUri: ResolveBaseUri(
+                                servers: s_CreateVideoServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -177,7 +213,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateVideo",
                                 methodName: "CreateVideoAsync",
-                                pathTemplate: "\"/v2/videos\"",
+                                pathTemplate: "\"/videos\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -211,7 +247,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateVideo",
                                 methodName: "CreateVideoAsync",
-                                pathTemplate: "\"/v2/videos\"",
+                                pathTemplate: "\"/videos\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -252,7 +288,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateVideo",
                                 methodName: "CreateVideoAsync",
-                                pathTemplate: "\"/v2/videos\"",
+                                pathTemplate: "\"/videos\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,7 +336,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateVideo",
                                 methodName: "CreateVideoAsync",
-                                pathTemplate: "\"/v2/videos\"",
+                                pathTemplate: "\"/videos\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -322,7 +358,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateVideo",
                                 methodName: "CreateVideoAsync",
-                                pathTemplate: "\"/v2/videos\"",
+                                pathTemplate: "\"/videos\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

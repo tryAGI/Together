@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Quantization job that prepares a fine-tuned model for FP4 inference.
+    /// Quantization job that prepares an adapter for FP4 inference.
     /// </summary>
     public sealed partial class QuantizationJobVariant2
     {

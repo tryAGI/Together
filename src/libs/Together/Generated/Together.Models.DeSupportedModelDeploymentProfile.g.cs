@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -49,6 +51,13 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("quantization")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Quantization { get; set; }
+
+        /// <summary>
+        /// Deprecated. Use `parallelism`. Legacy tensor-parallel shard count for the profile.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tensorParallelSize")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public int? TensorParallelSize { get; set; }
 
         /// <summary>
         /// Performance benchmarks for the profile, if available.

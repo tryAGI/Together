@@ -17,6 +17,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.evals.list()<br/>
+        /// for job in response:<br/>
+        ///     print(job.workflow_id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::Together.EvaluationJob>> GetAllEvaluationJobsAsync(
             string? status = default,
             int? limit = default,
@@ -35,6 +45,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.evals.list()<br/>
+        /// for job in response:<br/>
+        ///     print(job.workflow_id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::Together.EvaluationJob>>> GetAllEvaluationJobsAsResponseAsync(
             string? status = default,
             int? limit = default,

@@ -6,6 +6,19 @@ namespace Together
     public partial class RlClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_DownloadCheckpointServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_DownloadCheckpointSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -57,6 +70,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// download = client.post_training.checkpoints.download(<br/>
+        ///     "&lt;CHECKPOINT_ID&gt;",<br/>
+        ///     variant="CHECKPOINT_VARIANT_ADAPTER",<br/>
+        /// )<br/>
+        /// print(download)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlCheckpointDownloadResponse> DownloadCheckpointAsync(
             string id,
             global::Together.RlCheckpointVariant variant = global::Together.RlCheckpointVariant.CheckpointVariantUnspecified,
@@ -86,6 +108,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// download = client.post_training.checkpoints.download(<br/>
+        ///     "&lt;CHECKPOINT_ID&gt;",<br/>
+        ///     variant="CHECKPOINT_VARIANT_ADAPTER",<br/>
+        /// )<br/>
+        /// print(download)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlCheckpointDownloadResponse>> DownloadCheckpointAsResponseAsync(
             string id,
             global::Together.RlCheckpointVariant variant = global::Together.RlCheckpointVariant.CheckpointVariantUnspecified,
@@ -123,8 +154,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v1/rl/checkpoints/{id}/download",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/rl/checkpoints/{id}/download",
+                                baseUri: ResolveBaseUri(
+                                servers: s_DownloadCheckpointServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddRequiredParameter("variant", variant.ToValueString())
                                 ;
@@ -188,7 +221,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DownloadCheckpoint",
                                 methodName: "DownloadCheckpointAsync",
-                                pathTemplate: "$\"/v1/rl/checkpoints/{id}/download\"",
+                                pathTemplate: "$\"/rl/checkpoints/{id}/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -222,7 +255,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DownloadCheckpoint",
                                 methodName: "DownloadCheckpointAsync",
-                                pathTemplate: "$\"/v1/rl/checkpoints/{id}/download\"",
+                                pathTemplate: "$\"/rl/checkpoints/{id}/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -263,7 +296,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DownloadCheckpoint",
                                 methodName: "DownloadCheckpointAsync",
-                                pathTemplate: "$\"/v1/rl/checkpoints/{id}/download\"",
+                                pathTemplate: "$\"/rl/checkpoints/{id}/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -311,7 +344,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DownloadCheckpoint",
                                 methodName: "DownloadCheckpointAsync",
-                                pathTemplate: "$\"/v1/rl/checkpoints/{id}/download\"",
+                                pathTemplate: "$\"/rl/checkpoints/{id}/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -333,7 +366,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DownloadCheckpoint",
                                 methodName: "DownloadCheckpointAsync",
-                                pathTemplate: "$\"/v1/rl/checkpoints/{id}/download\"",
+                                pathTemplate: "$\"/rl/checkpoints/{id}/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

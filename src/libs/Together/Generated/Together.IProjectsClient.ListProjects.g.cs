@@ -17,6 +17,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// for project in client.projects.list():<br/>
+        ///     print(project.id, project.name, project.slug)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.ListProjectsResponse> ListProjectsAsync(
             int? limit = default,
             string? after = default,
@@ -35,6 +41,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// for project in client.projects.list():<br/>
+        ///     print(project.id, project.name, project.slug)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.ListProjectsResponse>> ListProjectsAsResponseAsync(
             int? limit = default,
             string? after = default,

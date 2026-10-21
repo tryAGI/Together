@@ -2,48 +2,7 @@
 #nullable enable
 
 namespace Together
-{
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiApiKey))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrganization))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProject))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUser))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProjectApiKey))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProjectApiKeyType), TypeInfoPropertyName = "WhoamiProjectApiKeyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrgApiKey))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrgApiKeyType), TypeInfoPropertyName = "WhoamiOrgApiKeyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserJwt))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserJwtType), TypeInfoPropertyName = "WhoamiUserJwtType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgJwt))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgJwtType), TypeInfoPropertyName = "WhoamiUserOrgJwtType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwt))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwtType), TypeInfoPropertyName = "WhoamiUserOrgProjectJwtType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponse), TypeInfoPropertyName = "WhoamiResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminatorType), TypeInfoPropertyName = "WhoamiResponseDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiProjectApiKeyType?), TypeInfoPropertyName = "NullableWhoamiProjectApiKeyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiOrgApiKeyType?), TypeInfoPropertyName = "NullableWhoamiOrgApiKeyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserJwtType?), TypeInfoPropertyName = "NullableWhoamiUserJwtType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgJwtType?), TypeInfoPropertyName = "NullableWhoamiUserOrgJwtType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwtType?), TypeInfoPropertyName = "NullableWhoamiUserOrgProjectJwtType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponse?), TypeInfoPropertyName = "NullableWhoamiResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminatorType?), TypeInfoPropertyName = "NullableWhoamiResponseDiscriminatorType2")]
-    internal sealed partial class AccountSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
+{    /// <summary>
     ///
     /// </summary>
     public sealed partial class AccountSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -87,27 +46,7 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            options.Converters.Add(new global::Together.JsonConverters.WhoamiResponseJsonConverter());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
+            global::Together.SourceGenerationContext.AddConverters(options);
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -120,104 +59,6 @@ namespace Together
             AddConverters(options);
 
             return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType)
-
-                    || typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType?)
-
-                    || typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType)
-
-                    || typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType?)
-
-                    || typeToConvert == typeof(global::Together.WhoamiUserJwtType)
-
-                    || typeToConvert == typeof(global::Together.WhoamiUserJwtType?)
-
-                    || typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType)
-
-                    || typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType?)
-
-                    || typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType)
-
-                    || typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType?)
-
-                    || typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType)
-
-                    || typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType))
-                {
-                    return new global::Together.JsonConverters.WhoamiProjectApiKeyTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiProjectApiKeyType?))
-                {
-                    return new global::Together.JsonConverters.WhoamiProjectApiKeyTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType))
-                {
-                    return new global::Together.JsonConverters.WhoamiOrgApiKeyTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiOrgApiKeyType?))
-                {
-                    return new global::Together.JsonConverters.WhoamiOrgApiKeyTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiUserJwtType))
-                {
-                    return new global::Together.JsonConverters.WhoamiUserJwtTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiUserJwtType?))
-                {
-                    return new global::Together.JsonConverters.WhoamiUserJwtTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType))
-                {
-                    return new global::Together.JsonConverters.WhoamiUserOrgJwtTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiUserOrgJwtType?))
-                {
-                    return new global::Together.JsonConverters.WhoamiUserOrgJwtTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType))
-                {
-                    return new global::Together.JsonConverters.WhoamiUserOrgProjectJwtTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiUserOrgProjectJwtType?))
-                {
-                    return new global::Together.JsonConverters.WhoamiUserOrgProjectJwtTypeNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType))
-                {
-                    return new global::Together.JsonConverters.WhoamiResponseDiscriminatorTypeJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType?))
-                {
-                    return new global::Together.JsonConverters.WhoamiResponseDiscriminatorTypeNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
         }
 
         private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
@@ -259,7 +100,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => new AccountSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
+                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }
