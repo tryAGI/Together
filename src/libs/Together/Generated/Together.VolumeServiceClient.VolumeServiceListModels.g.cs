@@ -6,14 +6,6 @@ namespace Together
     public partial class VolumeServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_VolumeServiceListModelsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_VolumeServiceListModelsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -79,13 +71,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for model in client.beta.models.list(project_id=project_id):<br/>
-        ///     print(model.id, model.name)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListModelsResponse> VolumeServiceListModelsAsync(
             string projectId,
             global::Together.VolumeServiceListModelsVisibility? visibility = default,
@@ -129,13 +114,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for model in client.beta.models.list(project_id=project_id):<br/>
-        ///     print(model.id, model.name)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListModelsResponse>> VolumeServiceListModelsAsResponseAsync(
             string projectId,
             global::Together.VolumeServiceListModelsVisibility? visibility = default,
@@ -179,10 +157,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/models",
-                                baseUri: ResolveBaseUri(
-                                servers: s_VolumeServiceListModelsServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/models",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("visibility", visibility?.ToValueString())
                                 .AddOptionalParameter("organizationId", organizationId)
@@ -252,7 +228,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListModels",
                                 methodName: "VolumeServiceListModelsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/models\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -286,7 +262,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListModels",
                                 methodName: "VolumeServiceListModelsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/models\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -327,7 +303,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListModels",
                                 methodName: "VolumeServiceListModelsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/models\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -375,7 +351,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListModels",
                                 methodName: "VolumeServiceListModelsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/models\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -397,7 +373,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListModels",
                                 methodName: "VolumeServiceListModelsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/models\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/models\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

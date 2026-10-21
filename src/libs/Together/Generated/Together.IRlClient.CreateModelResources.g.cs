@@ -12,16 +12,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// resource = client.post_training.model_resources.create(<br/>
-        ///     base_model="Qwen/Qwen3.5-9B",<br/>
-        ///     lora_enabled=True,<br/>
-        ///     compute_config={"gpu_type": "H100-80GB", "num_generator_replicas": 1},<br/>
-        /// )<br/>
-        /// print(resource.id, resource.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlModelResources> CreateModelResourcesAsync(
 
             global::Together.RlCreateModelResourcesRequest request,
@@ -35,16 +25,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// resource = client.post_training.model_resources.create(<br/>
-        ///     base_model="Qwen/Qwen3.5-9B",<br/>
-        ///     lora_enabled=True,<br/>
-        ///     compute_config={"gpu_type": "H100-80GB", "num_generator_replicas": 1},<br/>
-        /// )<br/>
-        /// print(resource.id, resource.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlModelResources>> CreateModelResourcesAsResponseAsync(
 
             global::Together.RlCreateModelResourcesRequest request,

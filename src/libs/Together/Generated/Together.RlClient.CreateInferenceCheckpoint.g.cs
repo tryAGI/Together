@@ -6,19 +6,6 @@ namespace Together
     public partial class RlClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_CreateInferenceCheckpointServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_CreateInferenceCheckpointSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -69,16 +56,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import uuid<br/>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// operation = client.post_training.operations.create_inference_checkpoint(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     idempotency_key=str(uuid.uuid4()),<br/>
-        /// )<br/>
-        /// print(operation.id, operation.status)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlInferenceCheckpointOperation> CreateInferenceCheckpointAsync(
             string sessionId,
             string? idempotencyKey = default,
@@ -107,16 +84,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import uuid<br/>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// operation = client.post_training.operations.create_inference_checkpoint(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     idempotency_key=str(uuid.uuid4()),<br/>
-        /// )<br/>
-        /// print(operation.id, operation.status)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlInferenceCheckpointOperation>> CreateInferenceCheckpointAsResponseAsync(
             string sessionId,
             string? idempotencyKey = default,
@@ -154,10 +121,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/rl/training-sessions/{sessionId}/operations/inference-checkpoint",
-                                baseUri: ResolveBaseUri(
-                                servers: s_CreateInferenceCheckpointServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/rl/training-sessions/{sessionId}/operations/inference-checkpoint",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -224,7 +189,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateInferenceCheckpoint",
                                 methodName: "CreateInferenceCheckpointAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -258,7 +223,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateInferenceCheckpoint",
                                 methodName: "CreateInferenceCheckpointAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -299,7 +264,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateInferenceCheckpoint",
                                 methodName: "CreateInferenceCheckpointAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -347,7 +312,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateInferenceCheckpoint",
                                 methodName: "CreateInferenceCheckpointAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -369,7 +334,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CreateInferenceCheckpoint",
                                 methodName: "CreateInferenceCheckpointAsync",
-                                pathTemplate: "$\"/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
+                                pathTemplate: "$\"/v1/rl/training-sessions/{sessionId}/operations/inference-checkpoint\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

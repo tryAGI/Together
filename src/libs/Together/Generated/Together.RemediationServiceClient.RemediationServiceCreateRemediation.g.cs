@@ -6,19 +6,6 @@ namespace Together
     public partial class RemediationServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RemediationServiceCreateRemediationServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RemediationServiceCreateRemediationSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -76,17 +63,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// remediation = client.clusters.remediations.create(<br/>
-        ///     "&lt;INSTANCE_ID&gt;",<br/>
-        ///     cluster_id="&lt;CLUSTER_ID&gt;",<br/>
-        ///     mode="REMEDIATION_MODE_VM_ONLY",<br/>
-        ///     reason="Repeated GPU Xid errors",<br/>
-        /// )<br/>
-        /// print(remediation.id, remediation.state)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.Remediation> RemediationServiceCreateRemediationAsync(
             string clusterId,
             string instanceId,
@@ -124,17 +100,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// remediation = client.clusters.remediations.create(<br/>
-        ///     "&lt;INSTANCE_ID&gt;",<br/>
-        ///     cluster_id="&lt;CLUSTER_ID&gt;",<br/>
-        ///     mode="REMEDIATION_MODE_VM_ONLY",<br/>
-        ///     reason="Repeated GPU Xid errors",<br/>
-        /// )<br/>
-        /// print(remediation.id, remediation.state)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.Remediation>> RemediationServiceCreateRemediationAsResponseAsync(
             string clusterId,
             string instanceId,
@@ -179,10 +144,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/compute/clusters/{clusterId}/instances/{instanceId}/remediations",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RemediationServiceCreateRemediationServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("remediation_id", remediationId)
                                 ;
@@ -254,7 +217,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RemediationServiceCreateRemediation",
                                 methodName: "RemediationServiceCreateRemediationAsync",
-                                pathTemplate: "$\"/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
+                                pathTemplate: "$\"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -288,7 +251,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RemediationServiceCreateRemediation",
                                 methodName: "RemediationServiceCreateRemediationAsync",
-                                pathTemplate: "$\"/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
+                                pathTemplate: "$\"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -329,7 +292,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RemediationServiceCreateRemediation",
                                 methodName: "RemediationServiceCreateRemediationAsync",
-                                pathTemplate: "$\"/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
+                                pathTemplate: "$\"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -377,7 +340,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RemediationServiceCreateRemediation",
                                 methodName: "RemediationServiceCreateRemediationAsync",
-                                pathTemplate: "$\"/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
+                                pathTemplate: "$\"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -399,7 +362,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RemediationServiceCreateRemediation",
                                 methodName: "RemediationServiceCreateRemediationAsync",
-                                pathTemplate: "$\"/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
+                                pathTemplate: "$\"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

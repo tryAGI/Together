@@ -27,15 +27,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// sessions = client.post_training.sessions.list(<br/>
-        ///     model_resources_id="&lt;MODEL_RESOURCES_ID&gt;",<br/>
-        /// )<br/>
-        /// for session in sessions.data or []:<br/>
-        ///     print(session.id, session.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlTrainingSessionsListResponse> ListTrainingSessionsAsync(
             global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status = default,
             int? limit = default,
@@ -67,15 +58,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// sessions = client.post_training.sessions.list(<br/>
-        ///     model_resources_id="&lt;MODEL_RESOURCES_ID&gt;",<br/>
-        /// )<br/>
-        /// for session in sessions.data or []:<br/>
-        ///     print(session.id, session.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlTrainingSessionsListResponse>> ListTrainingSessionsAsResponseAsync(
             global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status = default,
             int? limit = default,

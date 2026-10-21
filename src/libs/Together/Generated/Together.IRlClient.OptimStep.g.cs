@@ -18,17 +18,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import uuid<br/>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// operation = client.post_training.operations.optim_step(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     idempotency_key=str(uuid.uuid4()),<br/>
-        ///     adam_params={"learning_rate": 1e-5},<br/>
-        /// )<br/>
-        /// print(operation.id, operation.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlOptimStepOperation> OptimStepAsync(
             string sessionId,
 
@@ -50,17 +39,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// import uuid<br/>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// operation = client.post_training.operations.optim_step(<br/>
-        ///     "&lt;SESSION_ID&gt;",<br/>
-        ///     idempotency_key=str(uuid.uuid4()),<br/>
-        ///     adam_params={"learning_rate": 1e-5},<br/>
-        /// )<br/>
-        /// print(operation.id, operation.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlOptimStepOperation>> OptimStepAsResponseAsync(
             string sessionId,
 

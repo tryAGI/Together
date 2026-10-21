@@ -6,7 +6,7 @@ namespace Together
     {
         /// <summary>
         /// Get a deployment adapter<br/>
-        /// Gets an attached adapter and its per-cluster load state.
+        /// Gets an adapter attachment by its `dad_` id and returns its per-cluster load state.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -18,23 +18,11 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// adapter = client.beta.endpoints.adapters.retrieve(<br/>
-        ///     "dad_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        ///     deployment_id="dep_abc123",<br/>
-        /// )<br/>
-        /// print(adapter)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeAdapterEntry> DeploymentServiceGetAdapterAsync(
             string projectId,
             string endpointId,
@@ -44,7 +32,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a deployment adapter<br/>
-        /// Gets an attached adapter and its per-cluster load state.
+        /// Gets an adapter attachment by its `dad_` id and returns its per-cluster load state.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -56,23 +44,11 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// adapter = client.beta.endpoints.adapters.retrieve(<br/>
-        ///     "dad_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        ///     deployment_id="dep_abc123",<br/>
-        /// )<br/>
-        /// print(adapter)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeAdapterEntry>> DeploymentServiceGetAdapterAsResponseAsync(
             string projectId,
             string endpointId,

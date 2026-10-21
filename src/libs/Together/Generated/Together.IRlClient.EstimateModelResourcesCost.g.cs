@@ -12,16 +12,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// estimate = client.post_training.model_resources.estimate_cost(<br/>
-        ///     base_model="Qwen/Qwen3.5-9B",<br/>
-        ///     lora_enabled=True,<br/>
-        ///     compute_config={"gpu_type": "H100-80GB", "num_generator_replicas": 1},<br/>
-        /// )<br/>
-        /// print(estimate)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlModelResourcesEstimateCostResponse> EstimateModelResourcesCostAsync(
 
             global::Together.RlCreateModelResourcesRequest request,
@@ -35,16 +25,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// estimate = client.post_training.model_resources.estimate_cost(<br/>
-        ///     base_model="Qwen/Qwen3.5-9B",<br/>
-        ///     lora_enabled=True,<br/>
-        ///     compute_config={"gpu_type": "H100-80GB", "num_generator_replicas": 1},<br/>
-        /// )<br/>
-        /// print(estimate)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlModelResourcesEstimateCostResponse>> EstimateModelResourcesCostAsResponseAsync(
 
             global::Together.RlCreateModelResourcesRequest request,

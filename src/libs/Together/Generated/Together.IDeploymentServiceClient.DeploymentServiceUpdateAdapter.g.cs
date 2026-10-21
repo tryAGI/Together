@@ -6,7 +6,7 @@ namespace Together
     {
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -18,33 +18,12 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Read the attachment first: updating it requires its current etag.<br/>
-        /// adapter = client.beta.endpoints.adapters.retrieve(<br/>
-        ///     "dad_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        ///     deployment_id="dep_abc123",<br/>
-        /// )<br/>
-        /// updated = client.beta.endpoints.adapters.update(<br/>
-        ///     "dad_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        ///     deployment_id="dep_abc123",<br/>
-        ///     adapter_revision_id="rv_abc123",<br/>
-        ///     etag=adapter.etag,<br/>
-        /// )<br/>
-        /// print(updated)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeAdapterEntry> DeploymentServiceUpdateAdapterAsync(
             string projectId,
             string endpointId,
@@ -56,7 +35,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -68,33 +47,12 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Read the attachment first: updating it requires its current etag.<br/>
-        /// adapter = client.beta.endpoints.adapters.retrieve(<br/>
-        ///     "dad_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        ///     deployment_id="dep_abc123",<br/>
-        /// )<br/>
-        /// updated = client.beta.endpoints.adapters.update(<br/>
-        ///     "dad_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        ///     deployment_id="dep_abc123",<br/>
-        ///     adapter_revision_id="rv_abc123",<br/>
-        ///     etag=adapter.etag,<br/>
-        /// )<br/>
-        /// print(updated)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeAdapterEntry>> DeploymentServiceUpdateAdapterAsResponseAsync(
             string projectId,
             string endpointId,
@@ -106,7 +64,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -118,7 +76,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="adapterRevisionId">
         /// New adapter revision to pin.

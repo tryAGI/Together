@@ -20,17 +20,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// experiment = client.beta.endpoints.ab_experiments.retrieve(<br/>
-        ///     "abx_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        /// )<br/>
-        /// print(experiment.name, experiment.members)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeABExperiment> ABExperimentServiceGetABExperimentAsync(
             string projectId,
             string endpointId,
@@ -53,17 +42,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// experiment = client.beta.endpoints.ab_experiments.retrieve(<br/>
-        ///     "abx_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     endpoint_id="ep_abc123",<br/>
-        /// )<br/>
-        /// print(experiment.name, experiment.members)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeABExperiment>> ABExperimentServiceGetABExperimentAsResponseAsync(
             string projectId,
             string endpointId,

@@ -6,14 +6,6 @@ namespace Together
     public partial class RolloutServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RolloutServicePreviewRolloutDefaultsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RolloutServicePreviewRolloutDefaultsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -67,21 +59,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Returns the values a create request would use for unset fields,<br/>
-        /// # without creating a rollout.<br/>
-        /// defaults = client.beta.endpoints.rollouts.preview_defaults(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     source_deployment_id="dep_abc123",<br/>
-        ///     target_deployment_id="dep_def456",<br/>
-        ///     canary={"steps": [{"traffic": 25}, {"traffic": 100}]},<br/>
-        /// )<br/>
-        /// print(defaults)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeRolloutDefaultsPreview> RolloutServicePreviewRolloutDefaultsAsync(
             string projectId,
             string endpointId,
@@ -115,21 +92,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// # Returns the values a create request would use for unset fields,<br/>
-        /// # without creating a rollout.<br/>
-        /// defaults = client.beta.endpoints.rollouts.preview_defaults(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     source_deployment_id="dep_abc123",<br/>
-        ///     target_deployment_id="dep_def456",<br/>
-        ///     canary={"steps": [{"traffic": 25}, {"traffic": 100}]},<br/>
-        /// )<br/>
-        /// print(defaults)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeRolloutDefaultsPreview>> RolloutServicePreviewRolloutDefaultsAsResponseAsync(
             string projectId,
             string endpointId,
@@ -172,10 +134,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RolloutServicePreviewRolloutDefaultsServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -243,7 +203,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RolloutServicePreviewRolloutDefaults",
                                 methodName: "RolloutServicePreviewRolloutDefaultsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -277,7 +237,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RolloutServicePreviewRolloutDefaults",
                                 methodName: "RolloutServicePreviewRolloutDefaultsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -318,7 +278,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RolloutServicePreviewRolloutDefaults",
                                 methodName: "RolloutServicePreviewRolloutDefaultsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -366,7 +326,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RolloutServicePreviewRolloutDefaults",
                                 methodName: "RolloutServicePreviewRolloutDefaultsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -388,7 +348,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RolloutServicePreviewRolloutDefaults",
                                 methodName: "RolloutServicePreviewRolloutDefaultsAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/rollouts/preview-defaults\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

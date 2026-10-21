@@ -6,19 +6,6 @@ namespace Together
     public partial class FineTuningClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_DeleteFineTunesByIdServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_DeleteFineTunesByIdSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -40,13 +27,11 @@ namespace Together
             };
         partial void PrepareDeleteFineTunesByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
-            ref bool? force);
+            ref string id);
         partial void PrepareDeleteFineTunesByIdRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
-            bool? force);
+            string id);
         partial void ProcessDeleteFineTunesByIdResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -63,31 +48,16 @@ namespace Together
         /// <param name="id">
         /// The ID of the fine-tune job to delete
         /// </param>
-        /// <param name="force">
-        /// Deprecated and unused parameter.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.fine_tuning.delete(id="&lt;JOB_ID&gt;")<br/>
-        /// print(response)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.FinetuneDeleteResponse> DeleteFineTunesByIdAsync(
             string id,
-            bool? force = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await DeleteFineTunesByIdAsResponseAsync(
                 id: id,
-                force: force,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -101,25 +71,11 @@ namespace Together
         /// <param name="id">
         /// The ID of the fine-tune job to delete
         /// </param>
-        /// <param name="force">
-        /// Deprecated and unused parameter.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.fine_tuning.delete(id="&lt;JOB_ID&gt;")<br/>
-        /// print(response)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FinetuneDeleteResponse>> DeleteFineTunesByIdAsResponseAsync(
             string id,
-            bool? force = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -127,8 +83,7 @@ namespace Together
                 client: HttpClient);
             PrepareDeleteFineTunesByIdArguments(
                 httpClient: HttpClient,
-                id: ref id,
-                force: ref force);
+                id: ref id);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -154,13 +109,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/fine-tunes/{id}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_DeleteFineTunesByIdServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
-                            __pathBuilder
-                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
-                                ;
+                                path: $"/v1/fine-tunes/{id}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -201,8 +151,7 @@ namespace Together
                 PrepareDeleteFineTunesByIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    force: force);
+                    id: id);
 
                 return __httpRequest;
             }
@@ -221,7 +170,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "deleteFineTunesById",
                                 methodName: "DeleteFineTunesByIdAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -255,7 +204,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "deleteFineTunesById",
                                 methodName: "DeleteFineTunesByIdAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -296,7 +245,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "deleteFineTunesById",
                                 methodName: "DeleteFineTunesByIdAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -344,7 +293,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "deleteFineTunesById",
                                 methodName: "DeleteFineTunesByIdAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -366,7 +315,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "deleteFineTunesById",
                                 methodName: "DeleteFineTunesByIdAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

@@ -6,19 +6,6 @@ namespace Together
     public partial class DeploymentsClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetDeploymentsByIdLogsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetDeploymentsByIdLogsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -79,12 +66,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// logs = client.beta.jig.retrieve_logs("my-deployment")<br/>
-        /// print(logs)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeploymentLogs> GetDeploymentsByIdLogsAsync(
             string id,
             string? replicaId = default,
@@ -123,12 +104,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// logs = client.beta.jig.retrieve_logs("my-deployment")<br/>
-        /// print(logs)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeploymentLogs>> GetDeploymentsByIdLogsAsResponseAsync(
             string id,
             string? replicaId = default,
@@ -170,10 +145,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/deployments/{id}/logs",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetDeploymentsByIdLogsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/deployments/{id}/logs",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("replica_id", replicaId)
                                 .AddOptionalParameter("version", version)
@@ -241,7 +214,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdLogs",
                                 methodName: "GetDeploymentsByIdLogsAsync",
-                                pathTemplate: "$\"/deployments/{id}/logs\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -275,7 +248,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdLogs",
                                 methodName: "GetDeploymentsByIdLogsAsync",
-                                pathTemplate: "$\"/deployments/{id}/logs\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -316,7 +289,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdLogs",
                                 methodName: "GetDeploymentsByIdLogsAsync",
-                                pathTemplate: "$\"/deployments/{id}/logs\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -364,7 +337,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdLogs",
                                 methodName: "GetDeploymentsByIdLogsAsync",
-                                pathTemplate: "$\"/deployments/{id}/logs\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -386,7 +359,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdLogs",
                                 methodName: "GetDeploymentsByIdLogsAsync",
-                                pathTemplate: "$\"/deployments/{id}/logs\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/logs\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

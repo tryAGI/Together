@@ -21,20 +21,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// deployment = client.beta.endpoints.deployments.create(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     name="prod",<br/>
-        ///     model=f"projects/{project_id}/models/ml_abc123",<br/>
-        ///     config=f"projects/{project_id}/configs/cr_abc123",<br/>
-        ///     autoscaling={"min_replicas": 1, "max_replicas": 2},<br/>
-        /// )<br/>
-        /// print(deployment.id, deployment.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeDeployment> DeploymentServiceCreateDeploymentAsync(
             string projectId,
             string endpointId,
@@ -60,20 +46,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// deployment = client.beta.endpoints.deployments.create(<br/>
-        ///     "ep_abc123",<br/>
-        ///     project_id=project_id,<br/>
-        ///     name="prod",<br/>
-        ///     model=f"projects/{project_id}/models/ml_abc123",<br/>
-        ///     config=f"projects/{project_id}/configs/cr_abc123",<br/>
-        ///     autoscaling={"min_replicas": 1, "max_replicas": 2},<br/>
-        /// )<br/>
-        /// print(deployment.id, deployment.status)
-        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeDeployment>> DeploymentServiceCreateDeploymentAsResponseAsync(
             string projectId,
             string endpointId,
