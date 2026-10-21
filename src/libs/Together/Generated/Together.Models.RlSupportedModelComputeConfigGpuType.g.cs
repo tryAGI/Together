@@ -5,7 +5,7 @@ namespace Together
 {
     /// <summary>
     /// GPU type this configuration provisions.<br/>
-    /// Example: B200-SXM
+    /// Example: H100-80GB
     /// </summary>
     public enum RlSupportedModelComputeConfigGpuType
     {
@@ -13,6 +13,10 @@ namespace Together
         ///
         /// </summary>
         B200Sxm,
+        /// <summary>
+        ///
+        /// </summary>
+        H10080gb,
     }
 
     /// <summary>
@@ -28,6 +32,7 @@ namespace Together
             return value switch
             {
                 RlSupportedModelComputeConfigGpuType.B200Sxm => "B200-SXM",
+                RlSupportedModelComputeConfigGpuType.H10080gb => "H100-80GB",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -39,6 +44,7 @@ namespace Together
             return value switch
             {
                 "B200-SXM" => RlSupportedModelComputeConfigGpuType.B200Sxm,
+                "H100-80GB" => RlSupportedModelComputeConfigGpuType.H10080gb,
                 _ => null,
             };
         }

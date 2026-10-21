@@ -103,6 +103,11 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public CodeInterpreterClient CodeInterpreter { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public CompletionClient Completion { get; }
 
         /// <summary>
@@ -143,6 +148,16 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public EndpointsClient Endpoints { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Endpoints2Client Endpoints2 { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public EvaluationClient Evaluation { get; }
 
         /// <summary>
@@ -163,6 +178,11 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        public HardwareClient Hardware { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public HealthCheckServiceClient HealthCheckService { get; }
 
         /// <summary>
@@ -179,6 +199,16 @@ namespace Together
         ///
         /// </summary>
         public InstanceTypeServiceClient InstanceTypeService { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public JobsClient Jobs { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ModelsClient Models { get; }
 
         /// <summary>
         ///

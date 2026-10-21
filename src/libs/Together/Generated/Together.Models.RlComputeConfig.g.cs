@@ -19,9 +19,9 @@ namespace Together
 
         /// <summary>
         /// GPU type selected for this resource.<br/>
-        /// Example: B200-SXM
+        /// Example: H100-80GB
         /// </summary>
-        /// <example>B200-SXM</example>
+        /// <example>H100-80GB</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlComputeConfigGpuTypeJsonConverter))]
         public global::Together.RlComputeConfigGpuType? GpuType { get; set; }
@@ -41,7 +41,7 @@ namespace Together
         /// </param>
         /// <param name="gpuType">
         /// GPU type selected for this resource.<br/>
-        /// Example: B200-SXM
+        /// Example: H100-80GB
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

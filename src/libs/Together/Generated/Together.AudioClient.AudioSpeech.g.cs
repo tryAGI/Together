@@ -6,6 +6,19 @@ namespace Together
     public partial class AudioClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_AudioSpeechServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_AudioSpeechSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -49,6 +62,20 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.audio.speech.with_streaming_response.create(<br/>
+        ///     model="cartesia/sonic-2",<br/>
+        ///     input="The quick brown fox jumps over the lazy dog.",<br/>
+        ///     voice="laidback woman",<br/>
+        /// )<br/>
+        /// with response as stream:<br/>
+        ///   stream.stream_to_file("audio.wav")
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<byte[]> AudioSpeechAsync(
 
             global::Together.AudioSpeechRequest request,
@@ -72,6 +99,20 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.audio.speech.with_streaming_response.create(<br/>
+        ///     model="cartesia/sonic-2",<br/>
+        ///     input="The quick brown fox jumps over the lazy dog.",<br/>
+        ///     voice="laidback woman",<br/>
+        /// )<br/>
+        /// with response as stream:<br/>
+        ///   stream.stream_to_file("audio.wav")
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> AudioSpeechAsStreamAsync(
 
             global::Together.AudioSpeechRequest request,
@@ -123,8 +164,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/audio/speech",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/audio/speech",
+                                baseUri: ResolveBaseUri(
+                                servers: s_AudioSpeechServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -194,7 +237,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -228,7 +271,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -269,7 +312,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -317,7 +360,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -339,7 +382,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -487,6 +530,20 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.audio.speech.with_streaming_response.create(<br/>
+        ///     model="cartesia/sonic-2",<br/>
+        ///     input="The quick brown fox jumps over the lazy dog.",<br/>
+        ///     voice="laidback woman",<br/>
+        /// )<br/>
+        /// with response as stream:<br/>
+        ///   stream.stream_to_file("audio.wav")
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<byte[]>> AudioSpeechAsResponseAsync(
 
             global::Together.AudioSpeechRequest request,
@@ -538,8 +595,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/audio/speech",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/audio/speech",
+                                baseUri: ResolveBaseUri(
+                                servers: s_AudioSpeechServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -609,7 +668,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -643,7 +702,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -684,7 +743,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -732,7 +791,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -754,7 +813,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "AudioSpeech",
                                 methodName: "AudioSpeechAsync",
-                                pathTemplate: "\"/v1/audio/speech\"",
+                                pathTemplate: "\"/audio/speech\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

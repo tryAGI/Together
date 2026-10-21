@@ -24,6 +24,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// resources = client.post_training.model_resources.list(<br/>
+        ///     status=["MODEL_RESOURCES_STATUS_READY"],<br/>
+        /// )<br/>
+        /// for resource in resources.data:<br/>
+        ///     print(resource.id, resource.base_model, resource.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlModelResourcesListResponse> ListModelResourcesAsync(
             global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>? status = default,
             int? limit = default,
@@ -51,6 +60,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// resources = client.post_training.model_resources.list(<br/>
+        ///     status=["MODEL_RESOURCES_STATUS_READY"],<br/>
+        /// )<br/>
+        /// for resource in resources.data:<br/>
+        ///     print(resource.id, resource.base_model, resource.status)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlModelResourcesListResponse>> ListModelResourcesAsResponseAsync(
             global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>? status = default,
             int? limit = default,

@@ -49,7 +49,7 @@ namespace Together
         public string? DesiredRevision { get; set; }
 
         /// <summary>
-        /// Adapter attachment `dad_` id used by get, update, and remove; stale ids never address a replacement after remove and re-add.
+        /// Row identifier for this adapter attachment; changes if the adapter is removed and re-added.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -77,7 +77,7 @@ namespace Together
         /// Row-level etag required for UpdateAdapter and RemoveAdapter.
         /// </param>
         /// <param name="id">
-        /// Adapter attachment `dad_` id used by get, update, and remove; stale ids never address a replacement after remove and re-add.
+        /// Row identifier for this adapter attachment; changes if the adapter is removed and re-added.
         /// </param>
         /// <param name="adapterModel">
         /// Resource name of the adapter model, using projects/{projectId}/models/{adapterModelId}.

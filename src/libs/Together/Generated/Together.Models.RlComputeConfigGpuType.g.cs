@@ -5,7 +5,7 @@ namespace Together
 {
     /// <summary>
     /// GPU type selected for this resource.<br/>
-    /// Example: B200-SXM
+    /// Example: H100-80GB
     /// </summary>
     public enum RlComputeConfigGpuType
     {

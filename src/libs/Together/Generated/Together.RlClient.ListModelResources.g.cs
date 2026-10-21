@@ -6,6 +6,19 @@ namespace Together
     public partial class RlClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ListModelResourcesServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ListModelResourcesSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -67,6 +80,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// resources = client.post_training.model_resources.list(<br/>
+        ///     status=["MODEL_RESOURCES_STATUS_READY"],<br/>
+        /// )<br/>
+        /// for resource in resources.data:<br/>
+        ///     print(resource.id, resource.base_model, resource.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlModelResourcesListResponse> ListModelResourcesAsync(
             global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>? status = default,
             int? limit = default,
@@ -106,6 +128,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// resources = client.post_training.model_resources.list(<br/>
+        ///     status=["MODEL_RESOURCES_STATUS_READY"],<br/>
+        /// )<br/>
+        /// for resource in resources.data:<br/>
+        ///     print(resource.id, resource.base_model, resource.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlModelResourcesListResponse>> ListModelResourcesAsResponseAsync(
             global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>? status = default,
             int? limit = default,
@@ -147,8 +178,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/rl/model-resources",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/rl/model-resources",
+                                baseUri: ResolveBaseUri(
+                                servers: s_ListModelResourcesServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("limit", limit?.ToString())
@@ -217,7 +250,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListModelResources",
                                 methodName: "ListModelResourcesAsync",
-                                pathTemplate: "\"/v1/rl/model-resources\"",
+                                pathTemplate: "\"/rl/model-resources\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -251,7 +284,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListModelResources",
                                 methodName: "ListModelResourcesAsync",
-                                pathTemplate: "\"/v1/rl/model-resources\"",
+                                pathTemplate: "\"/rl/model-resources\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -292,7 +325,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListModelResources",
                                 methodName: "ListModelResourcesAsync",
-                                pathTemplate: "\"/v1/rl/model-resources\"",
+                                pathTemplate: "\"/rl/model-resources\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -340,7 +373,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListModelResources",
                                 methodName: "ListModelResourcesAsync",
-                                pathTemplate: "\"/v1/rl/model-resources\"",
+                                pathTemplate: "\"/rl/model-resources\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -362,7 +395,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListModelResources",
                                 methodName: "ListModelResourcesAsync",
-                                pathTemplate: "\"/v1/rl/model-resources\"",
+                                pathTemplate: "\"/rl/model-resources\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

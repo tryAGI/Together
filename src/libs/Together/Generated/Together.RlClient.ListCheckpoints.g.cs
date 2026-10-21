@@ -6,6 +6,19 @@ namespace Together
     public partial class RlClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ListCheckpointsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ListCheckpointsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -72,6 +85,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// checkpoints = client.post_training.checkpoints.list(<br/>
+        ///     session_id="&lt;SESSION_ID&gt;",<br/>
+        ///     type="CHECKPOINT_TYPE_TRAINING",<br/>
+        /// )<br/>
+        /// for checkpoint in checkpoints.data:<br/>
+        ///     print(checkpoint.id, checkpoint.step)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlCheckpointsListResponse> ListCheckpointsAsync(
             string? sessionId = default,
             string? baseModel = default,
@@ -116,6 +139,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// checkpoints = client.post_training.checkpoints.list(<br/>
+        ///     session_id="&lt;SESSION_ID&gt;",<br/>
+        ///     type="CHECKPOINT_TYPE_TRAINING",<br/>
+        /// )<br/>
+        /// for checkpoint in checkpoints.data:<br/>
+        ///     print(checkpoint.id, checkpoint.step)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlCheckpointsListResponse>> ListCheckpointsAsResponseAsync(
             string? sessionId = default,
             string? baseModel = default,
@@ -159,8 +192,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/rl/checkpoints",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/rl/checkpoints",
+                                baseUri: ResolveBaseUri(
+                                servers: s_ListCheckpointsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("session_id", sessionId)
                                 .AddOptionalParameter("base_model", baseModel)
@@ -231,7 +266,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListCheckpoints",
                                 methodName: "ListCheckpointsAsync",
-                                pathTemplate: "\"/v1/rl/checkpoints\"",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -265,7 +300,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListCheckpoints",
                                 methodName: "ListCheckpointsAsync",
-                                pathTemplate: "\"/v1/rl/checkpoints\"",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +341,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListCheckpoints",
                                 methodName: "ListCheckpointsAsync",
-                                pathTemplate: "\"/v1/rl/checkpoints\"",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -354,7 +389,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListCheckpoints",
                                 methodName: "ListCheckpointsAsync",
-                                pathTemplate: "\"/v1/rl/checkpoints\"",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -376,7 +411,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListCheckpoints",
                                 methodName: "ListCheckpointsAsync",
-                                pathTemplate: "\"/v1/rl/checkpoints\"",
+                                pathTemplate: "\"/rl/checkpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

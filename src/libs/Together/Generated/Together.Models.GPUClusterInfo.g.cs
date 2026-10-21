@@ -219,7 +219,7 @@ namespace Together
         public global::System.DateTime? FirstReadyAt { get; set; }
 
         /// <summary>
-        /// Whether the cluster runs on the Together-managed GPU cluster platform.
+        /// Whether the cluster is managed inside a substrate environment.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_in_substrate")]
         public bool? IsInSubstrate { get; set; }
@@ -347,7 +347,7 @@ namespace Together
         /// Timestamp when the cluster first reached the Ready phase.
         /// </param>
         /// <param name="isInSubstrate">
-        /// Whether the cluster runs on the Together-managed GPU cluster platform.
+        /// Whether the cluster is managed inside a substrate environment.
         /// </param>
         /// <param name="controlPlaneReady">
         /// Whether the control plane is currently ready.

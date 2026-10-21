@@ -6,6 +6,14 @@ namespace Together
     public partial class VolumeServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_VolumeServiceListRemoteModelUploadsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_VolumeServiceListRemoteModelUploadsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -61,6 +69,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// for job in client.beta.models.remote_uploads.list(project_id=project_id):<br/>
+        ///     print(job.id, job.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListRemoteUploadsResponse> VolumeServiceListRemoteModelUploadsAsync(
             string projectId,
             int? limit = default,
@@ -94,6 +109,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// for job in client.beta.models.remote_uploads.list(project_id=project_id):<br/>
+        ///     print(job.id, job.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListRemoteUploadsResponse>> VolumeServiceListRemoteModelUploadsAsResponseAsync(
             string projectId,
             int? limit = default,
@@ -133,8 +155,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/projects/{projectId}/models/uploads",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/projects/{projectId}/models/uploads",
+                                baseUri: ResolveBaseUri(
+                                servers: s_VolumeServiceListRemoteModelUploadsServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
@@ -200,7 +224,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploads",
                                 methodName: "VolumeServiceListRemoteModelUploadsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -234,7 +258,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploads",
                                 methodName: "VolumeServiceListRemoteModelUploadsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -275,7 +299,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploads",
                                 methodName: "VolumeServiceListRemoteModelUploadsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -323,7 +347,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploads",
                                 methodName: "VolumeServiceListRemoteModelUploadsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -345,7 +369,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploads",
                                 methodName: "VolumeServiceListRemoteModelUploadsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

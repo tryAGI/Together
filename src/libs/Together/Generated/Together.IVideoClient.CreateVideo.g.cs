@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace Together
 {
     public partial interface IVideoClient
@@ -12,6 +14,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.videos.create(<br/>
+        ///     model="minimax/video-01-director",<br/>
+        ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
+        /// )<br/>
+        /// print(response.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.VideoJob> CreateVideoAsync(
 
             global::Together.CreateVideoBody request,
@@ -25,6 +39,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.videos.create(<br/>
+        ///     model="minimax/video-01-director",<br/>
+        ///     prompt="A cartoon of an astronaut riding a horse on the moon"<br/>
+        /// )<br/>
+        /// print(response.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.VideoJob>> CreateVideoAsResponseAsync(
 
             global::Together.CreateVideoBody request,

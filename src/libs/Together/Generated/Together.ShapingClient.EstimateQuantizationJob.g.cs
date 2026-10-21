@@ -6,6 +6,19 @@ namespace Together
     public partial class ShapingClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_EstimateQuantizationJobServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_EstimateQuantizationJobSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -43,12 +56,23 @@ namespace Together
 
         /// <summary>
         /// Estimate FP4 preparation cost<br/>
-        /// Reports the price and expected wall-clock time for preparing the model named by `model_object_id` or the deprecated `adapter_object_id` without creating a job. The request body is the same as POST /shaping/prepare-for-fp4-inference, so a caller can price exactly the job it is about to submit.
+        /// Reports the price and expected wall-clock time for preparing the named adapter without creating a job. The request body is the same as POST /shaping/prepare-for-fp4-inference, so a caller can price exactly the job it is about to submit.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// estimate = client.post_training.prepare_for_fp4_inference.estimate_cost(<br/>
+        ///     inputs={<br/>
+        ///         "adapter_object_id": "ml_abc123",<br/>
+        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(estimate.price_usd, estimate.time_hours, estimate.allowed_to_proceed)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.QuantizationEstimate> EstimateQuantizationJobAsync(
 
             global::Together.QuantizationRequest request,
@@ -66,12 +90,23 @@ namespace Together
         }
         /// <summary>
         /// Estimate FP4 preparation cost<br/>
-        /// Reports the price and expected wall-clock time for preparing the model named by `model_object_id` or the deprecated `adapter_object_id` without creating a job. The request body is the same as POST /shaping/prepare-for-fp4-inference, so a caller can price exactly the job it is about to submit.
+        /// Reports the price and expected wall-clock time for preparing the named adapter without creating a job. The request body is the same as POST /shaping/prepare-for-fp4-inference, so a caller can price exactly the job it is about to submit.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// estimate = client.post_training.prepare_for_fp4_inference.estimate_cost(<br/>
+        ///     inputs={<br/>
+        ///         "adapter_object_id": "ml_abc123",<br/>
+        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(estimate.price_usd, estimate.time_hours, estimate.allowed_to_proceed)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.QuantizationEstimate>> EstimateQuantizationJobAsResponseAsync(
 
             global::Together.QuantizationRequest request,
@@ -110,8 +145,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/shaping/prepare-for-fp4-inference/estimate",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/shaping/prepare-for-fp4-inference/estimate",
+                                baseUri: ResolveBaseUri(
+                                servers: s_EstimateQuantizationJobServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -177,7 +214,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EstimateQuantizationJob",
                                 methodName: "EstimateQuantizationJobAsync",
-                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference/estimate\"",
+                                pathTemplate: "\"/shaping/prepare-for-fp4-inference/estimate\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -211,7 +248,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EstimateQuantizationJob",
                                 methodName: "EstimateQuantizationJobAsync",
-                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference/estimate\"",
+                                pathTemplate: "\"/shaping/prepare-for-fp4-inference/estimate\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -252,7 +289,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EstimateQuantizationJob",
                                 methodName: "EstimateQuantizationJobAsync",
-                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference/estimate\"",
+                                pathTemplate: "\"/shaping/prepare-for-fp4-inference/estimate\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,7 +337,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EstimateQuantizationJob",
                                 methodName: "EstimateQuantizationJobAsync",
-                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference/estimate\"",
+                                pathTemplate: "\"/shaping/prepare-for-fp4-inference/estimate\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -322,7 +359,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EstimateQuantizationJob",
                                 methodName: "EstimateQuantizationJobAsync",
-                                pathTemplate: "\"/v1/shaping/prepare-for-fp4-inference/estimate\"",
+                                pathTemplate: "\"/shaping/prepare-for-fp4-inference/estimate\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -583,11 +620,11 @@ namespace Together
         }
         /// <summary>
         /// Estimate FP4 preparation cost<br/>
-        /// Reports the price and expected wall-clock time for preparing the model named by `model_object_id` or the deprecated `adapter_object_id` without creating a job. The request body is the same as POST /shaping/prepare-for-fp4-inference, so a caller can price exactly the job it is about to submit.
+        /// Reports the price and expected wall-clock time for preparing the named adapter without creating a job. The request body is the same as POST /shaping/prepare-for-fp4-inference, so a caller can price exactly the job it is about to submit.
         /// </summary>
         /// <param name="inputs">
-        /// Inputs naming the fine-tuned model to prepare.<br/>
-        /// Example: {"model_object_id":"ml_CeG3fF6pyEViU8dE8pk7R","model_revision_id":"rv_CeG3faPBj2ABwbAaHPTmx","calibration_file_id":"file-5f1b0c7a-2d19-4a3e-9c60-8ab41c2f7d35"}
+        /// Adapter inputs to prepare.<br/>
+        /// Example: {"adapter_object_id":"ml_CeG3fF6pyEViU8dE8pk7R","adapter_revision_id":"rv_CeG3faPBj2ABwbAaHPTmx","calibration_file_id":"file-5f1b0c7a-2d19-4a3e-9c60-8ab41c2f7d35"}
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

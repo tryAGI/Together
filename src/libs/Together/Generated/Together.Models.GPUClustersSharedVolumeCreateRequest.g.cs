@@ -42,7 +42,7 @@ namespace Together
         public string? ProjectId { get; set; }
 
         /// <summary>
-        /// Cluster ID to place the volume on the same infrastructure as that GPU cluster.
+        /// Cluster ID to pin the volume to the same substrate as that GPU cluster.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("instance_cluster_id")]
         public string? InstanceClusterId { get; set; }
@@ -72,7 +72,7 @@ namespace Together
         /// Project ID that will own the volume. When omitted, the caller's default project is used.
         /// </param>
         /// <param name="instanceClusterId">
-        /// Cluster ID to place the volume on the same infrastructure as that GPU cluster.
+        /// Cluster ID to pin the volume to the same substrate as that GPU cluster.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

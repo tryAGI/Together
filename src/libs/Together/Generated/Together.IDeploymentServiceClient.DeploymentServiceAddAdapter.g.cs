@@ -21,6 +21,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// adapter = client.beta.endpoints.adapters.create(<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     deployment_id="dep_abc123",<br/>
+        ///     adapter_model_id="ml_abc123",<br/>
+        /// )<br/>
+        /// print(adapter)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeAdapterEntry> DeploymentServiceAddAdapterAsync(
             string projectId,
             string endpointId,
@@ -46,6 +58,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// adapter = client.beta.endpoints.adapters.create(<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     deployment_id="dep_abc123",<br/>
+        ///     adapter_model_id="ml_abc123",<br/>
+        /// )<br/>
+        /// print(adapter)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeAdapterEntry>> DeploymentServiceAddAdapterAsResponseAsync(
             string projectId,
             string endpointId,

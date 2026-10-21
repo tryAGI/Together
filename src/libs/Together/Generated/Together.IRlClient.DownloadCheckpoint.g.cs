@@ -18,6 +18,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// download = client.post_training.checkpoints.download(<br/>
+        ///     "&lt;CHECKPOINT_ID&gt;",<br/>
+        ///     variant="CHECKPOINT_VARIANT_ADAPTER",<br/>
+        /// )<br/>
+        /// print(download)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlCheckpointDownloadResponse> DownloadCheckpointAsync(
             string id,
             global::Together.RlCheckpointVariant variant = global::Together.RlCheckpointVariant.CheckpointVariantUnspecified,
@@ -37,6 +46,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// download = client.post_training.checkpoints.download(<br/>
+        ///     "&lt;CHECKPOINT_ID&gt;",<br/>
+        ///     variant="CHECKPOINT_VARIANT_ADAPTER",<br/>
+        /// )<br/>
+        /// print(download)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlCheckpointDownloadResponse>> DownloadCheckpointAsResponseAsync(
             string id,
             global::Together.RlCheckpointVariant variant = global::Together.RlCheckpointVariant.CheckpointVariantUnspecified,

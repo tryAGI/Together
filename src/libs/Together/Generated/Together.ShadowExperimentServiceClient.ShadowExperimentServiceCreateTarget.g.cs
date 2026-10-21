@@ -6,6 +6,14 @@ namespace Together
     public partial class ShadowExperimentServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ShadowExperimentServiceCreateTargetServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ShadowExperimentServiceCreateTargetSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -64,6 +72,19 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// target = client.beta.endpoints.shadow_experiments.targets.create(<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     experiment_id="exp_abc123",<br/>
+        ///     name="candidate-2",<br/>
+        ///     target_deployment_id="dep_ghi789",<br/>
+        /// )<br/>
+        /// print(target.id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeShadowExperimentTarget> ShadowExperimentServiceCreateTargetAsync(
             string projectId,
             string endpointId,
@@ -102,6 +123,19 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// target = client.beta.endpoints.shadow_experiments.targets.create(<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     experiment_id="exp_abc123",<br/>
+        ///     name="candidate-2",<br/>
+        ///     target_deployment_id="dep_ghi789",<br/>
+        /// )<br/>
+        /// print(target.id)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeShadowExperimentTarget>> ShadowExperimentServiceCreateTargetAsResponseAsync(
             string projectId,
             string endpointId,
@@ -146,8 +180,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets",
+                                baseUri: ResolveBaseUri(
+                                servers: s_ShadowExperimentServiceCreateTargetServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -216,7 +252,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateTarget",
                                 methodName: "ShadowExperimentServiceCreateTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -250,7 +286,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateTarget",
                                 methodName: "ShadowExperimentServiceCreateTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +327,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateTarget",
                                 methodName: "ShadowExperimentServiceCreateTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -339,7 +375,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateTarget",
                                 methodName: "ShadowExperimentServiceCreateTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -361,7 +397,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceCreateTarget",
                                 methodName: "ShadowExperimentServiceCreateTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

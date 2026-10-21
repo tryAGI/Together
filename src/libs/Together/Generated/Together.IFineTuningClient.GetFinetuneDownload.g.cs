@@ -20,6 +20,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
+        /// with stream as response:<br/>
+        ///     for line in response.iter_lines():<br/>
+        ///         print(line)
+        /// </remarks>
         global::System.Threading.Tasks.Task<byte[]> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
@@ -42,6 +54,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
+        /// with stream as response:<br/>
+        ///     for line in response.iter_lines():<br/>
+        ///         print(line)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::System.IO.Stream> GetFinetuneDownloadAsStreamAsync(
             string ftId,
             int? checkpointStep = default,
@@ -64,6 +88,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
+        /// with stream as response:<br/>
+        ///     for line in response.iter_lines():<br/>
+        ///         print(line)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<byte[]>> GetFinetuneDownloadAsResponseAsync(
             string ftId,
             int? checkpointStep = default,

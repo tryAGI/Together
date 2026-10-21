@@ -6,6 +6,14 @@ namespace Together
     public partial class SupportedModelsServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_SupportedModelsServiceGetSupportedModelServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_SupportedModelsServiceGetSupportedModelSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -51,6 +59,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
+        /// print(model.name, model.deployment_profiles)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeSupportedModel> SupportedModelsServiceGetSupportedModelAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -74,6 +88,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
+        /// print(model.name, model.deployment_profiles)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeSupportedModel>> SupportedModelsServiceGetSupportedModelAsResponseAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -109,8 +129,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/supported-models/{id}",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/supported-models/{id}",
+                                baseUri: ResolveBaseUri(
+                                servers: s_SupportedModelsServiceGetSupportedModelServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -170,7 +192,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SupportedModelsServiceGetSupportedModel",
                                 methodName: "SupportedModelsServiceGetSupportedModelAsync",
-                                pathTemplate: "$\"/v2/supported-models/{id}\"",
+                                pathTemplate: "$\"/supported-models/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -204,7 +226,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SupportedModelsServiceGetSupportedModel",
                                 methodName: "SupportedModelsServiceGetSupportedModelAsync",
-                                pathTemplate: "$\"/v2/supported-models/{id}\"",
+                                pathTemplate: "$\"/supported-models/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -245,7 +267,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SupportedModelsServiceGetSupportedModel",
                                 methodName: "SupportedModelsServiceGetSupportedModelAsync",
-                                pathTemplate: "$\"/v2/supported-models/{id}\"",
+                                pathTemplate: "$\"/supported-models/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -293,7 +315,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SupportedModelsServiceGetSupportedModel",
                                 methodName: "SupportedModelsServiceGetSupportedModelAsync",
-                                pathTemplate: "$\"/v2/supported-models/{id}\"",
+                                pathTemplate: "$\"/supported-models/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +337,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SupportedModelsServiceGetSupportedModel",
                                 methodName: "SupportedModelsServiceGetSupportedModelAsync",
-                                pathTemplate: "$\"/v2/supported-models/{id}\"",
+                                pathTemplate: "$\"/supported-models/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

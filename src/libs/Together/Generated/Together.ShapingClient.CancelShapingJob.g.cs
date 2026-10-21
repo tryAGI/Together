@@ -6,6 +6,19 @@ namespace Together
     public partial class ShapingClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_CancelShapingJobServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_CancelShapingJobSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -51,6 +64,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// job = client.post_training.prepare_for_fp4_inference.cancel("&lt;JOB_ID&gt;")<br/>
+        /// print(job.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.QuantizationJob> CancelShapingJobAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -74,6 +93,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// job = client.post_training.prepare_for_fp4_inference.cancel("&lt;JOB_ID&gt;")<br/>
+        /// print(job.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.QuantizationJob>> CancelShapingJobAsResponseAsync(
             string id,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
@@ -109,8 +134,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v1/shaping/{id}/cancel",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/shaping/{id}/cancel",
+                                baseUri: ResolveBaseUri(
+                                servers: s_CancelShapingJobServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -170,7 +197,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CancelShapingJob",
                                 methodName: "CancelShapingJobAsync",
-                                pathTemplate: "$\"/v1/shaping/{id}/cancel\"",
+                                pathTemplate: "$\"/shaping/{id}/cancel\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -204,7 +231,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CancelShapingJob",
                                 methodName: "CancelShapingJobAsync",
-                                pathTemplate: "$\"/v1/shaping/{id}/cancel\"",
+                                pathTemplate: "$\"/shaping/{id}/cancel\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -245,7 +272,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CancelShapingJob",
                                 methodName: "CancelShapingJobAsync",
-                                pathTemplate: "$\"/v1/shaping/{id}/cancel\"",
+                                pathTemplate: "$\"/shaping/{id}/cancel\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -293,7 +320,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CancelShapingJob",
                                 methodName: "CancelShapingJobAsync",
-                                pathTemplate: "$\"/v1/shaping/{id}/cancel\"",
+                                pathTemplate: "$\"/shaping/{id}/cancel\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +342,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "CancelShapingJob",
                                 methodName: "CancelShapingJobAsync",
-                                pathTemplate: "$\"/v1/shaping/{id}/cancel\"",
+                                pathTemplate: "$\"/shaping/{id}/cancel\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

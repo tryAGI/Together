@@ -4,13 +4,13 @@
 namespace Together
 {
     /// <summary>
-    /// Server-resolved configuration for a quantization job. The `adapter_*` fields are the deprecated names of the `model_*` ones, with the same values.<br/>
+    /// Server-resolved configuration for a quantization job.<br/>
     /// Included only in responses
     /// </summary>
     public sealed partial class QuantizationPipelineConfiguration
     {
         /// <summary>
-        /// User whose scope is used to fetch the model weights.<br/>
+        /// User whose scope is used to fetch the adapter weights.<br/>
         /// Example: user_CKfewYkQBpaEmN7wuQS3W
         /// </summary>
         /// <example>user_CKfewYkQBpaEmN7wuQS3W</example>
@@ -19,34 +19,34 @@ namespace Together
         public required string UserId { get; set; }
 
         /// <summary>
-        /// Project the model belongs to.<br/>
+        /// Project that owns the adapter.<br/>
         /// Example: proj_CczF9KYFantA84sNYDTJd
         /// </summary>
         /// <example>proj_CczF9KYFantA84sNYDTJd</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_project_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelProjectId { get; set; }
+        public required string AdapterProjectId { get; set; }
 
         /// <summary>
-        /// Revision of the model selected for preparation.<br/>
+        /// Adapter revision selected for preparation.<br/>
         /// Example: rv_CeERyXMBQCJTRC1yqGTpk
         /// </summary>
         /// <example>rv_CeERyXMBQCJTRC1yqGTpk</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_revision_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_revision_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelRevisionId { get; set; }
+        public required string AdapterRevisionId { get; set; }
 
         /// <summary>
-        /// Qualified name of the model, which the produced model is named after.<br/>
+        /// Qualified adapter model name.<br/>
         /// Example: ft-qa-artifacts/glm-5.3-e2e-test-adapter
         /// </summary>
         /// <example>ft-qa-artifacts/glm-5.3-e2e-test-adapter</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public required string AdapterModelName { get; set; }
 
         /// <summary>
-        /// Model object ID of the base model the prepared model was fine-tuned from.<br/>
+        /// Model object ID of the adapter's base model.<br/>
         /// Example: ml_CbJ9yCnij7A47b1xkpioB
         /// </summary>
         /// <example>ml_CbJ9yCnij7A47b1xkpioB</example>
@@ -55,7 +55,7 @@ namespace Together
         public required string BaseObjectId { get; set; }
 
         /// <summary>
-        /// Revision ID of that base model.<br/>
+        /// Revision ID of the adapter's base model.<br/>
         /// Example: rv_CbJ9yNrws93VQrZum1fTE
         /// </summary>
         /// <example>rv_CbJ9yNrws93VQrZum1fTE</example>
@@ -82,27 +82,27 @@ namespace Together
         /// Initializes a new instance of the <see cref="QuantizationPipelineConfiguration" /> class.
         /// </summary>
         /// <param name="userId">
-        /// User whose scope is used to fetch the model weights.<br/>
+        /// User whose scope is used to fetch the adapter weights.<br/>
         /// Example: user_CKfewYkQBpaEmN7wuQS3W
         /// </param>
-        /// <param name="modelProjectId">
-        /// Project the model belongs to.<br/>
+        /// <param name="adapterProjectId">
+        /// Project that owns the adapter.<br/>
         /// Example: proj_CczF9KYFantA84sNYDTJd
         /// </param>
-        /// <param name="modelRevisionId">
-        /// Revision of the model selected for preparation.<br/>
+        /// <param name="adapterRevisionId">
+        /// Adapter revision selected for preparation.<br/>
         /// Example: rv_CeERyXMBQCJTRC1yqGTpk
         /// </param>
-        /// <param name="modelName">
-        /// Qualified name of the model, which the produced model is named after.<br/>
+        /// <param name="adapterModelName">
+        /// Qualified adapter model name.<br/>
         /// Example: ft-qa-artifacts/glm-5.3-e2e-test-adapter
         /// </param>
         /// <param name="baseObjectId">
-        /// Model object ID of the base model the prepared model was fine-tuned from.<br/>
+        /// Model object ID of the adapter's base model.<br/>
         /// Example: ml_CbJ9yCnij7A47b1xkpioB
         /// </param>
         /// <param name="baseRevisionId">
-        /// Revision ID of that base model.<br/>
+        /// Revision ID of the adapter's base model.<br/>
         /// Example: rv_CbJ9yNrws93VQrZum1fTE
         /// </param>
         /// <param name="baseModelName">
@@ -114,17 +114,17 @@ namespace Together
 #endif
         public QuantizationPipelineConfiguration(
             string userId,
-            string modelProjectId,
-            string modelRevisionId,
-            string modelName,
+            string adapterProjectId,
+            string adapterRevisionId,
+            string adapterModelName,
             string baseObjectId,
             string baseRevisionId,
             string baseModelName)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
-            this.ModelProjectId = modelProjectId ?? throw new global::System.ArgumentNullException(nameof(modelProjectId));
-            this.ModelRevisionId = modelRevisionId ?? throw new global::System.ArgumentNullException(nameof(modelRevisionId));
-            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.AdapterProjectId = adapterProjectId ?? throw new global::System.ArgumentNullException(nameof(adapterProjectId));
+            this.AdapterRevisionId = adapterRevisionId ?? throw new global::System.ArgumentNullException(nameof(adapterRevisionId));
+            this.AdapterModelName = adapterModelName ?? throw new global::System.ArgumentNullException(nameof(adapterModelName));
             this.BaseObjectId = baseObjectId ?? throw new global::System.ArgumentNullException(nameof(baseObjectId));
             this.BaseRevisionId = baseRevisionId ?? throw new global::System.ArgumentNullException(nameof(baseRevisionId));
             this.BaseModelName = baseModelName ?? throw new global::System.ArgumentNullException(nameof(baseModelName));

@@ -6,6 +6,14 @@ namespace Together
     public partial class ShadowExperimentServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ShadowExperimentServiceDeleteTargetServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ShadowExperimentServiceDeleteTargetSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -71,6 +79,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// client.beta.endpoints.shadow_experiments.targets.delete(<br/>
+        ///     "tgt_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     experiment_id="exp_abc123",<br/>
+        /// )
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeDeleteResponse> ShadowExperimentServiceDeleteTargetAsync(
             string projectId,
             string endpointId,
@@ -114,6 +133,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// client.beta.endpoints.shadow_experiments.targets.delete(<br/>
+        ///     "tgt_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        ///     endpoint_id="ep_abc123",<br/>
+        ///     experiment_id="exp_abc123",<br/>
+        /// )
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeDeleteResponse>> ShadowExperimentServiceDeleteTargetAsResponseAsync(
             string projectId,
             string endpointId,
@@ -157,8 +187,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}",
+                                baseUri: ResolveBaseUri(
+                                servers: s_ShadowExperimentServiceDeleteTargetServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             __pathBuilder
                                 .AddOptionalParameter("etag", etag)
                                 ;
@@ -225,7 +257,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceDeleteTarget",
                                 methodName: "ShadowExperimentServiceDeleteTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -259,7 +291,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceDeleteTarget",
                                 methodName: "ShadowExperimentServiceDeleteTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,7 +332,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceDeleteTarget",
                                 methodName: "ShadowExperimentServiceDeleteTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -348,7 +380,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceDeleteTarget",
                                 methodName: "ShadowExperimentServiceDeleteTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -370,7 +402,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ShadowExperimentServiceDeleteTarget",
                                 methodName: "ShadowExperimentServiceDeleteTargetAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/shadowExperiments/{experimentId}/targets/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

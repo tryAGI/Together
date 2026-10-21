@@ -11,6 +11,28 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.evals.create(<br/>
+        ///     type="classify",<br/>
+        ///     parameters={<br/>
+        ///         "judge": {<br/>
+        ///             "model": "openai/gpt-oss-120b",<br/>
+        ///             "model_source": "serverless",<br/>
+        ///             "system_template": "You are an expert evaluator...",<br/>
+        ///         },<br/>
+        ///         "input_data_file_path": "&lt;FILE_ID&gt;",<br/>
+        ///         "labels": ["good", "bad"],<br/>
+        ///         "pass_labels": ["good"],<br/>
+        ///         "model_to_evaluate": "Qwen/Qwen3.5-9B",<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(response.workflow_id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.EvaluationResponse> CreateEvaluationJobAsync(
 
             global::Together.EvaluationTypedRequest request,
@@ -23,6 +45,28 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// response = client.evals.create(<br/>
+        ///     type="classify",<br/>
+        ///     parameters={<br/>
+        ///         "judge": {<br/>
+        ///             "model": "openai/gpt-oss-120b",<br/>
+        ///             "model_source": "serverless",<br/>
+        ///             "system_template": "You are an expert evaluator...",<br/>
+        ///         },<br/>
+        ///         "input_data_file_path": "&lt;FILE_ID&gt;",<br/>
+        ///         "labels": ["good", "bad"],<br/>
+        ///         "pass_labels": ["good"],<br/>
+        ///         "model_to_evaluate": "Qwen/Qwen3.5-9B",<br/>
+        ///     },<br/>
+        /// )<br/>
+        /// print(response.workflow_id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.EvaluationResponse>> CreateEvaluationJobAsResponseAsync(
 
             global::Together.EvaluationTypedRequest request,

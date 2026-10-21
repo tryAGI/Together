@@ -12,6 +12,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// current_dir = os.path.dirname(os.path.abspath(__file__))<br/>
+        /// file_path = os.path.join(current_dir, "data.jsonl")<br/>
+        /// file = client.files.upload(file=file_path)<br/>
+        /// print(file.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
 
             global::Together.CreateFilesUploadRequest request,
@@ -25,6 +36,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// current_dir = os.path.dirname(os.path.abspath(__file__))<br/>
+        /// file_path = os.path.join(current_dir, "data.jsonl")<br/>
+        /// file = client.files.upload(file=file_path)<br/>
+        /// print(file.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FileResponse>> CreateFilesUploadAsResponseAsync(
 
             global::Together.CreateFilesUploadRequest request,
@@ -84,6 +106,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// current_dir = os.path.dirname(os.path.abspath(__file__))<br/>
+        /// file_path = os.path.join(current_dir, "data.jsonl")<br/>
+        /// file = client.files.upload(file=file_path)<br/>
+        /// print(file.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.FileResponse> CreateFilesUploadAsync(
             global::Together.FilePurpose purpose,
             string fileName,
@@ -114,6 +147,17 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// current_dir = os.path.dirname(os.path.abspath(__file__))<br/>
+        /// file_path = os.path.join(current_dir, "data.jsonl")<br/>
+        /// file = client.files.upload(file=file_path)<br/>
+        /// print(file.id)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.FileResponse>> CreateFilesUploadAsResponseAsync(
             global::Together.FilePurpose purpose,
             string fileName,

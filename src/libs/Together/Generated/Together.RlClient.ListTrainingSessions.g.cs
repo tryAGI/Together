@@ -6,6 +6,19 @@ namespace Together
     public partial class RlClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_ListTrainingSessionsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_ListTrainingSessionsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -72,6 +85,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// sessions = client.post_training.sessions.list(<br/>
+        ///     model_resources_id="&lt;MODEL_RESOURCES_ID&gt;",<br/>
+        /// )<br/>
+        /// for session in sessions.data or []:<br/>
+        ///     print(session.id, session.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RlTrainingSessionsListResponse> ListTrainingSessionsAsync(
             global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status = default,
             int? limit = default,
@@ -116,6 +138,15 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// sessions = client.post_training.sessions.list(<br/>
+        ///     model_resources_id="&lt;MODEL_RESOURCES_ID&gt;",<br/>
+        /// )<br/>
+        /// for session in sessions.data or []:<br/>
+        ///     print(session.id, session.status)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlTrainingSessionsListResponse>> ListTrainingSessionsAsResponseAsync(
             global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? status = default,
             int? limit = default,
@@ -159,8 +190,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/rl/training-sessions",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/rl/training-sessions",
+                                baseUri: ResolveBaseUri(
+                                servers: s_ListTrainingSessionsServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("limit", limit?.ToString())
@@ -231,7 +264,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListTrainingSessions",
                                 methodName: "ListTrainingSessionsAsync",
-                                pathTemplate: "\"/v1/rl/training-sessions\"",
+                                pathTemplate: "\"/rl/training-sessions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -265,7 +298,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListTrainingSessions",
                                 methodName: "ListTrainingSessionsAsync",
-                                pathTemplate: "\"/v1/rl/training-sessions\"",
+                                pathTemplate: "\"/rl/training-sessions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +339,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListTrainingSessions",
                                 methodName: "ListTrainingSessionsAsync",
-                                pathTemplate: "\"/v1/rl/training-sessions\"",
+                                pathTemplate: "\"/rl/training-sessions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -354,7 +387,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListTrainingSessions",
                                 methodName: "ListTrainingSessionsAsync",
-                                pathTemplate: "\"/v1/rl/training-sessions\"",
+                                pathTemplate: "\"/rl/training-sessions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -376,7 +409,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ListTrainingSessions",
                                 methodName: "ListTrainingSessionsAsync",
-                                pathTemplate: "\"/v1/rl/training-sessions\"",
+                                pathTemplate: "\"/rl/training-sessions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

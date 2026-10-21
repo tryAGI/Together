@@ -23,6 +23,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// logs = client.beta.jig.retrieve_logs("my-deployment")<br/>
+        /// print(logs)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeploymentLogs> GetDeploymentsByIdLogsAsync(
             string id,
             string? replicaId = default,
@@ -49,6 +55,12 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// logs = client.beta.jig.retrieve_logs("my-deployment")<br/>
+        /// print(logs)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeploymentLogs>> GetDeploymentsByIdLogsAsResponseAsync(
             string id,
             string? replicaId = default,

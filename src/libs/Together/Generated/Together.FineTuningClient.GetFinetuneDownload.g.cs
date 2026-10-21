@@ -6,6 +6,19 @@ namespace Together
     public partial class FineTuningClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_GetFinetuneDownloadServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v1",
+                name: "Default environment for APIs",
+                url: "https://api.together.ai/v1",
+                description: "Default environment for APIs"),
+            new global::Together.AutoSDKServer(
+                id: "https-api-inference-together-ai-v2",
+                name: "Optimized environment for inference",
+                url: "https://api-inference.together.ai/v2",
+                description: "Optimized environment for inference"),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetFinetuneDownloadSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -61,6 +74,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
+        /// with stream as response:<br/>
+        ///     for line in response.iter_lines():<br/>
+        ///         print(line)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<byte[]> GetFinetuneDownloadAsync(
             string ftId,
             int? checkpointStep = default,
@@ -94,6 +119,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
+        /// with stream as response:<br/>
+        ///     for line in response.iter_lines():<br/>
+        ///         print(line)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::System.IO.Stream> GetFinetuneDownloadAsStreamAsync(
             string ftId,
             int? checkpointStep = default,
@@ -133,8 +170,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/finetune/download",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/finetune/download",
+                                baseUri: ResolveBaseUri(
+                                servers: s_GetFinetuneDownloadServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddRequiredParameter("ft_id", ftId)
                                 .AddOptionalParameter("checkpoint_step", checkpointStep?.ToString())
@@ -201,7 +240,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -235,7 +274,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -276,7 +315,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +363,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -346,7 +385,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -492,6 +531,18 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// import os<br/>
+        /// client = Together(<br/>
+        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
+        /// )<br/>
+        /// # Using `with_streaming_response` gives you control to do what you want with the response.<br/>
+        /// stream = client.fine_tuning.with_streaming_response.content(ft_id="&lt;JOB_ID&gt;")<br/>
+        /// with stream as response:<br/>
+        ///     for line in response.iter_lines():<br/>
+        ///         print(line)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<byte[]>> GetFinetuneDownloadAsResponseAsync(
             string ftId,
             int? checkpointStep = default,
@@ -531,8 +582,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/v1/finetune/download",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: "/finetune/download",
+                                baseUri: ResolveBaseUri(
+                                servers: s_GetFinetuneDownloadServers,
+                                defaultBaseUrl: "https://api.together.ai/v1"));
                             __pathBuilder
                                 .AddRequiredParameter("ft_id", ftId)
                                 .AddOptionalParameter("checkpoint_step", checkpointStep?.ToString())
@@ -599,7 +652,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -633,7 +686,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -674,7 +727,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -722,7 +775,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -744,7 +797,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFinetuneDownload",
                                 methodName: "GetFinetuneDownloadAsync",
-                                pathTemplate: "\"/v1/finetune/download\"",
+                                pathTemplate: "\"/finetune/download\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

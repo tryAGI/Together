@@ -6,6 +6,14 @@ namespace Together
     public partial class VolumeServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_VolumeServiceListRemoteModelUploadEventsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_VolumeServiceListRemoteModelUploadEventsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -66,6 +74,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// events = client.beta.models.remote_uploads.events(<br/>
+        ///     "job_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        /// )<br/>
+        /// print(events)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListRemoteUploadEventsResponse> VolumeServiceListRemoteModelUploadEventsAsync(
             string projectId,
             string id,
@@ -104,6 +122,16 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// events = client.beta.models.remote_uploads.events(<br/>
+        ///     "job_abc123",<br/>
+        ///     project_id=project_id,<br/>
+        /// )<br/>
+        /// print(events)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListRemoteUploadEventsResponse>> VolumeServiceListRemoteModelUploadEventsAsResponseAsync(
             string projectId,
             string id,
@@ -145,8 +173,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/projects/{projectId}/models/uploads/{id}/events",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/projects/{projectId}/models/uploads/{id}/events",
+                                baseUri: ResolveBaseUri(
+                                servers: s_VolumeServiceListRemoteModelUploadEventsServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
@@ -213,7 +243,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploadEvents",
                                 methodName: "VolumeServiceListRemoteModelUploadEventsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads/{id}/events\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -247,7 +277,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploadEvents",
                                 methodName: "VolumeServiceListRemoteModelUploadEventsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads/{id}/events\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -288,7 +318,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploadEvents",
                                 methodName: "VolumeServiceListRemoteModelUploadEventsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads/{id}/events\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -336,7 +366,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploadEvents",
                                 methodName: "VolumeServiceListRemoteModelUploadEventsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads/{id}/events\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -358,7 +388,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "VolumeServiceListRemoteModelUploadEvents",
                                 methodName: "VolumeServiceListRemoteModelUploadEventsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/models/uploads/{id}/events\"",
+                                pathTemplate: "$\"/projects/{projectId}/models/uploads/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

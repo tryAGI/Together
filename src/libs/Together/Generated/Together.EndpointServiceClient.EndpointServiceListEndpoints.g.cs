@@ -6,6 +6,14 @@ namespace Together
     public partial class EndpointServiceClient
     {
 
+        private static readonly global::Together.AutoSDKServer[] s_EndpointServiceListEndpointsServers = new global::Together.AutoSDKServer[]
+        {            new global::Together.AutoSDKServer(
+                id: "https-api-together-ai-v2",
+                name: "api.together.ai v2",
+                url: "https://api.together.ai/v2",
+                description: ""),
+        };
+
 
         private static readonly global::Together.EndPointSecurityRequirement s_EndpointServiceListEndpointsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -72,6 +80,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// for endpoint in client.beta.endpoints.list(project_id=project_id):<br/>
+        ///     print(endpoint.id, endpoint.name)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListEndpointsResponse> EndpointServiceListEndpointsAsync(
             string projectId,
             int? limit = default,
@@ -116,6 +131,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// project_id = client.whoami().project_id<br/>
+        /// for endpoint in client.beta.endpoints.list(project_id=project_id):<br/>
+        ///     print(endpoint.id, endpoint.name)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListEndpointsResponse>> EndpointServiceListEndpointsAsResponseAsync(
             string projectId,
             int? limit = default,
@@ -159,8 +181,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/v2/projects/{projectId}/endpoints",
-                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
+                                path: $"/projects/{projectId}/endpoints",
+                                baseUri: ResolveBaseUri(
+                                servers: s_EndpointServiceListEndpointsServers,
+                                defaultBaseUrl: "https://api.together.ai/v2"));
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
@@ -230,7 +254,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceListEndpoints",
                                 methodName: "EndpointServiceListEndpointsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -264,7 +288,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceListEndpoints",
                                 methodName: "EndpointServiceListEndpointsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -305,7 +329,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceListEndpoints",
                                 methodName: "EndpointServiceListEndpointsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -353,7 +377,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceListEndpoints",
                                 methodName: "EndpointServiceListEndpointsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -375,7 +399,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceListEndpoints",
                                 methodName: "EndpointServiceListEndpointsAsync",
-                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints\"",
+                                pathTemplate: "$\"/projects/{projectId}/endpoints\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
