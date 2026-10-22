@@ -19,6 +19,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Pass a revision number or a revision ID.<br/>
+        /// revision = client.beta.jig.retrieve_revision("3", id="my-deployment")<br/>
+        /// print(revision.image, revision.min_replicas, revision.max_replicas)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RevisionDetailResponse> GetDeploymentsByIdRevisionsByRevisionIdentifierAsync(
             string id,
             string revisionIdentifier,
@@ -39,6 +46,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Pass a revision number or a revision ID.<br/>
+        /// revision = client.beta.jig.retrieve_revision("3", id="my-deployment")<br/>
+        /// print(revision.image, revision.min_replicas, revision.max_replicas)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RevisionDetailResponse>> GetDeploymentsByIdRevisionsByRevisionIdentifierAsResponseAsync(
             string id,
             string revisionIdentifier,

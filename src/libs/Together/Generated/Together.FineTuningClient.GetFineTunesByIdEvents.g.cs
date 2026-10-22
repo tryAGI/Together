@@ -6,19 +6,6 @@ namespace Together
     public partial class FineTuningClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetFineTunesByIdEventsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetFineTunesByIdEventsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -142,10 +129,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/fine-tunes/{id}/events",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetFineTunesByIdEventsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/fine-tunes/{id}/events",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -205,7 +190,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdEvents",
                                 methodName: "GetFineTunesByIdEventsAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}/events\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -239,7 +224,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdEvents",
                                 methodName: "GetFineTunesByIdEventsAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}/events\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -280,7 +265,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdEvents",
                                 methodName: "GetFineTunesByIdEventsAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}/events\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -328,7 +313,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdEvents",
                                 methodName: "GetFineTunesByIdEventsAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}/events\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -350,7 +335,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getFineTunesByIdEvents",
                                 methodName: "GetFineTunesByIdEventsAsync",
-                                pathTemplate: "$\"/fine-tunes/{id}/events\"",
+                                pathTemplate: "$\"/v1/fine-tunes/{id}/events\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

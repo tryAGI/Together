@@ -10,9 +10,9 @@ namespace Together
     public sealed partial class ConfigServiceClient : global::Together.IConfigServiceClient, global::System.IDisposable
     {
         /// <summary>
-        ///
+        /// Default environment for APIs
         /// </summary>
-        public const string DefaultBaseUrl = "https://api.together.ai/v2";
+        public const string DefaultBaseUrl = "https://api.together.ai/";
 
         private bool _disposeHttpClient = true;
 
@@ -151,36 +151,5 @@ namespace Together
             global::System.Net.Http.HttpClient client,
             global::System.Net.Http.HttpResponseMessage response,
             ref string content);
-
-
-        private global::System.Uri? ResolveBaseUri(
-            global::Together.AutoSDKServer[] servers,
-            string defaultBaseUrl)
-        {
-            if (AutoSDKServerConfiguration.ExplicitBaseUri is global::System.Uri explicitBaseUri)
-            {
-                return explicitBaseUri;
-            }
-
-            if (AutoSDKServerConfiguration.SelectedServer is global::Together.AutoSDKServer selectedServer)
-            {
-                foreach (var server in servers)
-                {
-                    if (string.Equals(server.Id, selectedServer.Id, global::System.StringComparison.Ordinal))
-                    {
-                        return server.Uri;
-                    }
-                }
-            }
-
-            if (servers.Length > 0)
-            {
-                return servers[0].Uri;
-            }
-
-            return string.IsNullOrWhiteSpace(defaultBaseUrl)
-                ? HttpClient.BaseAddress
-                : new global::System.Uri(defaultBaseUrl, global::System.UriKind.RelativeOrAbsolute);
-        }
     }
 }

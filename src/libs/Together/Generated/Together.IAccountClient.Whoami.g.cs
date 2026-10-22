@@ -5,9 +5,9 @@ namespace Together
     public partial interface IAccountClient
     {
         /// <summary>
-        /// Get API key identity<br/>
-        /// Returns identity information about the authenticated API key. Useful for confirming which project and organization a key is scoped to, and for obtaining the project slug used to compose the `model` value (`&lt;project_slug&gt;/&lt;endpoint_slug&gt;`) in dedicated endpoint inference calls.<br/>
-        /// Requires a Bearer API key in the `Authorization` header. Cookie, session, and SLS JWT credentials are not accepted.
+        /// Identify the caller<br/>
+        /// Returns identity information for the authenticated caller. Accepts project API keys and user session JWTs. The response `type` indicates which fields are present.<br/>
+        /// For project-scoped credentials, `project.slug` can be used with an endpoint slug as `&lt;project_slug&gt;/&lt;endpoint_slug&gt;` to form the `model` value in dedicated endpoint inference calls.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -22,9 +22,9 @@ namespace Together
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get API key identity<br/>
-        /// Returns identity information about the authenticated API key. Useful for confirming which project and organization a key is scoped to, and for obtaining the project slug used to compose the `model` value (`&lt;project_slug&gt;/&lt;endpoint_slug&gt;`) in dedicated endpoint inference calls.<br/>
-        /// Requires a Bearer API key in the `Authorization` header. Cookie, session, and SLS JWT credentials are not accepted.
+        /// Identify the caller<br/>
+        /// Returns identity information for the authenticated caller. Accepts project API keys and user session JWTs. The response `type` indicates which fields are present.<br/>
+        /// For project-scoped credentials, `project.slug` can be used with an endpoint slug as `&lt;project_slug&gt;/&lt;endpoint_slug&gt;` to form the `model` value in dedicated endpoint inference calls.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

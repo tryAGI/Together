@@ -6,19 +6,6 @@ namespace Together
     public partial class HealthCheckServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_HealthCheckServiceListPassiveHealthCheckAlertsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_HealthCheckServiceListPassiveHealthCheckAlertsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -210,10 +197,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/compute/passive_health_check_alerts",
-                                baseUri: ResolveBaseUri(
-                                servers: s_HealthCheckServiceListPassiveHealthCheckAlertsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/compute/passive_health_check_alerts",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("intent_id", intentId)
                                 .AddOptionalParameter("instance_id", instanceId)
@@ -290,7 +275,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "HealthCheckServiceListPassiveHealthCheckAlerts",
                                 methodName: "HealthCheckServiceListPassiveHealthCheckAlertsAsync",
-                                pathTemplate: "\"/compute/passive_health_check_alerts\"",
+                                pathTemplate: "\"/v1/compute/passive_health_check_alerts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +309,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "HealthCheckServiceListPassiveHealthCheckAlerts",
                                 methodName: "HealthCheckServiceListPassiveHealthCheckAlertsAsync",
-                                pathTemplate: "\"/compute/passive_health_check_alerts\"",
+                                pathTemplate: "\"/v1/compute/passive_health_check_alerts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -365,7 +350,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "HealthCheckServiceListPassiveHealthCheckAlerts",
                                 methodName: "HealthCheckServiceListPassiveHealthCheckAlertsAsync",
-                                pathTemplate: "\"/compute/passive_health_check_alerts\"",
+                                pathTemplate: "\"/v1/compute/passive_health_check_alerts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -413,7 +398,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "HealthCheckServiceListPassiveHealthCheckAlerts",
                                 methodName: "HealthCheckServiceListPassiveHealthCheckAlertsAsync",
-                                pathTemplate: "\"/compute/passive_health_check_alerts\"",
+                                pathTemplate: "\"/v1/compute/passive_health_check_alerts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -435,7 +420,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "HealthCheckServiceListPassiveHealthCheckAlerts",
                                 methodName: "HealthCheckServiceListPassiveHealthCheckAlertsAsync",
-                                pathTemplate: "\"/compute/passive_health_check_alerts\"",
+                                pathTemplate: "\"/v1/compute/passive_health_check_alerts\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

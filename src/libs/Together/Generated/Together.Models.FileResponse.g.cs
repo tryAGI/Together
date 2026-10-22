@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace Together
@@ -58,13 +56,6 @@ namespace Together
         public required global::Together.FilePurpose Purpose { get; set; }
 
         /// <summary>
-        /// Deprecated. Whether file has been fully uploaded.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("Processed")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Processed { get; set; }
-
-        /// <summary>
         /// The type of the file such as `jsonl`, `csv`, or `parquet`.<br/>
         /// Default Value: jsonl<br/>
         /// Example: jsonl
@@ -118,9 +109,6 @@ namespace Together
         /// The purpose of the file as it was uploaded.<br/>
         /// Example: fine-tune
         /// </param>
-        /// <param name="processed">
-        /// Deprecated. Whether file has been fully uploaded.
-        /// </param>
         /// <param name="fileType">
         /// The type of the file such as `jsonl`, `csv`, or `parquet`.<br/>
         /// Default Value: jsonl<br/>
@@ -147,7 +135,6 @@ namespace Together
             string filename,
             long bytes,
             global::Together.FilePurpose purpose,
-            bool processed,
             global::Together.FileType fileType,
             global::Together.FileProcessingStatus? processingStatus,
             global::Together.FileValidationReport? validationReport,
@@ -159,7 +146,6 @@ namespace Together
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Bytes = bytes;
             this.Purpose = purpose;
-            this.Processed = processed;
             this.FileType = fileType;
             this.ProcessingStatus = processingStatus;
             this.ValidationReport = validationReport;

@@ -4,23 +4,22 @@
 namespace Together
 {
     /// <summary>
-    /// Adapter identifiers to prepare.<br/>
-    /// Example: {"adapter_object_id":"ml_CeG3fF6pyEViU8dE8pk7R","adapter_revision_id":"rv_CeG3faPBj2ABwbAaHPTmx","calibration_file_id":"file-5f1b0c7a-2d19-4a3e-9c60-8ab41c2f7d35"}
+    /// The model to prepare: an adapter or a full model. A request names it by the `model_*` fields or the deprecated `adapter_*` fields, never a mix of the two, and gives a revision only beside the ID it belongs to. A job returns both names, with the same values.<br/>
+    /// Example: {"model_object_id":"ml_CeG3fF6pyEViU8dE8pk7R","model_revision_id":"rv_CeG3faPBj2ABwbAaHPTmx","calibration_file_id":"file-5f1b0c7a-2d19-4a3e-9c60-8ab41c2f7d35"}
     /// </summary>
     public sealed partial class QuantizationPipelineInputs
     {
         /// <summary>
-        /// Model object ID of the adapter to prepare.
+        /// Model object ID of the model to prepare. It names the input model; it is not the `results.model_object_id` of a job, which names the model the job produced.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_object_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AdapterObjectId { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_object_id")]
+        public string? ModelObjectId { get; set; }
 
         /// <summary>
-        /// Adapter revision ID to prepare. Omit to use the adapter's current revision.
+        /// Revision ID of the model to prepare. Omit to use the model's current revision. Only valid with `model_object_id`.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adapter_revision_id")]
-        public string? AdapterRevisionId { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_revision_id")]
+        public string? ModelRevisionId { get; set; }
 
         /// <summary>
         /// Conversation dataset file ID to use for calibration. Upload it first with `POST /v1/files` using purpose `calibration` and file type `jsonl`. Each JSONL row must contain a `messages` array and may contain a `tools` array.<br/>
@@ -41,11 +40,11 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantizationPipelineInputs" /> class.
         /// </summary>
-        /// <param name="adapterObjectId">
-        /// Model object ID of the adapter to prepare.
+        /// <param name="modelObjectId">
+        /// Model object ID of the model to prepare. It names the input model; it is not the `results.model_object_id` of a job, which names the model the job produced.
         /// </param>
-        /// <param name="adapterRevisionId">
-        /// Adapter revision ID to prepare. Omit to use the adapter's current revision.
+        /// <param name="modelRevisionId">
+        /// Revision ID of the model to prepare. Omit to use the model's current revision. Only valid with `model_object_id`.
         /// </param>
         /// <param name="calibrationFileId">
         /// Conversation dataset file ID to use for calibration. Upload it first with `POST /v1/files` using purpose `calibration` and file type `jsonl`. Each JSONL row must contain a `messages` array and may contain a `tools` array.<br/>
@@ -57,12 +56,12 @@ namespace Together
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public QuantizationPipelineInputs(
-            string adapterObjectId,
-            string? adapterRevisionId,
+            string? modelObjectId,
+            string? modelRevisionId,
             string? calibrationFileId)
         {
-            this.AdapterObjectId = adapterObjectId ?? throw new global::System.ArgumentNullException(nameof(adapterObjectId));
-            this.AdapterRevisionId = adapterRevisionId;
+            this.ModelObjectId = modelObjectId;
+            this.ModelRevisionId = modelRevisionId;
             this.CalibrationFileId = calibrationFileId;
         }
 

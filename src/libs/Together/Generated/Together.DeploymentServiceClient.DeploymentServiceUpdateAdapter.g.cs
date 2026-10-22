@@ -6,14 +6,6 @@ namespace Together
     public partial class DeploymentServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_DeploymentServiceUpdateAdapterServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_DeploymentServiceUpdateAdapterSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -59,7 +51,7 @@ namespace Together
 
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -71,7 +63,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -123,7 +115,7 @@ namespace Together
         }
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -135,7 +127,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -208,10 +200,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_DeploymentServiceUpdateAdapterServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -281,7 +271,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceUpdateAdapter",
                                 methodName: "DeploymentServiceUpdateAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +305,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceUpdateAdapter",
                                 methodName: "DeploymentServiceUpdateAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -356,7 +346,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceUpdateAdapter",
                                 methodName: "DeploymentServiceUpdateAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -404,7 +394,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceUpdateAdapter",
                                 methodName: "DeploymentServiceUpdateAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -426,7 +416,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceUpdateAdapter",
                                 methodName: "DeploymentServiceUpdateAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -576,7 +566,7 @@ namespace Together
         }
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -588,7 +578,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="adapterRevisionId">
         /// New adapter revision to pin.

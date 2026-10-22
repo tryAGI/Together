@@ -6,7 +6,7 @@ namespace Together
     {
         /// <summary>
         /// Remove a deployment adapter<br/>
-        /// Detaches an adapter from a deployment using its row-level etag for optimistic concurrency.
+        /// Detaches an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -18,7 +18,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="etag">
         /// Adapter etag from a previous add, update, get, or list response. The removal is rejected if the adapter changed after that response.
@@ -55,7 +55,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove a deployment adapter<br/>
-        /// Detaches an adapter from a deployment using its row-level etag for optimistic concurrency.
+        /// Detaches an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -67,7 +67,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="etag">
         /// Adapter etag from a previous add, update, get, or list response. The removal is rejected if the adapter changed after that response.

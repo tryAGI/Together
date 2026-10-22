@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace Together
@@ -182,14 +180,6 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("wandb_entity")]
         public string? WandbEntity { get; set; }
-
-        /// <summary>
-        /// Whether to mask user messages in conversational data or prompts in instruction data.<br/>
-        /// Default Value: auto
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("train_on_inputs")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>))]
-        public global::Together.OneOf<bool?, global::Together.CreateFineTunesRequestTrainOnInputs?>? TrainOnInputs { get; set; }
 
         /// <summary>
         /// The training method to use. 'sft' for Supervised Fine-Tuning or 'dpo' for Direct Preference Optimization.

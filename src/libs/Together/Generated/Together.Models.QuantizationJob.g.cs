@@ -5,7 +5,7 @@
 namespace Together
 {
     /// <summary>
-    /// Quantization job that prepares an adapter for FP4 inference.
+    /// Quantization job that prepares a fine-tuned model for FP4 inference.
     /// </summary>
     public readonly partial struct QuantizationJob : global::System.IEquatable<QuantizationJob>
     {
@@ -47,7 +47,7 @@ namespace Together
             : throw new global::System.InvalidOperationException($"Expected union variant 'BaseShaping' but the value was {ToString()}.");
 
         /// <summary>
-        /// Quantization job that prepares an adapter for FP4 inference.
+        /// Quantization job that prepares a fine-tuned model for FP4 inference.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Together.QuantizationJobVariant2? QuantizationJobVariant2 { get; init; }

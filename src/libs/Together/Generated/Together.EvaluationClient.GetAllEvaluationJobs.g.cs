@@ -6,19 +6,6 @@ namespace Together
     public partial class EvaluationClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetAllEvaluationJobsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetAllEvaluationJobsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -154,10 +141,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/evaluation",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetAllEvaluationJobsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/evaluation",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("status", status)
                                 .AddOptionalParameter("limit", limit?.ToString())
@@ -222,7 +207,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetAllEvaluationJobs",
                                 methodName: "GetAllEvaluationJobsAsync",
-                                pathTemplate: "\"/evaluation\"",
+                                pathTemplate: "\"/v1/evaluation\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -256,7 +241,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetAllEvaluationJobs",
                                 methodName: "GetAllEvaluationJobsAsync",
-                                pathTemplate: "\"/evaluation\"",
+                                pathTemplate: "\"/v1/evaluation\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -297,7 +282,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetAllEvaluationJobs",
                                 methodName: "GetAllEvaluationJobsAsync",
-                                pathTemplate: "\"/evaluation\"",
+                                pathTemplate: "\"/v1/evaluation\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -345,7 +330,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetAllEvaluationJobs",
                                 methodName: "GetAllEvaluationJobsAsync",
-                                pathTemplate: "\"/evaluation\"",
+                                pathTemplate: "\"/v1/evaluation\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -367,7 +352,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetAllEvaluationJobs",
                                 methodName: "GetAllEvaluationJobsAsync",
-                                pathTemplate: "\"/evaluation\"",
+                                pathTemplate: "\"/v1/evaluation\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

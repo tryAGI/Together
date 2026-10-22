@@ -6,19 +6,6 @@ namespace Together
     public partial class QueueClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetQueueMetricsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetQueueMetricsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -134,10 +121,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/queue/metrics",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetQueueMetricsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/queue/metrics",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddRequiredParameter("model", model)
                                 ;
@@ -200,7 +185,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetQueueMetrics",
                                 methodName: "GetQueueMetricsAsync",
-                                pathTemplate: "\"/queue/metrics\"",
+                                pathTemplate: "\"/v1/queue/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -234,7 +219,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetQueueMetrics",
                                 methodName: "GetQueueMetricsAsync",
-                                pathTemplate: "\"/queue/metrics\"",
+                                pathTemplate: "\"/v1/queue/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -275,7 +260,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetQueueMetrics",
                                 methodName: "GetQueueMetricsAsync",
-                                pathTemplate: "\"/queue/metrics\"",
+                                pathTemplate: "\"/v1/queue/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -323,7 +308,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetQueueMetrics",
                                 methodName: "GetQueueMetricsAsync",
-                                pathTemplate: "\"/queue/metrics\"",
+                                pathTemplate: "\"/v1/queue/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -345,7 +330,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetQueueMetrics",
                                 methodName: "GetQueueMetricsAsync",
-                                pathTemplate: "\"/queue/metrics\"",
+                                pathTemplate: "\"/v1/queue/metrics\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

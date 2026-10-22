@@ -6,14 +6,6 @@ namespace Together
     public partial class EndpointServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_EndpointServiceDeleteEndpointServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_EndpointServiceDeleteEndpointSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -153,10 +145,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/endpoints/{id}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_EndpointServiceDeleteEndpointServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/endpoints/{id}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("etag", etag)
                                 ;
@@ -221,7 +211,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceDeleteEndpoint",
                                 methodName: "EndpointServiceDeleteEndpointAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -255,7 +245,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceDeleteEndpoint",
                                 methodName: "EndpointServiceDeleteEndpointAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -296,7 +286,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceDeleteEndpoint",
                                 methodName: "EndpointServiceDeleteEndpointAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -344,7 +334,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceDeleteEndpoint",
                                 methodName: "EndpointServiceDeleteEndpointAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -366,7 +356,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "EndpointServiceDeleteEndpoint",
                                 methodName: "EndpointServiceDeleteEndpointAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

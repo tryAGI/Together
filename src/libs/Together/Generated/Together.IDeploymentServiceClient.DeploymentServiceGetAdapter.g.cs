@@ -6,7 +6,7 @@ namespace Together
     {
         /// <summary>
         /// Get a deployment adapter<br/>
-        /// Gets an attached adapter and its per-cluster load state.
+        /// Gets an adapter attachment by its `dad_` id and returns its per-cluster load state.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -18,7 +18,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -44,7 +44,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a deployment adapter<br/>
-        /// Gets an attached adapter and its per-cluster load state.
+        /// Gets an adapter attachment by its `dad_` id and returns its per-cluster load state.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -56,7 +56,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -10,13 +10,12 @@ namespace Together
     {
         /// <summary>
         /// GPU type this configuration provisions.<br/>
-        /// Example: H100-80GB
+        /// Example: B200-SXM
         /// </summary>
-        /// <example>H100-80GB</example>
+        /// <example>B200-SXM</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.RlSupportedModelComputeConfigGpuTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Together.RlSupportedModelComputeConfigGpuType GpuType { get; set; }
+        public global::Together.RlSupportedModelComputeConfigGpuType GpuType { get; set; }
 
         /// <summary>
         /// Training config for this GPU type. Set when the model supports at least one training mode on this GPU type.
@@ -41,7 +40,7 @@ namespace Together
         /// </summary>
         /// <param name="gpuType">
         /// GPU type this configuration provisions.<br/>
-        /// Example: H100-80GB
+        /// Example: B200-SXM
         /// </param>
         /// <param name="trainerConfig">
         /// Training config for this GPU type. Set when the model supports at least one training mode on this GPU type.

@@ -6,19 +6,6 @@ namespace Together
     public partial class RlClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_StopModelResourcesServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_StopModelResourcesSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -148,10 +135,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/rl/model-resources/{modelResourcesId}/stop",
-                                baseUri: ResolveBaseUri(
-                                servers: s_StopModelResourcesServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/rl/model-resources/{modelResourcesId}/stop",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
                                 ;
@@ -215,7 +200,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "StopModelResources",
                                 methodName: "StopModelResourcesAsync",
-                                pathTemplate: "$\"/rl/model-resources/{modelResourcesId}/stop\"",
+                                pathTemplate: "$\"/v1/rl/model-resources/{modelResourcesId}/stop\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -249,7 +234,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "StopModelResources",
                                 methodName: "StopModelResourcesAsync",
-                                pathTemplate: "$\"/rl/model-resources/{modelResourcesId}/stop\"",
+                                pathTemplate: "$\"/v1/rl/model-resources/{modelResourcesId}/stop\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -290,7 +275,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "StopModelResources",
                                 methodName: "StopModelResourcesAsync",
-                                pathTemplate: "$\"/rl/model-resources/{modelResourcesId}/stop\"",
+                                pathTemplate: "$\"/v1/rl/model-resources/{modelResourcesId}/stop\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -338,7 +323,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "StopModelResources",
                                 methodName: "StopModelResourcesAsync",
-                                pathTemplate: "$\"/rl/model-resources/{modelResourcesId}/stop\"",
+                                pathTemplate: "$\"/v1/rl/model-resources/{modelResourcesId}/stop\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -360,7 +345,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "StopModelResources",
                                 methodName: "StopModelResourcesAsync",
-                                pathTemplate: "$\"/rl/model-resources/{modelResourcesId}/stop\"",
+                                pathTemplate: "$\"/v1/rl/model-resources/{modelResourcesId}/stop\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

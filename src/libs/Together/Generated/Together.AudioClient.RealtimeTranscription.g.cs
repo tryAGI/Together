@@ -6,19 +6,6 @@ namespace Together
     public partial class AudioClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RealtimeTranscriptionServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RealtimeTranscriptionSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -461,10 +448,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/realtime",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RealtimeTranscriptionServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/realtime",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddRequiredParameter("model", model)
                                 .AddRequiredParameter("input_audio_format", inputAudioFormat.ToValueString())
@@ -529,7 +514,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTranscription",
                                 methodName: "RealtimeTranscriptionAsync",
-                                pathTemplate: "\"/realtime\"",
+                                pathTemplate: "\"/v1/realtime\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -563,7 +548,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTranscription",
                                 methodName: "RealtimeTranscriptionAsync",
-                                pathTemplate: "\"/realtime\"",
+                                pathTemplate: "\"/v1/realtime\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -604,7 +589,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTranscription",
                                 methodName: "RealtimeTranscriptionAsync",
-                                pathTemplate: "\"/realtime\"",
+                                pathTemplate: "\"/v1/realtime\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -652,7 +637,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTranscription",
                                 methodName: "RealtimeTranscriptionAsync",
-                                pathTemplate: "\"/realtime\"",
+                                pathTemplate: "\"/v1/realtime\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -674,7 +659,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTranscription",
                                 methodName: "RealtimeTranscriptionAsync",
-                                pathTemplate: "\"/realtime\"",
+                                pathTemplate: "\"/v1/realtime\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
