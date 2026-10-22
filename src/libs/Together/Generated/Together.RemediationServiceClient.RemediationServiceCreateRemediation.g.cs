@@ -29,14 +29,12 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref string clusterId,
             ref string instanceId,
-            ref string? remediationId,
             global::Together.Remediation request);
         partial void PrepareRemediationServiceCreateRemediationRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string clusterId,
             string instanceId,
-            string? remediationId,
             global::Together.Remediation request);
         partial void ProcessRemediationServiceCreateRemediationResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -56,9 +54,6 @@ namespace Together
         /// </summary>
         /// <param name="clusterId"></param>
         /// <param name="instanceId"></param>
-        /// <param name="remediationId">
-        /// Client-specified ID for idempotency.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -79,7 +74,6 @@ namespace Together
             string instanceId,
 
             global::Together.Remediation request,
-            string? remediationId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +82,6 @@ namespace Together
                 instanceId: instanceId,
 
                 request: request,
-                remediationId: remediationId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -104,9 +97,6 @@ namespace Together
         /// </summary>
         /// <param name="clusterId"></param>
         /// <param name="instanceId"></param>
-        /// <param name="remediationId">
-        /// Client-specified ID for idempotency.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -127,7 +117,6 @@ namespace Together
             string instanceId,
 
             global::Together.Remediation request,
-            string? remediationId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -139,7 +128,6 @@ namespace Together
                 httpClient: HttpClient,
                 clusterId: ref clusterId,
                 instanceId: ref instanceId,
-                remediationId: ref remediationId,
                 request: request);
 
 
@@ -168,9 +156,6 @@ namespace Together
                             var __pathBuilder = new global::Together.PathBuilder(
                                 path: $"/v1/compute/clusters/{clusterId}/instances/{instanceId}/remediations",
                                 baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
-                            __pathBuilder
-                                .AddOptionalParameter("remediation_id", remediationId)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -219,7 +204,6 @@ namespace Together
                     httpRequestMessage: __httpRequest,
                     clusterId: clusterId,
                     instanceId: instanceId,
-                    remediationId: remediationId,
                     request: request);
 
                 return __httpRequest;
@@ -504,9 +488,6 @@ namespace Together
         /// </summary>
         /// <param name="clusterId"></param>
         /// <param name="instanceId"></param>
-        /// <param name="remediationId">
-        /// Client-specified ID for idempotency.
-        /// </param>
         /// <param name="mode">
         /// Remediation mode specifies how the remediation should be performed.<br/>
         /// - `REMEDIATION_MODE_VM_ONLY`: Deletes the VM and provisions a new one on any available host.<br/>
@@ -525,7 +506,6 @@ namespace Together
             string clusterId,
             string instanceId,
             global::Together.RemediationMode mode,
-            string? remediationId = default,
             string? reason = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -539,7 +519,6 @@ namespace Together
             return await RemediationServiceCreateRemediationAsync(
                 clusterId: clusterId,
                 instanceId: instanceId,
-                remediationId: remediationId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

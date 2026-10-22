@@ -14464,11 +14464,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: remediation_id
-          in: query
-          schema:
-            description: Client-specified ID for idempotency.
-            type: string
       requestBody:
         content:
           application/json:

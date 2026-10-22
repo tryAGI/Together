@@ -13,9 +13,6 @@ namespace Together
         /// </summary>
         /// <param name="clusterId"></param>
         /// <param name="instanceId"></param>
-        /// <param name="remediationId">
-        /// Client-specified ID for idempotency.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -36,7 +33,6 @@ namespace Together
             string instanceId,
 
             global::Together.Remediation request,
-            string? remediationId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -48,9 +44,6 @@ namespace Together
         /// </summary>
         /// <param name="clusterId"></param>
         /// <param name="instanceId"></param>
-        /// <param name="remediationId">
-        /// Client-specified ID for idempotency.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -71,7 +64,6 @@ namespace Together
             string instanceId,
 
             global::Together.Remediation request,
-            string? remediationId = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -83,9 +75,6 @@ namespace Together
         /// </summary>
         /// <param name="clusterId"></param>
         /// <param name="instanceId"></param>
-        /// <param name="remediationId">
-        /// Client-specified ID for idempotency.
-        /// </param>
         /// <param name="mode">
         /// Remediation mode specifies how the remediation should be performed.<br/>
         /// - `REMEDIATION_MODE_VM_ONLY`: Deletes the VM and provisions a new one on any available host.<br/>
@@ -104,7 +93,6 @@ namespace Together
             string clusterId,
             string instanceId,
             global::Together.RemediationMode mode,
-            string? remediationId = default,
             string? reason = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
