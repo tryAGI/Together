@@ -6,14 +6,6 @@ namespace Together
     public partial class VideoClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RetrieveVideoServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RetrieveVideoSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -135,10 +127,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/videos/{id}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RetrieveVideoServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/videos/{id}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -198,7 +188,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RetrieveVideo",
                                 methodName: "RetrieveVideoAsync",
-                                pathTemplate: "$\"/videos/{id}\"",
+                                pathTemplate: "$\"/v2/videos/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -232,7 +222,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RetrieveVideo",
                                 methodName: "RetrieveVideoAsync",
-                                pathTemplate: "$\"/videos/{id}\"",
+                                pathTemplate: "$\"/v2/videos/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -273,7 +263,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RetrieveVideo",
                                 methodName: "RetrieveVideoAsync",
-                                pathTemplate: "$\"/videos/{id}\"",
+                                pathTemplate: "$\"/v2/videos/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,7 +311,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RetrieveVideo",
                                 methodName: "RetrieveVideoAsync",
-                                pathTemplate: "$\"/videos/{id}\"",
+                                pathTemplate: "$\"/v2/videos/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +333,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RetrieveVideo",
                                 methodName: "RetrieveVideoAsync",
-                                pathTemplate: "$\"/videos/{id}\"",
+                                pathTemplate: "$\"/v2/videos/{id}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

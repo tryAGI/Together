@@ -6,19 +6,6 @@ namespace Together
     public partial class EvaluationClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetModelListServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetModelListSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -146,10 +133,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/evaluation/model-list",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetModelListServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/evaluation/model-list",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("model_source", modelSource)
                                 ;
@@ -212,7 +197,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetModelList",
                                 methodName: "GetModelListAsync",
-                                pathTemplate: "\"/evaluation/model-list\"",
+                                pathTemplate: "\"/v1/evaluation/model-list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -246,7 +231,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetModelList",
                                 methodName: "GetModelListAsync",
-                                pathTemplate: "\"/evaluation/model-list\"",
+                                pathTemplate: "\"/v1/evaluation/model-list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -287,7 +272,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetModelList",
                                 methodName: "GetModelListAsync",
-                                pathTemplate: "\"/evaluation/model-list\"",
+                                pathTemplate: "\"/v1/evaluation/model-list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -335,7 +320,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetModelList",
                                 methodName: "GetModelListAsync",
-                                pathTemplate: "\"/evaluation/model-list\"",
+                                pathTemplate: "\"/v1/evaluation/model-list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -357,7 +342,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetModelList",
                                 methodName: "GetModelListAsync",
-                                pathTemplate: "\"/evaluation/model-list\"",
+                                pathTemplate: "\"/v1/evaluation/model-list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

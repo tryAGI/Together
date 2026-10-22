@@ -6,7 +6,7 @@ namespace Together
     {
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -18,7 +18,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -56,7 +56,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -68,7 +68,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -106,7 +106,7 @@ namespace Together
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a deployment adapter<br/>
-        /// Updates the pinned revision of an attached adapter using its row-level etag for optimistic concurrency.
+        /// Updates the pinned revision of an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -118,7 +118,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="adapterRevisionId">
         /// New adapter revision to pin.

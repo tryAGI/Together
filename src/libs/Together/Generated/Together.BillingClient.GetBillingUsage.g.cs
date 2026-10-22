@@ -6,19 +6,6 @@ namespace Together
     public partial class BillingClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetBillingUsageServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetBillingUsageSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -198,10 +185,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/billing/usage",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetBillingUsageServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/billing/usage",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("month", month)
                                 .AddOptionalParameter("organization_id", organizationId)
@@ -272,7 +257,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +291,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -347,7 +332,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -395,7 +380,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -417,7 +402,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "GetBillingUsage",
                                 methodName: "GetBillingUsageAsync",
-                                pathTemplate: "\"/billing/usage\"",
+                                pathTemplate: "\"/v1/billing/usage\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

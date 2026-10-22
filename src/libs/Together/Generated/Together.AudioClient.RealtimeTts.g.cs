@@ -6,19 +6,6 @@ namespace Together
     public partial class AudioClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_RealtimeTtsServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_RealtimeTtsSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -489,10 +476,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/audio/speech/websocket",
-                                baseUri: ResolveBaseUri(
-                                servers: s_RealtimeTtsServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: "/v1/audio/speech/websocket",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddOptionalParameter("model", model?.ToValueString())
                                 .AddOptionalParameter("voice", voice)
@@ -561,7 +546,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -595,7 +580,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -636,7 +621,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -684,7 +669,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -706,7 +691,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "RealtimeTts",
                                 methodName: "RealtimeTtsAsync",
-                                pathTemplate: "\"/audio/speech/websocket\"",
+                                pathTemplate: "\"/v1/audio/speech/websocket\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

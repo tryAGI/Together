@@ -2,7 +2,7 @@
 
 namespace Together
 {
-    public sealed partial class WhoamiResponse
+    public readonly partial struct WhoamiResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace Together
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::Together.WhoamiResponse),
-                jsonSerializerContext) as global::Together.WhoamiResponse;
+                jsonSerializerContext) as global::Together.WhoamiResponse?;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Together
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::Together.WhoamiResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Together.WhoamiResponse;
+                jsonSerializerContext).ConfigureAwait(false)) as global::Together.WhoamiResponse?;
         }
 
         /// <summary>

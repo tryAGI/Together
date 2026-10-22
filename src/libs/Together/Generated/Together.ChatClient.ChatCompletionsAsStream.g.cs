@@ -1,8 +1,6 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace Together
 {
     public partial class ChatClient
@@ -10,15 +8,10 @@ namespace Together
 
         private static readonly global::Together.AutoSDKServer[] s_ChatCompletionsAsStreamServers = new global::Together.AutoSDKServer[]
         {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
+                id: "https-api-inference-together-ai",
+                name: "api-inference.together.ai",
+                url: "https://api-inference.together.ai/",
+                description: ""),
         };
 
 
@@ -143,10 +136,10 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: "/chat/completions",
+                                path: "/v1/chat/completions",
                                 baseUri: ResolveBaseUri(
                                 servers: s_ChatCompletionsAsStreamServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                defaultBaseUrl: "https://api-inference.together.ai/"));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -216,7 +209,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ChatCompletionsAsStream",
                                 methodName: "ChatCompletionsAsStreamAsync",
-                                pathTemplate: "\"/chat/completions\"",
+                                pathTemplate: "\"/v1/chat/completions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -250,7 +243,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ChatCompletionsAsStream",
                                 methodName: "ChatCompletionsAsStreamAsync",
-                                pathTemplate: "\"/chat/completions\"",
+                                pathTemplate: "\"/v1/chat/completions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +284,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ChatCompletionsAsStream",
                                 methodName: "ChatCompletionsAsStreamAsync",
-                                pathTemplate: "\"/chat/completions\"",
+                                pathTemplate: "\"/v1/chat/completions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -339,7 +332,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ChatCompletionsAsStream",
                                 methodName: "ChatCompletionsAsStreamAsync",
-                                pathTemplate: "\"/chat/completions\"",
+                                pathTemplate: "\"/v1/chat/completions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -361,7 +354,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "ChatCompletionsAsStream",
                                 methodName: "ChatCompletionsAsStreamAsync",
-                                pathTemplate: "\"/chat/completions\"",
+                                pathTemplate: "\"/v1/chat/completions\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

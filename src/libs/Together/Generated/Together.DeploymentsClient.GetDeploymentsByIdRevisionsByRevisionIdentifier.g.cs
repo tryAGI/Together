@@ -6,19 +6,6 @@ namespace Together
     public partial class DeploymentsClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_GetDeploymentsByIdRevisionsByRevisionIdentifierServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_GetDeploymentsByIdRevisionsByRevisionIdentifierSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -71,6 +58,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Pass a revision number or a revision ID.<br/>
+        /// revision = client.beta.jig.retrieve_revision("3", id="my-deployment")<br/>
+        /// print(revision.image, revision.min_replicas, revision.max_replicas)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RevisionDetailResponse> GetDeploymentsByIdRevisionsByRevisionIdentifierAsync(
             string id,
             string revisionIdentifier,
@@ -101,6 +95,13 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// # Pass a revision number or a revision ID.<br/>
+        /// revision = client.beta.jig.retrieve_revision("3", id="my-deployment")<br/>
+        /// print(revision.image, revision.min_replicas, revision.max_replicas)
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RevisionDetailResponse>> GetDeploymentsByIdRevisionsByRevisionIdentifierAsResponseAsync(
             string id,
             string revisionIdentifier,
@@ -138,10 +139,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/deployments/{id}/revisions/{revisionIdentifier}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_GetDeploymentsByIdRevisionsByRevisionIdentifierServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/deployments/{id}/revisions/{revisionIdentifier}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -202,7 +201,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdRevisionsByRevisionIdentifier",
                                 methodName: "GetDeploymentsByIdRevisionsByRevisionIdentifierAsync",
-                                pathTemplate: "$\"/deployments/{id}/revisions/{revisionIdentifier}\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/revisions/{revisionIdentifier}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -236,7 +235,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdRevisionsByRevisionIdentifier",
                                 methodName: "GetDeploymentsByIdRevisionsByRevisionIdentifierAsync",
-                                pathTemplate: "$\"/deployments/{id}/revisions/{revisionIdentifier}\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/revisions/{revisionIdentifier}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -277,7 +276,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdRevisionsByRevisionIdentifier",
                                 methodName: "GetDeploymentsByIdRevisionsByRevisionIdentifierAsync",
-                                pathTemplate: "$\"/deployments/{id}/revisions/{revisionIdentifier}\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/revisions/{revisionIdentifier}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -325,7 +324,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdRevisionsByRevisionIdentifier",
                                 methodName: "GetDeploymentsByIdRevisionsByRevisionIdentifierAsync",
-                                pathTemplate: "$\"/deployments/{id}/revisions/{revisionIdentifier}\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/revisions/{revisionIdentifier}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -347,7 +346,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "getDeploymentsByIdRevisionsByRevisionIdentifier",
                                 methodName: "GetDeploymentsByIdRevisionsByRevisionIdentifierAsync",
-                                pathTemplate: "$\"/deployments/{id}/revisions/{revisionIdentifier}\"",
+                                pathTemplate: "$\"/v1/deployments/{id}/revisions/{revisionIdentifier}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

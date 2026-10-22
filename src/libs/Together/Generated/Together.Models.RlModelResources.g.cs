@@ -32,6 +32,13 @@ namespace Together
         public global::Together.RlModelResourcesError? Error { get; set; }
 
         /// <summary>
+        /// Details of the resource's current status, such as its place in the queue.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status_details")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Together.RlModelResourcesStatusDetails StatusDetails { get; set; }
+
+        /// <summary>
         /// Base model the resource is provisioned for<br/>
         /// Example: Qwen/Qwen3.5-4B
         /// </summary>
@@ -114,6 +121,9 @@ namespace Together
         /// <param name="status">
         /// Lifecycle status of the model resource
         /// </param>
+        /// <param name="statusDetails">
+        /// Details of the resource's current status, such as its place in the queue.
+        /// </param>
         /// <param name="baseModel">
         /// Base model the resource is provisioned for<br/>
         /// Example: Qwen/Qwen3.5-4B
@@ -153,6 +163,7 @@ namespace Together
         public RlModelResources(
             string id,
             global::Together.RlModelResourcesStatus status,
+            global::Together.RlModelResourcesStatusDetails statusDetails,
             string baseModel,
             global::Together.RlComputeConfig computeConfig,
             bool loraEnabled,
@@ -166,6 +177,7 @@ namespace Together
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
             this.Error = error;
+            this.StatusDetails = statusDetails ?? throw new global::System.ArgumentNullException(nameof(statusDetails));
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
             this.BaseWeightsRef = baseWeightsRef;
             this.ComputeConfig = computeConfig ?? throw new global::System.ArgumentNullException(nameof(computeConfig));

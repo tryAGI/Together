@@ -156,43 +156,6 @@ namespace Together
         public global::Together.ChatCompletionToolMessageParam PickTool() => Tool is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
-
-        /// <summary>
-        ///
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Together.ChatCompletionFunctionMessageParam? Function { get; init; }
-#else
-        public global::Together.ChatCompletionFunctionMessageParam? Function { get; }
-#endif
-
-        /// <summary>
-        ///
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Function))]
-#endif
-        public bool IsFunction => Function != null;
-
-        /// <summary>
-        ///
-        /// </summary>
-        public bool TryPickFunction(
-#if NET6_0_OR_GREATER
-            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
-#endif
-            out global::Together.ChatCompletionFunctionMessageParam? value)
-        {
-            value = Function;
-            return IsFunction;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public global::Together.ChatCompletionFunctionMessageParam PickFunction() => Function is { } value
-            ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Function' but the value was {ToString()}.");
         /// <summary>
         ///
         /// </summary>
@@ -288,49 +251,23 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator ChatCompletionMessageParam(global::Together.ChatCompletionFunctionMessageParam value) => new ChatCompletionMessageParam((global::Together.ChatCompletionFunctionMessageParam?)value);
-
-        /// <summary>
-        ///
-        /// </summary>
-        public static implicit operator global::Together.ChatCompletionFunctionMessageParam?(ChatCompletionMessageParam @this) => @this.Function;
-
-        /// <summary>
-        ///
-        /// </summary>
-        public ChatCompletionMessageParam(global::Together.ChatCompletionFunctionMessageParam? value)
-        {
-            Function = value;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public static ChatCompletionMessageParam FromFunction(global::Together.ChatCompletionFunctionMessageParam? value) => new ChatCompletionMessageParam(value);
-
-        /// <summary>
-        ///
-        /// </summary>
         public ChatCompletionMessageParam(
             global::Together.ChatCompletionSystemMessageParam? system,
             global::Together.ChatCompletionUserMessageParam? user,
             global::Together.ChatCompletionAssistantMessageParam? assistant,
-            global::Together.ChatCompletionToolMessageParam? tool,
-            global::Together.ChatCompletionFunctionMessageParam? function
+            global::Together.ChatCompletionToolMessageParam? tool
             )
         {
             System = system;
             User = user;
             Assistant = assistant;
             Tool = tool;
-            Function = function;
         }
 
         /// <summary>
         ///
         /// </summary>
         public object? Object =>
-            Function as object ??
             Tool as object ??
             Assistant as object ??
             User as object ??
@@ -344,8 +281,7 @@ namespace Together
             System?.ToString() ??
             User?.ToString() ??
             Assistant?.ToString() ??
-            Tool?.ToString() ??
-            Function?.ToString()
+            Tool?.ToString()
             ;
 
         /// <summary>
@@ -353,7 +289,7 @@ namespace Together
         /// </summary>
         public bool Validate()
         {
-            return IsSystem && !IsUser && !IsAssistant && !IsTool && !IsFunction || !IsSystem && IsUser && !IsAssistant && !IsTool && !IsFunction || !IsSystem && !IsUser && IsAssistant && !IsTool && !IsFunction || !IsSystem && !IsUser && !IsAssistant && IsTool && !IsFunction || !IsSystem && !IsUser && !IsAssistant && !IsTool && IsFunction;
+            return IsSystem && !IsUser && !IsAssistant && !IsTool || !IsSystem && IsUser && !IsAssistant && !IsTool || !IsSystem && !IsUser && IsAssistant && !IsTool || !IsSystem && !IsUser && !IsAssistant && IsTool;
         }
 
         /// <summary>
@@ -364,7 +300,6 @@ namespace Together
             global::System.Func<global::Together.ChatCompletionUserMessageParam, TResult>? user = null,
             global::System.Func<global::Together.ChatCompletionAssistantMessageParam, TResult>? assistant = null,
             global::System.Func<global::Together.ChatCompletionToolMessageParam, TResult>? tool = null,
-            global::System.Func<global::Together.ChatCompletionFunctionMessageParam, TResult>? function = null,
             bool validate = true)
         {
             if (validate)
@@ -388,10 +323,6 @@ namespace Together
             {
                 return tool(__value3);
             }
-            else if (Function is { } __value4 && function != null)
-            {
-                return function(__value4);
-            }
 
             return default(TResult);
         }
@@ -407,8 +338,6 @@ namespace Together
             global::System.Action<global::Together.ChatCompletionAssistantMessageParam>? assistant = null,
 
             global::System.Action<global::Together.ChatCompletionToolMessageParam>? tool = null,
-
-            global::System.Action<global::Together.ChatCompletionFunctionMessageParam>? function = null,
             bool validate = true)
         {
             if (validate)
@@ -431,10 +360,6 @@ namespace Together
             else if (Tool is { } __value3)
             {
                 tool?.Invoke(__value3);
-            }
-            else if (Function is { } __value4)
-            {
-                function?.Invoke(__value4);
             }
         }
 
@@ -446,7 +371,6 @@ namespace Together
             global::System.Action<global::Together.ChatCompletionUserMessageParam>? user = null,
             global::System.Action<global::Together.ChatCompletionAssistantMessageParam>? assistant = null,
             global::System.Action<global::Together.ChatCompletionToolMessageParam>? tool = null,
-            global::System.Action<global::Together.ChatCompletionFunctionMessageParam>? function = null,
             bool validate = true)
         {
             if (validate)
@@ -469,10 +393,6 @@ namespace Together
             else if (Tool is { } __value3)
             {
                 tool?.Invoke(__value3);
-            }
-            else if (Function is { } __value4)
-            {
-                function?.Invoke(__value4);
             }
         }
 
@@ -491,8 +411,6 @@ namespace Together
                 typeof(global::Together.ChatCompletionAssistantMessageParam),
                 Tool,
                 typeof(global::Together.ChatCompletionToolMessageParam),
-                Function,
-                typeof(global::Together.ChatCompletionFunctionMessageParam),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -512,8 +430,7 @@ namespace Together
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionSystemMessageParam?>.Default.Equals(System, other.System) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionUserMessageParam?>.Default.Equals(User, other.User) &&
                 global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionAssistantMessageParam?>.Default.Equals(Assistant, other.Assistant) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionToolMessageParam?>.Default.Equals(Tool, other.Tool) &&
-                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionFunctionMessageParam?>.Default.Equals(Function, other.Function)
+                global::System.Collections.Generic.EqualityComparer<global::Together.ChatCompletionToolMessageParam?>.Default.Equals(Tool, other.Tool)
                 ;
         }
 

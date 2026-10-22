@@ -6,19 +6,6 @@ namespace Together
     public partial class SharedVolumeServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_SharedVolumeServiceGetServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v1",
-                name: "Default environment for APIs",
-                url: "https://api.together.ai/v1",
-                description: "Default environment for APIs"),
-            new global::Together.AutoSDKServer(
-                id: "https-api-inference-together-ai-v2",
-                name: "Optimized environment for inference",
-                url: "https://api-inference.together.ai/v2",
-                description: "Optimized environment for inference"),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_SharedVolumeServiceGetSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -134,10 +121,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/compute/clusters/storage/volumes/{volumeId}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_SharedVolumeServiceGetServers,
-                                defaultBaseUrl: "https://api.together.ai/v1"));
+                                path: $"/v1/compute/clusters/storage/volumes/{volumeId}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -197,7 +182,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SharedVolumeServiceGet",
                                 methodName: "SharedVolumeServiceGetAsync",
-                                pathTemplate: "$\"/compute/clusters/storage/volumes/{volumeId}\"",
+                                pathTemplate: "$\"/v1/compute/clusters/storage/volumes/{volumeId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -231,7 +216,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SharedVolumeServiceGet",
                                 methodName: "SharedVolumeServiceGetAsync",
-                                pathTemplate: "$\"/compute/clusters/storage/volumes/{volumeId}\"",
+                                pathTemplate: "$\"/v1/compute/clusters/storage/volumes/{volumeId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -272,7 +257,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SharedVolumeServiceGet",
                                 methodName: "SharedVolumeServiceGetAsync",
-                                pathTemplate: "$\"/compute/clusters/storage/volumes/{volumeId}\"",
+                                pathTemplate: "$\"/v1/compute/clusters/storage/volumes/{volumeId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -320,7 +305,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SharedVolumeServiceGet",
                                 methodName: "SharedVolumeServiceGetAsync",
-                                pathTemplate: "$\"/compute/clusters/storage/volumes/{volumeId}\"",
+                                pathTemplate: "$\"/v1/compute/clusters/storage/volumes/{volumeId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -342,7 +327,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "SharedVolumeServiceGet",
                                 methodName: "SharedVolumeServiceGetAsync",
-                                pathTemplate: "$\"/compute/clusters/storage/volumes/{volumeId}\"",
+                                pathTemplate: "$\"/v1/compute/clusters/storage/volumes/{volumeId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

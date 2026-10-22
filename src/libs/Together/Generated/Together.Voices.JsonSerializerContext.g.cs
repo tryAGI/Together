@@ -2,7 +2,29 @@
 #nullable enable
 
 namespace Together
-{    /// <summary>
+{
+    /// <summary>
+    ///
+    /// </summary>
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListVoicesResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ModelVoices>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelVoices))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ModelVoicesVoice>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ModelVoicesVoice))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ModelVoices>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ModelVoicesVoice>))]
+    internal sealed partial class VoicesSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+    /// <summary>
     ///
     /// </summary>
     public sealed partial class VoicesSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
@@ -46,7 +68,25 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
-            global::Together.SourceGenerationContext.AddConverters(options);
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, long?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::System.Collections.Generic.IList<object>, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
         }
 
         private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
@@ -100,7 +140,7 @@ namespace Together
             {
                 return index switch
                 {
-                    0 => global::Together.SourceGenerationContext.TypeInfoResolver,
+                    0 => new VoicesSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
                     _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
                 };
             }

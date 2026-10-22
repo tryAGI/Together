@@ -6,14 +6,6 @@ namespace Together
     public partial class DeploymentServiceClient
     {
 
-        private static readonly global::Together.AutoSDKServer[] s_DeploymentServiceRemoveAdapterServers = new global::Together.AutoSDKServer[]
-        {            new global::Together.AutoSDKServer(
-                id: "https-api-together-ai-v2",
-                name: "api.together.ai v2",
-                url: "https://api.together.ai/v2",
-                description: ""),
-        };
-
 
         private static readonly global::Together.EndPointSecurityRequirement s_DeploymentServiceRemoveAdapterSecurityRequirement0 =
             new global::Together.EndPointSecurityRequirement
@@ -59,7 +51,7 @@ namespace Together
 
         /// <summary>
         /// Remove a deployment adapter<br/>
-        /// Detaches an adapter from a deployment using its row-level etag for optimistic concurrency.
+        /// Detaches an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -71,7 +63,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="etag">
         /// Adapter etag from a previous add, update, get, or list response. The removal is rejected if the adapter changed after that response.
@@ -121,7 +113,7 @@ namespace Together
         }
         /// <summary>
         /// Remove a deployment adapter<br/>
-        /// Detaches an adapter from a deployment using its row-level etag for optimistic concurrency.
+        /// Detaches an adapter attachment by its `dad_` id using its row-level etag for optimistic concurrency.
         /// </summary>
         /// <param name="projectId">
         /// Project identifier.
@@ -133,7 +125,7 @@ namespace Together
         /// Deployment identifier.
         /// </param>
         /// <param name="id">
-        /// Adapter model identifier.
+        /// Adapter attachment `dad_` id from a prior add, update, get, or list response.
         /// </param>
         /// <param name="etag">
         /// Adapter etag from a previous add, update, get, or list response. The removal is rejected if the adapter changed after that response.
@@ -203,10 +195,8 @@ namespace Together
             {
 
                             var __pathBuilder = new global::Together.PathBuilder(
-                                path: $"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}",
-                                baseUri: ResolveBaseUri(
-                                servers: s_DeploymentServiceRemoveAdapterServers,
-                                defaultBaseUrl: "https://api.together.ai/v2"));
+                                path: $"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}",
+                                baseUri: HttpClient.BaseAddress ?? new global::System.Uri("https://api.together.ai/", global::System.UriKind.RelativeOrAbsolute));
                             __pathBuilder
                                 .AddRequiredParameter("etag", etag)
                                 ;
@@ -273,7 +263,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceRemoveAdapter",
                                 methodName: "DeploymentServiceRemoveAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -307,7 +297,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceRemoveAdapter",
                                 methodName: "DeploymentServiceRemoveAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -348,7 +338,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceRemoveAdapter",
                                 methodName: "DeploymentServiceRemoveAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -396,7 +386,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceRemoveAdapter",
                                 methodName: "DeploymentServiceRemoveAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -418,7 +408,7 @@ namespace Together
                             context: global::Together.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "DeploymentServiceRemoveAdapter",
                                 methodName: "DeploymentServiceRemoveAdapterAsync",
-                                pathTemplate: "$\"/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
+                                pathTemplate: "$\"/v2/projects/{projectId}/endpoints/{endpointId}/deployments/{deploymentId}/adapters/{id}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

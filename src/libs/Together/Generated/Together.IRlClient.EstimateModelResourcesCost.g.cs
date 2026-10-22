@@ -18,7 +18,7 @@ namespace Together
         /// estimate = client.post_training.model_resources.estimate_cost(<br/>
         ///     base_model="Qwen/Qwen3.5-9B",<br/>
         ///     lora_enabled=True,<br/>
-        ///     compute_config={"gpu_type": "H100-80GB", "num_generator_replicas": 1},<br/>
+        ///     compute_config={"gpu_type": "B200-SXM", "num_generator_replicas": 1},<br/>
         /// )<br/>
         /// print(estimate)
         /// </remarks>
@@ -41,7 +41,7 @@ namespace Together
         /// estimate = client.post_training.model_resources.estimate_cost(<br/>
         ///     base_model="Qwen/Qwen3.5-9B",<br/>
         ///     lora_enabled=True,<br/>
-        ///     compute_config={"gpu_type": "H100-80GB", "num_generator_replicas": 1},<br/>
+        ///     compute_config={"gpu_type": "B200-SXM", "num_generator_replicas": 1},<br/>
         /// )<br/>
         /// print(estimate)
         /// </remarks>

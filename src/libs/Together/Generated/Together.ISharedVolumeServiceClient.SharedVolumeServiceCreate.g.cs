@@ -74,7 +74,7 @@ namespace Together
         /// Project ID that will own the volume. When omitted, the caller's default project is used.
         /// </param>
         /// <param name="instanceClusterId">
-        /// Cluster ID to pin the volume to the same substrate as that GPU cluster.
+        /// Cluster ID to place the volume on the same infrastructure as that GPU cluster.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
