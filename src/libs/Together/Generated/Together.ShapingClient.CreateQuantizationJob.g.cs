@@ -54,8 +54,8 @@ namespace Together
         /// client = Together()<br/>
         /// job = client.post_training.prepare_for_fp4_inference.create(<br/>
         ///     inputs={<br/>
-        ///         "adapter_object_id": "ml_abc123",<br/>
-        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///         "model_object_id": "ml_abc123",<br/>
+        ///         "model_revision_id": "rv_abc123",<br/>
         ///     },<br/>
         /// )<br/>
         /// print(job.id, job.status)
@@ -88,8 +88,8 @@ namespace Together
         /// client = Together()<br/>
         /// job = client.post_training.prepare_for_fp4_inference.create(<br/>
         ///     inputs={<br/>
-        ///         "adapter_object_id": "ml_abc123",<br/>
-        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///         "model_object_id": "ml_abc123",<br/>
+        ///         "model_revision_id": "rv_abc123",<br/>
         ///     },<br/>
         /// )<br/>
         /// print(job.id, job.status)
