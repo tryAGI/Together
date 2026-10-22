@@ -54,8 +54,8 @@ namespace Together
         /// client = Together()<br/>
         /// estimate = client.post_training.prepare_for_fp4_inference.estimate_cost(<br/>
         ///     inputs={<br/>
-        ///         "adapter_object_id": "ml_abc123",<br/>
-        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///         "model_object_id": "ml_abc123",<br/>
+        ///         "model_revision_id": "rv_abc123",<br/>
         ///     },<br/>
         /// )<br/>
         /// print(estimate.price_usd, estimate.time_hours, estimate.allowed_to_proceed)
@@ -88,8 +88,8 @@ namespace Together
         /// client = Together()<br/>
         /// estimate = client.post_training.prepare_for_fp4_inference.estimate_cost(<br/>
         ///     inputs={<br/>
-        ///         "adapter_object_id": "ml_abc123",<br/>
-        ///         "adapter_revision_id": "rv_abc123",<br/>
+        ///         "model_object_id": "ml_abc123",<br/>
+        ///         "model_revision_id": "rv_abc123",<br/>
         ///     },<br/>
         /// )<br/>
         /// print(estimate.price_usd, estimate.time_hours, estimate.allowed_to_proceed)
