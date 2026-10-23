@@ -54,7 +54,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
+        /// model = client.models.retrieve_supported("arch_abc123")<br/>
         /// print(model.name, model.deployment_profiles)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeSupportedModel> SupportedModelsServiceGetSupportedModelAsync(
@@ -83,7 +83,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// model = client.beta.models.retrieve_supported("arch_abc123")<br/>
+        /// model = client.models.retrieve_supported("arch_abc123")<br/>
         /// print(model.name, model.deployment_profiles)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeSupportedModel>> SupportedModelsServiceGetSupportedModelAsResponseAsync(

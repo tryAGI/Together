@@ -23,8 +23,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for job in client.beta.models.remote_uploads.list(project_id=project_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// for job in client.models.remote_uploads.list(project_id=project_id):<br/>
         ///     print(job.id, job.status)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListRemoteUploadsResponse> VolumeServiceListRemoteModelUploadsAsync(
@@ -52,8 +55,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for job in client.beta.models.remote_uploads.list(project_id=project_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// for job in client.models.remote_uploads.list(project_id=project_id):<br/>
         ///     print(job.id, job.status)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListRemoteUploadsResponse>> VolumeServiceListRemoteModelUploadsAsResponseAsync(

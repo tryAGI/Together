@@ -54,7 +54,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.retrieve("volume_id")<br/>
+        /// volume = client.clusters.storage.retrieve("volume_id")<br/>
         /// print(volume)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolume> SharedVolumeServiceGetAsync(
@@ -83,7 +83,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.retrieve("volume_id")<br/>
+        /// volume = client.clusters.storage.retrieve("volume_id")<br/>
         /// print(volume)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClustersSharedVolume>> SharedVolumeServiceGetAsResponseAsync(

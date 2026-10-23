@@ -20,8 +20,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// profile = client.beta.endpoints.placement_profiles.retrieve(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// profile = client.endpoints.placement_profiles.retrieve(<br/>
         ///     "pp_abc123",<br/>
         ///     project_id=project_id,<br/>
         /// )<br/>
@@ -48,8 +51,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// profile = client.beta.endpoints.placement_profiles.retrieve(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// profile = client.endpoints.placement_profiles.retrieve(<br/>
         ///     "pp_abc123",<br/>
         ///     project_id=project_id,<br/>
         /// )<br/>

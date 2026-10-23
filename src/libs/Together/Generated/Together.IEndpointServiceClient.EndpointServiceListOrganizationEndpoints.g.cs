@@ -29,8 +29,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// organization_id = client.whoami().organization_id<br/>
-        /// for endpoint in client.beta.endpoints.list_org_scoped(organization_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type == "user_jwt":<br/>
+        ///     raise RuntimeError("Use a credential scoped to an organization")<br/>
+        /// organization_id = identity.organization.id<br/>
+        /// for endpoint in client.endpoints.list_org_scoped(organization_id):<br/>
         ///     print(endpoint.id, endpoint.name)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListEndpointsResponse> EndpointServiceListOrganizationEndpointsAsync(
@@ -66,8 +69,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// organization_id = client.whoami().organization_id<br/>
-        /// for endpoint in client.beta.endpoints.list_org_scoped(organization_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type == "user_jwt":<br/>
+        ///     raise RuntimeError("Use a credential scoped to an organization")<br/>
+        /// organization_id = identity.organization.id<br/>
+        /// for endpoint in client.endpoints.list_org_scoped(organization_id):<br/>
         ///     print(endpoint.id, endpoint.name)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListEndpointsResponse>> EndpointServiceListOrganizationEndpointsAsResponseAsync(

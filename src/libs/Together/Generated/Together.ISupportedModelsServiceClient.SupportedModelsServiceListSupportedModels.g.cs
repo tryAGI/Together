@@ -32,7 +32,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// models = client.beta.models.list_supported(product="PRODUCT_DEDICATED")<br/>
+        /// models = client.models.list_supported(product="PRODUCT_DEDICATED")<br/>
         /// for model in models:<br/>
         ///     print(model.id, model.name)
         /// </remarks>
@@ -73,7 +73,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// models = client.beta.models.list_supported(product="PRODUCT_DEDICATED")<br/>
+        /// models = client.models.list_supported(product="PRODUCT_DEDICATED")<br/>
         /// for model in models:<br/>
         ///     print(model.id, model.name)
         /// </remarks>

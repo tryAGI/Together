@@ -75,8 +75,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for endpoint in client.beta.endpoints.list(project_id=project_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// for endpoint in client.endpoints.list(project_id=project_id):<br/>
         ///     print(endpoint.id, endpoint.name)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListEndpointsResponse> EndpointServiceListEndpointsAsync(
@@ -126,8 +129,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for endpoint in client.beta.endpoints.list(project_id=project_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// for endpoint in client.endpoints.list(project_id=project_id):<br/>
         ///     print(endpoint.id, endpoint.name)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListEndpointsResponse>> EndpointServiceListEndpointsAsResponseAsync(

@@ -15,7 +15,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.update(<br/>
+        /// volume = client.clusters.storage.update(<br/>
         ///   volume_id="12345-67890-12345-67890",<br/>
         ///   size_tib=3<br/>
         /// )<br/>
@@ -37,7 +37,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.update(<br/>
+        /// volume = client.clusters.storage.update(<br/>
         ///   volume_id="12345-67890-12345-67890",<br/>
         ///   size_tib=3<br/>
         /// )<br/>

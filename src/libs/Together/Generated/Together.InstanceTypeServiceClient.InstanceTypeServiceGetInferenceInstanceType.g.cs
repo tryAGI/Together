@@ -54,7 +54,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// instance_type = client.beta.endpoints.hardware.retrieve("ins_abc123")<br/>
+        /// instance_type = client.endpoints.hardware.retrieve("ins_abc123")<br/>
         /// print(instance_type.name, instance_type.regions)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeInferenceInstanceType> InstanceTypeServiceGetInferenceInstanceTypeAsync(
@@ -83,7 +83,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// instance_type = client.beta.endpoints.hardware.retrieve("ins_abc123")<br/>
+        /// instance_type = client.endpoints.hardware.retrieve("ins_abc123")<br/>
         /// print(instance_type.name, instance_type.regions)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeInferenceInstanceType>> InstanceTypeServiceGetInferenceInstanceTypeAsResponseAsync(

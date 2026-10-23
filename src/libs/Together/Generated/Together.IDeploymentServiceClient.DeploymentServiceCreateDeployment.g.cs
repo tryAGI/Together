@@ -24,8 +24,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// deployment = client.beta.endpoints.deployments.create(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// deployment = client.endpoints.deployments.create(<br/>
         ///     "ep_abc123",<br/>
         ///     project_id=project_id,<br/>
         ///     name="prod",<br/>
@@ -63,8 +66,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// deployment = client.beta.endpoints.deployments.create(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// deployment = client.endpoints.deployments.create(<br/>
         ///     "ep_abc123",<br/>
         ///     project_id=project_id,<br/>
         ///     name="prod",<br/>

@@ -22,7 +22,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.beta.clusters.list()<br/>
+        /// response = client.clusters.list()<br/>
         /// print(response.clusters)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GPUClusters> GPUClusterServiceListAsync(
@@ -47,7 +47,7 @@ namespace Together
         /// client = Together(<br/>
         ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
         /// )<br/>
-        /// response = client.beta.clusters.list()<br/>
+        /// response = client.clusters.list()<br/>
         /// print(response.clusters)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusters>> GPUClusterServiceListAsResponseAsync(
