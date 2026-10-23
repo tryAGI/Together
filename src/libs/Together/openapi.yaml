@@ -26787,3 +26787,15 @@ components:
           description: Resource identifiers for attribution, varying by product.
           additionalProperties:
             type: string
+        applied_credit:
+          type: object
+          description: Credit covering this usage. Omitted for uncovered usage.
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - PREPAID
+                - POSTPAID
+                - CREDIT

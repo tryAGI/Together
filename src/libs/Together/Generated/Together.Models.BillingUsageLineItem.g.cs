@@ -51,6 +51,12 @@ namespace Together
         public required global::System.Collections.Generic.Dictionary<string, string> Attributes { get; set; }
 
         /// <summary>
+        /// Credit covering this usage. Omitted for uncovered usage.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("applied_credit")]
+        public global::Together.BillingUsageLineItemAppliedCredit? AppliedCredit { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,6 +83,9 @@ namespace Together
         /// <param name="attributes">
         /// Resource identifiers for attribution, varying by product.
         /// </param>
+        /// <param name="appliedCredit">
+        /// Credit covering this usage. Omitted for uncovered usage.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -86,7 +95,8 @@ namespace Together
             string unitPrice,
             string cost,
             global::System.Collections.Generic.Dictionary<string, string> pricingDimensions,
-            global::System.Collections.Generic.Dictionary<string, string> attributes)
+            global::System.Collections.Generic.Dictionary<string, string> attributes,
+            global::Together.BillingUsageLineItemAppliedCredit? appliedCredit)
         {
             this.ProductName = productName ?? throw new global::System.ArgumentNullException(nameof(productName));
             this.Quantity = quantity ?? throw new global::System.ArgumentNullException(nameof(quantity));
@@ -94,6 +104,7 @@ namespace Together
             this.Cost = cost ?? throw new global::System.ArgumentNullException(nameof(cost));
             this.PricingDimensions = pricingDimensions ?? throw new global::System.ArgumentNullException(nameof(pricingDimensions));
             this.Attributes = attributes ?? throw new global::System.ArgumentNullException(nameof(attributes));
+            this.AppliedCredit = appliedCredit;
         }
 
         /// <summary>
