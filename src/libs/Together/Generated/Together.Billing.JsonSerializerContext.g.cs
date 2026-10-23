@@ -23,9 +23,12 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageWindow))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.BillingUsageLineItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItemAppliedCredit))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItemAppliedCreditType), TypeInfoPropertyName = "BillingUsageLineItemAppliedCreditType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetBillingUsageGranularity), TypeInfoPropertyName = "GetBillingUsageGranularity2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItemAppliedCreditType?), TypeInfoPropertyName = "NullableBillingUsageLineItemAppliedCreditType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetBillingUsageGranularity?), TypeInfoPropertyName = "NullableGetBillingUsageGranularity2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.BillingUsageWindow>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.BillingUsageLineItem>))]
@@ -116,7 +119,11 @@ namespace Together
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::Together.GetBillingUsageGranularity)
+                    typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType)
+
+                    || typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType?)
+
+                    || typeToConvert == typeof(global::Together.GetBillingUsageGranularity)
 
                     || typeToConvert == typeof(global::Together.GetBillingUsageGranularity?);
             }
@@ -125,6 +132,16 @@ namespace Together
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType))
+                {
+                    return new global::Together.JsonConverters.BillingUsageLineItemAppliedCreditTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType?))
+                {
+                    return new global::Together.JsonConverters.BillingUsageLineItemAppliedCreditTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Together.GetBillingUsageGranularity))
                 {
                     return new global::Together.JsonConverters.GetBillingUsageGranularityJsonConverter();

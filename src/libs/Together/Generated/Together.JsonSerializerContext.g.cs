@@ -896,6 +896,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageWindow))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.BillingUsageLineItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItemAppliedCredit))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItemAppliedCreditType), TypeInfoPropertyName = "BillingUsageLineItemAppliedCreditType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>), TypeInfoPropertyName = "AnyOfCreateImagesGenerationsRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestModel), TypeInfoPropertyName = "CreateImagesGenerationsRequestModel2")]
@@ -1017,8 +1019,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlWeightSyncType?), TypeInfoPropertyName = "NullableRlWeightSyncType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, int?>?), TypeInfoPropertyName = "NullableOneOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigCreateRequestGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigCreateRequestGpuType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesStatus?), TypeInfoPropertyName = "NullableRlModelResourcesStatus2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1033,6 +1033,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigCreateRequestGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigCreateRequestGpuType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesStatus?), TypeInfoPropertyName = "NullableRlModelResourcesStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesErrorCode?), TypeInfoPropertyName = "NullableRlModelResourcesErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlSupportedModelComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlSupportedModelComputeConfigGpuType2")]
@@ -1216,6 +1218,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiUserOrgProjectJwtType?), TypeInfoPropertyName = "NullableWhoamiUserOrgProjectJwtType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponse?), TypeInfoPropertyName = "NullableWhoamiResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.WhoamiResponseDiscriminatorType?), TypeInfoPropertyName = "NullableWhoamiResponseDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BillingUsageLineItemAppliedCreditType?), TypeInfoPropertyName = "NullableBillingUsageLineItemAppliedCreditType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>?), TypeInfoPropertyName = "NullableAnyOfCreateImagesGenerationsRequestModelString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestModel?), TypeInfoPropertyName = "NullableCreateImagesGenerationsRequestModel2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateImagesGenerationsRequestResponseFormat?), TypeInfoPropertyName = "NullableCreateImagesGenerationsRequestResponseFormat2")]
@@ -2299,6 +2302,10 @@ namespace Together
                     || typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType)
 
                     || typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType?)
+
+                    || typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType)
+
+                    || typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType?)
 
                     || typeToConvert == typeof(global::Together.CreateImagesGenerationsRequestModel)
 
@@ -4327,6 +4334,16 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.WhoamiResponseDiscriminatorType?))
                 {
                     return new global::Together.JsonConverters.WhoamiResponseDiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType))
+                {
+                    return new global::Together.JsonConverters.BillingUsageLineItemAppliedCreditTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.BillingUsageLineItemAppliedCreditType?))
+                {
+                    return new global::Together.JsonConverters.BillingUsageLineItemAppliedCreditTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.CreateImagesGenerationsRequestModel))

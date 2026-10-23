@@ -3497,231 +3497,239 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateImagesGenerationsRequest? Type866 { get; set; }
+        public global::Together.BillingUsageLineItemAppliedCredit? Type866 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>? Type867 { get; set; }
+        public global::Together.BillingUsageLineItemAppliedCreditType? Type867 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateImagesGenerationsRequestModel? Type868 { get; set; }
+        public global::Together.CreateImagesGenerationsRequest? Type868 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateImagesGenerationsRequestResponseFormat? Type869 { get; set; }
+        public global::Together.AnyOf<global::Together.CreateImagesGenerationsRequestModel?, string>? Type869 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateImagesGenerationsRequestOutputFormat? Type870 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestModel? Type870 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>? Type871 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestResponseFormat? Type871 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateImagesGenerationsRequestImageLora? Type872 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestOutputFormat? Type872 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFilesUploadRequest? Type873 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.CreateImagesGenerationsRequestImageLora>? Type873 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFineTunesRequest? Type874 { get; set; }
+        public global::Together.CreateImagesGenerationsRequestImageLora? Type874 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? Type875 { get; set; }
+        public global::Together.CreateFilesUploadRequest? Type875 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFineTunesRequestBatchSize? Type876 { get; set; }
+        public global::Together.CreateFineTunesRequest? Type876 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type877 { get; set; }
+        public global::Together.OneOf<int?, global::Together.CreateFineTunesRequestBatchSize?>? Type877 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFineTunesEstimatePriceRequest? Type878 { get; set; }
+        public global::Together.CreateFineTunesRequestBatchSize? Type878 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.RolloutServiceListRolloutsFilter? Type879 { get; set; }
+        public global::Together.AnyOf<global::Together.FullTrainingType, global::Together.LoRATrainingType>? Type879 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.EndpointServiceListEndpointEventsMinLevel? Type880 { get; set; }
+        public global::Together.CreateFineTunesEstimatePriceRequest? Type880 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.EndpointServiceListEndpointEventsSourceKind>? Type881 { get; set; }
+        public global::Together.RolloutServiceListRolloutsFilter? Type881 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.EndpointServiceListEndpointEventsSourceKind? Type882 { get; set; }
+        public global::Together.EndpointServiceListEndpointEventsMinLevel? Type882 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.VolumeServiceListModelsVisibility? Type883 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.EndpointServiceListEndpointEventsSourceKind>? Type883 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.SupportedModelsServiceListSupportedModelsModality? Type884 { get; set; }
+        public global::Together.EndpointServiceListEndpointEventsSourceKind? Type884 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.SupportedModelsServiceListSupportedModelsProduct? Type885 { get; set; }
+        public global::Together.VolumeServiceListModelsVisibility? Type885 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? Type886 { get; set; }
+        public global::Together.SupportedModelsServiceListSupportedModelsModality? Type886 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetFinetuneDownloadCheckpoint? Type887 { get; set; }
+        public global::Together.SupportedModelsServiceListSupportedModelsProduct? Type887 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.RealtimeTtsModel? Type888 { get; set; }
+        public global::Together.SupportedModelsServiceListSupportedModelsAdapterMode? Type888 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.RealtimeTranscriptionInputAudioFormat? Type889 { get; set; }
+        public global::Together.GetFinetuneDownloadCheckpoint? Type889 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>? Type890 { get; set; }
+        public global::Together.RealtimeTtsModel? Type890 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ListModelResourcesStatu? Type891 { get; set; }
+        public global::Together.RealtimeTranscriptionInputAudioFormat? Type891 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? Type892 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ListModelResourcesStatu>? Type892 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ListTrainingSessionsStatu? Type893 { get; set; }
+        public global::Together.ListModelResourcesStatu? Type893 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ListCheckpointsType? Type894 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ListTrainingSessionsStatu>? Type894 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? Type895 { get; set; }
+        public global::Together.ListTrainingSessionsStatu? Type895 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.RemediationServiceListRemediationsStateItem? Type896 { get; set; }
+        public global::Together.ListCheckpointsType? Type896 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? Type897 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsStateItem>? Type897 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.RemediationServiceListRemediationsTriggerItem? Type898 { get; set; }
+        public global::Together.RemediationServiceListRemediationsStateItem? Type898 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? Type899 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsTriggerItem>? Type899 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.RemediationServiceListRemediationsModeItem? Type900 { get; set; }
+        public global::Together.RemediationServiceListRemediationsTriggerItem? Type900 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus? Type901 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.RemediationServiceListRemediationsModeItem>? Type901 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem>? Type902 { get; set; }
+        public global::Together.RemediationServiceListRemediationsModeItem? Type902 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem? Type903 { get; set; }
+        public global::Together.HealthCheckServiceListPassiveHealthCheckAlertsStatus? Type903 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy? Type904 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem>? Type904 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetBillingUsageGranularity? Type905 { get; set; }
+        public global::Together.HealthCheckServiceListPassiveHealthCheckAlertsSeverityFilterItem? Type905 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>? Type906 { get; set; }
+        public global::Together.HealthCheckServiceListPassiveHealthCheckAlertsOrderBy? Type906 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFineTunesEstimatePriceResponseVariant1? Type907 { get; set; }
+        public global::Together.GetBillingUsageGranularity? Type907 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFineTunesEstimatePriceResponseVariant2? Type908 { get; set; }
+        public global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>? Type908 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.CreateFineTunesEstimatePriceResponseVariant2UnavailableReason? Type909 { get; set; }
+        public global::Together.CreateFineTunesEstimatePriceResponseVariant1? Type909 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.OneOf<global::Together.FineTunePreviewMessageError, global::Together.FineTunePreviewDetailError>? Type910 { get; set; }
+        public global::Together.CreateFineTunesEstimatePriceResponseVariant2? Type910 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetFineTunesMetricsResponse? Type911 { get; set; }
+        public global::Together.CreateFineTunesEstimatePriceResponseVariant2UnavailableReason? Type911 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, double>>? Type912 { get; set; }
+        public global::Together.OneOf<global::Together.FineTunePreviewMessageError, global::Together.FineTunePreviewDetailError>? Type912 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetFineTunesModelsSupportedResponse? Type913 { get; set; }
+        public global::Together.GetFineTunesMetricsResponse? Type913 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.GetFineTunesModelsSupportedResponseDetailedModel>? Type914 { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, double>>? Type914 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetFineTunesModelsSupportedResponseDetailedModel? Type915 { get; set; }
+        public global::Together.GetFineTunesModelsSupportedResponse? Type915 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetFineTunesModelsLimitsResponse? Type916 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.GetFineTunesModelsSupportedResponseDetailedModel>? Type916 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.BatchJob>? Type917 { get; set; }
+        public global::Together.GetFineTunesModelsSupportedResponseDetailedModel? Type917 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.EvaluationJob>? Type918 { get; set; }
+        public global::Together.GetFineTunesModelsLimitsResponse? Type918 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetModelListResponse? Type919 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.BatchJob>? Type919 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetEvaluationJobStatusAndResultsResponse? Type920 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.EvaluationJob>? Type920 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.GetEvaluationJobStatusAndResultsResponseStatus? Type921 { get; set; }
+        public global::Together.GetModelListResponse? Type921 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? Type922 { get; set; }
+        public global::Together.GetEvaluationJobStatusAndResultsResponse? Type922 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Together.GetEvaluationJobStatusAndResultsResponseStatus? Type923 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>? Type924 { get; set; }
 
         /// <summary>
         ///
