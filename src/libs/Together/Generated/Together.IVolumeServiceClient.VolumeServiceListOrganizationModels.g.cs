@@ -23,8 +23,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// organization_id = client.whoami().organization_id<br/>
-        /// for model in client.beta.models.list_org_scoped(organization_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type == "user_jwt":<br/>
+        ///     raise RuntimeError("Use a credential scoped to an organization")<br/>
+        /// organization_id = identity.organization.id<br/>
+        /// for model in client.models.list_org_scoped(organization_id):<br/>
         ///     print(model.id, model.name)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeListModelsResponse> VolumeServiceListOrganizationModelsAsync(
@@ -52,8 +55,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// organization_id = client.whoami().organization_id<br/>
-        /// for model in client.beta.models.list_org_scoped(organization_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type == "user_jwt":<br/>
+        ///     raise RuntimeError("Use a credential scoped to an organization")<br/>
+        /// organization_id = identity.organization.id<br/>
+        /// for model in client.models.list_org_scoped(organization_id):<br/>
         ///     print(model.id, model.name)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListModelsResponse>> VolumeServiceListOrganizationModelsAsResponseAsync(

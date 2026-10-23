@@ -74,9 +74,12 @@ paths:
             from together import Together
 
             client = Together()
-            organization_id = client.whoami().organization_id
+            identity = client.whoami()
+            if identity.type == "user_jwt":
+                raise RuntimeError("Use a credential scoped to an organization")
+            organization_id = identity.organization.id
 
-            for endpoint in client.beta.endpoints.list_org_scoped(organization_id):
+            for endpoint in client.endpoints.list_org_scoped(organization_id):
                 print(endpoint.id, endpoint.name)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -84,9 +87,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { organization_id: organizationId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type === "user_jwt") {
+              throw new Error("Use a credential scoped to an organization");
+            }
+            const organizationId = identity.organization.id;
 
-            for await (const endpoint of client.beta.endpoints.listOrgScoped(
+            for await (const endpoint of client.endpoints.listOrgScoped(
               organizationId,
             )) {
               console.log(endpoint.id, endpoint.name);
@@ -97,9 +104,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { organization_id: organizationId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type === "user_jwt") {
+              throw new Error("Use a credential scoped to an organization");
+            }
+            const organizationId = identity.organization.id;
 
-            for await (const endpoint of client.beta.endpoints.listOrgScoped(
+            for await (const endpoint of client.endpoints.listOrgScoped(
               organizationId,
             )) {
               console.log(endpoint.id, endpoint.name);
@@ -147,9 +158,12 @@ paths:
             from together import Together
 
             client = Together()
-            organization_id = client.whoami().organization_id
+            identity = client.whoami()
+            if identity.type == "user_jwt":
+                raise RuntimeError("Use a credential scoped to an organization")
+            organization_id = identity.organization.id
 
-            for model in client.beta.models.list_org_scoped(organization_id):
+            for model in client.models.list_org_scoped(organization_id):
                 print(model.id, model.name)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -157,9 +171,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { organization_id: organizationId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type === "user_jwt") {
+              throw new Error("Use a credential scoped to an organization");
+            }
+            const organizationId = identity.organization.id;
 
-            for await (const model of client.beta.models.listOrgScoped(organizationId)) {
+            for await (const model of client.models.listOrgScoped(organizationId)) {
               console.log(model.id, model.name);
             }
         - lang: JavaScript
@@ -168,9 +186,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { organization_id: organizationId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type === "user_jwt") {
+              throw new Error("Use a credential scoped to an organization");
+            }
+            const organizationId = identity.organization.id;
 
-            for await (const model of client.beta.models.listOrgScoped(organizationId)) {
+            for await (const model of client.models.listOrgScoped(organizationId)) {
               console.log(model.id, model.name);
             }
   /v2/projects/{projectId}/configs:
@@ -226,13 +248,16 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
             # Configurations are listed per model. A supported model's base_model is
             # the resource name to pass as reference_model.
-            model = client.beta.models.retrieve_supported("arch_abc123")
+            model = client.models.retrieve_supported("arch_abc123")
 
-            configs = client.beta.models.configs.list(
+            configs = client.models.configs.list(
                 project_id=project_id,
                 reference_model=model.base_model,
             )
@@ -244,13 +269,17 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Configurations are listed per model. A supported model's baseModel is
             // the resource name to pass as referenceModel.
-            const model = await client.beta.models.retrieveSupported("arch_abc123");
+            const model = await client.models.retrieveSupported("arch_abc123");
 
-            const configs = client.beta.models.configs.list({
+            const configs = client.models.configs.list({
               projectId,
               referenceModel: model.baseModel,
             });
@@ -263,13 +292,17 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Configurations are listed per model. A supported model's baseModel is
             // the resource name to pass as referenceModel.
-            const model = await client.beta.models.retrieveSupported("arch_abc123");
+            const model = await client.models.retrieveSupported("arch_abc123");
 
-            const configs = client.beta.models.configs.list({
+            const configs = client.models.configs.list({
               projectId,
               referenceModel: model.baseModel,
             });
@@ -315,9 +348,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            config = client.beta.models.configs.retrieve(
+            config = client.models.configs.retrieve(
                 "cr_abc123",
                 project_id=project_id,
             )
@@ -328,9 +364,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const config = await client.beta.models.configs.retrieve("cr_abc123", {
+            const config = await client.models.configs.retrieve("cr_abc123", {
               projectId,
             });
             console.log(config.id, config.referenceModel);
@@ -340,9 +380,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const config = await client.beta.models.configs.retrieve("cr_abc123", {
+            const config = await client.models.configs.retrieve("cr_abc123", {
               projectId,
             });
             console.log(config.id, config.referenceModel);
@@ -400,9 +444,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            for endpoint in client.beta.endpoints.list(project_id=project_id):
+            for endpoint in client.endpoints.list(project_id=project_id):
                 print(endpoint.id, endpoint.name)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -410,9 +457,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            for await (const endpoint of client.beta.endpoints.list({ projectId })) {
+            for await (const endpoint of client.endpoints.list({ projectId })) {
               console.log(endpoint.id, endpoint.name);
             }
         - lang: JavaScript
@@ -421,9 +472,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            for await (const endpoint of client.beta.endpoints.list({ projectId })) {
+            for await (const endpoint of client.endpoints.list({ projectId })) {
               console.log(endpoint.id, endpoint.name);
             }
     post:
@@ -464,9 +519,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            endpoint = client.beta.endpoints.create(
+            endpoint = client.endpoints.create(
                 project_id=project_id,
                 name="my-endpoint",
             )
@@ -477,9 +535,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const endpoint = await client.beta.endpoints.create({
+            const endpoint = await client.endpoints.create({
               projectId,
               name: "my-endpoint",
             });
@@ -490,9 +552,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const endpoint = await client.beta.endpoints.create({
+            const endpoint = await client.endpoints.create({
               projectId,
               name: "my-endpoint",
             });
@@ -547,9 +613,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            endpoint = client.beta.endpoints.update(
+            endpoint = client.endpoints.update(
                 "ep_abc123",
                 project_id=project_id,
                 traffic_split=[{"deployment_id": "dep_abc123", "weight": 1}],
@@ -561,9 +630,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const endpoint = await client.beta.endpoints.update("ep_abc123", {
+            const endpoint = await client.endpoints.update("ep_abc123", {
               projectId,
               trafficSplit: [{ deploymentId: "dep_abc123", weight: 1 }],
             });
@@ -574,9 +647,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const endpoint = await client.beta.endpoints.update("ep_abc123", {
+            const endpoint = await client.endpoints.update("ep_abc123", {
               projectId,
               trafficSplit: [{ deploymentId: "dep_abc123", weight: 1 }],
             });
@@ -619,9 +696,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            endpoint = client.beta.endpoints.retrieve(
+            endpoint = client.endpoints.retrieve(
                 "ep_abc123",
                 project_id=project_id,
             )
@@ -632,9 +712,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const endpoint = await client.beta.endpoints.retrieve("ep_abc123", {
+            const endpoint = await client.endpoints.retrieve("ep_abc123", {
               projectId,
             });
             console.log(endpoint.name, endpoint.trafficSplit);
@@ -644,9 +728,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const endpoint = await client.beta.endpoints.retrieve("ep_abc123", {
+            const endpoint = await client.endpoints.retrieve("ep_abc123", {
               projectId,
             });
             console.log(endpoint.name, endpoint.trafficSplit);
@@ -693,27 +781,38 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.endpoints.delete("ep_abc123", project_id=project_id)
+            client.endpoints.delete("ep_abc123", project_id=project_id)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
           source: |
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.delete("ep_abc123", { projectId });
+            await client.endpoints.delete("ep_abc123", { projectId });
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
           source: |
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.delete("ep_abc123", { projectId });
+            await client.endpoints.delete("ep_abc123", { projectId });
   /v2/projects/{projectId}/endpoints/{endpointId}/deployments:
     get:
       tags: [DeploymentService]
@@ -773,9 +872,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            deployments = client.beta.endpoints.deployments.list(
+            deployments = client.endpoints.deployments.list(
                 "ep_abc123",
                 project_id=project_id,
             )
@@ -787,9 +889,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployments = client.beta.endpoints.deployments.list("ep_abc123", {
+            const deployments = client.endpoints.deployments.list("ep_abc123", {
               projectId,
             });
             for await (const deployment of deployments) {
@@ -801,9 +907,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployments = client.beta.endpoints.deployments.list("ep_abc123", {
+            const deployments = client.endpoints.deployments.list("ep_abc123", {
               projectId,
             });
             for await (const deployment of deployments) {
@@ -858,9 +968,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            deployment = client.beta.endpoints.deployments.create(
+            deployment = client.endpoints.deployments.create(
                 "ep_abc123",
                 project_id=project_id,
                 name="prod",
@@ -875,9 +988,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployment = await client.beta.endpoints.deployments.create("ep_abc123", {
+            const deployment = await client.endpoints.deployments.create("ep_abc123", {
               projectId,
               name: "prod",
               model: `projects/${projectId}/models/ml_abc123`,
@@ -891,9 +1008,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployment = await client.beta.endpoints.deployments.create("ep_abc123", {
+            const deployment = await client.endpoints.deployments.create("ep_abc123", {
               projectId,
               name: "prod",
               model: `projects/${projectId}/models/ml_abc123`,
@@ -957,9 +1078,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            deployment = client.beta.endpoints.deployments.update(
+            deployment = client.endpoints.deployments.update(
                 "dep_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -982,9 +1106,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployment = await client.beta.endpoints.deployments.update(
+            const deployment = await client.endpoints.deployments.update(
               "dep_abc123",
               {
                 projectId,
@@ -1009,9 +1137,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployment = await client.beta.endpoints.deployments.update(
+            const deployment = await client.endpoints.deployments.update(
               "dep_abc123",
               {
                 projectId,
@@ -1074,9 +1206,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            deployment = client.beta.endpoints.deployments.retrieve(
+            deployment = client.endpoints.deployments.retrieve(
                 "dep_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -1088,9 +1223,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployment = await client.beta.endpoints.deployments.retrieve(
+            const deployment = await client.endpoints.deployments.retrieve(
               "dep_abc123",
               { projectId, endpointId: "ep_abc123" },
             );
@@ -1101,9 +1240,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const deployment = await client.beta.endpoints.deployments.retrieve(
+            const deployment = await client.endpoints.deployments.retrieve(
               "dep_abc123",
               { projectId, endpointId: "ep_abc123" },
             );
@@ -1157,9 +1300,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.endpoints.deployments.delete(
+            client.endpoints.deployments.delete(
                 "dep_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -1170,9 +1316,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.deployments.delete("dep_abc123", {
+            await client.endpoints.deployments.delete("dep_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -1182,9 +1332,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.deployments.delete("dep_abc123", {
+            await client.endpoints.deployments.delete("dep_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -1243,9 +1397,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            adapters = client.beta.endpoints.adapters.list(
+            adapters = client.endpoints.adapters.list(
                 endpoint_id="ep_abc123",
                 deployment_id="dep_abc123",
                 project_id=project_id,
@@ -1258,9 +1415,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const adapters = client.beta.endpoints.adapters.list(
+            const adapters = client.endpoints.adapters.list(
               "ep_abc123",
               "dep_abc123",
               { projectId },
@@ -1274,9 +1435,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const adapters = client.beta.endpoints.adapters.list(
+            const adapters = client.endpoints.adapters.list(
               "ep_abc123",
               "dep_abc123",
               { projectId },
@@ -1334,9 +1499,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            adapter = client.beta.endpoints.adapters.create(
+            adapter = client.endpoints.adapters.create(
                 project_id=project_id,
                 endpoint_id="ep_abc123",
                 deployment_id="dep_abc123",
@@ -1349,9 +1517,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const adapter = await client.beta.endpoints.adapters.create({
+            const adapter = await client.endpoints.adapters.create({
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1364,9 +1536,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const adapter = await client.beta.endpoints.adapters.create({
+            const adapter = await client.endpoints.adapters.create({
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1424,9 +1600,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            adapter = client.beta.endpoints.adapters.retrieve(
+            adapter = client.endpoints.adapters.retrieve(
                 "dad_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -1439,9 +1618,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const adapter = await client.beta.endpoints.adapters.retrieve("dad_abc123", {
+            const adapter = await client.endpoints.adapters.retrieve("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1453,9 +1636,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const adapter = await client.beta.endpoints.adapters.retrieve("dad_abc123", {
+            const adapter = await client.endpoints.adapters.retrieve("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1517,17 +1704,20 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
             # Read the attachment first: removing it requires its current etag.
-            adapter = client.beta.endpoints.adapters.retrieve(
+            adapter = client.endpoints.adapters.retrieve(
                 "dad_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
                 deployment_id="dep_abc123",
             )
 
-            client.beta.endpoints.adapters.delete(
+            client.endpoints.adapters.delete(
                 "dad_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -1540,16 +1730,20 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Read the attachment first: removing it requires its current etag.
-            const adapter = await client.beta.endpoints.adapters.retrieve("dad_abc123", {
+            const adapter = await client.endpoints.adapters.retrieve("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
             });
 
-            await client.beta.endpoints.adapters.delete("dad_abc123", {
+            await client.endpoints.adapters.delete("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1561,16 +1755,20 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Read the attachment first: removing it requires its current etag.
-            const adapter = await client.beta.endpoints.adapters.retrieve("dad_abc123", {
+            const adapter = await client.endpoints.adapters.retrieve("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
             });
 
-            await client.beta.endpoints.adapters.delete("dad_abc123", {
+            await client.endpoints.adapters.delete("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1632,17 +1830,20 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
             # Read the attachment first: updating it requires its current etag.
-            adapter = client.beta.endpoints.adapters.retrieve(
+            adapter = client.endpoints.adapters.retrieve(
                 "dad_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
                 deployment_id="dep_abc123",
             )
 
-            updated = client.beta.endpoints.adapters.update(
+            updated = client.endpoints.adapters.update(
                 "dad_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -1657,16 +1858,20 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Read the attachment first: updating it requires its current etag.
-            const adapter = await client.beta.endpoints.adapters.retrieve("dad_abc123", {
+            const adapter = await client.endpoints.adapters.retrieve("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
             });
 
-            const updated = await client.beta.endpoints.adapters.update("dad_abc123", {
+            const updated = await client.endpoints.adapters.update("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1680,16 +1885,20 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Read the attachment first: updating it requires its current etag.
-            const adapter = await client.beta.endpoints.adapters.retrieve("dad_abc123", {
+            const adapter = await client.endpoints.adapters.retrieve("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
             });
 
-            const updated = await client.beta.endpoints.adapters.update("dad_abc123", {
+            const updated = await client.endpoints.adapters.update("dad_abc123", {
               projectId,
               endpointId: "ep_abc123",
               deploymentId: "dep_abc123",
@@ -1754,9 +1963,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollouts = client.beta.endpoints.rollouts.list(
+            rollouts = client.endpoints.rollouts.list(
                 "ep_abc123",
                 project_id=project_id,
             )
@@ -1768,9 +1980,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollouts = client.beta.endpoints.rollouts.list("ep_abc123", {
+            const rollouts = client.endpoints.rollouts.list("ep_abc123", {
               projectId,
             });
             for await (const rollout of rollouts) {
@@ -1782,9 +1998,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollouts = client.beta.endpoints.rollouts.list("ep_abc123", {
+            const rollouts = client.endpoints.rollouts.list("ep_abc123", {
               projectId,
             });
             for await (const rollout of rollouts) {
@@ -1869,9 +2089,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.create(
+            rollout = client.endpoints.rollouts.create(
                 "ep_abc123",
                 project_id=project_id,
                 source_deployment_id="dep_abc123",
@@ -1900,9 +2123,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.create("ep_abc123", {
+            const rollout = await client.endpoints.rollouts.create("ep_abc123", {
               projectId,
               sourceDeploymentId: "dep_abc123",
               targetDeploymentId: "dep_def456",
@@ -1927,9 +2154,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.create("ep_abc123", {
+            const rollout = await client.endpoints.rollouts.create("ep_abc123", {
               projectId,
               sourceDeploymentId: "dep_abc123",
               targetDeploymentId: "dep_def456",
@@ -2056,11 +2287,14 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
             # Returns the values a create request would use for unset fields,
             # without creating a rollout.
-            defaults = client.beta.endpoints.rollouts.preview_defaults(
+            defaults = client.endpoints.rollouts.preview_defaults(
                 "ep_abc123",
                 project_id=project_id,
                 source_deployment_id="dep_abc123",
@@ -2074,11 +2308,15 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Returns the values a create request would use for unset fields,
             // without creating a rollout.
-            const defaults = await client.beta.endpoints.rollouts.previewDefaults(
+            const defaults = await client.endpoints.rollouts.previewDefaults(
               "ep_abc123",
               {
                 projectId,
@@ -2094,11 +2332,15 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Returns the values a create request would use for unset fields,
             // without creating a rollout.
-            const defaults = await client.beta.endpoints.rollouts.previewDefaults(
+            const defaults = await client.endpoints.rollouts.previewDefaults(
               "ep_abc123",
               {
                 projectId,
@@ -2153,9 +2395,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.retrieve(
+            rollout = client.endpoints.rollouts.retrieve(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2167,9 +2412,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.retrieve("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.retrieve("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2180,9 +2429,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.retrieve("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.retrieve("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2236,9 +2489,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.endpoints.rollouts.delete(
+            client.endpoints.rollouts.delete(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2249,9 +2505,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.rollouts.delete("rol_abc123", {
+            await client.endpoints.rollouts.delete("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2261,9 +2521,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.rollouts.delete("rol_abc123", {
+            await client.endpoints.rollouts.delete("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2312,9 +2576,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.start(
+            rollout = client.endpoints.rollouts.start(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2326,9 +2593,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.start("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.start("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2339,9 +2610,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.start("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.start("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2398,9 +2673,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.pause(
+            rollout = client.endpoints.rollouts.pause(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2413,9 +2691,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.pause("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.pause("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
               reason: "Investigating a latency regression",
@@ -2427,9 +2709,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.pause("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.pause("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
               reason: "Investigating a latency regression",
@@ -2486,9 +2772,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.resume(
+            rollout = client.endpoints.rollouts.resume(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2500,9 +2789,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.resume("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.resume("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2513,9 +2806,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.resume("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.resume("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2571,9 +2868,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.cancel(
+            rollout = client.endpoints.rollouts.cancel(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2586,9 +2886,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.cancel("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.cancel("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
               reason: "Latency regression on the target",
@@ -2600,9 +2904,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.cancel("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.cancel("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
               reason: "Latency regression on the target",
@@ -2659,9 +2967,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            rollout = client.beta.endpoints.rollouts.promote(
+            rollout = client.endpoints.rollouts.promote(
                 "rol_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2673,9 +2984,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.promote("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.promote("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2686,9 +3001,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const rollout = await client.beta.endpoints.rollouts.promote("rol_abc123", {
+            const rollout = await client.endpoints.rollouts.promote("rol_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -2742,9 +3061,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiments = client.beta.endpoints.ab_experiments.list(
+            experiments = client.endpoints.ab_experiments.list(
                 "ep_abc123",
                 project_id=project_id,
             )
@@ -2756,9 +3078,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiments = client.beta.endpoints.abExperiments.list("ep_abc123", {
+            const experiments = client.endpoints.abExperiments.list("ep_abc123", {
               projectId,
             });
             for await (const experiment of experiments) {
@@ -2770,9 +3096,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiments = client.beta.endpoints.abExperiments.list("ep_abc123", {
+            const experiments = client.endpoints.abExperiments.list("ep_abc123", {
               projectId,
             });
             for await (const experiment of experiments) {
@@ -2822,9 +3152,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiment = client.beta.endpoints.ab_experiments.create(
+            experiment = client.endpoints.ab_experiments.create(
                 "ep_abc123",
                 project_id=project_id,
                 name="new-config-test",
@@ -2848,9 +3181,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.abExperiments.create(
+            const experiment = await client.endpoints.abExperiments.create(
               "ep_abc123",
               {
                 projectId,
@@ -2876,9 +3213,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.abExperiments.create(
+            const experiment = await client.endpoints.abExperiments.create(
               "ep_abc123",
               {
                 projectId,
@@ -2954,9 +3295,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiment = client.beta.endpoints.ab_experiments.update(
+            experiment = client.endpoints.ab_experiments.update(
                 "abx_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -2981,9 +3325,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.abExperiments.update(
+            const experiment = await client.endpoints.abExperiments.update(
               "abx_abc123",
               {
                 projectId,
@@ -3010,9 +3358,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.abExperiments.update(
+            const experiment = await client.endpoints.abExperiments.update(
               "abx_abc123",
               {
                 projectId,
@@ -3077,9 +3429,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiment = client.beta.endpoints.ab_experiments.retrieve(
+            experiment = client.endpoints.ab_experiments.retrieve(
                 "abx_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -3091,9 +3446,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.abExperiments.retrieve(
+            const experiment = await client.endpoints.abExperiments.retrieve(
               "abx_abc123",
               { projectId, endpointId: "ep_abc123" },
             );
@@ -3104,9 +3463,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.abExperiments.retrieve(
+            const experiment = await client.endpoints.abExperiments.retrieve(
               "abx_abc123",
               { projectId, endpointId: "ep_abc123" },
             );
@@ -3160,9 +3523,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.endpoints.ab_experiments.delete(
+            client.endpoints.ab_experiments.delete(
                 "abx_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -3173,9 +3539,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.abExperiments.delete("abx_abc123", {
+            await client.endpoints.abExperiments.delete("abx_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -3185,9 +3555,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.abExperiments.delete("abx_abc123", {
+            await client.endpoints.abExperiments.delete("abx_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -3251,9 +3625,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiments = client.beta.endpoints.shadow_experiments.list(
+            experiments = client.endpoints.shadow_experiments.list(
                 "ep_abc123",
                 project_id=project_id,
                 include_targets=True,
@@ -3266,9 +3643,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiments = client.beta.endpoints.shadowExperiments.list("ep_abc123", {
+            const experiments = client.endpoints.shadowExperiments.list("ep_abc123", {
               projectId,
               includeTargets: true,
             });
@@ -3281,9 +3662,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiments = client.beta.endpoints.shadowExperiments.list("ep_abc123", {
+            const experiments = client.endpoints.shadowExperiments.list("ep_abc123", {
               projectId,
               includeTargets: true,
             });
@@ -3340,10 +3725,13 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
             # Mirror 10% of the endpoint's requests to the candidate deployment.
-            experiment = client.beta.endpoints.shadow_experiments.create(
+            experiment = client.endpoints.shadow_experiments.create(
                 "ep_abc123",
                 project_id=project_id,
                 name="candidate-shadow",
@@ -3359,10 +3747,14 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Mirror 10% of the endpoint's requests to the candidate deployment.
-            const experiment = await client.beta.endpoints.shadowExperiments.create(
+            const experiment = await client.endpoints.shadowExperiments.create(
               "ep_abc123",
               {
                 projectId,
@@ -3378,10 +3770,14 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // Mirror 10% of the endpoint's requests to the candidate deployment.
-            const experiment = await client.beta.endpoints.shadowExperiments.create(
+            const experiment = await client.endpoints.shadowExperiments.create(
               "ep_abc123",
               {
                 projectId,
@@ -3454,9 +3850,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiment = client.beta.endpoints.shadow_experiments.update(
+            experiment = client.endpoints.shadow_experiments.update(
                 "exp_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -3470,9 +3869,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.shadowExperiments.update(
+            const experiment = await client.endpoints.shadowExperiments.update(
               "exp_abc123",
               {
                 projectId,
@@ -3488,9 +3891,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.shadowExperiments.update(
+            const experiment = await client.endpoints.shadowExperiments.update(
               "exp_abc123",
               {
                 projectId,
@@ -3550,9 +3957,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            experiment = client.beta.endpoints.shadow_experiments.retrieve(
+            experiment = client.endpoints.shadow_experiments.retrieve(
                 "exp_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -3564,9 +3974,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.shadowExperiments.retrieve(
+            const experiment = await client.endpoints.shadowExperiments.retrieve(
               "exp_abc123",
               { projectId, endpointId: "ep_abc123" },
             );
@@ -3577,9 +3991,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const experiment = await client.beta.endpoints.shadowExperiments.retrieve(
+            const experiment = await client.endpoints.shadowExperiments.retrieve(
               "exp_abc123",
               { projectId, endpointId: "ep_abc123" },
             );
@@ -3639,9 +4057,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.endpoints.shadow_experiments.delete(
+            client.endpoints.shadow_experiments.delete(
                 "exp_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -3652,9 +4073,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.shadowExperiments.delete("exp_abc123", {
+            await client.endpoints.shadowExperiments.delete("exp_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -3664,9 +4089,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.shadowExperiments.delete("exp_abc123", {
+            await client.endpoints.shadowExperiments.delete("exp_abc123", {
               projectId,
               endpointId: "ep_abc123",
             });
@@ -3731,9 +4160,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            targets = client.beta.endpoints.shadow_experiments.targets.list(
+            targets = client.endpoints.shadow_experiments.targets.list(
                 endpoint_id="ep_abc123",
                 experiment_id="exp_abc123",
                 project_id=project_id,
@@ -3746,9 +4178,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const targets = client.beta.endpoints.shadowExperiments.targets.list(
+            const targets = client.endpoints.shadowExperiments.targets.list(
               "ep_abc123",
               "exp_abc123",
               { projectId },
@@ -3762,9 +4198,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const targets = client.beta.endpoints.shadowExperiments.targets.list(
+            const targets = client.endpoints.shadowExperiments.targets.list(
               "ep_abc123",
               "exp_abc123",
               { projectId },
@@ -3828,9 +4268,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            target = client.beta.endpoints.shadow_experiments.targets.create(
+            target = client.endpoints.shadow_experiments.targets.create(
                 project_id=project_id,
                 endpoint_id="ep_abc123",
                 experiment_id="exp_abc123",
@@ -3844,9 +4287,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const target = await client.beta.endpoints.shadowExperiments.targets.create({
+            const target = await client.endpoints.shadowExperiments.targets.create({
               projectId,
               endpointId: "ep_abc123",
               experimentId: "exp_abc123",
@@ -3860,9 +4307,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const target = await client.beta.endpoints.shadowExperiments.targets.create({
+            const target = await client.endpoints.shadowExperiments.targets.create({
               projectId,
               endpointId: "ep_abc123",
               experimentId: "exp_abc123",
@@ -3939,9 +4390,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            target = client.beta.endpoints.shadow_experiments.targets.update(
+            target = client.endpoints.shadow_experiments.targets.update(
                 "tgt_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -3956,9 +4410,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const target = await client.beta.endpoints.shadowExperiments.targets.update(
+            const target = await client.endpoints.shadowExperiments.targets.update(
               "tgt_abc123",
               {
                 projectId,
@@ -3975,9 +4433,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const target = await client.beta.endpoints.shadowExperiments.targets.update(
+            const target = await client.endpoints.shadowExperiments.targets.update(
               "tgt_abc123",
               {
                 projectId,
@@ -4044,9 +4506,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            target = client.beta.endpoints.shadow_experiments.targets.retrieve(
+            target = client.endpoints.shadow_experiments.targets.retrieve(
                 "tgt_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -4059,9 +4524,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const target = await client.beta.endpoints.shadowExperiments.targets.retrieve(
+            const target = await client.endpoints.shadowExperiments.targets.retrieve(
               "tgt_abc123",
               { projectId, endpointId: "ep_abc123", experimentId: "exp_abc123" },
             );
@@ -4072,9 +4541,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const target = await client.beta.endpoints.shadowExperiments.targets.retrieve(
+            const target = await client.endpoints.shadowExperiments.targets.retrieve(
               "tgt_abc123",
               { projectId, endpointId: "ep_abc123", experimentId: "exp_abc123" },
             );
@@ -4140,9 +4613,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.endpoints.shadow_experiments.targets.delete(
+            client.endpoints.shadow_experiments.targets.delete(
                 "tgt_abc123",
                 project_id=project_id,
                 endpoint_id="ep_abc123",
@@ -4154,9 +4630,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.shadowExperiments.targets.delete("tgt_abc123", {
+            await client.endpoints.shadowExperiments.targets.delete("tgt_abc123", {
               projectId,
               endpointId: "ep_abc123",
               experimentId: "exp_abc123",
@@ -4167,9 +4647,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.endpoints.shadowExperiments.targets.delete("tgt_abc123", {
+            await client.endpoints.shadowExperiments.targets.delete("tgt_abc123", {
               projectId,
               endpointId: "ep_abc123",
               experimentId: "exp_abc123",
@@ -4240,9 +4724,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            analytics = client.beta.endpoints.analytics(
+            analytics = client.endpoints.analytics(
                 "ep_abc123",
                 project_id=project_id,
                 start_time="2026-10-01T00:00:00Z",
@@ -4255,9 +4742,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const analytics = await client.beta.endpoints.analytics("ep_abc123", {
+            const analytics = await client.endpoints.analytics("ep_abc123", {
               projectId,
               startTime: "2026-10-01T00:00:00Z",
               endTime: "2026-10-02T00:00:00Z",
@@ -4269,9 +4760,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const analytics = await client.beta.endpoints.analytics("ep_abc123", {
+            const analytics = await client.endpoints.analytics("ep_abc123", {
               projectId,
               startTime: "2026-10-01T00:00:00Z",
               endTime: "2026-10-02T00:00:00Z",
@@ -4377,9 +4872,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            events = client.beta.endpoints.list_events(
+            events = client.endpoints.list_events(
                 "ep_abc123",
                 project_id=project_id,
                 min_level="LEVEL_WARN",
@@ -4392,9 +4890,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const events = client.beta.endpoints.listEvents("ep_abc123", {
+            const events = client.endpoints.listEvents("ep_abc123", {
               projectId,
               minLevel: "LEVEL_WARN",
             });
@@ -4407,9 +4909,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const events = client.beta.endpoints.listEvents("ep_abc123", {
+            const events = client.endpoints.listEvents("ep_abc123", {
               projectId,
               minLevel: "LEVEL_WARN",
             });
@@ -4472,9 +4978,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            for model in client.beta.models.list(project_id=project_id):
+            for model in client.models.list(project_id=project_id):
                 print(model.id, model.name)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -4482,9 +4991,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            for await (const model of client.beta.models.list({ projectId })) {
+            for await (const model of client.models.list({ projectId })) {
               console.log(model.id, model.name);
             }
         - lang: JavaScript
@@ -4493,9 +5006,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            for await (const model of client.beta.models.list({ projectId })) {
+            for await (const model of client.models.list({ projectId })) {
               console.log(model.id, model.name);
             }
     post:
@@ -4536,9 +5053,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            model = client.beta.models.create(
+            model = client.models.create(
                 project_id=project_id,
                 type="adapter",
                 name="my-lora-adapter",
@@ -4551,9 +5071,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const model = await client.beta.models.create({
+            const model = await client.models.create({
               projectId,
               type: "adapter",
               name: "my-lora-adapter",
@@ -4566,9 +5090,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const model = await client.beta.models.create({
+            const model = await client.models.create({
               projectId,
               type: "adapter",
               name: "my-lora-adapter",
@@ -4614,9 +5142,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            model = client.beta.models.retrieve("ml_abc123", project_id=project_id)
+            model = client.models.retrieve("ml_abc123", project_id=project_id)
             print(model.id, model.name)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -4624,9 +5155,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const model = await client.beta.models.retrieve("ml_abc123", { projectId });
+            const model = await client.models.retrieve("ml_abc123", { projectId });
             console.log(model.id, model.name);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -4634,9 +5169,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const model = await client.beta.models.retrieve("ml_abc123", { projectId });
+            const model = await client.models.retrieve("ml_abc123", { projectId });
             console.log(model.id, model.name);
     delete:
       tags: [VolumeService]
@@ -4676,27 +5215,38 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            client.beta.models.delete("ml_abc123", project_id=project_id)
+            client.models.delete("ml_abc123", project_id=project_id)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
           source: |
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.models.delete("ml_abc123", { projectId });
+            await client.models.delete("ml_abc123", { projectId });
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
           source: |
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            await client.beta.models.delete("ml_abc123", { projectId });
+            await client.models.delete("ml_abc123", { projectId });
     patch:
       tags: [VolumeService]
       summary: Update a model
@@ -4747,9 +5297,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            model = client.beta.models.update(
+            model = client.models.update(
                 "ml_abc123",
                 project_id=project_id,
                 update_mask="description",
@@ -4762,9 +5315,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const model = await client.beta.models.update("ml_abc123", {
+            const model = await client.models.update("ml_abc123", {
               projectId,
               updateMask: "description",
               description: "LoRA adapter for support-ticket triage",
@@ -4776,9 +5333,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const model = await client.beta.models.update("ml_abc123", {
+            const model = await client.models.update("ml_abc123", {
               projectId,
               updateMask: "description",
               description: "LoRA adapter for support-ticket triage",
@@ -4827,9 +5388,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            profiles = client.beta.endpoints.placement_profiles.list(
+            profiles = client.endpoints.placement_profiles.list(
                 project_id=project_id,
             )
             for profile in profiles:
@@ -4840,9 +5404,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const profiles = client.beta.endpoints.placementProfiles.list({ projectId });
+            const profiles = client.endpoints.placementProfiles.list({ projectId });
             for await (const profile of profiles) {
               console.log(profile.id, profile.name);
             }
@@ -4852,9 +5420,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const profiles = client.beta.endpoints.placementProfiles.list({ projectId });
+            const profiles = client.endpoints.placementProfiles.list({ projectId });
             for await (const profile of profiles) {
               console.log(profile.id, profile.name);
             }
@@ -4897,9 +5469,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            profile = client.beta.endpoints.placement_profiles.retrieve(
+            profile = client.endpoints.placement_profiles.retrieve(
                 "pp_abc123",
                 project_id=project_id,
             )
@@ -4910,9 +5485,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const profile = await client.beta.endpoints.placementProfiles.retrieve(
+            const profile = await client.endpoints.placementProfiles.retrieve(
               "pp_abc123",
               { projectId },
             );
@@ -4923,9 +5502,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const profile = await client.beta.endpoints.placementProfiles.retrieve(
+            const profile = await client.endpoints.placementProfiles.retrieve(
               "pp_abc123",
               { projectId },
             );
@@ -4974,9 +5557,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            files = client.beta.models.list_files("ml_abc123", project_id=project_id)
+            files = client.models.list_files("ml_abc123", project_id=project_id)
             print(files)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -4984,9 +5570,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const files = await client.beta.models.listFiles("ml_abc123", { projectId });
+            const files = await client.models.listFiles("ml_abc123", { projectId });
             console.log(files);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -4994,9 +5584,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const files = await client.beta.models.listFiles("ml_abc123", { projectId });
+            const files = await client.models.listFiles("ml_abc123", { projectId });
             console.log(files);
   /v2/projects/{projectId}/models/{id}/revisions:
     get:
@@ -5037,9 +5631,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            revisions = client.beta.models.list_revisions(
+            revisions = client.models.list_revisions(
                 "ml_abc123",
                 project_id=project_id,
             )
@@ -5050,9 +5647,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const revisions = await client.beta.models.listRevisions("ml_abc123", {
+            const revisions = await client.models.listRevisions("ml_abc123", {
               projectId,
             });
             console.log(revisions);
@@ -5062,9 +5663,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const revisions = await client.beta.models.listRevisions("ml_abc123", {
+            const revisions = await client.models.listRevisions("ml_abc123", {
               projectId,
             });
             console.log(revisions);
@@ -5113,7 +5718,10 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
             # The SDK has no dedicated method for this endpoint yet, so call it with
             # the client's generic GET helper.
@@ -5129,7 +5737,11 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
@@ -5143,7 +5755,11 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
@@ -5194,9 +5810,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            for job in client.beta.models.remote_uploads.list(project_id=project_id):
+            for job in client.models.remote_uploads.list(project_id=project_id):
                 print(job.id, job.status)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -5204,9 +5823,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            for await (const job of client.beta.models.remoteUploads.list({
+            for await (const job of client.models.remoteUploads.list({
               projectId,
             })) {
               console.log(job.id, job.status);
@@ -5217,9 +5840,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            for await (const job of client.beta.models.remoteUploads.list({
+            for await (const job of client.models.remoteUploads.list({
               projectId,
             })) {
               console.log(job.id, job.status);
@@ -5262,9 +5889,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            job = client.beta.models.remote_uploads.create(
+            job = client.models.remote_uploads.create(
                 project_id=project_id,
                 model_id="ml_abc123",
                 remote_url="https://huggingface.co/your-org/your-adapter",
@@ -5276,9 +5906,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const job = await client.beta.models.remoteUploads.create({
+            const job = await client.models.remoteUploads.create({
               projectId,
               modelId: "ml_abc123",
               remoteUrl: "https://huggingface.co/your-org/your-adapter",
@@ -5290,9 +5924,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const job = await client.beta.models.remoteUploads.create({
+            const job = await client.models.remoteUploads.create({
               projectId,
               modelId: "ml_abc123",
               remoteUrl: "https://huggingface.co/your-org/your-adapter",
@@ -5337,9 +5975,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            job = client.beta.models.remote_uploads.retrieve(
+            job = client.models.remote_uploads.retrieve(
                 "job_abc123",
                 project_id=project_id,
             )
@@ -5350,9 +5991,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const job = await client.beta.models.remoteUploads.retrieve("job_abc123", {
+            const job = await client.models.remoteUploads.retrieve("job_abc123", {
               projectId,
             });
             console.log(job);
@@ -5362,9 +6007,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const job = await client.beta.models.remoteUploads.retrieve("job_abc123", {
+            const job = await client.models.remoteUploads.retrieve("job_abc123", {
               projectId,
             });
             console.log(job);
@@ -5417,9 +6066,12 @@ paths:
             from together import Together
 
             client = Together()
-            project_id = client.whoami().project_id
+            identity = client.whoami()
+            if identity.type != "project_api_key":
+                raise RuntimeError("TOGETHER_API_KEY must be a project API key")
+            project_id = identity.project.id
 
-            events = client.beta.models.remote_uploads.events(
+            events = client.models.remote_uploads.events(
                 "job_abc123",
                 project_id=project_id,
             )
@@ -5430,9 +6082,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const events = await client.beta.models.remoteUploads.events("job_abc123", {
+            const events = await client.models.remoteUploads.events("job_abc123", {
               projectId,
             });
             console.log(events);
@@ -5442,9 +6098,13 @@ paths:
             import Together from "together-ai";
 
             const client = new Together();
-            const { project_id: projectId } = await client.whoami();
+            const identity = await client.whoami();
+            if (identity.type !== "project_api_key") {
+              throw new Error("TOGETHER_API_KEY must be a project API key");
+            }
+            const projectId = identity.project.id;
 
-            const events = await client.beta.models.remoteUploads.events("job_abc123", {
+            const events = await client.models.remoteUploads.events("job_abc123", {
               projectId,
             });
             console.log(events);
@@ -5515,7 +6175,7 @@ paths:
 
             client = Together()
 
-            instance_types = client.beta.endpoints.hardware.list()
+            instance_types = client.endpoints.hardware.list()
             for instance_type in instance_types.data:
                 print(instance_type.name, instance_type.price_cents_per_hour)
         - lang: TypeScript
@@ -5525,7 +6185,7 @@ paths:
 
             const client = new Together();
 
-            const instanceTypes = await client.beta.endpoints.hardware.list();
+            const instanceTypes = await client.endpoints.hardware.list();
             for (const instanceType of instanceTypes.data) {
               console.log(instanceType.name, instanceType.priceCentsPerHour);
             }
@@ -5536,7 +6196,7 @@ paths:
 
             const client = new Together();
 
-            const instanceTypes = await client.beta.endpoints.hardware.list();
+            const instanceTypes = await client.endpoints.hardware.list();
             for (const instanceType of instanceTypes.data) {
               console.log(instanceType.name, instanceType.priceCentsPerHour);
             }
@@ -5574,7 +6234,7 @@ paths:
 
             client = Together()
 
-            instance_type = client.beta.endpoints.hardware.retrieve("ins_abc123")
+            instance_type = client.endpoints.hardware.retrieve("ins_abc123")
             print(instance_type.name, instance_type.regions)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -5584,7 +6244,7 @@ paths:
             const client = new Together();
 
             const instanceType =
-              await client.beta.endpoints.hardware.retrieve("ins_abc123");
+              await client.endpoints.hardware.retrieve("ins_abc123");
             console.log(instanceType.name, instanceType.regions);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -5594,7 +6254,7 @@ paths:
             const client = new Together();
 
             const instanceType =
-              await client.beta.endpoints.hardware.retrieve("ins_abc123");
+              await client.endpoints.hardware.retrieve("ins_abc123");
             console.log(instanceType.name, instanceType.regions);
 
   /v2/supported-models:
@@ -5668,7 +6328,7 @@ paths:
 
             client = Together()
 
-            models = client.beta.models.list_supported(product="PRODUCT_DEDICATED")
+            models = client.models.list_supported(product="PRODUCT_DEDICATED")
             for model in models:
                 print(model.id, model.name)
         - lang: TypeScript
@@ -5678,7 +6338,7 @@ paths:
 
             const client = new Together();
 
-            const models = client.beta.models.listSupported({
+            const models = client.models.listSupported({
               product: "PRODUCT_DEDICATED",
             });
             for await (const model of models) {
@@ -5691,7 +6351,7 @@ paths:
 
             const client = new Together();
 
-            const models = client.beta.models.listSupported({
+            const models = client.models.listSupported({
               product: "PRODUCT_DEDICATED",
             });
             for await (const model of models) {
@@ -5731,7 +6391,7 @@ paths:
 
             client = Together()
 
-            model = client.beta.models.retrieve_supported("arch_abc123")
+            model = client.models.retrieve_supported("arch_abc123")
             print(model.name, model.deployment_profiles)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -5740,7 +6400,7 @@ paths:
 
             const client = new Together();
 
-            const model = await client.beta.models.retrieveSupported("arch_abc123");
+            const model = await client.models.retrieveSupported("arch_abc123");
             console.log(model.name, model.deploymentProfiles);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -5749,7 +6409,7 @@ paths:
 
             const client = new Together();
 
-            const model = await client.beta.models.retrieveSupported("arch_abc123");
+            const model = await client.models.retrieveSupported("arch_abc123");
             console.log(model.name, model.deploymentProfiles);
 
   /v1/deployments:
@@ -10728,7 +11388,7 @@ paths:
                 api_key=os.environ.get("TOGETHER_API_KEY"),
             )
 
-            response = client.beta.clusters.list()
+            response = client.clusters.list()
 
             print(response.clusters)
         - lang: TypeScript
@@ -10740,7 +11400,7 @@ paths:
               apiKey: process.env.TOGETHER_API_KEY,
             });
 
-            const response = await client.beta.clusters.list();
+            const response = await client.clusters.list();
 
             console.log(response.clusters);
         - lang: JavaScript
@@ -10752,13 +11412,13 @@ paths:
               apiKey: process.env.TOGETHER_API_KEY,
             });
 
-            const response = await client.beta.clusters.list();
+            const response = await client.clusters.list();
 
             console.log(response.clusters);
         - lang: Shell
           label: CLI
           source: |-
-            tg beta clusters list
+            tg clusters list
     post:
       tags: ['GPUClusterService']
       summary: Create a GPU cluster
@@ -10789,57 +11449,57 @@ paths:
 
             client = Together()
 
-            response = client.beta.clusters.create(
+            response = client.clusters.create(
               cluster_name="my-gpu-cluster",
               region="us-central-8",
               gpu_type="H100_SXM",
               num_gpus=8,
               nvidia_driver_version="560",
               cuda_version="12.6",
-              billint_type="ON_DEMAND",
+              billing_type="ON_DEMAND",
             )
 
             print(response.cluster_id)
         - lang: TypeScript
-          label: Together AI SDK (Python)
+          label: Together AI SDK (TypeScript)
           source: |
             import Together from "together-ai";
 
             const client = new Together();
 
-            const response = await client.beta.clusters.create({
+            const response = await client.clusters.create({
               cluster_name: "my-gpu-cluster",
               region: "us-central-8",
               gpu_type: "H100_SXM",
               num_gpus: 8,
               nvidia_driver_version: "560",
               cuda_version: "12.6",
-              billint_type: "ON_DEMAND",
+              billing_type: "ON_DEMAND",
             });
 
             console.log(response.cluster_id)
         - lang: JavaScript
-          label: Together AI SDK (Python)
+          label: Together AI SDK (JavaScript)
           source: |
             import Together from "together-ai";
 
             const client = new Together();
 
-            const response = await client.beta.clusters.create({
+            const response = await client.clusters.create({
               cluster_name: "my-gpu-cluster",
               region: "us-central-8",
               gpu_type: "H100_SXM",
               num_gpus: 8,
               nvidia_driver_version: "560",
               cuda_version: "12.6",
-              billint_type: "ON_DEMAND",
+              billing_type: "ON_DEMAND",
             });
 
             console.log(response.cluster_id)
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters create \
+            tg clusters create \
               --name my-gpu-cluster \
               --region us-central-8 \
               --gpu-type H100_SXM \
@@ -10875,7 +11535,7 @@ paths:
             from together import Together
             client = Together()
 
-            cluster = client.beta.clusters.retrieve("cluster_id")
+            cluster = client.clusters.retrieve("cluster_id")
             print(cluster)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -10883,7 +11543,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const cluster = await client.beta.clusters.retrieve("cluster_id");
+            const cluster = await client.clusters.retrieve("cluster_id");
             console.log(cluster);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -10891,12 +11551,12 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const cluster = await client.beta.clusters.retrieve("cluster_id");
+            const cluster = await client.clusters.retrieve("cluster_id");
             console.log(cluster);
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters get <cluster_id>
+            tg clusters get <cluster_id>
     put:
       tags: ['GPUClusterService']
       summary: Update a GPU cluster
@@ -10929,7 +11589,7 @@ paths:
             from together import Together
             client = Together()
 
-            cluster = client.beta.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)
+            cluster = client.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)
             print(cluster)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -10937,8 +11597,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const cluster = await client.beta.clusters.update({
-              cluster_id: "cluster_id",
+            const cluster = await client.clusters.update("cluster_id", {
               cluster_type: "KUBERNETES",
               num_gpus: 24,
             })
@@ -10949,8 +11608,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const cluster = await client.beta.clusters.update({
-              cluster_id: "cluster_id",
+            const cluster = await client.clusters.update("cluster_id", {
               cluster_type: "KUBERNETES",
               num_gpus: 24,
             })
@@ -10958,7 +11616,7 @@ paths:
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters update <cluster_id> \
+            tg clusters update <cluster_id> \
               --cluster-type KUBERNETES \
               --num-gpus 24
     delete:
@@ -10987,7 +11645,7 @@ paths:
             from together import Together
             client = Together()
 
-            cluster = client.beta.clusters.delete("cluster_id")
+            cluster = client.clusters.delete("cluster_id")
             print(cluster)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -10995,7 +11653,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const cluster = await client.beta.clusters.delete("cluster_id");
+            const cluster = await client.clusters.delete("cluster_id");
             console.log(cluster);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -11003,12 +11661,12 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const cluster = await client.beta.clusters.delete("cluster_id");
+            const cluster = await client.clusters.delete("cluster_id");
             console.log(cluster);
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters delete <cluster_id>
+            tg clusters delete <cluster_id>
   /v1/compute/regions:
     get:
       tags: ['RegionService']
@@ -11028,7 +11686,7 @@ paths:
             from together import Together
             client = Together()
 
-            regions = client.beta.clusters.list_regions()
+            regions = client.clusters.list_regions()
             print(regions)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -11036,7 +11694,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const regions = await client.beta.clusters.listRegions();
+            const regions = await client.clusters.listRegions();
             console.log(regions);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -11044,12 +11702,12 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const regions = await client.beta.clusters.listRegions();
+            const regions = await client.clusters.listRegions();
             console.log(regions);
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters list-regions
+            tg clusters list-regions
   /v1/compute/clusters/storage/volumes:
     get:
       tags: ['SharedVolumeService']
@@ -11079,7 +11737,7 @@ paths:
             from together import Together
             client = Together()
 
-            volumes = client.beta.clusters.storage.list()
+            volumes = client.clusters.storage.list()
             print(volumes)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -11087,7 +11745,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volumes = await client.beta.clusters.storage.list();
+            const volumes = await client.clusters.storage.list();
             console.log(volumes);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -11095,12 +11753,12 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volumes = await client.beta.clusters.storage.list();
+            const volumes = await client.clusters.storage.list();
             console.log(volumes);
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters storage list
+            tg clusters storage list
     put:
       tags: ['SharedVolumeService']
       summary: Update a shared volume
@@ -11127,7 +11785,7 @@ paths:
             from together import Together
             client = Together()
 
-            volume = client.beta.clusters.storage.update(
+            volume = client.clusters.storage.update(
               volume_id="12345-67890-12345-67890",
               size_tib=3
             )
@@ -11138,7 +11796,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.update({
+            const volume = await client.clusters.storage.update({
               volume_id: "12345-67890-12345-67890",
               size_tib: 3
             });
@@ -11149,7 +11807,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.update({
+            const volume = await client.clusters.storage.update({
               volume_id: "12345-67890-12345-67890",
               size_tib: 3
             });
@@ -11157,7 +11815,7 @@ paths:
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters storage update <volume_id> --size-tib 3
+            tg clusters storage update <volume_id> --size-tib 3
     post:
       tags: ['SharedVolumeService']
       summary: Create a shared volume
@@ -11186,7 +11844,7 @@ paths:
             from together import Together
             client = Together()
 
-            volume = client.beta.clusters.storage.create(
+            volume = client.clusters.storage.create(
               volume_name="my-shared-volume",
               size_tib=2,
               region="us-west-2"
@@ -11197,7 +11855,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.create({
+            const volume = await client.clusters.storage.create({
               volume_name: "my-shared-volume",
               size_tib: 2,
               region: "us-west-2"
@@ -11208,7 +11866,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.create({
+            const volume = await client.clusters.storage.create({
               volume_name: "my-shared-volume",
               size_tib: 2,
               region: "us-west-2"
@@ -11216,7 +11874,7 @@ paths:
         - lang: Shell
           label: cURL
           source: |
-            tg beta clusters storage create \
+            tg clusters storage create \
               --volume-name my-shared-volume \
               --size-tib 2 \
               --region us-west-2
@@ -11247,7 +11905,7 @@ paths:
             from together import Together
             client = Together()
 
-            volume = client.beta.clusters.storage.retrieve("volume_id")
+            volume = client.clusters.storage.retrieve("volume_id")
             print(volume)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -11255,7 +11913,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.retrieve("volume_id");
+            const volume = await client.clusters.storage.retrieve("volume_id");
             console.log(volume);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -11263,12 +11921,12 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.retrieve("volume_id");
+            const volume = await client.clusters.storage.retrieve("volume_id");
             console.log(volume);
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters storage retrieve <volume_id>
+            tg clusters storage retrieve <volume_id>
     delete:
       tags: ['SharedVolumeService']
       summary: Delete a shared volume by ID
@@ -11296,7 +11954,7 @@ paths:
             from together import Together
             client = Together()
 
-            volume = client.beta.clusters.storage.delete("volume_id")
+            volume = client.clusters.storage.delete("volume_id")
             print(volume)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -11304,7 +11962,7 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.delete("volume_id");
+            const volume = await client.clusters.storage.delete("volume_id");
             console.log(volume);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -11312,12 +11970,12 @@ paths:
             import Together from "together-ai";
             const client = new Together();
 
-            const volume = await client.beta.clusters.storage.delete("volume_id");
+            const volume = await client.clusters.storage.delete("volume_id");
             console.log(volume);
         - lang: Shell
           label: CLI
           source: |
-            tg beta clusters storage delete <volume_id>
+            tg clusters storage delete <volume_id>
   /v1/batches:
     get:
       tags: ['Batches']

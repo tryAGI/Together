@@ -18,14 +18,14 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// response = client.beta.clusters.create(<br/>
+        /// response = client.clusters.create(<br/>
         ///   cluster_name="my-gpu-cluster",<br/>
         ///   region="us-central-8",<br/>
         ///   gpu_type="H100_SXM",<br/>
         ///   num_gpus=8,<br/>
         ///   nvidia_driver_version="560",<br/>
         ///   cuda_version="12.6",<br/>
-        ///   billint_type="ON_DEMAND",<br/>
+        ///   billing_type="ON_DEMAND",<br/>
         /// )<br/>
         /// print(response.cluster_id)
         /// </remarks>
@@ -48,14 +48,14 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// response = client.beta.clusters.create(<br/>
+        /// response = client.clusters.create(<br/>
         ///   cluster_name="my-gpu-cluster",<br/>
         ///   region="us-central-8",<br/>
         ///   gpu_type="H100_SXM",<br/>
         ///   num_gpus=8,<br/>
         ///   nvidia_driver_version="560",<br/>
         ///   cuda_version="12.6",<br/>
-        ///   billint_type="ON_DEMAND",<br/>
+        ///   billing_type="ON_DEMAND",<br/>
         /// )<br/>
         /// print(response.cluster_id)
         /// </remarks>

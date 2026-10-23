@@ -74,8 +74,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// rollouts = client.beta.endpoints.rollouts.list(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// rollouts = client.endpoints.rollouts.list(<br/>
         ///     "ep_abc123",<br/>
         ///     project_id=project_id,<br/>
         /// )<br/>
@@ -128,8 +131,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// rollouts = client.beta.endpoints.rollouts.list(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// rollouts = client.endpoints.rollouts.list(<br/>
         ///     "ep_abc123",<br/>
         ///     project_id=project_id,<br/>
         /// )<br/>

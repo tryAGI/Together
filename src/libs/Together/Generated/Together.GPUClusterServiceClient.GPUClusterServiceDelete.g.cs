@@ -54,7 +54,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// cluster = client.beta.clusters.delete("cluster_id")<br/>
+        /// cluster = client.clusters.delete("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.GPUClusterDeleteResponse> GPUClusterServiceDeleteAsync(
@@ -83,7 +83,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// cluster = client.beta.clusters.delete("cluster_id")<br/>
+        /// cluster = client.clusters.delete("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterDeleteResponse>> GPUClusterServiceDeleteAsResponseAsync(

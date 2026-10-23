@@ -64,8 +64,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// files = client.beta.models.list_files("ml_abc123", project_id=project_id)<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// files = client.models.list_files("ml_abc123", project_id=project_id)<br/>
         /// print(files)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListFilesResponse> VolumeServiceListModelFilesAsync(
@@ -104,8 +107,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// files = client.beta.models.list_files("ml_abc123", project_id=project_id)<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// files = client.models.list_files("ml_abc123", project_id=project_id)<br/>
         /// print(files)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListFilesResponse>> VolumeServiceListModelFilesAsResponseAsync(

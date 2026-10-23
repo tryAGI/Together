@@ -14,7 +14,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// instance_types = client.beta.endpoints.hardware.list()<br/>
+        /// instance_types = client.endpoints.hardware.list()<br/>
         /// for instance_type in instance_types.data:<br/>
         ///     print(instance_type.name, instance_type.price_cents_per_hour)
         /// </remarks>
@@ -31,7 +31,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// instance_types = client.beta.endpoints.hardware.list()<br/>
+        /// instance_types = client.endpoints.hardware.list()<br/>
         /// for instance_type in instance_types.data:<br/>
         ///     print(instance_type.name, instance_type.price_cents_per_hour)
         /// </remarks>

@@ -57,8 +57,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// job = client.beta.models.remote_uploads.create(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// job = client.models.remote_uploads.create(<br/>
         ///     project_id=project_id,<br/>
         ///     model_id="ml_abc123",<br/>
         ///     remote_url="https://huggingface.co/your-org/your-adapter",<br/>
@@ -96,8 +99,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// job = client.beta.models.remote_uploads.create(<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// job = client.models.remote_uploads.create(<br/>
         ///     project_id=project_id,<br/>
         ///     model_id="ml_abc123",<br/>
         ///     remote_url="https://huggingface.co/your-org/your-adapter",<br/>

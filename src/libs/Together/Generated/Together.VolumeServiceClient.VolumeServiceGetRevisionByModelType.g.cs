@@ -64,7 +64,10 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
         /// url = (<br/>
@@ -110,7 +113,10 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
         /// url = (<br/>

@@ -74,8 +74,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for model in client.beta.models.list(project_id=project_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// for model in client.models.list(project_id=project_id):<br/>
         ///     print(model.id, model.name)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListModelsResponse> VolumeServiceListModelsAsync(
@@ -124,8 +127,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// for model in client.beta.models.list(project_id=project_id):<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// for model in client.models.list(project_id=project_id):<br/>
         ///     print(model.id, model.name)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListModelsResponse>> VolumeServiceListModelsAsResponseAsync(

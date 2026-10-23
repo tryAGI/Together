@@ -17,7 +17,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.create(<br/>
+        /// volume = client.clusters.storage.create(<br/>
         ///   volume_name="my-shared-volume",<br/>
         ///   size_tib=2,<br/>
         ///   region="us-west-2"<br/>
@@ -41,7 +41,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.create(<br/>
+        /// volume = client.clusters.storage.create(<br/>
         ///   volume_name="my-shared-volume",<br/>
         ///   size_tib=2,<br/>
         ///   region="us-west-2"<br/>

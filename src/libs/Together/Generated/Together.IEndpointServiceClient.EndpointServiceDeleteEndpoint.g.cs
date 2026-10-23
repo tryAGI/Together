@@ -23,8 +23,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// client.beta.endpoints.delete("ep_abc123", project_id=project_id)
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// client.endpoints.delete("ep_abc123", project_id=project_id)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.DeDeleteResponse> EndpointServiceDeleteEndpointAsync(
             string projectId,
@@ -51,8 +54,11 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
-        /// client.beta.endpoints.delete("ep_abc123", project_id=project_id)
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
+        /// client.endpoints.delete("ep_abc123", project_id=project_id)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeDeleteResponse>> EndpointServiceDeleteEndpointAsResponseAsync(
             string projectId,

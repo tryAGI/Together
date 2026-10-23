@@ -72,15 +72,18 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
         /// # Read the attachment first: updating it requires its current etag.<br/>
-        /// adapter = client.beta.endpoints.adapters.retrieve(<br/>
+        /// adapter = client.endpoints.adapters.retrieve(<br/>
         ///     "dad_abc123",<br/>
         ///     project_id=project_id,<br/>
         ///     endpoint_id="ep_abc123",<br/>
         ///     deployment_id="dep_abc123",<br/>
         /// )<br/>
-        /// updated = client.beta.endpoints.adapters.update(<br/>
+        /// updated = client.endpoints.adapters.update(<br/>
         ///     "dad_abc123",<br/>
         ///     project_id=project_id,<br/>
         ///     endpoint_id="ep_abc123",<br/>
@@ -136,15 +139,18 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// project_id = client.whoami().project_id<br/>
+        /// identity = client.whoami()<br/>
+        /// if identity.type != "project_api_key":<br/>
+        ///     raise RuntimeError("TOGETHER_API_KEY must be a project API key")<br/>
+        /// project_id = identity.project.id<br/>
         /// # Read the attachment first: updating it requires its current etag.<br/>
-        /// adapter = client.beta.endpoints.adapters.retrieve(<br/>
+        /// adapter = client.endpoints.adapters.retrieve(<br/>
         ///     "dad_abc123",<br/>
         ///     project_id=project_id,<br/>
         ///     endpoint_id="ep_abc123",<br/>
         ///     deployment_id="dep_abc123",<br/>
         /// )<br/>
-        /// updated = client.beta.endpoints.adapters.update(<br/>
+        /// updated = client.endpoints.adapters.update(<br/>
         ///     "dad_abc123",<br/>
         ///     project_id=project_id,<br/>
         ///     endpoint_id="ep_abc123",<br/>

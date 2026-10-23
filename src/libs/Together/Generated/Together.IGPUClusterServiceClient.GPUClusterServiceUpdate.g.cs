@@ -18,7 +18,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// cluster = client.beta.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)<br/>
+        /// cluster = client.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)<br/>
         /// print(cluster)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GPUClusterInfo> GPUClusterServiceUpdateAsync(
@@ -41,7 +41,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// cluster = client.beta.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)<br/>
+        /// cluster = client.clusters.update("cluster_id", cluster_type="KUBERNETES", num_gpus=24)<br/>
         /// print(cluster)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterInfo>> GPUClusterServiceUpdateAsResponseAsync(

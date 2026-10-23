@@ -17,7 +17,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// cluster = client.beta.clusters.retrieve("cluster_id")<br/>
+        /// cluster = client.clusters.retrieve("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GPUClusterInfo> GPUClusterServiceGetAsync(
@@ -37,7 +37,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// cluster = client.beta.clusters.retrieve("cluster_id")<br/>
+        /// cluster = client.clusters.retrieve("cluster_id")<br/>
         /// print(cluster)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClusterInfo>> GPUClusterServiceGetAsResponseAsync(

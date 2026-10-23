@@ -17,7 +17,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.delete("volume_id")<br/>
+        /// volume = client.clusters.storage.delete("volume_id")<br/>
         /// print(volume)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GPUClustersSharedVolumeDeleteResponse> SharedVolumeServiceDeleteAsync(
@@ -37,7 +37,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// volume = client.beta.clusters.storage.delete("volume_id")<br/>
+        /// volume = client.clusters.storage.delete("volume_id")<br/>
         /// print(volume)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GPUClustersSharedVolumeDeleteResponse>> SharedVolumeServiceDeleteAsResponseAsync(

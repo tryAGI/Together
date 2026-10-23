@@ -48,7 +48,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// regions = client.beta.clusters.list_regions()<br/>
+        /// regions = client.clusters.list_regions()<br/>
         /// print(regions)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.RegionListResponse> RegionServiceListAsync(
@@ -71,7 +71,7 @@ namespace Together
         /// <remarks>
         /// from together import Together<br/>
         /// client = Together()<br/>
-        /// regions = client.beta.clusters.list_regions()<br/>
+        /// regions = client.clusters.list_regions()<br/>
         /// print(regions)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RegionListResponse>> RegionServiceListAsResponseAsync(
