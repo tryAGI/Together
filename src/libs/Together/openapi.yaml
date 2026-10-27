@@ -7386,6 +7386,47 @@ paths:
                 additionalProperties:
                   type: string
                 type: object
+      x-codeSamples:
+        - lang: Python
+          label: Together AI SDK (Python)
+          source: |
+            import httpx
+            from together import Together
+
+            client = Together()
+
+            # The SDK has no dedicated method for this endpoint yet, so call it with
+            # the client's generic GET helper. The API redirects to a signed URL,
+            # which the client follows, so the response body is the file itself.
+            response = client.get("/v1/deployments/storage/model.tar.gz", cast_to=httpx.Response)
+            with open("model.tar.gz", "wb") as f:
+                f.write(response.content)
+        - lang: TypeScript
+          label: Together AI SDK (TypeScript)
+          source: |
+            import { writeFile } from "node:fs/promises";
+            import Together from "together-ai";
+
+            const client = new Together();
+
+            // The SDK has no dedicated method for this endpoint yet, so call it with
+            // the client's generic GET helper. The API redirects to a signed URL,
+            // which the client follows, so the response body is the file itself.
+            const response = await client.get("/v1/deployments/storage/model.tar.gz").asResponse();
+            await writeFile("model.tar.gz", Buffer.from(await response.arrayBuffer()));
+        - lang: JavaScript
+          label: Together AI SDK (JavaScript)
+          source: |
+            import { writeFile } from "node:fs/promises";
+            import Together from "together-ai";
+
+            const client = new Together();
+
+            // The SDK has no dedicated method for this endpoint yet, so call it with
+            // the client's generic GET helper. The API redirects to a signed URL,
+            // which the client follows, so the response body is the file itself.
+            const response = await client.get("/v1/deployments/storage/model.tar.gz").asResponse();
+            await writeFile("model.tar.gz", Buffer.from(await response.arrayBuffer()));
   /v1/deployments/storage/{filename}/url:
     get:
       description: Create a signed URL for downloading a deployment storage file
