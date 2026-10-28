@@ -28,6 +28,12 @@ namespace Together
         public string? ProjectId { get; set; }
 
         /// <summary>
+        /// TTLSeconds is how long the secret lives before it is deleted, between 86400 (1 day) and 1209600 (14 days)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ttl_seconds")]
+        public int? TtlSeconds { get; set; }
+
+        /// <summary>
         /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). Encrypted at rest.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
@@ -55,6 +61,9 @@ namespace Together
         /// <param name="projectId">
         /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
+        /// <param name="ttlSeconds">
+        /// TTLSeconds is how long the secret lives before it is deleted, between 86400 (1 day) and 1209600 (14 days)
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,11 +71,13 @@ namespace Together
             string name,
             string value,
             string? description,
-            string? projectId)
+            string? projectId,
+            int? ttlSeconds)
         {
             this.Description = description;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ProjectId = projectId;
+            this.TtlSeconds = ttlSeconds;
             this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
         }
 

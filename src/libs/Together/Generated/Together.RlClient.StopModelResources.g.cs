@@ -51,8 +51,7 @@ namespace Together
         /// ID of the model resource
         /// </param>
         /// <param name="force">
-        /// When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.<br/>
-        /// Default Value: false
+        /// When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -86,8 +85,7 @@ namespace Together
         /// ID of the model resource
         /// </param>
         /// <param name="force">
-        /// When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.<br/>
-        /// Default Value: false
+        /// When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

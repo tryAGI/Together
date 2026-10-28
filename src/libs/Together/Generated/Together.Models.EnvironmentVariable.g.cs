@@ -28,6 +28,13 @@ namespace Together
         public string? ValueFromSecret { get; set; }
 
         /// <summary>
+        /// ValueFromSecretExpiresAt is the ISO8601 timestamp when the referenced secret expires and is deleted. Read-only, ignored in requests<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("value_from_secret_expires_at")]
+        public global::System.DateTime? ValueFromSecretExpiresAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +52,23 @@ namespace Together
         /// <param name="valueFromSecret">
         /// ValueFromSecret references a secret by name or ID to use as the value. Use this for sensitive values like API keys or passwords. Either Value or ValueFromSecret must be set, but not both
         /// </param>
+        /// <param name="valueFromSecretExpiresAt">
+        /// ValueFromSecretExpiresAt is the ISO8601 timestamp when the referenced secret expires and is deleted. Read-only, ignored in requests<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EnvironmentVariable(
             string name,
             string? value,
-            string? valueFromSecret)
+            string? valueFromSecret,
+            global::System.DateTime? valueFromSecretExpiresAt)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Value = value;
             this.ValueFromSecret = valueFromSecret;
+            this.ValueFromSecretExpiresAt = valueFromSecretExpiresAt;
         }
 
         /// <summary>

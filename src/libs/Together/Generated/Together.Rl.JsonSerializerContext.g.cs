@@ -53,6 +53,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesErrorCode), TypeInfoPropertyName = "RlModelResourcesErrorCode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCreateModelResourcesRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlExtendModelResourcesExpiryRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesEstimateCostResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlModelResources>))]

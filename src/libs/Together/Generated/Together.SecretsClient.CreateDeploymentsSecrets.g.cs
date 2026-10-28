@@ -530,6 +530,9 @@ namespace Together
         /// <param name="projectId">
         /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
+        /// <param name="ttlSeconds">
+        /// TTLSeconds is how long the secret lives before it is deleted, between 86400 (1 day) and 1209600 (14 days)
+        /// </param>
         /// <param name="value">
         /// Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). Encrypted at rest.
         /// </param>
@@ -541,6 +544,7 @@ namespace Together
             string value,
             string? description = default,
             string? projectId = default,
+            int? ttlSeconds = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -549,6 +553,7 @@ namespace Together
                 Description = description,
                 Name = name,
                 ProjectId = projectId,
+                TtlSeconds = ttlSeconds,
                 Value = value,
             };
 

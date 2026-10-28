@@ -47,6 +47,15 @@ namespace Together
         public global::Together.RlOptimizerConfig? OptimizerConfig { get; set; }
 
         /// <summary>
+        /// Seconds without activity after which the resource stops and its sessions expire, counted from when it becomes ready and from its last activity. Every operation on any of its sessions restarts the count, and an extend expiry call can keep it up longer.<br/>
+        /// Default Value: 3600<br/>
+        /// Example: 3600
+        /// </summary>
+        /// <example>3600</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactive_timeout")]
+        public int? InactiveTimeout { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -74,6 +83,11 @@ namespace Together
         /// <param name="optimizerConfig">
         /// Optimizer configuration for this resource.
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// Seconds without activity after which the resource stops and its sessions expire, counted from when it becomes ready and from its last activity. Every operation on any of its sessions restarts the count, and an extend expiry call can keep it up longer.<br/>
+        /// Default Value: 3600<br/>
+        /// Example: 3600
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,13 +96,15 @@ namespace Together
             string? baseWeightsRef,
             global::Together.RlComputeConfigCreateRequest? computeConfig,
             bool? loraEnabled,
-            global::Together.RlOptimizerConfig? optimizerConfig)
+            global::Together.RlOptimizerConfig? optimizerConfig,
+            int? inactiveTimeout)
         {
             this.BaseModel = baseModel ?? throw new global::System.ArgumentNullException(nameof(baseModel));
             this.BaseWeightsRef = baseWeightsRef;
             this.ComputeConfig = computeConfig;
             this.LoraEnabled = loraEnabled;
             this.OptimizerConfig = optimizerConfig;
+            this.InactiveTimeout = inactiveTimeout;
         }
 
         /// <summary>
