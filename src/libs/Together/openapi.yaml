@@ -13746,7 +13746,6 @@ paths:
           schema:
             description: When true, also stop all attached training sessions. When false, the request fails if any training sessions are active.
             type: boolean
-            default: false
       x-codeSamples:
         - lang: Python
           label: Together AI SDK (Python)
@@ -13757,6 +13756,52 @@ paths:
 
             resource = client.post_training.model_resources.stop("<MODEL_RESOURCES_ID>")
             print(resource.status)
+  /v1/rl/model-resources/{model_resources_id}/extend-expiry:
+    post:
+      summary: Extend model resources expiry
+      description: Keeps a ready model resource from stopping for inactivity for at least the given number of seconds from now. It moves the resource's `expires_at` to at least that time, and never earlier. Every operation on the resource's sessions already keeps it up for `inactive_timeout` seconds, so use this only to stay up longer without operations, for example while you compute rewards. Fails if the resource is not ready.
+      operationId: extendModelResourcesExpiry
+      tags: [RL]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RL.ExtendModelResourcesExpiryRequest'
+      responses:
+        "200":
+          description: Model resource details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RL.ModelResources'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
+      parameters:
+        - name: model_resources_id
+          in: path
+          required: true
+          schema:
+            description: ID of the model resource
+            type: string
+            default: false
+      x-codeSamples:
+        - lang: Python
+          label: Together AI SDK (Python)
+          source: |
+            from together import Together
+
+            client = Together()
+
+            resource = client.post_training.model_resources.extend_expiry(
+                "<MODEL_RESOURCES_ID>",
+                seconds=7200,
+            )
+            print(resource.status, resource.expires_at)
   /v1/rl/training-sessions:
     get:
       summary: List training sessions
@@ -19580,6 +19625,7 @@ components:
         - updated_at
         - optimizer_config
         - created_by
+        - inactive_timeout
       properties:
         id:
           type: string
@@ -19627,6 +19673,15 @@ components:
           type: string
           example: user_123
           description: ID of the user who created the model resource
+        inactive_timeout:
+          type: integer
+          example: 3600
+          description: Seconds without activity after which the resource stops and its sessions expire. Every operation on any of its sessions restarts the count.
+        expires_at:
+          type: string
+          format: date-time
+          example: "2026-01-02T01:00:05Z"
+          description: The earliest time the resource can stop for inactivity, which also expires its sessions. It is the resource's last activity plus `inactive_timeout` seconds. Becoming ready, a session start and every operation on any of its sessions count as activity, and the resource does not stop while an operation is running. An extend expiry call can move it later. It never moves earlier. Refreshed about once a minute. Set while the resource is ready.
     RL.ModelResourcesStatusDetails:
       type: object
       description: Details of a model resource's current status
@@ -19691,6 +19746,25 @@ components:
         optimizer_config:
           $ref: '#/components/schemas/RL.OptimizerConfig'
           description: Optimizer configuration for this resource.
+        inactive_timeout:
+          type: integer
+          minimum: 300
+          maximum: 86400
+          default: 3600
+          example: 3600
+          description: Seconds without activity after which the resource stops and its sessions expire, counted from when it becomes ready and from its last activity. Every operation on any of its sessions restarts the count, and an extend expiry call can keep it up longer.
+    RL.ExtendModelResourcesExpiryRequest:
+      type: object
+      description: Request to keep a model resource from stopping for inactivity
+      required:
+        - seconds
+      properties:
+        seconds:
+          type: integer
+          minimum: 60
+          maximum: 86400
+          example: 7200
+          description: Seconds from now the resource must not stop for inactivity.
     RL.ModelResourcesEstimateCostResponse:
       type: object
       properties:
@@ -21151,6 +21225,7 @@ components:
             - B200_SXM
             - H100_SXM_INF
             - B300_SXM
+            - GB200_SXM
         num_gpus:
           description: Number of GPUs to allocate in the cluster. This must be multiple of 8. For example, 8, 16 or 24
           type: integer
@@ -21339,6 +21414,8 @@ components:
         region:
           type: string
         gpu_type:
+          description: Type of GPU used by the cluster.
+          type: string
           enum:
             - H100_SXM
             - H200_SXM
@@ -21347,6 +21424,7 @@ components:
             - B200_SXM
             - H100_SXM_INF
             - B300_SXM
+            - GB200_SXM
         cluster_name:
           type: string
         duration_hours:
@@ -21559,8 +21637,10 @@ components:
       type: object
       properties:
         types:
+          description: Available GPU instance types.
           type: array
           items:
+            type: string
             enum:
               - H100_SXM
               - H200_SXM
@@ -21569,6 +21649,7 @@ components:
               - B200_SXM
               - H100_SXM_INF
               - B300_SXM
+              - GB200_SXM
           error:
             $ref: '#/components/schemas/ErrorResponse'
     RegionListResponse:
@@ -26176,6 +26257,11 @@ components:
         project_id:
           description: ProjectID is ignored - the project is automatically determined from your authentication
           type: string
+        ttl_seconds:
+          description: TTLSeconds is how long the secret lives before it is deleted, between 86400 (1 day) and 1209600 (14 days)
+          maximum: 1209600
+          minimum: 86400
+          type: integer
         value:
           description: Value is the sensitive data to store securely (e.g., API keys, passwords, tokens). Encrypted at rest.
           minLength: 1
@@ -26531,6 +26617,11 @@ components:
         value_from_secret:
           description: ValueFromSecret references a secret by name or ID to use as the value. Use this for sensitive values like API keys or passwords. Either Value or ValueFromSecret must be set, but not both
           type: string
+        value_from_secret_expires_at:
+          description: ValueFromSecretExpiresAt is the ISO8601 timestamp when the referenced secret expires and is deleted. Read-only, ignored in requests
+          readOnly: true
+          type: string
+          format: date-time
       required:
         - name
       type: object
@@ -26690,6 +26781,10 @@ components:
         description:
           description: Description is a human-readable description of the secret's purpose
           type: string
+        expires_at:
+          description: ExpiresAt is the ISO8601 timestamp when this secret expires and is deleted. Changing the value extends it. Omitted for secrets that never expire
+          type: string
+          format: date-time
         id:
           description: ID is the unique identifier for this secret
           type: string
@@ -26702,6 +26797,9 @@ components:
         object:
           description: The object type, which is always `secret`.
           const: secret
+        ttl_seconds:
+          description: TTLSeconds is the secret's lifetime in seconds. Omitted when no TTL is set
+          type: integer
         updated_at:
           description: UpdatedAt is the ISO8601 timestamp when this secret was last updated
           type: string
@@ -26811,6 +26909,11 @@ components:
         project_id:
           description: ProjectID is ignored - the project is automatically determined from your authentication
           type: string
+        ttl_seconds:
+          description: TTLSeconds sets a new lifetime and restarts the expiry from now, between 86400 (1 day) and 1209600 (14 days)
+          maximum: 1209600
+          minimum: 86400
+          type: integer
         value:
           description: Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
           minLength: 1

@@ -583,6 +583,9 @@ namespace Together
         /// <param name="projectId">
         /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
+        /// <param name="ttlSeconds">
+        /// TTLSeconds sets a new lifetime and restarts the expiry from now, between 86400 (1 day) and 1209600 (14 days)
+        /// </param>
         /// <param name="value">
         /// Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
         /// </param>
@@ -594,6 +597,7 @@ namespace Together
             string? description = default,
             string? name = default,
             string? projectId = default,
+            int? ttlSeconds = default,
             string? value = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -603,6 +607,7 @@ namespace Together
                 Description = description,
                 Name = name,
                 ProjectId = projectId,
+                TtlSeconds = ttlSeconds,
                 Value = value,
             };
 

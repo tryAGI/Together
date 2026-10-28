@@ -106,6 +106,23 @@ namespace Together
         public required string CreatedBy { get; set; }
 
         /// <summary>
+        /// Seconds without activity after which the resource stops and its sessions expire. Every operation on any of its sessions restarts the count.<br/>
+        /// Example: 3600
+        /// </summary>
+        /// <example>3600</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("inactive_timeout")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int InactiveTimeout { get; set; }
+
+        /// <summary>
+        /// The earliest time the resource can stop for inactivity, which also expires its sessions. It is the resource's last activity plus `inactive_timeout` seconds. Becoming ready, a session start and every operation on any of its sessions count as activity, and the resource does not stop while an operation is running. An extend expiry call can move it later. It never moves earlier. Refreshed about once a minute. Set while the resource is ready.<br/>
+        /// Example: 2026-01-02T01:00:05Z
+        /// </summary>
+        /// <example>2026-01-02T01:00:05Z</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
+        public global::System.DateTime? ExpiresAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -150,12 +167,20 @@ namespace Together
         /// ID of the user who created the model resource<br/>
         /// Example: user_123
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// Seconds without activity after which the resource stops and its sessions expire. Every operation on any of its sessions restarts the count.<br/>
+        /// Example: 3600
+        /// </param>
         /// <param name="error">
         /// Structured detail for the model resource's current error. Set when the resource is in an error state.
         /// </param>
         /// <param name="baseWeightsRef">
         /// Model-registry model whose weights the resource trains in place of the base model's own, pinned to the revision resolved when the resource was created. Absent when the resource trains the base model's own weights.<br/>
         /// Example: together://ml_A1b2C3d4E5f6G7h8I9j0K@rv_A1b2C3d4E5f6G7h8I9j0K
+        /// </param>
+        /// <param name="expiresAt">
+        /// The earliest time the resource can stop for inactivity, which also expires its sessions. It is the resource's last activity plus `inactive_timeout` seconds. Becoming ready, a session start and every operation on any of its sessions count as activity, and the resource does not stop while an operation is running. An extend expiry call can move it later. It never moves earlier. Refreshed about once a minute. Set while the resource is ready.<br/>
+        /// Example: 2026-01-02T01:00:05Z
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -171,8 +196,10 @@ namespace Together
             global::System.DateTime updatedAt,
             global::Together.RlOptimizerConfig optimizerConfig,
             string createdBy,
+            int inactiveTimeout,
             global::Together.RlModelResourcesError? error,
-            string? baseWeightsRef)
+            string? baseWeightsRef,
+            global::System.DateTime? expiresAt)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
@@ -186,6 +213,8 @@ namespace Together
             this.UpdatedAt = updatedAt;
             this.OptimizerConfig = optimizerConfig ?? throw new global::System.ArgumentNullException(nameof(optimizerConfig));
             this.CreatedBy = createdBy ?? throw new global::System.ArgumentNullException(nameof(createdBy));
+            this.InactiveTimeout = inactiveTimeout;
+            this.ExpiresAt = expiresAt;
         }
 
         /// <summary>

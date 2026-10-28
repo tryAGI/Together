@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    ///
+    /// Type of GPU used by the cluster.
     /// </summary>
     public enum GPUClusterInfoGpuType
     {
@@ -16,6 +16,10 @@ namespace Together
         ///
         /// </summary>
         B300Sxm,
+        /// <summary>
+        ///
+        /// </summary>
+        Gb200Sxm,
         /// <summary>
         ///
         /// </summary>
@@ -52,6 +56,7 @@ namespace Together
             {
                 GPUClusterInfoGpuType.B200Sxm => "B200_SXM",
                 GPUClusterInfoGpuType.B300Sxm => "B300_SXM",
+                GPUClusterInfoGpuType.Gb200Sxm => "GB200_SXM",
                 GPUClusterInfoGpuType.H100Sxm => "H100_SXM",
                 GPUClusterInfoGpuType.H100SxmInf => "H100_SXM_INF",
                 GPUClusterInfoGpuType.H200Sxm => "H200_SXM",
@@ -69,6 +74,7 @@ namespace Together
             {
                 "B200_SXM" => GPUClusterInfoGpuType.B200Sxm,
                 "B300_SXM" => GPUClusterInfoGpuType.B300Sxm,
+                "GB200_SXM" => GPUClusterInfoGpuType.Gb200Sxm,
                 "H100_SXM" => GPUClusterInfoGpuType.H100Sxm,
                 "H100_SXM_INF" => GPUClusterInfoGpuType.H100SxmInf,
                 "H200_SXM" => GPUClusterInfoGpuType.H200Sxm,

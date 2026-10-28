@@ -513,6 +513,11 @@ namespace Together
         /// <param name="optimizerConfig">
         /// Optimizer configuration for this resource.
         /// </param>
+        /// <param name="inactiveTimeout">
+        /// Seconds without activity after which the resource stops and its sessions expire, counted from when it becomes ready and from its last activity. Every operation on any of its sessions restarts the count, and an extend expiry call can keep it up longer.<br/>
+        /// Default Value: 3600<br/>
+        /// Example: 3600
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -522,6 +527,7 @@ namespace Together
             global::Together.RlComputeConfigCreateRequest? computeConfig = default,
             bool? loraEnabled = default,
             global::Together.RlOptimizerConfig? optimizerConfig = default,
+            int? inactiveTimeout = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -532,6 +538,7 @@ namespace Together
                 ComputeConfig = computeConfig,
                 LoraEnabled = loraEnabled,
                 OptimizerConfig = optimizerConfig,
+                InactiveTimeout = inactiveTimeout,
             };
 
             return await EstimateModelResourcesCostAsync(

@@ -19,6 +19,10 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        Gb200Sxm,
+        /// <summary>
+        ///
+        /// </summary>
         H100Sxm,
         /// <summary>
         ///
@@ -52,6 +56,7 @@ namespace Together
             {
                 InstanceTypesResponseType.B200Sxm => "B200_SXM",
                 InstanceTypesResponseType.B300Sxm => "B300_SXM",
+                InstanceTypesResponseType.Gb200Sxm => "GB200_SXM",
                 InstanceTypesResponseType.H100Sxm => "H100_SXM",
                 InstanceTypesResponseType.H100SxmInf => "H100_SXM_INF",
                 InstanceTypesResponseType.H200Sxm => "H200_SXM",
@@ -69,6 +74,7 @@ namespace Together
             {
                 "B200_SXM" => InstanceTypesResponseType.B200Sxm,
                 "B300_SXM" => InstanceTypesResponseType.B300Sxm,
+                "GB200_SXM" => InstanceTypesResponseType.Gb200Sxm,
                 "H100_SXM" => InstanceTypesResponseType.H100Sxm,
                 "H100_SXM_INF" => InstanceTypesResponseType.H100SxmInf,
                 "H200_SXM" => InstanceTypesResponseType.H200Sxm,

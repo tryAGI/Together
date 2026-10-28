@@ -31,7 +31,7 @@ namespace Together
         public required string Region { get; set; }
 
         /// <summary>
-        ///
+        /// Type of GPU used by the cluster.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gpu_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.GPUClusterInfoGpuTypeJsonConverter))]
@@ -294,7 +294,9 @@ namespace Together
         /// Type of cluster.
         /// </param>
         /// <param name="region"></param>
-        /// <param name="gpuType"></param>
+        /// <param name="gpuType">
+        /// Type of GPU used by the cluster.
+        /// </param>
         /// <param name="clusterName"></param>
         /// <param name="volumes"></param>
         /// <param name="status">

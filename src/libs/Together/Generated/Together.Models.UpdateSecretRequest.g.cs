@@ -27,6 +27,12 @@ namespace Together
         public string? ProjectId { get; set; }
 
         /// <summary>
+        /// TTLSeconds sets a new lifetime and restarts the expiry from now, between 86400 (1 day) and 1209600 (14 days)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ttl_seconds")]
+        public int? TtlSeconds { get; set; }
+
+        /// <summary>
         /// Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("value")]
@@ -50,6 +56,9 @@ namespace Together
         /// <param name="projectId">
         /// ProjectID is ignored - the project is automatically determined from your authentication
         /// </param>
+        /// <param name="ttlSeconds">
+        /// TTLSeconds sets a new lifetime and restarts the expiry from now, between 86400 (1 day) and 1209600 (14 days)
+        /// </param>
         /// <param name="value">
         /// Value is the new sensitive data to store securely. Updating this replaces the existing secret value.
         /// </param>
@@ -60,11 +69,13 @@ namespace Together
             string? description,
             string? name,
             string? projectId,
+            int? ttlSeconds,
             string? value)
         {
             this.Description = description;
             this.Name = name;
             this.ProjectId = projectId;
+            this.TtlSeconds = ttlSeconds;
             this.Value = value;
         }
 

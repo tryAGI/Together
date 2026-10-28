@@ -15,12 +15,16 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateSecretRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ListSecretsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.SecretResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.SecretResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UpdateSecretRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.SecretResponseItem>))]
     internal sealed partial class SecretsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {

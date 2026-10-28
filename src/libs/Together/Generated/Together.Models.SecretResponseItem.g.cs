@@ -27,6 +27,12 @@ namespace Together
         public string? Description { get; set; }
 
         /// <summary>
+        /// ExpiresAt is the ISO8601 timestamp when this secret expires and is deleted. Changing the value extends it. Omitted for secrets that never expire
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
+        public global::System.DateTime? ExpiresAt { get; set; }
+
+        /// <summary>
         /// ID is the unique identifier for this secret
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -49,6 +55,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         public string? Object { get; set; }
+
+        /// <summary>
+        /// TTLSeconds is the secret's lifetime in seconds. Omitted when no TTL is set
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ttl_seconds")]
+        public int? TtlSeconds { get; set; }
 
         /// <summary>
         /// UpdatedAt is the ISO8601 timestamp when this secret was last updated
@@ -74,6 +86,9 @@ namespace Together
         /// <param name="description">
         /// Description is a human-readable description of the secret's purpose
         /// </param>
+        /// <param name="expiresAt">
+        /// ExpiresAt is the ISO8601 timestamp when this secret expires and is deleted. Changing the value extends it. Omitted for secrets that never expire
+        /// </param>
         /// <param name="id">
         /// ID is the unique identifier for this secret
         /// </param>
@@ -86,6 +101,9 @@ namespace Together
         /// <param name="object">
         /// The object type, which is always `secret`.
         /// </param>
+        /// <param name="ttlSeconds">
+        /// TTLSeconds is the secret's lifetime in seconds. Omitted when no TTL is set
+        /// </param>
         /// <param name="updatedAt">
         /// UpdatedAt is the ISO8601 timestamp when this secret was last updated
         /// </param>
@@ -96,19 +114,23 @@ namespace Together
             string? createdAt,
             string? createdBy,
             string? description,
+            global::System.DateTime? expiresAt,
             string? id,
             string? lastUpdatedBy,
             string? name,
             string? @object,
+            int? ttlSeconds,
             string? updatedAt)
         {
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
+            this.ExpiresAt = expiresAt;
             this.Id = id;
             this.LastUpdatedBy = lastUpdatedBy;
             this.Name = name;
             this.Object = @object;
+            this.TtlSeconds = ttlSeconds;
             this.UpdatedAt = updatedAt;
         }
 
