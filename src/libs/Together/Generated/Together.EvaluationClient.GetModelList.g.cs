@@ -57,7 +57,7 @@ namespace Together
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
         /// models = client.get(<br/>
-        ///     "/evaluation/model-list",<br/>
+        ///     "/v1/evaluation/model-list",<br/>
         ///     cast_to=object,<br/>
         ///     options={"params": {"model_source": "serverless"}},<br/>
         /// )<br/>
@@ -92,7 +92,7 @@ namespace Together
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
         /// models = client.get(<br/>
-        ///     "/evaluation/model-list",<br/>
+        ///     "/v1/evaluation/model-list",<br/>
         ///     cast_to=object,<br/>
         ///     options={"params": {"model_source": "serverless"}},<br/>
         /// )<br/>

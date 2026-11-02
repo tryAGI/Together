@@ -34,7 +34,7 @@ namespace Together
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
         /// usage = client.get(<br/>
-        ///     "/billing/usage",<br/>
+        ///     "/v1/billing/usage",<br/>
         ///     cast_to=object,<br/>
         ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
         /// )<br/>
@@ -78,7 +78,7 @@ namespace Together
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
         /// usage = client.get(<br/>
-        ///     "/billing/usage",<br/>
+        ///     "/v1/billing/usage",<br/>
         ///     cast_to=object,<br/>
         ///     options={"params": {"month": "2026-06", "granularity": "day"}},<br/>
         /// )<br/>

@@ -16,7 +16,7 @@ namespace Together
         /// client = Together()<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
-        /// models = client.get("/fine-tunes/models/supported", cast_to=object)<br/>
+        /// models = client.get("/v1/fine-tunes/models/supported", cast_to=object)<br/>
         /// print(models)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.GetFineTunesModelsSupportedResponse> GetFineTunesModelsSupportedAsync(
@@ -34,7 +34,7 @@ namespace Together
         /// client = Together()<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
-        /// models = client.get("/fine-tunes/models/supported", cast_to=object)<br/>
+        /// models = client.get("/v1/fine-tunes/models/supported", cast_to=object)<br/>
         /// print(models)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.GetFineTunesModelsSupportedResponse>> GetFineTunesModelsSupportedAsResponseAsync(
