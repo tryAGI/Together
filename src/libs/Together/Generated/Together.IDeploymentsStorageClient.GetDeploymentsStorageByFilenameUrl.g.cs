@@ -19,7 +19,7 @@ namespace Together
         /// client = Together()<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
-        /// signed = client.get("/deployments/storage/model.tar.gz/url", cast_to=object)<br/>
+        /// signed = client.get("/v1/deployments/storage/model.tar.gz/url", cast_to=object)<br/>
         /// print(signed)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.SignedURLResponse> GetDeploymentsStorageByFilenameUrlAsync(
@@ -41,7 +41,7 @@ namespace Together
         /// client = Together()<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
-        /// signed = client.get("/deployments/storage/model.tar.gz/url", cast_to=object)<br/>
+        /// signed = client.get("/v1/deployments/storage/model.tar.gz/url", cast_to=object)<br/>
         /// print(signed)
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.SignedURLResponse>> GetDeploymentsStorageByFilenameUrlAsResponseAsync(

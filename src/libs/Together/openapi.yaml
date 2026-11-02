@@ -5725,11 +5725,10 @@ paths:
 
             # The SDK has no dedicated method for this endpoint yet, so call it with
             # the client's generic GET helper.
-            url = (
-                f"https://api.together.ai/v2/projects/{project_id}"
-                "/models/ml_abc123/revisions/rv_abc123"
+            revision = client.get(
+                f"/v2/projects/{project_id}/models/ml_abc123/revisions/rv_abc123",
+                cast_to=object,
             )
-            revision = client.get(url, cast_to=object)
             print(revision)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -5746,7 +5745,7 @@ paths:
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
             const revision = await client.get(
-              `https://api.together.ai/v2/projects/${projectId}/models/ml_abc123/revisions/rv_abc123`,
+              `/v2/projects/${projectId}/models/ml_abc123/revisions/rv_abc123`,
             );
             console.log(revision);
         - lang: JavaScript
@@ -5764,7 +5763,7 @@ paths:
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
             const revision = await client.get(
-              `https://api.together.ai/v2/projects/${projectId}/models/ml_abc123/revisions/rv_abc123`,
+              `/v2/projects/${projectId}/models/ml_abc123/revisions/rv_abc123`,
             );
             console.log(revision);
   /v2/projects/{projectId}/models/uploads:
@@ -7480,7 +7479,7 @@ paths:
 
             # The SDK has no dedicated method for this endpoint yet, so call it with
             # the client's generic GET helper.
-            signed = client.get("/deployments/storage/model.tar.gz/url", cast_to=object)
+            signed = client.get("/v1/deployments/storage/model.tar.gz/url", cast_to=object)
             print(signed)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -7491,7 +7490,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const signed = await client.get("/deployments/storage/model.tar.gz/url");
+            const signed = await client.get("/v1/deployments/storage/model.tar.gz/url");
             console.log(signed);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -7502,7 +7501,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const signed = await client.get("/deployments/storage/model.tar.gz/url");
+            const signed = await client.get("/v1/deployments/storage/model.tar.gz/url");
             console.log(signed);
   /v1/deployments/storage/volumes:
     get:
@@ -10107,7 +10106,7 @@ paths:
 
             # The SDK has no dedicated method for this endpoint yet, so call it with
             # the client's generic GET helper.
-            models = client.get("/fine-tunes/models/supported", cast_to=object)
+            models = client.get("/v1/fine-tunes/models/supported", cast_to=object)
             print(models)
         - lang: TypeScript
           label: Together AI SDK (TypeScript)
@@ -10118,7 +10117,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const models = await client.get("/fine-tunes/models/supported");
+            const models = await client.get("/v1/fine-tunes/models/supported");
             console.log(models);
         - lang: JavaScript
           label: Together AI SDK (JavaScript)
@@ -10129,7 +10128,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const models = await client.get("/fine-tunes/models/supported");
+            const models = await client.get("/v1/fine-tunes/models/supported");
             console.log(models);
         - lang: Shell
           label: cURL (list all)
@@ -10311,6 +10310,18 @@ paths:
                 },
             )
             print(job.id, job.status)
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "https://api.together.ai/v1/shaping/prepare-for-fp4-inference" \
+                 -H "Authorization: Bearer $TOGETHER_API_KEY" \
+                 -H "Content-Type: application/json" \
+                 -d '{
+                   "inputs": {
+                     "model_object_id": "ml_abc123",
+                     "model_revision_id": "rv_abc123"
+                   }
+                 }'
   /v1/shaping/prepare-for-fp4-inference/estimate:
     post:
       tags: ['Shaping']
@@ -10370,6 +10381,18 @@ paths:
                 },
             )
             print(estimate.price_usd, estimate.time_hours, estimate.allowed_to_proceed)
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "https://api.together.ai/v1/shaping/prepare-for-fp4-inference/estimate" \
+                 -H "Authorization: Bearer $TOGETHER_API_KEY" \
+                 -H "Content-Type: application/json" \
+                 -d '{
+                   "inputs": {
+                     "model_object_id": "ml_abc123",
+                     "model_revision_id": "rv_abc123"
+                   }
+                 }'
   /v1/shaping/{id}:
     get:
       tags: ['Shaping']
@@ -12653,7 +12676,7 @@ paths:
             # The SDK has no dedicated method for this endpoint yet, so call it with
             # the client's generic GET helper.
             models = client.get(
-                "/evaluation/model-list",
+                "/v1/evaluation/model-list",
                 cast_to=object,
                 options={"params": {"model_source": "serverless"}},
             )
@@ -12667,7 +12690,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const models = await client.get("/evaluation/model-list", {
+            const models = await client.get("/v1/evaluation/model-list", {
               query: { model_source: "serverless" },
             });
             console.log(models);
@@ -12680,7 +12703,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const models = await client.get("/evaluation/model-list", {
+            const models = await client.get("/v1/evaluation/model-list", {
               query: { model_source: "serverless" },
             });
             console.log(models);
@@ -15945,7 +15968,7 @@ paths:
             # The SDK has no dedicated method for this endpoint yet, so call it with
             # the client's generic GET helper.
             usage = client.get(
-                "/billing/usage",
+                "/v1/billing/usage",
                 cast_to=object,
                 options={"params": {"month": "2026-06", "granularity": "day"}},
             )
@@ -15959,7 +15982,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const usage = await client.get("/billing/usage", {
+            const usage = await client.get("/v1/billing/usage", {
               query: { month: "2026-06", granularity: "day" },
             });
             console.log(usage);
@@ -15972,7 +15995,7 @@ paths:
 
             // The SDK has no dedicated method for this endpoint yet, so call it with
             // the client's generic GET helper.
-            const usage = await client.get("/billing/usage", {
+            const usage = await client.get("/v1/billing/usage", {
               query: { month: "2026-06", granularity: "day" },
             });
             console.log(usage);

@@ -70,11 +70,10 @@ namespace Together
         /// project_id = identity.project.id<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
-        /// url = (<br/>
-        ///     f"https://api.together.ai/v2/projects/{project_id}"<br/>
-        ///     "/models/ml_abc123/revisions/rv_abc123"<br/>
+        /// revision = client.get(<br/>
+        ///     f"/v2/projects/{project_id}/models/ml_abc123/revisions/rv_abc123",<br/>
+        ///     cast_to=object,<br/>
         /// )<br/>
-        /// revision = client.get(url, cast_to=object)<br/>
         /// print(revision)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.DeListRevisionsResponseRevision> VolumeServiceGetRevisionByModelTypeAsync(
@@ -119,11 +118,10 @@ namespace Together
         /// project_id = identity.project.id<br/>
         /// # The SDK has no dedicated method for this endpoint yet, so call it with<br/>
         /// # the client's generic GET helper.<br/>
-        /// url = (<br/>
-        ///     f"https://api.together.ai/v2/projects/{project_id}"<br/>
-        ///     "/models/ml_abc123/revisions/rv_abc123"<br/>
+        /// revision = client.get(<br/>
+        ///     f"/v2/projects/{project_id}/models/ml_abc123/revisions/rv_abc123",<br/>
+        ///     cast_to=object,<br/>
         /// )<br/>
-        /// revision = client.get(url, cast_to=object)<br/>
         /// print(revision)
         /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.DeListRevisionsResponseRevision>> VolumeServiceGetRevisionByModelTypeAsResponseAsync(
