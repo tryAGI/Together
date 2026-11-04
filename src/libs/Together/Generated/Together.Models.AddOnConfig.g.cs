@@ -21,12 +21,6 @@ namespace Together
         public global::Together.IngressConfig? Ingress { get; set; }
 
         /// <summary>
-        /// Configuration for the Model Aware TorchPass add-on.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("torchpass")]
-        public global::Together.TorchpassConfig? Torchpass { get; set; }
-
-        /// <summary>
         /// Configuration for the Slurm Web add-on.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("slurm_web")]
@@ -49,9 +43,6 @@ namespace Together
         /// </summary>
         /// <param name="dashboard"></param>
         /// <param name="ingress"></param>
-        /// <param name="torchpass">
-        /// Configuration for the Model Aware TorchPass add-on.
-        /// </param>
         /// <param name="slurmWeb">
         /// Configuration for the Slurm Web add-on.
         /// </param>
@@ -64,13 +55,11 @@ namespace Together
         public AddOnConfig(
             global::Together.DashboardConfig? dashboard,
             global::Together.IngressConfig? ingress,
-            global::Together.TorchpassConfig? torchpass,
             global::Together.SlurmWebConfig? slurmWeb,
             global::Together.HeadlampConfig? headlamp)
         {
             this.Dashboard = dashboard;
             this.Ingress = ingress;
-            this.Torchpass = torchpass;
             this.SlurmWeb = slurmWeb;
             this.Headlamp = headlamp;
         }

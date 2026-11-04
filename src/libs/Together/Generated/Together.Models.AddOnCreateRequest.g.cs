@@ -16,7 +16,7 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
-        /// Type of add-on. Valid values: 'dashboard', 'ingress', 'torchpass'.
+        /// Type of add-on. Valid values: 'dashboard', 'ingress'
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("add_on_type")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -41,7 +41,7 @@ namespace Together
         /// Human-readable name for this add-on instance.
         /// </param>
         /// <param name="addOnType">
-        /// Type of add-on. Valid values: 'dashboard', 'ingress', 'torchpass'.
+        /// Type of add-on. Valid values: 'dashboard', 'ingress'
         /// </param>
         /// <param name="config">
         /// Configuration for a cluster add-on.
