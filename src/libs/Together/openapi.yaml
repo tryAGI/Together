@@ -21905,9 +21905,6 @@ components:
           $ref: '#/components/schemas/DashboardConfig'
         ingress:
           $ref: '#/components/schemas/IngressConfig'
-        torchpass:
-          description: Configuration for the Model Aware TorchPass add-on.
-          $ref: '#/components/schemas/TorchpassConfig'
         slurm_web:
           description: Configuration for the Slurm Web add-on.
           $ref: '#/components/schemas/SlurmWebConfig'
@@ -21926,7 +21923,7 @@ components:
           description: Human-readable name for this add-on instance.
         add_on_type:
           type: string
-          description: 'Type of add-on. Valid values: ''dashboard'', ''ingress'', ''torchpass''.'
+          description: 'Type of add-on. Valid values: ''dashboard'', ''ingress'''
         config:
           $ref: '#/components/schemas/AddOnConfig'
     AddOnInfo:
@@ -21953,9 +21950,6 @@ components:
           $ref: '#/components/schemas/DashboardState'
         ingress:
           $ref: '#/components/schemas/IngressState'
-        torchpass:
-          description: State for the Model Aware TorchPass add-on.
-          $ref: '#/components/schemas/TorchpassState'
         slurm_web:
           description: State for the Slurm Web add-on.
           $ref: '#/components/schemas/SlurmWebState'
@@ -22013,7 +22007,7 @@ components:
           description: Human-readable name for this add-on instance.
         add_on_type:
           type: string
-          description: 'Type of add-on. Valid values: ''dashboard'', ''ingress'', ''torchpass'', ''headlamp''.'
+          description: 'Type of add-on. Valid values: ''dashboard'', ''ingress'', ''headlamp''.'
         config:
           $ref: '#/components/schemas/AddOnConfig'
     ClusterAddOnDeleteResponse:
@@ -22111,19 +22105,6 @@ components:
       properties: {}
       additionalProperties: false
       x-stainless-empty-object: true
-    TorchpassConfig:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          description: Whether to enable the Model Aware TorchPass add-on.
-      description: Configuration for the Model Aware TorchPass cluster add-on.
-    TorchpassState:
-      type: object
-      properties: {}
-      additionalProperties: false
-      x-stainless-empty-object: true
-      description: Runtime state for the Model Aware TorchPass cluster add-on.
     SlurmWebConfig:
       type: object
       properties:
@@ -25481,7 +25462,7 @@ components:
         lora_trainable_modules:
           type: string
           default: 'all-linear'
-          description: Comma-separated LoRA target modules. Use `all-linear` for model defaults; MoE expert modules (`w_up`, `w_gate`, `w_down`) can be combined with attention modules on compatible models. Fine-tuning jobs that target expert modules produce adapter-only output unless the selected model supports merged expert LoRA output.
+          description: Comma-separated LoRA target modules. Use `all-linear` for model defaults; MoE expert modules (`w_up`, `w_gate`, `w_down`) can be combined with attention modules on compatible models.
       required:
         - type
         - lora_r
