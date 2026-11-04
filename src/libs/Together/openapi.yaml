@@ -11109,6 +11109,85 @@ paths:
                     await asyncio.gather(send_text(), receive_audio())
 
             asyncio.run(generate_speech())
+        - lang: TypeScript
+          label: TypeScript WebSocket Client
+          source: |
+            import WebSocket from 'ws';
+            import fs from 'fs';
+
+            const apiKey = process.env.TOGETHER_API_KEY;
+            const url = 'wss://api.together.ai/v1/audio/speech/websocket?model=hexgrad/Kokoro-82M&voice=af_heart';
+
+            const ws = new WebSocket(url, {
+              headers: {
+                'Authorization': `Bearer ${apiKey}`
+              }
+            });
+
+            const audioData: Buffer[] = [];
+
+            ws.on('open', () => {
+              console.log('WebSocket connection established!');
+            });
+
+            ws.on('message', (data) => {
+              const message = JSON.parse(data.toString());
+
+              if (message.type === 'session.created') {
+                console.log(`Session created: ${message.session.id}`);
+
+                // Send text chunks
+                const textChunks = [
+                  "Hello, this is a test.",
+                  "This is the second sentence.",
+                  "And this is the final one."
+                ];
+
+                textChunks.forEach((text, index) => {
+                  setTimeout(() => {
+                    ws.send(JSON.stringify({
+                      type: 'input_text_buffer.append',
+                      text: text
+                    }));
+                  }, index * 500);
+                });
+
+                // Commit after all chunks
+                setTimeout(() => {
+                  ws.send(JSON.stringify({
+                    type: 'input_text_buffer.commit'
+                  }));
+                }, textChunks.length * 500 + 100);
+
+              } else if (message.type === 'conversation.item.input_text.received') {
+                console.log(`Text received: ${message.text}`);
+              } else if (message.type === 'conversation.item.audio_output.delta') {
+                // Decode base64 audio chunk
+                const audioChunk = Buffer.from(message.delta, 'base64');
+                audioData.push(audioChunk);
+                console.log(`Received audio chunk for item ${message.item_id}`);
+              } else if (message.type === 'conversation.item.audio_output.done') {
+                console.log(`Audio generation complete for item ${message.item_id}`);
+                ws.close();
+              } else if (message.type === 'conversation.item.tts.failed') {
+                const errorMessage = message.error?.message ?? 'Unknown error';
+                console.error(`Error: ${errorMessage}`);
+                ws.close();
+              }
+            });
+
+            ws.on('close', () => {
+              // Save the raw PCM samples to a file
+              if (audioData.length > 0) {
+                const completeAudio = Buffer.concat(audioData);
+                fs.writeFileSync('output.pcm', completeAudio);
+                console.log('Audio saved to output.pcm');
+              }
+            });
+
+            ws.on('error', (error) => {
+              console.error('WebSocket error:', error);
+            });
         - lang: JavaScript
           label: Node.js WebSocket Client
           source: |
@@ -13090,6 +13169,70 @@ paths:
                             break
 
             asyncio.run(transcribe_audio())
+        - lang: TypeScript
+          label: TypeScript WebSocket Client
+          source: |
+            import WebSocket from 'ws';
+            import fs from 'fs';
+
+            const apiKey = process.env.TOGETHER_API_KEY;
+            const url = 'wss://api.together.ai/v1/realtime?model=openai/whisper-large-v3&input_audio_format=pcm_s16le_16000';
+
+            const ws = new WebSocket(url, {
+              headers: {
+                'Authorization': `Bearer ${apiKey}`
+              }
+            });
+
+            ws.on('open', async () => {
+              console.log('WebSocket connection established!');
+
+              // audio.wav must be 16 kHz, 16-bit mono PCM to match input_audio_format
+              const audioData = fs.readFileSync('audio.wav');
+
+              // Send audio in chunks with delay to simulate real-time
+              const chunkSize = 8192;
+              const bytesPerSecond = 16000 * 2;  // 16kHz * 2 bytes (16-bit)
+              const delayPerChunk = (chunkSize / bytesPerSecond) * 1000;  // Convert to ms
+
+              for (let i = 0; i < audioData.length; i += chunkSize) {
+                const chunk = audioData.slice(i, i + chunkSize);
+                const base64Chunk = chunk.toString('base64');
+                ws.send(JSON.stringify({
+                  type: 'input_audio_buffer.append',
+                  audio: base64Chunk
+                }));
+
+                // Simulate real-time streaming
+                if (i + chunkSize < audioData.length) {
+                  await new Promise(resolve => setTimeout(resolve, delayPerChunk));
+                }
+              }
+
+              // Commit audio buffer
+              ws.send(JSON.stringify({
+                type: 'input_audio_buffer.commit'
+              }));
+            });
+
+            ws.on('message', (data) => {
+              const message = JSON.parse(data.toString());
+
+              if (message.type === 'conversation.item.input_audio_transcription.delta') {
+                console.log(`Partial: ${message.delta}`);
+              } else if (message.type === 'conversation.item.input_audio_transcription.completed') {
+                console.log(`Final: ${message.transcript}`);
+                ws.close();
+              } else if (message.type === 'conversation.item.input_audio_transcription.failed') {
+                const errorMessage = message.error?.message ?? message.message ?? 'Unknown error';
+                console.error(`Error: ${errorMessage}`);
+                ws.close();
+              }
+            });
+
+            ws.on('error', (error) => {
+              console.error('WebSocket error:', error);
+            });
         - lang: JavaScript
           label: Node.js WebSocket Client
           source: |
