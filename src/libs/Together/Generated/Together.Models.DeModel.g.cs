@@ -73,6 +73,20 @@ namespace Together
         public required global::Together.DeModelVisibility Visibility { get; set; } = global::Together.DeModelVisibility.VisibilityPrivate;
 
         /// <summary>
+        /// Output only. Timestamp when the model was created.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("createdAt")]
+        public global::System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// Output only. Timestamp when the model was last updated.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("updatedAt")]
+        public global::System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -110,6 +124,14 @@ namespace Together
         /// Resource name of the base model, using `projects/{baseProject}/models/{baseModelId}`; empty when the model has no base.<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="createdAt">
+        /// Output only. Timestamp when the model was created.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="updatedAt">
+        /// Output only. Timestamp when the model was last updated.<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -122,7 +144,9 @@ namespace Together
             global::Together.DeModelVisibility visibility,
             string? description,
             string? baseModelId,
-            string? baseModel)
+            string? baseModel,
+            global::System.DateTime? createdAt,
+            global::System.DateTime? updatedAt)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ProjectId = projectId ?? throw new global::System.ArgumentNullException(nameof(projectId));
@@ -133,6 +157,8 @@ namespace Together
             this.BaseModelId = baseModelId;
             this.BaseModel = baseModel;
             this.Visibility = visibility;
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
         }
 
         /// <summary>

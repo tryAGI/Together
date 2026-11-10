@@ -23,6 +23,9 @@ namespace Together
         /// <param name="after">
         /// Cursor from a previous model list response.
         /// </param>
+        /// <param name="orderBy">
+        /// Sort field for the results. Supports `created_at`, optionally followed by `asc` or `desc`. Defaults to ascending.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -42,6 +45,7 @@ namespace Together
             string? organizationId = default,
             int? limit = default,
             string? after = default,
+            string? orderBy = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -63,6 +67,9 @@ namespace Together
         /// <param name="after">
         /// Cursor from a previous model list response.
         /// </param>
+        /// <param name="orderBy">
+        /// Sort field for the results. Supports `created_at`, optionally followed by `asc` or `desc`. Defaults to ascending.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -82,6 +89,7 @@ namespace Together
             string? organizationId = default,
             int? limit = default,
             string? after = default,
+            string? orderBy = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
