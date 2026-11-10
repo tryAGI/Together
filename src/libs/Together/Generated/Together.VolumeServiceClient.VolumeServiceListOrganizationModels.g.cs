@@ -29,13 +29,15 @@ namespace Together
             global::System.Net.Http.HttpClient httpClient,
             ref string organizationId,
             ref int? limit,
-            ref string? after);
+            ref string? after,
+            ref string? orderBy);
         partial void PrepareVolumeServiceListOrganizationModelsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string organizationId,
             int? limit,
-            string? after);
+            string? after,
+            string? orderBy);
         partial void ProcessVolumeServiceListOrganizationModelsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,6 +60,9 @@ namespace Together
         /// <param name="after">
         /// Cursor from a previous list response.
         /// </param>
+        /// <param name="orderBy">
+        /// Sort field for the results. Supports `created_at`, optionally followed by `asc` or `desc`. Defaults to ascending.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -75,6 +80,7 @@ namespace Together
             string organizationId,
             int? limit = default,
             string? after = default,
+            string? orderBy = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,6 +88,7 @@ namespace Together
                 organizationId: organizationId,
                 limit: limit,
                 after: after,
+                orderBy: orderBy,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -101,6 +108,9 @@ namespace Together
         /// <param name="after">
         /// Cursor from a previous list response.
         /// </param>
+        /// <param name="orderBy">
+        /// Sort field for the results. Supports `created_at`, optionally followed by `asc` or `desc`. Defaults to ascending.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
@@ -118,6 +128,7 @@ namespace Together
             string organizationId,
             int? limit = default,
             string? after = default,
+            string? orderBy = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -127,7 +138,8 @@ namespace Together
                 httpClient: HttpClient,
                 organizationId: ref organizationId,
                 limit: ref limit,
-                after: ref after);
+                after: ref after,
+                orderBy: ref orderBy);
 
 
             var __authorizations = global::Together.EndPointSecurityResolver.ResolveAuthorizations(
@@ -158,6 +170,7 @@ namespace Together
                             __pathBuilder
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("after", after)
+                                .AddOptionalParameter("orderBy", orderBy)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Together.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -201,7 +214,8 @@ namespace Together
                     httpRequestMessage: __httpRequest,
                     organizationId: organizationId,
                     limit: limit,
-                    after: after);
+                    after: after,
+                    orderBy: orderBy);
 
                 return __httpRequest;
             }
