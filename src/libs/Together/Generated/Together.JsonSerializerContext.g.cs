@@ -306,6 +306,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCreateModelResourcesRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlExtendModelResourcesExpiryRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesEstimateCostResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEstimateRolloutRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEstimateRolloutResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlModelResources>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelTrainerConfig))]
@@ -507,8 +509,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinishReason), TypeInfoPropertyName = "FinishReason2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LogprobsPart))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.PromptPartItem>))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -523,6 +523,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LogprobsPart))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.PromptPartItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PromptPartItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.InferenceWarning))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.CompletionChoicesDataItem>))]
@@ -1017,8 +1019,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName?), TypeInfoPropertyName = "NullableDeScalingMetricName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType?), TypeInfoPropertyName = "NullableDeScalingMetricType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlWeightSyncType?), TypeInfoPropertyName = "NullableRlWeightSyncType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, int?>?), TypeInfoPropertyName = "NullableOneOfStringInt322")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigGpuType2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1033,6 +1033,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, int?>?), TypeInfoPropertyName = "NullableOneOfStringInt322")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigCreateRequestGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigCreateRequestGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesStatus?), TypeInfoPropertyName = "NullableRlModelResourcesStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
@@ -1453,6 +1455,8 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.QuantizationEventJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.EvaluationModelOrStringJsonConverter());
             options.Converters.Add(new global::Together.JsonConverters.WhoamiResponseJsonConverter());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());

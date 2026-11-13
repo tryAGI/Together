@@ -495,11 +495,11 @@ namespace Together
         /// Creates a training session and returns its details.
         /// </summary>
         /// <param name="resumeFromCheckpointId">
-        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
+        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model. Required for generator-only resources, which accept inference checkpoints only.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="loraConfig">
-        /// LoRA adapter configuration for the session
+        /// LoRA adapter configuration for the session. Omit for generator-only resources, which use the checkpoint's LoRA settings.
         /// </param>
         /// <param name="modelResourcesId">
         /// ID of the model resource to use for this training session.<br/>

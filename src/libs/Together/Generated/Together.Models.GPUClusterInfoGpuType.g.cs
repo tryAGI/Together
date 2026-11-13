@@ -19,7 +19,7 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        Gb200Sxm,
+        Gb200Nvl,
         /// <summary>
         ///
         /// </summary>
@@ -56,7 +56,7 @@ namespace Together
             {
                 GPUClusterInfoGpuType.B200Sxm => "B200_SXM",
                 GPUClusterInfoGpuType.B300Sxm => "B300_SXM",
-                GPUClusterInfoGpuType.Gb200Sxm => "GB200_SXM",
+                GPUClusterInfoGpuType.Gb200Nvl => "GB200_NVL",
                 GPUClusterInfoGpuType.H100Sxm => "H100_SXM",
                 GPUClusterInfoGpuType.H100SxmInf => "H100_SXM_INF",
                 GPUClusterInfoGpuType.H200Sxm => "H200_SXM",
@@ -74,7 +74,7 @@ namespace Together
             {
                 "B200_SXM" => GPUClusterInfoGpuType.B200Sxm,
                 "B300_SXM" => GPUClusterInfoGpuType.B300Sxm,
-                "GB200_SXM" => GPUClusterInfoGpuType.Gb200Sxm,
+                "GB200_NVL" => GPUClusterInfoGpuType.Gb200Nvl,
                 "H100_SXM" => GPUClusterInfoGpuType.H100Sxm,
                 "H100_SXM_INF" => GPUClusterInfoGpuType.H100SxmInf,
                 "H200_SXM" => GPUClusterInfoGpuType.H200Sxm,

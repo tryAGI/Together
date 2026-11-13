@@ -53,10 +53,22 @@ namespace Together
         public int? FinalSourceReplicas { get; set; }
 
         /// <summary>
-        /// Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
+        /// Optional target replica floor at completion. For rolling, the ladder climbs to this count one replica per rung. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finalTargetReplicas")]
         public int? FinalTargetReplicas { get; set; }
+
+        /// <summary>
+        /// Optional maximum target replicas one canary step may add. No canary step raises the target required replica count by more than this over the previous step (the target's current count before the first). Canary steps are admitted only when every raise fits. A rejection names the step, the counts, and the smallest maxSurge that admits the plan. Autoscaler growth on either deployment is not counted against the bound. Must be between 1 and 1000 when set. When unset, no step-raise bound applies. Available on the canary strategy only for now; a rolling or blue-green rollout that sets it is rejected at create and preview.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxSurge")]
+        public int? MaxSurge { get; set; }
+
+        /// <summary>
+        /// Count of source replicas that may be missing or retired ahead of their replacements at any one time. Defaults to 0, so the rollout waits for capacity and refuses a degraded source. Spent three ways. A source already degraded at create (ready below desired by at most this many) is admitted. The engine retires source replicas ahead of a target raise to stay under maxSurge. When the target cannot be placed, it retires source replicas to make room, and only when both legs use the same GPU type; a target that cannot be placed on the source's cluster gains nothing from the retire, and the rollout then pauses naming it. It is a concurrent bound measured against the source's routed-share need, which drops after every traffic shift, so a full cluster is walked rung by rung. The last source replica is never retired before traffic moves, except at the final 100% rung, where the allowance may stop the source before the target's last replicas are ready. A 1-replica source with maxUnavailable 1 on a full cluster serves nothing while the replacement starts.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxUnavailable")]
+        public int? MaxUnavailable { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -89,7 +101,13 @@ namespace Together
         /// Optional final replica count for the source deployment. Defaults to 0, which drains and stops the source.
         /// </param>
         /// <param name="finalTargetReplicas">
-        /// Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
+        /// Optional target replica floor at completion. For rolling, the ladder climbs to this count one replica per rung. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
+        /// </param>
+        /// <param name="maxSurge">
+        /// Optional maximum target replicas one canary step may add. No canary step raises the target required replica count by more than this over the previous step (the target's current count before the first). Canary steps are admitted only when every raise fits. A rejection names the step, the counts, and the smallest maxSurge that admits the plan. Autoscaler growth on either deployment is not counted against the bound. Must be between 1 and 1000 when set. When unset, no step-raise bound applies. Available on the canary strategy only for now; a rolling or blue-green rollout that sets it is rejected at create and preview.
+        /// </param>
+        /// <param name="maxUnavailable">
+        /// Count of source replicas that may be missing or retired ahead of their replacements at any one time. Defaults to 0, so the rollout waits for capacity and refuses a degraded source. Spent three ways. A source already degraded at create (ready below desired by at most this many) is admitted. The engine retires source replicas ahead of a target raise to stay under maxSurge. When the target cannot be placed, it retires source replicas to make room, and only when both legs use the same GPU type; a target that cannot be placed on the source's cluster gains nothing from the retire, and the rollout then pauses naming it. It is a concurrent bound measured against the source's routed-share need, which drops after every traffic shift, so a full cluster is walked rung by rung. The last source replica is never retired before traffic moves, except at the final 100% rung, where the allowance may stop the source before the target's last replicas are ready. A 1-replica source with maxUnavailable 1 on a full cluster serves nothing while the replacement starts.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -102,7 +120,9 @@ namespace Together
             global::Together.DeRollingConfig? rolling,
             global::System.Collections.Generic.IList<global::Together.DeMetricRule>? metrics,
             int? finalSourceReplicas,
-            int? finalTargetReplicas)
+            int? finalTargetReplicas,
+            int? maxSurge,
+            int? maxUnavailable)
         {
             this.SourceDeploymentId = sourceDeploymentId ?? throw new global::System.ArgumentNullException(nameof(sourceDeploymentId));
             this.TargetDeploymentId = targetDeploymentId ?? throw new global::System.ArgumentNullException(nameof(targetDeploymentId));
@@ -112,6 +132,8 @@ namespace Together
             this.Metrics = metrics;
             this.FinalSourceReplicas = finalSourceReplicas;
             this.FinalTargetReplicas = finalTargetReplicas;
+            this.MaxSurge = maxSurge;
+            this.MaxUnavailable = maxUnavailable;
         }
 
         /// <summary>

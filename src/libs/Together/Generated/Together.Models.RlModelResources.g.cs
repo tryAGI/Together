@@ -90,7 +90,7 @@ namespace Together
         public required global::System.DateTime UpdatedAt { get; set; }
 
         /// <summary>
-        /// Optimizer configuration for this resource.
+        /// Optimizer configuration for this resource. Unused for generator-only resources.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optimizer_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -161,7 +161,7 @@ namespace Together
         /// Example: 2026-01-02T00:00:05Z
         /// </param>
         /// <param name="optimizerConfig">
-        /// Optimizer configuration for this resource.
+        /// Optimizer configuration for this resource. Unused for generator-only resources.
         /// </param>
         /// <param name="createdBy">
         /// ID of the user who created the model resource<br/>

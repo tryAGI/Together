@@ -55,6 +55,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlCreateModelResourcesRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlExtendModelResourcesExpiryRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesEstimateCostResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEstimateRolloutRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlEstimateRolloutResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelResourcesListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RlModelResources>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlModelTrainerConfig))]
@@ -253,6 +255,8 @@ namespace Together
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, int?>());
