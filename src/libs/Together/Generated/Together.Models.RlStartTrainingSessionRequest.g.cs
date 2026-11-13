@@ -9,7 +9,7 @@ namespace Together
     public sealed partial class RlStartTrainingSessionRequest
     {
         /// <summary>
-        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
+        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model. Required for generator-only resources, which accept inference checkpoints only.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
@@ -17,7 +17,7 @@ namespace Together
         public string? ResumeFromCheckpointId { get; set; }
 
         /// <summary>
-        /// LoRA adapter configuration for the session
+        /// LoRA adapter configuration for the session. Omit for generator-only resources, which use the checkpoint's LoRA settings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("lora_config")]
         public global::Together.RlLoraConfig? LoraConfig { get; set; }
@@ -67,11 +67,11 @@ namespace Together
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="resumeFromCheckpointId">
-        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.<br/>
+        /// Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model. Required for generator-only resources, which accept inference checkpoints only.<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="loraConfig">
-        /// LoRA adapter configuration for the session
+        /// LoRA adapter configuration for the session. Omit for generator-only resources, which use the checkpoint's LoRA settings.
         /// </param>
         /// <param name="displayName">
         /// Optional display name used to identify the training session<br/>

@@ -55,6 +55,10 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
+        RolloutFailureCategorySurgeBudget,
+        /// <summary>
+        ///
+        /// </summary>
         RolloutFailureCategoryTargetNotReady,
         /// <summary>
         ///
@@ -85,6 +89,7 @@ namespace Together
                 DeRolloutConditionCategory.RolloutFailureCategoryPolicyInfeasible => "ROLLOUT_FAILURE_CATEGORY_POLICY_INFEASIBLE",
                 DeRolloutConditionCategory.RolloutFailureCategoryRoutingError => "ROLLOUT_FAILURE_CATEGORY_ROUTING_ERROR",
                 DeRolloutConditionCategory.RolloutFailureCategorySourceNotDrained => "ROLLOUT_FAILURE_CATEGORY_SOURCE_NOT_DRAINED",
+                DeRolloutConditionCategory.RolloutFailureCategorySurgeBudget => "ROLLOUT_FAILURE_CATEGORY_SURGE_BUDGET",
                 DeRolloutConditionCategory.RolloutFailureCategoryTargetNotReady => "ROLLOUT_FAILURE_CATEGORY_TARGET_NOT_READY",
                 DeRolloutConditionCategory.RolloutFailureCategoryUnderServed => "ROLLOUT_FAILURE_CATEGORY_UNDER_SERVED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -108,6 +113,7 @@ namespace Together
                 "ROLLOUT_FAILURE_CATEGORY_POLICY_INFEASIBLE" => DeRolloutConditionCategory.RolloutFailureCategoryPolicyInfeasible,
                 "ROLLOUT_FAILURE_CATEGORY_ROUTING_ERROR" => DeRolloutConditionCategory.RolloutFailureCategoryRoutingError,
                 "ROLLOUT_FAILURE_CATEGORY_SOURCE_NOT_DRAINED" => DeRolloutConditionCategory.RolloutFailureCategorySourceNotDrained,
+                "ROLLOUT_FAILURE_CATEGORY_SURGE_BUDGET" => DeRolloutConditionCategory.RolloutFailureCategorySurgeBudget,
                 "ROLLOUT_FAILURE_CATEGORY_TARGET_NOT_READY" => DeRolloutConditionCategory.RolloutFailureCategoryTargetNotReady,
                 "ROLLOUT_FAILURE_CATEGORY_UNDER_SERVED" => DeRolloutConditionCategory.RolloutFailureCategoryUnderServed,
                 _ => null,

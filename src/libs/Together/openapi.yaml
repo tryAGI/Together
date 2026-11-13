@@ -14057,6 +14057,31 @@ paths:
                 seconds=7200,
             )
             print(resource.status, resource.expires_at)
+  /v1/rl/rollouts/estimate:
+    post:
+      summary: Estimate rollout time and price
+      description: Estimates rollout-only time, generator GPU-hours, billed GPU-hours of the whole model resource, and price for a supported model and GPU type. Each generator replica may contain several inference servers or span multiple nodes. Assumes identical episodes, exact reuse of generated tokens between turns, turns that start together within a replica, no environment delay, and no concurrent computation of the same initial prompt. Prompt-cache reuse and capacity misses are approximate, especially for multi-turn episodes. Rates are measured in the training mode reported by lora_enabled. Cache-transfer and request-preemption delays are not included, so long multi-turn rollouts with distinct prompts can take longer than estimated.
+      operationId: estimateRollout
+      tags: [RL]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RL.EstimateRolloutRequest'
+        required: true
+      responses:
+        "200":
+          description: Estimated rollout time and price
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RL.EstimateRolloutResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorData'
   /v1/rl/training-sessions:
     get:
       summary: List training sessions
@@ -17147,7 +17172,17 @@ components:
           description: Optional final replica count for the source deployment. Defaults to 0, which drains and stops the source.
         finalTargetReplicas:
           type: integer
-          description: Optional target replica floor at completion. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
+          description: Optional target replica floor at completion. For rolling, the ladder climbs to this count one replica per rung. Must be at least 1 when set; defaults to the source deployment's replica count at create time, or to the source and target deployments' combined replica count when both already stand in the endpoint traffic split after a cancel. The completed target's autoscaling max lands at the landing ceiling, max(this value, the source max, the target's own max); the rollout may lift the target max at first wake, at the first step that needs it, or at completion unless an operator changes max mid-run. The lifted ceiling remains after completion, and PreviewRolloutDefaults reports a coming lift as ROLLOUT_WILL_RAISE_TARGET_MAX. A pre-existing target whose own autoscaling min is higher keeps that floor, reported as FINAL_BELOW_INHERITED_MIN. A target that starts stopped lands exactly at this value; if the source min was higher, PreviewRolloutDefaults reports FINAL_BELOW_SOURCE_MIN.
+        maxSurge:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          description: Optional maximum target replicas one canary step may add. No canary step raises the target required replica count by more than this over the previous step (the target's current count before the first). Canary steps are admitted only when every raise fits. A rejection names the step, the counts, and the smallest maxSurge that admits the plan. Autoscaler growth on either deployment is not counted against the bound. Must be between 1 and 1000 when set. When unset, no step-raise bound applies. Available on the canary strategy only for now; a rolling or blue-green rollout that sets it is rejected at create and preview.
+        maxUnavailable:
+          type: integer
+          minimum: 0
+          maximum: 1000
+          description: Count of source replicas that may be missing or retired ahead of their replacements at any one time. Defaults to 0, so the rollout waits for capacity and refuses a degraded source. Spent three ways. A source already degraded at create (ready below desired by at most this many) is admitted. The engine retires source replicas ahead of a target raise to stay under maxSurge. When the target cannot be placed, it retires source replicas to make room, and only when both legs use the same GPU type; a target that cannot be placed on the source's cluster gains nothing from the retire, and the rollout then pauses naming it. It is a concurrent bound measured against the source's routed-share need, which drops after every traffic shift, so a full cluster is walked rung by rung. The last source replica is never retired before traffic moves, except at the final 100% rung, where the allowance may stop the source before the target's last replicas are ready. A 1-replica source with maxUnavailable 1 on a full cluster serves nothing while the replacement starts.
     DE.BlueGreenConfig:
       type: object
       properties: {}
@@ -17159,7 +17194,7 @@ components:
       properties: {}
       additionalProperties: false
       x-stainless-empty-object: true
-      description: Rolling strategy configuration for small batches that ramp target replicas up while shrinking source replicas to what their remaining traffic share needs.
+      description: Rolling strategy configuration. The target ramps up one replica per rung while the source shrinks to what its remaining traffic share needs.
     DE.CanaryConfig:
       type: object
       description: Canary strategy configuration for gradual traffic progression. An empty config uses the default 5, 25, 50, 100 percent ladder; over a frozen traffic-split pair left by cancel, the default ladder is derived at start from the pair's current served share so it begins above it.
@@ -17496,6 +17531,14 @@ components:
             - $ref: '#/components/schemas/DE.PauseInfo'
           description: Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED) and cleared after resume or abort; while PAUSING, pausedAt records when the pause was requested.
           readOnly: true
+        maxSurge:
+          type: integer
+          description: Output only. The maxSurge the rollout was created with. Absent when it was not set.
+          readOnly: true
+        maxUnavailable:
+          type: integer
+          description: The maxUnavailable the rollout was created with. Absent when it was not set.
+          readOnly: true
     DE.RolloutStatus:
       type: object
       description: Derived runtime progress for a rollout.
@@ -17541,6 +17584,7 @@ components:
             - ROLLOUT_FAILURE_CATEGORY_POLICY_INFEASIBLE
             - ROLLOUT_FAILURE_CATEGORY_UNDER_SERVED
             - ROLLOUT_FAILURE_CATEGORY_ENTITLEMENT_LAPSED
+            - ROLLOUT_FAILURE_CATEGORY_SURGE_BUDGET
           type: string
           description: Category that classifies why the rollout stopped.
         message:
@@ -19837,6 +19881,7 @@ components:
       description: Compute layout for a model resource
       required:
         - num_generator_replicas
+        - num_trainer_replicas
       properties:
         num_generator_replicas:
           type: integer
@@ -19850,6 +19895,11 @@ components:
             - H100-80GB
             - B200-SXM
           description: GPU type selected for this resource.
+        num_trainer_replicas:
+          type: integer
+          format: int32
+          example: 1
+          description: 'Number of trainers: 0 for sampling only, or 1 for training. Each trainer can use multiple GPUs.'
     RL.ComputeConfigCreateRequest:
       type: object
       description: Compute layout to provision for a model resource
@@ -19866,6 +19916,14 @@ components:
           enum:
             - B200-SXM
           description: GPU type to provision. Omit to use the model's default GPU type.
+        num_trainer_replicas:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 1
+          example: 0
+          default: 1
+          description: 'Number of trainers: 0 or 1. Omit to use 1. Each trainer can use multiple GPUs. With 0, at least one generator replica is required, optimizer_config is not allowed, and sessions must resume from an inference checkpoint for sampling only.'
     RL.ModelResourcesStatus:
       description: Lifecycle status of a model resource
       type: string
@@ -19933,7 +19991,7 @@ components:
           description: Timestamp when the model resource was last updated
         optimizer_config:
           $ref: '#/components/schemas/RL.OptimizerConfig'
-          description: Optimizer configuration for this resource.
+          description: Optimizer configuration for this resource. Unused for generator-only resources.
         created_by:
           type: string
           example: user_123
@@ -20045,6 +20103,138 @@ components:
       required:
         - price_per_hour
         - currency
+    RL.EstimateRolloutRequest:
+      type: object
+      description: Episode shape, model, GPU type, and concurrency for a rollout-only estimate
+      required:
+        - episodes
+        - concurrency
+        - prompt_tokens
+        - turns
+        - added_tokens_per_turn
+        - generated_tokens_per_turn
+        - base_model
+      properties:
+        episodes:
+          type: integer
+          minimum: 1
+          maximum: 10000000
+          description: Total number of episodes (N). Must be between 1 and 10000000.
+        concurrency:
+          type: integer
+          minimum: 1
+          description: Maximum concurrent episodes across all generator replicas (B). Must be positive.
+        prompt_tokens:
+          type: integer
+          minimum: 1
+          description: Initial prompt tokens per episode (P). Must be positive.
+        turns:
+          type: integer
+          minimum: 1
+          maximum: 1024
+          description: Assistant turns per episode (T). Must be between 1 and 1024.
+        added_tokens_per_turn:
+          type: integer
+          description: Tokens added before each later turn (K), including the prior generated tokens followed by environment tokens. Must be at least generated_tokens_per_turn.
+        generated_tokens_per_turn:
+          type: integer
+          minimum: 1
+          description: Tokens generated on each turn (O). Must be positive.
+        distinct_prompts_per_replica:
+          type: integer
+          minimum: 1
+          description: Number of distinct initial prompts among the concurrent episodes of one replica (Q). When episodes_per_prompt is given, defaults to ceil(concurrent episodes / G). Otherwise defaults to 1 when shared_prefix_tokens equals prompt_tokens, and to the concurrent episodes per replica when it does not. Must be 1 when shared_prefix_tokens equals prompt_tokens.
+        episodes_per_prompt:
+          type: integer
+          minimum: 1
+          description: Maximum sibling episodes per initial prompt (G). When distinct_prompts_per_replica is given, defaults to ceil(concurrent episodes / Q). Otherwise defaults to the concurrent episodes per replica when shared_prefix_tokens equals prompt_tokens, and to 1 when it does not. When shared_prefix_tokens equals prompt_tokens, must be at least the concurrent episodes per replica.
+        shared_prefix_tokens:
+          type: integer
+          default: 0
+          description: Leading tokens shared by all distinct initial prompts (H). Defaults to 0; cannot exceed prompt_tokens.
+        base_model:
+          type: string
+          minLength: 1
+          maxLength: 256
+          pattern: ^[A-Za-z0-9._/-]+$
+          example: zai-org/GLM-5.3
+          description: Base model to estimate. The model, GPU type, and training mode must support rollout estimates.
+        compute_config:
+          $ref: '#/components/schemas/RL.ComputeConfigCreateRequest'
+          description: "Compute layout to estimate, as for a model resource. Omitted fields use the model's default GPU type and one generator replica (D); num_generator_replicas must be positive."
+        lora_enabled:
+          type: boolean
+          default: true
+          example: true
+          description: Whether to estimate a resource that hosts LoRA sessions (true, default) or a single full-weight session (false), as in a model resource. The model and GPU type must support rollout estimates in this mode.
+    RL.EstimateRolloutResponse:
+      type: object
+      description: Estimated rollout elapsed time, tokens, throughput, GPU-hours, and price
+      required:
+        - wall_seconds
+        - allocated_gpu_hours
+        - submitted_prompt_tokens
+        - generated_tokens
+        - effective_decode_tokens_per_second
+        - effective_distinct_prompts_per_replica
+        - effective_episodes_per_prompt
+        - effective_shared_prefix_tokens
+        - lora_enabled
+        - billed_gpu_hours
+        - estimated_price
+        - currency
+        - effective_prefill_tokens_per_second
+      properties:
+        wall_seconds:
+          type: number
+          format: double
+          description: Estimated time until all rollout episodes finish, in seconds.
+        allocated_gpu_hours:
+          type: number
+          format: double
+          description: Generator GPUs across all replicas times wall time, in GPU-hours.
+        submitted_prompt_tokens:
+          description: Prompt tokens submitted across all turns. JSON encodes this count as a decimal string.
+          oneOf:
+            - type: string
+            - type: integer
+        generated_tokens:
+          description: Generated output tokens across all turns. JSON encodes this count as a decimal string.
+          oneOf:
+            - type: string
+            - type: integer
+        effective_decode_tokens_per_second:
+          type: number
+          format: double
+          description: generated_tokens divided by wall_seconds.
+        effective_distinct_prompts_per_replica:
+          type: integer
+          description: Effective distinct_prompts_per_replica (Q) for the largest concurrent batch of one replica.
+        effective_episodes_per_prompt:
+          type: integer
+          description: Effective episodes_per_prompt (G) for the largest concurrent batch of one replica.
+        effective_shared_prefix_tokens:
+          type: integer
+          description: Effective shared_prefix_tokens (H).
+        lora_enabled:
+          type: boolean
+          description: Whether the estimate is for a LoRA resource (true) or a full-weight resource (false).
+        billed_gpu_hours:
+          type: number
+          format: double
+          description: "GPUs of the whole model resource, trainer and generator, times wall time, in GPU-hours. A model resource is billed for all of its GPUs while the rollouts run. An approximation measured on single-wave rollouts (concurrency equal to episodes) of up to four turns on one generator replica: actual usage can be up to about 45% higher when episodes share a prompt, and about 20% higher or lower otherwise. Longer multi-turn rollouts with distinct prompts can take longer than estimated."
+        estimated_price:
+          type: number
+          format: double
+          description: "Estimated on-demand price of the rollouts: billed_gpu_hours times the GPU type's list price per GPU-hour, the rate the model resource cost estimate uses. An approximation that inherits the uncertainty of billed_gpu_hours; it is not a quote."
+        currency:
+          type: string
+          example: USD
+          description: Currency of estimated_price.
+        effective_prefill_tokens_per_second:
+          type: number
+          format: double
+          description: submitted_prompt_tokens divided by wall_seconds, counting prompt tokens served from the prompt cache.
     RL.ModelResourcesListResponse:
       type: object
       description: Paginated list of model resources
@@ -20765,12 +20955,12 @@ components:
         - model_resources_id
       properties:
         resume_from_checkpoint_id:
-          description: Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model.
+          description: Checkpoint ID to resume from. LoRA training checkpoints may resume on another model resource with compatible base-model weights. Full-weight training checkpoints require the original base model. Required for generator-only resources, which accept inference checkpoints only.
           type: string
           example: 123e4567-e89b-12d3-a456-426614174000
         lora_config:
           $ref: '#/components/schemas/RL.LoraConfig'
-          description: LoRA adapter configuration for the session
+          description: LoRA adapter configuration for the session. Omit for generator-only resources, which use the checkpoint's LoRA settings.
         model_resources_id:
           type: string
           example: 123e4567-e89b-12d3-a456-426614174000
@@ -21490,7 +21680,7 @@ components:
             - B200_SXM
             - H100_SXM_INF
             - B300_SXM
-            - GB200_SXM
+            - GB200_NVL
         num_gpus:
           description: Number of GPUs to allocate in the cluster. This must be multiple of 8. For example, 8, 16 or 24
           type: integer
@@ -21689,7 +21879,7 @@ components:
             - B200_SXM
             - H100_SXM_INF
             - B300_SXM
-            - GB200_SXM
+            - GB200_NVL
         cluster_name:
           type: string
         duration_hours:
@@ -21914,7 +22104,7 @@ components:
               - B200_SXM
               - H100_SXM_INF
               - B300_SXM
-              - GB200_SXM
+              - GB200_NVL
           error:
             $ref: '#/components/schemas/ErrorResponse'
     RegionListResponse:

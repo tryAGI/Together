@@ -19,7 +19,7 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        Gb200Sxm,
+        Gb200Nvl,
         /// <summary>
         ///
         /// </summary>
@@ -56,7 +56,7 @@ namespace Together
             {
                 GPUClusterCreateRequestCommonGpuType.B200Sxm => "B200_SXM",
                 GPUClusterCreateRequestCommonGpuType.B300Sxm => "B300_SXM",
-                GPUClusterCreateRequestCommonGpuType.Gb200Sxm => "GB200_SXM",
+                GPUClusterCreateRequestCommonGpuType.Gb200Nvl => "GB200_NVL",
                 GPUClusterCreateRequestCommonGpuType.H100Sxm => "H100_SXM",
                 GPUClusterCreateRequestCommonGpuType.H100SxmInf => "H100_SXM_INF",
                 GPUClusterCreateRequestCommonGpuType.H200Sxm => "H200_SXM",
@@ -74,7 +74,7 @@ namespace Together
             {
                 "B200_SXM" => GPUClusterCreateRequestCommonGpuType.B200Sxm,
                 "B300_SXM" => GPUClusterCreateRequestCommonGpuType.B300Sxm,
-                "GB200_SXM" => GPUClusterCreateRequestCommonGpuType.Gb200Sxm,
+                "GB200_NVL" => GPUClusterCreateRequestCommonGpuType.Gb200Nvl,
                 "H100_SXM" => GPUClusterCreateRequestCommonGpuType.H100Sxm,
                 "H100_SXM_INF" => GPUClusterCreateRequestCommonGpuType.H100SxmInf,
                 "H200_SXM" => GPUClusterCreateRequestCommonGpuType.H200Sxm,

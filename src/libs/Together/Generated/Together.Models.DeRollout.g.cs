@@ -117,6 +117,20 @@ namespace Together
         public global::Together.DePauseInfo? PauseInfo { get; set; }
 
         /// <summary>
+        /// Output only. The maxSurge the rollout was created with. Absent when it was not set.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxSurge")]
+        public int? MaxSurge { get; set; }
+
+        /// <summary>
+        /// The maxUnavailable the rollout was created with. Absent when it was not set.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("maxUnavailable")]
+        public int? MaxUnavailable { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -147,6 +161,14 @@ namespace Together
         /// </param>
         /// <param name="pauseInfo">
         /// Output only. Why and when the rollout was paused. Set while a pause is pending or effective (PAUSING, PAUSED, or SYSTEM_PAUSED) and cleared after resume or abort; while PAUSING, pausedAt records when the pause was requested.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="maxSurge">
+        /// Output only. The maxSurge the rollout was created with. Absent when it was not set.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="maxUnavailable">
+        /// The maxUnavailable the rollout was created with. Absent when it was not set.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="id">
@@ -191,6 +213,8 @@ namespace Together
             global::System.DateTime? completedAt,
             string? etag,
             global::Together.DePauseInfo? pauseInfo,
+            int? maxSurge,
+            int? maxUnavailable,
             string id = default!,
             string endpointId = default!,
             string sourceDeploymentId = default!,
@@ -214,6 +238,8 @@ namespace Together
             this.Etag = etag;
             this.Status = status;
             this.PauseInfo = pauseInfo;
+            this.MaxSurge = maxSurge;
+            this.MaxUnavailable = maxUnavailable;
         }
 
         /// <summary>
