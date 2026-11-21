@@ -32,7 +32,7 @@ namespace Together
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
-        public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ToolChoice>? ToolCalls { get; set; }
 
         /// <summary>
         ///
@@ -61,7 +61,7 @@ namespace Together
             global::Together.ChatCompletionChoiceDeltaRole role,
             int? tokenId,
             string? content,
-            global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls,
+            global::System.Collections.Generic.IList<global::Together.ToolChoice>? toolCalls,
             string? reasoning)
         {
             this.TokenId = tokenId;

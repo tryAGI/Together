@@ -111,10 +111,22 @@ namespace Together
         public required string Name { get; set; }
 
         /// <summary>
+        /// PlacementGroup co-locates deployments that share this value onto one cluster, so in-cluster traffic between them stays local. A member that cannot co-locate stays pending. Leave empty for no group
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement_group")]
+        public string? PlacementGroup { get; set; }
+
+        /// <summary>
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("port")]
         public int? Port { get; set; }
+
+        /// <summary>
+        /// Regions confines the deployment to clusters in these regions. Each entry is an exact region or a prefix family like "us-east" that matches every "us-east-*". A deployment that cannot place in any of them stays pending. Empty means any region
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regions")]
+        public global::System.Collections.Generic.IList<string>? Regions { get; set; }
 
         /// <summary>
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
@@ -191,8 +203,14 @@ namespace Together
         /// <param name="modelMounts">
         /// Model weights to preload from Together's model registry into the container. At most one mount is supported, and it cannot be used with volumes.
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster, so in-cluster traffic between them stays local. A member that cannot co-locate stays pending. Leave empty for no group
+        /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions. Each entry is an exact region or a prefix family like "us-east" that matches every "us-east-*". A deployment that cannot place in any of them stays pending. Empty means any region
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
@@ -223,7 +241,9 @@ namespace Together
             double? memory,
             int? minReplicas,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts,
+            string? placementGroup,
             int? port,
+            global::System.Collections.Generic.IList<string>? regions,
             int? storage,
             int? terminationGracePeriodSeconds,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
@@ -244,7 +264,9 @@ namespace Together
             this.MinReplicas = minReplicas;
             this.ModelMounts = modelMounts;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.PlacementGroup = placementGroup;
             this.Port = port;
+            this.Regions = regions;
             this.Storage = storage;
             this.TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
             this.Volumes = volumes;

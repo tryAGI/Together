@@ -155,8 +155,8 @@ namespace Together
         /// Controls which (if any) function is called by the model. By default uses `auto`, which lets the model pick between generating a message or calling a function.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_choice")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice2>))]
-        public global::Together.OneOf<string, global::Together.ToolChoice2>? ToolChoice { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice>))]
+        public global::Together.OneOf<string, global::Together.ToolChoice>? ToolChoice { get; set; }
 
         /// <summary>
         ///
@@ -316,7 +316,7 @@ namespace Together
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall,
             global::Together.ResponseFormat? responseFormat,
             global::System.Collections.Generic.IList<global::Together.ToolsPart>? tools,
-            global::Together.OneOf<string, global::Together.ToolChoice2>? toolChoice,
+            global::Together.OneOf<string, global::Together.ToolChoice>? toolChoice,
             string? compliance,
             object? chatTemplateKwargs,
             string? safetyModel,

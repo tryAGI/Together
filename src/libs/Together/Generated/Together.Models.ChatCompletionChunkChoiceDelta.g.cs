@@ -44,7 +44,7 @@ namespace Together
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_calls")]
-        public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? ToolCalls { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ToolChoice>? ToolCalls { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,7 +70,7 @@ namespace Together
             string? content,
             string? reasoning,
             string? reasoningContent,
-            global::System.Collections.Generic.IList<global::Together.ToolChoice2>? toolCalls)
+            global::System.Collections.Generic.IList<global::Together.ToolChoice>? toolCalls)
         {
             this.TokenId = tokenId;
             this.Role = role;

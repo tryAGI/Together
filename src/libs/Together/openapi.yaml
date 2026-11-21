@@ -12634,83 +12634,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorData"
-      x-codeSamples:
-        - lang: Python
-          label: Together AI SDK (Python)
-          source: |
-            from together import Together
-            import os
-
-            client = Together(
-                api_key=os.environ.get("TOGETHER_API_KEY"),
-            )
-
-            response = client.evals.create(
-                type="classify",
-                parameters={
-                    "judge": {
-                        "model": "openai/gpt-oss-120b",
-                        "model_source": "serverless",
-                        "system_template": "You are an expert evaluator...",
-                    },
-                    "input_data_file_path": "<FILE_ID>",
-                    "labels": ["good", "bad"],
-                    "pass_labels": ["good"],
-                    "model_to_evaluate": "Qwen/Qwen3.5-9B",
-                },
-            )
-
-            print(response.workflow_id)
-        - lang: TypeScript
-          label: Together AI SDK (TypeScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.create({
-              type: 'classify',
-              parameters: {
-                judge: {
-                  model: 'openai/gpt-oss-120b',
-                  model_source: 'serverless',
-                  system_template: 'You are an expert evaluator...',
-                },
-                input_data_file_path: '<FILE_ID>',
-                labels: ['good', 'bad'],
-                pass_labels: ['good'],
-                model_to_evaluate: 'Qwen/Qwen3.5-9B',
-              },
-            });
-
-            console.log(response.workflow_id);
-        - lang: JavaScript
-          label: Together AI SDK (JavaScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.create({
-              type: 'classify',
-              parameters: {
-                judge: {
-                  model: 'openai/gpt-oss-120b',
-                  model_source: 'serverless',
-                  system_template: 'You are an expert evaluator...',
-                },
-                input_data_file_path: '<FILE_ID>',
-                labels: ['good', 'bad'],
-                pass_labels: ['good'],
-                model_to_evaluate: 'Qwen/Qwen3.5-9B',
-              },
-            });
-
-            console.log(response.workflow_id);
     get:
       tags:
         - evaluation
@@ -12751,49 +12674,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorData"
-      x-codeSamples:
-        - lang: Python
-          label: Together AI SDK (Python)
-          source: |
-            from together import Together
-            import os
-
-            client = Together(
-                api_key=os.environ.get("TOGETHER_API_KEY"),
-            )
-
-            response = client.evals.list()
-
-            for job in response:
-                print(job.workflow_id)
-        - lang: TypeScript
-          label: Together AI SDK (TypeScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.list();
-
-            for (const job of response) {
-              console.log(job.workflow_id);
-            }
-        - lang: JavaScript
-          label: Together AI SDK (JavaScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.list();
-
-            for (const job of response) {
-              console.log(job.workflow_id);
-            }
   /v1/evaluation/model-list:
     get:
       tags:
@@ -12833,48 +12713,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorData"
-      x-codeSamples:
-        - lang: Python
-          label: Together AI SDK (Python)
-          source: |
-            from together import Together
-
-            client = Together()
-
-            # The SDK has no dedicated method for this endpoint yet, so call it with
-            # the client's generic GET helper.
-            models = client.get(
-                "/v1/evaluation/model-list",
-                cast_to=object,
-                options={"params": {"model_source": "serverless"}},
-            )
-            print(models)
-        - lang: TypeScript
-          label: Together AI SDK (TypeScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together();
-
-            // The SDK has no dedicated method for this endpoint yet, so call it with
-            // the client's generic GET helper.
-            const models = await client.get("/v1/evaluation/model-list", {
-              query: { model_source: "serverless" },
-            });
-            console.log(models);
-        - lang: JavaScript
-          label: Together AI SDK (JavaScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together();
-
-            // The SDK has no dedicated method for this endpoint yet, so call it with
-            // the client's generic GET helper.
-            const models = await client.get("/v1/evaluation/model-list", {
-              query: { model_source: "serverless" },
-            });
-            console.log(models);
   /v1/evaluation/{id}:
     get:
       tags:
@@ -12907,44 +12745,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorData"
-      x-codeSamples:
-        - lang: Python
-          label: Together AI SDK (Python)
-          source: |
-            from together import Together
-            import os
-
-            client = Together(
-                api_key=os.environ.get("TOGETHER_API_KEY"),
-            )
-
-            response = client.evals.retrieve('<EVALUATION_ID>')
-
-            print(response)
-        - lang: TypeScript
-          label: Together AI SDK (TypeScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.retrieve('<EVALUATION_ID>');
-
-            console.log(response);
-        - lang: JavaScript
-          label: Together AI SDK (JavaScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.retrieve('<EVALUATION_ID>');
-
-            console.log(response);
   /v1/evaluation/{id}/status:
     get:
       tags:
@@ -12988,47 +12788,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorData"
-      x-codeSamples:
-        - lang: Python
-          label: Together AI SDK (Python)
-          source: |
-            from together import Together
-            import os
-
-            client = Together(
-                api_key=os.environ.get("TOGETHER_API_KEY"),
-            )
-
-            response = client.evals.status('<EVALUATION_ID>')
-
-            print(response.status)
-            print(response.results)
-        - lang: TypeScript
-          label: Together AI SDK (TypeScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.status('<EVALUATION_ID>');
-
-            console.log(response.status);
-            console.log(response.results);
-        - lang: JavaScript
-          label: Together AI SDK (JavaScript)
-          source: |
-            import Together from "together-ai";
-
-            const client = new Together({
-              apiKey: process.env.TOGETHER_API_KEY,
-            });
-
-            const response = await client.evals.status('<EVALUATION_ID>');
-
-            console.log(response.status);
-            console.log(response.results);
   /v1/realtime:
     get:
       tags: ['Audio']
@@ -14082,6 +13841,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorData'
+      x-codeSamples:
+        - lang: Python
+          label: Together AI SDK (Python)
+          source: |
+            from together import Together
+
+            client = Together()
+
+            estimate = client.post_training.rollouts.estimate(
+                base_model="Qwen/Qwen3.5-9B",
+                episodes=1024,
+                concurrency=64,
+                prompt_tokens=2000,
+                turns=4,
+                added_tokens_per_turn=1500,
+                generated_tokens_per_turn=500,
+                compute_config={"gpu_type": "B200-SXM", "num_generator_replicas": 1},
+            )
+            print(estimate.wall_seconds, estimate.estimated_price, estimate.currency)
   /v1/rl/training-sessions:
     get:
       summary: List training sessions
@@ -26657,11 +26435,19 @@ components:
           maxLength: 63
           minLength: 4
           type: string
+        placement_group:
+          description: PlacementGroup co-locates deployments that share this value onto one cluster, so in-cluster traffic between them stays local. A member that cannot co-locate stays pending. Leave empty for no group
+          type: string
         port:
           description: Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
           maximum: 65535
           minimum: 1
           type: integer
+        regions:
+          description: Regions confines the deployment to clusters in these regions. Each entry is an exact region or a prefix family like "us-east" that matches every "us-east-*". A deployment that cannot place in any of them stays pending. Empty means any region
+          items:
+            type: string
+          type: array
         storage:
           description: Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
           maximum: 400
@@ -26826,12 +26612,20 @@ components:
         object:
           description: The object type, which is always `deployment`.
           const: deployment
+        placement_group:
+          description: PlacementGroup co-locates deployments that share this value onto one cluster. Empty when the deployment is not in a group
+          type: string
         port:
           description: Port is the container port that the deployment exposes
           type: integer
         ready_replicas:
           description: ReadyReplicas is the current number of replicas that are in the Ready state
           type: integer
+        regions:
+          description: Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Empty means any region
+          items:
+            type: string
+          type: array
         replica_events:
           additionalProperties:
             $ref: "#/components/schemas/ReplicaEvent"
@@ -26901,12 +26695,20 @@ components:
         max_replicas:
           description: Maximum number of replicas configured for this revision.
           type: integer
+        placement_group:
+          description: Placement group this revision co-locates into. Empty when the revision is not in a group.
+          type: string
         port:
           description: Container port exposed by this revision.
           type: integer
         protocol:
           description: Network protocol served by the deployment revision.
           type: string
+        regions:
+          description: Regions this revision is confined to (exact region or a prefix family like "us-east"). Empty means any region.
+          items:
+            type: string
+          type: array
         capacity_type:
           description: Capacity behavior for replicas above reserved capacity.
           enum:
@@ -27313,11 +27115,19 @@ components:
           maxLength: 100
           minLength: 1
           type: string
+        placement_group:
+          description: PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
+          type: string
         port:
           description: Port is the container port your application listens on (e.g., 8080 for web servers)
           maximum: 65535
           minimum: 1
           type: integer
+        regions:
+          description: Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
+          items:
+            type: string
+          type: array
         storage:
           description: Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
           maximum: 400

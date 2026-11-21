@@ -132,6 +132,12 @@ namespace Together
         public string? Object { get; set; }
 
         /// <summary>
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. Empty when the deployment is not in a group
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement_group")]
+        public string? PlacementGroup { get; set; }
+
+        /// <summary>
         /// Port is the container port that the deployment exposes
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("port")]
@@ -142,6 +148,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ready_replicas")]
         public int? ReadyReplicas { get; set; }
+
+        /// <summary>
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Empty means any region
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regions")]
+        public global::System.Collections.Generic.IList<string>? Regions { get; set; }
 
         /// <summary>
         /// ReplicaEvents is a mapping of replica names or IDs to their status events
@@ -249,11 +261,17 @@ namespace Together
         /// <param name="object">
         /// The object type, which is always `deployment`.
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. Empty when the deployment is not in a group
+        /// </param>
         /// <param name="port">
         /// Port is the container port that the deployment exposes
         /// </param>
         /// <param name="readyReplicas">
         /// ReadyReplicas is the current number of replicas that are in the Ready state
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Empty means any region
         /// </param>
         /// <param name="replicaEvents">
         /// ReplicaEvents is a mapping of replica names or IDs to their status events
@@ -297,8 +315,10 @@ namespace Together
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts,
             string? name,
             string? @object,
+            string? placementGroup,
             int? port,
             int? readyReplicas,
+            global::System.Collections.Generic.IList<string>? regions,
             global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>? replicaEvents,
             global::Together.DeploymentStatus? status,
             int? storage,
@@ -326,8 +346,10 @@ namespace Together
             this.ModelMounts = modelMounts;
             this.Name = name;
             this.Object = @object;
+            this.PlacementGroup = placementGroup;
             this.Port = port;
             this.ReadyReplicas = readyReplicas;
+            this.Regions = regions;
             this.ReplicaEvents = replicaEvents;
             this.Status = status;
             this.Storage = storage;
