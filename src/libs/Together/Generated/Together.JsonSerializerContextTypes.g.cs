@@ -2098,11 +2098,11 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Together.ToolChoice2>? Type515 { get; set; }
+        public global::System.Collections.Generic.IList<global::Together.ToolChoice>? Type515 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Together.ToolChoice2? Type516 { get; set; }
+        public global::Together.ToolChoice? Type516 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -2198,7 +2198,7 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::Together.OneOf<string, global::Together.ToolChoice2>? Type540 { get; set; }
+        public global::Together.OneOf<string, global::Together.ToolChoice>? Type540 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -4123,7 +4123,7 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.List<global::Together.ToolChoice2>? ListType95 { get; set; }
+        public global::System.Collections.Generic.List<global::Together.ToolChoice>? ListType95 { get; set; }
         /// <summary>
         ///
         /// </summary>

@@ -6,7 +6,7 @@ namespace Together
     /// <summary>
     ///
     /// </summary>
-    public sealed partial class ToolChoice2
+    public sealed partial class ToolChoice
     {
         /// <summary>
         ///
@@ -43,7 +43,7 @@ namespace Together
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolChoice2" /> class.
+        /// Initializes a new instance of the <see cref="ToolChoice" /> class.
         /// </summary>
         /// <param name="index"></param>
         /// <param name="id"></param>
@@ -52,7 +52,7 @@ namespace Together
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ToolChoice2(
+        public ToolChoice(
             double index,
             string id,
             global::Together.ToolChoiceFunction function,
@@ -65,9 +65,9 @@ namespace Together
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ToolChoice2" /> class.
+        /// Initializes a new instance of the <see cref="ToolChoice" /> class.
         /// </summary>
-        public ToolChoice2()
+        public ToolChoice()
         {
         }
 

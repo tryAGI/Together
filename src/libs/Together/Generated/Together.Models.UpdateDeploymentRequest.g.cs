@@ -108,10 +108,22 @@ namespace Together
         public string? Name { get; set; }
 
         /// <summary>
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement_group")]
+        public string? PlacementGroup { get; set; }
+
+        /// <summary>
         /// Port is the container port your application listens on (e.g., 8080 for web servers)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("port")]
         public int? Port { get; set; }
+
+        /// <summary>
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regions")]
+        public global::System.Collections.Generic.IList<string>? Regions { get; set; }
 
         /// <summary>
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
@@ -188,8 +200,14 @@ namespace Together
         /// <param name="name">
         /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
+        /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers)
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
@@ -220,7 +238,9 @@ namespace Together
             int? minReplicas,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts,
             string? name,
+            string? placementGroup,
             int? port,
+            global::System.Collections.Generic.IList<string>? regions,
             int? storage,
             int? terminationGracePeriodSeconds,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
@@ -241,7 +261,9 @@ namespace Together
             this.MinReplicas = minReplicas;
             this.ModelMounts = modelMounts;
             this.Name = name;
+            this.PlacementGroup = placementGroup;
             this.Port = port;
+            this.Regions = regions;
             this.Storage = storage;
             this.TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
             this.Volumes = volumes;

@@ -48,28 +48,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.evals.create(<br/>
-        ///     type="classify",<br/>
-        ///     parameters={<br/>
-        ///         "judge": {<br/>
-        ///             "model": "openai/gpt-oss-120b",<br/>
-        ///             "model_source": "serverless",<br/>
-        ///             "system_template": "You are an expert evaluator...",<br/>
-        ///         },<br/>
-        ///         "input_data_file_path": "&lt;FILE_ID&gt;",<br/>
-        ///         "labels": ["good", "bad"],<br/>
-        ///         "pass_labels": ["good"],<br/>
-        ///         "model_to_evaluate": "Qwen/Qwen3.5-9B",<br/>
-        ///     },<br/>
-        /// )<br/>
-        /// print(response.workflow_id)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.EvaluationResponse> CreateEvaluationJobAsync(
 
             global::Together.EvaluationTypedRequest request,
@@ -92,28 +70,6 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
-        /// <remarks>
-        /// from together import Together<br/>
-        /// import os<br/>
-        /// client = Together(<br/>
-        ///     api_key=os.environ.get("TOGETHER_API_KEY"),<br/>
-        /// )<br/>
-        /// response = client.evals.create(<br/>
-        ///     type="classify",<br/>
-        ///     parameters={<br/>
-        ///         "judge": {<br/>
-        ///             "model": "openai/gpt-oss-120b",<br/>
-        ///             "model_source": "serverless",<br/>
-        ///             "system_template": "You are an expert evaluator...",<br/>
-        ///         },<br/>
-        ///         "input_data_file_path": "&lt;FILE_ID&gt;",<br/>
-        ///         "labels": ["good", "bad"],<br/>
-        ///         "pass_labels": ["good"],<br/>
-        ///         "model_to_evaluate": "Qwen/Qwen3.5-9B",<br/>
-        ///     },<br/>
-        /// )<br/>
-        /// print(response.workflow_id)
-        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.EvaluationResponse>> CreateEvaluationJobAsResponseAsync(
 
             global::Together.EvaluationTypedRequest request,
@@ -390,13 +346,13 @@ namespace Together
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::Together.ErrorData.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -407,7 +363,7 @@ namespace Together
 
                                 throw global::Together.ApiException<global::Together.ErrorData>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_400 is { Length: > 0 } ? __content_400 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
@@ -427,13 +383,13 @@ namespace Together
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::Together.ErrorData.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = __content_500 is not { Length: > 0 } ? null : global::Together.ErrorData.FromJson(__content_500, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::Together.ErrorData.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = __content_500 is not { Length: > 0 } ? null : global::Together.ErrorData.FromJson(__content_500, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -444,7 +400,7 @@ namespace Together
 
                                 throw global::Together.ApiException<global::Together.ErrorData>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_500 is { Length: > 0 } ? __content_500 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
                                     responseBody: __content_500,
                                     responseObject: __value_500,
@@ -487,7 +443,7 @@ namespace Together
                                 {
                                     throw global::Together.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -532,7 +488,7 @@ namespace Together
 
                                     throw global::Together.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(

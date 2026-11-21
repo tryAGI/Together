@@ -105,8 +105,14 @@ namespace Together
         /// <param name="name">
         /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
+        /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers)
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
@@ -138,7 +144,9 @@ namespace Together
             int? minReplicas = default,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts = default,
             string? name = default,
+            string? placementGroup = default,
             int? port = default,
+            global::System.Collections.Generic.IList<string>? regions = default,
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
