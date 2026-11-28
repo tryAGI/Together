@@ -99,17 +99,30 @@ namespace Together
         /// <param name="modelMounts">
         /// Model weights to preload from Together's model registry into the container. At most one mount is supported, and it cannot be used with volumes.
         /// </param>
+        /// <param name="modelName">
+        /// ModelName is the model this deployment handles traffic for. Defaults to name of the deployment. A value used by one project as a deployment or model name is unavailable to other projects; within a project, any number of deployments may share a model name
+        /// </param>
         /// <param name="name">
         /// Name is the unique identifier for your deployment. Must contain lowercase letters, numbers, or hyphens, start with a lowercase letter or number, and be 4-63 characters. It cannot be changed.
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster, so in-cluster traffic between them stays local. A member that cannot co-locate stays pending. Leave empty for no group
+        /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions. Each entry is an exact region or a prefix family like "us-east" that matches every "us-east-*". A deployment that cannot place in any of them stays pending. Empty means any region
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
         /// </param>
         /// <param name="terminationGracePeriodSeconds">
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </param>
+        /// <param name="trafficWeight">
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model.<br/>
+        /// Default Value: 100
         /// </param>
         /// <param name="volumes">
         /// Volumes is a list of volume mounts to attach to the container. Each mount must reference an existing volume by name
@@ -134,9 +147,13 @@ namespace Together
             double? memory = default,
             int? minReplicas = default,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts = default,
+            string? modelName = default,
+            string? placementGroup = default,
             int? port = default,
+            global::System.Collections.Generic.IList<string>? regions = default,
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
+            int? trafficWeight = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

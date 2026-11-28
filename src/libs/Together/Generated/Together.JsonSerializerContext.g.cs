@@ -80,6 +80,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntry))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeDeploymentAdapterStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatus))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntryServingState), TypeInfoPropertyName = "DeAdapterEntryServingState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState), TypeInfoPropertyName = "DeDeploymentAdapterStatusState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListAdaptersResponse))]
@@ -147,6 +148,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPerformanceBenchmarks))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode), TypeInfoPropertyName = "DeSupportedModelDeploymentProfileAdapterMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPricing))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPrice))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceUnit), TypeInfoPropertyName = "DeSupportedModelUnitPriceUnit2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceTier), TypeInfoPropertyName = "DeSupportedModelUnitPriceTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelInputModalitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie), TypeInfoPropertyName = "DeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelOutputModalitie>))]
@@ -158,6 +162,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelCapabilitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelCapabilitie), TypeInfoPropertyName = "DeSupportedModelCapabilitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelStatus), TypeInfoPropertyName = "DeSupportedModelStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelUnitPrice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelDeploymentProfile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListEndpointEventsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeEndpointEvent>))]
@@ -504,11 +509,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RerankResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.RerankResponseResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RerankResponseResult))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RerankResponseResultDocument))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UsageData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinishReason), TypeInfoPropertyName = "FinishReason2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -523,6 +523,11 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RerankResponseResultDocument))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.UsageData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.FinishReason), TypeInfoPropertyName = "FinishReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.LogprobsPart))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.PromptPartItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.PromptPartItem))]
@@ -546,8 +551,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<global::Together.FinishReason?, object>), TypeInfoPropertyName = "AllOfFinishReasonObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDelta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDeltaRole), TypeInfoPropertyName = "CompletionChoiceDeltaRole2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolChoice2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoice2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolChoice>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ChatCompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionChoicesDataItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionMessage))]
@@ -571,7 +576,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestResponseFormatDiscriminatorType), TypeInfoPropertyName = "ChatCompletionRequestResponseFormatDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolsPart>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolsPart))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.ToolChoice2>), TypeInfoPropertyName = "OneOfStringToolChoice22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.ToolChoice>), TypeInfoPropertyName = "OneOfStringToolChoice2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoningEffort), TypeInfoPropertyName = "ChatCompletionRequestReasoningEffort2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoning))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatTextType), TypeInfoPropertyName = "ResponseFormatTextType2")]
@@ -760,31 +765,81 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BatchJobWithWarning))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BatchJob))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BatchJobStatus), TypeInfoPropertyName = "BatchJobStatus2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequest))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequestType), TypeInfoPropertyName = "EvaluationTypedRequestType2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>), TypeInfoPropertyName = "OneOfEvaluationClassifyParametersEvaluationScoreParametersEvaluationCompareParameters2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationClassifyParameters))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreParameters))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationCompareParameters))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfig))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelOrString), TypeInfoPropertyName = "EvaluationModelOrString2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationModelRequest, string>), TypeInfoPropertyName = "OneOfEvaluationModelRequestString2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequest))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfigModelSource), TypeInfoPropertyName = "EvaluationJudgeModelConfigModelSource2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequestModelSource), TypeInfoPropertyName = "EvaluationModelRequestModelSource2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponse))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponseStatus), TypeInfoPropertyName = "EvaluationResponseStatus2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJob))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobType), TypeInfoPropertyName = "EvaluationJobType2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobStatus), TypeInfoPropertyName = "EvaluationJobStatus2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EvaluationJobStatusUpdate>))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobStatusUpdate))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>), TypeInfoPropertyName = "OneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResultsEvaluationJobResults2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationClassifyResults))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResults))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationCompareResults))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobResults))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationScoreResultsAggregatedScores))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateVideoBody))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoOutputFormat), TypeInfoPropertyName = "VideoOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoMedia))]
@@ -952,11 +1007,15 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsSupportedResponseDetailedModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetFineTunesModelsLimitsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.BatchJob>))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.EvaluationJob>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetModelListResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus), TypeInfoPropertyName = "GetEvaluationJobStatusAndResultsResponseStatus2")]
+    #pragma warning restore CS0618
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationModelListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationStatusResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationStatusResponseStatus), TypeInfoPropertyName = "GetEvaluationStatusResponseStatus2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>), TypeInfoPropertyName = "OneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResults2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointVisibility?), TypeInfoPropertyName = "NullableDeEndpointVisibility2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointEndpointType?), TypeInfoPropertyName = "NullableDeEndpointEndpointType2")]
@@ -969,6 +1028,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeEndpointUpdateVisibility?), TypeInfoPropertyName = "NullableDeEndpointUpdateVisibility2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement?), TypeInfoPropertyName = "NullableDePlacement2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentTrafficMode?), TypeInfoPropertyName = "NullableDeDeploymentTrafficMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntryServingState?), TypeInfoPropertyName = "NullableDeAdapterEntryServingState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState?), TypeInfoPropertyName = "NullableDeDeploymentAdapterStatusState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeMetricRuleName?), TypeInfoPropertyName = "NullableDeMetricRuleName2")]
@@ -989,6 +1049,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeABExperimentMemberRole?), TypeInfoPropertyName = "NullableDeABExperimentMemberRole2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode?), TypeInfoPropertyName = "NullableDeSupportedModelDeploymentProfileAdapterMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceUnit?), TypeInfoPropertyName = "NullableDeSupportedModelUnitPriceUnit2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceTier?), TypeInfoPropertyName = "NullableDeSupportedModelUnitPriceTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelOutputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelProduct?), TypeInfoPropertyName = "NullableDeSupportedModelProduct2")]
@@ -1011,14 +1073,6 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeConfigDeploymentFramework?), TypeInfoPropertyName = "NullableDeConfigDeploymentFramework2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCertificationTarget?), TypeInfoPropertyName = "NullableDeCertificationTarget2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeCertificationCertificationType?), TypeInfoPropertyName = "NullableDeCertificationCertificationType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsType?), TypeInfoPropertyName = "NullableDeModelWeightsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsSpeculatorMechanism?), TypeInfoPropertyName = "NullableDeModelWeightsSpeculatorMechanism2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsDraftSpeculatorType?), TypeInfoPropertyName = "NullableDeModelWeightsDraftSpeculatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType?), TypeInfoPropertyName = "NullableDeScalingPolicyType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy?), TypeInfoPropertyName = "NullableDeScalingRulesSelectPolicy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName?), TypeInfoPropertyName = "NullableDeScalingMetricName2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType?), TypeInfoPropertyName = "NullableDeScalingMetricType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlWeightSyncType?), TypeInfoPropertyName = "NullableRlWeightSyncType2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1033,6 +1087,14 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_e050a39467d446fd")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>?), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_f38c2c0c365e74fc")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>>), TypeInfoPropertyName = "ChatCompletionUserMessageContentMultimodalItemInputAudio_6724b54fa98b04fd")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsType?), TypeInfoPropertyName = "NullableDeModelWeightsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsSpeculatorMechanism?), TypeInfoPropertyName = "NullableDeModelWeightsSpeculatorMechanism2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeModelWeightsDraftSpeculatorType?), TypeInfoPropertyName = "NullableDeModelWeightsDraftSpeculatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingPolicyType?), TypeInfoPropertyName = "NullableDeScalingPolicyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingRulesSelectPolicy?), TypeInfoPropertyName = "NullableDeScalingRulesSelectPolicy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricName?), TypeInfoPropertyName = "NullableDeScalingMetricName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeScalingMetricType?), TypeInfoPropertyName = "NullableDeScalingMetricType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlWeightSyncType?), TypeInfoPropertyName = "NullableRlWeightSyncType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, int?>?), TypeInfoPropertyName = "NullableOneOfStringInt322")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigGpuType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.RlComputeConfigCreateRequestGpuType?), TypeInfoPropertyName = "NullableRlComputeConfigCreateRequestGpuType2")]
@@ -1099,7 +1161,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestFunctionCallEnum?), TypeInfoPropertyName = "NullableChatCompletionRequestFunctionCallEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormat?), TypeInfoPropertyName = "NullableResponseFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestResponseFormatDiscriminatorType?), TypeInfoPropertyName = "NullableChatCompletionRequestResponseFormatDiscriminatorType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.ToolChoice2>?), TypeInfoPropertyName = "NullableOneOfStringToolChoice22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<string, global::Together.ToolChoice>?), TypeInfoPropertyName = "NullableOneOfStringToolChoice2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ChatCompletionRequestReasoningEffort?), TypeInfoPropertyName = "NullableChatCompletionRequestReasoningEffort2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatTextType?), TypeInfoPropertyName = "NullableResponseFormatTextType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ResponseFormatJsonObjectType?), TypeInfoPropertyName = "NullableResponseFormatJsonObjectType2")]
@@ -1178,16 +1240,36 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>?), TypeInfoPropertyName = "NullableOneOfLinearLRSchedulerArgsCosineLRSchedulerArgs2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateBatchRequestEndpoint?), TypeInfoPropertyName = "NullableCreateBatchRequestEndpoint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.BatchJobStatus?), TypeInfoPropertyName = "NullableBatchJobStatus2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationTypedRequestType?), TypeInfoPropertyName = "NullableEvaluationTypedRequestType2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>?), TypeInfoPropertyName = "NullableOneOfEvaluationClassifyParametersEvaluationScoreParametersEvaluationCompareParameters2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelOrString?), TypeInfoPropertyName = "NullableEvaluationModelOrString2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationModelRequest, string>?), TypeInfoPropertyName = "NullableOneOfEvaluationModelRequestString2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJudgeModelConfigModelSource?), TypeInfoPropertyName = "NullableEvaluationJudgeModelConfigModelSource2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationModelRequestModelSource?), TypeInfoPropertyName = "NullableEvaluationModelRequestModelSource2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationResponseStatus?), TypeInfoPropertyName = "NullableEvaluationResponseStatus2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobType?), TypeInfoPropertyName = "NullableEvaluationJobType2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.EvaluationJobStatus?), TypeInfoPropertyName = "NullableEvaluationJobStatus2")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>?), TypeInfoPropertyName = "NullableOneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResultsEvaluationJobResults2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoOutputFormat?), TypeInfoPropertyName = "NullableVideoOutputFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.VideoStatus?), TypeInfoPropertyName = "NullableVideoStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AnyOf<double?, global::Together.VideoFrameImageInputFrame?>?), TypeInfoPropertyName = "NullableAnyOfDoubleVideoFrameImageInputFrame2")]
@@ -1251,8 +1333,10 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>?), TypeInfoPropertyName = "NullableOneOfCreateFineTunesEstimatePriceResponseVariant1CreateFineTunesEstimatePriceResponseVariant22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CreateFineTunesEstimatePriceResponseVariant2UnavailableReason?), TypeInfoPropertyName = "NullableCreateFineTunesEstimatePriceResponseVariant2UnavailableReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.FineTunePreviewMessageError, global::Together.FineTunePreviewDetailError>?), TypeInfoPropertyName = "NullableOneOfFineTunePreviewMessageErrorFineTunePreviewDetailError2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus?), TypeInfoPropertyName = "NullableGetEvaluationJobStatusAndResultsResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.GetEvaluationStatusResponseStatus?), TypeInfoPropertyName = "NullableGetEvaluationStatusResponseStatus2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.OneOf<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>?), TypeInfoPropertyName = "NullableOneOfEvaluationClassifyResultsEvaluationScoreResultsEvaluationCompareResults2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DePublicEndpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeEndpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeTrafficSplitEntry>))]
@@ -1281,6 +1365,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelProduct>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelFeature>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelCapabilitie>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelUnitPrice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelDeploymentProfile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeEndpointEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeListRevisionsResponseRevision>))]
@@ -1347,7 +1432,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.PromptPartItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CompletionChoice>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolChoice2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolChoice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ChatCompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ChatCompletionMessageParam>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolsPart>))]
@@ -1371,7 +1456,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.FineTuneCheckpoint>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.QuantizationEvent>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.QuantizationJob>))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJobStatusUpdate>))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoFrameImageInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.VideoRef>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.OneOf<string, global::Together.AudioRef>>))]
@@ -1397,7 +1484,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.Dictionary<string, double>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.GetFineTunesModelsSupportedResponseDetailedModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.BatchJob>))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.EvaluationJob>))]
+    #pragma warning restore CS0618
     internal sealed partial class SourceGenerationContextChunk2 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1479,7 +1568,7 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<global::Together.FinishReason?, object>());
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<object, global::Together.LogprobsPart>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice2>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.ChatCompletionUserMessageContentMultimodalItemVariant1, global::Together.ChatCompletionUserMessageContentMultimodalItemVariant2, global::Together.ChatCompletionUserMessageContentMultimodalItemVideo, global::Together.ChatCompletionUserMessageContentMultimodalItemAudio, global::Together.ChatCompletionUserMessageContentMultimodalItemInputAudio>());
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>());
             options.Converters.Add(new global::Together.JsonConverters.AnyOfJsonConverter<global::Together.AudioSpeechRequestModel?, string>());
@@ -1497,10 +1586,18 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.TrainingMethodSFT, global::Together.TrainingMethodDPO>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<bool?, global::Together.TrainingMethodSFTTrainOnInputs?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.LinearLRSchedulerArgs, global::Together.CosineLRSchedulerArgs>());
+            #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyParameters, global::Together.EvaluationScoreParameters, global::Together.EvaluationCompareParameters>());
+            #pragma warning restore CS0618
+            #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>());
+            #pragma warning restore CS0618
+            #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>());
+            #pragma warning restore CS0618
+            #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults, global::Together.EvaluationJobResults>());
+            #pragma warning restore CS0618
             options.Converters.Add(new global::Together.JsonConverters.AnyOfJsonConverter<double?, global::Together.VideoFrameImageInputFrame?>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.VideoRef>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.AudioRef>());
@@ -1516,7 +1613,9 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.FullTrainingType, global::Together.LoRATrainingType>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.CreateFineTunesEstimatePriceResponseVariant1, global::Together.CreateFineTunesEstimatePriceResponseVariant2>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.FineTunePreviewMessageError, global::Together.FineTunePreviewDetailError>());
+            #pragma warning disable CS0618 // Converter references a deprecated API model.
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationClassifyResults, global::Together.EvaluationScoreResults, global::Together.EvaluationCompareResults>());
+            #pragma warning restore CS0618
             options.Converters.Add(new global::Together.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
@@ -1566,6 +1665,10 @@ namespace Together
                     || typeToConvert == typeof(global::Together.DeDeploymentTrafficMode)
 
                     || typeToConvert == typeof(global::Together.DeDeploymentTrafficMode?)
+
+                    || typeToConvert == typeof(global::Together.DeAdapterEntryServingState)
+
+                    || typeToConvert == typeof(global::Together.DeAdapterEntryServingState?)
 
                     || typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState)
 
@@ -1642,6 +1745,14 @@ namespace Together
                     || typeToConvert == typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode)
 
                     || typeToConvert == typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode?)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit?)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier?)
 
                     || typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie)
 
@@ -2411,9 +2522,9 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.CreateFineTunesEstimatePriceResponseVariant2UnavailableReason?)
 
-                    || typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus)
+                    || typeToConvert == typeof(global::Together.GetEvaluationStatusResponseStatus)
 
-                    || typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus?);
+                    || typeToConvert == typeof(global::Together.GetEvaluationStatusResponseStatus?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -2488,6 +2599,16 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.DeDeploymentTrafficMode?))
                 {
                     return new global::Together.JsonConverters.DeDeploymentTrafficModeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeAdapterEntryServingState))
+                {
+                    return new global::Together.JsonConverters.DeAdapterEntryServingStateJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeAdapterEntryServingState?))
+                {
+                    return new global::Together.JsonConverters.DeAdapterEntryServingStateNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState))
@@ -2678,6 +2799,26 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode?))
                 {
                     return new global::Together.JsonConverters.DeSupportedModelDeploymentProfileAdapterModeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceUnitJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit?))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceUnitNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceTierJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier?))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceTierNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie))
@@ -4600,14 +4741,14 @@ namespace Together
                     return new global::Together.JsonConverters.CreateFineTunesEstimatePriceResponseVariant2UnavailableReasonNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus))
+                if (typeToConvert == typeof(global::Together.GetEvaluationStatusResponseStatus))
                 {
-                    return new global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusJsonConverter();
+                    return new global::Together.JsonConverters.GetEvaluationStatusResponseStatusJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Together.GetEvaluationJobStatusAndResultsResponseStatus?))
+                if (typeToConvert == typeof(global::Together.GetEvaluationStatusResponseStatus?))
                 {
-                    return new global::Together.JsonConverters.GetEvaluationJobStatusAndResultsResponseStatusNullableJsonConverter();
+                    return new global::Together.JsonConverters.GetEvaluationStatusResponseStatusNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

@@ -6,54 +6,49 @@ namespace Together
     /// <summary>
     ///
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class EvaluationClassifyResults
     {
         /// <summary>
-        /// Number of failed generations.<br/>
-        /// Example: 0
+        ///
         /// </summary>
-        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_fail_count")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? GenerationFailCount { get; set; }
 
         /// <summary>
-        /// Number of failed judge generations<br/>
-        /// Example: 0
+        ///
         /// </summary>
-        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge_fail_count")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? JudgeFailCount { get; set; }
 
         /// <summary>
-        /// Number of invalid labels<br/>
-        /// Example: 0
+        ///
         /// </summary>
-        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("invalid_label_count")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? InvalidLabelCount { get; set; }
 
         /// <summary>
-        /// Data File ID<br/>
-        /// Example: file-1234-aefd
+        ///
         /// </summary>
-        /// <example>file-1234-aefd</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_file_id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public string? ResultFileId { get; set; }
 
         /// <summary>
-        /// Pecentage of pass labels.<br/>
-        /// Example: 10
+        ///
         /// </summary>
-        /// <example>10</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_percentage")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? PassPercentage { get; set; }
 
         /// <summary>
-        /// JSON string representing label counts<br/>
-        /// Example: {"yes": 10, "no": 0}
+        ///
         /// </summary>
-        /// <example>{"yes": 10, "no": 0}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("label_counts")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public string? LabelCounts { get; set; }
 
         /// <summary>
@@ -65,30 +60,12 @@ namespace Together
         /// <summary>
         /// Initializes a new instance of the <see cref="EvaluationClassifyResults" /> class.
         /// </summary>
-        /// <param name="generationFailCount">
-        /// Number of failed generations.<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="judgeFailCount">
-        /// Number of failed judge generations<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="invalidLabelCount">
-        /// Number of invalid labels<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="resultFileId">
-        /// Data File ID<br/>
-        /// Example: file-1234-aefd
-        /// </param>
-        /// <param name="passPercentage">
-        /// Pecentage of pass labels.<br/>
-        /// Example: 10
-        /// </param>
-        /// <param name="labelCounts">
-        /// JSON string representing label counts<br/>
-        /// Example: {"yes": 10, "no": 0}
-        /// </param>
+        /// <param name="generationFailCount"></param>
+        /// <param name="judgeFailCount"></param>
+        /// <param name="invalidLabelCount"></param>
+        /// <param name="resultFileId"></param>
+        /// <param name="passPercentage"></param>
+        /// <param name="labelCounts"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

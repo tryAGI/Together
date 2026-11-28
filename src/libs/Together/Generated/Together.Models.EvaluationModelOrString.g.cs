@@ -10,7 +10,7 @@ namespace Together
     public readonly partial struct EvaluationModelOrString : global::System.IEquatable<EvaluationModelOrString>
     {
         /// <summary>
-        /// Column name in the input dataset containing pre-generated responses
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? EvaluationModelOrStringVariant1 { get; init; }

@@ -102,17 +102,29 @@ namespace Together
         /// <param name="modelMounts">
         /// Replacement model weights to mount into the deployment. At most one mount is supported, and it cannot be used with volumes.
         /// </param>
+        /// <param name="modelName">
+        /// ModelName changes the model this deployment handles traffic for. Can be omitted. Send the deployment name to reset it
+        /// </param>
         /// <param name="name">
-        /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
+        /// Name is the deployment's current name. Deployment names cannot be changed after creation
+        /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
         /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers)
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
         /// </param>
         /// <param name="terminationGracePeriodSeconds">
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </param>
+        /// <param name="trafficWeight">
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model.
         /// </param>
         /// <param name="volumes">
         /// Volumes is a list of volume mounts to attach to the container. Replaces all existing volumes.
@@ -137,10 +149,14 @@ namespace Together
             double? memory = default,
             int? minReplicas = default,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts = default,
+            string? modelName = default,
             string? name = default,
+            string? placementGroup = default,
             int? port = default,
+            global::System.Collections.Generic.IList<string>? regions = default,
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
+            int? trafficWeight = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

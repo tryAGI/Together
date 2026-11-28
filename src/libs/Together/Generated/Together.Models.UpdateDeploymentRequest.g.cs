@@ -102,16 +102,34 @@ namespace Together
         public global::System.Collections.Generic.IList<global::Together.ModelMount>? ModelMounts { get; set; }
 
         /// <summary>
-        /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
+        /// ModelName changes the model this deployment handles traffic for. Can be omitted. Send the deployment name to reset it
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        public string? ModelName { get; set; }
+
+        /// <summary>
+        /// Name is the deployment's current name. Deployment names cannot be changed after creation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement_group")]
+        public string? PlacementGroup { get; set; }
 
         /// <summary>
         /// Port is the container port your application listens on (e.g., 8080 for web servers)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("port")]
         public int? Port { get; set; }
+
+        /// <summary>
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regions")]
+        public global::System.Collections.Generic.IList<string>? Regions { get; set; }
 
         /// <summary>
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
@@ -124,6 +142,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("termination_grace_period_seconds")]
         public int? TerminationGracePeriodSeconds { get; set; }
+
+        /// <summary>
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("traffic_weight")]
+        public int? TrafficWeight { get; set; }
 
         /// <summary>
         /// Volumes is a list of volume mounts to attach to the container. Replaces all existing volumes.
@@ -185,17 +209,29 @@ namespace Together
         /// <param name="modelMounts">
         /// Replacement model weights to mount into the deployment. At most one mount is supported, and it cannot be used with volumes.
         /// </param>
+        /// <param name="modelName">
+        /// ModelName changes the model this deployment handles traffic for. Can be omitted. Send the deployment name to reset it
+        /// </param>
         /// <param name="name">
-        /// Name is the new unique identifier for your deployment. Must contain only alphanumeric characters, underscores, or hyphens (1-100 characters)
+        /// Name is the deployment's current name. Deployment names cannot be changed after creation
+        /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. A member that cannot co-locate stays pending. Send an empty string to clear the group; omit to leave it unchanged
         /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers)
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Send an empty array to clear the region pin; omit to leave it unchanged
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
         /// </param>
         /// <param name="terminationGracePeriodSeconds">
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </param>
+        /// <param name="trafficWeight">
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model.
         /// </param>
         /// <param name="volumes">
         /// Volumes is a list of volume mounts to attach to the container. Replaces all existing volumes.
@@ -219,10 +255,14 @@ namespace Together
             double? memory,
             int? minReplicas,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts,
+            string? modelName,
             string? name,
+            string? placementGroup,
             int? port,
+            global::System.Collections.Generic.IList<string>? regions,
             int? storage,
             int? terminationGracePeriodSeconds,
+            int? trafficWeight,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
         {
             this.Args = args;
@@ -240,10 +280,14 @@ namespace Together
             this.Memory = memory;
             this.MinReplicas = minReplicas;
             this.ModelMounts = modelMounts;
+            this.ModelName = modelName;
             this.Name = name;
+            this.PlacementGroup = placementGroup;
             this.Port = port;
+            this.Regions = regions;
             this.Storage = storage;
             this.TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            this.TrafficWeight = trafficWeight;
             this.Volumes = volumes;
         }
 

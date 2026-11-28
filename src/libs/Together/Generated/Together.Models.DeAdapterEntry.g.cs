@@ -23,7 +23,7 @@ namespace Together
         public required string DesiredRevisionId { get; set; }
 
         /// <summary>
-        /// Per-cluster adapter load state reported by the controller.
+        /// Per-cluster adapter load state reported by the controller for the clusters the deployment is placed on. Empty while the deployment is stopped or being torn down, and briefly after AddAdapter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("perCluster")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -56,6 +56,15 @@ namespace Together
         public required string Id { get; set; }
 
         /// <summary>
+        /// Whether the adapter can serve requests right now. INACTIVE means the deployment is stopped, scaled to zero, or being torn down; LOADING means a placed cluster has not finished loading it; READY means every placed cluster serves it; FAILED means a placed cluster failed to load it.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("servingState")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.DeAdapterEntryServingStateJsonConverter))]
+        public global::Together.DeAdapterEntryServingState ServingState { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -71,7 +80,7 @@ namespace Together
         /// Adapter revision pinned on the deployment.
         /// </param>
         /// <param name="perCluster">
-        /// Per-cluster adapter load state reported by the controller.
+        /// Per-cluster adapter load state reported by the controller for the clusters the deployment is placed on. Empty while the deployment is stopped or being torn down, and briefly after AddAdapter.
         /// </param>
         /// <param name="etag">
         /// Row-level etag required for UpdateAdapter and RemoveAdapter.
@@ -85,6 +94,10 @@ namespace Together
         /// <param name="desiredRevision">
         /// Resource name of the adapter model revision pinned on the deployment, using projects/{projectId}/models/{adapterModelId}/revisions/{revisionId}.
         /// </param>
+        /// <param name="servingState">
+        /// Whether the adapter can serve requests right now. INACTIVE means the deployment is stopped, scaled to zero, or being torn down; LOADING means a placed cluster has not finished loading it; READY means every placed cluster serves it; FAILED means a placed cluster failed to load it.<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -95,7 +108,8 @@ namespace Together
             string etag,
             string id,
             string? adapterModel,
-            string? desiredRevision)
+            string? desiredRevision,
+            global::Together.DeAdapterEntryServingState servingState = default!)
         {
             this.AdapterModelId = adapterModelId ?? throw new global::System.ArgumentNullException(nameof(adapterModelId));
             this.DesiredRevisionId = desiredRevisionId ?? throw new global::System.ArgumentNullException(nameof(desiredRevisionId));
@@ -104,6 +118,7 @@ namespace Together
             this.AdapterModel = adapterModel;
             this.DesiredRevision = desiredRevision;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.ServingState = servingState;
         }
 
         /// <summary>

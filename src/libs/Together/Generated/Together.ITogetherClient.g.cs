@@ -143,11 +143,6 @@ namespace Together
         /// <summary>
         ///
         /// </summary>
-        public EvaluationClient Evaluation { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
         public FilesClient Files { get; }
 
         /// <summary>

@@ -176,7 +176,7 @@ namespace Together
             global::Together.OneOf<global::Together.ChatCompletionRequestFunctionCallEnum?, global::Together.ChatCompletionRequestFunctionCallEnum2>? functionCall = default,
             global::Together.ResponseFormat? responseFormat = default,
             global::System.Collections.Generic.IList<global::Together.ToolsPart>? tools = default,
-            global::Together.OneOf<string, global::Together.ToolChoice2>? toolChoice = default,
+            global::Together.OneOf<string, global::Together.ToolChoice>? toolChoice = default,
             string? compliance = default,
             object? chatTemplateKwargs = default,
             string? safetyModel = default,

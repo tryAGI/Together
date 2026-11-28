@@ -32,6 +32,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntry))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeDeploymentAdapterStatus>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatus))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntryServingState), TypeInfoPropertyName = "DeAdapterEntryServingState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState), TypeInfoPropertyName = "DeDeploymentAdapterStatusState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeListAdaptersResponse))]
@@ -67,6 +68,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DePlacement?), TypeInfoPropertyName = "NullableDePlacement2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentTrafficMode?), TypeInfoPropertyName = "NullableDeDeploymentTrafficMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeAdapterEntryServingState?), TypeInfoPropertyName = "NullableDeAdapterEntryServingState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeDeploymentAdapterStatusState?), TypeInfoPropertyName = "NullableDeDeploymentAdapterStatusState2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeInlinePlacementConstraint?), TypeInfoPropertyName = "NullableDeInlinePlacementConstraint2")]
@@ -177,6 +179,10 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.DeDeploymentTrafficMode?)
 
+                    || typeToConvert == typeof(global::Together.DeAdapterEntryServingState)
+
+                    || typeToConvert == typeof(global::Together.DeAdapterEntryServingState?)
+
                     || typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState)
 
                     || typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState?)
@@ -218,6 +224,16 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.DeDeploymentTrafficMode?))
                 {
                     return new global::Together.JsonConverters.DeDeploymentTrafficModeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeAdapterEntryServingState))
+                {
+                    return new global::Together.JsonConverters.DeAdapterEntryServingStateJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeAdapterEntryServingState?))
+                {
+                    return new global::Together.JsonConverters.DeAdapterEntryServingStateNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeDeploymentAdapterStatusState))

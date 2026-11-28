@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -6,6 +8,7 @@ namespace Together
     /// <summary>
     ///
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class EvaluationCompareParameters
     {
         /// <summary>
@@ -13,36 +16,38 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
 
         /// <summary>
-        /// Either an EvaluationModelRequest for generation or a string column name from the dataset (when responses are pre-generated). When both model_a and model_b are EvaluationModelRequest objects, their inference runs execute in parallel to reduce total wall-clock time.
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_a")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>))]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Together.OneOf<global::Together.EvaluationModelRequest, string>? ModelA { get; set; }
 
         /// <summary>
-        /// Either an EvaluationModelRequest for generation or a string column name from the dataset (when responses are pre-generated). When both model_a and model_b are EvaluationModelRequest objects, their inference runs execute in parallel to reduce total wall-clock time.
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_b")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.OneOfJsonConverter<global::Together.EvaluationModelRequest, string>))]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Together.OneOf<global::Together.EvaluationModelRequest, string>? ModelB { get; set; }
 
         /// <summary>
-        /// Data file ID<br/>
-        /// Example: file-01234567890123456789
+        ///
         /// </summary>
-        /// <example>file-01234567890123456789</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public required string InputDataFilePath { get; set; }
 
         /// <summary>
-        /// When false (default), the judge runs twice per sample: once with model A's response first (original order) and once with model B's response first (flipped order). The two verdicts are reconciled to cancel out position bias. When true, only the original-order pass is run, halving judge cost and latency at the expense of position-bias correction. The result file will not contain flipped-order judge fields when this is true.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_position_bias_correction")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? DisablePositionBiasCorrection { get; set; }
 
         /// <summary>
@@ -55,18 +60,10 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationCompareParameters" /> class.
         /// </summary>
         /// <param name="judge"></param>
-        /// <param name="inputDataFilePath">
-        /// Data file ID<br/>
-        /// Example: file-01234567890123456789
-        /// </param>
-        /// <param name="modelA">
-        /// Either an EvaluationModelRequest for generation or a string column name from the dataset (when responses are pre-generated). When both model_a and model_b are EvaluationModelRequest objects, their inference runs execute in parallel to reduce total wall-clock time.
-        /// </param>
-        /// <param name="modelB">
-        /// Either an EvaluationModelRequest for generation or a string column name from the dataset (when responses are pre-generated). When both model_a and model_b are EvaluationModelRequest objects, their inference runs execute in parallel to reduce total wall-clock time.
-        /// </param>
+        /// <param name="inputDataFilePath"></param>
+        /// <param name="modelA"></param>
+        /// <param name="modelB"></param>
         /// <param name="disablePositionBiasCorrection">
-        /// When false (default), the judge runs twice per sample: once with model A's response first (original order) and once with model B's response first (flipped order). The two verdicts are reconciled to cancel out position bias. When true, only the original-order pass is run, halving judge cost and latency at the expense of position-bias correction. The result file will not contain flipped-order judge fields when this is true.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

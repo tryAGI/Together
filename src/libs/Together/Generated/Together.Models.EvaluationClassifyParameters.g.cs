@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Together
@@ -6,6 +8,7 @@ namespace Together
     /// <summary>
     ///
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class EvaluationClassifyParameters
     {
         /// <summary>
@@ -13,24 +16,23 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge")]
         [global::System.Text.Json.Serialization.JsonRequired]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public required global::Together.EvaluationJudgeModelConfig Judge { get; set; }
 
         /// <summary>
-        /// List of possible classification labels<br/>
-        /// Example: [yes, no]
+        ///
         /// </summary>
-        /// <example>[yes, no]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public required global::System.Collections.Generic.IList<string> Labels { get; set; }
 
         /// <summary>
-        /// List of labels that are considered passing<br/>
-        /// Example: [yes]
+        ///
         /// </summary>
-        /// <example>[yes]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("pass_labels")]
         [global::System.Text.Json.Serialization.JsonRequired]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public required global::System.Collections.Generic.IList<string> PassLabels { get; set; }
 
         /// <summary>
@@ -38,15 +40,15 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_to_evaluate")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Together.JsonConverters.EvaluationModelOrStringJsonConverter))]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Together.EvaluationModelOrString? ModelToEvaluate { get; set; }
 
         /// <summary>
-        /// Data file ID<br/>
-        /// Example: file-1234-aefd
+        ///
         /// </summary>
-        /// <example>file-1234-aefd</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_data_file_path")]
         [global::System.Text.Json.Serialization.JsonRequired]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public required string InputDataFilePath { get; set; }
 
         /// <summary>
@@ -59,19 +61,9 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationClassifyParameters" /> class.
         /// </summary>
         /// <param name="judge"></param>
-        /// <param name="labels">
-        /// List of possible classification labels<br/>
-        /// Example: [yes, no]
-        /// </param>
-        /// <param name="passLabels">
-        /// List of labels that are considered passing<br/>
-        /// Example: [yes]
-        /// </param>
-        /// <param name="inputDataFilePath">
-        /// Data file ID<br/>
-        /// Example: file-1234-aefd
-        /// </param>
-        /// <param name="modelToEvaluate"></param>
+        /// <param name="labels"></param>
+        /// <param name="passLabels"></param>
+        /// <param name="inputDataFilePath"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -79,13 +71,11 @@ namespace Together
             global::Together.EvaluationJudgeModelConfig judge,
             global::System.Collections.Generic.IList<string> labels,
             global::System.Collections.Generic.IList<string> passLabels,
-            string inputDataFilePath,
-            global::Together.EvaluationModelOrString? modelToEvaluate)
+            string inputDataFilePath)
         {
             this.Judge = judge ?? throw new global::System.ArgumentNullException(nameof(judge));
             this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
             this.PassLabels = passLabels ?? throw new global::System.ArgumentNullException(nameof(passLabels));
-            this.ModelToEvaluate = modelToEvaluate;
             this.InputDataFilePath = inputDataFilePath ?? throw new global::System.ArgumentNullException(nameof(inputDataFilePath));
         }
 

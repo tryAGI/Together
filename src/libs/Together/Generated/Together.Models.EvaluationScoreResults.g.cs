@@ -6,48 +6,49 @@ namespace Together
     /// <summary>
     ///
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class EvaluationScoreResults
     {
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aggregated_scores")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Together.EvaluationScoreResultsAggregatedScores? AggregatedScores { get; set; }
 
         /// <summary>
-        /// Number of failed generations.<br/>
-        /// Example: 0
+        ///
         /// </summary>
-        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_fail_count")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? GenerationFailCount { get; set; }
 
         /// <summary>
-        /// Number of failed judge generations<br/>
-        /// Example: 0
+        ///
         /// </summary>
-        /// <example>0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("judge_fail_count")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? JudgeFailCount { get; set; }
 
         /// <summary>
-        /// number of invalid scores generated from model
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("invalid_score_count")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? InvalidScoreCount { get; set; }
 
         /// <summary>
-        /// number of failed samples generated from model
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("failed_samples")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public double? FailedSamples { get; set; }
 
         /// <summary>
-        /// Data File ID<br/>
-        /// Example: file-1234-aefd
+        ///
         /// </summary>
-        /// <example>file-1234-aefd</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_file_id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public string? ResultFileId { get; set; }
 
         /// <summary>
@@ -60,24 +61,11 @@ namespace Together
         /// Initializes a new instance of the <see cref="EvaluationScoreResults" /> class.
         /// </summary>
         /// <param name="aggregatedScores"></param>
-        /// <param name="generationFailCount">
-        /// Number of failed generations.<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="judgeFailCount">
-        /// Number of failed judge generations<br/>
-        /// Example: 0
-        /// </param>
-        /// <param name="invalidScoreCount">
-        /// number of invalid scores generated from model
-        /// </param>
-        /// <param name="failedSamples">
-        /// number of failed samples generated from model
-        /// </param>
-        /// <param name="resultFileId">
-        /// Data File ID<br/>
-        /// Example: file-1234-aefd
-        /// </param>
+        /// <param name="generationFailCount"></param>
+        /// <param name="judgeFailCount"></param>
+        /// <param name="invalidScoreCount"></param>
+        /// <param name="failedSamples"></param>
+        /// <param name="resultFileId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

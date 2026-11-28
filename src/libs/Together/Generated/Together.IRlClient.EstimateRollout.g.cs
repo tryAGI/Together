@@ -12,6 +12,21 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// estimate = client.post_training.rollouts.estimate(<br/>
+        ///     base_model="Qwen/Qwen3.5-9B",<br/>
+        ///     episodes=1024,<br/>
+        ///     concurrency=64,<br/>
+        ///     prompt_tokens=2000,<br/>
+        ///     turns=4,<br/>
+        ///     added_tokens_per_turn=1500,<br/>
+        ///     generated_tokens_per_turn=500,<br/>
+        ///     compute_config={"gpu_type": "B200-SXM", "num_generator_replicas": 1},<br/>
+        /// )<br/>
+        /// print(estimate.wall_seconds, estimate.estimated_price, estimate.currency)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.RlEstimateRolloutResponse> EstimateRolloutAsync(
 
             global::Together.RlEstimateRolloutRequest request,
@@ -25,6 +40,21 @@ namespace Together
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Together.ApiException"></exception>
+        /// <remarks>
+        /// from together import Together<br/>
+        /// client = Together()<br/>
+        /// estimate = client.post_training.rollouts.estimate(<br/>
+        ///     base_model="Qwen/Qwen3.5-9B",<br/>
+        ///     episodes=1024,<br/>
+        ///     concurrency=64,<br/>
+        ///     prompt_tokens=2000,<br/>
+        ///     turns=4,<br/>
+        ///     added_tokens_per_turn=1500,<br/>
+        ///     generated_tokens_per_turn=500,<br/>
+        ///     compute_config={"gpu_type": "B200-SXM", "num_generator_replicas": 1},<br/>
+        /// )<br/>
+        /// print(estimate.wall_seconds, estimate.estimated_price, estimate.currency)
+        /// </remarks>
         global::System.Threading.Tasks.Task<global::Together.AutoSDKHttpResponse<global::Together.RlEstimateRolloutResponse>> EstimateRolloutAsResponseAsync(
 
             global::Together.RlEstimateRolloutRequest request,
