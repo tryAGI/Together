@@ -2,6 +2,17 @@
   "Examples": [
     {
       "Order": 1,
+      "Title": "Identify the caller",
+      "Slug": "whoami",
+      "Description": "Returns identity information for the authenticated caller. Accepts project API keys and user session JWTs. The response \u0060type\u0060 indicates which fields are present.\nFor project-scoped credentials, \u0060project.slug\u0060 can be used with an endpoint slug as \u0060\u003Cproject_slug\u003E/\u003Cendpoint_slug\u003E\u0060 to form the \u0060model\u0060 value in dedicated endpoint inference calls.",
+      "Language": "csharp",
+      "Code": "using var client = new TogetherClient(apiKey);\nvar response = await client.Account.WhoamiAsync();\n\n// Example response:\n// {\n//   \u0022type\u0022: \u0022project_api_key\u0022,\n//   \u0022api_key\u0022: {\n//     \u0022id\u0022: \u0022key_CTnK8fQyRz3uVbW6aHd2M\u0022\n//   },\n//   \u0022organization\u0022: {\n//     \u0022id\u0022: \u0022org_CWx4pLm9sTe7YjN2kQa5B\u0022,\n//     \u0022name\u0022: \u0022Acme\u0022\n//   },\n//   \u0022project\u0022: {\n//     \u0022id\u0022: \u0022proj_CczF9KYFantA84sNYDTJd\u0022,\n//     \u0022name\u0022: \u0022Acme Production\u0022,\n//     \u0022slug\u0022: \u0022acme-production-4821\u0022\n//   }\n// }",
+      "Format": "sdk",
+      "OperationId": "whoami",
+      "Setup": "This example assumes \u0060using Together;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 2,
       "Title": "Create job",
       "Slug": "create-job",
       "Description": "Create a fine-tuning job with the provided model and training data.",
@@ -12,7 +23,7 @@
       "Setup": null
     },
     {
-      "Order": 2,
+      "Order": 3,
       "Title": "Cancel job",
       "Slug": "cancel-job",
       "Description": "Cancel a currently running fine-tuning job. Returns a FinetuneResponseTruncated object.",
@@ -23,7 +34,7 @@
       "Setup": null
     },
     {
-      "Order": 3,
+      "Order": 4,
       "Title": "Get metrics",
       "Slug": "get-metrics",
       "Description": "Retrieves recorded training metrics for a fine-tuning job in chronological order. All query parameters are optional: omit them to retrieve all metrics.",
@@ -34,7 +45,7 @@
       "Setup": null
     },
     {
-      "Order": 4,
+      "Order": 5,
       "Title": "Create a rollout",
       "Slug": "rolloutservice-createrollout",
       "Description": "Creates a rollout in the pending state without shifting traffic. Start the rollout in a separate request after reviewing its strategy and metric gates.",
@@ -45,7 +56,7 @@
       "Setup": null
     },
     {
-      "Order": 5,
+      "Order": 6,
       "Title": "Preview rollout defaults",
       "Slug": "rolloutservice-previewrolloutdefaults",
       "Description": "Returns the values a create request would pick for any field left unset, plus the capacity context needed to display them, without creating a rollout. Responses are display state only and re-validated authoritatively at create and start; do not copy response values back into a create request.",

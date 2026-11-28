@@ -4,8 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Current status of the job<br/>
-    /// Example: completed
+    ///
     /// </summary>
     public enum EvaluationJobStatus
     {

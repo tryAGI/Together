@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// The parameters used for this evaluation
+    ///
     /// </summary>
     public sealed partial class EvaluationJobParameters
     {

@@ -368,13 +368,13 @@ namespace Together
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -385,7 +385,7 @@ namespace Together
 
                                 throw global::Together.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_400 is { Length: > 0 } ? __content_400 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
@@ -405,13 +405,13 @@ namespace Together
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
+                                        __value_500 = __content_500 is not { Length: > 0 } ? null : (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
+                                        __value_500 = __content_500 is not { Length: > 0 } ? null : (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -422,7 +422,7 @@ namespace Together
 
                                 throw global::Together.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_500 is { Length: > 0 } ? __content_500 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
                                     responseBody: __content_500,
                                     responseObject: __value_500,
@@ -465,7 +465,7 @@ namespace Together
                                 {
                                     throw global::Together.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -510,7 +510,7 @@ namespace Together
 
                                     throw global::Together.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -576,17 +576,30 @@ namespace Together
         /// <param name="modelMounts">
         /// Model weights to preload from Together's model registry into the container. At most one mount is supported, and it cannot be used with volumes.
         /// </param>
+        /// <param name="modelName">
+        /// ModelName is the model this deployment handles traffic for. Defaults to name of the deployment. A value used by one project as a deployment or model name is unavailable to other projects; within a project, any number of deployments may share a model name
+        /// </param>
         /// <param name="name">
         /// Name is the unique identifier for your deployment. Must contain lowercase letters, numbers, or hyphens, start with a lowercase letter or number, and be 4-63 characters. It cannot be changed.
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster, so in-cluster traffic between them stays local. A member that cannot co-locate stays pending. Leave empty for no group
+        /// </param>
         /// <param name="port">
         /// Port is the container port your application listens on (e.g., 8080 for web servers). Required if your application serves traffic
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions. Each entry is an exact region or a prefix family like "us-east" that matches every "us-east-*". A deployment that cannot place in any of them stays pending. Empty means any region
         /// </param>
         /// <param name="storage">
         /// Storage is the amount of ephemeral disk storage to allocate per container instance (e.g., 10 = 10GiB)
         /// </param>
         /// <param name="terminationGracePeriodSeconds">
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </param>
+        /// <param name="trafficWeight">
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model.<br/>
+        /// Default Value: 100
         /// </param>
         /// <param name="volumes">
         /// Volumes is a list of volume mounts to attach to the container. Each mount must reference an existing volume by name
@@ -611,9 +624,13 @@ namespace Together
             double? memory = default,
             int? minReplicas = default,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts = default,
+            string? modelName = default,
+            string? placementGroup = default,
             int? port = default,
+            global::System.Collections.Generic.IList<string>? regions = default,
             int? storage = default,
             int? terminationGracePeriodSeconds = default,
+            int? trafficWeight = default,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes = default,
             global::Together.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -635,10 +652,14 @@ namespace Together
                 Memory = memory,
                 MinReplicas = minReplicas,
                 ModelMounts = modelMounts,
+                ModelName = modelName,
                 Name = name,
+                PlacementGroup = placementGroup,
                 Port = port,
+                Regions = regions,
                 Storage = storage,
                 TerminationGracePeriodSeconds = terminationGracePeriodSeconds,
+                TrafficWeight = trafficWeight,
                 Volumes = volumes,
             };
 

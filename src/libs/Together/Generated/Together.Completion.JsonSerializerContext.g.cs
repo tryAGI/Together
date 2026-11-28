@@ -48,8 +48,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.AllOf<global::Together.FinishReason?, object>), TypeInfoPropertyName = "AllOfFinishReasonObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDelta))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.CompletionChoiceDeltaRole), TypeInfoPropertyName = "CompletionChoiceDeltaRole2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolChoice2>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoice2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.ToolChoice>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoice))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.StreamSentinelData), TypeInfoPropertyName = "StreamSentinelData2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceType), TypeInfoPropertyName = "ToolChoiceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ToolChoiceFunction))]
@@ -72,7 +72,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.PromptPartItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CompletionChoicesDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.CompletionChoice>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolChoice2>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.ToolChoice>))]
     internal sealed partial class CompletionSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -143,7 +143,7 @@ namespace Together
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>());
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<global::Together.FinishReason?, object>());
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<object, global::Together.LogprobsPart>());
-            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice2>());
+            options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<string, global::Together.ToolChoice>());
             options.Converters.Add(new global::Together.JsonConverters.AllOfJsonConverter<global::Together.UsageData, object>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());
             options.Converters.Add(new global::Together.JsonConverters.OneOfJsonConverter<byte[], string>());

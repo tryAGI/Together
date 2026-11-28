@@ -44,6 +44,12 @@ namespace Together
         public required int MaxReplicas { get; set; }
 
         /// <summary>
+        /// Placement group this revision co-locates into. Empty when the revision is not in a group.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement_group")]
+        public string? PlacementGroup { get; set; }
+
+        /// <summary>
         /// Container port exposed by this revision.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("port")]
@@ -56,6 +62,12 @@ namespace Together
         [global::System.Text.Json.Serialization.JsonPropertyName("protocol")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Protocol { get; set; }
+
+        /// <summary>
+        /// Regions this revision is confined to (exact region or a prefix family like "us-east"). Empty means any region.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regions")]
+        public global::System.Collections.Generic.IList<string>? Regions { get; set; }
 
         /// <summary>
         /// Capacity behavior for replicas above reserved capacity.
@@ -218,6 +230,12 @@ namespace Together
         /// <param name="createdAt">
         /// Time when this revision was created.
         /// </param>
+        /// <param name="placementGroup">
+        /// Placement group this revision co-locates into. Empty when the revision is not in a group.
+        /// </param>
+        /// <param name="regions">
+        /// Regions this revision is confined to (exact region or a prefix family like "us-east"). Empty means any region.
+        /// </param>
         /// <param name="autoscaling">
         /// Autoscaling configuration captured for this revision.
         /// </param>
@@ -249,6 +267,8 @@ namespace Together
             int storage,
             string healthCheckPath,
             global::System.DateTime createdAt,
+            string? placementGroup,
+            global::System.Collections.Generic.IList<string>? regions,
             global::Together.OneOf<global::Together.HTTPAutoscalingConfig, global::Together.QueueAutoscalingConfig, global::Together.CustomMetricAutoscalingConfig>? autoscaling,
             int? terminationGracePeriodSeconds,
             string @object = "revision")
@@ -258,8 +278,10 @@ namespace Together
             this.Image = image ?? throw new global::System.ArgumentNullException(nameof(image));
             this.MinReplicas = minReplicas;
             this.MaxReplicas = maxReplicas;
+            this.PlacementGroup = placementGroup;
             this.Port = port;
             this.Protocol = protocol ?? throw new global::System.ArgumentNullException(nameof(protocol));
+            this.Regions = regions;
             this.CapacityType = capacityType;
             this.Command = command ?? throw new global::System.ArgumentNullException(nameof(command));
             this.Args = args ?? throw new global::System.ArgumentNullException(nameof(args));

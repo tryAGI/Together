@@ -120,6 +120,12 @@ namespace Together
         public global::System.Collections.Generic.IList<global::Together.ModelMount>? ModelMounts { get; set; }
 
         /// <summary>
+        /// ModelName is the model the deployment handles traffic for. Equals name unless set
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        public string? ModelName { get; set; }
+
+        /// <summary>
         /// Name is the name of the deployment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -132,6 +138,12 @@ namespace Together
         public string? Object { get; set; }
 
         /// <summary>
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. Empty when the deployment is not in a group
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("placement_group")]
+        public string? PlacementGroup { get; set; }
+
+        /// <summary>
         /// Port is the container port that the deployment exposes
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("port")]
@@ -142,6 +154,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ready_replicas")]
         public int? ReadyReplicas { get; set; }
+
+        /// <summary>
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Empty means any region
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("regions")]
+        public global::System.Collections.Generic.IList<string>? Regions { get; set; }
 
         /// <summary>
         /// ReplicaEvents is a mapping of replica names or IDs to their status events
@@ -167,6 +185,12 @@ namespace Together
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("termination_grace_period_seconds")]
         public int? TerminationGracePeriodSeconds { get; set; }
+
+        /// <summary>
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("traffic_weight")]
+        public int? TrafficWeight { get; set; }
 
         /// <summary>
         /// UpdatedAt is the ISO8601 timestamp when this deployment was last updated
@@ -243,17 +267,26 @@ namespace Together
         /// <param name="modelMounts">
         /// Model weights mounted into this deployment, including the pinned revisions.
         /// </param>
+        /// <param name="modelName">
+        /// ModelName is the model the deployment handles traffic for. Equals name unless set
+        /// </param>
         /// <param name="name">
         /// Name is the name of the deployment
         /// </param>
         /// <param name="object">
         /// The object type, which is always `deployment`.
         /// </param>
+        /// <param name="placementGroup">
+        /// PlacementGroup co-locates deployments that share this value onto one cluster. Empty when the deployment is not in a group
+        /// </param>
         /// <param name="port">
         /// Port is the container port that the deployment exposes
         /// </param>
         /// <param name="readyReplicas">
         /// ReadyReplicas is the current number of replicas that are in the Ready state
+        /// </param>
+        /// <param name="regions">
+        /// Regions confines the deployment to clusters in these regions (exact region or a prefix family like "us-east"). Empty means any region
         /// </param>
         /// <param name="replicaEvents">
         /// ReplicaEvents is a mapping of replica names or IDs to their status events
@@ -266,6 +299,9 @@ namespace Together
         /// </param>
         /// <param name="terminationGracePeriodSeconds">
         /// TerminationGracePeriodSeconds is the time in seconds to wait for graceful shutdown before forcefully terminating the replica
+        /// </param>
+        /// <param name="trafficWeight">
+        /// TrafficWeight is the deployment's share of its model's traffic, relative to the other deployments of that model
         /// </param>
         /// <param name="updatedAt">
         /// UpdatedAt is the ISO8601 timestamp when this deployment was last updated
@@ -295,14 +331,18 @@ namespace Together
             double? memory,
             int? minReplicas,
             global::System.Collections.Generic.IList<global::Together.ModelMount>? modelMounts,
+            string? modelName,
             string? name,
             string? @object,
+            string? placementGroup,
             int? port,
             int? readyReplicas,
+            global::System.Collections.Generic.IList<string>? regions,
             global::System.Collections.Generic.Dictionary<string, global::Together.ReplicaEvent>? replicaEvents,
             global::Together.DeploymentStatus? status,
             int? storage,
             int? terminationGracePeriodSeconds,
+            int? trafficWeight,
             global::System.DateTime? updatedAt,
             global::System.Collections.Generic.IList<global::Together.VolumeMount>? volumes)
         {
@@ -324,14 +364,18 @@ namespace Together
             this.Memory = memory;
             this.MinReplicas = minReplicas;
             this.ModelMounts = modelMounts;
+            this.ModelName = modelName;
             this.Name = name;
             this.Object = @object;
+            this.PlacementGroup = placementGroup;
             this.Port = port;
             this.ReadyReplicas = readyReplicas;
+            this.Regions = regions;
             this.ReplicaEvents = replicaEvents;
             this.Status = status;
             this.Storage = storage;
             this.TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            this.TrafficWeight = trafficWeight;
             this.UpdatedAt = updatedAt;
             this.Volumes = volumes;
         }

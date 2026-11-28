@@ -26,6 +26,9 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPerformanceBenchmarks))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode), TypeInfoPropertyName = "DeSupportedModelDeploymentProfileAdapterMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelPricing))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPrice))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceUnit), TypeInfoPropertyName = "DeSupportedModelUnitPriceUnit2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceTier), TypeInfoPropertyName = "DeSupportedModelUnitPriceTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelInputModalitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie), TypeInfoPropertyName = "DeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelOutputModalitie>))]
@@ -37,6 +40,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelCapabilitie>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelCapabilitie), TypeInfoPropertyName = "DeSupportedModelCapabilitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelStatus), TypeInfoPropertyName = "DeSupportedModelStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelUnitPrice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Together.DeSupportedModelDeploymentProfile>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.ErrorDataError))]
@@ -47,6 +51,8 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode?), TypeInfoPropertyName = "NullableDeSupportedModelDeploymentProfileAdapterMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceUnit?), TypeInfoPropertyName = "NullableDeSupportedModelUnitPriceUnit2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelUnitPriceTier?), TypeInfoPropertyName = "NullableDeSupportedModelUnitPriceTier2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelInputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelInputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelOutputModalitie?), TypeInfoPropertyName = "NullableDeSupportedModelOutputModalitie2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Together.DeSupportedModelProduct?), TypeInfoPropertyName = "NullableDeSupportedModelProduct2")]
@@ -63,6 +69,7 @@ namespace Together
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelProduct>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelFeature>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelCapabilitie>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelUnitPrice>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Together.DeSupportedModelDeploymentProfile>))]
     internal sealed partial class SupportedModelsServiceSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
@@ -157,6 +164,14 @@ namespace Together
 
                     || typeToConvert == typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode?)
 
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit?)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier)
+
+                    || typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier?)
+
                     || typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie)
 
                     || typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie?)
@@ -206,6 +221,26 @@ namespace Together
                 if (typeToConvert == typeof(global::Together.DeSupportedModelDeploymentProfileAdapterMode?))
                 {
                     return new global::Together.JsonConverters.DeSupportedModelDeploymentProfileAdapterModeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceUnitJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceUnit?))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceUnitNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceTierJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Together.DeSupportedModelUnitPriceTier?))
+                {
+                    return new global::Together.JsonConverters.DeSupportedModelUnitPriceTierNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Together.DeSupportedModelInputModalitie))

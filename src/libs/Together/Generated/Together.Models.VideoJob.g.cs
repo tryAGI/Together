@@ -50,6 +50,12 @@ namespace Together
         public double? CompletedAt { get; set; }
 
         /// <summary>
+        /// Estimated Unix timestamp (seconds) for when the job is expected to finish. This is an estimate, not a guarantee. It is only returned when creating a video and an estimate is available.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("estimated_done_at")]
+        public double? EstimatedDoneAt { get; set; }
+
+        /// <summary>
         /// The resolution of the generated video.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("size")]
@@ -108,6 +114,9 @@ namespace Together
         /// <param name="completedAt">
         /// Unix timestamp (seconds) for when the job completed, if finished.
         /// </param>
+        /// <param name="estimatedDoneAt">
+        /// Estimated Unix timestamp (seconds) for when the job is expected to finish. This is an estimate, not a guarantee. It is only returned when creating a video and an estimate is available.
+        /// </param>
         /// <param name="error">
         /// Error payload that explains why generation failed, if applicable.
         /// </param>
@@ -126,6 +135,7 @@ namespace Together
             string seconds,
             string? @object,
             double? completedAt,
+            double? estimatedDoneAt,
             global::Together.VideoJobError? error,
             global::Together.VideoJobOutputs? outputs)
         {
@@ -135,6 +145,7 @@ namespace Together
             this.Status = status;
             this.CreatedAt = createdAt;
             this.CompletedAt = completedAt;
+            this.EstimatedDoneAt = estimatedDoneAt;
             this.Size = size ?? throw new global::System.ArgumentNullException(nameof(size));
             this.Seconds = seconds ?? throw new global::System.ArgumentNullException(nameof(seconds));
             this.Error = error;

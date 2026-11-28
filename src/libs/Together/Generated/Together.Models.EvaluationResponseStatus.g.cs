@@ -4,7 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// Initial status of the job
+    ///
     /// </summary>
     public enum EvaluationResponseStatus
     {

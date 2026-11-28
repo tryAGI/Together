@@ -127,6 +127,13 @@ namespace Together
         public global::Together.DeSupportedModelPricing? Pricing { get; set; }
 
         /// <summary>
+        /// Serverless prices for usage not measured in tokens, such as minutes of transcribed audio or characters of synthesized speech, ordered by unit then tier. Empty when none are curated; a model priced the same on every tier lists only `PRICING_TIER_STANDARD`.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("unitPrices")]
+        public global::System.Collections.Generic.IList<global::Together.DeSupportedModelUnitPrice>? UnitPrices { get; set; }
+
+        /// <summary>
         /// Model family identifier for related catalog entries.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("familyId")]
@@ -255,6 +262,10 @@ namespace Together
         /// <param name="pricing">
         /// Serverless pricing in USD per one million tokens, if available.
         /// </param>
+        /// <param name="unitPrices">
+        /// Serverless prices for usage not measured in tokens, such as minutes of transcribed audio or characters of synthesized speech, ordered by unit then tier. Empty when none are curated; a model priced the same on every tier lists only `PRICING_TIER_STANDARD`.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="familyId">
         /// Model family identifier for related catalog entries.
         /// </param>
@@ -286,6 +297,7 @@ namespace Together
             string? outputFormat,
             string? serverlessEndpoint,
             global::Together.DeSupportedModelPricing? pricing,
+            global::System.Collections.Generic.IList<global::Together.DeSupportedModelUnitPrice>? unitPrices,
             string? familyId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -306,6 +318,7 @@ namespace Together
             this.OutputFormat = outputFormat;
             this.ServerlessEndpoint = serverlessEndpoint;
             this.Pricing = pricing;
+            this.UnitPrices = unitPrices;
             this.FamilyId = familyId;
             this.DisplayType = displayType ?? throw new global::System.ArgumentNullException(nameof(displayType));
             this.BaseModelId = baseModelId ?? throw new global::System.ArgumentNullException(nameof(baseModelId));

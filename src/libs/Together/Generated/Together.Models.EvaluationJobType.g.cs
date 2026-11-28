@@ -4,8 +4,7 @@
 namespace Together
 {
     /// <summary>
-    /// The type of evaluation<br/>
-    /// Example: classify
+    ///
     /// </summary>
     public enum EvaluationJobType
     {
